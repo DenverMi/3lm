@@ -1,0 +1,23 @@
+{
+    "source_thread": "thread_0007",
+    "cases": [
+        {
+            "case_id": "thread_0007_case_01",
+            "iut_type": "module",
+            "customer_question": "Can a Core-Host (CS non-supported) and existing Core-Controller combination be used for new Bluetooth qualification registration without issues?",
+            "actual_issue": "Inter-layer dependency (ILD) inconsistency between GAP and LL caused by mismatch in Channel Sounding (CS) support between Host and Controller QDIDs, preventing normal Design combination in qualification.",
+            "consultant_answer": "The consultant explains that certain Host Design Numbers derived as subsets still inherit CS-related ICS flags (e.g., GAP 33a/1, 33a/2 = YES), which creates an inter-layer inconsistency when combined with a Controller that does not support CS. As a result, the combination fails the standard consistency check and cannot be used for normal new Design registration. However, by selecting 'Combine Unmodified Designs', the system allows registration without modifying ICS, even though the inconsistency remains. This works because the qualification system permits reuse of existing Designs without enforcing correction of inherited inconsistencies, and no additional testing is triggered in this specific case.",
+            "final_recommendation": "Proceed with qualification using the 'Combine Unmodified Designs' option without modifying the ICS, accepting the inherited inter-layer inconsistency, since it still allows valid registration without additional testing.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "ILD",
+                "Core-Host",
+                "Core-Controller",
+                "QDID",
+                "reuse"
+            ],
+            "qualification_stage": "listing / declaration"
+        }
+    ]
+}

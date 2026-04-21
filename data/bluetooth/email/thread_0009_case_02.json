@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0009",
+    "cases": [
+
+        {
+            "case_id": "thread_0009_case_02",
+            "iut_type": "host subsystem",
+            "customer_question": "Can a product be qualified without enabling HOGP in the initial version if the Bluetooth stack already supports it and it will be enabled in a later update?",
+            "actual_issue": "Whether unused features present in the Bluetooth stack must be declared and qualified in the initial product listing.",
+            "consultant_answer": "Qualification is based on the actual implemented and enabled features declared in the ICS. If HOGP is not used in the initial product version, it does not need to be included in the qualification, even if the underlying stack supports it.",
+            "final_recommendation": "Only declare and qualify features that are actually enabled in the product at the time of listing. Add new qualification later when features are enabled.",
+            "bluetooth_tags": [
+                "ICS",
+                "feature scope",
+                "design change",
+                "qualification",
+                "host"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

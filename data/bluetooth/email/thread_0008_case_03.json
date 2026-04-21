@@ -1,0 +1,15 @@
+{
+"source_thread": "thread_0008",
+"cases": [
+{
+"case_id": "thread_0008_case_03",
+"iut_type": "",
+"customer_question": "How should Product Name and Design Name be chosen, and can Design Name be changed later?",
+"actual_issue": "Misunderstanding of the relationship between Product Name and Design Name, and the immutability of Design Name after initial registration.",
+"consultant_answer": "The consultant explained that the initial Product Name is automatically used as the Design Name, and the Design Name cannot be changed later. Therefore, it should be selected carefully to accommodate future derivative products. A generic or broad name is recommended if future product details are uncertain. It is also possible to differentiate Product Name from Design Name through registration configuration.",
+"final_recommendation": "Choose a generic and future-proof Design Name at initial registration, and if needed, separate it from a temporary or specific Product Name through proper registration configuration.",
+"bluetooth_tags": ["qualification", "listing", "design", "DN", "reuse", "naming"],
+"qualification_stage": "planning"
+}
+]
+}

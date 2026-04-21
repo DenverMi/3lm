@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0010",
+    "cases": [
+        {
+            "case_id": "thread_0010_case_05",
+            "iut_type": "",
+            "customer_question": "Is it acceptable to share Bluetooth SIG login credentials with a third party for registration support?",
+            "actual_issue": "Handling of account credentials and security constraints during delegated qualification work.",
+            "consultant_answer": "The consultant notes that some companies prohibit sharing login credentials due to security policies. In such cases, credentials may not be disclosed. Instead, a proxy process can be used where the customer performs the final submission themselves using provided documentation and instructions.",
+            "final_recommendation": "If credential sharing is not permitted, proceed by collecting required information via a proxy form and have the customer perform the final registration steps themselves using provided instructions.",
+            "bluetooth_tags": [
+                "qualification",
+                "process",
+                "account",
+                "compliance",
+                "documentation"
+            ],
+            "qualification_stage": "planning"
+        
+        }
+    ]
+}

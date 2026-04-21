@@ -1,0 +1,20 @@
+{
+    "source_thread": "thread_0009",
+    "cases": [
+        {
+            "case_id": "thread_0009_case_05",
+            "iut_type": "",
+            "customer_question": "Is it possible to complete Bluetooth SIG registration without sharing account credentials with a consultant?",
+            "actual_issue": "Operational limitation of the new Qualification Workspace requiring account-based submission, conflicting with customer security policies.",
+            "consultant_answer": "Due to system changes, registration support typically requires access to the member’s account. If credentials cannot be shared, an alternative is to perform the registration via screen sharing with guidance. Temporary password changes during the process are another workaround.",
+            "final_recommendation": "If account sharing is not allowed, conduct the registration via guided screen sharing or temporarily change credentials during the process.",
+            "bluetooth_tags": [
+                "qualification workspace",
+                "account",
+                "process",
+                "listing"
+            ],
+            "qualification_stage": "listing / declaration"
+        }
+    ]
+}

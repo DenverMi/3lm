@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0008",
+    "cases": [
+        {
+            "case_id": "thread_0008_case_02",
+            "iut_type": "",
+            "customer_question": "Can 'BLE' be used in the Product Name during Bluetooth SIG listing?",
+            "actual_issue": "Use of non-compliant terminology in Product Name that violates Bluetooth SIG branding guidelines.",
+            "consultant_answer": "The consultant identified that 'BLE' is a prohibited expression under Bluetooth SIG guidelines and must be replaced with the approved term 'Bluetooth LE'.",
+            "final_recommendation": "Use only Bluetooth SIG-approved terminology such as 'Bluetooth LE' in Product Name and listing information; avoid non-compliant terms like 'BLE'.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "naming",
+                "branding",
+                "Bluetooth LE"
+            ],
+            "qualification_stage": "listing / declaration"
+        }
+    ]
+}

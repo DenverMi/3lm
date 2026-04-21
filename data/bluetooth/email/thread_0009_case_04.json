@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0009",
+    "cases": [
+        {
+            "case_id": "thread_0009_case_04",
+            "iut_type": "",
+            "customer_question": "If new test cases are introduced in a future TCRL version, is it necessary to redo all testing or only the additional items?",
+            "actual_issue": "Handling additional test requirements introduced by TCRL updates and their impact on existing test reports.",
+            "consultant_answer": "Only the newly added test cases need to be executed. Existing test results can remain as-is, and additional tests can be provided as separate reports rather than redoing the entire test suite.",
+            "final_recommendation": "Perform only the incremental tests required by the new TCRL and provide them as additional reports; do not repeat unchanged testing.",
+            "bluetooth_tags": [
+                "TCRL",
+                "testing",
+                "test report",
+                "PTS",
+                "delta testing"
+            ],
+            "qualification_stage": "testing"
+        }
+    ]
+}

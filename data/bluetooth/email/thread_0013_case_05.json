@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0013",
+    "cases": [
+        {
+            "case_id": "thread_0013_case_05",
+            "iut_type": "lighting device",
+            "customer_question": "Can products with different antenna implementations (chip antenna vs external antenna) be registered separately or reused?",
+            "actual_issue": "Determining whether antenna variations require separate qualification or can be treated as variants.",
+            "consultant_answer": "If the module part number remains the same, antenna variations at the product level (chip vs external antenna) can be treated as derivative products and added to the product listing without additional qualification cost.",
+            "final_recommendation": "Register one base product and add antenna variants as derivative products under the same listing without additional fees.",
+            "bluetooth_tags": [
+                "listing",
+                "derivative",
+                "reuse",
+                "antenna",
+                "module"
+            ],
+            "qualification_stage": "listing / declaration"
+        }
+    ]
+}

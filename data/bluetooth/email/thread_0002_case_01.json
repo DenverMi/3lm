@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0002",
+    "cases": [
+        {
+            "case_id": "thread_0002_case_01",
+            "iut_type": "",
+            "customer_question": "Is it necessary to send the modification memo for this Bluetooth SIG certification case, and which version should be sent when RF PHY testing is involved?",
+            "actual_issue": "Determining whether a modification memo is required for the qualification workflow and selecting the correct memo variant based on the RF versus RF PHY test scope.",
+            "consultant_answer": "The consultant stated that the modification memo is required and should be sent. When choosing between the two memo versions, the one whose title includes RF PHY should be used for RF PHY cases. For RF-only testing, the RF-titled memo should be used. If both RF and RF PHY testing are being performed, both documents should be sent. The consultant also noted that the registration confirmation form should be sent and collected at the order stage.",
+            "final_recommendation": "Send the modification memo to the customer. Use the RF PHY version for RF PHY cases, the RF version for RF-only cases, and both documents when both RF and RF PHY tests apply. Also send the registration confirmation form and request its completion.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF",
+                "RF PHY",
+                "documentation",
+                "declaration"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0015",
+    "cases": [
+        {
+            "case_id": "thread_0015_case_01",
+            "iut_type": "",
+            "customer_question": "Can the provided combination of QDIDs be used to achieve Bluetooth qualification despite Consistency Check errors reported by another test house?",
+            "actual_issue": "The proposed QDID combination results in Inter-Layer Dependency (IDL) / Consistency Check errors due to mismatched ICS requirements between GAP, LL, and Core layers, and the chipset vendor does not support updating the ICS.",
+            "consultant_answer": "The consultant confirms that the reported QDID combination indeed produces multiple IDL (Consistency Check) errors. However, under specific conditions (e.g., referencing legacy PRD2.3 registrations), qualification may still be possible even if IDL errors remain, depending on how the design is declared and reused.",
+            "final_recommendation": "Verify whether the design qualifies under legacy or special conditions that allow IDL exceptions. If not, avoid the problematic QDID combination and consider alternative design paths that eliminate ICS inconsistencies.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "ICS",
+                "IDL",
+                "consistency check",
+                "design reuse"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

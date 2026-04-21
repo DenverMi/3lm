@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0013",
+    "cases": [
+        {
+            "case_id": "thread_0013_case_02",
+            "iut_type": "",
+            "customer_question": "Can existing certification test reports (e.g., regulatory RF reports) be used as ICS for Bluetooth profile qualification?",
+            "actual_issue": "Misunderstanding of ICS requirements—customer is attempting to substitute unrelated test reports for required Bluetooth ICS documentation.",
+            "consultant_answer": "Regulatory test reports (e.g., from certification bodies) are not equivalent to Bluetooth ICS. ICS is a formal document defining supported features of a Bluetooth profile and must follow SIG-provided templates. It is required input for generating the test plan and must be completed based on the implementation, typically by software engineers.",
+            "final_recommendation": "Obtain and complete the official Bluetooth SIG ICS form for the implemented profile (e.g., DIS), ensuring all supported features are correctly declared before testing.",
+            "bluetooth_tags": [
+                "ICS",
+                "profile",
+                "DIS",
+                "documentation",
+                "test plan"
+            ],
+            "qualification_stage": "pre-test review"
+        }
+    ]
+}

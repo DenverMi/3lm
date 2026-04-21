@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0012",
+    "cases": [
+        {
+            "case_id": "thread_0012_case_01",
+            "iut_type": "module",
+            "customer_question": "How should RF PHY testing be controlled and executed, and what tools and interfaces (e.g., BlueTest3, HCI, serial control) are required?",
+            "actual_issue": "Lack of defined test control method and missing documentation/tools for putting the DUT into test mode and executing RF PHY tests, preventing proper RF PHY qualification testing.",
+            "consultant_answer": "RF PHY testing requires a defined control interface and procedure to place the device into DUT/test mode. The referenced approach relies on vendor-specific tools (e.g., BlueTest3 from Qualcomm BlueSuite). However, simply providing the installer is insufficient; proper execution requires user guides and clear instructions on connection setup, control interface (e.g., HCI vs 2-wire), baud rate, and whether external fixtures or interfaces are used. Without this information, the test system cannot control the DUT or execute required RF PHY test cases.",
+            "final_recommendation": "Obtain complete documentation and tooling from the chipset/vendor provider, including BlueSuite/BlueTest3 user guides and detailed RF PHY test procedures (interfaces, commands, wiring, baud rate). Ensure the DUT can be reliably placed into test mode and controlled by the test system before starting RF PHY testing.",
+            "bluetooth_tags": [
+                "RF PHY",
+                "testing",
+                "test setup",
+                "HCI",
+                "controller",
+                "test tool"
+            ],
+            "qualification_stage": "testing"
+        }
+    ]
+}

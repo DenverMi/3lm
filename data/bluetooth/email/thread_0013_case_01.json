@@ -1,0 +1,23 @@
+{
+    "source_thread": "thread_0013",
+    "cases": [
+        {
+            "case_id": "thread_0013_case_01",
+            "iut_type": "lighting device",
+            "customer_question": "How should we proceed with Bluetooth SIG qualification when using either a Component (v5.3) or a Core-Controller (v6.1) design that appear to overlap?",
+            "actual_issue": "Overlapping RF PHY, LL, and HCI layers between different design approaches creates ambiguity in how to structure qualification and reuse evidence.",
+            "consultant_answer": "The Component and Core-Controller designs both cover the same lower layers (RF PHY, LL, HCI), so they cannot be independently reused without considering overlap. Instead, a new qualification must be created that includes RF PHY test reports (1M, 2M, Coded) and PTS-based profile test reports (DIS) as evidence. The final design submission should consolidate the required layers and include both RF and profile validation evidence.",
+            "final_recommendation": "Create a new qualification listing that includes RF PHY test reports and DIS PTS test evidence, regardless of whether starting from Component or Core-Controller, and submit as a new design including all required layers.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "LL",
+                "HCI",
+                "profile",
+                "PTS",
+                "design combination"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

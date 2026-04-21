@@ -1,0 +1,23 @@
+{
+    "source_thread": "thread_0004",
+    "cases": [
+        {
+            "case_id": "thread_0004_case_01",
+            "iut_type": "automotive display",
+            "customer_question": "How should Bluetooth SIG qualification be handled for a product using a pre-qualified module with an external antenna and only LE (Auracast) functionality?",
+            "actual_issue": "Determining the correct qualification strategy when reusing a pre-qualified module but modifying the RF path (external antenna) and limiting functionality to LE only, while avoiding unnecessary test scope such as BR/EDR and IOPT.",
+            "consultant_answer": "The consultant identified that inheriting BR/EDR profiles from an existing design would trigger unnecessary IOPT testing requirements. Since the product only supports LE, the BR/EDR profiles should be removed from the qualification scope. This avoids triggering additional interoperability testing that is not relevant to the implementation. The guidance implies careful control of ICS/profile selection to minimize test burden and align with actual product functionality.",
+            "final_recommendation": "Exclude BR/EDR profiles from the qualification design and declare only LE functionality to avoid unnecessary IOPT testing requirements; ensure the qualification scope accurately reflects the implemented features.",
+            "bluetooth_tags": [
+                "qualification",
+                "IOPT",
+                "profile",
+                "LE",
+                "BR/EDR",
+                "ICS",
+                "test scope"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

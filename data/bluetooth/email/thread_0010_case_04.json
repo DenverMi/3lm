@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0010",
+    "cases": [
+        {
+            "case_id": "thread_0010_case_04",
+            "iut_type": "",
+            "customer_question": "Should the Bluetooth SIG account (username/password) used for qualification belong to the manufacturer or the brand owner?",
+            "actual_issue": "Correct ownership and account usage for Bluetooth qualification submissions.",
+            "consultant_answer": "The consultant explains that Bluetooth qualification must be performed under the company name that appears on the product (the brand owner). The manufacturing company does not necessarily need to be the listing owner. Therefore, the account credentials should belong to the brand owner responsible for the product.",
+            "final_recommendation": "Use a Bluetooth SIG account owned by the brand owner (the company named on the product) for qualification submissions.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "account",
+                "member",
+                "process"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

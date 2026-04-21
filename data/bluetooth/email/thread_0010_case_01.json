@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0010",
+    "cases": [
+        {
+            "case_id": "thread_0010_case_01",
+            "iut_type": "keyboard",
+            "customer_question": "Can we change an already registered Bluetooth product from Core Spec 4.2 to 5.0 without additional testing?",
+            "actual_issue": "Whether a specification version upgrade can be done as a modification to an existing listing or requires a new qualification.",
+            "consultant_answer": "The consultant explains that once a product is registered with a specific Core Specification version (e.g., 4.2), it is fixed under that specification. Even if the referenced QDID supports a newer version (e.g., 5.0), the existing listing cannot be updated to a new spec version. However, if there are no hardware or software changes, existing test reports can be reused, so no new testing is required.",
+            "final_recommendation": "Create a new qualification listing for the product under the desired specification version (e.g., 5.0) and reuse existing test evidence where applicable; do not attempt to modify the existing listing.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "spec upgrade",
+                "QDID",
+                "reuse",
+                "test report"
+            ],
+            "qualification_stage": "listing / declaration"
+        }
+    ]
+}

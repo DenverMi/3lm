@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0010",
+    "cases": [
+        {
+            "case_id": "thread_0010_case_02",
+            "iut_type": "",
+            "customer_question": "If the Bluetooth module vendor changes but the QDID remains the same, is a new qualification or update required?",
+            "actual_issue": "Impact of module supplier change when the referenced QDID remains unchanged.",
+            "consultant_answer": "The consultant clarifies that if the QDID remains the same and the module is properly listed under that QDID (even if the manufacturer changes), then the end product referencing that QDID does not require any additional qualification action.",
+            "final_recommendation": "No action is required as long as the product continues to reference the same valid QDID and no Bluetooth-related design changes are introduced.",
+            "bluetooth_tags": [
+                "QDID",
+                "module",
+                "reuse",
+                "no change",
+                "listing"
+            ],
+            "qualification_stage": "post-launch change"
+        }
+    ]
+}

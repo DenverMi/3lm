@@ -1,0 +1,24 @@
+{
+    "source_thread": "thread_0015",
+    "cases": [
+        {
+            "case_id": "thread_0015_case_02",
+            "iut_type": "",
+            "customer_question": "Can a specific QDID combination using a 5.4 Link Layer (AoA/AoD capable) and an RF PHY without AoA/AoD support be used for qualification, and will previous cost and schedule estimates still apply?",
+            "actual_issue": "There is a feature mismatch between Link Layer (AoA/AoD supported) and RF PHY (AoA/AoD not supported), causing IDL violations that cannot be resolved via Test Case Waiver (TCW).",
+            "consultant_answer": "The consultant explains that the mismatch creates critical IDL errors due to unsupported RF PHY features required by the Link Layer. These errors are not eligible for TCW, making the combination invalid for qualification. However, using an appropriate Subset Design (DN) that excludes AoA/AoD and aligns feature support resolves the inconsistency and enables qualification.",
+            "final_recommendation": "Select a compatible Subset DN that matches the RF PHY capabilities (e.g., no AoA/AoD support) and include it with the chosen QDID to eliminate IDL issues. Then proceed with qualification using the corrected design combination.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "IDL",
+                "RF PHY",
+                "Link Layer",
+                "AoA",
+                "TCW",
+                "design subset"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

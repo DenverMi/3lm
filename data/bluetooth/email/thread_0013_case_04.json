@@ -1,0 +1,20 @@
+{
+    "source_thread": "thread_0013",
+    "cases": [
+        {
+            "case_id": "thread_0013_case_04",
+            "iut_type": "lighting device",
+            "customer_question": "Can prototype hardware and incomplete software (e.g., alpha control app) be used for DIS profile testing?",
+            "actual_issue": "Uncertainty about test readiness requirements for profile testing, including hardware labeling and supporting software.",
+            "consultant_answer": "Profile testing can be performed using prototype hardware as long as functionality matches the final product. Labeling (e.g., temporary labels) is acceptable. Additionally, external control applications (e.g., smartphone apps) are not required if the profile functionality can be tested directly on the device.",
+            "final_recommendation": "Proceed with profile testing using functional prototype hardware; no need to wait for final labeling or supporting apps if core profile functionality is testable.",
+            "bluetooth_tags": [
+                "testing",
+                "DIS",
+                "prototype",
+                "profile"
+            ],
+            "qualification_stage": "testing"
+        }
+    ]
+}

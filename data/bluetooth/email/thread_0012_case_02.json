@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0012",
+    "cases": [
+        {
+            "case_id": "thread_0012_case_02",
+            "iut_type": "module",
+            "customer_question": "How should ICS inconsistencies related to RF Class and RF PHY Class be resolved to allow successful qualification listing?",
+            "actual_issue": "ICS inconsistency due to mismatch between RF Class 1 configuration and lower-layer requirements (e.g., LMP), causing validation errors and blocking qualification submission.",
+            "consultant_answer": "Running consistency checks revealed that setting RF to Class 1 created inter-layer dependency violations (e.g., mandatory LMP requirements not satisfied). By including the correct referenced design (QDID) and adjusting the ICS settings, consistency can be achieved. Specifically, RF must be set to Class 2 while RF PHY can remain Class 1 to eliminate invalid conditions. Proper alignment of ICS across layers resolves interdependencies and allows the qualification process to proceed.",
+            "final_recommendation": "Adjust ICS settings to ensure inter-layer consistency: use RF Class 2 and RF PHY Class 1 when required by the referenced design. Perform consistency checks and resolve all invalid conditions before proceeding to testing and listing.",
+            "bluetooth_tags": [
+                "ICS",
+                "consistency check",
+                "RF",
+                "RF PHY",
+                "QDID",
+                "qualification"
+            ],
+            "qualification_stage": "pre-test review"
+        }
+    ]
+}

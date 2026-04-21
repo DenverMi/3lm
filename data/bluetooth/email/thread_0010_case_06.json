@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0010",
+    "cases": [
+        {
+            "case_id": "thread_0010_case_06",
+            "iut_type": "",
+            "customer_question": "What should be done if the Bluetooth SIG invoice was issued under the wrong company name?",
+            "actual_issue": "Mismatch between invoice entity and intended qualification listing company.",
+            "consultant_answer": "The consultant identifies that the invoice was issued under the wrong company account and that the qualification must be performed under the correct company name (the listing owner). Therefore, the invoice must be corrected or reissued.",
+            "final_recommendation": "Cancel the incorrect invoice and reissue it under the correct company account that will perform the qualification listing.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "invoice",
+                "process",
+                "member"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

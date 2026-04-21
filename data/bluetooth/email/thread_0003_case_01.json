@@ -1,0 +1,24 @@
+{
+    "source_thread": "thread_0003",
+    "cases": [
+        {
+            "case_id": "thread_0003_case_01",
+            "iut_type": "automotive display",
+            "customer_question": "What testing scope, sample requirements, lead time, and quotation are needed for Bluetooth SIG certification when using a pre-qualified module with an external antenna and LE Audio (Auracast) functionality?",
+            "actual_issue": "Determining the appropriate qualification approach when integrating an already qualified Bluetooth module but modifying the RF characteristics (external antenna) and implementing specific LE Audio features, including whether full testing can be reduced or partially avoided.",
+            "consultant_answer": "The consultant determined that even though the module is pre-qualified, the use of an external antenna introduces RF changes that require RF testing. The approach proposed includes limited RF testing (specific items such as transmitter/receiver characteristics) and leveraging an existing qualified design (Single Design) to minimize scope. Additionally, the consultant suggested using IOPT test avoidance (IOPT試験回避登録), indicating that interoperability testing may be skipped under certain qualification paths. The overall strategy combines reuse of existing qualification assets with targeted RF validation and administrative support tasks such as compliance folder preparation and declaration handling.",
+            "final_recommendation": "Proceed with a reduced-scope qualification by reusing the existing module’s QDID, perform necessary RF testing due to the external antenna change, apply IOPT test avoidance if applicable, and include compliance documentation and declaration support in the qualification plan.",
+            "bluetooth_tags": [
+                "qualification",
+                "module",
+                "RF",
+                "design change",
+                "reuse",
+                "QDID",
+                "LE Audio",
+                "IOPT"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

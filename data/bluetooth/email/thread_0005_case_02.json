@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0005",
+    "cases": [
+        {
+            "case_id": "thread_0005_case_02",
+            "iut_type": "",
+            "customer_question": "The customer cannot input data in the Qualification Fee invoice page because the UI differs from the provided procedure and asks how to proceed.",
+            "actual_issue": "Mismatch between documented procedure and updated Bluetooth SIG Qualification Workspace UI, causing confusion in invoice generation.",
+            "consultant_answer": "The Bluetooth SIG invoice page UI has changed recently, so older instructions may not match the current interface. The issue is not a user mistake but a process update. The key required action is to correctly populate required fields such as the 'Attn' field with the appropriate contact information to proceed.",
+            "final_recommendation": "Proceed using the updated UI by entering the correct contact information (e.g., consultant name and company) in the required fields such as 'Attn', even if the layout differs from the documentation.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "invoice",
+                "process",
+                "qualification fee"
+            ],
+            "qualification_stage": "listing / declaration"
+        }
+    ]
+}

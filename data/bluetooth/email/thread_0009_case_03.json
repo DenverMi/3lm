@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0009",
+    "cases": [
+
+        {
+            "case_id": "thread_0009_case_03",
+            "iut_type": "",
+            "customer_question": "Is it possible to control when a product becomes publicly visible after Bluetooth SIG listing?",
+            "actual_issue": "Understanding constraints on Product Publication Date in the qualification process.",
+            "consultant_answer": "The publication timing can be specified during registration, but it is limited to a maximum of 90 days after registration and is generally not changeable afterward.",
+            "final_recommendation": "Plan the listing timing carefully and set the publication date during submission, ensuring it falls within the allowed 90-day window.",
+            "bluetooth_tags": [
+                "listing",
+                "publication",
+                "qualification",
+                "process"
+            ],
+            "qualification_stage": "listing / declaration"
+        }
+    ]
+}

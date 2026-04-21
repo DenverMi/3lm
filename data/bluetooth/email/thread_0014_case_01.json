@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0014",
+    "cases": [
+        {
+            "case_id": "thread_0014_case_01",
+            "iut_type": "module-based end products",
+            "customer_question": "Can multiple products using the same Bluetooth module and identical Bluetooth stack/protocol (only application-level firmware differences) be registered efficiently, and what is the correct approach?",
+            "actual_issue": "Understanding how to handle multiple product variants that reuse the same Bluetooth Design without changes to the Bluetooth stack, and whether separate qualification or fees are required.",
+            "consultant_answer": "If the Bluetooth stack and protocol are unchanged, the products are considered to use the same Design. These can be treated as derivative products and added to the existing Product List under the same Design. In such cases, additional products can be registered without additional qualification fees because they reuse the same qualified Design.",
+            "final_recommendation": "Use a single base Design (same module and stack) and register all variant products as additional entries in the Product List to avoid extra qualification cost and effort.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "reuse",
+                "QDID",
+                "module",
+                "design reuse"
+            ],
+            "qualification_stage": "listing / declaration"
+        }
+    ]
+}

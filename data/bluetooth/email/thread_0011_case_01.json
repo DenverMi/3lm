@@ -1,0 +1,23 @@
+{
+    "source_thread": "thread_0011",
+    "cases": [
+        {
+            "case_id": "thread_0011_case_01",
+            "iut_type": "",
+            "customer_question": "What is the cost to obtain Bluetooth SIG qualification when rebranding and selling a purchased product under our own brand, including testing, certification, membership, and fees?",
+            "actual_issue": "The customer assumes a fixed cost for Bluetooth SIG qualification, but the required testing scope and cost depend on the specific Bluetooth design details (module/SoC, host stack, profiles) and whether existing qualified designs can be reused.",
+            "consultant_answer": "The consultant explains that qualification cost cannot be determined without detailed information about the product’s Bluetooth implementation. The required test scope depends on the registered design elements such as module/SoC, host stack, and supported profiles. These factors determine whether testing is required or can be waived (e.g., reuse of existing qualified designs). The consultant also outlines the standard qualification workflow: SIG membership registration, test plan creation, sample testing and report generation, payment of qualification fees, submission/registration, and compliance folder delivery. A baseline cost is provided only for the scenario where all testing is exempted.",
+            "final_recommendation": "Collect and provide detailed Bluetooth design information (module/SoC, host stack, profiles) using a formal quotation request form so that the correct qualification path and cost (including potential test exemptions via design reuse) can be determined.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "QDID",
+                "module",
+                "profile",
+                "reuse",
+                "test plan"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

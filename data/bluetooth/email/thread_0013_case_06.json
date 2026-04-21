@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0013",
+    "cases": [
+        {
+            "case_id": "thread_0013_case_06",
+            "iut_type": "module",
+            "customer_question": "What is the difference in qualification effort between using a pre-qualified module and designing a module from a BLE chip?",
+            "actual_issue": "Understanding how design approach impacts required testing scope, especially RF PHY testing.",
+            "consultant_answer": "When using a pre-qualified module, RF PHY testing can be omitted because it has already been validated. However, when designing a module from a BLE chip (SoC), RF PHY testing must be performed at the product level. Additionally, any implemented SIG-defined profiles require PTS testing.",
+            "final_recommendation": "If designing from a BLE chip, plan for full RF PHY testing and profile PTS testing; if using a pre-qualified module, leverage existing qualification to reduce testing scope.",
+            "bluetooth_tags": [
+                "RF PHY",
+                "module",
+                "SoC",
+                "testing scope",
+                "reuse",
+                "PTS"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

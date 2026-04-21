@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0009",
+    "cases": [
+        {
+            "case_id": "thread_0009_case_01",
+            "iut_type": "host subsystem",
+            "customer_question": "For HOGP Host implementation, are additional services such as DIS, HIDS, BAS required for qualification?",
+            "actual_issue": "Misinterpretation of required profiles/services for HOGP Host role due to inconsistencies between specification interpretation and Qualification Workspace test plan behavior.",
+            "consultant_answer": "The consultant verified actual requirements by generating a Test Plan using the Qualification Workspace with correct ICS settings and consistency check (Invalid=0). The result showed that for HOGP Host, only HOGP-related test cases plus a minimal additional test (e.g., SCPP-related CGGIT item) are required. Earlier assumptions about mandatory inclusion of DIS, HIDS, BAS were due to temporary inconsistencies or misinterpretation of tools/spec updates.",
+            "final_recommendation": "Always validate required profiles and services by generating the Test Plan from the Qualification Workspace using the final ICS. Do not rely solely on specification interpretation or previous listings.",
+            "bluetooth_tags": [
+                "HOGP",
+                "ICS",
+                "test plan",
+                "qualification",
+                "profile",
+                "PTS"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0005",
+    "cases": [
+        {
+            "case_id": "thread_0005_case_01",
+            "iut_type": "",
+            "customer_question": "The customer does not have an HFP ICS document and asks how to obtain or substitute it.",
+            "actual_issue": "Lack of Implementation Conformance Statement (ICS) documentation required for Bluetooth qualification and test plan generation.",
+            "consultant_answer": "The ICS is not a generic specification document but a mandatory Bluetooth SIG-defined form that must reflect the actual implemented features of the product. It cannot be substituted with general documentation. The ICS is typically derived from the implementation details of the Bluetooth stack and is usually maintained by the software development team or the third-party vendor who implemented the stack. Without a properly completed ICS, the test plan cannot be generated. If full feature mapping is not possible, a reduced scope using only mandatory items may be considered.",
+            "final_recommendation": "Obtain the HFP ICS from the internal software development team or the Bluetooth stack supplier and complete it based on actual implementation. If unavailable, complete at least the mandatory ICS items to proceed with limited testing and qualification.",
+            "bluetooth_tags": [
+                "ICS",
+                "HFP",
+                "qualification",
+                "test plan",
+                "profile",
+                "implementation"
+            ],
+            "qualification_stage": "pre-test review"
+        }
+    ]
+}

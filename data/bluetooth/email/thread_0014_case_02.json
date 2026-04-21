@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0014",
+    "cases": [
+        {
+            "case_id": "thread_0014_case_02",
+            "iut_type": "module-based end products",
+            "customer_question": "When registering multiple products with different use cases but the same Bluetooth implementation, can each product have a different Product Name, and what are the constraints?",
+            "actual_issue": "Clarification of how Product Name and Design Name are handled in Bluetooth SIG qualification when multiple products share a single Design.",
+            "consultant_answer": "A single Design Name must be used for the qualification entry, but each individual product listed under the Product List can have its own distinct Product Name. This allows multiple end products with different branding or use cases to be grouped under one Design while maintaining unique product identities.",
+            "final_recommendation": "Define one Design Name for the shared Bluetooth implementation and assign unique Product Names to each product entry in the Product List.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "design",
+                "product name",
+                "QDID",
+                "reuse"
+            ],
+            "qualification_stage": "listing / declaration"
+        }
+    ]
+}

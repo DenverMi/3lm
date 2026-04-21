@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0008",
+    "cases": [
+        {
+            "case_id": "thread_0008_case_01",
+            "iut_type": "",
+            "customer_question": "Is it mandatory to provide a user manual that includes Bluetooth pairing/operation details for the compliance folder, even if the product is not yet publicly released and the manual content is not accessible?",
+            "actual_issue": "Clarification of documentation requirements for the Compliance Folder, specifically whether a Bluetooth-related user manual is required at the time of qualification when the product is not yet launched.",
+            "consultant_answer": "The consultant requested the Bluetooth-related portion of the user manual as part of the required Compliance Folder documentation. This indicates that documentation describing Bluetooth functionality (e.g., pairing/operation) is expected as part of qualification evidence, regardless of product release status.",
+            "final_recommendation": "Prepare and provide a Bluetooth-related user manual (or equivalent documentation describing pairing and operation) for the Compliance Folder, even if the product is not yet publicly released.",
+            "bluetooth_tags": [
+                "qualification",
+                "compliance folder",
+                "documentation",
+                "manual",
+                "audit"
+            ],
+            "qualification_stage": "listing / declaration"
+        }
+    ]
+}

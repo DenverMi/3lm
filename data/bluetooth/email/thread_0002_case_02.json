@@ -1,0 +1,21 @@
+{
+    "source_thread": "thread_0002",
+    "cases": [
+        {
+            "case_id": "thread_0002_case_02",
+            "iut_type": "",
+            "customer_question": "Is RF PHY testing required when the product supports Low Energy?",
+            "actual_issue": "Clarifying the condition under which RF PHY testing is required in the Bluetooth qualification flow.",
+            "consultant_answer": "The consultant confirmed that RF PHY testing is required when Low Energy is supported. The presence of BLE support should be verified using the BLE checkbox in the quotation request form.",
+            "final_recommendation": "Check whether the product supports BLE. If BLE is supported, include RF PHY testing in the qualification plan and confirm that scope from the quotation request form.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "LE",
+                "BLE",
+                "test scope"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

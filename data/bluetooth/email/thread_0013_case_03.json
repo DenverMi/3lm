@@ -1,0 +1,19 @@
+{
+    "source_thread": "thread_0013",
+    "cases": [
+        {
+            "case_id": "thread_0013_case_03",
+            "iut_type": "",
+            "customer_question": "How to access a Bluetooth SIG account when the verification code is sent to an inaccessible (former employer) email address?",
+            "actual_issue": "Account lock due to inaccessible registered email prevents login and continuation of qualification activities.",
+            "consultant_answer": "Bluetooth SIG account verification codes are sent only to the registered email. If that email is no longer accessible, the account cannot be recovered by others. The only viable option is to create a new account using an accessible email address.",
+            "final_recommendation": "Register a new Bluetooth SIG account with a valid, accessible email address and continue qualification activities under the new account.",
+            "bluetooth_tags": [
+                "SIG account",
+                "access",
+                "process"
+            ],
+            "qualification_stage": "planning"
+        }
+    ]
+}

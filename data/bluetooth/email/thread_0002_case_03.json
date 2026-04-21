@@ -1,0 +1,22 @@
+{
+    "source_thread": "thread_0002",
+    "cases": [
+        {
+            "case_id": "thread_0002_case_03",
+            "iut_type": "",
+            "customer_question": "How should the DUT be connected to the InterLab system for RF PHY testing when control from InterLab does not work?",
+            "actual_issue": "Incorrect physical test setup and uncertainty about whether a PC should act as a UART bridge between the DUT and the InterLab system.",
+            "consultant_answer": "The consultant explained that, based on the customer material, the PC was likely not intended to act as a bridge between the DUT and InterLab. Instead, the InterLab USB should be connected in place of the PC in the DUT-to-PC connection described by the customer. A cross cable should only be used in special cases where a chipset architecture explicitly requires a PC bridge, such as certain Qualcomm-based setups. For a normal DUT-to-InterLab configuration, that cross-cable bridge setup should not be used.",
+            "final_recommendation": "Reconnect the setup so that InterLab USB replaces the PC in the DUT connection path. Do not use the cross-cable PC bridge unless the chipset architecture explicitly requires a PC bridge.",
+            "bluetooth_tags": [
+                "RF PHY",
+                "testing",
+                "InterLab",
+                "LE",
+                "UART",
+                "test setup"
+            ],
+            "qualification_stage": "testing"
+        }
+    ]
+}
