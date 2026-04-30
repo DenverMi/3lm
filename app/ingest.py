@@ -130,7 +130,9 @@ def walk_documents():
                 for p in pages:
                     all_records.append({
                         "program": program,
+                        "domain": program.lower(),
                         "doc_type": doc_type,
+                        "source_type": "email_case" if doc_type == "email" else doc_type,
                         "doc_name": file_path.name,
                         "page": p["page"],
                         "text": p["text"],

@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0002",
+    "cases": [
+        {
+            "case_id": "thread_0002_case_04",
+            "iut_type": "",
+            "customer_question": "How should DUT be connected to the InterLab test system for RF PHY testing, and when is a PC bridge or cross cable required?",
+            "question_variants": [
+                "How to connect DUT to InterLab for RF PHY testing?",
+                "Do we need a PC bridge between DUT and test system?",
+                "When is a cross cable required in Bluetooth RF testing?",
+                "Why does LE Reset fail in InterLab connection?",
+                "What is correct wiring for DUT to test system?"
+            ],
+            "actual_issue": "Incorrect physical connection setup between DUT and InterLab system causing test command failures, due to misunderstanding of when a PC bridge or cross cable is required.",
+            "plain_english_explanation": "The test setup is not working because the device is connected incorrectly. The team used a PC as a bridge with multiple cables, but this may not be needed. The correct setup depends on whether the DUT requires a PC bridge or can connect directly to the test system.",
+            "consultant_answer": "In this case, the PC is not acting as a bridge between the DUT and the InterLab system. Instead, the DUT should be connected directly to the InterLab USB interface. A PC bridge and cross cable should only be used for specific chipsets that require it (e.g., certain vendor-specific implementations). For a standard DUT-to-InterLab setup, direct connection is required and cross cables are not used.",
+            "decision_logic": "Connection topology depends on DUT architecture. Standard DUTs connect directly to the test system, while only specific chipset implementations require a PC bridge and cross cable. Misidentifying this leads to communication failure.",
+            "final_recommendation": "Remove the PC bridge and connect the DUT directly to the InterLab USB interface. Only use cross cables and PC bridging if explicitly required by the chipset design.",
+            "risk_if_done_wrong": "Incorrect setup results in failed communication (e.g., command errors like 'LE Reset ERROR'), blocking testing and causing delays in qualification.",
+            "bluetooth_tags": [
+                "RF PHY",
+                "testing",
+                "InterLab",
+                "connection",
+                "LE",
+                "UART"
+            ],
+            "search_aliases": [
+                "InterLab connection DUT",
+                "LE Reset error InterLab",
+                "RF PHY test setup wiring",
+                "UART connection Bluetooth test",
+                "cross cable needed bluetooth",
+                "PC bridge requirement DUT",
+                "InterLab USB connection",
+                "Bluetooth test system connection issue"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

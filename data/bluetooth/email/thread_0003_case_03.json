@@ -1,0 +1,42 @@
+{
+    "source_thread": "thread_0003",
+    "cases": [
+        {
+            "case_id": "thread_0003_case_03",
+            "iut_type": "module-based device",
+            "customer_question": "Should I remove unused BR/EDR profiles during qualification to avoid IOPT testing?",
+            "question_variants": [
+                "Do unused profiles need to be included in qualification?",
+                "Can I delete A2DP/HFP profiles to reduce testing?",
+                "Does keeping unused profiles trigger IOPT?",
+                "Should I remove BR/EDR profiles if not used?",
+                "How to reduce IOPT test scope?"
+            ],
+            "actual_issue": "Impact of retaining vs removing unused profiles on IOPT test requirements.",
+            "plain_english_explanation": "If your product includes Bluetooth features you don’t actually use, you may still have to test them. Removing those unused features during certification can reduce the amount of testing required.",
+            "consultant_answer": "If BR/EDR profiles (e.g., A2DP, HFP) are retained in the qualification, IOPT testing will be required for them. If these profiles are not implemented in the product (e.g., disabled at compile time), they should be removed from the design during registration. Doing so eliminates the associated IOPT requirements.",
+            "decision_logic": "IOPT applies to profiles present in the ICS; removing unused profiles removes associated test obligations.",
+            "final_recommendation": "Remove all unused BR/EDR profiles from the qualification design if they are not implemented in the product to avoid unnecessary IOPT testing.",
+            "risk_if_done_wrong": "Keeping unused profiles increases test scope, cost, and duration due to mandatory IOPT testing for those profiles.",
+            "bluetooth_tags": [
+                "profile",
+                "IOPT",
+                "ICS",
+                "BR/EDR",
+                "qualification",
+                "test scope"
+            ],
+            "search_aliases": [
+                "remove profiles Bluetooth qualification",
+                "unused profile IOPT",
+                "A2DP HFP IOPT requirement",
+                "reduce IOPT tests",
+                "ICS profile deletion",
+                "profile test scope"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -183,6 +183,9 @@ The date on which Qualified Product details become visible to the public and oth
 
 (Source: QPRD v4, Definitions Table 1.1)
 
+### PTS - Profile Tuning Suite
+Profile Tuning Suite (PTS) is the Bluetooth SIG testing software used to execute qualification-related protocol and profile test cases.
+
 ---
 
 ## Notes

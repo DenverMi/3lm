@@ -1,0 +1,42 @@
+{
+    "source_thread": "thread_0003",
+    "cases": [
+        {
+            "case_id": "thread_0003_case_02",
+            "iut_type": "module",
+            "customer_question": "Can I convert a dual-mode Bluetooth module into a BLE-only qualification without additional testing?",
+            "question_variants": [
+                "Can I change dual mode QDID to BLE only without tests?",
+                "Is it possible to register a dual-mode module as BLE only?",
+                "Do I need testing to convert BR/EDR+LE to LE-only?",
+                "Can I disable BR/EDR and claim LE-only qualification?",
+                "Does QPRD allow editing transport modes without testing?"
+            ],
+            "actual_issue": "Restrictions in QPRD preventing conversion of dual-mode designs to single-mode without additional testing due to stricter host-controller consistency checks.",
+            "plain_english_explanation": "A Bluetooth module that supports both Classic and LE cannot simply be declared as LE-only during certification. Even if you disable Classic features in software, the official certification still considers the original capabilities unless extra testing is done.",
+            "consultant_answer": "Under the post-2024 qualification rules, host and controller layers must be consistent. A dual-mode controller cannot be re-declared as LE-only without additional testing. However, if BR/EDR is disabled at runtime via firmware but still present in the implementation, the product can remain registered as dual-mode without requiring additional protocol testing such as L2CAP/GAP for LE-only conversion.",
+            "decision_logic": "Transport mode (LE vs BR/EDR vs dual) must match across layers; changing declared mode requires new testing unless the original design is preserved.",
+            "final_recommendation": "Keep the qualification as dual-mode and disable BR/EDR in firmware for product behavior, unless you are prepared to perform additional protocol testing for LE-only registration.",
+            "risk_if_done_wrong": "Attempting to declare LE-only without proper testing may cause qualification rejection due to layer inconsistency or missing required test evidence.",
+            "bluetooth_tags": [
+                "dual mode",
+                "LE",
+                "BR/EDR",
+                "QDID",
+                "ICS",
+                "consistency check"
+            ],
+            "search_aliases": [
+                "dual mode to LE only",
+                "QDID transport change",
+                "BLE only conversion rules",
+                "host controller mismatch",
+                "transport consistency Bluetooth",
+                "disable BR EDR qualification"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

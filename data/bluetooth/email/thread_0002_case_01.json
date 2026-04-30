@@ -4,18 +4,39 @@
         {
             "case_id": "thread_0002_case_01",
             "iut_type": "",
-            "customer_question": "Is it necessary to send the modification memo for this Bluetooth SIG certification case, and which version should be sent when RF PHY testing is involved?",
-            "actual_issue": "Determining whether a modification memo is required for the qualification workflow and selecting the correct memo variant based on the RF versus RF PHY test scope.",
-            "consultant_answer": "The consultant stated that the modification memo is required and should be sent. When choosing between the two memo versions, the one whose title includes RF PHY should be used for RF PHY cases. For RF-only testing, the RF-titled memo should be used. If both RF and RF PHY testing are being performed, both documents should be sent. The consultant also noted that the registration confirmation form should be sent and collected at the order stage.",
-            "final_recommendation": "Send the modification memo to the customer. Use the RF PHY version for RF PHY cases, the RF version for RF-only cases, and both documents when both RF and RF PHY tests apply. Also send the registration confirmation form and request its completion.",
+            "customer_question": "Is it necessary to send a modification memo (改造メモ) when proceeding with Bluetooth SIG certification support?",
+            "question_variants": [
+                "Do we need to provide a modification memo for Bluetooth qualification?",
+                "Is the 改造メモ required during SIG certification support?",
+                "Should the modification document be sent to the customer for qualification?",
+                "What documents must be sent at the start of Bluetooth certification?",
+                "Is the modification memo mandatory for registration support?"
+            ],
+            "actual_issue": "Clarifying whether a modification memo is a required document in the Bluetooth qualification support process and when it should be provided.",
+            "plain_english_explanation": "The team is unsure whether they need to send a document that describes modifications (改造メモ) to the customer during the certification process. This document is part of the standard process but may be overlooked. The question is about whether it is mandatory and when it should be sent.",
+            "consultant_answer": "The modification memo is required and must be sent. It should be provided as part of the standard process, ideally at the time of order intake. Additionally, the registration information confirmation form should also be sent and collected together with it.",
+            "decision_logic": "If the process includes qualification support and registration handling, required administrative documents such as the modification memo and registration confirmation form must be collected. These are standard deliverables tied to the qualification workflow.",
+            "final_recommendation": "Send the modification memo and request submission from the customer. Also include the registration information confirmation form at the same time.",
+            "risk_if_done_wrong": "Missing required documents can delay the qualification process or block submission due to incomplete administrative documentation.",
             "bluetooth_tags": [
                 "qualification",
-                "RF",
-                "RF PHY",
                 "documentation",
-                "declaration"
+                "process",
+                "compliance"
             ],
-            "qualification_stage": "planning"
+            "search_aliases": [
+                "改造メモ required bluetooth",
+                "modification memo bluetooth qualification",
+                "registration confirmation form bluetooth",
+                "qualification required documents",
+                "bluetooth admin documents",
+                "missing paperwork qualification",
+                "SIG certification documents",
+                "pre-submission documents bluetooth"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

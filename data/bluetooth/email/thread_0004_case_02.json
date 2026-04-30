@@ -1,0 +1,41 @@
+{
+    "source_thread": "thread_0004",
+    "cases": [
+        {
+            "case_id": "thread_0004_case_02",
+            "iut_type": "",
+            "customer_question": "Is a questionnaire required for IOPT testing if ICS has already been submitted?",
+            "question_variants": [
+                "Do we need to fill out an IOPT questionnaire if ICS is already provided?",
+                "Is an additional questionnaire required for interoperability testing?",
+                "Can ICS replace the need for IOPT questionnaire?",
+                "Are there extra forms needed for IOPT beyond ICS?",
+                "Is ICS sufficient for IOPT preparation?"
+            ],
+            "actual_issue": "Clarification on documentation requirements for IOPT testing, specifically whether a separate questionnaire is needed when ICS has already been provided.",
+            "plain_english_explanation": "The customer is unsure if they need to fill out another form for interoperability testing. They already submitted the ICS, which describes the product’s Bluetooth features. They want to avoid redundant documentation.",
+            "consultant_answer": "No additional questionnaire is required for IOPT testing if the ICS has already been provided. The ICS contains the necessary feature and configuration information used to generate the IOPT test plan.",
+            "decision_logic": "IOPT test requirements and test plan generation are driven by the ICS. If ICS is complete and submitted, it fulfills the input requirement for interoperability testing preparation.",
+            "final_recommendation": "Proceed with IOPT testing using the submitted ICS. Do not prepare or submit any अतिरिक्त questionnaire unless specifically requested by the test lab.",
+            "risk_if_done_wrong": "Unnecessary effort preparing redundant documentation, potential confusion, and delays in test preparation if teams assume additional forms are required.",
+            "bluetooth_tags": [
+                "IOPT",
+                "ICS",
+                "testing",
+                "qualification",
+                "test plan"
+            ],
+            "search_aliases": [
+                "IOPT questionnaire required",
+                "ICS sufficient for IOPT",
+                "Bluetooth interoperability documentation",
+                "IOPT input requirements",
+                "ICS vs questionnaire Bluetooth",
+                "IOPT preparation forms"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

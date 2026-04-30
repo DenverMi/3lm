@@ -4,19 +4,40 @@
         {
             "case_id": "thread_0002_case_03",
             "iut_type": "",
-            "customer_question": "How should the DUT be connected to the InterLab system for RF PHY testing when control from InterLab does not work?",
-            "actual_issue": "Incorrect physical test setup and uncertainty about whether a PC should act as a UART bridge between the DUT and the InterLab system.",
-            "consultant_answer": "The consultant explained that, based on the customer material, the PC was likely not intended to act as a bridge between the DUT and InterLab. Instead, the InterLab USB should be connected in place of the PC in the DUT-to-PC connection described by the customer. A cross cable should only be used in special cases where a chipset architecture explicitly requires a PC bridge, such as certain Qualcomm-based setups. For a normal DUT-to-InterLab configuration, that cross-cable bridge setup should not be used.",
-            "final_recommendation": "Reconnect the setup so that InterLab USB replaces the PC in the DUT connection path. Do not use the cross-cable PC bridge unless the chipset architecture explicitly requires a PC bridge.",
+            "customer_question": "Is RF PHY testing required only when Bluetooth Low Energy (LE) is supported?",
+            "question_variants": [
+                "Do we need RF PHY tests for BLE devices?",
+                "Is RF PHY testing tied to LE support?",
+                "When is RF PHY testing required in Bluetooth qualification?",
+                "Does Classic Bluetooth require RF PHY testing?",
+                "How to determine if RF PHY test is needed?"
+            ],
+            "actual_issue": "Understanding the condition under which RF PHY testing is required, specifically its dependency on BLE (Low Energy) support.",
+            "plain_english_explanation": "The team wants to know when RF PHY testing is necessary. This test is not always required for all Bluetooth devices. The key factor is whether the device supports Bluetooth Low Energy.",
+            "consultant_answer": "RF PHY testing is required when the product supports Bluetooth Low Energy (LE). This can be confirmed by checking whether BLE is selected in the quotation or requirement request documentation.",
+            "decision_logic": "RF PHY testing is tied to LE radio functionality. If LE is implemented (as indicated in requirements such as a quotation request), RF PHY testing must be included.",
+            "final_recommendation": "Verify BLE support in the requirement or quotation documents. If BLE is included, plan for RF PHY testing.",
+            "risk_if_done_wrong": "Skipping RF PHY testing for LE devices can lead to incomplete qualification and test failure or rejection. Conversely, performing unnecessary tests increases cost and time.",
             "bluetooth_tags": [
                 "RF PHY",
-                "testing",
-                "InterLab",
                 "LE",
-                "UART",
-                "test setup"
+                "testing",
+                "qualification",
+                "RF"
             ],
-            "qualification_stage": "testing"
+            "search_aliases": [
+                "RF PHY required BLE",
+                "when RF PHY test needed",
+                "BLE RF PHY requirement",
+                "does LE need RF PHY",
+                "Bluetooth RF PHY condition",
+                "RF PHY test trigger",
+                "BLE test scope RF PHY",
+                "RF PHY qualification requirement"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

@@ -4,18 +4,40 @@
         {
             "case_id": "thread_0002_case_02",
             "iut_type": "",
-            "customer_question": "Is RF PHY testing required when the product supports Low Energy?",
-            "actual_issue": "Clarifying the condition under which RF PHY testing is required in the Bluetooth qualification flow.",
-            "consultant_answer": "The consultant confirmed that RF PHY testing is required when Low Energy is supported. The presence of BLE support should be verified using the BLE checkbox in the quotation request form.",
-            "final_recommendation": "Check whether the product supports BLE. If BLE is supported, include RF PHY testing in the qualification plan and confirm that scope from the quotation request form.",
+            "customer_question": "Which modification memo should be sent when RF PHY testing is involved, and how should RF vs RF PHY cases be handled?",
+            "question_variants": [
+                "Which 改造メモ should be used for RF PHY testing?",
+                "Do we send RF or RF PHY version of the document?",
+                "What document applies when both RF and RF PHY tests are performed?",
+                "How to choose correct memo for RF vs RF PHY test cases?",
+                "Which template to send for BLE RF PHY testing?"
+            ],
+            "actual_issue": "Selecting the correct documentation variant (RF vs RF PHY modification memo) depending on the type of RF testing scope in Bluetooth qualification.",
+            "plain_english_explanation": "There are different versions of the modification memo depending on the type of RF testing. The team is unsure which one to send when RF PHY testing is involved. The confusion comes from overlapping RF and RF PHY test scenarios.",
+            "consultant_answer": "When RF PHY testing is involved, send the version that includes 'RF PHY' in the title. If only RF testing is performed, send the RF-only version. If both RF and RF PHY tests are included, send both documents.",
+            "decision_logic": "Document selection depends on the test scope. RF-only testing uses RF documentation, while RF PHY (typically LE-related) requires RF PHY documentation. Combined test scopes require both.",
+            "final_recommendation": "Check the test scope and send the appropriate memo: RF-only → RF document, RF PHY → RF PHY document, both → send both.",
+            "risk_if_done_wrong": "Providing incorrect or incomplete documentation may cause confusion, rework, or delays in the qualification process due to mismatched test scope and paperwork.",
             "bluetooth_tags": [
-                "qualification",
+                "RF",
                 "RF PHY",
                 "LE",
-                "BLE",
-                "test scope"
+                "testing",
+                "documentation"
             ],
-            "qualification_stage": "planning"
+            "search_aliases": [
+                "RF vs RF PHY memo",
+                "which document RF PHY test",
+                "BLE RF PHY documentation",
+                "RF test vs RF PHY test difference",
+                "qualification memo selection RF",
+                "RF PHY LE requirement document",
+                "test scope documentation mismatch",
+                "RF PHY paperwork"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

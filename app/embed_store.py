@@ -56,7 +56,9 @@ def main():
             embeddings=[embedding],
             metadatas=[{
                 "program": chunk["program"],
+                "domain": chunk.get("domain", chunk["program"]),
                 "doc_type": chunk["doc_type"],
+                "source_type": chunk.get("source_type", chunk["doc_type"]),
                 "doc_name": chunk["doc_name"],
                 "chunk_kind": chunk.get("chunk_kind"),
                 "priority": chunk.get("priority", 0),

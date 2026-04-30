@@ -344,14 +344,11 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
     bonus = 0.0
 
     page_start = meta.get("page_start")
-    chunk_kind = (meta.get("chunk_kind") or "").lower()
+    if page_start is not None and page_start <= 5:
+        bonus += EARLY_PAGE_BONUS
 
-    if intent != "definition":
-        if page_start is not None and page_start <= 5:
-            bonus += EARLY_PAGE_BONUS
-
-        if chunk_kind == "front_page":
-            bonus += FRONT_PAGE_BONUS
+    if meta.get("chunk_kind") == "front_page":
+        bonus += FRONT_PAGE_BONUS
 
     priority = meta.get("priority", 0) or 0
     bonus += float(priority) * PRIORITY_MULTIPLIER
@@ -362,29 +359,20 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
     if intent == "definition":
         term = extract_core_term(query)
 
-        if is_acronym_term(term):
-            if "_ts" in doc_name or doc_name.endswith("ts.md"):
-                bonus -= 4.0
-                
         if term and term in doc_name:
             bonus += 2.0
 
-        if chunk_kind == "definition":
-            bonus += 2.0
-
-        if chunk_kind == "glossary":
-            bonus += 2.0
-
-        if chunk_kind == "front_page":
-            bonus -= 1.5
-
+        # Specs are source of truth
         if doc_type == "specs":
             bonus += 3.0
+            # Extra boost if spec filename itself matches the term
             if term and term in doc_name:
                 bonus += 1.0
-            if chunk_kind in ("glossary", "definition"):
+            # Only boost glossary/definition INSIDE specs
+            if meta.get("chunk_kind") in ("glossary", "definition"):
                 bonus += 2.5
 
+        # Reference is useful, but secondary
         if doc_type == "reference":
             bonus += 0.8
 
@@ -412,7 +400,7 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
         if "guide" in doc_name or "manual" in doc_name:
             bonus += 0.7
 
-    return bonus 
+    return bonus    
 
 def search_bm25(query: str, chunks: List[Dict[str, Any]], bm25: BM25Okapi, top_k: int) -> List[Dict[str, Any]]:
     t0 = time.perf_counter()
@@ -578,9 +566,7 @@ def merge_and_rerank(
         text_lower = (item.get("text") or "").lower()
 
         if intent == "definition" and term:
-            term_pattern = rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])"
-
-            if re.search(term_pattern, text_lower, re.IGNORECASE):
+            if term in text_lower:
                 bonus += 3.0
 
             if " " in term:
@@ -598,7 +584,7 @@ def merge_and_rerank(
 
         item["intent"] = intent
         item["score"] = final_score
-        reranked.append(item)           
+        reranked.append(item)
 
     reranked.sort(key=lambda x: x["score"], reverse=True)
     return reranked[:top_k]

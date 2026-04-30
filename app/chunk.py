@@ -80,6 +80,51 @@ def infer_priority(doc_type: str, doc_name: str, chunk_kind: str) -> int:
 
     return priority
 
+def split_reference_sections(text: str) -> List[str]:
+    """
+    Split reference-style docs into section chunks using markdown headings first.
+    Falls back to paragraph grouping if headings are sparse.
+    """
+    text = text.strip()
+    if not text:
+        return []
+
+    # Split on markdown headings while preserving the heading with its section
+    parts = re.split(r'(?=^\s{0,3}#{2,6}\s+)', text, flags=re.MULTILINE)
+    parts = [p.strip() for p in parts if p.strip()]
+
+    # If headings produced useful sections, use them
+    if len(parts) >= 3:
+        return parts
+
+    # Fallback: split on blank lines and group paragraphs up to MAX_CHARS
+    paras = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
+    sections: List[str] = []
+    current = ""
+
+    for para in paras:
+        candidate = f"{current}\n\n{para}".strip() if current else para
+        if len(candidate) <= MAX_CHARS:
+            current = candidate
+        else:
+            if current:
+                sections.append(current)
+            current = para
+
+    if current:
+        sections.append(current)
+
+    return sections
+
+
+def page_range_for_span(page_spans, start_char: int, end_char: int) -> tuple:
+    pages_in_chunk = [
+        page_no for (page_no, s, e) in page_spans
+        if not (e <= start_char or s >= end_char)
+    ]
+    if not pages_in_chunk:
+        return None, None
+    return min(pages_in_chunk), max(pages_in_chunk)
 
 def make_front_page_chunks(doc_pages: List[Dict[str, Any]], first_n_pages: int = FIRST_N_PAGES) -> List[Dict[str, Any]]:
     """
@@ -121,7 +166,9 @@ def make_front_page_chunks(doc_pages: List[Dict[str, Any]], first_n_pages: int =
 
 def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
-    Build sliding-window chunks across the full document while preserving page ranges.
+    Build body chunks.
+    - For reference/policies docs: split by sections/headings first.
+    - For other docs: keep sliding-window chunking.
     """
     first = doc_pages[0]
     program = first["program"]
@@ -149,9 +196,48 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         return []
 
     chunks: List[Dict[str, Any]] = []
-    start_char = 0
     chunk_index = 0
 
+    # Section-aware chunking for FAQ/reference/policy-like docs
+    if doc_type in {"reference", "policies"}:
+        sections = split_reference_sections(full_text)
+
+        search_pos = 0
+        for section in sections:
+            section = section.strip()
+            if not section:
+                continue
+
+            start_char = full_text.find(section, search_pos)
+            if start_char == -1:
+                start_char = full_text.find(section)
+            if start_char == -1:
+                continue
+
+            end_char = start_char + len(section)
+            search_pos = end_char
+
+            page_start, page_end = page_range_for_span(page_spans, start_char, end_char)
+            chunk_kind = detect_chunk_kind(section)
+            chunk_id = f"{program}:{doc_type}:{doc_name}:c{chunk_index:05d}"
+
+            chunks.append({
+                "chunk_id": chunk_id,
+                "program": program,
+                "doc_type": doc_type,
+                "doc_name": doc_name,
+                "chunk_kind": chunk_kind,
+                "priority": infer_priority(doc_type, doc_name, chunk_kind),
+                "page_start": page_start,
+                "page_end": page_end,
+                "text": section,
+            })
+            chunk_index += 1
+
+        return chunks
+
+    # Default sliding-window chunking for specs/reports/etc.
+    start_char = 0
     while start_char < len(full_text):
         end_char = min(start_char + MAX_CHARS, len(full_text))
         chunk_text = full_text[start_char:end_char].strip()
@@ -159,16 +245,9 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         if not chunk_text:
             break
 
-        pages_in_chunk = [
-            page_no for (page_no, s, e) in page_spans
-            if not (e <= start_char or s >= end_char)
-        ]
-
-        page_start = min(pages_in_chunk) if pages_in_chunk else None
-        page_end = max(pages_in_chunk) if pages_in_chunk else None
+        page_start, page_end = page_range_for_span(page_spans, start_char, end_char)
 
         chunk_kind = detect_chunk_kind(chunk_text)
-    
         chunk_id = f"{program}:{doc_type}:{doc_name}:c{chunk_index:05d}"
 
         chunks.append({

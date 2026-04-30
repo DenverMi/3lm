@@ -4,20 +4,44 @@
         {
             "case_id": "thread_0001_case_01",
             "iut_type": "keyboard",
-            "customer_question": "For a Bluetooth-qualified keyboard, if we add additional key codes (e.g., adding a Mute key to an existing multimedia Report Descriptor), is requalification required?",
-            "actual_issue": "Whether adding new HID key codes constitutes a design change that impacts the Bluetooth qualification status and requires requalification.",
-            "consultant_answer": "The consultant determined that the Bluetooth qualification does not include constraints on specific key types or key codes within the HID report descriptor. Since the change only adds additional key codes without modifying the Bluetooth design, protocol behavior, or declared features in the ICS, it does not affect the qualified Bluetooth functionality. Therefore, it is not considered a design change requiring requalification.",
-            "final_recommendation": "Do not requalify the product for adding key codes alone. If the change results in a new model name, register it using the 'Qualify Additional Products' process under the existing qualified design.",
+            "customer_question": "If a Bluetooth-qualified keyboard is modified only by adding additional key codes (e.g., adding a Mute key to an existing Report Descriptor), is requalification required?",
+            "question_variants": [
+                "Do we need to requalify if we add new key codes to a Bluetooth keyboard?",
+                "Is adding a multimedia key like Mute considered a design change requiring re-submission?",
+                "Can we skip Bluetooth SIG requalification for minor HID key additions?",
+                "Does modifying the HID Report Descriptor require a new qualification?",
+                "If functionality is extended without changing Bluetooth features, is requalification needed?"
+            ],
+            "actual_issue": "Determining whether adding new HID key codes (without changing Bluetooth feature declarations or ICS scope) constitutes a design change requiring requalification under the Bluetooth Qualification Process.",
+            "plain_english_explanation": "The company already certified a Bluetooth keyboard and now wants to add one more key (Mute). They are unsure if this small functional change means they must go through the full Bluetooth certification process again. The key question is whether this change affects the Bluetooth-defined behavior or just adds application-level functionality.",
+            "consultant_answer": "The qualification does not include constraints on specific key types within the HID Report Descriptor. Since the registered design does not limit or define individual key codes, adding additional key codes (such as a Mute key) does not constitute a change to the qualified Bluetooth design. Therefore, requalification is not required. However, if the product model name changes as a result of this modification, the new model should be added using the 'Qualify Additional Products' process in the product listing.",
+            "decision_logic": "If a modification does not change the Bluetooth-defined functionality (i.e., no change to ICS-declared features or protocol behavior), it is not considered a design change. HID key code additions are application-level and not part of Bluetooth qualification scope, so they do not trigger requalification.",
+            "final_recommendation": "Do not requalify. If the product name or model changes, register it as an additional product under the existing qualified design using the 'Qualify Additional Products' option.",
+            "risk_if_done_wrong": "Unnecessary requalification would result in wasted cost and time. Conversely, failing to list a new product model could lead to incomplete product listing records in the Bluetooth database.",
             "bluetooth_tags": [
                 "qualification",
-                "design change",
                 "HID",
-                "profile",
-                "ICS",
+                "keyboard",
+                "design change",
                 "listing",
+                "QDID",
                 "reuse"
             ],
-            "qualification_stage": "post-launch change"
+            "search_aliases": [
+                "add key code bluetooth qualification",
+                "HID descriptor change requalification",
+                "keyboard mute key bluetooth certification",
+                "minor change bluetooth no requalification",
+                "additional product listing bluetooth",
+                "report descriptor change impact",
+                "bluetooth design change definition",
+                "reuse QDID keyboard change",
+                "do I need to requalify for firmware change HID",
+                "bluetooth qualification minor update"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }
