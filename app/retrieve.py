@@ -662,7 +662,52 @@ def merge_and_rerank(
         reranked.append(item)           
 
     reranked.sort(key=lambda x: x["score"], reverse=True)
-    return reranked[:top_k]
+
+    selected = []
+    email_case_count = 0
+    thread_analysis_count = 0
+    has_official = False
+
+    for item in reranked:
+        meta = item["metadata"]
+        source_type = (meta.get("source_type") or "").lower()
+        doc_type = (meta.get("doc_type") or "").lower()
+
+        is_official = doc_type in {"policies", "specs", "reference"} and source_type not in {"email_case", "email_thread_analysis", "email"}
+
+        if source_type == "email_case":
+            if email_case_count >= 2:
+                continue
+            email_case_count += 1
+
+        elif source_type == "email_thread_analysis":
+            if thread_analysis_count >= 1:
+                continue
+            thread_analysis_count += 1
+
+        if is_official:
+            has_official = True
+
+        selected.append(item)
+        if len(selected) >= top_k:
+            break
+
+    if not has_official:
+        for item in reranked:
+            meta = item["metadata"]
+            source_type = (meta.get("source_type") or "").lower()
+            doc_type = (meta.get("doc_type") or "").lower()
+
+            is_official = doc_type in {"policies", "specs", "reference"} and source_type not in {"email_case", "email_thread_analysis", "email"}
+
+            if is_official and item["chunk_id"] not in {x["chunk_id"] for x in selected}:
+                if len(selected) >= top_k:
+                    selected[-1] = item
+                else:
+                    selected.append(item)
+                break
+
+    return selected[:top_k]
 
 def find_exact_acronym_definition_chunks(
     query: str,

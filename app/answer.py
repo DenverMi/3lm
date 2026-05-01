@@ -10,7 +10,7 @@ from app.retrieve import retrieve, format_citation, is_definition_query
 
 ANSWER_VARIANT_CHUNKS = None
 # Retrieval / context limits
-TOP_K_TO_MODEL = 2
+TOP_K_TO_MODEL = 3
 MAX_CONTEXT_CHARS = 12000
 
 # Weak retrieval guardrails
@@ -574,24 +574,34 @@ def answer_question(question: str, top_k: int = TOP_K_TO_MODEL, debug: bool = Fa
             "mode": mode,
         }
 
-    if grounded_expansion:
-        selected = exact_acronym_items[:1]
-    elif exact_acronym_items:
-        selected = exact_acronym_items[:2]
-    else:
-        selected = choose_best_definition_items(clean_question, items, grounded_expansion, limit=2)
+    intent = "definition" if is_definition_query(clean_question) else "other"
 
-        if debug:
-            print("\nSelected sources for model:")
-            for item in selected:
-                meta = item["metadata"]
-                print(
-                    f"- score={item['score']:.4f}  "
-                    f"{format_citation(meta)}  "
-                    f"id={item['chunk_id']}  "
-                    f"priority={meta.get('priority', 0)}  "
-                    f"kind={meta.get('chunk_kind')}"
-                )
+    if intent == "definition":
+        if grounded_expansion:
+            selected = exact_acronym_items[:1]
+        elif exact_acronym_items:
+            selected = exact_acronym_items[:2]
+        else:
+            selected = choose_best_definition_items(
+                clean_question,
+                items,
+                grounded_expansion,
+                limit=2,
+            )
+    else:
+        selected = items[:top_k]
+
+    if debug:
+        print("\nSelected sources for model:")
+        for item in selected:
+            meta = item["metadata"]
+            print(
+                f"- score={item['score']:.4f}  "
+                f"{format_citation(meta)}  "
+                f"id={item['chunk_id']}  "
+                f"priority={meta.get('priority', 0)}  "
+                f"kind={meta.get('chunk_kind')}"
+            )
 
     t1 = time.perf_counter()
 
