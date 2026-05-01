@@ -23,6 +23,7 @@ from app.config import (
 # Local cache paths for BM25
 BM25_PATH = CHUNKS_PATH.parent / "bm25.pkl"
 BM25_CHUNKS_PATH = CHUNKS_PATH.parent / "bm25_chunks.jsonl"
+BM25_META_PATH = CHUNKS_PATH.parent / "bm25_meta.json"
 EXPANSION_CACHE_PATH = CHUNKS_PATH.parent / "expansion_cache.json"
 
 # Retrieval sizes
@@ -75,35 +76,50 @@ def build_bm25(chunks: List[Dict[str, Any]]) -> BM25Okapi:
 
 
 def save_bm25(bm25: BM25Okapi, chunks: List[Dict[str, Any]]) -> None:
-    with BM25_PATH.open("wb") as f:
-        pickle.dump(bm25, f)
-    save_jsonl(BM25_CHUNKS_PATH, chunks)
+        with BM25_PATH.open("wb") as f:
+            pickle.dump(bm25, f)
 
+        save_jsonl(BM25_CHUNKS_PATH, chunks)
+
+        meta = {
+            "chunks_path": str(CHUNKS_PATH),
+            "chunks_mtime": CHUNKS_PATH.stat().st_mtime,
+        }
+        with BM25_META_PATH.open("w", encoding="utf-8") as f:
+            json.dump(meta, f, ensure_ascii=False, indent=2)
 
 def load_bm25() -> Tuple[Optional[BM25Okapi], Optional[List[Dict[str, Any]]]]:
-    if not BM25_PATH.exists() or not BM25_CHUNKS_PATH.exists():
+    if not BM25_PATH.exists() or not BM25_CHUNKS_PATH.exists() or not BM25_META_PATH.exists():
         return None, None
 
-    with BM25_PATH.open("rb") as f:
-        bm25 = pickle.load(f)
+    try:
+        with BM25_META_PATH.open("r", encoding="utf-8") as f:
+            meta = json.load(f)
 
-    chunks = load_jsonl(BM25_CHUNKS_PATH)
-    return bm25, chunks
+        cached_mtime = meta.get("chunks_mtime")
+        current_mtime = CHUNKS_PATH.stat().st_mtime
 
+        if cached_mtime != current_mtime:
+            return None, None
+
+        with BM25_PATH.open("rb") as f:
+            bm25 = pickle.load(f)
+
+        chunks = load_jsonl(BM25_CHUNKS_PATH)
+        return bm25, chunks
+
+    except Exception:
+        return None, None
 
 def get_chunks_for_bm25() -> Tuple[BM25Okapi, List[Dict[str, Any]]]:
-    chunks = load_jsonl(CHUNKS_PATH)
-
     bm25, cached_chunks = load_bm25()
-
     if bm25 is not None and cached_chunks is not None:
-        if len(cached_chunks) == len(chunks):
-            return bm25, cached_chunks
+        return bm25, cached_chunks
 
+    chunks = load_jsonl(CHUNKS_PATH)
     bm25 = build_bm25(chunks)
     save_bm25(bm25, chunks)
     return bm25, chunks
-
 
 def is_definition_query(query: str) -> bool:
     q = query.lower().strip()
@@ -340,6 +356,26 @@ def format_citation(meta: Dict[str, Any]) -> str:
 
     return f"{doc_name} (unpaginated)"
 
+def is_advisory_query(query: str) -> bool:
+    q = query.lower()
+    signals = [
+        "can we",
+        "can i",
+        "should we",
+        "should i",
+        "do we need",
+        "is it required",
+        "is it allowed",
+        "what if",
+        "if we",
+        "customer asks",
+        "do i need",
+        "required",
+        "sufficient",
+        "enough",
+    ]
+    return any(s in q for s in signals)
+
 def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
     bonus = 0.0
 
@@ -365,7 +401,7 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
         if is_acronym_term(term):
             if "_ts" in doc_name or doc_name.endswith("ts.md"):
                 bonus -= 4.0
-                
+
         if term and term in doc_name:
             bonus += 2.0
 
@@ -396,6 +432,17 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
             bonus += 1.0
 
     elif intent == "process":
+        source_type = (meta.get("source_type") or "").lower()
+        chunk_kind = (meta.get("chunk_kind") or "").lower()
+
+        if source_type == "email_case":
+            bonus += 3.5
+        elif source_type == "email_thread_analysis":
+            bonus += 1.5
+
+        if chunk_kind == "front_page":
+            bonus -= 1.5
+
         if doc_type == "policies":
             bonus += 1.5
 
@@ -411,6 +458,18 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
             bonus += 1.1
         if "guide" in doc_name or "manual" in doc_name:
             bonus += 0.7
+
+    elif is_advisory_query(query):
+        source_type = (meta.get("source_type") or "").lower()
+
+        if source_type == "email_case":
+            bonus += 2.5
+
+        if doc_type == "reference":
+            bonus += 0.6
+
+        if "faq" in doc_name:
+            bonus += 0.4
 
     return bonus 
 
@@ -461,6 +520,7 @@ def search_bm25(query: str, chunks: List[Dict[str, Any]], bm25: BM25Okapi, top_k
             "metadata": {
                 "program": chunk.get("program"),
                 "doc_type": chunk.get("doc_type"),
+                "source_type": chunk.get("source_type"),
                 "doc_name": chunk.get("doc_name"),
                 "chunk_kind": chunk.get("chunk_kind"),
                 "priority": chunk.get("priority", 0),
@@ -507,6 +567,7 @@ def search_semantic(query: str, chunks: List[Dict[str, Any]], top_k: int) -> Lis
                     "metadata": {
                         "program": meta.get("program"),
                         "doc_type": meta.get("doc_type"),
+                        "source_type": meta.get("source_type"),
                         "doc_name": meta.get("doc_name"),
                         "chunk_kind": meta.get("chunk_kind"),
                         "priority": meta.get("priority", 0),
@@ -695,8 +756,27 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K) -> List[Dict[str, Any]]:
             item for item in semantic_results
             if (item["metadata"].get("program") or "").lower() == domain_filter
         ]
+        filtered_chunks = [
+            c for c in chunks
+            if (c.get("program") or "").lower() == domain_filter
+        ]
+    else:
+        filtered_chunks = chunks
 
-    return merge_and_rerank(clean_query, bm25_results, semantic_results, top_k=top_k)
+    # Force an email-case lane for advisory/process questions
+    email_chunks = [
+        c for c in filtered_chunks
+        if (c.get("source_type") == "email_case") or (c.get("doc_type") == "email")
+    ]
+
+    email_results = []
+    if email_chunks:
+        email_bm25 = build_bm25(email_chunks)
+        email_results = search_bm25(clean_query, email_chunks, email_bm25, top_k=10)
+
+    combined_bm25 = bm25_results + email_results
+
+    return merge_and_rerank(clean_query, combined_bm25, semantic_results, top_k=top_k)
 
 def format_context(items: List[Dict[str, Any]], max_chars: Optional[int] = None) -> str:
     parts: List[str] = []

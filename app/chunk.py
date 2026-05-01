@@ -126,6 +126,17 @@ def page_range_for_span(page_spans, start_char: int, end_char: int) -> tuple:
         return None, None
     return min(pages_in_chunk), max(pages_in_chunk)
 
+def infer_source_type(doc_type: str, doc_name: str) -> str:
+    if doc_type != "email":
+        return doc_type
+
+    name = doc_name.lower()
+    if "thread_analysis" in name:
+        return "email_thread_analysis"
+    if "_case_" in name:
+        return "email_case"
+    return "email"
+
 def make_front_page_chunks(doc_pages: List[Dict[str, Any]], first_n_pages: int = FIRST_N_PAGES) -> List[Dict[str, Any]]:
     """
     Preserve first N pages as standalone chunks.
@@ -153,6 +164,7 @@ def make_front_page_chunks(doc_pages: List[Dict[str, Any]], first_n_pages: int =
             "chunk_id": chunk_id,
             "program": program,
             "doc_type": doc_type,
+            "source_type": infer_source_type(doc_type, doc_name),
             "doc_name": doc_name,
             "chunk_kind": chunk_kind,
             "priority": infer_priority(doc_type, doc_name, chunk_kind),
@@ -225,6 +237,7 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
                 "chunk_id": chunk_id,
                 "program": program,
                 "doc_type": doc_type,
+                "source_type": infer_source_type(doc_type, doc_name),
                 "doc_name": doc_name,
                 "chunk_kind": chunk_kind,
                 "priority": infer_priority(doc_type, doc_name, chunk_kind),
@@ -254,6 +267,7 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             "chunk_id": chunk_id,
             "program": program,
             "doc_type": doc_type,
+            "source_type": infer_source_type(doc_type, doc_name),
             "doc_name": doc_name,
             "chunk_kind": chunk_kind,
             "priority": infer_priority(doc_type, doc_name, chunk_kind),
