@@ -122,13 +122,18 @@ def get_chunks_for_bm25() -> Tuple[BM25Okapi, List[Dict[str, Any]]]:
     return bm25, chunks
 
 def is_definition_query(query: str) -> bool:
-    q = query.lower().strip()
-    return (
-        q.startswith("what is ")
-        or q.startswith("what are ")
-        or q.startswith("define ")
-        or q.startswith("who is ")
-    )
+    q = query.strip().lower()
+
+    if re.search(r"\bwhat\s+is\b", q):
+        return True
+    if re.search(r"\bwhat\s+are\b", q):
+        return True
+    if re.search(r"\bdefine\b", q):
+        return True
+    if re.search(r"\bmeaning\s+of\b", q):
+        return True
+
+    return False
 
 def is_process_query(query: str) -> bool:
     q = query.lower()
