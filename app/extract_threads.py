@@ -1,5 +1,7 @@
 import json
 import mailbox
+from email import policy
+from email.parser import BytesParser
 import re
 from collections import defaultdict
 from email.utils import parsedate_to_datetime
@@ -8,8 +10,7 @@ from email.header import decode_header
 
 from app.redact_email import redact_text
 
-MBOX_PATH = Path("data/bluetooth/email/bqc.mbox")
-OUT_DIR = Path("data/bluetooth/email_threads")
+DEFAULT_OUT_DIR = Path("data/bluetooth/email_threads")
 
 def decode_mime_header(value: str) -> str:
     if not value:
@@ -44,7 +45,7 @@ def clean_html(html: str) -> str:
     return html.strip()
 
 
-def clean_body_text(text: str) -> str:
+def clean_body_text(text: str, cut_quotes: bool = True) -> str:
     text = text.replace("\r\n", "\n").replace("\r", "\n")
 
     # Drop common confidentiality junk and long separators
@@ -58,28 +59,29 @@ def clean_body_text(text: str) -> str:
     for pattern in bad_patterns:
         text = re.sub(pattern, "", text)
 
-    # Cut quoted reply chains
-    split_markers = [
-        r"(?im)^from:\s.*$",
-        r"(?im)^sent:\s.*$",
-        r"(?im)^subject:\s.*$",
-        r"(?im)^on .* wrote:$",
-        r"(?im)^-----original message-----$",
-        r"(?im)^差出人:\s.*$",
-        r"(?im)^送信日時:\s.*$",
-        r"(?im)^件名:\s.*$",
-        r"(?im)^宛先:\s.*$",
-        r"(?im)^.*wrote:\s*$",
-    ]
+    if cut_quotes:
+        # Cut quoted reply chains
+        split_markers = [
+            r"(?im)^from:\s.*$",
+            r"(?im)^sent:\s.*$",
+            r"(?im)^subject:\s.*$",
+            r"(?im)^on .* wrote:$",
+            r"(?im)^-----original message-----$",
+            r"(?im)^差出人:\s.*$",
+            r"(?im)^送信日時:\s.*$",
+            r"(?im)^件名:\s.*$",
+            r"(?im)^宛先:\s.*$",
+            r"(?im)^.*wrote:\s*$",
+        ]
 
-    cut_positions = []
-    for marker in split_markers:
-        m = re.search(marker, text)
-        if m:
-            cut_positions.append(m.start())
+        cut_positions = []
+        for marker in split_markers:
+            m = re.search(marker, text)
+            if m:
+                cut_positions.append(m.start())
 
-    if cut_positions:
-        text = text[: min(cut_positions)]
+        if cut_positions:
+            text = text[: min(cut_positions)]
 
     # Remove leading quote markers
     text = re.sub(r"(?m)^\s*>+\s?", "", text)
@@ -101,7 +103,7 @@ def decode_payload(payload: bytes, charset: str | None) -> str:
     return payload.decode("utf-8", errors="ignore")
 
 
-def get_body(msg) -> str:
+def get_body(msg, cut_quotes: bool = True) -> str:
     text_parts = []
     html_parts = []
 
@@ -132,9 +134,9 @@ def get_body(msg) -> str:
                 html_parts.append(decoded)
 
     if text_parts:
-        return clean_body_text("\n".join(text_parts))
+        return clean_body_text("\n".join(text_parts), cut_quotes=cut_quotes)
     if html_parts:
-        return clean_body_text(clean_html("\n".join(html_parts)))
+        return clean_body_text(clean_html("\n".join(html_parts)), cut_quotes=cut_quotes)
     return ""
 
 
@@ -158,21 +160,101 @@ def get_thread_key(msg) -> str:
     subject = re.sub(r"\s+", " ", subject).strip().lower()
     return f"subject:{subject}"
 
+def load_messages(input_path: Path):
+    if input_path.is_file() and input_path.suffix.lower() == ".mbox":
+        mbox = mailbox.mbox(str(input_path))
+        for msg in mbox:
+            yield msg
+        return
+
+    if input_path.is_file() and input_path.suffix.lower() == ".eml":
+        with input_path.open("rb") as f:
+            yield BytesParser(policy=policy.default).parse(f)
+        return
+
+    if input_path.is_dir():
+        for eml_path in sorted(input_path.rglob("*.eml")):
+            with eml_path.open("rb") as f:
+                yield BytesParser(policy=policy.default).parse(f)
+        return
+
+    raise ValueError(f"Unsupported input path: {input_path}")
+
+def should_cut_quotes(input_path: Path) -> bool:
+    return input_path.is_file() and input_path.suffix.lower() == ".mbox"
+
+def split_inline_email_chain(body: str):
+    """
+    Split an Outlook-style inline email thread inside a single .eml body
+    into pseudo-message bodies.
+
+    This does NOT affect .mbox extraction.
+    """
+    header_pattern = re.compile(
+        r"(?im)^(差出人:|From:)\s+.+$"
+    )
+
+    matches = list(header_pattern.finditer(body))
+
+    if not matches:
+        return [body]
+
+    parts = []
+
+    # First/current message before the first quoted header
+    first_body = body[:matches[0].start()].strip()
+    if first_body:
+        parts.append(first_body)
+
+    # Each quoted/inline message
+    for i, match in enumerate(matches):
+        start = match.start()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(body)
+        part = body[start:end].strip()
+        if part:
+            parts.append(part)
+
+    return parts
 
 def main() -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    import argparse
 
-    mbox = mailbox.mbox(str(MBOX_PATH))
+    parser = argparse.ArgumentParser(
+        description="Extract email threads from .mbox or .eml files."
+    )
+    parser.add_argument(
+        "input",
+        help="Path to .mbox file, .eml file, or folder containing .eml files",
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        default=None,
+        help="Optional output folder for extracted thread JSON files",
+    )
+    args = parser.parse_args()
+
+    input_path = Path(args.input)
+    if args.output:
+        out_dir = Path(args.output)
+    else:
+        out_dir = input_path.parent if input_path.is_file() else input_path
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+
     threads = defaultdict(list)
 
     total = 0
     kept = 0
 
-    for msg in mbox:
+    cut_quotes = should_cut_quotes(input_path)
+    split_inline = input_path.is_file() and input_path.suffix.lower() == ".eml"
+
+    for msg in load_messages(input_path):
         total += 1
 
         subject = decode_mime_header(msg.get("Subject") or "")
-        body = get_body(msg)
+        body = get_body(msg, cut_quotes=cut_quotes)
         body = redact_text(body)
 
         if not body:
@@ -194,19 +276,23 @@ def main() -> None:
                 if filename:
                     attachments.append(redact_text(filename))
 
-        threads[thread_key].append(
-            {
-                "message_id": (msg.get("Message-ID") or "").strip(),
-                "subject": redact_text(subject),
-                "from": redact_text(msg.get("From") or ""),
-                "to": redact_text(msg.get("To") or ""),
-                "cc": redact_text(msg.get("Cc") or ""),
-                "date": date_iso,
-                "attachments": attachments,
-                "body": body,
-            }
-        )
-        kept += 1
+        body_parts = split_inline_email_chain(body) if split_inline else [body]
+
+        for part_index, part_body in enumerate(body_parts, start=1):
+            threads[thread_key].append(
+                {
+                    "message_id": (msg.get("Message-ID") or "").strip(),
+                    "part_index": part_index,
+                    "subject": redact_text(subject),
+                    "from": redact_text(msg.get("From") or ""),
+                    "to": redact_text(msg.get("To") or ""),
+                    "cc": redact_text(msg.get("Cc") or ""),
+                    "date": date_iso,
+                    "attachments": attachments if part_index == 1 else [],
+                    "body": part_body,
+                }
+            )
+            kept += 1
 
     for i, (_, messages) in enumerate(threads.items(), start=1):
         messages.sort(key=lambda x: x["date"] or "")
@@ -216,12 +302,15 @@ def main() -> None:
             "message_count": len(messages),
             "messages": messages,
         }
-        out_path = OUT_DIR / f"thread_{i:04d}.json"
-        out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+        out_path = out_dir / f"thread_{i:04d}.json"
+        out_path.write_text(
+            json.dumps(out, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
 
     print(f"Read {total} messages")
     print(f"Kept {kept} messages with readable body")
-    print(f"Saved {len(threads)} threads to {OUT_DIR}")
+    print(f"Saved {len(threads)} threads to {out_dir}")
 
 
 if __name__ == "__main__":
