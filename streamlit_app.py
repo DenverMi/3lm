@@ -9,11 +9,18 @@ from app.answer import answer_question
 
 st.set_page_config(page_title="Compliance RAG", layout="wide")
 CONVERSATION_LOG_PATH = Path("storage/conversations.jsonl")
+CORRECTION_LOG_PATH = Path("storage/corrections.jsonl")
 
 def log_conversation_event(event: dict) -> None:
     CONVERSATION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     with CONVERSATION_LOG_PATH.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(event, ensure_ascii=False) + "\n")
+
+def log_correction_event(event: dict) -> None:
+    CORRECTION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    with CORRECTION_LOG_PATH.open("a", encoding="utf-8") as f:
         f.write(json.dumps(event, ensure_ascii=False) + "\n")
 
 top_left, top_right = st.columns([5, 2])
@@ -56,6 +63,7 @@ if "last_items" not in st.session_state:
 
 if new_chat_clicked:
     st.session_state["conversation_id"] = str(uuid.uuid4())
+    st.session_state["conversation_title"] = ""
     st.session_state["messages"] = []
     st.session_state["last_question"] = ""
     st.session_state["last_items"] = []
@@ -71,6 +79,48 @@ question = st.chat_input("Ask a technical question...")
 
 if question:
     program = None if program_choice == "all" else program_choice
+
+    if question.strip().lower().startswith("/correction:"):
+        correction_text = question.strip()[len("/correction:"):].strip()
+
+        previous_user_question = ""
+        previous_assistant_answer = ""
+
+        for message in reversed(st.session_state["messages"]):
+            if message.get("role") == "assistant" and not previous_assistant_answer:
+                previous_assistant_answer = message.get("content", "")
+            elif message.get("role") == "user" and not previous_user_question:
+                previous_user_question = message.get("content", "")
+
+            if previous_user_question and previous_assistant_answer:
+                break
+
+        log_correction_event(
+            {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "correction_id": str(uuid.uuid4()),
+                "conversation_id": st.session_state["conversation_id"],
+                "conversation_title": st.session_state["conversation_title"],
+                "program": program_choice,
+                "correction": correction_text,
+                "status": "unreviewed",
+                "source": "user_command",
+                "previous_user_question": previous_user_question,
+                "previous_assistant_answer": previous_assistant_answer,
+            }
+        )
+
+        st.session_state["messages"].append(
+            {"role": "user", "content": question}
+        )
+        st.session_state["messages"].append(
+            {
+                "role": "assistant",
+                "content": "Correction saved for review. It will not affect answers until approved and ingested.",
+            }
+        )
+
+        st.rerun()
 
     if not st.session_state["conversation_title"]:
         st.session_state["conversation_title"] = question[:120]
