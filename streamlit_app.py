@@ -1,8 +1,20 @@
-import streamlit as st
+import json
+import uuid
+from datetime import datetime, timezone
 from pathlib import Path
+
+import streamlit as st
+
 from app.answer import answer_question
 
 st.set_page_config(page_title="Compliance RAG", layout="wide")
+CONVERSATION_LOG_PATH = Path("storage/conversations.jsonl")
+
+def log_conversation_event(event: dict) -> None:
+    CONVERSATION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    with CONVERSATION_LOG_PATH.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(event, ensure_ascii=False) + "\n")
 
 top_left, top_right = st.columns([6, 1])
 
@@ -22,6 +34,9 @@ st.title("Allion L3M")
 st.caption("Ask Allion Compliance AI any technical question.")
 
 # Session state
+if "conversation_id" not in st.session_state:
+    st.session_state["conversation_id"] = str(uuid.uuid4())
+
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
 
@@ -44,6 +59,17 @@ if question:
 
     st.session_state["messages"].append(
         {"role": "user", "content": question}
+    )
+    
+    log_conversation_event(
+        {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "conversation_id": st.session_state["conversation_id"],
+            "role": "user",
+            "content": question,
+            "program": program_choice,
+            "event_type": "message",
+        }
     )
 
     with st.chat_message("user"):
@@ -69,6 +95,18 @@ if question:
 
     st.session_state["messages"].append(
         {"role": "assistant", "content": answer}
+    )
+
+    log_conversation_event(
+        {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "conversation_id": st.session_state["conversation_id"],
+            "role": "assistant",
+            "content": answer,
+            "program": program_choice,
+            "event_type": "message",
+            "source_count": len(items),
+        }
     )
 
     st.session_state["last_question"] = question
@@ -108,6 +146,17 @@ if more_clicked:
         {"role": "assistant", "content": answer}
     )
 
+    log_conversation_event(
+        {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "conversation_id": st.session_state["conversation_id"],
+            "role": "assistant",
+            "content": answer,
+            "program": program_choice,
+            "event_type": "tell_me_more",
+        }
+    )
+
     st.rerun()
 
 if wider_clicked:
@@ -127,6 +176,18 @@ if wider_clicked:
 
     st.session_state["messages"].append(
         {"role": "assistant", "content": answer}
+    )
+
+    log_conversation_event(
+        {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "conversation_id": st.session_state["conversation_id"],
+            "role": "assistant",
+            "content": answer,
+            "program": program_choice,
+            "event_type": "search_wider",
+            "source_count": len(st.session_state["last_items"]),
+        }
     )
 
     st.rerun()

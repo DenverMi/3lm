@@ -407,7 +407,7 @@ def separate_citations(answer: str, items: List[Dict[str, Any]]) -> str:
     answer = re.sub(r"\[source needed[^\]]*\]", "", answer, flags=re.IGNORECASE)
     answer = re.sub(r"\[reference needed[^\]]*\]", "", answer, flags=re.IGNORECASE)
     answer = re.sub(r"\[citation:\s*[^\]]+\]", "", answer, flags=re.IGNORECASE)
-    answer = re.sub(r"\n+Answer:\s*", "\n\n", answer, flags=re.IGNORECASE)
+    answer = re.sub(r"\n+\**Answer:\**\s*", "\n\n", answer, flags=re.IGNORECASE)
 
     answer = re.sub(r"[ \t]+", " ", answer)
     answer = re.sub(r"\n{3,}", "\n\n", answer).strip()
