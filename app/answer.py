@@ -89,7 +89,7 @@ def ask_llm_general(question: str) -> str:
         )
 
     response = ollama.chat(
-        model=RAG_LLM_MODEL,
+        model=GENERAL_LLM_MODEL,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": question},
@@ -109,6 +109,30 @@ def resolve_language(query: str) -> str:
         return "ja"
 
     return "en"
+
+def extract_answer_core_term(question: str) -> str:
+    q = question.strip()
+
+    # Remove leading domain phrase like "In Aliro,"
+    q = re.sub(r"^\s*in\s+[a-z0-9_\- ]+\s*,\s*", "", q, flags=re.IGNORECASE)
+
+    patterns = [
+        r"^what\s+is\s+(.+)$",
+        r"^what\s+are\s+(.+)$",
+        r"^define\s+(.+)$",
+    ]
+
+    term = q
+    for pattern in patterns:
+        m = re.search(pattern, q, re.IGNORECASE)
+        if m:
+            term = m.group(1)
+            break
+
+    term = term.strip(" ?.")
+    term = re.sub(r"^(a|an|the)\s+", "", term, flags=re.IGNORECASE)
+
+    return term.strip()
 
 def language_instruction(language: str) -> str:
     if language == "ja":
@@ -147,9 +171,13 @@ Rules:
 For definition questions:
 - Write the answer as one clear paragraph.
 - Do not use bullets or numbered lists.
+- If the evidence contains a spec glossary, definitions section, or glossary-style definition, use that as the primary definition.
+- Start with the direct definition from the spec glossary/definitions evidence.
+- After the primary definition, you may add one short contextual sentence grounded in the retrieved evidence to explain how the term is used in practice.
+- Use other excerpts only for short clarification after the primary definition.
+- Do not replace the glossary definition with protocol behavior, implementation details, key handling, certificate handling, or procedure details.
 - If the evidence contains an acronym expansion in the form "Full Term (ACRONYM)" or "ACRONYM (Full Term)", use that exact expansion.
 - Do not invent or substitute a different expansion.
-- Prefer spec-based definitions when a spec definition is present.
 - FAQ or reference content may be used only to simplify or clarify, not to override a spec definition.
 - Do not repeat the same definition in different words.
 
@@ -207,11 +235,19 @@ def build_model_input(
         else:
             sentence_limit = 2
 
-        definition_sentences = extract_definition_sentences(
+        definition_sentences = extract_glossary_definition_lines(
             question,
             items,
-            max_sentences=sentence_limit,
+            max_lines=1,
         )
+        print("DEBUG glossary definitions:", definition_sentences)
+
+        if not definition_sentences:
+            definition_sentences = extract_definition_sentences(
+                question,
+                items,
+                max_sentences=sentence_limit,
+            )
 
         if definition_sentences:
             parts.append(
@@ -302,6 +338,7 @@ def build_model_input(
             "\nInstructions:\n"
             "- Write the entire answer in English.\n"
             "- Answer strictly from the excerpts when possible.\n"
+            "- When answering a follow-up question, preserve the main subject from the recent conversation. If you narrow the subject to a subtype or example, say so clearly.\n"
             "- Write clean prose only.\n"
             "- Do not write inline citations, placeholder citations, or '[citation needed]'.\n"
             "- Do not write 'chunk_id:' anywhere in the answer.\n"
@@ -310,7 +347,6 @@ def build_model_input(
         )
 
     return "\n".join(parts)
-
 
 def ask_llm(
     question: str,
@@ -366,6 +402,12 @@ def separate_citations(answer: str, items: List[Dict[str, Any]]) -> str:
         if full_citation in answer and full_citation not in found:
             found.append(full_citation)
             answer = answer.replace(full_citation, "").strip()
+
+    answer = re.sub(r"\[citation needed[^\]]*\]", "", answer, flags=re.IGNORECASE)
+    answer = re.sub(r"\[source needed[^\]]*\]", "", answer, flags=re.IGNORECASE)
+    answer = re.sub(r"\[reference needed[^\]]*\]", "", answer, flags=re.IGNORECASE)
+    answer = re.sub(r"\[citation:\s*[^\]]+\]", "", answer, flags=re.IGNORECASE)
+    answer = re.sub(r"\n+Answer:\s*", "\n\n", answer, flags=re.IGNORECASE)
 
     answer = re.sub(r"[ \t]+", " ", answer)
     answer = re.sub(r"\n{3,}", "\n\n", answer).strip()
@@ -466,14 +508,7 @@ def choose_best_definition_items(
             if " " in v_norm:
                 phrases.append(v_norm)
 
-    q = question.strip()
-    lower = q.lower()
-    prefixes = ["what is ", "what are ", "define "]
-    core = q
-    for prefix in prefixes:
-        if lower.startswith(prefix):
-            core = q[len(prefix):].strip(" ?")
-            break
+    core = extract_answer_core_term(question)
 
     core_norm = " ".join(core.lower().split())
     if " " in core_norm:
@@ -574,17 +609,68 @@ def choose_best_definition_items(
 
     return selected[:limit]
 
-def extract_definition_sentences(question: str, items: List[Dict[str, Any]], max_sentences: int = 4) -> List[str]:
-    q = question.strip()
+def extract_glossary_definition_lines(question, items, max_lines=2):
+    term = extract_answer_core_term(question)
+    term_norm = " ".join(term.lower().split())
 
-    term = q
-    m = re.search(r"\bwhat\s+is\s+(.+)$", q, re.IGNORECASE)
-    if not m:
-        m = re.search(r"\bwhat\s+are\s+(.+)$", q, re.IGNORECASE)
-    if not m:
-        m = re.search(r"\bdefine\s+(.+)$", q, re.IGNORECASE)
-    if m:
-        term = m.group(1).strip(" ?")
+    hits = []
+    seen = set()
+
+    for item in items:
+        text = item.get("text", "") or ""
+
+        for line in text.splitlines():
+            cleaned = " ".join(line.split()).strip()
+            if not cleaned:
+                continue
+
+            line_norm = cleaned.lower()
+
+            # Markdown table row: | Term | Definition |
+            if "|" in cleaned:
+                cells = [c.strip() for c in cleaned.split("|") if c.strip()]
+                if len(cells) >= 2:
+                    first_cell = " ".join(cells[0].lower().split())
+                    if first_cell == term_norm:
+                        candidate = f"{term}: {' '.join(cells[1:])}"
+                    else:
+                        continue
+                else:
+                    continue
+
+            # Colon/dash glossary style
+            elif re.match(rf"^{re.escape(term)}\s*[:\-–—]\s+\S+", cleaned, re.IGNORECASE):
+                candidate = cleaned
+
+            # Plain glossary style: Term followed by definition
+            elif line_norm.startswith(term_norm + " "):
+                rest = cleaned[len(term):].strip()
+                if len(rest.split()) < 3:
+                    continue
+                candidate = f"{term}: {rest}"
+
+            else:
+                continue
+
+            # Generic quality filters only
+            if len(candidate.split()) < 4:
+                continue
+            if len(candidate) > 500:
+                continue
+            if candidate.lower() in seen:
+                continue
+
+            seen.add(candidate.lower())
+            hits.append(candidate)
+
+            if len(hits) >= max_lines:
+                return hits
+
+    return hits
+
+def extract_definition_sentences(question: str, items: List[Dict[str, Any]], max_sentences: int = 4) -> List[str]:
+    
+    term = extract_answer_core_term(question)
 
     term_norm = " ".join(term.lower().split())
     if not term_norm:
@@ -791,8 +877,56 @@ def answer_question(
     debug: bool = False,
     detail_mode: str = "normal",
     preloaded_items: List[Dict[str, Any]] | None = None,
+    program: str | None = None,
+    chat_history: List[Dict[str, str]] | None = None,
 ) -> Dict[str, Any]:
     mode, clean_question = parse_mode_and_question(question)
+    prompt_question = clean_question
+    retrieval_question = clean_question
+
+    if chat_history:
+        previous_user_messages = [
+            message.get("content", "").strip()
+            for message in chat_history
+            if message.get("role") == "user" and message.get("content", "").strip()
+        ]
+
+        if previous_user_messages:
+            if previous_user_messages[-1] == clean_question and len(previous_user_messages) >= 2:
+                previous_user_question = previous_user_messages[-2]
+            else:
+                previous_user_question = previous_user_messages[-1]
+            previous_subject = extract_answer_core_term(previous_user_question)
+
+            resolved_question = clean_question
+
+            if previous_subject:
+                resolved_question = re.sub(
+                    r"\bit\b",
+                    previous_subject,
+                    resolved_question,
+                    flags=re.IGNORECASE,
+                )
+                resolved_question = re.sub(
+                    r"\bthat\b",
+                    previous_subject,
+                    resolved_question,
+                    flags=re.IGNORECASE,
+                )
+                resolved_question = re.sub(
+                    r"\bthis\b",
+                    previous_subject,
+                    resolved_question,
+                    flags=re.IGNORECASE,
+                )
+
+            prompt_question = resolved_question
+
+            retrieval_question = (
+                previous_user_question
+                + "\n\nFollow-up question:\n"
+                + resolved_question
+            )
 
     if not clean_question:
         return {
@@ -813,7 +947,7 @@ def answer_question(
             "mode": mode,
         }
 
-    if mode == "auto" and not looks_like_rag_query(clean_question):
+    if mode == "auto" and program is None and not looks_like_rag_query(clean_question):
         print("\n🤖 Auto mode chose general...")
         answer = ask_llm_general(clean_question)
         print("✅ Done.\n")
@@ -835,7 +969,7 @@ def answer_question(
         else:
             retrieve_k = max(top_k, 5)
 
-        items = retrieve(clean_question, top_k=retrieve_k)
+        items = retrieve(retrieval_question, top_k=retrieve_k, program=program)
         print(f"DEBUG timing: retrieve={time.perf_counter() - t0:.2f}s")
     else:
         items = preloaded_items
@@ -874,12 +1008,15 @@ def answer_question(
             print("🧠 Building grounded prompt...")
             print("🤖 Generating answer with local model...")
 
-            answer = ask_llm(
-                clean_question,
+            answer = separate_citations(
+                ask_llm(
+                    clean_question,
+                    selected,
+                    weak_retrieval=True,
+                    grounded_expansion=grounded_expansion,
+                    detail_mode=detail_mode,
+                ),
                 selected,
-                weak_retrieval=True,
-                grounded_expansion=grounded_expansion,
-                detail_mode=detail_mode,
             )
 
             print("✅ Done.\n")
@@ -931,6 +1068,12 @@ def answer_question(
                 limit=definition_limit,
             )
 
+        selected = sorted(
+            selected,
+            key=lambda item: float(item.get("score", 0.0)),
+            reverse=True,
+        )
+
     else:
         if detail_mode == "wide":
             model_k = 6
@@ -979,7 +1122,7 @@ def answer_question(
 
     answer = separate_citations(
         ask_llm(
-            clean_question,
+            prompt_question,
             selected,
             grounded_expansion=grounded_expansion,
             detail_mode=detail_mode,
