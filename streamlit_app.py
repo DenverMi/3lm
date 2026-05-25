@@ -16,7 +16,7 @@ def log_conversation_event(event: dict) -> None:
     with CONVERSATION_LOG_PATH.open("a", encoding="utf-8") as f:
         f.write(json.dumps(event, ensure_ascii=False) + "\n")
 
-top_left, top_right = st.columns([6, 1])
+top_left, top_right = st.columns([5, 2])
 
 with top_right:
     program_choice = st.selectbox(
@@ -24,6 +24,11 @@ with top_right:
         ["all", "aliro", "matter", "bluetooth"],
         index=1,
         label_visibility="collapsed",
+    )
+
+    new_chat_clicked = st.button(
+        "New chat",
+        use_container_width=True,
     )
 
 logo_path = Path("assets/company_logo.png")
@@ -45,6 +50,13 @@ if "last_question" not in st.session_state:
 
 if "last_items" not in st.session_state:
     st.session_state["last_items"] = []
+
+if new_chat_clicked:
+    st.session_state["conversation_id"] = str(uuid.uuid4())
+    st.session_state["messages"] = []
+    st.session_state["last_question"] = ""
+    st.session_state["last_items"] = []
+    st.rerun()    
 
 # Show chat history
 for message in st.session_state["messages"]:
