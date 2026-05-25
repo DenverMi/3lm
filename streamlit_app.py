@@ -42,6 +42,9 @@ st.caption("Ask Allion Compliance AI any technical question.")
 if "conversation_id" not in st.session_state:
     st.session_state["conversation_id"] = str(uuid.uuid4())
 
+if "conversation_title" not in st.session_state:
+    st.session_state["conversation_title"] = ""
+
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
 
@@ -69,6 +72,9 @@ question = st.chat_input("Ask a technical question...")
 if question:
     program = None if program_choice == "all" else program_choice
 
+    if not st.session_state["conversation_title"]:
+        st.session_state["conversation_title"] = question[:120]
+
     st.session_state["messages"].append(
         {"role": "user", "content": question}
     )
@@ -77,6 +83,7 @@ if question:
         {
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "conversation_id": st.session_state["conversation_id"],
+            "conversation_title": st.session_state["conversation_title"],
             "role": "user",
             "content": question,
             "program": program_choice,
@@ -117,6 +124,7 @@ if question:
             "content": answer,
             "program": program_choice,
             "event_type": "message",
+            "conversation_title": st.session_state["conversation_title"],
             "source_count": len(items),
         }
     )
@@ -166,6 +174,7 @@ if more_clicked:
             "content": answer,
             "program": program_choice,
             "event_type": "tell_me_more",
+            "conversation_title": st.session_state["conversation_title"],
         }
     )
 
@@ -198,6 +207,7 @@ if wider_clicked:
             "content": answer,
             "program": program_choice,
             "event_type": "search_wider",
+            "conversation_title": st.session_state["conversation_title"],
             "source_count": len(st.session_state["last_items"]),
         }
     )
