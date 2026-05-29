@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0021",
+    "cases": [
+        {
+            "case_id": "thread_0021_case_01",
+            "iut_type": "module-integrated Bluetooth device",
+            "customer_question": "If a product uses a pre-certified Bluetooth module, is Bluetooth SIG RF/RF PHY testing still required for product qualification?",
+            "question_variants": [
+                "Does a certified module eliminate Bluetooth RF testing?",
+                "Can we skip RF PHY testing when using a qualified ESP32 module?",
+                "Is Bluetooth SIG testing required after integrating a certified module?",
+                "Will a module with integrated antenna avoid RF PHY testing?",
+                "Can a product reuse module qualification without additional Bluetooth tests?"
+            ],
+            "actual_issue": "Determining whether Bluetooth SIG RF/RF PHY testing can be waived when integrating previously qualified Bluetooth modules, and understanding the dependency on the exact module variant and antenna implementation.",
+            "plain_english_explanation": "Using a Bluetooth module does not automatically remove all Bluetooth SIG obligations. Some modules already include the required RF qualification evidence, which can allow the final product to skip RF/RF PHY testing if the Bluetooth portion is unchanged. The exact module model matters because some variants are fully reusable while others are not.",
+            "consultant_answer": "The consultant clarified that the referenced module family name represented multiple module variants and that qualification eligibility depended on the exact module model. For the variants with integrated antenna or antenna connector implementations, the Bluetooth SIG RF/RF PHY tests could be waived during product qualification because the module already covered those RF portions. However, even when testing is waived, the final branded product still requires its own Bluetooth SIG product listing under the final company name. The consultant also explained that using a certified module often avoids testing, but the final determination depends on the actual product implementation and whether the Bluetooth-compliant portions remain unchanged.",
+            "decision_logic": "RF/RF PHY test reuse depends on whether the exact integrated module variant already completed the applicable Bluetooth qualification testing and whether the product implementation preserves the qualified Bluetooth design without Bluetooth-related modifications.",
+            "final_recommendation": "Identify the exact module model and confirm its Bluetooth qualification status and QDID/DN coverage before planning testing. If using a fully qualified unmodified module variant, proceed with product listing and reuse the module qualification evidence to avoid unnecessary RF/RF PHY testing.",
+            "risk_if_done_wrong": "Using the wrong module reference or assuming all variants are equally qualified may result in unexpected RF testing requirements, qualification delays, incorrect declarations, or rejected qualification submissions.",
+            "bluetooth_tags": [
+                "qualification",
+                "module",
+                "RF",
+                "RF PHY",
+                "QDID",
+                "reuse",
+                "listing / declaration"
+            ],
+            "search_aliases": [
+                "RF PHY test exemption",
+                "qualified module reuse",
+                "ESP32 module qualification",
+                "module RF reuse",
+                "Bluetooth SIG RF waiver",
+                "pre-certified module",
+                "QDID reuse",
+                "unmodified module design",
+                "RF testing not required"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

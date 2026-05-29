@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0006",
+    "cases": [
+        {
+            "case_id": "thread_0006_case_03",
+            "iut_type": "digital camera",
+            "customer_question": "Can a product include a module QDID that is registered as RF PHY Power Class 1 when the actual product output power behaves as non-Class 1 or Class 2?",
+            "question_variants": [
+                "Can we reference a QDID with RF PHY Class 1 while using lower output power?",
+                "What happens if the module QDID Power Class does not match the product test result?",
+                "Can RF PHY ICS Class 1 be changed to NO when including a module QDID?",
+                "Why does changing RF PHY Power Class trigger additional testing?",
+                "How should we handle a module registered as Class 1 when the product is configured lower?"
+            ],
+            "actual_issue": "The included module QDID declared RF PHY Power Class 1 support, but the finished product operated at lower output power levels closer to Class 1.5/Class 2. Changing the RF PHY ICS to non-Class 1 would invalidate reuse assumptions and require additional RF PHY and LL evidence.",
+            "plain_english_explanation": "The Bluetooth SIG registration for the module said it supported high transmit power, but the finished camera product intentionally used lower power settings. This created a mismatch between the module's registered Bluetooth capability and the product's measured RF behavior. The consultant evaluated whether the customer should force a lower power declaration or continue using the existing module registration.",
+            "consultant_answer": "The consultant identified that the module QDID declared RF PHY ICS Table 1/15 Power Class 1 support, while the customer's RF PHY output measurements were consistent with non-Class 1 operation. The consultant explained that changing the included RF PHY and LL ICS items from YES to NO would require unlocking the layers and submitting additional RF PHY and LL test evidence. The consultant investigated whether the module supplier had another QDID variant registered without Class 1 support. Additional evidence from regulatory filings and datasheets suggested the module's practical operating power aligned more closely with Class 1.5. After discussion, the consultant clarified that SIG registration reflects maximum supported capability and does not require the product to operate permanently at maximum output power. Since the customer intentionally limited output power for SAR and antenna implementation reasons, the consultant ultimately accepted proceeding with the existing Class 1 registration despite the lower configured operating power.",
+            "decision_logic": "A product may include an existing QDID only if the declared ICS capabilities remain consistent with the included design. Changing RF PHY Power Class declarations modifies the ICS and may require additional qualification evidence. However, lower operational transmit settings do not necessarily invalidate a module registration if the hardware and implementation still support the registered maximum capability.",
+            "final_recommendation": "If possible, obtain a supplier QDID variant that matches the intended RF PHY Power Class declaration. If no such variant exists and the implementation still supports the registered maximum capability, proceed using the existing QDID while maintaining supporting technical rationale and qualification records.",
+            "risk_if_done_wrong": "An incorrect RF PHY Power Class declaration can trigger consistency problems, additional RF PHY and LL testing requirements, qualification review rejection, or disputes between product behavior and included QDID capabilities.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "RF PHY",
+                "ICS",
+                "LL",
+                "reuse",
+                "consistency check",
+                "listing"
+            ],
+            "search_aliases": [
+                "RF PHY Power Class mismatch",
+                "QDID include inconsistency",
+                "Class 1 vs Class 2",
+                "RF PHY ICS 1/15",
+                "LE Power Class",
+                "RFPHY test report required",
+                "ICS capability mismatch",
+                "module QDID reuse",
+                "Power Class registration",
+                "LL and RFPHY retest"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

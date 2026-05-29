@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0045",
+    "cases": [
+        {
+            "case_id": "thread_0045_case_01",
+            "iut_type": "module-based end product",
+            "customer_question": "Can a company complete Bluetooth SIG qualification for a product that uses an existing qualified Bluetooth module, and what account and documentation requirements apply?",
+            "question_variants": [
+                "How do we qualify an end product using a pre-qualified Bluetooth module?",
+                "Can we reuse an existing Bluetooth module qualification for our product?",
+                "Does the product owner need its own Bluetooth SIG qualification listing?",
+                "What documents are required for a declaration-style qualification?",
+                "Can the qualification be submitted under another company's Bluetooth SIG account?"
+            ],
+            "actual_issue": "The customer needed to complete a Bluetooth SIG end-product qualification using an existing qualified Bluetooth module while ensuring the correct member account ownership, documentation package, and declaration workflow were used.",
+            "plain_english_explanation": "Using a pre-qualified Bluetooth module does not automatically qualify the final product. The company selling the final product still needs to complete its own Bluetooth SIG qualification steps and submit the product under the correct Bluetooth SIG member account. Proper documentation and included design references must be prepared so the qualification can be approved without unnecessary retesting.",
+            "consultant_answer": "The consultant explained that the qualification could proceed as an end-product declaration using the existing qualified Bluetooth module rather than creating a fully new Bluetooth design qualification. The final product still required qualification ownership under the company marketing the product, so the correct Bluetooth SIG member account and fee entitlement had to be aligned before submission. Required compliance folder evidence included Bluetooth operation descriptions, block diagrams, mechanical information, and antenna-related documentation supporting the embedded module implementation. The consultant also clarified that consistency check issues could be corrected through ICS adjustments before final submission.",
+            "decision_logic": "A final product using a pre-qualified Bluetooth module can often reuse the module qualification path if the implementation does not materially change the qualified Bluetooth design. However, Bluetooth SIG rules still require the final product owner to complete qualification under its own membership and maintain sufficient compliance evidence.",
+            "final_recommendation": "Complete the qualification as an end-product declaration using the existing qualified module references, verify the submission is owned by the correct Bluetooth SIG member account, resolve ICS consistency issues before submission, and prepare the required compliance folder documentation.",
+            "risk_if_done_wrong": "Submitting under the wrong Bluetooth SIG account could prevent completion because qualification ownership and fee entitlement would not align correctly. Missing or inconsistent compliance documentation could delay approval, trigger additional review, or create future audit exposure. Incorrect reuse handling could also lead to unnecessary redesign qualification work or avoidable retesting.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "module",
+                "reuse",
+                "ICS",
+                "consistency check",
+                "declaration",
+                "QDID"
+            ],
+            "search_aliases": [
+                "module reuse qualification",
+                "end product declaration",
+                "Bluetooth SIG account ownership",
+                "QDID reuse",
+                "ICS consistency issue",
+                "qualification under correct member",
+                "module-based listing",
+                "compliance folder documentation",
+                "reuse existing Bluetooth design",
+                "declaration qualification path"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

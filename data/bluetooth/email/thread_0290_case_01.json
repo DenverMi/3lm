@@ -1,0 +1,51 @@
+{
+    "source_thread": "thread_0290",
+    "cases": [
+        {
+            "case_id": "thread_0290_case_01",
+            "iut_type": "audio device",
+            "customer_question": "Can a product that only implements BR/EDR pairing be qualified as a BR/EDR-only Bluetooth product under the current Bluetooth SIG qualification system?",
+            "question_variants": [
+                "Can we register only BR/EDR without BLE?",
+                "Is BR/EDR-only qualification still possible after the 2024 qualification system update?",
+                "Can a product disable BLE functionality but still reference a BR/EDR/LE stack?",
+                "Why does consistency check fail when removing LE layers?",
+                "Can a Classic-only product reuse a dual-mode QDID?",
+                "Do we need RF PHY testing if BLE is not implemented in the product?"
+            ],
+            "actual_issue": "The customer wanted to qualify a product that operationally uses only BR/EDR pairing while reusing existing BR/EDR/LE controller and host stack qualified designs. The newer Qualification Workspace consistency rules created invalid ICS dependencies when attempting to remove LE-related layers from a reused dual-mode design.",
+            "plain_english_explanation": "The Bluetooth SIG qualification system became stricter after the 2024 Qualification Workspace update. If a reused controller or host stack was originally qualified as BR/EDR/LE dual-mode, removing LE layers often causes consistency-check errors because shared protocol layers depend on both BR/EDR and LE lower layers. In practice, many products that only use Classic Bluetooth behavior are still registered as dual-mode products while simply not exposing BLE features in the final product behavior.",
+            "consultant_answer": "The consultant explained that after the 2024-07-01 Qualification Workspace update, dual-mode referenced designs generally must remain dual-mode because consistency checks enforce inter-layer dependencies between GAP, L2CAP, LL, and LMP layers. Attempting to delete LE-related lower layers from a reused BR/EDR/LE qualified design causes Invalid results during consistency checking. Although a theoretical path exists to create a true BR/EDR-only registration by performing new protocol-layer testing and rebuilding stack evidence, this is impractical for most product makers because the required protocol-layer source access and testing would require cooperation from the stack vendor and could cost approximately 2-3 million JPY. The consultant recommended using the existing dual-mode controller and host stack registrations unchanged through the Combine Unmodified Design process while implementing only BR/EDR pairing behavior in the final product.",
+            "decision_logic": "Qualification Workspace consistency rules require inter-layer dependencies to remain valid. Shared upper layers such as GAP and L2CAP depend on both BR/EDR and LE lower-layer structures in reused dual-mode designs. Reusing an existing dual-mode QDID without modification avoids triggering new protocol testing requirements and Invalid consistency results.",
+            "final_recommendation": "Reuse the existing BR/EDR/LE controller and host stack qualified designs through the Combine Unmodified Design process, keep the qualification dual-mode, and limit the shipped product behavior to BR/EDR pairing only without enabling BLE advertising or scanning.",
+            "risk_if_done_wrong": "If LE layers are improperly removed from a reused dual-mode design, the Qualification Workspace consistency check can generate Invalid errors and potentially trigger extensive Core-layer testing requirements. The consultant warned that attempting to rebuild compliant BR/EDR-only stack evidence could become unrealistic in both schedule and cost, with possible additional testing costs of approximately 2-3 million JPY.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "ICS",
+                "consistency check",
+                "BR/EDR",
+                "LE",
+                "Multi-Design",
+                "Combine Unmodified Design"
+            ],
+            "search_aliases": [
+                "BR/EDR-only registration",
+                "dual mode reuse",
+                "Combine Unmodified Design",
+                "ICS invalid",
+                "consistency check failed",
+                "remove LE layer",
+                "Qualification Workspace",
+                "GAP L2CAP dependency",
+                "BR/EDR only product",
+                "dual-mode QDID reuse",
+                "LE removal invalid",
+                "core layer dependency"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

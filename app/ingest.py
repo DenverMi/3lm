@@ -35,19 +35,158 @@ def extract_pdf(path: Path):
 
     return pages
 
-
 def extract_markdown(path: Path):
-    text = path.read_text(encoding="utf-8")
-    text = normalize_text(text)
+    raw = path.read_text(encoding="utf-8")
 
-    if not text:
-        return []
+    pages = []
 
-    return [{
-        "page": 1,
-        "text": text,
-    }]
+    # 1. Extract heading-based sections
+    text = normalize_text(raw)
+    if text:
+        sections = re.split(r"\n(?=#{1,6}\s+)", text)
 
+        for i, section in enumerate(sections, start=1):
+            section = section.strip()
+            if not section:
+                continue
+
+            pages.append({
+                "page": i,
+                "text": section,
+            })
+
+    # 2. Extract ONLY glossary / definition-style Markdown table rows
+    raw_lines = raw.splitlines()
+    table_record_index = 100000
+
+    for idx, line in enumerate(raw_lines):
+        stripped = line.strip()
+
+        if not stripped.startswith("|"):
+            continue
+
+        # skip separator rows
+        if re.fullmatch(r"[:\-\s|]+", stripped):
+            continue
+
+        cells = [c.strip() for c in stripped.split("|") if c.strip()]
+        if len(cells) < 2:
+            continue
+
+        term = cells[0]
+        definition = " ".join(cells[1:])
+
+        term_l = term.lower()
+        definition_l = definition.lower()
+
+        # Reject common non-glossary technical table rows
+        bad_term_markers = [
+            "tag",
+            "length",
+            "octet",
+            "field",
+            "value",
+            "condition",
+            "index",
+            "step",
+            "test",
+            "status",
+            "command",
+            "response",
+            "bit",
+            "byte",
+            "id",
+            "identifier",
+            "parameter",
+            "feature",
+            "cluster",
+            "attribute",
+            "event",
+            "enum",
+            "opcode",
+            "type",
+        ]
+
+        if term_l in bad_term_markers:
+            continue
+
+        if any(term_l.startswith(marker + " ") for marker in bad_term_markers):
+            continue
+
+        # Glossary terms are usually short human terms, not long table descriptions
+        if len(term.split()) > 5:
+            continue
+
+        # Definition should be prose-like, not mostly symbols/numbers
+        if len(definition.split()) < 4:
+            continue
+
+        alpha_chars = sum(ch.isalpha() for ch in definition)
+        if alpha_chars < 20:
+            continue
+
+        # Strong generic definition signals, not domain-specific cheat words
+        definition_signals = [
+            " means ",
+            " refers to ",
+            " defined as ",
+            " used to ",
+            " used for ",
+            " contains ",
+            " containing ",
+        ]
+
+        if not any(sig in f" {definition_l} " for sig in definition_signals):
+            continue
+
+        continuation_lines = []
+        j = idx + 1
+
+        while j < len(raw_lines):
+            nxt = raw_lines[j].strip()
+
+            if not nxt:
+                j += 1
+                continue
+
+            if nxt.startswith("#"):
+                break
+
+            if nxt.startswith("|"):
+                break
+
+            if nxt.startswith("![]"):
+                break
+
+            # stop if continuation looks like a new numbered/list/table-ish item
+            if re.match(r"^(\d+[\.\)]|[-*]\s+)", nxt):
+                break
+
+            continuation_lines.append(nxt)
+            j += 1
+
+            if len(" ".join(continuation_lines)) > 300:
+                break
+
+        continuation = " ".join(continuation_lines)
+
+        row_text = f"{term}: {definition}"
+        if continuation:
+            row_text += f" {continuation}"
+
+        row_text = row_text.replace("<br>", " ")
+        row_text = normalize_text(row_text)
+
+        if not row_text:
+            continue
+
+        pages.append({
+            "page": table_record_index,
+            "text": row_text,
+        })
+        table_record_index += 1
+
+    return pages
 
 def extract_text_file(path: Path):
     text = path.read_text(encoding="utf-8")
@@ -62,16 +201,52 @@ def extract_text_file(path: Path):
     }]
 
 def extract_json_file(path: Path):
-    text = path.read_text(encoding="utf-8")
-    text = normalize_text(text)
+    raw = path.read_text(encoding="utf-8")
+    data = json.loads(raw)
 
-    if not text:
-        return []
+    pages = []
 
-    return [{
-        "page": 1,
-        "text": text,
-    }]
+    # Case 1: already a list of records
+    if isinstance(data, list):
+        for i, item in enumerate(data, start=1):
+            if isinstance(item, dict):
+                text_parts = []
+
+                for key in ["title", "heading", "section", "question", "answer", "content", "text", "body"]:
+                    value = item.get(key)
+                    if value:
+                        text_parts.append(f"{key}: {value}")
+
+                text = normalize_text("\n".join(text_parts))
+                if text:
+                    pages.append({
+                        "page": i,
+                        "text": text,
+                    })
+
+        return pages
+
+    # Case 2: single JSON object
+    if isinstance(data, dict):
+        text_parts = []
+
+        for key in ["title", "heading", "section", "question", "answer", "content", "text", "body"]:
+            value = data.get(key)
+            if value:
+                text_parts.append(f"{key}: {value}")
+
+        # fallback: stringify whole object if known fields are missing
+        if not text_parts:
+            text_parts.append(json.dumps(data, ensure_ascii=False, indent=2))
+
+        text = normalize_text("\n".join(text_parts))
+        if text:
+            return [{
+                "page": 1,
+                "text": text,
+            }]
+
+    return []
 
 def extract_file(path: Path):
     suffix = path.suffix.lower()

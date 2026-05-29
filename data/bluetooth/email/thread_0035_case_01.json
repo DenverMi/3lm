@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0035",
+    "cases": [
+        {
+            "case_id": "thread_0035_case_01",
+            "iut_type": "module-based end product",
+            "customer_question": "How long can additional derivative products be added for free after the initial Bluetooth SIG registration using the same module and host stack?",
+            "question_variants": [
+                "Is there a validity period for free additional Product List registrations?",
+                "Can future similar products be added to the same Bluetooth SIG registration later?",
+                "How long can derivative models be added using the same Bluetooth design?",
+                "Can we continue adding similar devices until the Bluetooth version is withdrawn?",
+                "Do additional models require a new qualification after several years?"
+            ],
+            "actual_issue": "The customer needed clarification on the long-term reuse eligibility of an existing qualified Bluetooth design for future derivative products using the same module and host stack.",
+            "plain_english_explanation": "The customer wanted to know whether future products using the same Bluetooth implementation could continue using the original qualification without paying again. The answer depended on whether the Bluetooth design stayed unchanged and whether the referenced Bluetooth specification version remained valid for reuse.",
+            "consultant_answer": "The consultant explained that after the initial paid registration is completed, derivative products using the same module and host stack can be added to the Product List at no additional qualification fee through the MyBlue 'Manage Submitted Products' workflow. The referenced module used Bluetooth v5.0, so the registration inherits that specification status. As long as the Bluetooth v5.0 design remains valid and unmodified, additional derivative products can continue to be added. The consultant stated that Bluetooth v5.0 was scheduled for deprecation on 2032-02-01, and derivative additions would remain possible until the day before that date. Previously registered products already listed in the Product List can continue to be sold indefinitely unless future SIG policy changes require otherwise.",
+            "decision_logic": "Free derivative product registration is allowed when the later products use the same unmodified Bluetooth module and host stack as the originally qualified design. Reuse remains available while the referenced Bluetooth specification remains eligible for qualification reuse and is not withdrawn.",
+            "final_recommendation": "Complete the initial qualification using a representative product, then add future derivative models through the Product List management workflow as long as the Bluetooth design remains unchanged and the referenced specification version remains reusable.",
+            "risk_if_done_wrong": "If a modified Bluetooth implementation is incorrectly treated as a derivative product reuse case, the company may skip required qualification activities, leading to non-compliant listings or later requalification effort. Waiting until after specification withdrawal may also prevent reuse of the original design.",
+            "bluetooth_tags": [
+                "qualification",
+                "Product List",
+                "module",
+                "host",
+                "reuse",
+                "derivative product",
+                "listing",
+                "v5.0"
+            ],
+            "search_aliases": [
+                "free derivative registration",
+                "Product List add model",
+                "same module same host stack",
+                "reuse existing qualification",
+                "Bluetooth v5.0 reuse",
+                "additional product registration",
+                "Manage Submitted Products",
+                "qualify more products",
+                "derivative model listing",
+                "free product add"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

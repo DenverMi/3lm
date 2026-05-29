@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0025",
+    "cases": [
+        {
+            "case_id": "thread_0025_case_02",
+            "iut_type": "module",
+            "customer_question": "How can a Bluetooth module supplier create a reusable Design Number while minimizing testing and avoiding Host-layer qualification problems?",
+            "question_variants": [
+                "How do we create a reusable DN for OEM customers?",
+                "Can we qualify only the controller portion of the module?",
+                "How can downstream OEMs reuse our Bluetooth qualification?",
+                "Is a Core Controller qualification sufficient for module reuse?",
+                "Can RF PHY-only testing be used for a reusable module design?",
+                "How do we avoid Host stack issues in QPRDv3?"
+            ],
+            "actual_issue": "The company needed a qualification strategy that would provide a reusable Design Number for downstream OEM customers without inheriting problematic Host-layer ICS inconsistencies and associated protocol testing obligations.",
+            "plain_english_explanation": "The company wanted other customers to reuse its Bluetooth qualification in their own products. However, the existing full Bluetooth stack combination caused qualification problems. By narrowing the qualification scope to the controller portion of the design and performing the required radio testing, the company could still create a reusable design for customers while avoiding unnecessary upper-layer qualification work.",
+            "consultant_answer": "The consultant proposed qualifying the SoC-based implementation as a Core Controller design rather than forcing a complete Host and Controller combination through the new consistency checks. This approach isolates the reusable Bluetooth-compliant portion of the implementation and limits required testing to the applicable RF PHY and lower-layer scope. The resulting Design Number can then be referenced by downstream OEM customers in their own qualification submissions.",
+            "decision_logic": "A reusable DN does not require qualification of unnecessary upper protocol layers if the module is positioned and qualified as a Controller-focused design. By limiting qualification scope to implemented compliant layers and avoiding incompatible Host dependencies, the design can pass consistency validation while remaining reusable for downstream products.",
+            "final_recommendation": "Qualify the module as a Core Controller design with the required RF PHY testing and publish the resulting reusable DN for downstream OEM qualification reuse.",
+            "risk_if_done_wrong": "If the module is qualified using an unnecessarily broad Host-plus-Controller architecture, the project may incur avoidable protocol testing, qualification delays, additional debugging work, and downstream reuse complications. Failing to structure the design correctly could also prevent OEM customers from cleanly referencing the resulting qualification artifacts.",
+            "bluetooth_tags": [
+                "qualification",
+                "DN",
+                "module",
+                "reuse",
+                "RF PHY",
+                "controller",
+                "QDID",
+                "QPRDv3"
+            ],
+            "search_aliases": [
+                "reusable DN strategy",
+                "Core Controller qualification",
+                "OEM DN reuse",
+                "module-only qualification",
+                "RF PHY testing only",
+                "avoid Host qualification",
+                "controller design reuse",
+                "downstream qualification reuse",
+                "QPRDv3 module strategy",
+                "controller-focused design"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,5 +1,3 @@
-![](_page_0_Picture_2.jpeg)
-
 # FastTrack Recertification Program
 
 - Addendum to Alliance Certification Policy
@@ -8,29 +6,28 @@
 
 ### Table of Contents
 
-| 10 | Scope                                                     |
-|----|-----------------------------------------------------------|
-| 11 | References                                                |
-| 12 | Abbreviations and Terminology                             |
-| 13 | Overview                                                  |
-| 14 | Checks and Balances                                       |
-| 15 | Scope of Allowed Changes                                  |
-| 16 | Exclusions                                                |
-| 17 | Qualifications                                            |
-| 18 | Member Qualification                                      |
-| 19 | Maintaining Member Qualification                          |
-| 20 | Product Qualification                                     |
-| 21 | Processes & Procedures                                    |
-| 22 | Term of Program                                           |
-| 23 | Appendix A                                                |
-| 24 | Submission during certification:                          |
-| 25 | Unique devices                                            |
+| 10 | Scope |
+| 11 | References |
+| 12 | Abbreviations and Terminology |
+| 13 | Overview |
+| 14 | Checks and Balances |
+| 15 | Scope of Allowed Changes |
+| 16 | Exclusions |
+| 17 | Qualifications |
+| 18 | Member Qualification |
+| 19 | Maintaining Member Qualification |
+| 20 | Product Qualification |
+| 21 | Processes & Procedures |
+| 22 | Term of Program |
+| 23 | Appendix A |
+| 24 | Submission during certification: |
+| 25 | Unique devices |
 | 26 | Large Devices, or device that require systems to function |
-| 27 | Privacy and security policies                             |
-| 28 | Results reporting                                         |
-| 29 | Exception requests                                        |
-| 30 | Requirements for submission to the interop lab            |
-| 31 |                                                           |
+| 27 | Privacy and security policies |
+| 28 | Results reporting |
+| 29 | Exception requests |
+| 30 | Requirements for submission to the interop lab |
+| 31 | |
 
 # <span id="page-2-0"></span>Scope
 
@@ -62,27 +59,26 @@
 
 ### <span id="page-3-0"></span><sup>60</sup> References
 
-- 61 [R1] [CSA Document 15-0288:](https://groups.csa-iot.org/wg/members-all/document/125) Connectivity Standards Alliance Certification Policy
-- <span id="page-3-1"></span>62 [R2] [CSA Document:](https://groups.csa-iot.org/wg/members-all/document/30471) Interop Lab Rules of Engagement
+- 61 [R1] CSA Document 15-0288: Connectivity Standards Alliance Certification Policy
+- <span id="page-3-1"></span>62 [R2] CSA Document: Interop Lab Rules of Engagement
 
 ### <sup>63</sup> Abbreviations and Terminology
 
-| Alliance | Connectivity Standards Alliance                                      |
-|----------|----------------------------------------------------------------------|
-| ATL      | Authorized Test Laboratory                                           |
-| BoD      | Board of Directors                                                   |
-| Alliance | Connectivity Standards Alliance                                      |
-| CSG      | Certification Subgroup                                               |
-| DCL      | Distributed Compliance Ledger                                        |
-| FRP      | FastTrack Recertification Program                                    |
-| Member   | An Alliance member company                                           |
-| PoC      | Point of Contact                                                     |
-| Program  | FastTrack Recertification Program                                    |
-| SC       | Steering Committee                                                   |
-| SVE      | Specification Validation Event                                       |
-| TCOC     | Test and Certification Oversight Committee                           |
-| Vendor   | An Alliance member company that<br>produces/sells certified products |
-| WG       | Working Group                                                        |
+| Alliance | Connectivity Standards Alliance |
+| ATL | Authorized Test Laboratory |
+| BoD | Board of Directors |
+| Alliance | Connectivity Standards Alliance |
+| CSG | Certification Subgroup |
+| DCL | Distributed Compliance Ledger |
+| FRP | FastTrack Recertification Program |
+| Member | An Alliance member company |
+| PoC | Point of Contact |
+| Program | FastTrack Recertification Program |
+| SC | Steering Committee |
+| SVE | Specification Validation Event |
+| TCOC | Test and Certification Oversight Committee |
+| Vendor | An Alliance member company that<br>produces/sells certified products |
+| WG | Working Group |
 
 ### <span id="page-4-0"></span>Overview
 
@@ -117,9 +113,9 @@
 
 - Since the Program removes substantial process burdens and removes an independent validation step relative to the Rapid Recert program, it therefore institutes a few checks and balances to ensure that the Alliance is able to verify the self-test results if needed. To this end, members who qualify for and use the FRP will be required to meet the following conditions:
 - 1. Store the output of the tests for all FRP-related testing for a period of at least five years from the date of the approved certification by the Alliance. Members shall share the results with the Alliance upon request.
-- 2. Share representative samples of the product or platform or family of products or platforms with the Alliance for use in the Alliance Interoperability Lab pursuant to the rules of the Interop Lab (see [Appendix A\)](#page-10-0). This sample must be provided within 3 months of a product first applying for FastTrack recertification. This will allow the Alliance to test the ensuing software updates and validate the member's test results should the need arise. Refer to [Appendix A](#page-10-0) for details of the device submission process to the Interop Lab.
+- 2. Share representative samples of the product or platform or family of products or platforms with the Alliance for use in the Alliance Interoperability Lab pursuant to the rules of the Interop Lab (see Appendix A\). This sample must be provided within 3 months of a product first applying for FastTrack recertification. This will allow the Alliance to test the ensuing software updates and validate the member's test results should the need arise. Refer to Appendix A for details of the device submission process to the Interop Lab.
 
- There is no requirement for the member to wait for the Interop Lab testing results in order to ship the updated product or platform to market or wait to push an over-the-air update to deployed devices.
+There is no requirement for the member to wait for the Interop Lab testing results in order to ship the updated product or platform to market or wait to push an over-the-air update to deployed devices.
 
 #### <span id="page-5-1"></span>Scope of Allowed Changes
 
@@ -182,11 +178,11 @@
 
 #### Use with Certification Transfer Program (CTP)
 
- The Certification Transfer Program (see section 7 of [R1]) allows a Promoter or Participant member to transfer their certification to another Alliance Member without undergoing testing. The transferring recipient may be an Adopter, Associate, Participant or Promoter member.
+The Certification Transfer Program (see section 7 of [R1]) allows a Promoter or Participant member to transfer their certification to another Alliance Member without undergoing testing. The transferring recipient may be an Adopter, Associate, Participant or Promoter member.
 
- FastTrack recertification Program may be used by the transferring member according to the Program requirements described above.
+FastTrack recertification Program may be used by the transferring member according to the Program requirements described above.
 
- The transfer recipient does not directly use the FastTrack recertification Program since they are not required to do testing. If the transfer recipient has previously registered this product and is just receiving a recertification then it will qualify for Expedited CTP Recertification.
+The transfer recipient does not directly use the FastTrack recertification Program since they are not required to do testing. If the transfer recipient has previously registered this product and is just receiving a recertification then it will qualify for Expedited CTP Recertification.
 
 - Expedited CTP recipients are able to issue the updates to in-field devices after receiving an
 - acknowledgement from the Alliance Director of Certifications of the receipt of the recertification
@@ -204,7 +200,7 @@
 ## <span id="page-8-1"></span>Processes & Procedures
 
 - To qualify to participate in the FastTrack Recertification program, a product or platform vendor
-- meeting [all requirements](#page-6-1) outlined in this document shall apply via *certification@csa-iot.org* for
+- meeting all requirements outlined in this document shall apply via *certification@csa-iot.org* for
 - approval by the Director of Certifications. Once approved, the vendor may then choose to retest
 - (self-test) an already certified product or platform with the new software version, as required by
 - the Alliance Certification Policies, using the following procedure. Note that retesting a certified
@@ -212,12 +208,12 @@
 - Recertification process.
 - The following procedure shall be followed:
 - 1. All relevant testing is performed by the product vendor using the latest applicable approved test harness and test scripts, utilizing other devices/components as required by Working Group and Alliance Certification policies.
-- 2. The scope of the features eligible for the FRP must be consistent with the device type(s) and platform as originally tested and certified for the product and must fall within the [permitted list.](#page-5-1)
+- 2. The scope of the features eligible for the FRP must be consistent with the device type(s) and platform as originally tested and certified for the product and must fall within the permitted list.
 - 3. Testing is supervised by and/or test results are reviewed by one or more vendor PoCs for accuracy and to ensure compliance with test procedures and policies.
 - 4. Any errors or anomalies encountered during testing are reviewed by the PoC. Legitimate test failures shall be remediated and relevant test cases re-run to ensure that all required tests pass cleanly on the prospective software version/instantiation.
-- 5. Upon successful completion of all relevant tests, a registered PoC shall attest to the veracity and legitimacy of the results bundle in the Declaration of Conformity [\(https://groups.csa-iot.org/wg/members-all/document/126\)](https://groups.csa-iot.org/wg/members-all/document/126).
+- 5. Upon successful completion of all relevant tests, a registered PoC shall attest to the veracity and legitimacy of the results bundle in the Declaration of Conformity \(https://groups.csa-iot.org/wg/members-all/document/126\).
 
-- a. The registered PoC must additionally ensure that the test results are stored in a manner that can be retrieved and shared with the Alliance upon request from the Alliance Director of Certifications during the retention period documented under [Program Requirements.](#page-5-0)
+- a. The registered PoC must additionally ensure that the test results are stored in a manner that can be retrieved and shared with the Alliance upon request from the Alliance Director of Certifications during the retention period documented under Program Requirements.
 - 6. The registered PoC must then send the completed Declaration of Conformity document along with other supporting documents (for example, PICS or attestations) to the Director of Certifications to make a decision on the issuance of certification.
 - a. If the software update contains urgent fixes then, when the Director of Certifications acknowledges receipt of the request for issuance of certification, the member company may deploy the software to certified products without waiting for a formal issuance of certification. Note that certification of the updated product is still subsequently required.
 - The Program builds upon existing Alliance and Working Group Certification Policy and procedures. All existing aspects of certification remain in force, including but not limited to:
@@ -259,7 +255,7 @@
 - testing completion, with the goal to have testing completed within 3 weeks of samples arriving at
 - the lab. (See "Exception requests" below for how to request to opt out of the number of samples,
 - or submission). The product submission process begins by following the instructions at
-- <span id="page-10-2"></span>[https://community.csa-iot.org/page/interoperability.](https://community.csa-iot.org/page/interoperability)
+- <span id="page-10-2"></span>https://community.csa-iot.org/page/interoperability.
 
 #### Unique devices
 

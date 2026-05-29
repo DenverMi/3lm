@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0040",
+    "cases": [
+        {
+            "case_id": "thread_0040_case_02",
+            "iut_type": "OEM or rebranded Bluetooth product",
+            "customer_question": "If the seller or brand owner changes while the Bluetooth design stays the same, does the new selling company need its own Bluetooth qualification?",
+            "question_variants": [
+                "Does a rebranded Bluetooth product need a new qualification?",
+                "Can a new seller use the existing QDID only?",
+                "If the manufacturer stays the same but the brand changes, is qualification required?",
+                "Does an OEM customer need its own Bluetooth SIG listing?",
+                "Can a supplier qualify products on behalf of customers?",
+                "Does changing the sales company require Bluetooth qualification?"
+            ],
+            "actual_issue": "Clarification of Bluetooth SIG qualification responsibility for rebranded or OEM products when the sales company changes.",
+            "plain_english_explanation": "The thread discusses whether a company selling a Bluetooth product under its own brand can rely on another company’s qualification. Bluetooth SIG qualification responsibility belongs to the company selling or branding the product, not necessarily the manufacturer. Even if the hardware is identical, a new selling company must complete its own qualification process.",
+            "consultant_answer": "Bluetooth SIG requires the company selling or branding the Bluetooth product to become a SIG member and complete qualification. Whether the manufacturer changes or not, each selling company must complete qualification registration for products sold under its own brand. Manufacturing company information is not part of the mandatory qualification registration, so changing manufacturers alone does not force a new qualification if the Bluetooth design is unchanged. However, a new sales entity or rebranding scenario still requires qualification by the selling company.",
+            "decision_logic": "Qualification responsibility is tied to the branded selling entity, not the physical manufacturer. A supplier or ODM cannot complete qualification on behalf of another company’s branded product.",
+            "final_recommendation": "Each company selling or rebranding the Bluetooth product should complete its own Bluetooth SIG qualification using the existing qualified design where applicable.",
+            "risk_if_done_wrong": "A company selling Bluetooth products without its own qualification may violate Bluetooth SIG licensing and trademark requirements, leading to enforcement actions, blocked product sales, or invalid branding usage.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "QDID",
+                "OEM",
+                "rebrand",
+                "member",
+                "trademark",
+                "Product List"
+            ],
+            "search_aliases": [
+                "rebrand qualification",
+                "OEM Bluetooth qualification",
+                "new seller qualification",
+                "sales company qualification",
+                "brand owner qualification",
+                "supplier cannot qualify for customer",
+                "rebranding existing QDID",
+                "Bluetooth SIG member requirement",
+                "OEM reuse scenario",
+                "selling company responsibility"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

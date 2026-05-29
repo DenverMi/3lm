@@ -1,5 +1,3 @@
-![](_page_0_Picture_0.jpeg)
-
 # **Matter Certification Declaration Overview**
 
 # <span id="page-0-0"></span>**Notice and Disclaimer**
@@ -16,27 +14,20 @@ This notice and disclaimer must be included on all copies of this document.
 
 # <span id="page-0-1"></span>**Revision History**
 
-| Revision | Date       | Author                 | Comments                                                                                    |
-|----------|------------|------------------------|---------------------------------------------------------------------------------------------|
-| 0.1      | 08/30/2022 | [CSA]<br>JC<br>Pacheco | Initial<br>document                                                                         |
-| 0.2      | 09/08/2022 | [CSA]<br>JC<br>Pacheco | Added<br>update<br>about<br>provisional<br>CDs                                              |
-| 1.0      | 10/03/2022 | [CSA]<br>JC<br>Pacheco | Implemented<br>feedback<br>and<br>added<br>info<br>from<br>Intermediate<br>CAs<br>in<br>DCL |
+| Revision | Date | Author | Comments |
+| 0.1 | 08/30/2022 | [CSA]<br>JC<br>Pacheco | Initial<br>document |
+| 0.2 | 09/08/2022 | [CSA]<br>JC<br>Pacheco | Added<br>update<br>about<br>provisional<br>CDs |
+| 1.0 | 10/03/2022 | [CSA]<br>JC<br>Pacheco | Implemented<br>feedback<br>and<br>added<br>info<br>from<br>Intermediate<br>CAs<br>in<br>DCL |
 
-![](_page_1_Picture_0.jpeg)
-
-| Notice and Disclaimer                                                                                                                                                                                                                                                            |                            |  |  |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|--|--|
-| Revision History<br>Certification Declaration                                                                                                                                                                                                                                    |                            |  |  |
-|                                                                                                                                                                                                                                                                                  |                            |  |  |
-| Certification Declaration PKI                                                                                                                                                                                                                                                    | 3                          |  |  |
-| Certification Declaration Signing Certs and Keys<br>Development and Testing CD - Signing Cert and Key<br>Production CD - Signing Cert                                                                                                                                            | 3<br>3<br>4                |  |  |
-| Download 'Production CD - Signing Cert' from DCL<br>Web User Interface<br>CLI Client<br>REST API                                                                                                                                                                                 | 4<br>4<br>5<br>5           |  |  |
-| Certification Declaration Signing Procedure                                                                                                                                                                                                                                      | 6                          |  |  |
-| Certification Declaration Verification Procedure (to be added to specification)                                                                                                                                                                                                  | 6                          |  |  |
-| Appendix A. Alliance Certificate Authorities raw text<br>Matter Certification and Testing CA<br>Certification Declaration Signing Key 001<br>Certification Declaration Signing Key 002<br>Certification Declaration Signing Key 003<br>Certification Declaration Signing Key 004 | 7<br>7<br>7<br>7<br>8<br>8 |  |  |
-| Certification Declaration Signing Key 005                                                                                                                                                                                                                                        | 8                          |  |  |
-
-![](_page_2_Picture_0.jpeg)
+| Notice and Disclaimer | | | |
+| Revision History<br>Certification Declaration | | | |
+| Certification Declaration PKI | 3 | | |
+| Certification Declaration Signing Certs and Keys<br>Development and Testing CD - Signing Cert and Key<br>Production CD - Signing Cert | 3<br>3<br>4 | | |
+| Download 'Production CD - Signing Cert' from DCL<br>Web User Interface<br>CLI Client<br>REST API | 4<br>4<br>5<br>5 | | |
+| Certification Declaration Signing Procedure | 6 | | |
+| Certification Declaration Verification Procedure (to be added to specification) | 6 | | |
+| Appendix A. Alliance Certificate Authorities raw text<br>Matter Certification and Testing CA<br>Certification Declaration Signing Key 001<br>Certification Declaration Signing Key 002<br>Certification Declaration Signing Key 003<br>Certification Declaration Signing Key 004 | 7<br>7<br>7<br>7<br>8<br>8 | | |
+| Certification Declaration Signing Key 005 | 8 | | |
 
 # <span id="page-2-0"></span>**Certification Declaration**
 
@@ -60,9 +51,7 @@ The 'Certification Declaration Signing Cert' is a certificate used to sign a Cer
 
 ### <span id="page-2-4"></span>**Development and Testing CD - Signing Cert and Key**
 
-The Matter SDK contains a [Signing Certificate](https://github.com/project-chip/connectedhomeip/blob/master/credentials/test/certification-declaration/Chip-Test-CD-Signing-Cert.pem) with its [Private Key](https://github.com/project-chip/connectedhomeip/blob/master/credentials/test/certification-declaration/Chip-Test-CD-Signing-Key.pem) used for testing and development. The manufacturers can use these cert/key to sign the Testing CD, so no Alliance involvement is needed. These files can be used during development to create a Testing CD with the product information, the certification\_type may be set to "provisional" during Validation
-
-![](_page_3_Picture_0.jpeg)
+The Matter SDK contains a Signing Certificate with its Private Key used for testing and development. The manufacturers can use these cert/key to sign the Testing CD, so no Alliance involvement is needed. These files can be used during development to create a Testing CD with the product information, the certification\_type may be set to "provisional" during Validation
 
 Events. After the certification is completed, the Testing CD is replaced with the Production CD provided by the Alliance.
 
@@ -73,24 +62,22 @@ The Production CD Signing Certs are available in the Distributed Compliance Ledg
 - **●** Web User Interface: <https://webui.dcl.csa-iot.org/>
 - **●** CSA ON host DCL endpoints:
 
-| Endpoint       | Host                       | Port  | Usage      |
-|----------------|----------------------------|-------|------------|
-| REST           | https://on.dcl.csa-iot.org | 443   | REST API   |
-| gRPC           | on.dcl.csa-iot.org         | 8443  | gRPC API   |
+| Endpoint | Host | Port | Usage |
+| REST | https://on.dcl.csa-iot.org | 443 | REST API |
+| gRPC | on.dcl.csa-iot.org | 8443 | gRPC API |
 | Tendermint RPC | https://on.dcl.csa-iot.org | 26657 | CLI client |
 
 Certification Declaration key records on Main-Net DCL
 
-| Subject as Text                                 | Subject                                                                                                                          | Subject Key Id                                                  |  |  |  |  |
-|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|--|--|--|--|
-| Matter Certification<br>and Testing CA          | MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1UEAwwjTWF0<br>dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFD<br>ASBgorBgEEAYKifAIBDARDNUEw         | 97:E4:69:D0:C5:04:14:C2:6F:C7:01:F7:<br>7E:94:77:39:09:8D:F6:A5 |  |  |  |  |
-| Certification<br>Declaration Signing<br>Key 001 | MFgxDDAKBgNVBAoMA0NTQTEyMDAGA1UEAwwpQ2Vy<br>dGlmaWNhdGlvbiBEZWNsYXJhdGlvbiBTaWduaW5nIEtle<br>SAwMDExFDASBgorBgEEAYKifAIBDARDNUEw | FE:34:3F:95:99:47:76:3B:61:EE:45:39:<br>13:13:38:49:4F:E6:7D:8E |  |  |  |  |
-| Certification<br>Declaration Signing<br>Key 002 | MFgxDDAKBgNVBAoMA0NTQTEyMDAGA1UEAwwpQ2Vy<br>dGlmaWNhdGlvbiBEZWNsYXJhdGlvbiBTaWduaW5nIEtle<br>SAwMDIxFDASBgorBgEEAYKifAIBDARDNUEw | DD:04:DB:58:5B:21:4C:1C:58:15:87:E6<br>:56:8D:F4:87:B6:DD:C7:01 |  |  |  |  |
-| Certification<br>Declaration Signing<br>Key 003 | MFgxDDAKBgNVBAoMA0NTQTEyMDAGA1UEAwwpQ2Vy<br>dGlmaWNhdGlvbiBEZWNsYXJhdGlvbiBTaWduaW5nIEtle<br>SAwMDMxFDASBgorBgEEAYKifAIBDARDNUEw | 47:10:35:E7:C0:4E:AA:A8:BE:7C:4D:4C<br>:13:E3:E4:C2:09:95:A8:4B |  |  |  |  |
-| Certification<br>Declaration Signing<br>Key 004 | MFgxDDAKBgNVBAoMA0NTQTEyMDAGA1UEAwwpQ2Vy<br>dGlmaWNhdGlvbiBEZWNsYXJhdGlvbiBTaWduaW5nIEtle<br>SAwMDMxFDASBgorBgEEAYKifAIBDARDNUEw | F6:86:03:A3:69:2E:98:10:72:41:9E:A1:<br>E1:AB:38:54:BD:77:95:D3 |  |  |  |  |
-| Certification<br>Declaration Signing<br>Key 005 | MFgxDDAKBgNVBAoMA0NTQTEyMDAGA1UEAwwpQ2Vy<br>dGlmaWNhdGlvbiBEZWNsYXJhdGlvbiBTaWduaW5nIEtle<br>SAwMDMxFDASBgorBgEEAYKifAIBDARDNUEw | 63:7F:26:34:AD:62:EA:FE:6A:F6:62:EF:<br>B9:6F:6F:D2:FC:BF:FC:2F |  |  |  |  |
+| Subject as Text | Subject | Subject Key Id | | | | |
+| Matter Certification<br>and Testing CA | MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1UEAwwjTWF0<br>dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFD<br>ASBgorBgEEAYKifAIBDARDNUEw | 97:E4:69:D0:C5:04:14:C2:6F:C7:01:F7:<br>7E:94:77:39:09:8D:F6:A5 | | | | |
+| Certification<br>Declaration Signing<br>Key 001 | MFgxDDAKBgNVBAoMA0NTQTEyMDAGA1UEAwwpQ2Vy<br>dGlmaWNhdGlvbiBEZWNsYXJhdGlvbiBTaWduaW5nIEtle<br>SAwMDExFDASBgorBgEEAYKifAIBDARDNUEw | FE:34:3F:95:99:47:76:3B:61:EE:45:39:<br>13:13:38:49:4F:E6:7D:8E | | | | |
+| Certification<br>Declaration Signing<br>Key 002 | MFgxDDAKBgNVBAoMA0NTQTEyMDAGA1UEAwwpQ2Vy<br>dGlmaWNhdGlvbiBEZWNsYXJhdGlvbiBTaWduaW5nIEtle<br>SAwMDIxFDASBgorBgEEAYKifAIBDARDNUEw | DD:04:DB:58:5B:21:4C:1C:58:15:87:E6<br>:56:8D:F4:87:B6:DD:C7:01 | | | | |
+| Certification<br>Declaration Signing<br>Key 003 | MFgxDDAKBgNVBAoMA0NTQTEyMDAGA1UEAwwpQ2Vy<br>dGlmaWNhdGlvbiBEZWNsYXJhdGlvbiBTaWduaW5nIEtle<br>SAwMDMxFDASBgorBgEEAYKifAIBDARDNUEw | 47:10:35:E7:C0:4E:AA:A8:BE:7C:4D:4C<br>:13:E3:E4:C2:09:95:A8:4B | | | | |
+| Certification<br>Declaration Signing<br>Key 004 | MFgxDDAKBgNVBAoMA0NTQTEyMDAGA1UEAwwpQ2Vy<br>dGlmaWNhdGlvbiBEZWNsYXJhdGlvbiBTaWduaW5nIEtle<br>SAwMDMxFDASBgorBgEEAYKifAIBDARDNUEw | F6:86:03:A3:69:2E:98:10:72:41:9E:A1:<br>E1:AB:38:54:BD:77:95:D3 | | | | |
+| Certification<br>Declaration Signing<br>Key 005 | MFgxDDAKBgNVBAoMA0NTQTEyMDAGA1UEAwwpQ2Vy<br>dGlmaWNhdGlvbiBEZWNsYXJhdGlvbiBTaWduaW5nIEtle<br>SAwMDMxFDASBgorBgEEAYKifAIBDARDNUEw | 63:7F:26:34:AD:62:EA:FE:6A:F6:62:EF:<br>B9:6F:6F:D2:FC:BF:FC:2F | | | | |
 
-The generation of each of these keys were held under a Ceremony. The Ceremony recordings and related documentation are available [here.](https://groups.csa-iot.org/wg/matter-wg/document/folder/2134)
+The generation of each of these keys were held under a Ceremony. The Ceremony recordings and related documentation are available here.
 
 # <span id="page-3-1"></span>**Download 'Production CD - Signing Cert' from DCL**
 
@@ -100,13 +87,11 @@ The generation of each of these keys were held under a Ceremony. The Ceremony re
 - 2. Go to the 'PKI' section
 - 3. On the search box, type "Matter Certification and Testing CA"
 
-![](_page_4_Picture_0.jpeg)
-
 4. Click on the "Download" button from a Root CA or Intermediate CA to get the certificate PEM file.
 
 ### <span id="page-4-0"></span>**CLI Client**
 
-- 1. Download the ['dcld' CLI client](https://github.com/zigbee-alliance/distributed-compliance-ledger/releases)
+- 1. Download the 'dcld' CLI client
 - 2. Configure the ON endpoint. ie to use CSA's ON:
 
 ```
@@ -150,27 +135,25 @@ cgQ0ExFDASBgorBgEEAYKifAIBDARDNUEw \
 --subject-key-id 97:E4:69:D0:C5:04:14:C2:6F:C7:01:F7:7E:94:77:39:09:8D:F6:A5
 ```
 
-Information about CLI commands [here.](https://github.com/zigbee-alliance/distributed-compliance-ledger/blob/master/docs/how-to.md)
+Information about CLI commands here.
 
 ### <span id="page-4-1"></span>**REST API**
 
 - 1. Open a web browser
-- 2. Query a Certificate using the subject and subjectKeyId: [https://on.dcl.csa-iot.org/dcl/pki/certificates/{](https://on.dcl.csa-iot.org/dcl/pki/certificates/%7Bsubject%7D/%7BsubjectKeyId)**subject**}/{**subjectKeyId**}
-  - *ie. Matter Certification and Testing CA* [https://on.dcl.csa-iot.org/dcl/pki/certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1](https://on.dcl.csa-iot.org/dcl/pki/certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEAYKifAIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3A01%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5) [UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEAYKif](https://on.dcl.csa-iot.org/dcl/pki/certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEAYKifAIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3A01%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5)
+- 2. Query a Certificate using the subject and subjectKeyId: https://on.dcl.csa-iot.org/dcl/pki/certificates/{**subject**}/{**subjectKeyId**}
+- *ie. Matter Certification and Testing CA* https://on.dcl.csa-iot.org/dcl/pki/certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1 UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEAYKif
 
-![](_page_5_Picture_0.jpeg)
-
-[AIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3A01](https://on.dcl.csa-iot.org/dcl/pki/certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEAYKifAIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3A01%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5) [%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5](https://on.dcl.csa-iot.org/dcl/pki/certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEAYKifAIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3A01%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5)
+AIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3A01 %3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5
 
 3. Query the Child Certificates by issuer (root cert's subject) and authorityKeyId (root cert's subjectKeyId)
 
-[https://on.dcl.csa-iot.org/dcl/pki/child-certificates/{](https://on.dcl.csa-iot.org/dcl/pki/child-certificates/%7Bissuer%7D/%7BauthorityKeyId)**issuer**}/{**authorityKeyId**}
+https://on.dcl.csa-iot.org/dcl/pki/child-certificates/{**issuer**}/{**authorityKeyId**}
 
 *ie. Matter Certification and Testing CA*
 
-[https://on.dcl.csa-iot.org/dcl/pki/child-certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCo](https://on.dcl.csa-iot.org/dcl/pki/child-certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEAYKifAIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3A01%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5) [GA1UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEA](https://on.dcl.csa-iot.org/dcl/pki/child-certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEAYKifAIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3A01%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5) [YKifAIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3](https://on.dcl.csa-iot.org/dcl/pki/child-certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEAYKifAIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3A01%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5) [A01%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5](https://on.dcl.csa-iot.org/dcl/pki/child-certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCoGA1UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEAYKifAIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3A01%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5)
+https://on.dcl.csa-iot.org/dcl/pki/child-certificates/MFIxDDAKBgNVBAoMA0NTQTEsMCo GA1UEAwwjTWF0dGVyIENlcnRpZmljYXRpb24gYW5kIFRlc3RpbmcgQ0ExFDASBgorBgEEA YKifAIBDARDNUEw/97%3AE4%3A69%3AD0%3AC5%3A04%3A14%3AC2%3A6F%3AC7%3 A01%3AF7%3A7E%3A94%3A77%3A39%3A09%3A8D%3AF6%3AA5
 
-Information about REST API [here](https://on.dcl.csa-iot.org/).
+Information about REST API here.
 
 # <span id="page-5-0"></span>**Certification Declaration Signing Procedure**
 
@@ -178,15 +161,13 @@ For testing through an SVE or through a certification program, a manufacturer MA
 
 Upon a successful certification, an Official Certification Declaration with the certification type set to certified (certification\_type = 2) SHALL be signed by the CSA Certification and Testing team and provided to the manufacturer for inclusion in the production version of the product. Lastly, the CSA Certification and Testing team will add an entry in the DCL to announce the certification of this PID/VID/SoftwareVersion.
 
-**Note:** The Certification Declaration signing procedure follows the same structure as the [certification\\_declaration\\_test\\_vector.py](https://github.com/CHIP-Specifications/connectedhomeip-spec/blob/master/src/crypto_primitives/certification_declaration_test_vector.py) example from the [connectedhomeip-spec](https://github.com/CHIP-Specifications/connectedhomeip-spec) repository with the difference that it uses an HSM instead of a PEM file for the private Key to sign the Certification Declaration blobs.
+**Note:** The Certification Declaration signing procedure follows the same structure as the certification\\_declaration\\_test\\_vector.py example from the connectedhomeip-spec repository with the difference that it uses an HSM instead of a PEM file for the private Key to sign the Certification Declaration blobs.
 
 # <span id="page-5-1"></span>**Certification Declaration Verification Procedure (to be added to specification)**
 
 To verify a Certification Declaration file, commissioners with access to the DCL information SHALL check the DCL information for this PID/VID/SoftwareVersion for the up-to-date status of the certification.
 
 If the DCL does not contain any entries pertaining to the particular PID/VID/SoftwareVersion combo, the commissioners SHALL treat the product as uncertified.
-
-![](_page_6_Picture_0.jpeg)
 
 ### <span id="page-6-0"></span>**Appendix A. Alliance Certificate Authorities raw text**
 
@@ -220,8 +201,6 @@ ZDASBgNVHRMBAf8ECDAGAQH/AgEAMA4GA1UdDwEB/wQEAwIBhjAdBgNVHQ4EFgQU
 OQmN9qUwCgYIKoZIzj0EAwIDSQAwRgIhAJruzxZ806CP/LoQ07PN9xAbjLdwUalV
 h0Qfx304Tb92AiEAk+jnf2qtyfKyTEHpT3Xf3bfekqUOA+8ikB1yjL5oTsI=
 ----END CERTIFICATE----
-
-![](_page_7_Picture_0.jpeg)
 
 ### <span id="page-7-0"></span>**Certification Declaration Signing Key 003**
 

@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0029",
+    "cases": [
+        {
+            "case_id": "thread_0029_case_01",
+            "iut_type": "module",
+            "customer_question": "How can an unreleased Bluetooth product be listed in the Bluetooth SIG qualification database without exposing confidential product details before launch?",
+            "question_variants": [
+                "Can we hide product details before launch?",
+                "Is the Bluetooth SIG product description public?",
+                "Can we use a generic description in the listing?",
+                "How do we protect confidential product information during qualification?",
+                "Can publication timing be controlled for a Bluetooth listing?"
+            ],
+            "actual_issue": "The customer needed to complete Bluetooth SIG qualification for an unreleased product while avoiding public disclosure of sensitive product information in the public qualified product listing.",
+            "plain_english_explanation": "Bluetooth SIG qualification listings become publicly visible and require a product description. Companies with unreleased products may worry that qualification activity will expose launch details too early. The thread explains how to satisfy the listing requirement while minimizing disclosure risk.",
+            "consultant_answer": "The consultant explained that the product description field is mandatory because it appears in the public Bluetooth SIG listing database. However, the description does not need to reveal confidential commercial details and can be written generically. The consultant also explained that publication timing controls can be used so the qualification listing does not become publicly visible before the intended release schedule.",
+            "decision_logic": "Bluetooth SIG listings require public-facing metadata, but the qualification rules allow generic wording that still identifies the product category without exposing sensitive launch information. Publication timing and neutral descriptions can balance compliance and confidentiality.",
+            "final_recommendation": "Use a generic product description that satisfies Bluetooth SIG listing requirements while avoiding confidential marketing details, and coordinate publication timing before public launch.",
+            "risk_if_done_wrong": "Using overly detailed listing information could expose unreleased product information publicly before launch. Failing to provide required listing information could delay qualification completion.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "declaration",
+                "module",
+                "SIG"
+            ],
+            "search_aliases": [
+                "public listing description",
+                "generic product description",
+                "confidential Bluetooth listing",
+                "Bluetooth SIG public database",
+                "hidden product launch",
+                "qualification publication timing",
+                "pre-release product listing",
+                "Bluetooth listing visibility"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

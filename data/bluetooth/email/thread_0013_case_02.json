@@ -3,19 +3,45 @@
     "cases": [
         {
             "case_id": "thread_0013_case_02",
-            "iut_type": "",
-            "customer_question": "Can existing certification test reports (e.g., regulatory RF reports) be used as ICS for Bluetooth profile qualification?",
-            "actual_issue": "Misunderstanding of ICS requirements—customer is attempting to substitute unrelated test reports for required Bluetooth ICS documentation.",
-            "consultant_answer": "Regulatory test reports (e.g., from certification bodies) are not equivalent to Bluetooth ICS. ICS is a formal document defining supported features of a Bluetooth profile and must follow SIG-provided templates. It is required input for generating the test plan and must be completed based on the implementation, typically by software engineers.",
-            "final_recommendation": "Obtain and complete the official Bluetooth SIG ICS form for the implemented profile (e.g., DIS), ensuring all supported features are correctly declared before testing.",
-            "bluetooth_tags": [
-                "ICS",
-                "profile",
-                "DIS",
-                "documentation",
-                "test plan"
+            "iut_type": "lighting device",
+            "customer_question": "Does a Bluetooth product using a newly designed BLE module require RF PHY testing and profile PTS testing instead of module reuse qualification?",
+            "question_variants": [
+                "Do we need RF PHY testing for a custom BLE module?",
+                "What changes when using a BLE SoC instead of a pre-qualified module?",
+                "Is PTS testing required for DIS profile implementation?",
+                "Can RF testing be skipped when using our own module design?",
+                "What testing is required for a new BLE module qualification?"
             ],
-            "qualification_stage": "pre-test review"
+            "actual_issue": "The customer moved from using a previously qualified Bluetooth module to a newly designed BLE module based on a BLE chip and needed to understand the additional Bluetooth SIG qualification testing requirements.",
+            "plain_english_explanation": "Using a pre-qualified Bluetooth module can reduce qualification testing because lower-layer Bluetooth testing may already be covered. When a company designs its own BLE module from the chipset level, the Bluetooth SIG qualification becomes more involved. RF PHY testing and profile interoperability testing may become mandatory.",
+            "consultant_answer": "The consultant explained that the qualification flow is generally similar between a qualified module product and a custom BLE chip/module implementation, but a major difference is that RF PHY testing is mandatory for products using a chip-level or custom module implementation. In addition, SIG-defined profiles such as DIS require PTS profile testing. Proprietary profiles are outside Bluetooth SIG qualification scope and are not tested. The actual test scope depends on the implemented BLE chipset, stack, and supported profiles.",
+            "decision_logic": "Reuse of existing qualified RF evidence is possible for pre-qualified modules, but new or modified Bluetooth controller implementations require RF PHY verification and applicable profile interoperability testing. SIG-defined profiles trigger mandatory PTS-based testing requirements.",
+            "final_recommendation": "Identify the BLE chipset, stack, and implemented SIG profiles, then perform RF PHY testing and required profile PTS testing for the new module-based design before qualification submission.",
+            "risk_if_done_wrong": "Assuming module reuse rules apply to a newly designed module can result in missing mandatory RF or profile testing, causing qualification rejection, redesign delays, or re-testing.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "PTS",
+                "DIS",
+                "profile",
+                "module",
+                "controller",
+                "testing",
+                "LE"
+            ],
+            "search_aliases": [
+                "custom BLE module qualification",
+                "RF PHY mandatory",
+                "PTS DIS testing",
+                "chip-level Bluetooth qualification",
+                "SoC qualification flow",
+                "module reuse limitation",
+                "BLE controller testing",
+                "profile interoperability testing"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

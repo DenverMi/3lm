@@ -4,18 +4,38 @@
         {
             "case_id": "thread_0013_case_05",
             "iut_type": "lighting device",
-            "customer_question": "Can products with different antenna implementations (chip antenna vs external antenna) be registered separately or reused?",
-            "actual_issue": "Determining whether antenna variations require separate qualification or can be treated as variants.",
-            "consultant_answer": "If the module part number remains the same, antenna variations at the product level (chip vs external antenna) can be treated as derivative products and added to the product listing without additional qualification cost.",
-            "final_recommendation": "Register one base product and add antenna variants as derivative products under the same listing without additional fees.",
-            "bluetooth_tags": [
-                "listing",
-                "derivative",
-                "reuse",
-                "antenna",
-                "module"
+            "customer_question": "What should be done if a Bluetooth SIG account verification code is sent to an inaccessible former company email address?",
+            "question_variants": [
+                "Bluetooth SIG verification code sent to old email",
+                "Cannot access SIG login verification email",
+                "How to recover locked Bluetooth SIG account",
+                "Can another user recover our SIG account?",
+                "What if the registered SIG email belongs to a former employer?"
             ],
-            "qualification_stage": "listing / declaration"
+            "actual_issue": "The customer could not complete Bluetooth SIG account verification because the registered email address belonged to a previous employer and could no longer receive the verification code.",
+            "plain_english_explanation": "Bluetooth SIG periodically verifies user accounts by sending a code to the registered email address. If the old email account is inaccessible, the user cannot unlock the account. Another person cannot recover the account on their behalf.",
+            "consultant_answer": "The consultant explained that Bluetooth SIG periodically locks accounts pending verification and sends a six-digit verification code to the registered email address. If the user cannot access the former employer email account, another person cannot restore the account. The correct approach is to create a new Bluetooth SIG user account using a currently accessible company email address.",
+            "decision_logic": "Bluetooth SIG account ownership and verification are tied to the registered email account, and account recovery cannot bypass ownership verification.",
+            "final_recommendation": "Create a new Bluetooth SIG account using a valid current company email address and use the new account for qualification activities.",
+            "risk_if_done_wrong": "Failure to restore or replace the account can block invoice payment, qualification submission, and access to qualification workspace activities.",
+            "bluetooth_tags": [
+                "SIG account",
+                "listing",
+                "qualification workspace",
+                "account verification"
+            ],
+            "search_aliases": [
+                "Bluetooth SIG login locked",
+                "verification code old email",
+                "SIG account recovery",
+                "cannot access registered email",
+                "Bluetooth SIG MFA issue",
+                "qualification workspace login",
+                "verification code problem"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

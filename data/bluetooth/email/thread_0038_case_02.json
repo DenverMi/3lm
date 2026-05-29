@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0038",
+    "cases": [
+        {
+            "case_id": "thread_0038_case_02",
+            "iut_type": "",
+            "customer_question": "How should Bluetooth SIG member identity be verified before starting qualification registration work?",
+            "question_variants": [
+                "How do we confirm the correct Bluetooth SIG member company?",
+                "What if the SIG member search returns the wrong company?",
+                "How should adopter membership be validated?",
+                "Can qualification proceed without confirming the legal member entity?",
+                "Why is member company verification important before registration?"
+            ],
+            "actual_issue": "The consultant initially identified the wrong Bluetooth SIG member company during membership lookup and later corrected the conclusion after realizing the company names did not match the customer.",
+            "plain_english_explanation": "Bluetooth SIG qualification records belong to a specific legal member company. The consultant initially matched the customer to an unrelated member company in the SIG database, but later corrected the mistake. The thread shows the importance of confirming the exact legal member name before qualification work begins.",
+            "consultant_answer": "The consultant first reported that a company named [xxx COMPANY] appeared as an Adopter member in the Bluetooth SIG member search. A later review determined that this company was unrelated to the customer because searches using the customer's known company names did not match. The consultant instructed internal staff to ask the customer for the exact company name used for Bluetooth SIG membership registration before proceeding further.",
+            "decision_logic": "Bluetooth qualification ownership and submission rights are tied to the exact Bluetooth SIG member entity. Similar or unrelated company names in the member database cannot be assumed to represent the customer without direct confirmation.",
+            "final_recommendation": "Always confirm the customer's exact Bluetooth SIG legal member name and account identity before starting qualification registration, invoice handling, or qualification planning.",
+            "risk_if_done_wrong": "Using the wrong member entity could cause incorrect qualification ownership, registration delays, submission errors, or billing and account mismatches that require rework.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "member account",
+                "declaration",
+                "registration"
+            ],
+            "search_aliases": [
+                "wrong SIG member company",
+                "Bluetooth member verification",
+                "Adopter lookup mismatch",
+                "legal entity confirmation",
+                "incorrect member search result",
+                "member account validation",
+                "qualification ownership mismatch",
+                "SIG company name verification"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

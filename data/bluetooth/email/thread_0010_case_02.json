@@ -4,18 +4,39 @@
         {
             "case_id": "thread_0010_case_02",
             "iut_type": "",
-            "customer_question": "If the Bluetooth module vendor changes but the QDID remains the same, is a new qualification or update required?",
-            "actual_issue": "Impact of module supplier change when the referenced QDID remains unchanged.",
-            "consultant_answer": "The consultant clarifies that if the QDID remains the same and the module is properly listed under that QDID (even if the manufacturer changes), then the end product referencing that QDID does not require any additional qualification action.",
-            "final_recommendation": "No action is required as long as the product continues to reference the same valid QDID and no Bluetooth-related design changes are introduced.",
-            "bluetooth_tags": [
-                "QDID",
-                "module",
-                "reuse",
-                "no change",
-                "listing"
+            "customer_question": "Is it acceptable for a consultant or intermediary to obtain Bluetooth SIG login credentials from the customer to support qualification registration?",
+            "question_variants": [
+                "Can a consultant use the customer's Bluetooth SIG login?",
+                "Is sharing Qualification Workspace credentials allowed?",
+                "Should the Bluetooth SIG username belong to the customer representative?",
+                "Can third parties access the customer's qualification account?",
+                "Who should own the Qualification Workspace user account?"
             ],
-            "qualification_stage": "post-launch change"
+            "actual_issue": "The parties were unsure whether Bluetooth SIG Qualification Workspace login credentials should belong to the customer representative and whether sharing those credentials with a consultant was acceptable during qualification support activities.",
+            "plain_english_explanation": "The customer and consultant needed to coordinate access to the Bluetooth SIG qualification system. They were concerned about whether login credentials should belong to the customer and whether the consultant could request or use those credentials. The discussion focused on account ownership and practical registration handling.",
+            "consultant_answer": "The consultant clarified that the Bluetooth SIG login and qualification registration should align with the member company responsible for the product qualification. The thread indicates concern about whether a consultant could request or use customer credentials, while the consultant emphasized using the account associated with the company responsible for the product branding and qualification submission.",
+            "decision_logic": "Bluetooth qualification submissions must be performed under the responsible member company's account. Operational access may involve consultants, but the account ownership and qualification responsibility remain with the member company associated with the product.",
+            "final_recommendation": "Use a Bluetooth SIG user account associated with the responsible member company and coordinate qualification support access procedures internally before sharing credentials or submission responsibilities.",
+            "risk_if_done_wrong": "Improper account handling may create security concerns, confusion about submission ownership, or disputes regarding responsibility for qualification records and declarations.",
+            "bluetooth_tags": [
+                "qualification",
+                "Qualification Workspace",
+                "member account",
+                "listing",
+                "submission support"
+            ],
+            "search_aliases": [
+                "Qualification Workspace credentials",
+                "Bluetooth SIG login sharing",
+                "consultant account access",
+                "customer login support",
+                "member account responsibility",
+                "qualification account ownership",
+                "submission access control"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "medium",
+            "source_type": "email_case"
         }
     ]
 }

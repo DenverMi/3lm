@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0028",
+    "cases": [
+        {
+            "case_id": "thread_0028_case_03",
+            "iut_type": "module",
+            "customer_question": "Why does Bluetooth RF PHY testing fail or timeout in Two-Wire mode while HCI mode succeeds?",
+            "question_variants": [
+                "Two-Wire RF PHY timeout",
+                "Serial - HCI works but Two-Wire fails",
+                "RF PHY command response timeout",
+                "Automation Explore HCI success only",
+                "RF PHY test cannot start",
+                "InterLab RF PHY communication failure"
+            ],
+            "actual_issue": "The DUT and qualification test system were configured with incompatible Direct Test Mode communication settings, causing RF PHY command-response failures in Two-Wire mode while HCI mode communication worked correctly.",
+            "plain_english_explanation": "Bluetooth RF PHY testing requires the tester and DUT to communicate using the correct test command protocol. In this case, the DUT failed in Two-Wire mode but responded correctly in HCI mode. The problem was caused by using the wrong communication method and test setup assumptions.",
+            "consultant_answer": "The consultant investigated several possible causes including missing Direct Test firmware, UART wiring mistakes, and incorrect Direct Test Mode configuration. Testing with Automation Explore showed that all commands timed out in Serial - Two-Wire mode but succeeded in Serial - HCI mode. The consultant concluded that the DUT properly responded in HCI mode and instructed the lab team to rerun RF PHY testing using Serial - HCI instead of the originally assumed Two-Wire configuration.",
+            "decision_logic": "Bluetooth RF PHY testing depends on matching the DUT Direct Test Mode implementation with the tester communication mode. If the DUT only correctly supports HCI-based DTM communication, Two-Wire mode testing will fail even though the RF functionality itself may be valid.",
+            "final_recommendation": "Verify the DUT Direct Test Mode implementation and use the communication mode that successfully passes command-response validation, such as Serial - HCI in this case, before running RF PHY qualification tests.",
+            "risk_if_done_wrong": "Using the wrong DTM communication mode can cause repeated RF PHY failures, invalid timeout results, wasted lab time, and unnecessary escalation with the IC vendor.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "HCI",
+                "DTM",
+                "UART",
+                "testing",
+                "InterLab",
+                "module"
+            ],
+            "search_aliases": [
+                "Two-Wire timeout",
+                "Serial HCI success",
+                "DTM mode mismatch",
+                "RF PHY timeout",
+                "Automation Explore",
+                "HCI RF PHY",
+                "UART DTM issue",
+                "LE Test End timeout",
+                "RF PHY command failure",
+                "Direct Test Mode"
+            ],
+            "qualification_stage": "test failure",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

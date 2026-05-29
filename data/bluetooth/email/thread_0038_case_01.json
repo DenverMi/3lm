@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0038",
+    "cases": [
+        {
+            "case_id": "thread_0038_case_01",
+            "iut_type": "air purifier",
+            "customer_question": "Can a product using a pre-qualified ESP32 Bluetooth module complete Bluetooth SIG qualification quickly without additional testing after receiving an enforcement warning?",
+            "question_variants": [
+                "Can we avoid Bluetooth testing by using a qualified ESP32 module?",
+                "How quickly can Bluetooth SIG registration be completed for a module-based product?",
+                "Does an ESP32-C3-WROOM module allow qualification reuse?",
+                "Can we resolve a Bluetooth SIG enforcement warning using module reuse?",
+                "Is additional Bluetooth testing required for a product using ESP32-C3-WROOM-02?"
+            ],
+            "actual_issue": "The customer had not completed Bluetooth SIG qualification because they believed qualification was unnecessary without using the Bluetooth logo, but the product still required qualification. The consultant needed to determine whether the product could leverage an already qualified ESP32 module and complete qualification without new testing.",
+            "plain_english_explanation": "The product already used a Bluetooth module that had existing Bluetooth qualification coverage. Because the Bluetooth portion of the design was likely unchanged, the consultant determined that new hardware testing might not be necessary. Instead, the case could potentially be handled through registration support and compliance documentation to quickly address the Bluetooth SIG warning.",
+            "consultant_answer": "The consultant reviewed the module datasheet and confirmed that the ESP32-[ID]02 was an already qualified antenna-integrated module with an identified Host Subsystem combination. Based on this reuse scenario, the consultant concluded that the case could likely proceed without additional testing if the Bluetooth-compliant portions were unchanged. Internal guidance stated that registration support could potentially be completed within approximately three working days in the no-test scenario. The consultant also clarified that the applicant company itself would still need to pay the Bluetooth SIG registration fee directly.",
+            "decision_logic": "Bluetooth qualification obligations apply even if the Bluetooth logo is not used. If a product uses a previously qualified Bluetooth module and the Bluetooth-compliant implementation remains unchanged, qualification reuse may eliminate the need for additional testing. Qualification can then proceed primarily through declaration, registration, and compliance documentation.",
+            "final_recommendation": "Verify that the final product fully matches the qualified ESP32 module reuse conditions and proceed with Bluetooth SIG qualification registration using the existing module qualification evidence instead of initiating new testing.",
+            "risk_if_done_wrong": "If the module reuse conditions are incorrectly assumed, the product may lack required qualification coverage or require additional testing later. Failure to complete Bluetooth SIG qualification after receiving an enforcement warning could prolong compliance exposure and delay resolution. Incorrect assumptions about qualification obligations could also lead to unnecessary testing cost or registration delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "module",
+                "reuse",
+                "listing",
+                "declaration",
+                "host",
+                "compliance folder",
+                "enforcement"
+            ],
+            "search_aliases": [
+                "ESP32 qualification reuse",
+                "ESP32-C3-WROOM qualification",
+                "qualified module no retest",
+                "Bluetooth SIG enforcement warning",
+                "module-based qualification",
+                "reuse existing QDID",
+                "registration only qualification",
+                "no Bluetooth logo still requires qualification",
+                "host subsystem reuse",
+                "Bluetooth qualification without testing"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -4,19 +4,44 @@
         {
             "case_id": "thread_0012_case_01",
             "iut_type": "module",
-            "customer_question": "How should RF PHY testing be controlled and executed, and what tools and interfaces (e.g., BlueTest3, HCI, serial control) are required?",
-            "actual_issue": "Lack of defined test control method and missing documentation/tools for putting the DUT into test mode and executing RF PHY tests, preventing proper RF PHY qualification testing.",
-            "consultant_answer": "RF PHY testing requires a defined control interface and procedure to place the device into DUT/test mode. The referenced approach relies on vendor-specific tools (e.g., BlueTest3 from Qualcomm BlueSuite). However, simply providing the installer is insufficient; proper execution requires user guides and clear instructions on connection setup, control interface (e.g., HCI vs 2-wire), baud rate, and whether external fixtures or interfaces are used. Without this information, the test system cannot control the DUT or execute required RF PHY test cases.",
-            "final_recommendation": "Obtain complete documentation and tooling from the chipset/vendor provider, including BlueSuite/BlueTest3 user guides and detailed RF PHY test procedures (interfaces, commands, wiring, baud rate). Ensure the DUT can be reliably placed into test mode and controlled by the test system before starting RF PHY testing.",
-            "bluetooth_tags": [
-                "RF PHY",
-                "testing",
-                "test setup",
-                "HCI",
-                "controller",
-                "test tool"
+            "customer_question": "Can the product be qualified as Bluetooth Class 1 when combining the selected Qualcomm controller stack and host stack QDIDs?",
+            "question_variants": [
+                "Can RF be registered as Class 1?",
+                "Why does the consistency check fail for RF Class 1?",
+                "How do we resolve the RF/LMP invalid dependency error?",
+                "Can RF PHY be Class 1 while RF remains Class 2?",
+                "Which ICS settings allow the design to pass consistency check?"
             ],
-            "qualification_stage": "testing"
+            "actual_issue": "The selected controller and host stack combination produced an inter-layer dependency inconsistency during Bluetooth SIG consistency check when RF was configured as Class 1.",
+            "plain_english_explanation": "The product combined existing Bluetooth designs, but the selected Class 1 RF settings conflicted with mandatory lower-layer requirements. The Bluetooth qualification system detected that enabling RF Class 1 required an additional LMP capability that was not present. The consultant verified which ICS combinations would remove the inconsistency and still allow the desired RF PHY behavior.",
+            "consultant_answer": "The consultant imported the referenced QDIDs into a draft project and executed the Bluetooth SIG consistency check using the requested RF and RF PHY ICS settings. The result showed that RF PHY configured as Class 1 did not create LL inconsistencies, but RF configured as Class 1 triggered an ILD error requiring an additional mandatory LMP feature. The consultant concluded that the design could not proceed with RF:Class 1 using the current included design combination. A later Qualcomm controller stack modification resolved the inconsistency and allowed RF:Class 1 and RF PHY:Class 1 to coexist without invalid dependencies, provided RF/RF PHY testing passes.",
+            "decision_logic": "Bluetooth SIG consistency check validates inter-layer dependencies across included QDIDs and ICS selections. If RF Class 1 is enabled, the related mandatory LMP capability must also be supported. When the included controller stack lacks the required dependency, the design cannot proceed until either the ICS selections are changed or the underlying included design is modified.",
+            "final_recommendation": "Run consistency check using the exact included QDIDs and intended ICS settings before qualification. If RF Class 1 causes ILD invalid errors, either use RF:Class 2 with RF PHY:Class 1 or update the controller stack design so the required LMP dependencies are satisfied before testing and listing.",
+            "risk_if_done_wrong": "If the RF and LMP dependencies are not aligned, the Bluetooth SIG consistency check will fail and the qualification cannot proceed to submission. Incorrect ICS selections can also lead to failed RF/RF PHY planning, retesting, and project delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "consistency check",
+                "ILD",
+                "RF",
+                "RF PHY",
+                "QDID",
+                "Class 1"
+            ],
+            "search_aliases": [
+                "RF Class 1 invalid",
+                "ICS consistency check failed",
+                "If RF supported then LMP mandatory",
+                "RF PHY Class 1",
+                "ILD mismatch",
+                "QDID combination invalid",
+                "RF Class 2 workaround",
+                "LMP dependency error",
+                "controller stack inconsistency"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

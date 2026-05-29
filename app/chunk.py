@@ -210,6 +210,43 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     chunks: List[Dict[str, Any]] = []
     chunk_index = 0
 
+    # Synthetic records from Markdown table rows should become standalone chunks.
+    # These are created by ingest.py with large page numbers (100000+).
+    normal_pages = []
+    synthetic_pages = []
+
+    for p in doc_pages:
+        if p.get("page", 0) >= 100000:
+            synthetic_pages.append(p)
+        else:
+            normal_pages.append(p)
+
+    for p in synthetic_pages:
+        text = p["text"].strip()
+        if not text:
+            continue
+
+        chunk_kind = detect_chunk_kind(text)
+        if chunk_kind == "body":
+            chunk_kind = "definition"
+
+        chunk_id = f"{program}:{doc_type}:{doc_name}:t{p['page']:05d}"
+
+        chunks.append({
+            "chunk_id": chunk_id,
+            "program": program,
+            "doc_type": doc_type,
+            "source_type": infer_source_type(doc_type, doc_name),
+            "doc_name": doc_name,
+            "chunk_kind": chunk_kind,
+            "priority": infer_priority(doc_type, doc_name, chunk_kind),
+            "page_start": p["page"],
+            "page_end": p["page"],
+            "text": text,
+        })
+
+    doc_pages = normal_pages
+
     # Section-aware chunking for FAQ/reference/policy-like docs
     if doc_type in {"reference", "policies"}:
         sections = split_reference_sections(full_text)

@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0022",
+    "cases": [
+        {
+            "case_id": "thread_0022_case_03",
+            "iut_type": "module-based audio product",
+            "customer_question": "Can HFP profile testing be avoided by reusing an existing qualified module and profile subsystem QDID?",
+            "question_variants": [
+                "Do we need HFP PTS testing if the module is already qualified?",
+                "Can we reuse an existing HFP QDID?",
+                "How can we avoid uploading HFP test reports?",
+                "Can an older qualified HFP profile subsystem still be referenced?",
+                "Is there a way to complete SIG registration without new HFP testing?"
+            ],
+            "actual_issue": "The originally referenced HFP Profile Subsystem QDID used a deprecated or unusable HFP version, preventing direct reuse for qualification. A different active Profile Subsystem QDID containing valid HFP 1.8 support had to be identified to avoid new HFP testing.",
+            "plain_english_explanation": "The customer wanted to avoid modifying firmware or running additional HFP qualification tests because the product already used a qualified Bluetooth module. However, the previously used profile registration was no longer usable due to specification lifecycle rules. The consultant identified a newer compatible Profile Subsystem registration that could legally support the product registration without requiring new HFP test reports.",
+            "consultant_answer": "The consultant explained that the earlier product registration referenced a module plus a Profile Subsystem containing HFP, which previously allowed HFP testing to be waived. However, the originally referenced HFP registration had become unusable because it contained an obsolete HFP version and could no longer be referenced in the current qualification process. After researching alternatives, the consultant found an active Infineon AIROC Bluetooth Audio Profile Package registration containing HFP 1.8 AG/HF support. By combining the existing module registration with this active Profile Subsystem QDID, the product could be registered without uploading new HFP PTS reports. The customer accepted this approach, and the planned profile testing was cancelled.",
+            "decision_logic": "Existing qualified designs and profile subsystem registrations can be reused only if they remain valid under current Bluetooth qualification rules. Deprecated or withdrawn profile versions cannot always be referenced, so an active compatible QDID or DN must be used.",
+            "final_recommendation": "Reuse the existing module qualification together with an active HFP 1.8 Profile Subsystem QDID that is still accepted by the current Bluetooth qualification system, and complete registration using the referenced qualified designs instead of performing new HFP testing.",
+            "risk_if_done_wrong": "Using obsolete or unreferenceable QDIDs can block qualification submission, force unexpected testing, require firmware changes, or delay product release.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "reuse",
+                "HFP",
+                "Profile Subsystem",
+                "listing",
+                "deprecated specification"
+            ],
+            "search_aliases": [
+                "reuse HFP QDID",
+                "Profile Subsystem reuse",
+                "deprecated HFP version",
+                "active HFP 1.8 QDID",
+                "avoid HFP PTS testing",
+                "module qualification reuse",
+                "registration without test report",
+                "obsolete QDID reference",
+                "AIROC Bluetooth Audio Profile Package"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

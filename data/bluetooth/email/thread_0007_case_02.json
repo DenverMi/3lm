@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0007",
+    "cases": [
+        {
+            "case_id": "thread_0007_case_02",
+            "iut_type": "BLE smart lock key",
+            "customer_question": "Can qualification proceed using Combine Unmodified Designs even when the referenced included designs already contain an inter-layer inconsistency?",
+            "question_variants": [
+                "Can an existing inter-layer inconsistency be inherited during qualification?",
+                "Does Combine Unmodified Designs bypass consistency check issues?",
+                "Can registration succeed without changing the ICS?",
+                "Is it acceptable to reuse a referenced design that already contains a GAP-LL inconsistency?",
+                "Can qualification proceed if the inconsistency originates from the referenced QDID?"
+            ],
+            "actual_issue": "The customer needed to know whether qualification could proceed by directly including existing referenced designs without modifying ICS settings, even though the referenced designs themselves already contained a known GAP-LL inter-layer inconsistency.",
+            "plain_english_explanation": "The included Bluetooth designs already had a mismatch inside the original supplier registration. Instead of editing the Bluetooth feature declarations, the consultant recommended reusing the referenced designs exactly as originally registered. Because the inconsistency already existed in the approved references and no modifications were made, qualification could still proceed.",
+            "consultant_answer": "The consultant explained that normal combination registration with ICS modification triggered inter-layer consistency errors. However, using the 'Combine Unmodified Designs' flow without changing the ICS allowed the registration to proceed without additional testing requirements in this specific case. The consultant clarified that the resulting registration would inherit the same existing inter-layer inconsistency already present in the referenced design, but the qualification validity would be considered equivalent to the original referenced registration because the inconsistency originated upstream and was not newly introduced by the customer.",
+            "decision_logic": "When included Bluetooth designs are reused without modification, qualification reuse may preserve existing approved inconsistencies from the referenced design. Modifying the ICS would create a new evaluated configuration requiring consistency validation, while unmodified reuse preserves the original qualification basis.",
+            "final_recommendation": "If qualification must proceed and the inconsistency already exists in the referenced approved designs, use the unmodified design combination flow without changing ICS declarations and retain documentation explaining the inherited inconsistency source.",
+            "risk_if_done_wrong": "If the ICS is modified instead of preserving the original referenced configuration, the submission may trigger new consistency failures, additional qualification requirements, or rejection during SIG review.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "DN",
+                "ICS",
+                "consistency check",
+                "reuse",
+                "listing",
+                "Combine Unmodified Designs"
+            ],
+            "search_aliases": [
+                "Combine Unmodified Designs",
+                "inherit inconsistency",
+                "existing QDID inconsistency",
+                "reuse without ICS change",
+                "GAP-LL inherited mismatch",
+                "unmodified design combination",
+                "consistency error workaround",
+                "qualification reuse flow",
+                "ICS unchanged reuse",
+                "referenced design inconsistency"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

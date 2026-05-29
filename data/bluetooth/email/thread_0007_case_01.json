@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0007",
+    "cases": [
+        {
+            "case_id": "thread_0007_case_01",
+            "iut_type": "BLE smart lock key",
+            "customer_question": "Can a Core-Host Design Number that supports Channel Sounding be combined with a Core-Controller Design Number that does not support Channel Sounding?",
+            "question_variants": [
+                "Why does GAP-LL inter-layer inconsistency occur with Channel Sounding settings?",
+                "Can CS-enabled Host and CS-disabled Controller QDIDs be combined?",
+                "How do we resolve GAP-LL consistency check errors for Channel Sounding?",
+                "Can a CS-supported Connect SDK Host be used with a non-CS controller?",
+                "Which Design Number combination avoids Channel Sounding inconsistency?"
+            ],
+            "actual_issue": "The customer attempted to combine a Core-Host design declaring Channel Sounding support with a Core-Controller design that did not support Channel Sounding, causing GAP-LL inter-layer consistency check failures during Bluetooth qualification.",
+            "plain_english_explanation": "Bluetooth qualification checks whether all included Bluetooth layers declare compatible features. In this case, the Host layer said Channel Sounding was supported while the Controller layer said it was not. Because the two layers disagreed, the SIG consistency check rejected the registration.",
+            "consultant_answer": "The consultant explained that the referenced Core-Host Design Number was derived from a subset design but still had GAP ICS items for Channel Sounding enabled. Since the selected Core-Controller design did not support Channel Sounding, the GAP-LL inter-layer dependency check failed and the combination could not be newly registered using a normal modified design flow. The consultant advised that a non-Channel-Sounding Host design would be required to avoid the inconsistency and suggested confirming with the supplier whether a CS-disabled Connect SDK Host registration existed for the newer SDK version.",
+            "decision_logic": "Bluetooth qualification consistency checks require feature support declarations across GAP and LL layers to match. If a Host layer declares Channel Sounding support while the linked Controller layer does not, the inter-layer dependency validation fails and the design combination becomes invalid for standard qualification reuse.",
+            "final_recommendation": "Use a Host Design Number whose ICS declarations match the Controller's Channel Sounding capability, or obtain a supplier-provided CS-disabled Host registration for the desired SDK version before proceeding with qualification.",
+            "risk_if_done_wrong": "If incompatible Host and Controller designs are combined, the consistency check will fail, preventing successful qualification registration and potentially forcing redesign, alternate QDID selection, or additional qualification work.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "DN",
+                "ICS",
+                "consistency check",
+                "GAP",
+                "LL",
+                "Channel Sounding"
+            ],
+            "search_aliases": [
+                "GAP-LL inconsistency",
+                "Channel Sounding mismatch",
+                "CS supported host",
+                "CS unsupported controller",
+                "inter-layer dependency error",
+                "ICS inconsistency",
+                "QDID combination invalid",
+                "Connect SDK Host mismatch",
+                "Channel Sounding YES NO mismatch",
+                "Core Host Core Controller mismatch"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

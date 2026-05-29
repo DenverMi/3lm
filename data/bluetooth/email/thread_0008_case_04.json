@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0008",
+    "cases": [
+        {
+            "case_id": "thread_0008_case_04",
+            "iut_type": "BLE peripheral device",
+            "customer_question": "Are terms like 'BLE' allowed in Bluetooth SIG Product Names during qualification listing?",
+            "question_variants": [
+                "Can Product Name contain BLE?",
+                "What Bluetooth terminology is prohibited in SIG listings?",
+                "Should BLE be replaced with Bluetooth LE?",
+                "Why was the Product Name rejected by SIG guidelines?",
+                "What naming format does SIG recommend for LE products?"
+            ],
+            "actual_issue": "The submitted Product Name used the abbreviation 'BLE', which violated Bluetooth SIG naming guidelines for listing terminology.",
+            "plain_english_explanation": "The Bluetooth SIG has naming rules for official qualification listings. The abbreviation 'BLE' is not an approved public-facing Bluetooth branding term in Product Names. The consultant corrected the listing to use the approved term 'Bluetooth LE' instead.",
+            "consultant_answer": "The consultant identified that the submitted Product Name contained the term 'BLE', which was prohibited under Bluetooth SIG naming guidelines. The consultant corrected the registration to use the SIG-preferred expression 'Bluetooth LE' and regenerated the Review page before final submission.",
+            "decision_logic": "Bluetooth SIG branding and listing guidelines restrict the terminology permitted in public registration data. Non-approved abbreviations such as 'BLE' must be replaced with approved terminology such as 'Bluetooth LE'.",
+            "final_recommendation": "Use Bluetooth SIG-approved terminology such as 'Bluetooth LE' in Product Names and listing descriptions instead of unsupported abbreviations like 'BLE'.",
+            "risk_if_done_wrong": "Using prohibited Bluetooth terminology may require listing correction, resubmission, or review delays before qualification approval.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "branding",
+                "Product Name",
+                "Bluetooth LE"
+            ],
+            "search_aliases": [
+                "BLE prohibited term",
+                "Bluetooth LE naming",
+                "SIG branding guideline",
+                "Product Name correction",
+                "BLE naming issue",
+                "listing terminology",
+                "Bluetooth trademark guidance",
+                "Review page correction",
+                "SIG approved wording",
+                "BLE to Bluetooth LE"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

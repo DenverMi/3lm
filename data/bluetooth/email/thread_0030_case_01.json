@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0030",
+    "cases": [
+        {
+            "case_id": "thread_0030_case_01",
+            "iut_type": "medical device",
+            "customer_question": "Can an existing Bluetooth qualification design still reference older Subset IDs after the July 2024 Bluetooth SIG registration system changes?",
+            "question_variants": [
+                "Can legacy Subset IDs still be used in a new declaration?",
+                "Why does the new registration system reject older Subset IDs?",
+                "Can we reuse previous Link Layer and Host Layer Subset IDs?",
+                "Is the existing Nordic S112 qualification still valid for declaration?",
+                "How should we rebuild a qualification design when old Subset IDs are unsupported?"
+            ],
+            "actual_issue": "The proposed Bluetooth qualification structure relied on legacy Subset IDs that were no longer accepted under the updated Bluetooth SIG registration system introduced after July 1, 2024.",
+            "plain_english_explanation": "The customer wanted to reuse previously qualified Bluetooth components to avoid new testing and reduce cost. However, the Bluetooth SIG system rules changed, and some older qualification references could no longer be directly reused in new registrations. The consultant had to find another compliant qualification path using compatible existing QDIDs.",
+            "consultant_answer": "The consultant determined that the originally planned Link Layer and Host Layer Subset ID references were incompatible with the post-2024 Bluetooth SIG registration rules. To preserve qualification reuse, the consultant searched for an alternative qualified implementation using Nordic S112 v7.2.0 and rebuilt the qualification structure using valid Link Layer and Host Layer references while retaining the preferred KAGA FEI PHY Layer reference. The revised combination was validated in a temporary project review to confirm that no additional Test Plans or new testing requirements were triggered.",
+            "decision_logic": "Bluetooth SIG qualification reuse depends on whether referenced QDIDs and Subset IDs remain eligible under the current registration system rules. When legacy references are no longer accepted, the correct approach is to locate a compatible fully qualified implementation and rebuild the declaration using currently valid references without changing the effective stack architecture.",
+            "final_recommendation": "Replace obsolete Subset ID references with currently accepted qualified implementations that match the required stack version, then validate the complete QDID combination in a temporary project before final declaration submission.",
+            "risk_if_done_wrong": "Using unsupported legacy Subset IDs could cause declaration rejection, qualification delays, unnecessary redesign of the qualification structure, or unexpected testing requirements during SIG review.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "subset",
+                "reuse",
+                "listing",
+                "host",
+                "controller",
+                "module"
+            ],
+            "search_aliases": [
+                "legacy Subset ID invalid",
+                "post-2024 registration rule",
+                "QDID reuse rejected",
+                "Subset ID unsupported",
+                "Nordic S112 v7.2.0 reuse",
+                "qualification structure rebuild",
+                "temporary project validation",
+                "Multi-Design Option 2b",
+                "Bluetooth SIG declaration issue",
+                "existing QDID replacement"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

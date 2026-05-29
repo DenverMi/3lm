@@ -1,0 +1,51 @@
+{
+    "source_thread": "thread_0290",
+    "cases": [
+        {
+            "case_id": "thread_0290_case_04",
+            "iut_type": "audio device",
+            "customer_question": "What documents, test setup materials, and scheduling dependencies are required to complete Bluetooth RF qualification testing?",
+            "question_variants": [
+                "What documents are needed for Bluetooth RF testing?",
+                "What must be included in the compliance folder?",
+                "What is required before RF testing can be scheduled?",
+                "Why is the test setup procedure important?",
+                "What export documents are needed for overseas testing?",
+                "How can calibration downtime affect qualification schedules?"
+            ],
+            "actual_issue": "The qualification project depended on accurate RF-only scope definition, preparation of compliance documentation, overseas shipment paperwork, and alignment with RF test system calibration schedules.",
+            "plain_english_explanation": "Bluetooth RF qualification requires more than just the device under test. The laboratory needed questionnaires, test setup procedures, Bluetooth operation descriptions, antenna information, and shipping paperwork before testing could proceed. Scheduling was also affected by periodic calibration of the RF test system, which limited available test windows.",
+            "consultant_answer": "The consultant requested questionnaires, test setup procedures, DUT modifications, Bluetooth operation descriptions, block diagrams, enclosure drawings, and antenna datasheets for compliance-folder preparation and RF testing. During review, the consultant detected a mismatch between BR/EDR profile declarations and RF PHY references in the submitted test setup documentation and asked the customer to confirm that the product was truly RF-only. The consultant also explained that the InterLab RF qualification system would be unavailable during overseas calibration and that earlier shipment coordination or export-control documentation could have enabled earlier Taiwan-lab testing.",
+            "decision_logic": "Bluetooth RF qualification scheduling depends on both technical scope validation and operational readiness. Accurate implementation scope prevents incorrect test planning, while shipment timing, export-control documentation, and calibrated test equipment availability determine whether testing can occur within the desired schedule window.",
+            "final_recommendation": "Validate RF-only scope before scheduling, prepare all compliance-folder documents early, coordinate export-control paperwork before overseas shipment decisions, and align test sample delivery with laboratory calibration availability.",
+            "risk_if_done_wrong": "If the implementation scope is misunderstood, incorrect RF or RF PHY testing may be scheduled. Missing export-control paperwork can delay overseas testing, while poor coordination with calibration downtime can delay qualification completion by weeks.",
+            "bluetooth_tags": [
+                "RF",
+                "qualification",
+                "compliance folder",
+                "testing",
+                "RF PHY",
+                "test setup",
+                "antenna",
+                "InterLab"
+            ],
+            "search_aliases": [
+                "compliance folder documents",
+                "RF test setup",
+                "InterLab calibration",
+                "Bluetooth RF testing schedule",
+                "export control document",
+                "non-applicability certificate",
+                "antenna datasheet",
+                "RF-only product",
+                "qualification scheduling",
+                "test sample shipment",
+                "Bluetooth operation manual",
+                "RF full item testing"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

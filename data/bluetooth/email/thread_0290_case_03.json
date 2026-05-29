@@ -1,0 +1,51 @@
+{
+    "source_thread": "thread_0290",
+    "cases": [
+        {
+            "case_id": "thread_0290_case_03",
+            "iut_type": "audio device",
+            "customer_question": "How should qualification proceed when reused Bluetooth stack designs generate ICS consistency-check Invalid errors?",
+            "question_variants": [
+                "What should we do if consistency check shows Invalid?",
+                "Can we reuse a design with ICS inconsistencies?",
+                "How does Combine Unmodified Design work?",
+                "Can an existing QDID with Invalid dependencies still be reused?",
+                "Why are new consistency rules breaking older qualified designs?",
+                "Can we avoid Core-layer retesting when Invalid appears?"
+            ],
+            "actual_issue": "The reused controller and host stack qualification references produced multiple HCI, LL, LMP, and IAL Invalid consistency-check errors under updated Qualification Workspace rules. The customer needed a way to complete qualification without triggering impractical Core-layer testing.",
+            "plain_english_explanation": "Older Bluetooth qualified designs may no longer satisfy newer consistency-check rules even though they were valid when originally qualified. Rebuilding or modifying those stack layers can trigger extremely large protocol and Core-layer test requirements. Bluetooth SIG provides a reuse path called Combine Unmodified Design that allows existing designs to be reused unchanged, including their inherited dependencies and limitations.",
+            "consultant_answer": "The consultant analyzed the uploaded ICS data and identified many Invalid consistency-check errors across HCI, LL, LMP, and IAL layers. The consultant explained that directly modifying the reused stack design would likely trigger Core-layer test requirements with impractical cost and scope. Instead, the consultant recommended using the Bluetooth SIG Combine Unmodified Design procedure, which allows the referenced controller and host stack designs to be reused exactly as originally qualified, including inherited ICS selections and existing Invalid conditions accepted by the SIG.",
+            "decision_logic": "The key qualification principle is that unchanged reuse of previously qualified designs can preserve inherited qualification validity, while modifying layers or selectively removing capabilities forces new consistency validation and potentially extensive mandatory testing.",
+            "final_recommendation": "Use the Combine Unmodified Design registration flow and avoid modifying the reused controller or host stack ICS structure.",
+            "risk_if_done_wrong": "If the reused designs are modified instead of reused unchanged, Core-layer testing may be triggered. The consultant stated that such testing could become extremely expensive and operationally unrealistic due to required protocol-layer validation and stack-level evidence generation.",
+            "bluetooth_tags": [
+                "ICS",
+                "consistency check",
+                "QDID",
+                "Combine Unmodified Design",
+                "HCI",
+                "LL",
+                "LMP",
+                "qualification"
+            ],
+            "search_aliases": [
+                "ICS Invalid",
+                "Combine Unmodified Design",
+                "reuse existing QDID",
+                "core layer retest",
+                "qualification invalid",
+                "HCI inconsistency",
+                "LL inconsistency",
+                "LMP inconsistency",
+                "Qualification Workspace invalid",
+                "reuse without modification",
+                "ICS dependency error",
+                "multi-design reuse"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

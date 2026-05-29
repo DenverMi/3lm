@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0019",
+    "cases": [
+        {
+            "case_id": "thread_0019_case_03",
+            "iut_type": "module",
+            "customer_question": "Is Bluetooth RF/RF PHY testing required when using a prequalified module with an integrated antenna or antenna connector?",
+            "question_variants": [
+                "Do we need RF PHY testing for this module?",
+                "Can RF testing be skipped for a prequalified module?",
+                "Does an integrated antenna remove RF test requirements?",
+                "Is RF/RF PHY testing required for module-based qualification?",
+                "When can RF testing be omitted in SIG qualification?"
+            ],
+            "actual_issue": "The customer needed to determine whether additional RF/RF PHY testing was required for a product using a previously qualified Bluetooth module with integrated antenna support.",
+            "plain_english_explanation": "The module datasheet specified either an integrated antenna or an antenna connector. Based on the qualification reuse rules, the consultant determined that additional RF/RF PHY testing was not required for the SIG qualification project. The product could reuse the existing module qualification evidence instead of repeating RF testing.",
+            "consultant_answer": "The consultant reviewed the module information and confirmed that the module datasheet explicitly documented integrated antenna or antenna connector support. Based on this module qualification reuse approach, the consultant concluded that RF/RF PHY testing was unnecessary for the Bluetooth SIG qualification project.",
+            "decision_logic": "When a qualified Bluetooth module with supported antenna implementation is reused according to SIG qualification reuse conditions, additional RF/RF PHY testing may not be required.",
+            "final_recommendation": "Verify the module qualification status and antenna implementation details in the datasheet, then reuse the existing RF qualification evidence when the module reuse conditions are satisfied.",
+            "risk_if_done_wrong": "Unnecessarily performing RF/RF PHY testing increases qualification cost and schedule effort, while incorrectly omitting required RF testing could create qualification compliance problems.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF",
+                "RF PHY",
+                "module",
+                "reuse",
+                "antenna",
+                "QDID"
+            ],
+            "search_aliases": [
+                "RF PHY not required",
+                "module reuse",
+                "integrated antenna module",
+                "antenna connector module",
+                "skip RF testing",
+                "qualified module reuse",
+                "RF test exemption",
+                "module-based qualification"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

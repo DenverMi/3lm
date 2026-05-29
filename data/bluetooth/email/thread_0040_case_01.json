@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0040",
+    "cases": [
+        {
+            "case_id": "thread_0040_case_01",
+            "iut_type": "module-based Bluetooth product",
+            "customer_question": "Does a derived product model using the same Bluetooth SoC or module require a new Bluetooth qualification, and can additional model names be added without a new qualification fee?",
+            "question_variants": [
+                "Is Bluetooth qualification required for every model number?",
+                "Can a regional variant reuse the same QDID?",
+                "Can I add a derived model to the Product List only?",
+                "Does a product variant need a new qualification listing?",
+                "Can the same SoC and host stack be reused without requalification?",
+                "Is Product List addition sufficient for a derivative model?"
+            ],
+            "actual_issue": "Clarification of when a product variant qualifies as a derived product eligible for free Product List addition instead of requiring a new Bluetooth SIG qualification.",
+            "plain_english_explanation": "A company wanted to know whether every new model name requires paying for a new Bluetooth qualification. The key issue is whether the Bluetooth design itself changed. If the same Bluetooth SoC or module, host stack, and Bluetooth functionality are reused without modification, the new product can usually be added as a derived product under the existing qualification.",
+            "consultant_answer": "Bluetooth qualification consists of Qualification/Listing and Product Listing. After a paid qualification is completed for the base product, derivative products using the same SoC or module and the same host stack can be added to the existing Product List for free. Bluetooth SIG treats Product List addition for derivative products as completion of the qualification procedure. Model name additions are required for each marketed variant, but a new qualification registration is unnecessary if the Bluetooth design and ICS-defined functionality remain unchanged.",
+            "decision_logic": "The determining factor is whether the Bluetooth Support Layers and ICS-defined functionality changed. If the Bluetooth design, SoC/module, host stack, and implemented profiles remain unchanged, the product can reuse the existing qualified design and only requires Product List addition.",
+            "final_recommendation": "Reuse the existing qualified design and add each derived model name to the existing Product List as a derivative product, provided the Bluetooth SoC/module, host stack, profiles, and ICS-defined Bluetooth functionality are unchanged.",
+            "risk_if_done_wrong": "If a modified Bluetooth design is incorrectly treated as a derivative product, the company may violate Bluetooth SIG qualification rules and risk enforcement actions or invalid qualification status. If derived products are not added to the Product List, marketed model names may not match the qualified database entries.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "QDID",
+                "Product List",
+                "module",
+                "host stack",
+                "reuse",
+                "ICS"
+            ],
+            "search_aliases": [
+                "derived product listing",
+                "Product List addition",
+                "same QDID reuse",
+                "same SoC no requalification",
+                "module reuse qualification",
+                "free Product List addition",
+                "same host stack reuse",
+                "model variant qualification",
+                "existing design reuse",
+                "Bluetooth derivative model"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

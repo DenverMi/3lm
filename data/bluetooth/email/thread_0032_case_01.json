@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0032",
+    "cases": [
+        {
+            "case_id": "thread_0032_case_01",
+            "iut_type": "module-based consumer device",
+            "customer_question": "Does a company selling an OEM/ODM Bluetooth product under its own brand still need its own Bluetooth SIG qualification and membership if the factory already has a QDID?",
+            "question_variants": [
+                "Can we reuse the factory's QDID without our own qualification?",
+                "Does the seller need its own Bluetooth SIG registration for an OEM product?",
+                "If the module is already qualified, is finished-product qualification still required?",
+                "Can the OEM complete Bluetooth qualification on behalf of the brand owner?",
+                "Does rebranding a qualified Bluetooth product require a new listing?"
+            ],
+            "actual_issue": "The customer incorrectly assumed that an OEM factory's existing Bluetooth qualification and QDID might fully cover a separately branded resale product.",
+            "plain_english_explanation": "A Bluetooth module or OEM product being already qualified does not automatically authorize another company to sell the product under its own brand without qualification. The company whose brand appears on the product is responsible for Bluetooth SIG qualification compliance. Existing qualified designs can often be reused to reduce testing, but the branded seller still needs its own qualification record.",
+            "consultant_answer": "The consultant explained that Adopter membership itself is free and that the invoice being discussed referred to the Product Qualification Fee rather than membership cost. Even if the manufacturing factory already has a QDID, a company selling the product under its own branding must complete qualification under its own Bluetooth SIG member account unless the product is resold unchanged under the original manufacturer's branding. The consultant further explained that when an OEM/ODM product uses an already qualified design, the selling company can often reference the factory's QDID and complete qualification without additional testing if the Bluetooth design itself is unchanged.",
+            "decision_logic": "Bluetooth qualification responsibility follows the marketed brand owner rather than the physical manufacturer. Reuse of an existing QDID is allowed only when the referenced Bluetooth design remains unchanged, but the final branded seller still requires its own qualification listing and trademark authorization.",
+            "final_recommendation": "Create a Bluetooth SIG member account for the selling company, reference the OEM/factory QDID if the Bluetooth design is unchanged, and complete a product qualification listing under the selling company's name.",
+            "risk_if_done_wrong": "The company could incorrectly ship Bluetooth products under its own brand without proper qualification coverage, creating trademark enforcement exposure and requiring corrective qualification work later. Misunderstanding the relationship between membership, qualification fees, and QDID reuse could also delay launch planning and compliance approval.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "reuse",
+                "OEM",
+                "ODM",
+                "listing",
+                "module",
+                "membership"
+            ],
+            "search_aliases": [
+                "OEM product qualification",
+                "rebrand qualified product",
+                "reuse factory QDID",
+                "brand owner must qualify",
+                "supplier cannot qualify for customer",
+                "Bluetooth SIG OEM listing",
+                "qualified module reuse",
+                "self-brand qualification required",
+                "Adopter membership vs qualification fee"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

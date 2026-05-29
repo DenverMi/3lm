@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0290",
+    "cases": [
+        {
+            "case_id": "thread_0290_case_02",
+            "iut_type": "audio device",
+            "customer_question": "Can RF PHY testing be skipped if the product does not actually transmit BLE signals even though the reused stack supports BLE?",
+            "question_variants": [
+                "Is RF PHY testing required for a BR/EDR-only implementation?",
+                "Do we need BLE RF PHY testing if BLE advertising is disabled?",
+                "When is RF PHY testing required?",
+                "Can RF PHY tests be omitted if the product never emits BLE radio signals?",
+                "Does dual-mode qualification automatically require RF PHY testing?",
+                "What is the difference between RF and RF PHY testing?"
+            ],
+            "actual_issue": "The customer needed to determine whether BLE RF PHY testing was required for a product that reused dual-mode Bluetooth designs but only implemented BR/EDR operational behavior in the final product.",
+            "plain_english_explanation": "Bluetooth qualification testing depends on what the product actually transmits and supports during operation. A product may reuse a dual-mode Bluetooth stack for qualification purposes while operationally using only Classic Bluetooth behavior. In that case, BLE RF PHY testing may not be required if the product cannot perform BLE advertising or scanning.",
+            "consultant_answer": "The consultant clarified that RF and RF PHY are independent Bluetooth layers with separate testing requirements. RF PHY testing becomes necessary only if the actual product implementation supports BLE operational behavior such as advertising or scanning and can emit BLE radio transmissions. If the product cannot use BLE mode in practice and only supports BR/EDR pairing behavior, RF PHY testing is unnecessary even when the reused controller and host stack qualifications are dual-mode.",
+            "decision_logic": "Bluetooth test scope is determined by implemented and operationally exposed radio behavior, not only by the referenced qualified stack capabilities. If the product cannot transmit BLE signals, BLE RF PHY testing is not triggered.",
+            "final_recommendation": "Limit the implementation to BR/EDR operational behavior only and document that BLE advertising and scanning are not supported by the product so that RF PHY testing can be omitted.",
+            "risk_if_done_wrong": "If BLE functionality is accidentally exposed or incorrectly declared, RF PHY testing requirements may be triggered unexpectedly, increasing test duration and qualification cost. Incorrect scope declarations can also create inconsistencies between implementation behavior, ICS selections, and test evidence.",
+            "bluetooth_tags": [
+                "RF",
+                "RF PHY",
+                "BR/EDR",
+                "LE",
+                "qualification",
+                "testing",
+                "ICS"
+            ],
+            "search_aliases": [
+                "RF PHY unnecessary",
+                "BLE disabled",
+                "BR/EDR only RF test",
+                "BLE advertising disabled",
+                "RF vs RF PHY",
+                "LE radio transmission",
+                "BLE scanning unsupported",
+                "RF full item test",
+                "dual-mode without BLE RF PHY",
+                "Classic Bluetooth only"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

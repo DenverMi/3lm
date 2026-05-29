@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0044",
+    "cases": [
+        {
+            "case_id": "thread_0044_case_04",
+            "iut_type": "",
+            "customer_question": "Before finalizing Bluetooth SIG registration, how should product listing names, model numbers, listing date, publish date, and punctuation differences be confirmed?",
+            "question_variants": [
+                "Can we change the Product Listing name before submission?",
+                "Should Listing Date and Publish Date be set differently?",
+                "Do hyphen and underscore differences matter in model names?",
+                "Can product names and model numbers be corrected before registration confirmation?",
+                "Should the customer review each registration page before finalizing?"
+            ],
+            "actual_issue": "The customer and consultant were finalizing multiple Bluetooth registration review pages and needed to confirm product names, model numbers, release/listing dates, publication date, and small naming differences before registration was locked in.",
+            "plain_english_explanation": "The consultant treated the review page as the final checkpoint before confirming registration. Customer-requested product name and model number corrections were applied, and the consultant specifically asked whether underscores or hyphens were correct because both could be registered but consistency mattered. The consultant also accepted using a Listing Date of March 8 and leaving the Publish Date as March 17, then requested customer review before finalizing all registrations.",
+            "consultant_answer": "The consultant accepted requested Product Listing name changes and model-number updates, including adding color information and correcting names based on the customer's sheet. The consultant clarified that Listing Date would be March 8 while Publish Date would remain March 17. The consultant noticed that some model identifiers used underscores while others used hyphens, explained that either could be registered, and asked the customer to confirm which punctuation was correct. After the customer requested hyphens, the consultant updated the review pages and asked the customer to confirm registrations one by one before final submission.",
+            "decision_logic": "Before confirming registration, the review page must reflect the exact customer-approved public listing information. Even if both underscore and hyphen are technically acceptable in the system, the submitted value should match the customer's intended product naming. Customer confirmation of each review page prevents incorrect listing metadata from being finalized.",
+            "final_recommendation": "Apply customer-requested listing metadata changes, explicitly confirm ambiguous punctuation or model-number formatting, send final review pages, and obtain customer approval for each registration before finalizing the Bluetooth SIG declaration.",
+            "risk_if_done_wrong": "Incorrect product names, model numbers, dates, or punctuation can result in a listing that does not match the customer's intended product information and may require correction work after submission. If multiple registrations are reviewed as a batch without item-by-item confirmation, one registration may be finalized with the wrong model or linked information.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "declaration",
+                "review page",
+                "Product List",
+                "model number",
+                "Publish Date"
+            ],
+            "search_aliases": [
+                "review page confirmation",
+                "Product Listing name change",
+                "model number correction",
+                "Listing Date",
+                "Publish Date",
+                "hyphen underscore",
+                "registration metadata",
+                "pre-submission review",
+                "customer approval before submission",
+                "listing punctuation"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

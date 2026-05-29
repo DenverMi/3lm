@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0006",
+    "cases": [
+        {
+            "case_id": "thread_0006_case_02",
+            "iut_type": "digital camera",
+            "customer_question": "What is a DIS ICS file and who should complete it for Bluetooth profile qualification testing?",
+            "question_variants": [
+                "How do we prepare a DIS ICS for profile testing?",
+                "Who should fill out the DIS ICS document?",
+                "What information is required for DIS qualification?",
+                "Why is the DIS ICS needed for PTS testing?",
+                "What is an ICS in Bluetooth qualification?"
+            ],
+            "actual_issue": "The customer did not understand the role of the Device Information Service ICS document required for DIS profile qualification and PTS test plan generation.",
+            "plain_english_explanation": "Bluetooth profile testing requires a formal feature declaration document called an ICS. The consultant clarified that the DIS ICS describes which Device Information Service features the product supports and must be completed by the engineer or supplier who implemented the DIS software. The completed ICS is then used to generate the test plan and PTS configuration.",
+            "consultant_answer": "The consultant explained that the ICS is an Implementation Conformance Statement defined by the Bluetooth SIG for Bluetooth profiles and protocols. The DIS ICS specifically defines the supported Device Information Service functionality implemented in the product. The consultant instructed the customer to have the software engineer or external development vendor responsible for implementing DIS complete the provided ICS form. The completed DIS ICS would then be used to generate the DIS test plan and PTS ICS files for qualification testing.",
+            "decision_logic": "Bluetooth profile qualification requires an accurate ICS because the test plan and applicable PTS cases are derived from declared supported features. The implementer of the Bluetooth functionality is the authoritative source for the feature declarations.",
+            "final_recommendation": "Have the engineer or software supplier responsible for implementing the Device Information Service complete the DIS ICS accurately before generating the qualification test plan.",
+            "risk_if_done_wrong": "Incorrect or incomplete ICS information can generate the wrong test plan, trigger consistency issues, cause failed profile testing, or require retesting and qualification rework.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "PTS",
+                "profile",
+                "DIS",
+                "test plan",
+                "GATT"
+            ],
+            "search_aliases": [
+                "DIS ICS",
+                "Implementation Conformance Statement",
+                "PTS ICS file",
+                "Device Information Service qualification",
+                "profile test plan",
+                "Bluetooth ICS form",
+                "DIS profile testing",
+                "PTS configuration",
+                "ICS completion",
+                "GATT profile qualification"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

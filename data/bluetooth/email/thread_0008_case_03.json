@@ -1,15 +1,46 @@
 {
-"source_thread": "thread_0008",
-"cases": [
-{
-"case_id": "thread_0008_case_03",
-"iut_type": "",
-"customer_question": "How should Product Name and Design Name be chosen, and can Design Name be changed later?",
-"actual_issue": "Misunderstanding of the relationship between Product Name and Design Name, and the immutability of Design Name after initial registration.",
-"consultant_answer": "The consultant explained that the initial Product Name is automatically used as the Design Name, and the Design Name cannot be changed later. Therefore, it should be selected carefully to accommodate future derivative products. A generic or broad name is recommended if future product details are uncertain. It is also possible to differentiate Product Name from Design Name through registration configuration.",
-"final_recommendation": "Choose a generic and future-proof Design Name at initial registration, and if needed, separate it from a temporary or specific Product Name through proper registration configuration.",
-"bluetooth_tags": ["qualification", "listing", "design", "DN", "reuse", "naming"],
-"qualification_stage": "planning"
-}
-]
+    "source_thread": "thread_0008",
+    "cases": [
+        {
+            "case_id": "thread_0008_case_03",
+            "iut_type": "BLE peripheral device",
+            "customer_question": "How should Design Name and Product Name be selected during Bluetooth SIG listing to support future derived products and confidential product launches?",
+            "question_variants": [
+                "Can Design Name differ from Product Name?",
+                "How should unnamed future products be registered?",
+                "Can a generic Design Name be used before product launch?",
+                "Why should Evaluation sample not be used as Design Name?",
+                "Can Product Name be changed later for derived models?"
+            ],
+            "actual_issue": "The customer needed guidance on choosing Bluetooth SIG Design Name and Product Name values that would support future derivative product registrations while avoiding disclosure of unreleased product details.",
+            "plain_english_explanation": "The first registered Product Name automatically becomes the permanent Design Name for the Bluetooth design. If a temporary or overly specific name is used, it can create problems for future products derived from the same design. The consultant recommended using a broad generic Bluetooth device name to preserve flexibility for future registrations.",
+            "consultant_answer": "The consultant explained that the Product List Product Name used during the initial registration automatically becomes the immutable Design Name for that Bluetooth design. Because future derived products may reuse the same design, using a temporary label such as 'Evaluation sample' was discouraged. The consultant recommended using a generic descriptive name such as 'Bluetooth LE Peripheral Device' to avoid exposing future product details while preserving flexibility for later derived model registrations. The consultant also clarified that Product Name values for future derived products can differ from the Design Name through appropriate registration handling.",
+            "decision_logic": "Bluetooth SIG Design Names become long-term identifiers reused across derivative listings, so the initial naming choice should remain broadly applicable and not depend on temporary prototype terminology or confidential model names.",
+            "final_recommendation": "Select a generic and reusable Design Name during the first qualification listing, and use product-specific Product Names separately for future derived product registrations as needed.",
+            "risk_if_done_wrong": "Using an unsuitable initial Design Name can permanently tie future derivative products to an inaccurate, temporary, or confidential identifier that cannot later be changed.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "Design Name",
+                "Product Name",
+                "derived product",
+                "reuse"
+            ],
+            "search_aliases": [
+                "Design Name immutable",
+                "Product Name registration",
+                "derived product listing",
+                "generic Design Name",
+                "Evaluation sample issue",
+                "Bluetooth LE Peripheral Device",
+                "future product registration",
+                "confidential product listing",
+                "My Listing reuse",
+                "Bluetooth naming guideline"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
 }

@@ -3,20 +3,46 @@
     "cases": [
         {
             "case_id": "thread_0014_case_01",
-            "iut_type": "module-based end products",
-            "customer_question": "Can multiple products using the same Bluetooth module and identical Bluetooth stack/protocol (only application-level firmware differences) be registered efficiently, and what is the correct approach?",
-            "actual_issue": "Understanding how to handle multiple product variants that reuse the same Bluetooth Design without changes to the Bluetooth stack, and whether separate qualification or fees are required.",
-            "consultant_answer": "If the Bluetooth stack and protocol are unchanged, the products are considered to use the same Design. These can be treated as derivative products and added to the existing Product List under the same Design. In such cases, additional products can be registered without additional qualification fees because they reuse the same qualified Design.",
-            "final_recommendation": "Use a single base Design (same module and stack) and register all variant products as additional entries in the Product List to avoid extra qualification cost and effort.",
+            "iut_type": "medical bed accessory",
+            "customer_question": "Can multiple products with only application-level software differences and the same Bluetooth stack/protocol be added under the same Bluetooth qualification listing?",
+            "question_variants": [
+                "Can derived products reuse the same Bluetooth qualification?",
+                "Can multiple products using the same Bluetooth module be added without additional qualification fees?",
+                "Do application-only firmware changes require a new Bluetooth qualification?",
+                "Can products with identical Bluetooth stacks share one Product List entry?",
+                "Can we register several variants as derived products under one Design?"
+            ],
+            "actual_issue": "Determining whether multiple products using the same Bluetooth module and unchanged Bluetooth stack/protocol can reuse an existing qualified design and be added as derived products without additional qualification fees.",
+            "plain_english_explanation": "The products use the same Bluetooth implementation and only differ in application behavior or product usage. Since the Bluetooth-related functionality is unchanged, the products can usually share the same Bluetooth qualification basis. Additional product variants can be added to the Product List instead of creating completely separate Bluetooth designs.",
+            "consultant_answer": "If the Bluetooth stack and protocol implementation remain unchanged, the products can be treated as derived products under the same base registration. Additional products can be added to the Product List without additional qualification fees. The consultant also confirmed that products with different end uses can still use different Product Names while sharing the same underlying Design. Additional same-module products were accepted as no-cost additions through Product List updates.",
+            "decision_logic": "Bluetooth qualification reuse is permitted when the Bluetooth-compliant portion, stack behavior, and protocol implementation are unchanged. Application-layer-only differences that do not affect the ICS or Bluetooth functionality do not require creation of a new Bluetooth design.",
+            "final_recommendation": "Reuse the existing qualified design and register the additional products as Product List entries under the same Design. Use unique Product Names for each marketed product while keeping the Bluetooth implementation unchanged.",
+            "risk_if_done_wrong": "Incorrectly treating unchanged products as separate new designs may create unnecessary qualification work, fees, and administrative overhead. Conversely, reusing a design after modifying Bluetooth-related behavior could create non-compliant listings or audit issues.",
             "bluetooth_tags": [
                 "qualification",
-                "listing",
-                "reuse",
-                "QDID",
+                "Product List",
+                "design reuse",
                 "module",
-                "design reuse"
+                "listing",
+                "QDID",
+                "DN",
+                "derived product"
             ],
-            "qualification_stage": "listing / declaration"
+            "search_aliases": [
+                "same Bluetooth stack reuse",
+                "application-only firmware change",
+                "derived product registration",
+                "Product List addition",
+                "same module multiple products",
+                "reuse existing design",
+                "no Bluetooth stack changes",
+                "multi-product qualification",
+                "shared Bluetooth implementation",
+                "free additional registration"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

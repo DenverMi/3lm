@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0026",
+    "cases": [
+        {
+            "case_id": "thread_0026_case_02",
+            "iut_type": "module",
+            "customer_question": "If a product changes to a different qualified Bluetooth module and wants to upgrade its marketed Bluetooth version from 4.2 to 5.0, is new testing required or only a new registration?",
+            "question_variants": [
+                "Can we change the product Bluetooth version to 5.0 without testing?",
+                "Does moving from Bluetooth 4.2 to 5.0 require a new qualification listing?",
+                "If the module supports Bluetooth 5.0, do we need retesting?",
+                "Can we update the Bluetooth version claim through registration only?",
+                "Is a new Bluetooth SIG fee required for a version upgrade?"
+            ],
+            "actual_issue": "The company planned to replace the Bluetooth module and update the product's marketed Bluetooth version from 4.2 to 5.0. The key issue was whether this version change required new Bluetooth testing or only a new Bluetooth SIG registration process.",
+            "plain_english_explanation": "The product originally claimed Bluetooth 4.2 but the new module supported Bluetooth 5.0. Even though additional testing was not required, changing the Bluetooth version being claimed publicly required a new Bluetooth SIG registration process. The thread also clarified that qualification fees and consulting support costs were separate items.",
+            "consultant_answer": "The consultant confirmed that changing the product claim from Bluetooth 4.2 to Bluetooth 5.0 would require a new Bluetooth SIG registration even though no additional Bluetooth testing was necessary. The consultant also clarified that the Bluetooth SIG qualification fee was separate from optional consulting support services such as registration assistance and compliance folder preparation.",
+            "decision_logic": "Changing the Bluetooth version claim changes the qualification listing scope even when the underlying qualified module already supports the newer version. Therefore, a new registration is required even if no new testing obligations are triggered.",
+            "final_recommendation": "Submit a new Bluetooth SIG registration reflecting the Bluetooth 5.0 capability while reusing the qualified module evidence and proceed without additional testing.",
+            "risk_if_done_wrong": "If the product markets Bluetooth 5.0 without completing the updated registration, the qualification records and marketed capability may become inconsistent, creating compliance and audit risk.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "module",
+                "QDID",
+                "Bluetooth 5.0",
+                "declaration"
+            ],
+            "search_aliases": [
+                "Bluetooth 5.0 registration",
+                "version upgrade no testing",
+                "new listing required",
+                "module supports 5.0",
+                "Bluetooth version change",
+                "qualification fee required",
+                "reuse existing test evidence",
+                "4.2 to 5.0 migration"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

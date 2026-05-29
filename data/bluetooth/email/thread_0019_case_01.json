@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0019",
+    "cases": [
+        {
+            "case_id": "thread_0019_case_01",
+            "iut_type": "module",
+            "customer_question": "Can a Bluetooth module that references separate Host and Controller QDIDs be treated as a single Component registration for SIG qualification?",
+            "question_variants": [
+                "Is this Bluetooth module a Component registration?",
+                "Why is the module treated as Multi-Design instead of Component?",
+                "Do we need to reference both Host and Controller QDIDs?",
+                "Can one Declaration ID represent a complete Component?",
+                "Why did the qualification support cost increase for this module?"
+            ],
+            "actual_issue": "The customer believed the Bluetooth module was already registered as a Component, but the referenced Declaration actually consisted of separate Host Subsystem and Controller Subsystem QDIDs that had to be combined during qualification.",
+            "plain_english_explanation": "The Bluetooth module vendor indicated that the module could be treated as a Component registration, but the qualification review showed that the SIG records only contained separate Host and Controller subsystem references. Because the registration was not a single unified Component or End Product declaration, the product qualification had to reference multiple QDIDs together. This increased the qualification complexity and validation work.",
+            "consultant_answer": "The consultant explained that the referenced declaration consisted of separate Host Subsystem and Controller Subsystem QDIDs rather than a single Component or End Product registration. Because the qualification must combine multiple referenced designs, the registration falls under a Multi-Design workflow. The consultant further explained that after the 2024-07-01 SIG process changes, consistency checks between Controller and Host layers became stricter, increasing the amount of ICS correction and validation work required when combining multiple QDIDs.",
+            "decision_logic": "If a Bluetooth module qualification requires separate Host and Controller subsystem references rather than a single Component or End Product QDID, the product must be handled as a Multi-Design reference. Multi-QDID combinations require additional consistency validation between stack layers.",
+            "final_recommendation": "Verify whether the referenced Bluetooth declaration is truly a single Component or End Product registration. If separate Host and Controller subsystem QDIDs are required, plan the project as a Multi-Design qualification with additional consistency validation effort.",
+            "risk_if_done_wrong": "Incorrectly assuming that a module is a single Component registration can cause underestimation of qualification complexity, missing ICS consistency validation work, declaration errors, additional support effort, qualification delays, and incorrect project costing.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "Component",
+                "Host",
+                "Controller",
+                "Multi-Design",
+                "ICS",
+                "consistency check"
+            ],
+            "search_aliases": [
+                "Multi-Design reference",
+                "Host Controller combination",
+                "not a Component registration",
+                "multiple QDID reference",
+                "Controller Host consistency",
+                "ICS correction",
+                "Declaration ID mismatch",
+                "Subsystem combination",
+                "SIG consistency check",
+                "single design vs multi design"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

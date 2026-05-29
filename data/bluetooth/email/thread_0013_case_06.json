@@ -3,20 +3,45 @@
     "cases": [
         {
             "case_id": "thread_0013_case_06",
-            "iut_type": "module",
-            "customer_question": "What is the difference in qualification effort between using a pre-qualified module and designing a module from a BLE chip?",
-            "actual_issue": "Understanding how design approach impacts required testing scope, especially RF PHY testing.",
-            "consultant_answer": "When using a pre-qualified module, RF PHY testing can be omitted because it has already been validated. However, when designing a module from a BLE chip (SoC), RF PHY testing must be performed at the product level. Additionally, any implemented SIG-defined profiles require PTS testing.",
-            "final_recommendation": "If designing from a BLE chip, plan for full RF PHY testing and profile PTS testing; if using a pre-qualified module, leverage existing qualification to reduce testing scope.",
-            "bluetooth_tags": [
-                "RF PHY",
-                "module",
-                "SoC",
-                "testing scope",
-                "reuse",
-                "PTS"
+            "iut_type": "lighting device",
+            "customer_question": "How should overlapping RF PHY and controller evidence from existing qualified designs be reused when creating a new qualification containing DIS?",
+            "question_variants": [
+                "Can existing RF PHY evidence be reused?",
+                "What happens when Component and Core-Controller overlap?",
+                "How do we qualify DIS using existing RF and HCI layers?",
+                "Can we combine existing designs with new DIS testing?",
+                "Which tests are still required when lower layers overlap?"
             ],
-            "qualification_stage": "planning"
+            "actual_issue": "The customer had existing Component and Core-Controller qualified designs with overlapping RF PHY, LL, and HCI layers and needed to determine what additional evidence was required for a new qualification including DIS.",
+            "plain_english_explanation": "The existing Bluetooth-qualified designs already covered some lower Bluetooth layers such as RF PHY and HCI. Because those parts overlapped, the customer did not need to fully retest everything from scratch. However, RF PHY evidence and new DIS profile PTS evidence still had to be included appropriately in the new qualification submission.",
+            "consultant_answer": "The consultant identified that the Component and Core-Controller registrations overlapped in RF PHY, Link Layer, and HCI functionality. The recommended qualification flow was to combine either existing design with the DIS-related submission while supplying RF PHY test reports for 1M, 2M, and Coded PHY along with DIS PTS test reports as qualification evidence for the new registration.",
+            "decision_logic": "Existing qualified designs may be reused when Bluetooth layers overlap, but the resulting qualification must still contain sufficient evidence for all included layers and profiles. New or combined designs require complete supporting evidence for the declared functionality.",
+            "final_recommendation": "Reuse the overlapping qualified lower-layer evidence and submit updated RF PHY reports plus DIS PTS reports as evidence for the new qualification.",
+            "risk_if_done_wrong": "Improper reuse mapping or missing evidence can result in incomplete qualification submissions, consistency review issues, or requests for additional testing.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "HCI",
+                "LL",
+                "DIS",
+                "PTS",
+                "reuse",
+                "controller",
+                "test report"
+            ],
+            "search_aliases": [
+                "overlapping layers",
+                "Component and Core-Controller",
+                "RF PHY reuse",
+                "DIS evidence",
+                "combined design qualification",
+                "lower layer reuse",
+                "PTS evidence reuse",
+                "controller overlap"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "medium",
+            "source_type": "email_case"
         }
     ]
 }

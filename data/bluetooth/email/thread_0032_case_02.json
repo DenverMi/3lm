@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0032",
+    "cases": [
+        {
+            "case_id": "thread_0032_case_02",
+            "iut_type": "module-based consumer device",
+            "customer_question": "Can an OEM/ODM Bluetooth product avoid additional RF and profile testing by referencing the factory's existing QDID?",
+            "question_variants": [
+                "Will RF/RF PHY testing still be required?",
+                "Can profile testing be skipped using an existing QDID?",
+                "Does reusing a qualified design eliminate testing?",
+                "When can testing be waived for an OEM Bluetooth product?",
+                "How is testing scope determined when reusing a Bluetooth module?"
+            ],
+            "actual_issue": "The customer needed to understand whether qualification testing could be reduced or eliminated by reusing an already qualified Bluetooth design from the manufacturing factory.",
+            "plain_english_explanation": "Bluetooth qualification testing can often be reduced when a product reuses an existing qualified Bluetooth implementation without changes. The important factor is whether the Bluetooth-related design, features, and configuration remain identical to the original qualified design. If the Bluetooth implementation changes, additional qualification work or testing may be required.",
+            "consultant_answer": "The consultant explained that if the factory's QDID already exists and the OEM/ODM product reuses that qualified Bluetooth implementation unchanged, the selling company can reference the existing QDID and qualify the product without additional testing. The consultant also clarified that overall qualification timing depends on whether RF/RF PHY tests and profile testing are required, as well as the number of implemented profiles.",
+            "decision_logic": "Qualification reuse eligibility depends on whether the Bluetooth design remains unchanged from the previously qualified implementation. Existing qualified designs can be referenced to avoid repeating testing only when the reused implementation matches the original qualified scope.",
+            "final_recommendation": "Confirm the exact QDID and verify that the Bluetooth implementation, profiles, and ICS-relevant functionality are unchanged before planning qualification as a reuse-based listing.",
+            "risk_if_done_wrong": "If the implementation differs from the referenced qualified design but is incorrectly treated as a reuse case, the company may submit an invalid qualification listing or later discover that additional testing is required, causing rework and schedule delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "reuse",
+                "RF PHY",
+                "profile",
+                "testing",
+                "module",
+                "ICS"
+            ],
+            "search_aliases": [
+                "RF PHY test waiver",
+                "profile test reduction",
+                "existing QDID reuse",
+                "qualification without testing",
+                "reuse-based qualification",
+                "unchanged Bluetooth design",
+                "OEM qualification reuse",
+                "test exemption via QDID"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

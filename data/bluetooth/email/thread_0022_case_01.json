@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0022",
+    "cases": [
+        {
+            "case_id": "thread_0022_case_01",
+            "iut_type": "audio recorder",
+            "customer_question": "Why does the Bluetooth SIG consistency check reject the submitted HFP ICS when many mandatory items are marked NO?",
+            "question_variants": [
+                "Do HFP ICS items with Status M have to be YES?",
+                "Why is the consistency check showing Invalid items?",
+                "Can we leave unsupported mandatory HFP items as NO?",
+                "How do we fix Invalid=0 issues in the Bluetooth ICS?",
+                "Why is the qualification site blocking submission?"
+            ],
+            "actual_issue": "The submitted HFP ICS did not satisfy mandatory and conditional requirements defined by the Bluetooth specification, causing the Bluetooth SIG consistency check to fail and preventing qualification submission.",
+            "plain_english_explanation": "The Bluetooth qualification system checks whether the feature selections in the ICS are logically valid. If a feature marked as mandatory in the specification is set to NO, the submission becomes invalid. Conditional items must also be enabled when related features are selected.",
+            "consultant_answer": "The consultant explained that ICS entries marked with Status M are mandatory and must always be set to YES. Items marked with conditional statuses such as C1 must also be enabled when their dependency conditions are met. The consultant used the Bluetooth SIG registration site's consistency check to identify all invalid ICS combinations and produced a corrected HFP v1.8 ICS set that achieved Invalid=0. The corrected ICS generated a 136-item test plan for qualification.",
+            "decision_logic": "Bluetooth qualification tools enforce mandatory and conditional ICS dependencies. Any M or satisfied Cx requirement set to NO causes the consistency check to fail and blocks submission until the ICS is corrected or a valid waiver exists.",
+            "final_recommendation": "Correct the ICS so that all mandatory and conditionally required HFP items are enabled, regenerate the test plan, and verify the implementation supports the resulting feature set before testing or submission.",
+            "risk_if_done_wrong": "The qualification workspace consistency check will fail, the submission cannot proceed, and the generated test plan may not match the actual implementation, causing test failures, rework, and qualification delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "consistency check",
+                "HFP",
+                "PTS",
+                "profile",
+                "test plan"
+            ],
+            "search_aliases": [
+                "ICS Invalid=0",
+                "mandatory ICS item NO",
+                "HFP ICS inconsistency",
+                "Bluetooth consistency check failed",
+                "ICS conditional dependency",
+                "Status M must be YES",
+                "Cx dependency failure",
+                "qualification workspace invalid",
+                "HFP v1.8 ICS"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

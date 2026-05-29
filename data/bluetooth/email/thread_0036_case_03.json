@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0036",
+    "cases": [
+        {
+            "case_id": "thread_0036_case_03",
+            "iut_type": "TV",
+            "customer_question": "Why does Qualification Workspace generate unexpected consistency-check failures or excessive test plans when modifying an existing Design?",
+            "question_variants": [
+                "Why did LL test cases suddenly appear?",
+                "What causes consistency check failure in Qualification Workspace?",
+                "Why did modifying ICS selections expand the test plan?",
+                "How do inter-layer dependencies affect qualification scope?",
+                "Can incorrect Design combinations trigger unnecessary testing?"
+            ],
+            "actual_issue": "Changes to inherited Designs and ICS selections created Qualification Workspace consistency problems and unexpectedly expanded mandatory test requirements.",
+            "plain_english_explanation": "Small Bluetooth configuration changes can unintentionally activate additional testing rules inside Qualification Workspace. The customer encountered issues where modifying inherited qualification data caused much larger test plans than expected. The consultant had to identify which settings triggered those dependencies.",
+            "consultant_answer": "The consultant explained that Qualification Workspace evaluates inter-layer dependencies, complete-layer requirements, and TCRL consistency when generating the test plan. Incorrect inheritance choices or unnecessary ICS changes can cause the tool to interpret lower layers as modified, triggering extensive LL-related testing. The recommended approach was to minimize ICS modifications, preserve layer consistency, and use the appropriate subset or inherited Design structure to avoid unnecessary retest expansion.",
+            "decision_logic": "Qualification Workspace generates testing based on modified layers and dependency analysis. Any ICS inconsistency or unnecessary feature change can propagate across layers and cause the system to generate additional mandatory tests.",
+            "final_recommendation": "Review all ICS modifications carefully, preserve unchanged lower-layer configurations, use the proper subset or inherited Design path, and validate consistency checks before finalizing the qualification structure.",
+            "risk_if_done_wrong": "Improper ICS handling can trigger unnecessary lower-layer testing, create invalid consistency states, delay qualification approval, and require repeated troubleshooting iterations.",
+            "bluetooth_tags": [
+                "ICS",
+                "consistency check",
+                "ILD",
+                "Qualification Workspace",
+                "LL",
+                "qualification",
+                "reuse"
+            ],
+            "search_aliases": [
+                "consistency check failed",
+                "unexpected LL tests",
+                "ICS dependency issue",
+                "Qualification Workspace error",
+                "ILD-triggered testing",
+                "modified layer expansion",
+                "subset design consistency",
+                "excessive test plan generation",
+                "lower layer retest trigger"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

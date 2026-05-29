@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0028",
+    "cases": [
+        {
+            "case_id": "thread_0028_case_05",
+            "iut_type": "module",
+            "customer_question": "Can UART wiring or cable extension length affect Bluetooth RF PHY qualification testing reliability?",
+            "question_variants": [
+                "UART extension too long",
+                "USB-UART cable length issue",
+                "RF PHY UART noise problem",
+                "Can UART lines be extended 1 meter?",
+                "USB extension vs UART extension",
+                "UART wiring mistake causes RF PHY fail"
+            ],
+            "actual_issue": "Improper UART wiring and excessive UART cable extension introduced communication reliability risks during Bluetooth RF PHY testing.",
+            "plain_english_explanation": "Bluetooth RF PHY testing depends on reliable serial communication between the tester and DUT. Long UART wiring is more sensitive to electrical noise and can cause unstable command responses. The recommended approach is to keep UART wiring short and extend the USB side instead.",
+            "consultant_answer": "The consultant explained that UART signal lines should remain short, approximately 10 to 20 cm, because longer UART extensions reduce noise immunity. Instead of extending the UART side by over 1 meter, the consultant recommended extending the USB side using a shielded USB extension cable connected to the qualification test system.",
+            "decision_logic": "UART serial communication is more vulnerable to signal degradation and noise over long cable distances than USB communication, especially during automated RF PHY tester command exchange.",
+            "final_recommendation": "Keep DUT UART wiring short and use shielded USB extension cables on the host side if additional distance is required between the qualification tester and DUT.",
+            "risk_if_done_wrong": "Long or incorrectly wired UART connections can cause unstable command communication, intermittent RF PHY failures, false timeout errors, and wasted debugging effort.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "UART",
+                "USB-UART",
+                "testing",
+                "module"
+            ],
+            "search_aliases": [
+                "UART extension limit",
+                "USB UART adapter",
+                "UART noise issue",
+                "shielded USB extension",
+                "TxD RxD wiring",
+                "RF PHY serial stability",
+                "UART cable too long",
+                "serial timeout issue",
+                "USB side extension",
+                "UART communication reliability"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

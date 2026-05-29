@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0035",
+    "cases": [
+        {
+            "case_id": "thread_0035_case_04",
+            "iut_type": "module-based end product",
+            "customer_question": "Can future derivative products be omitted from the initial registration and added later separately?",
+            "question_variants": [
+                "Do future products need to be listed during the first registration?",
+                "Can additional devices be added after qualification completion?",
+                "Is it acceptable to register only one product initially?",
+                "Can derivative models be added later for free?",
+                "Must all planned models be included in the first Product List?"
+            ],
+            "actual_issue": "The customer wanted confirmation that only one representative product needed to be included in the initial registration and that future derivative models could be added later.",
+            "plain_english_explanation": "The customer was worried that all future products might need to be included immediately during the first qualification. The consultant clarified that only one product needed to be registered initially and that later derivative products could be added separately afterward.",
+            "consultant_answer": "The consultant confirmed that the initial registration only needed to include one product model. Additional derivative products did not need to be identified in advance and could later be added separately through a simple web-based Product List addition workflow after the original qualification was complete. A derivative product registration procedure document would later be provided to support these additions.",
+            "decision_logic": "The Bluetooth qualification process allows later Product List additions when the later products use the same qualified Bluetooth design as the initial registered product.",
+            "final_recommendation": "Register a representative product first, complete qualification, then add future derivative models later through the Product List management workflow instead of overloading the initial submission.",
+            "risk_if_done_wrong": "Including unnecessary future models during the first submission may increase documentation workload and complicate the compliance folder unnecessarily. Incorrectly assuming future additions are impossible may also trigger avoidable requalification work.",
+            "bluetooth_tags": [
+                "qualification",
+                "Product List",
+                "reuse",
+                "listing",
+                "module",
+                "derivative product"
+            ],
+            "search_aliases": [
+                "future model registration",
+                "add products later",
+                "initial representative model",
+                "Product List expansion",
+                "derivative product workflow",
+                "free additional registration",
+                "qualify more products",
+                "single model first",
+                "later model addition",
+                "Manage Submitted Products"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0041",
+    "cases": [
+        {
+            "case_id": "thread_0041_case_03",
+            "iut_type": "",
+            "customer_question": "Why does a Bluetooth SIG Review Page URL show HTTP 404 even after qualification approval?",
+            "question_variants": [
+                "Why can't I open the Review Page URL?",
+                "Why does Bluetooth SIG Review Page return 404?",
+                "Does the user need SIG login before opening Review Page?",
+                "How do I access the qualification review URL?",
+                "Why does the qualification page not display after approval?"
+            ],
+            "actual_issue": "Incorrect access method for Bluetooth SIG qualification Review Page URLs due to missing authenticated login session.",
+            "plain_english_explanation": "The customer could not open the Bluetooth SIG Review Page and received an HTTP 404 error. The consultant explained that the URL only works after logging into the correct Bluetooth SIG account session. Without an authenticated session, the page appears unavailable even though the registration exists normally.",
+            "consultant_answer": "The consultant explained that the Review Page URL must be opened after logging into the Bluetooth SIG account associated with the qualification registration. If the user is not properly authenticated, the system displays an HTTP 404 error instead of the registration details. Once logged in correctly, the approval status and registration information are displayed normally.",
+            "decision_logic": "Bluetooth SIG qualification Review Pages require authenticated account access tied to the registration. A missing or invalid login session prevents the page from loading even if the qualification record exists.",
+            "final_recommendation": "Log into the correct Bluetooth SIG account first, verify the authenticated session is active, and then open the Review Page URL in the same browser session.",
+            "risk_if_done_wrong": "Users may incorrectly assume the qualification registration failed or the Review Page was deleted, causing unnecessary support escalation or project confusion.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "Review Page",
+                "SIG account",
+                "submission"
+            ],
+            "search_aliases": [
+                "Review Page 404",
+                "qualification URL access",
+                "SIG login required",
+                "Bluetooth Review Page error",
+                "authenticated session issue",
+                "qualification page unavailable",
+                "HTTP 404 qualification",
+                "Review Page access problem"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

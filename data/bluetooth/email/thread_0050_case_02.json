@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0050",
+    "cases": [
+        {
+            "case_id": "thread_0050_case_02",
+            "iut_type": "communication terminal",
+            "customer_question": "Which Bluetooth profiles require new testing versus inherited qualification evidence when reusing an existing Fluoride host stack registration?",
+            "question_variants": [
+                "Can existing Fluoride profile QDIDs be inherited?",
+                "Do we need new HID11 testing?",
+                "Which profiles require new PTS evidence?",
+                "Can profile qualification be reused from Fluoride 1.5?",
+                "How to minimize Bluetooth profile testing using inherited QDIDs"
+            ],
+            "actual_issue": "The project needed to determine whether profile testing and qualification evidence could be inherited from existing Fluoride registrations or whether additional profile-level testing was required.",
+            "plain_english_explanation": "The customer wanted to avoid unnecessary Bluetooth profile testing by reusing previously qualified profile evidence. Some profile combinations were already covered by the existing Fluoride registration, but profile selection and ICS alignment had to match correctly. The consultant reviewed which functions were already qualified and which would otherwise trigger additional testing obligations.",
+            "consultant_answer": "The consultant evaluated the available Fluoride profile registrations and determined that profile inheritance was possible when the product's implemented functionality matched the inherited ICS and profile scope. The consultant specifically aligned the qualification configuration to Fluoride 1.5 profile coverage so that additional HID11 testing would not be required. The recommendation focused on minimizing new PTS execution by selecting inherited profiles that already matched the implementation.",
+            "decision_logic": "Bluetooth SIG qualification reuse is allowed when the implementation matches the inherited profile qualification scope and ICS selections. Additional profile testing only becomes necessary when implemented functionality falls outside inherited coverage or introduces incompatible ICS declarations.",
+            "final_recommendation": "Reuse existing Fluoride 1.5 profile qualifications wherever the implementation matches the inherited ICS and profile scope, and avoid introducing profile selections that would trigger unnecessary new PTS testing.",
+            "risk_if_done_wrong": "Incorrect profile inheritance decisions could either invalidate the qualification or force unnecessary PTS testing and profile qualification work. Selecting mismatched ICS values could also cause Qualification Workspace consistency failures or incomplete qualification coverage.",
+            "bluetooth_tags": [
+                "qualification",
+                "profile",
+                "PTS",
+                "ICS",
+                "reuse",
+                "HID",
+                "QDID"
+            ],
+            "search_aliases": [
+                "inherit profile QDID",
+                "reuse profile qualification",
+                "HID11 testing required",
+                "Fluoride profile inheritance",
+                "PTS reduction",
+                "ICS profile alignment",
+                "reuse existing profile evidence",
+                "profile qualification scope"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

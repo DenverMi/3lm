@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0046",
+    "cases": [
+        {
+            "case_id": "thread_0046_case_02",
+            "iut_type": "Linux Bluetooth host implementation",
+            "customer_question": "Can a company reuse another company's Bluetooth SIG qualified BlueZ Host Subsystem QDID without a direct business relationship?",
+            "question_variants": [
+                "Can we reference another company's BlueZ QDID?",
+                "Is it allowed to reuse a third-party Host Subsystem QDID?",
+                "Can we use an existing BlueZ qualification from another listing owner?",
+                "Can a customer inherit another company's qualified BlueZ stack registration?",
+                "Can we avoid testing by using someone else's Host Subsystem QDID?"
+            ],
+            "actual_issue": "The customer wanted to avoid extensive BlueZ qualification testing by referencing an existing qualified BlueZ Host Subsystem QDID from another company without having a formal vendor or licensing relationship.",
+            "plain_english_explanation": "A Bluetooth qualification listing cannot simply be copied from another company unless there is a legitimate relationship allowing reuse of the qualified design. Even if the technical implementation looks similar, improper QDID reuse can later be challenged by the original listing owner and may create compliance problems.",
+            "consultant_answer": "The consultant explained that although a new listing could technically reference another company's BlueZ Host Subsystem QDID, doing so without a valid supplier or licensing relationship was not recommended. The original Listing Owner could notice the unauthorized reuse and request cancellation of the dependent listing through the Bluetooth SIG. The consultant instead recommended purchasing a legitimately qualified Bluetooth stack from an authorized vendor or distributor so the QDID reuse relationship would be formally supported and compliant.",
+            "decision_logic": "Bluetooth qualification reuse depends on legitimate ownership or supplier relationships tied to the referenced qualified design. Unauthorized reuse of another company's QDID creates compliance and listing ownership risks even if the technical implementation appears compatible.",
+            "final_recommendation": "Do not reuse unrelated third-party BlueZ QDIDs. Instead, obtain a qualified Bluetooth stack through an authorized vendor relationship and use the vendor-supported QDID reference path.",
+            "risk_if_done_wrong": "Improper QDID reuse can lead to listing cancellation requests, qualification invalidation, compliance disputes, forced redesign of the qualification strategy, and costly retesting or re-registration.",
+            "bluetooth_tags": [
+                "QDID",
+                "qualification",
+                "reuse",
+                "Host Subsystem",
+                "BlueZ",
+                "listing"
+            ],
+            "search_aliases": [
+                "unauthorized QDID reuse",
+                "third-party Host Subsystem",
+                "BlueZ QDID reuse",
+                "listing owner complaint",
+                "invalid qualification reuse",
+                "reuse without supplier relationship",
+                "Host Subsystem QDID",
+                "SIG listing cancellation",
+                "qualified stack vendor",
+                "Bluetooth stack licensing"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

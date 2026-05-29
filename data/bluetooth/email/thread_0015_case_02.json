@@ -3,22 +3,47 @@
     "cases": [
         {
             "case_id": "thread_0015_case_02",
-            "iut_type": "",
-            "customer_question": "Can a specific QDID combination using a 5.4 Link Layer (AoA/AoD capable) and an RF PHY without AoA/AoD support be used for qualification, and will previous cost and schedule estimates still apply?",
-            "actual_issue": "There is a feature mismatch between Link Layer (AoA/AoD supported) and RF PHY (AoA/AoD not supported), causing IDL violations that cannot be resolved via Test Case Waiver (TCW).",
-            "consultant_answer": "The consultant explains that the mismatch creates critical IDL errors due to unsupported RF PHY features required by the Link Layer. These errors are not eligible for TCW, making the combination invalid for qualification. However, using an appropriate Subset Design (DN) that excludes AoA/AoD and aligns feature support resolves the inconsistency and enables qualification.",
-            "final_recommendation": "Select a compatible Subset DN that matches the RF PHY capabilities (e.g., no AoA/AoD support) and include it with the chosen QDID to eliminate IDL issues. Then proceed with qualification using the corrected design combination.",
+            "iut_type": "wireless networking device",
+            "customer_question": "Can a Link Layer supporting AoA/AoD be combined with an RF PHY QDID that does not support AoA/AoD?",
+            "question_variants": [
+                "Can AoA/AoD-capable Link Layer reuse a non-AoA RF PHY QDID?",
+                "Why does AoA/AoD mismatch cause IDL errors?",
+                "Can TCW waive AoA/AoD inter-layer inconsistencies?",
+                "Is a mixed AoA/AoD QDID combination allowed?",
+                "How do I resolve AoA/AoD RF PHY compatibility errors?"
+            ],
+            "actual_issue": "A Bluetooth qualification design attempted to combine a Link Layer QDID supporting AoA/AoD with an RF PHY QDID lacking AoA/AoD support, causing fatal inter-layer dependency inconsistencies that could not be waived using TCW.",
+            "plain_english_explanation": "Bluetooth layers must agree on supported features. If the Link Layer claims advanced direction-finding features like AoA/AoD, the RF PHY layer must also support the related requirements. When the feature support does not match, the qualification system detects incompatibilities and blocks the design combination.",
+            "consultant_answer": "The consultant explained that the selected Link Layer supported AoA/AoD while the referenced RF PHY qualification did not. This mismatch generated multiple fatal IDL errors between RF PHY and LL capabilities. The consultant explicitly stated that these inconsistencies were not eligible for resolution through TCW. As a workaround, the consultant recommended using a prepared subset Design Number that excluded AoA/AoD and Class 1 support, allowing the combination to pass without the fatal IDL inconsistencies and enabling qualification with TCW.",
+            "decision_logic": "AoA/AoD capabilities must remain consistent across dependent Bluetooth layers. TCW cannot be used to waive prohibited inter-layer dependency mismatches involving incompatible RF PHY and Link Layer feature support.",
+            "final_recommendation": "Use a subset DN that removes unsupported AoA/AoD and incompatible features before combining the RF PHY and Link Layer designs. Validate inter-layer dependency consistency before qualification submission.",
+            "risk_if_done_wrong": "Using incompatible AoA/AoD feature combinations can make the design unqualifiable and force redesign or re-selection of QDIDs late in the qualification process.",
             "bluetooth_tags": [
                 "qualification",
                 "QDID",
-                "IDL",
+                "AoA",
+                "AoD",
                 "RF PHY",
                 "Link Layer",
-                "AoA",
+                "IDL",
                 "TCW",
-                "design subset"
+                "subset DN"
             ],
-            "qualification_stage": "planning"
+            "search_aliases": [
+                "AoA mismatch",
+                "AoD mismatch",
+                "RF PHY unsupported",
+                "LL feature inconsistency",
+                "fatal IDL",
+                "TCW not allowed",
+                "subset DN workaround",
+                "direction finding mismatch",
+                "RF PHY and LL conflict",
+                "AoA AoD compatibility"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

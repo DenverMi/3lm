@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0035",
+    "cases": [
+        {
+            "case_id": "thread_0035_case_03",
+            "iut_type": "module-based end product",
+            "customer_question": "Can a Bluetooth SIG registration proceed when the ICS Form shows a warning because a Test Case Waiver has been applied?",
+            "question_variants": [
+                "Is an ICS warning acceptable when a TCW exists?",
+                "Can qualification continue with a yellow warning mark in the ICS Form?",
+                "Does a TCW allow submission despite review warnings?",
+                "Will the registration be accepted if the ICS Form has a caution icon?",
+                "Can SIG approval still occur when TCW is applied?"
+            ],
+            "actual_issue": "The customer was concerned that the qualification review page displayed a warning icon on the ICS Form despite a Test Case Waiver already being approved.",
+            "plain_english_explanation": "The qualification tool showed a warning symbol that could look like a submission problem. The consultant clarified that the warning was expected because a formal waiver had already been granted, so the qualification could still proceed normally.",
+            "consultant_answer": "The consultant explained that the warning indicator displayed in the Submission Requirements section for the ICS Form was expected because a Test Case Waiver had already been applied to the submission. Since the TCW had been approved, the registration remained in an acceptable state for submission and SIG approval. The consultant requested customer confirmation to proceed with final registration, and the registration was later submitted and approved by the SIG.",
+            "decision_logic": "An ICS warning alone does not block qualification when the underlying requirement has been formally waived through an approved TCW. The determining factor is whether the waiver is valid and associated with the affected requirement.",
+            "final_recommendation": "Proceed with submission if the ICS inconsistency or warning condition is fully covered by an approved TCW and the waiver reference is properly associated with the submission evidence.",
+            "risk_if_done_wrong": "Misinterpreting a valid TCW warning as a qualification failure could unnecessarily delay submission. Conversely, proceeding without a valid waiver could result in SIG rejection or compliance review failure.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "TCW",
+                "listing",
+                "submission",
+                "consistency check"
+            ],
+            "search_aliases": [
+                "ICS warning",
+                "yellow caution mark",
+                "TCW approved",
+                "submission requirements warning",
+                "consistency warning",
+                "waived test case",
+                "ICS Form caution",
+                "qualification workspace warning",
+                "TCW submission",
+                "SIG approval with TCW"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0028",
+    "cases": [
+        {
+            "case_id": "thread_0028_case_01",
+            "iut_type": "module",
+            "customer_question": "If a Bluetooth LE product only supports LE 1M PHY, is RF PHY testing limited to 1M only and can qualification costs be reduced accordingly?",
+            "question_variants": [
+                "Do we need 2M PHY testing if the product only supports 1M?",
+                "Can RF PHY testing be limited to LE 1M mode?",
+                "Is LE 2M PHY mandatory for Bluetooth qualification?",
+                "How much does 1M-only RF PHY testing cost?",
+                "Can unsupported PHY modes be excluded from testing?"
+            ],
+            "actual_issue": "The customer needed clarification on whether unsupported LE PHY modes such as 2M and Coded must still be included in Bluetooth SIG RF PHY qualification testing and pricing.",
+            "plain_english_explanation": "Bluetooth qualification testing only needs to cover the PHY modes that the product actually supports. If a device only supports LE 1M PHY, then only LE 1M RF PHY testing is required. Optional features like 2M PHY or LE Coded PHY increase both test scope and cost.",
+            "consultant_answer": "The consultant explained that if the registered product supports only LE 1M mode, then RF PHY testing only needs to cover 1M. Additional PHY modes such as 2M, Coded, and Stable Modulation Index are optional test scopes that increase the number of RF PHY test items and total qualification cost. The consultant also provided staged pricing examples showing how enabling additional PHY capabilities expands the RF PHY test matrix.",
+            "decision_logic": "Bluetooth RF PHY qualification scope is determined by the PHY capabilities declared and supported by the implementation. Unsupported PHY modes do not require RF PHY qualification testing.",
+            "final_recommendation": "Only declare and test the LE PHY modes that are actually implemented and required for the product roadmap. Avoid adding optional PHY capabilities unless future interoperability or marketing requirements justify the additional qualification scope.",
+            "risk_if_done_wrong": "Declaring unsupported or unnecessary PHY capabilities can significantly increase qualification cost, test scope, scheduling complexity, and risk of RF PHY failures.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "LE",
+                "1M PHY",
+                "2M PHY",
+                "LE Coded",
+                "testing",
+                "module"
+            ],
+            "search_aliases": [
+                "1M only RF PHY",
+                "LE 2M optional",
+                "Coded PHY optional",
+                "RF PHY cost increase",
+                "PHY capability scope",
+                "BLE PHY test scope",
+                "1M qualification only",
+                "RF PHY item count",
+                "optional PHY testing"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

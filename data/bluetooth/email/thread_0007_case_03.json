@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0007",
+    "cases": [
+        {
+            "case_id": "thread_0007_case_03",
+            "iut_type": "BLE smart lock key",
+            "customer_question": "Can Bluetooth qualification be completed without submitting hardware samples for testing when using compatible existing qualified designs?",
+            "question_variants": [
+                "Is physical testing required for Multi-Design registration?",
+                "Can SIG qualification proceed without DUT submission?",
+                "When can qualification reuse avoid retesting?",
+                "Does combining existing QDIDs require RF testing?",
+                "Can registration-only qualification be performed?"
+            ],
+            "actual_issue": "The customer wanted to know whether qualification could be completed entirely through reuse of existing qualified designs without performing additional physical Bluetooth testing.",
+            "plain_english_explanation": "The consultant determined that the product could reuse previously qualified Bluetooth designs instead of running new RF or protocol tests. Because the qualification relied on compatible existing QDIDs and no Bluetooth implementation changes were introduced, the process could be completed as a documentation and registration activity only.",
+            "consultant_answer": "The consultant explained that when the qualification uses compatible existing Core-Host and Core-Controller qualified designs with no implementation changes requiring new evidence, the registration can proceed through Multi-Design inclusion without submitting actual hardware for RF or protocol testing. The work mainly consists of qualification registration support and compliance folder preparation.",
+            "decision_logic": "Bluetooth qualification reuse allows previously qualified designs to be combined without new testing when the included designs remain valid, compatible, and unmodified in a way that affects compliance requirements.",
+            "final_recommendation": "Proceed using compatible existing qualified designs and complete the required registration and compliance documentation process without scheduling additional Bluetooth testing.",
+            "risk_if_done_wrong": "If incompatible or modified designs are reused incorrectly without recognizing new qualification requirements, the registration may fail consistency review or require unexpected retesting later in the process.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "reuse",
+                "Multi-Design",
+                "listing",
+                "compliance folder"
+            ],
+            "search_aliases": [
+                "Multi-Design registration",
+                "no hardware testing",
+                "qualification reuse",
+                "no RF retest",
+                "registration only qualification",
+                "existing QDID reuse",
+                "compliance folder preparation",
+                "SIG registration support",
+                "design reuse qualification",
+                "no sample submission"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

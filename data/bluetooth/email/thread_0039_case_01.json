@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0039",
+    "cases": [
+        {
+            "case_id": "thread_0039_case_01",
+            "iut_type": "keyboard",
+            "customer_question": "How should PTS reports and ICS information be corrected when Bluetooth profile versions are inconsistent between the report and the ICS configuration?",
+            "question_variants": [
+                "PTS report profile version mismatch",
+                "ICS profile version inconsistency",
+                "BAS version mismatch in PTS report",
+                "DIS profile version incorrect",
+                "How should profile versions be reflected in PTS reports?",
+                "Can mixed profile versions appear in one PTS report?"
+            ],
+            "actual_issue": "The PTS report contained incorrect or inconsistent Bluetooth profile version information for BAS and DIS compared with the versions defined in the ICS used during testing.",
+            "plain_english_explanation": "Bluetooth PTS reports must accurately reflect the profile versions that were configured and tested during qualification. In this case, the BAS and DIS versions shown in the report did not match the ICS configuration used when testing started. The consultant required both the report and ICS references to be corrected so the qualification evidence remained internally consistent.",
+            "consultant_answer": "The consultant reviewed the PTS report and instructed the test engineer to correct the BAS and DIS profile versions because the profile version information must align with the versions defined in the ICS at the start of PTS testing. The consultant explicitly stated that this case used BAS 1.0 and DIS 1.1 and required the PTS report and ICS information to be updated accordingly. After corrections were made, the revised reports were re-uploaded for approval.",
+            "decision_logic": "Bluetooth qualification evidence must remain internally consistent across the ICS configuration and the generated PTS reports. The profile versions recorded in the report must exactly match the versions declared and used when PTS testing begins.",
+            "final_recommendation": "Verify that all PTS reports use the exact Bluetooth profile versions defined in the ICS before approval and submission, and correct any mismatches before final qualification review.",
+            "risk_if_done_wrong": "Inconsistent ICS and PTS report versions can create qualification evidence discrepancies, trigger review rejection, require report rework, or delay approval of the Bluetooth qualification package.",
+            "bluetooth_tags": [
+                "PTS",
+                "ICS",
+                "profile",
+                "BAS",
+                "DIS",
+                "qualification",
+                "report review",
+                "consistency check"
+            ],
+            "search_aliases": [
+                "PTS profile version mismatch",
+                "ICS mismatch",
+                "BAS 1.0 DIS 1.1",
+                "profile version correction",
+                "PTS report inconsistency",
+                "ICS version alignment",
+                "qualification report correction",
+                "Bluetooth profile version mismatch",
+                "PTS review issue",
+                "report and ICS mismatch"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

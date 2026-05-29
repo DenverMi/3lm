@@ -3,19 +3,45 @@
     "cases": [
         {
             "case_id": "thread_0008_case_02",
-            "iut_type": "",
-            "customer_question": "Can 'BLE' be used in the Product Name during Bluetooth SIG listing?",
-            "actual_issue": "Use of non-compliant terminology in Product Name that violates Bluetooth SIG branding guidelines.",
-            "consultant_answer": "The consultant identified that 'BLE' is a prohibited expression under Bluetooth SIG guidelines and must be replaced with the approved term 'Bluetooth LE'.",
-            "final_recommendation": "Use only Bluetooth SIG-approved terminology such as 'Bluetooth LE' in Product Name and listing information; avoid non-compliant terms like 'BLE'.",
+            "iut_type": "BLE peripheral device",
+            "customer_question": "Can Bluetooth behavior be temporarily modified during PTS testing if the changes do not affect the evaluated qualification items?",
+            "question_variants": [
+                "Can advertising timing be extended during PTS tests?",
+                "Can Random Static Address be used instead of RPA for testing?",
+                "Is it acceptable to force BAS notifications during PTS?",
+                "Can test-only behavior changes be used for PTS convenience?",
+                "Are temporary test configuration changes allowed during profile qualification?"
+            ],
+            "actual_issue": "The customer wanted to know whether temporary behavioral modifications made only to simplify PTS testing were acceptable during Bluetooth qualification.",
+            "plain_english_explanation": "PTS testing can sometimes be difficult with normal product behavior, so the customer proposed temporary test-only settings. The consultant confirmed that certain changes were acceptable because they did not alter the Bluetooth features being qualified. The important point was that the modified behavior still represented the same qualified functionality.",
+            "consultant_answer": "The consultant confirmed that several proposed temporary test configurations were acceptable because they did not affect the qualification scope of the evaluated services and profiles. Approved examples included periodically changing BAS Battery Level notifications to trigger Notify behavior, changing from Random Resolvable Private Address to Random Static Address to simplify tester connectivity, and extending advertisement duration during testing.",
+            "decision_logic": "Bluetooth qualification focuses on validating implemented protocol and profile behavior. Temporary test configurations are acceptable if they do not alter the underlying qualified functionality or invalidate the declared feature set.",
+            "final_recommendation": "Use temporary test-only configurations when necessary to stabilize or simplify PTS execution, provided the changes do not modify the actual qualified Bluetooth feature set or profile behavior.",
+            "risk_if_done_wrong": "If temporary test modifications alter qualified functionality rather than only improving test execution, the resulting PTS evidence may no longer represent the shipping implementation and could create qualification validity issues.",
             "bluetooth_tags": [
                 "qualification",
-                "listing",
-                "naming",
-                "branding",
-                "Bluetooth LE"
+                "PTS",
+                "BAS",
+                "DIS",
+                "testing",
+                "GATT",
+                "LE"
             ],
-            "qualification_stage": "listing / declaration"
+            "search_aliases": [
+                "PTS test workaround",
+                "temporary test configuration",
+                "Random Static Address for PTS",
+                "BAS Notify testing",
+                "advertising interval extension",
+                "PTS connectivity adjustment",
+                "test-only behavior change",
+                "RPA to static address",
+                "profile test setup",
+                "PTS execution support"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

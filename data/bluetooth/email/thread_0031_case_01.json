@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0031",
+    "cases": [
+        {
+            "case_id": "thread_0031_case_01",
+            "iut_type": "module",
+            "customer_question": "Can a BM832 module based on Nordic nRF52832 be qualified using new nRF Connect SDK v2.8.0 QDIDs instead of the module's original SoftDevice-based qualification?",
+            "question_variants": [
+                "Can BM832 use nRF Connect SDK 2.8.0 qualification references?",
+                "Can we declare a product with BM832 using BLE 5.3 QDIDs?",
+                "Does BM832 require reuse of QDID 97989 only?",
+                "Can a module qualified with SoftDevice be reused with nRF Connect SDK?",
+                "Can we develop and sell a BM832 product using new Nordic SDK QDIDs without retesting?"
+            ],
+            "actual_issue": "The customer believed the BM832 module qualification was locked to its original End Product declaration based on Nordic SoftDevice SDK 5.0.0, and needed to determine whether the same hardware could instead be qualified using newer nRF Connect SDK v2.8.0 Bluetooth 5.3 QDIDs.",
+            "plain_english_explanation": "The Bluetooth module already had an older qualification tied to Nordic's older SoftDevice software stack. The customer wanted to replace the firmware with newer nRF Connect SDK firmware while continuing to use the same module hardware. The consultant verified whether the Bluetooth qualification could legally follow the new software qualification instead of the old one.",
+            "consultant_answer": "The consultant initially explained that BM832 itself did not own an independent QDID and instead referenced Nordic End Product QDID 97989 built from older RF PHY, Link Layer, and Host Layer component declarations tied to SoftDevice SDK 5.0.0. Therefore, the existing BM832 declaration could not simply be added into the new Product List referencing different BLE 5.3 nRF Connect SDK QDIDs. However, after the customer obtained confirmation from the module manufacturer, the consultant concluded that the BM832 hardware could be used with nRF Connect SDK v2.8.0 by creating a new declaration referencing the new Nordic nRF52 SDK QDIDs. The manufacturer confirmed that products using any Nordic nRF52832 QDID could be listed without retesting.",
+            "decision_logic": "Bluetooth qualification reuse follows the implemented Bluetooth stack and referenced QDIDs, not only the module hardware itself. If the module hardware allows firmware replacement and the implemented object code matches the newly referenced qualified SDK and stack, a new declaration referencing the new SDK QDIDs is permitted.",
+            "final_recommendation": "Create a new Bluetooth SIG declaration referencing the nRF Connect SDK v2.8.0 BLE 5.3 QDIDs for the implemented firmware, and qualify the BM832-based product under the new declaration instead of reusing the older SoftDevice-based declaration.",
+            "risk_if_done_wrong": "Reusing the original SoftDevice-based qualification while shipping firmware built with a different SDK and Bluetooth stack could create an invalid declaration, compliance exposure, or rejection during qualification review.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "module",
+                "reuse",
+                "declaration",
+                "nRF52",
+                "nRF Connect SDK",
+                "BLE"
+            ],
+            "search_aliases": [
+                "BM832 qualification reuse",
+                "BM832 nRF Connect SDK",
+                "SoftDevice to nRF Connect migration",
+                "QDID 97989 replacement",
+                "nRF52832 new declaration",
+                "BLE 5.3 QDID reuse",
+                "firmware stack qualification mismatch",
+                "module hardware reuse",
+                "Nordic SDK qualification",
+                "no retesting required"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

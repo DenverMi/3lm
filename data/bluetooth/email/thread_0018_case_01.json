@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0018",
+    "cases": [
+        {
+            "case_id": "thread_0018_case_01",
+            "iut_type": "",
+            "customer_question": "When the same profile test item appears in both lab-executed and customer-executed test evidence, which result should be listed in the Bluetooth profile test report, and is regeneration needed?",
+            "question_variants": [
+                "Which duplicate profile test result should be used in the report?",
+                "Should the lab result or customer result be prioritized when both cover the same test case?",
+                "Do we need to delete the unused duplicate test item and regenerate the report?",
+                "How should overlapping PTS/profile test evidence be handled in the final report?"
+            ],
+            "actual_issue": "A Bluetooth profile test report contained overlapping evidence for the same HFP test item from both the lab and the customer, with different execution versions. The reviewer needed to decide which evidence to keep in the report and whether removing the other item required report regeneration.",
+            "plain_english_explanation": "The same Bluetooth profile test case had been performed by both the test lab and the customer. Because the report should contain evidence the lab can stand behind and should avoid unnecessary regeneration work, the consultant advised using the lab-executed result. The unused customer-executed duplicate did not need to drive a report regeneration if the lab-executed item could be listed cleanly.",
+            "consultant_answer": "The consultant instructed the team to list the lab-executed test item because the lab can take responsibility for that evidence and because using it avoids the need to regenerate the report. The answer resolves the duplicate-evidence problem by prioritizing accountable lab evidence over customer-executed evidence when both cover the same item.",
+            "decision_logic": "When duplicate Bluetooth profile test evidence exists for the same test item, prefer the evidence executed by the reporting lab if that evidence is valid, because the lab can be responsible for it and it avoids unnecessary report regeneration.",
+            "final_recommendation": "Use the lab-executed HFP profile test result in the report and avoid regenerating the report solely to remove the duplicate customer-executed item.",
+            "risk_if_done_wrong": "Using customer-executed evidence when equivalent lab-executed evidence is available may reduce report accountability and can create unnecessary report editing or regeneration work. Leaving unclear duplicate evidence may also cause review comments and delay final report approval.",
+            "bluetooth_tags": [
+                "qualification",
+                "profile",
+                "test report",
+                "PTS",
+                "HFP",
+                "test evidence",
+                "report review"
+            ],
+            "search_aliases": [
+                "duplicate test evidence",
+                "lab executed result",
+                "customer executed result",
+                "profile test report",
+                "HFP duplicate item",
+                "report regeneration",
+                "PTS report review",
+                "overlapping test logs",
+                "test evidence priority"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

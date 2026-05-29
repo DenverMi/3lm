@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0024",
+    "cases": [
+        {
+            "case_id": "thread_0024_case_03",
+            "iut_type": "HID device",
+            "customer_question": "How can a customer self-run PTS testing and use the results for Bluetooth qualification support and registration?",
+            "question_variants": [
+                "Can the customer execute PTS tests internally?",
+                "Can a consultant review customer-generated PTS evidence?",
+                "What files are needed to validate a Qualification Workspace test plan?",
+                "Can Export ICS and Test Plan be used as qualification evidence?",
+                "How quickly can registration complete after PTS reports are submitted?"
+            ],
+            "actual_issue": "Defining an acceptable workflow where the customer performs required PTS testing internally while the consultant validates evidence and supports qualification registration.",
+            "plain_english_explanation": "The customer wanted to reduce external testing effort by running Bluetooth PTS tests internally. The consultant confirmed this approach was acceptable if the exported project, ICS, and generated Test Plan matched the expected Qualification Workspace configuration and if the resulting PTS reports passed all required cases. The consultant also clarified the required exported file formats and registration timeline.",
+            "consultant_answer": "The consultant confirmed that the submitted .pts content and generated Test Plan matched the consultant's reference Qualification Workspace project. The consultant requested the exported project .bqw file because the .pts file alone did not expose included DN/QDID information. After reviewing the exported project and ICS, the consultant confirmed that if the customer executed the generated PTS test plan and submitted passing PTS reports, the reports would be acceptable qualification evidence. The consultant also confirmed that reviewing customer-generated profile test evidence was included in the registration support service and that registration could complete within three business days after PTS report submission, assuming SIG fee payment was completed.",
+            "decision_logic": "Qualification evidence can be accepted when the Qualification Workspace project, exported ICS, and generated test plan correctly represent the intended design and all generated required PTS test cases are executed with passing evidence.",
+            "final_recommendation": "Export the Qualification Workspace project as a zipped .bqw file together with Export ICS and Test Plan data, execute all generated PTS cases internally, and submit complete passing PTS reports for consultant verification and registration support.",
+            "risk_if_done_wrong": "Submitting incomplete project exports or mismatched ICS/Test Plan data can hide included DN/QDID dependencies or omit mandatory tests, leading to invalid evidence, delayed registration, or required retesting.",
+            "bluetooth_tags": [
+                "PTS",
+                "ICS",
+                "Test Plan",
+                "qualification",
+                "IOPT",
+                "evidence",
+                "QDID",
+                "listing"
+            ],
+            "search_aliases": [
+                "customer-run PTS",
+                "Export Project .bqw",
+                "Export ICS",
+                "PTS evidence review",
+                "Qualification Workspace test plan",
+                "PTS report submission",
+                "included QDID validation",
+                "Bluetooth registration support"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

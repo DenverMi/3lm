@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0035",
+    "cases": [
+        {
+            "case_id": "thread_0035_case_02",
+            "iut_type": "module-based end product",
+            "customer_question": "What product documents are required for the Bluetooth compliance folder, and are separate documents needed for every derivative model?",
+            "question_variants": [
+                "What documents are required for the compliance folder?",
+                "Do all derivative models need separate manuals and block diagrams?",
+                "Can one block diagram be reused for similar Bluetooth products?",
+                "What level of detail is required for the Bluetooth block diagram?",
+                "Does the compliance folder require documentation for every Product List entry?"
+            ],
+            "actual_issue": "The customer needed clarification on compliance folder documentation scope for initial qualification and later derivative product registrations.",
+            "plain_english_explanation": "Bluetooth qualification requires maintaining a compliance folder containing evidence that the product matches the qualified Bluetooth design. The customer wanted to know whether every later derivative product needed its own full documentation set and how detailed the technical diagrams needed to be.",
+            "consultant_answer": "The consultant explained that for the initial paid registration, at least one actual product model must be listed in the Product List, and the compliance folder only needs documentation for the models included in that initial registration. If only one representative model is initially registered, only that model's manual, block diagram, and external drawing are required. Additional derivative products can later be added for free using the qualification workspace workflow. The consultant further explained that the block diagram does not need excessive detail and that a shared representative diagram may be acceptable for similar products. Example documentation from a USB Bluetooth audio receiver was provided as a reference. Later emails also clarified that documentation may reuse material already prepared for radio certification and that even draft-level manuals or simple notes are acceptable if final documentation is unavailable.",
+            "decision_logic": "Compliance folder documentation requirements apply to the products explicitly included in the current registration scope. If only a representative model is initially listed, only that model requires supporting documents in the compliance folder.",
+            "final_recommendation": "Use a single representative model for the initial registration whenever possible, and prepare the Bluetooth operation manual section, block diagram, and external drawing only for that representative product. Reuse existing regulatory documentation where available and maintain the compliance folder for audit readiness.",
+            "risk_if_done_wrong": "Providing incomplete compliance evidence or failing to maintain the compliance folder could create audit exposure during Bluetooth SIG enforcement or verification activities. Over-scoping documentation for all future derivatives may also create unnecessary administrative work.",
+            "bluetooth_tags": [
+                "qualification",
+                "compliance folder",
+                "Product List",
+                "documentation",
+                "module",
+                "reuse",
+                "listing"
+            ],
+            "search_aliases": [
+                "compliance folder documents",
+                "Bluetooth block diagram",
+                "Product List documentation",
+                "derivative model documents",
+                "qualification evidence",
+                "Bluetooth operation manual",
+                "external drawing requirement",
+                "audit folder",
+                "compliance folder retention",
+                "representative model registration"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

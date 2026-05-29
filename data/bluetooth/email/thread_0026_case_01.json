@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0026",
+    "cases": [
+        {
+            "case_id": "thread_0026_case_01",
+            "iut_type": "module",
+            "customer_question": "If a product changes from one Bluetooth module supplier to another while keeping Bluetooth 4.2, is a new Bluetooth qualification or registration required?",
+            "question_variants": [
+                "Can we replace the Bluetooth module without requalification?",
+                "Does changing the module vendor require a new Bluetooth SIG listing?",
+                "If the Bluetooth version stays at 4.2, do we need new registration work?",
+                "Can an existing Bluetooth 4.2 qualification remain valid after a module replacement?",
+                "Does swapping to a different QDID require additional testing?"
+            ],
+            "actual_issue": "The product changed from one supplier's Bluetooth module to another supplier's module with a different QDID, but the Bluetooth version and qualification scope remained unchanged. The customer needed to determine whether a new Bluetooth qualification process or testing was required.",
+            "plain_english_explanation": "The company replaced the Bluetooth module inside its product with another already-qualified module. Because the product would continue claiming the same Bluetooth version and no new Bluetooth features were being added, the existing qualification approach could remain unchanged. The discussion clarified that no additional Bluetooth qualification procedures were needed in that specific scenario.",
+            "consultant_answer": "The consultant confirmed that when the product continues to use Bluetooth 4.2 as originally registered, no additional Bluetooth SIG procedures or testing are required despite the module supplier change. The replacement module already had its own QDID, and the Bluetooth capability level being marketed did not change.",
+            "decision_logic": "A module supplier replacement alone does not automatically require a new qualification if the Bluetooth functionality, claimed version, and qualification scope remain unchanged and the replacement module already has a valid qualified design.",
+            "final_recommendation": "Keep the existing Bluetooth 4.2 qualification approach and proceed without additional Bluetooth SIG registration or testing activity for the module replacement.",
+            "risk_if_done_wrong": "If the company unnecessarily initiates a new qualification or testing effort despite no Bluetooth functional change, it may incur avoidable cost, schedule delay, and administrative work.",
+            "bluetooth_tags": [
+                "qualification",
+                "module",
+                "QDID",
+                "reuse",
+                "Bluetooth 4.2",
+                "listing"
+            ],
+            "search_aliases": [
+                "module replacement no requalification",
+                "Bluetooth 4.2 unchanged",
+                "QDID swap",
+                "supplier module change",
+                "existing qualification reuse",
+                "module vendor replacement",
+                "no new testing required",
+                "same Bluetooth version reuse"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

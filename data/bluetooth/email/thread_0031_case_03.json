@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0031",
+    "cases": [
+        {
+            "case_id": "thread_0031_case_03",
+            "iut_type": "module",
+            "customer_question": "Can additional nRF52-based products using the same nRF Connect SDK 2.8.0 object code be added as derivative products without additional Bluetooth qualification fees?",
+            "question_variants": [
+                "Can derivative models be added for free?",
+                "Do new model numbers require a new Bluetooth fee?",
+                "Can multiple nRF52 products share one qualification?",
+                "Can host and peripheral products both reuse the same declaration?",
+                "Can future products be added to the Product List without retesting?"
+            ],
+            "actual_issue": "The customer wanted to understand the reuse limits and derivative product eligibility when multiple products share the same nRF Connect SDK 2.8.0 Bluetooth implementation on Nordic nRF52 SoCs.",
+            "plain_english_explanation": "The customer expected to launch multiple products using the same Bluetooth software implementation. They needed to know whether each product would require a separate expensive qualification process or whether they could be added under the same declaration. The consultant clarified the conditions for free derivative product additions.",
+            "consultant_answer": "The consultant confirmed that products implementing nRF Connect SDK 2.8.0 object code on nRF52 series SoCs could be added to the Product List as derivative models without additional qualification fees. This applied to products using BLE functions such as beaconing, GATT communication, pairing, and Mesh where supported by the SoC. However, products using firmware built with different SDKs such as older SoftDevice SDK versions were outside the qualified scope and could not reuse the same declaration.",
+            "decision_logic": "Derivative product reuse is allowed when the Bluetooth implementation remains within the exact qualified SDK and object-code scope. Changes limited to product model variations do not require a new qualification if the underlying qualified Bluetooth stack remains unchanged.",
+            "final_recommendation": "Reuse the same declaration for additional nRF52 products only when they implement the same nRF Connect SDK 2.8.0 qualified object code, and register each new model as a derivative product in the Product List.",
+            "risk_if_done_wrong": "Using different Bluetooth stacks or SDK versions under the same declaration could invalidate derivative product eligibility and create noncompliant Bluetooth listings.",
+            "bluetooth_tags": [
+                "qualification",
+                "derivative product",
+                "Product List",
+                "reuse",
+                "nRF52",
+                "nRF Connect SDK",
+                "listing",
+                "declaration"
+            ],
+            "search_aliases": [
+                "derivative product reuse",
+                "Product List free addition",
+                "nRF52 derivative model",
+                "same SDK reuse",
+                "Bluetooth declaration reuse",
+                "nRF Connect SDK 2.8.0 reuse",
+                "no additional qualification fee",
+                "object code scope",
+                "multiple model qualification",
+                "SoftDevice outside scope"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

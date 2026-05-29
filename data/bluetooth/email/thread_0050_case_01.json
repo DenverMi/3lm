@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0050",
+    "cases": [
+        {
+            "case_id": "thread_0050_case_01",
+            "iut_type": "module",
+            "customer_question": "How can a product be qualified when combining an existing Bluetooth module QDID with Google Fluoride host stack registrations causes Qualification Workspace consistency check Invalid errors?",
+            "question_variants": [
+                "Qualification Workspace Invalid when combining module and Fluoride",
+                "GAP/GATT ICS consistency check failure with Fluoride host stack",
+                "Can TCW be used to bypass Fluoride consistency issues?",
+                "QDID combination invalid during Bluetooth SIG qualification",
+                "How to qualify a product using existing module plus Fluoride stack",
+                "Consistency check failed after adding host stack QDID"
+            ],
+            "actual_issue": "The qualification project encountered Bluetooth SIG Qualification Workspace consistency check Invalid errors caused by incompatibilities and dependency inconsistencies inside reused Fluoride host stack registrations when combined with an existing qualified Bluetooth module.",
+            "plain_english_explanation": "The product reused an already qualified Bluetooth module and an existing Android Fluoride host stack registration. However, when the consultant combined those pieces inside the Bluetooth SIG qualification system, the system reported internal dependency problems related to GAP and GATT settings. The real problem was not the hardware module itself, but inconsistencies inside older host stack registrations versus newer SIG validation rules.",
+            "consultant_answer": "The consultant determined that the Invalid conditions originated from Fluoride registration consistency behavior rather than from the Bluetooth module implementation. Instead of attempting to repair every dependency mismatch directly, the consultant proposed using an existing Host Subsystem and Controller Subsystem combination together with a Test Case Waiver strategy to avoid unnecessary core-layer requalification. The consultant also aligned profile inheritance and ICS selections to the Fluoride 1.5 registration set to maintain Qualification Workspace validity while preserving reuse eligibility.",
+            "decision_logic": "If the reused subsystem registrations already contain accepted qualification evidence, the correct strategy is to maximize inheritance and avoid triggering unnecessary new consistency dependencies. The Invalid errors were treated as qualification database consistency issues rather than functional interoperability failures. Therefore, reuse plus TCW was a lower-risk and lower-effort path than rebuilding qualification evidence from scratch.",
+            "final_recommendation": "Use the existing qualified Host Subsystem and Controller Subsystem combination with TCW support, inherit compatible Fluoride profile qualifications, and align ICS selections to the validated Fluoride registration set rather than creating new incompatible combinations.",
+            "risk_if_done_wrong": "The product could become unregistrable due to unresolved Qualification Workspace Invalid conditions. Misdiagnosing the issue as a hardware or module defect could also trigger unnecessary redesign, retesting, or replacement of the Bluetooth architecture. Incorrect qualification scoping could additionally force unnecessary PTS testing and additional profile qualification work.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "ICS",
+                "GATT",
+                "GAP",
+                "TCW",
+                "consistency check",
+                "reuse"
+            ],
+            "search_aliases": [
+                "QDID combination invalid",
+                "consistency check failed",
+                "Fluoride invalid",
+                "GAP GATT dependency error",
+                "Qualification Workspace invalid",
+                "TCW workaround",
+                "reuse existing QDID",
+                "host stack inconsistency",
+                "Fluoride 1.5 inheritance",
+                "ICS mismatch"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

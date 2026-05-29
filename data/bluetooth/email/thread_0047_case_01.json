@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0047",
+    "cases": [
+        {
+            "case_id": "thread_0047_case_01",
+            "iut_type": "module",
+            "customer_question": "Can a Bluetooth SIG product registration reuse both an existing Component QDID and the customer's Controller Subsystem QDID without triggering additional lower-layer testing?",
+            "question_variants": [
+                "Can we combine a Component QDID with our own Controller Subsystem QDID?",
+                "Why is Qualification Workspace generating lower-layer test requirements?",
+                "Can RF PHY and LL layers be replaced using another QDID?",
+                "Can a Core Complete registration reuse multiple existing QDIDs?",
+                "How can we avoid unnecessary lower-layer retesting in QPRD v3?"
+            ],
+            "actual_issue": "The qualification registration initially generated unexpected lower-layer test requirements when combining existing qualified designs. The consultant needed to determine whether replacing RF PHY and LL layers from one referenced design with layers from the customer's Controller Subsystem QDID would create a compliant Core Complete registration without additional testing obligations.",
+            "plain_english_explanation": "The customer wanted to reuse previously qualified Bluetooth building blocks instead of running new low-level Bluetooth tests again. Initially, the Bluetooth SIG Qualification Workspace treated the design combination as requiring extra testing. After a SIG system maintenance update, the consultant verified that a different QDID combination strategy no longer triggered those lower-layer test requirements.",
+            "consultant_answer": "The consultant tested an alternative registration structure inside Qualification Workspace by referencing both the existing Component QDID and the customer's Controller Subsystem QDID. The RF PHY and LL layers from the original Component registration were replaced with the corresponding layers from the customer's Controller Subsystem design to create a Core Complete module registration. After SIG maintenance updates, the Workspace no longer generated lower-layer testing requirements for this combination. The consultant therefore recommended proceeding with the combined-QDID registration approach and completed the Submission after customer confirmation.",
+            "decision_logic": "The key decision depended on whether the reused qualified layers formed a valid and internally consistent Core Complete registration inside Qualification Workspace. If the reused RF PHY and LL layers were accepted without generating new lower-layer test plans, the combination could proceed using existing qualification assets instead of requiring additional testing.",
+            "final_recommendation": "Validate alternative QDID layer-combination structures directly inside Qualification Workspace before submission, then proceed with the combination that passes consistency validation and avoids unnecessary lower-layer test generation.",
+            "risk_if_done_wrong": "Using an invalid QDID combination or incorrect layer substitution could trigger unnecessary lower-layer testing requirements, create submission rejection risk, or require qualification rework and delayed product listing.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "reuse",
+                "module",
+                "controller",
+                "RF PHY",
+                "LL",
+                "Qualification Workspace"
+            ],
+            "search_aliases": [
+                "QDID combination",
+                "Component plus Controller Subsystem",
+                "RF PHY replacement",
+                "LL layer replacement",
+                "Core Complete registration",
+                "unexpected lower-layer testing",
+                "Qualification Workspace test generation",
+                "reuse existing QDID",
+                "lower layer test suppression",
+                "QPRD v3 reuse"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

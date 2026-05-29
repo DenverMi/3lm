@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0017",
+    "cases": [
+        {
+            "case_id": "thread_0017_case_03",
+            "iut_type": "DJ system",
+            "customer_question": "If the quotation/request documents list Class 2 but the customer says Class 1 is correct, which class should be used for the final RF report?",
+            "question_variants": [
+                "The request sheet says Class 2 but the customer confirms Class 1; what should we do?",
+                "Should the final report follow the quotation document or customer confirmation?",
+                "How do we handle inconsistent Power Class documentation?",
+                "Can we correct the RF report after confirming the intended class?"
+            ],
+            "actual_issue": "The request documentation appeared to list both the base model and new product as Class 2, but the customer later confirmed that Class 1 was correct.",
+            "plain_english_explanation": "There were conflicting documents about whether the product should be Class 1 or Class 2. The team asked the customer to confirm the intended class. Once the customer confirmed Class 1, the consultant instructed the report to be corrected as Class 1 / 3 dBm.",
+            "consultant_answer": "The consultant directed the team to confirm the intended Power Class with the customer because the quotation/request materials indicated Class 2. After the customer confirmed Class 1, the consultant instructed that the report be prepared or corrected using the Class 1 / 3 dBm setting.",
+            "decision_logic": "When source documents conflict, the lab should not assume the intended Bluetooth Power Class. The intended class must be confirmed with the customer before finalizing the test report.",
+            "final_recommendation": "Confirm the intended Power Class with the customer, then finalize the RF report using the confirmed Class 1 / 3 dBm configuration.",
+            "risk_if_done_wrong": "The final report could be issued against the wrong declared class, leading to mismatch with the customer’s intended qualification evidence and requiring rework.",
+            "bluetooth_tags": [
+                "RF",
+                "Power Class",
+                "Class 1",
+                "Class 2",
+                "test report",
+                "qualification",
+                "customer confirmation"
+            ],
+            "search_aliases": [
+                "request says Class 2",
+                "customer confirms Class 1",
+                "Power Class documentation conflict",
+                "wrong class in quote sheet",
+                "Class 1 final report",
+                "RF report class confirmation",
+                "Class 1 3 dBm report"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

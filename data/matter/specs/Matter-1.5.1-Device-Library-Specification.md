@@ -1,5 +1,3 @@
-![](_page_0_Picture_0.jpeg)
-
 # **Matter Device Library Specification Version 1.5.1**
 
 Document: 23-27351-009\_Matter-1.5.1-Device-Library-Specification.pdf
@@ -21,8 +19,6 @@ Keywords: Referenced in Chapter 1.
 Copyright © 2022-2026 Connectivity Standards Alliance, Inc. 508 Second Street, Suite 109B Davis, CA 95616 - USA www.csa-iot.org All rights reserved.
 
 Permission is granted to members of the Connectivity Standards Alliance to reproduce this document for their own use or the use of other Connectivity Standards Alliance members only, provided this notice is included. All other rights reserved. Duplication for sale, or for commercial or for-profit use is strictly prohibited without the prior written consent of the Connectivity Standards Alliance.
-
-![](_page_2_Picture_0.jpeg)
 
 # Matter Device Library
 
@@ -46,651 +42,631 @@ Connectivity Standards Alliance 508 Second Street, Suite 206 Davis, CA 95616, US
 
 # <span id="page-6-0"></span>**Revision History**
 
-| Revision | Date               | Details       | Editor          |
-|----------|--------------------|---------------|-----------------|
-| 1        | September 23, 2022 | Version 1.0   | Robert Szewczyk |
-| 2        | May 17, 2023       | Version 1.1   | Robert Szewczyk |
-| 3        | October 18, 2023   | Version 1.2   | Robert Szewczyk |
-| 4        | April 17, 2024     | Version 1.3   | Robert Szewczyk |
-| 5        | November 4, 2024   | Version 1.4   | Robert Szewczyk |
-| 6        | March 17, 2025     | Version 1.4.1 | Robert Szewczyk |
-| 7        | July 16, 2025      | Version 1.4.2 | Robert Szewczyk |
-| 8        | November 10, 2025  | Version 1.5   | Robert Szewczyk |
-| 9        | March 16, 2026     | Version 1.5.1 | Robert Szewczyk |
+| Revision | Date | Details | Editor |
+| 1 | September 23, 2022 | Version 1.0 | Robert Szewczyk |
+| 2 | May 17, 2023 | Version 1.1 | Robert Szewczyk |
+| 3 | October 18, 2023 | Version 1.2 | Robert Szewczyk |
+| 4 | April 17, 2024 | Version 1.3 | Robert Szewczyk |
+| 5 | November 4, 2024 | Version 1.4 | Robert Szewczyk |
+| 6 | March 17, 2025 | Version 1.4.1 | Robert Szewczyk |
+| 7 | July 16, 2025 | Version 1.4.2 | Robert Szewczyk |
+| 8 | November 10, 2025 | Version 1.5 | Robert Szewczyk |
+| 9 | March 16, 2026 | Version 1.5.1 | Robert Szewczyk |
 
 # **Table of Contents**
 
-| Copyright Notice, License and Disclaimer            | 1  |
-|-----------------------------------------------------|----|
-| Revision History                                    | 3  |
-| References                                          | 20 |
+| Copyright Notice, License and Disclaimer | 1 |
+| Revision History | 3 |
+| References | 20 |
 | Connectivity Standards Alliance Reference Documents | 20 |
-| Provisional.                                        | 20 |
-| List of Provisional Items                           | 20 |
-| 1. Base Device Type                                 | 21 |
-| 1.1. Base Device Type                               | 21 |
-| 1.1.1. Revision History                             | 21 |
-| 1.1.2. Overview                                     | 21 |
-| 1.1.3. Conditions                                   | 21 |
-| 1.1.4. Common Capability Conditions                 | 22 |
-| 1.1.5. Device Type Class Conditions                 | 22 |
-| 1.1.6. Endpoint Type Class Conditions               | 23 |
-| 1.1.7. Cluster Requirements                         | 23 |
-| 1.1.8. Element Requirements                         | 23 |
-| 2. Utility Device Types                             | 25 |
-| 2.1. Root Node Device Type                          | 25 |
-| 2.1.1. Revision History                             | 25 |
-| 2.1.2. Classification                               | 26 |
-| 2.1.3. Conditions                                   | 26 |
-| 2.1.4. Device Type Requirements                     | 27 |
-| 2.1.5. Cluster Requirements                         |    |
-| 2.1.6. Element Requirements                         | 28 |
-| 2.1.7. Endpoint Composition                         | 29 |
-| 2.2. Power Source Device Type                       | 29 |
-| 2.2.1. Revision History                             | 30 |
-| 2.2.2. Classification                               | 30 |
-| 2.2.3. Cluster Requirements                         | 30 |
-| 2.3. OTA Requestor Device Type                      |    |
-| 2.3.1. Revision History                             |    |
-| 2.3.2. Classification                               |    |
-| 2.3.3. Cluster Requirements                         |    |
-| 2.4. OTA Provider Device Type                       |    |
-| 2.4.1. Revision History                             |    |
-| 2.4.2. Classification                               |    |
-| 2.4.3. Cluster Requirements                         |    |
-| 2.5. Bridged Node Device Type                       |    |
-|                                                     |    |
+| Provisional. | 20 |
+| List of Provisional Items | 20 |
+| 1. Base Device Type | 21 |
+| 1.1. Base Device Type | 21 |
+| 1.1.1. Revision History | 21 |
+| 1.1.2. Overview | 21 |
+| 1.1.3. Conditions | 21 |
+| 1.1.4. Common Capability Conditions | 22 |
+| 1.1.5. Device Type Class Conditions | 22 |
+| 1.1.6. Endpoint Type Class Conditions | 23 |
+| 1.1.7. Cluster Requirements | 23 |
+| 1.1.8. Element Requirements | 23 |
+| 2. Utility Device Types | 25 |
+| 2.1. Root Node Device Type | 25 |
+| 2.1.1. Revision History | 25 |
+| 2.1.2. Classification | 26 |
+| 2.1.3. Conditions | 26 |
+| 2.1.4. Device Type Requirements | 27 |
+| 2.1.5. Cluster Requirements | |
+| 2.1.6. Element Requirements | 28 |
+| 2.1.7. Endpoint Composition | 29 |
+| 2.2. Power Source Device Type | 29 |
+| 2.2.1. Revision History | 30 |
+| 2.2.2. Classification | 30 |
+| 2.2.3. Cluster Requirements | 30 |
+| 2.3. OTA Requestor Device Type | |
+| 2.3.1. Revision History | |
+| 2.3.2. Classification | |
+| 2.3.3. Cluster Requirements | |
+| 2.4. OTA Provider Device Type | |
+| 2.4.1. Revision History | |
+| 2.4.2. Classification | |
+| 2.4.3. Cluster Requirements | |
+| 2.5. Bridged Node Device Type | |
 
-| 2.5.1. Revision History       3         2.5.2. Classification       3         2.5.3. Conditions       3         2.5.4. Device Type Requirements       3         2.5.5. Cluster Requirements       3         2.5.6. Endopoint Composition       3         2.6. Electrical Sensor Device Type       3         2.6.1. Revision History       3         2.6.2. Classification       3         2.6.3. Cluster Requirements       3         2.7. Device Energy Management       3         2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3         2.9.1. Joint Fabric Architecture       3 |    |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----|
-| 2.5.3. Conditions       3         2.5.4. Device Type Requirements       3         2.5.5. Cluster Requirements       3         2.5.6. Endpoint Composition       3         2.6. Electrical Sensor Device Type       3         2.6.1. Revision History       3         2.6.2. Classification       3         2.6.3. Cluster Requirements       3         2.7. Device Energy Management       3         2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.8.9. Joint Fabric Administrator Device Type       3          3       2.9. Joint Fabric Administrator Device Type       3                                                          | 1  |
-| 2.5.4. Device Type Requirements       3         2.5.5. Cluster Requirements       3         2.5.6. Endpoint Composition       3         2.6. Electrical Sensor Device Type       3         2.6.1. Revision History       3         2.6.2. Classification       3         2.6.3. Cluster Requirements       3         2.7. Device Energy Management       3         2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3                                                                                                                                                                   | 2  |
-| 2.5.5. Cluster Requirements       3         2.5.6. Endpoint Composition       3         2.6. Electrical Sensor Device Type       3         2.6.1. Revision History       3         2.6.2. Classification       3         2.6.3. Cluster Requirements       3         2.7. Device Energy Management       3         2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3                                                                                                                                                                                                                   | 2  |
-| 2.5.6. Endpoint Composition       3         2.6. Electrical Sensor Device Type       3         2.6.1. Revision History       3         2.6.2. Classification       3         2.6.3. Cluster Requirements       3         2.7. Device Energy Management       3         2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3                                                                                                                                                                                                                                                               | 2  |
-| 2.6. Electrical Sensor Device Type       3         2.6.1. Revision History       3         2.6.2. Classification       3         2.6.3. Cluster Requirements       3         2.7. Device Energy Management       3         2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3                                                                                                                                                                                                                                                                                                                                                                        | 2  |
-| 2.6.1. Revision History       3         2.6.2. Classification       3         2.6.3. Cluster Requirements       3         2.7. Device Energy Management       3         2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3                                                                                                                                                                                                                                                                                                                                                              | 3  |
-| 2.6.2. Classification       3         2.6.3. Cluster Requirements       3         2.7. Device Energy Management       3         2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3                                                                                                                                                                                                                                                                                                                                                                                                      | 4  |
-| 2.6.3. Cluster Requirements       3         2.7. Device Energy Management       3         2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3                                                                                                                                                                                                                                                                                                                                                                                                                                            | 4  |
-| 2.7. Device Energy Management       3         2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 5  |
-| 2.7.1. Revision History       3         2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 5  |
-| 2.7.2. Classification       3         2.7.3. Conditions       3         2.7.4. Cluster Requirements       3         2.7.5. Element Requirements       3         2.8. Secondary Network Interface Device Type       3         2.8.1. Revision History       3         2.8.2. Classification       3         2.8.3. Cluster Requirements       3         2.9. Joint Fabric Administrator Device Type       3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 5  |
-| 2.7.3. Conditions32.7.4. Cluster Requirements32.7.5. Element Requirements32.8. Secondary Network Interface Device Type32.8.1. Revision History32.8.2. Classification32.8.3. Cluster Requirements32.9. Joint Fabric Administrator Device Type3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 5  |
-| 2.7.4. Cluster Requirements32.7.5. Element Requirements32.8. Secondary Network Interface Device Type32.8.1. Revision History32.8.2. Classification32.8.3. Cluster Requirements32.9. Joint Fabric Administrator Device Type3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 5  |
-| 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 6  |
-| 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 6  |
-| 2.8.1. Revision History32.8.2. Classification32.8.3. Cluster Requirements32.9. Joint Fabric Administrator Device Type3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 6  |
-| 2.8.2. Classification32.8.3. Cluster Requirements32.9. Joint Fabric Administrator Device Type3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 7  |
-| 2.8.3. Cluster Requirements32.9. Joint Fabric Administrator Device Type3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 7  |
-| 2.9. Joint Fabric Administrator Device Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 7  |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 7  |
-| 2.9.1. Joint Fabric Architecture 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 8  |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 8  |
-| 2.9.2. Revision History                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 8  |
-| 2.9.3. Classification                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 8  |
-| 2.9.4. Cluster Requirements                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 8  |
-| 3. Application Device Types                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | :1 |
-| 4. Lighting Device Types                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | :5 |
-| 4.1. On/Off Light Device Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | :5 |
-| 4.1.1. Revision History                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | :5 |
-| 4.1.2. Classification                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | :5 |
-| 4.1.3. Conditions 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | :5 |
-| 4.1.4. Cluster Requirements                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | :5 |
-| 4.1.5. Element Requirements                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 6  |
-| 4.2. Dimmable Light Device Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 6  |
-| 4.2.1. Revision History                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | :7 |
-| 4.2.2. Classification 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | .7 |
-| 4.2.3. Conditions 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | :7 |
-| 4.2.4. Cluster Requirements                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | :7 |
-| 4.2.5. Element Requirements                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | :7 |
-| 4.3. Color Temperature Light Device Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 8  |
-| 4.3.1. Revision History                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 8  |
+| 2.5.1. Revision History 3 2.5.2. Classification 3 2.5.3. Conditions 3 2.5.4. Device Type Requirements 3 2.5.5. Cluster Requirements 3 2.5.6. Endopoint Composition 3 2.6. Electrical Sensor Device Type 3 2.6.1. Revision History 3 2.6.2. Classification 3 2.6.3. Cluster Requirements 3 2.7. Device Energy Management 3 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 2.9.1. Joint Fabric Architecture 3 | |
+| 2.5.3. Conditions 3 2.5.4. Device Type Requirements 3 2.5.5. Cluster Requirements 3 2.5.6. Endpoint Composition 3 2.6. Electrical Sensor Device Type 3 2.6.1. Revision History 3 2.6.2. Classification 3 2.6.3. Cluster Requirements 3 2.7. Device Energy Management 3 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.8.9. Joint Fabric Administrator Device Type 3 3 2.9. Joint Fabric Administrator Device Type 3 | 1 |
+| 2.5.4. Device Type Requirements 3 2.5.5. Cluster Requirements 3 2.5.6. Endpoint Composition 3 2.6. Electrical Sensor Device Type 3 2.6.1. Revision History 3 2.6.2. Classification 3 2.6.3. Cluster Requirements 3 2.7. Device Energy Management 3 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 2 |
+| 2.5.5. Cluster Requirements 3 2.5.6. Endpoint Composition 3 2.6. Electrical Sensor Device Type 3 2.6.1. Revision History 3 2.6.2. Classification 3 2.6.3. Cluster Requirements 3 2.7. Device Energy Management 3 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 2 |
+| 2.5.6. Endpoint Composition 3 2.6. Electrical Sensor Device Type 3 2.6.1. Revision History 3 2.6.2. Classification 3 2.6.3. Cluster Requirements 3 2.7. Device Energy Management 3 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 2 |
+| 2.6. Electrical Sensor Device Type 3 2.6.1. Revision History 3 2.6.2. Classification 3 2.6.3. Cluster Requirements 3 2.7. Device Energy Management 3 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 2 |
+| 2.6.1. Revision History 3 2.6.2. Classification 3 2.6.3. Cluster Requirements 3 2.7. Device Energy Management 3 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 3 |
+| 2.6.2. Classification 3 2.6.3. Cluster Requirements 3 2.7. Device Energy Management 3 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 4 |
+| 2.6.3. Cluster Requirements 3 2.7. Device Energy Management 3 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 4 |
+| 2.7. Device Energy Management 3 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 5 |
+| 2.7.1. Revision History 3 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 5 |
+| 2.7.2. Classification 3 2.7.3. Conditions 3 2.7.4. Cluster Requirements 3 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 5 |
+| 2.7.3. Conditions32.7.4. Cluster Requirements32.7.5. Element Requirements32.8. Secondary Network Interface Device Type32.8.1. Revision History32.8.2. Classification32.8.3. Cluster Requirements32.9. Joint Fabric Administrator Device Type3 | 5 |
+| 2.7.4. Cluster Requirements32.7.5. Element Requirements32.8. Secondary Network Interface Device Type32.8.1. Revision History32.8.2. Classification32.8.3. Cluster Requirements32.9. Joint Fabric Administrator Device Type3 | 5 |
+| 2.7.5. Element Requirements 3 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 6 |
+| 2.8. Secondary Network Interface Device Type 3 2.8.1. Revision History 3 2.8.2. Classification 3 2.8.3. Cluster Requirements 3 2.9. Joint Fabric Administrator Device Type 3 | 6 |
+| 2.8.1. Revision History32.8.2. Classification32.8.3. Cluster Requirements32.9. Joint Fabric Administrator Device Type3 | 6 |
+| 2.8.2. Classification32.8.3. Cluster Requirements32.9. Joint Fabric Administrator Device Type3 | 7 |
+| 2.8.3. Cluster Requirements32.9. Joint Fabric Administrator Device Type3 | 7 |
+| 2.9. Joint Fabric Administrator Device Type | 7 |
+| | 7 |
+| 2.9.1. Joint Fabric Architecture 3 | 8 |
+| | 8 |
+| 2.9.2. Revision History | 8 |
+| 2.9.3. Classification | 8 |
+| 2.9.4. Cluster Requirements | 8 |
+| 3. Application Device Types | :1 |
+| 4. Lighting Device Types | :5 |
+| 4.1. On/Off Light Device Type | :5 |
+| 4.1.1. Revision History | :5 |
+| 4.1.2. Classification | :5 |
+| 4.1.3. Conditions 4 | :5 |
+| 4.1.4. Cluster Requirements | :5 |
+| 4.1.5. Element Requirements | 6 |
+| 4.2. Dimmable Light Device Type | 6 |
+| 4.2.1. Revision History | :7 |
+| 4.2.2. Classification 4 | .7 |
+| 4.2.3. Conditions 4 | :7 |
+| 4.2.4. Cluster Requirements | :7 |
+| 4.2.5. Element Requirements | :7 |
+| 4.3. Color Temperature Light Device Type | 8 |
+| 4.3.1. Revision History | 8 |
 
-| 4     | 4.3.2. Classification                       | 48 |
-|-------|---------------------------------------------|----|
-| 4     | 4.3.3. Conditions                           | 48 |
-| 4     | 4.3.4. Cluster Requirements                 | 49 |
-| 4     | 4.3.5. Element Requirements                 | 49 |
-| 4.4   | . Extended Color Light Device Type          | 50 |
-| 4     | 4.4.1. Revision History                     | 50 |
-| 4     | 4.4.2. Classification                       | 50 |
-| 4     | 1.4.3. Conditions                           | 50 |
-| 4     | 1.4.4. Cluster Requirements                 | 50 |
-| 4     | 1.4.5. Element Requirements                 | 51 |
-| 5. Sm | art Plugs/Outlets and other Actuators       | 53 |
-| 5.1   | . On/Off Plug-in Unit Device Type           | 53 |
-| !     | 5.1.1. Revision History                     | 53 |
-| !     | 5.1.2. Classification                       | 54 |
-| ļ     | 5.1.3. Conditions                           | 54 |
-| ļ     | 5.1.4. Cluster Requirements                 | 54 |
-|       | 5.1.5. Element Requirements                 |    |
-|       | . Dimmable Plug-In Unit Device Type         |    |
-|       | 5.2.1. Revision History                     |    |
-| ļ     | 5.2.2. Classification                       | 56 |
-| ļ     | 5.2.3. Conditions                           | 56 |
-| ļ     | 5.2.4. Cluster Requirements                 | 57 |
-|       | 5.2.5. Element Requirements                 |    |
-| 5.3   | . Mounted On/Off Control Device Type        | 57 |
-|       | 5.3.1. Revision History                     |    |
-|       | 5.3.2. Classification                       |    |
-|       | 5.3.3. Conditions                           |    |
-| ļ     | 5.3.4. Cluster Requirements                 | 58 |
-|       | 5.3.5. Element Requirements                 |    |
-|       | . Mounted Dimmable Load Control Device Type |    |
-|       | 5.4.1. Revision History                     |    |
-|       | 5.4.2. Classification                       |    |
-|       | 5.4.3. Conditions                           |    |
-|       | 5.4.4. Cluster Requirements                 |    |
-|       | 5.4.5. Element Requirements                 |    |
-|       | . Pump Device Type                          |    |
-|       | 5.5.1. Revision History                     |    |
-|       | 5.5.2. Classification                       |    |
-|       | 5.5.3. Conditions                           |    |
-|       | 5.5.4. Cluster Requirements                 |    |
-|       | 5.5.5. Cluster Restrictions                 |    |
-| •     | J.J. CIUSTOI INCOLLICUOLIS                  | UΖ |
+| 4 | 4.3.2. Classification | 48 |
+| 4 | 4.3.3. Conditions | 48 |
+| 4 | 4.3.4. Cluster Requirements | 49 |
+| 4 | 4.3.5. Element Requirements | 49 |
+| 4.4 | . Extended Color Light Device Type | 50 |
+| 4 | 4.4.1. Revision History | 50 |
+| 4 | 4.4.2. Classification | 50 |
+| 4 | 1.4.3. Conditions | 50 |
+| 4 | 1.4.4. Cluster Requirements | 50 |
+| 4 | 1.4.5. Element Requirements | 51 |
+| 5. Sm | art Plugs/Outlets and other Actuators | 53 |
+| 5.1 | . On/Off Plug-in Unit Device Type | 53 |
+| ! | 5.1.1. Revision History | 53 |
+| ! | 5.1.2. Classification | 54 |
+| ļ | 5.1.3. Conditions | 54 |
+| ļ | 5.1.4. Cluster Requirements | 54 |
+| | 5.1.5. Element Requirements | |
+| | . Dimmable Plug-In Unit Device Type | |
+| | 5.2.1. Revision History | |
+| ļ | 5.2.2. Classification | 56 |
+| ļ | 5.2.3. Conditions | 56 |
+| ļ | 5.2.4. Cluster Requirements | 57 |
+| | 5.2.5. Element Requirements | |
+| 5.3 | . Mounted On/Off Control Device Type | 57 |
+| | 5.3.1. Revision History | |
+| | 5.3.2. Classification | |
+| | 5.3.3. Conditions | |
+| ļ | 5.3.4. Cluster Requirements | 58 |
+| | 5.3.5. Element Requirements | |
+| | . Mounted Dimmable Load Control Device Type | |
+| | 5.4.1. Revision History | |
+| | 5.4.2. Classification | |
+| | 5.4.3. Conditions | |
+| | 5.4.4. Cluster Requirements | |
+| | 5.4.5. Element Requirements | |
+| | . Pump Device Type | |
+| | 5.5.1. Revision History | |
+| | 5.5.2. Classification | |
+| | 5.5.3. Conditions | |
+| | 5.5.4. Cluster Requirements | |
+| | 5.5.5. Cluster Restrictions | |
+| • | J.J. CIUSTOI INCOLLICUOLIS | UΖ |
 
-| 5.6. Water Valve Device Type                 | 63 |
-|----------------------------------------------|----|
-| 5.6.1. Revision History                      |    |
-| 5.6.2. Classification                        |    |
-| 5.6.3. Conditions                            | 64 |
-| 5.6.4. Cluster Requirements                  | 64 |
+| 5.6. Water Valve Device Type | 63 |
+| 5.6.1. Revision History | |
+| 5.6.2. Classification | |
+| 5.6.3. Conditions | 64 |
+| 5.6.4. Cluster Requirements | 64 |
 | 5.6.5. Device implementation recommendations | 64 |
-| 5.7. Irrigation System Device Type           | 65 |
-| 5.7.1. Irrigation System Architecture        | 65 |
-| 5.7.2. Revision History                      | 65 |
-| 5.7.3. Classification                        | 65 |
-| 5.7.4. Conditions                            | 66 |
-| 5.7.5. Device Type Requirements              | 66 |
-| 5.7.6. Cluster Requirements                  | 66 |
-| 6. Switches and Controls Device Types        | 69 |
-| 6.1. On/Off Light Switch Device type         | 69 |
-| 6.1.1. Revision History                      | 69 |
-| 6.1.2. Classification                        | 69 |
-| 6.1.3. Conditions                            | 69 |
-| 6.1.4. Cluster Requirements                  | 70 |
-| 6.2. Dimmer Switch Device Type               | 70 |
-| 6.2.1. Revision History                      | 70 |
-| 6.2.2. Classification                        | 70 |
-| 6.2.3. Conditions                            | 70 |
-| 6.2.4. Cluster Requirements                  | 70 |
-| 6.3. Color Dimmer Switch Device Type         | 71 |
-| 6.3.1. Revision History                      | 71 |
-| 6.3.2. Classification                        | 71 |
-| 6.3.3. Conditions                            | 71 |
-| 6.3.4. Cluster Requirements                  | 71 |
-| 6.4. Control Bridge Device Type              | 72 |
-| 6.4.1. Revision History                      | 72 |
-| 6.4.2. Classification                        | 72 |
-| 6.4.3. Conditions                            | 72 |
-| 6.4.4. Cluster Requirements                  | 72 |
-| 6.5. Pump Controller Device Type             | 73 |
-| 6.5.1. Revision History                      | 73 |
-| 6.5.2. Classification                        | 73 |
-| 6.5.3. Conditions                            | 73 |
-| 6.5.4. Cluster Requirements                  | 73 |
-| 6.6. Generic Switch Device Type              | 74 |
-| 6.6.1. Revision History                      | 74 |
+| 5.7. Irrigation System Device Type | 65 |
+| 5.7.1. Irrigation System Architecture | 65 |
+| 5.7.2. Revision History | 65 |
+| 5.7.3. Classification | 65 |
+| 5.7.4. Conditions | 66 |
+| 5.7.5. Device Type Requirements | 66 |
+| 5.7.6. Cluster Requirements | 66 |
+| 6. Switches and Controls Device Types | 69 |
+| 6.1. On/Off Light Switch Device type | 69 |
+| 6.1.1. Revision History | 69 |
+| 6.1.2. Classification | 69 |
+| 6.1.3. Conditions | 69 |
+| 6.1.4. Cluster Requirements | 70 |
+| 6.2. Dimmer Switch Device Type | 70 |
+| 6.2.1. Revision History | 70 |
+| 6.2.2. Classification | 70 |
+| 6.2.3. Conditions | 70 |
+| 6.2.4. Cluster Requirements | 70 |
+| 6.3. Color Dimmer Switch Device Type | 71 |
+| 6.3.1. Revision History | 71 |
+| 6.3.2. Classification | 71 |
+| 6.3.3. Conditions | 71 |
+| 6.3.4. Cluster Requirements | 71 |
+| 6.4. Control Bridge Device Type | 72 |
+| 6.4.1. Revision History | 72 |
+| 6.4.2. Classification | 72 |
+| 6.4.3. Conditions | 72 |
+| 6.4.4. Cluster Requirements | 72 |
+| 6.5. Pump Controller Device Type | 73 |
+| 6.5.1. Revision History | 73 |
+| 6.5.2. Classification | 73 |
+| 6.5.3. Conditions | 73 |
+| 6.5.4. Cluster Requirements | 73 |
+| 6.6. Generic Switch Device Type | 74 |
+| 6.6.1. Revision History | 74 |
 
-| · · · · · · · · · · · · · · · · · · ·                        | ,  |
-|--------------------------------------------------------------|----|
-| 6.6.2. Classification                                        | 74 |
-| 6.6.3. Conditions                                            | 75 |
-| 6.6.4. Cluster Requirements                                  | 75 |
+| · · · · · · · · · · · · · · · · · · · | , |
+| 6.6.2. Classification | 74 |
+| 6.6.3. Conditions | 75 |
+| 6.6.4. Cluster Requirements | 75 |
 | 6.6.5. Relation with other Switch device types (informative) | 77 |
-| 7. Sensor Device Types                                       | 79 |
-| 7.1. Contact Sensor Device Type                              | 79 |
-| 7.1.1. Revision History                                      | 79 |
-| 7.1.2. Classification                                        |    |
-| 7.1.3. Conditions                                            |    |
-| 7.1.4. Cluster Requirements                                  |    |
-| 7.2. Light Sensor Device Type                                | 80 |
-| 7.2.1. Revision History                                      | 80 |
-| 7.2.2. Classification                                        | 80 |
-| 7.2.3. Conditions                                            | 80 |
-| 7.2.4. Cluster Requirements                                  | 80 |
-| 7.3. Occupancy Sensor Device Type                            | 81 |
-| 7.3.1. Revision History                                      |    |
-| 7.3.2. Classification                                        | 81 |
-| 7.3.3. Conditions                                            | 81 |
-| 7.3.4. Cluster Requirements                                  | 81 |
-| 7.3.5. Multi-modality sensors                                | 82 |
-| 7.4. Temperature Sensor Device Type                          | 82 |
-| 7.4.1. Revision History                                      | 82 |
-| 7.4.2. Classification                                        | 82 |
-| 7.4.3. Conditions                                            | 83 |
-| 7.4.4. Cluster Requirements                                  | 83 |
-| 7.4.5. Element Requirements                                  | 83 |
-| 7.5. Pressure Sensor Device Type                             | 83 |
-| 7.5.1. Revision History                                      | 84 |
-| 7.5.2. Classification                                        |    |
-| 7.5.3. Conditions                                            | 84 |
-| 7.5.4. Cluster Requirements                                  | 84 |
-| 7.6. Flow Sensor Device Type                                 | 84 |
-| 7.6.1. Revision History                                      | 84 |
-| 7.6.2. Classification                                        | 84 |
-| 7.6.3. Conditions                                            | 85 |
-| 7.6.4. Cluster Requirements                                  | 85 |
-| 7.7. Humidity Sensor Device Type                             | 85 |
-| 7.7.1. Revision History                                      |    |
-| 7.7.2. Classification                                        | 85 |
-| 7.7.3. Conditions                                            | 85 |
-|                                                              |    |
+| 7. Sensor Device Types | 79 |
+| 7.1. Contact Sensor Device Type | 79 |
+| 7.1.1. Revision History | 79 |
+| 7.1.2. Classification | |
+| 7.1.3. Conditions | |
+| 7.1.4. Cluster Requirements | |
+| 7.2. Light Sensor Device Type | 80 |
+| 7.2.1. Revision History | 80 |
+| 7.2.2. Classification | 80 |
+| 7.2.3. Conditions | 80 |
+| 7.2.4. Cluster Requirements | 80 |
+| 7.3. Occupancy Sensor Device Type | 81 |
+| 7.3.1. Revision History | |
+| 7.3.2. Classification | 81 |
+| 7.3.3. Conditions | 81 |
+| 7.3.4. Cluster Requirements | 81 |
+| 7.3.5. Multi-modality sensors | 82 |
+| 7.4. Temperature Sensor Device Type | 82 |
+| 7.4.1. Revision History | 82 |
+| 7.4.2. Classification | 82 |
+| 7.4.3. Conditions | 83 |
+| 7.4.4. Cluster Requirements | 83 |
+| 7.4.5. Element Requirements | 83 |
+| 7.5. Pressure Sensor Device Type | 83 |
+| 7.5.1. Revision History | 84 |
+| 7.5.2. Classification | |
+| 7.5.3. Conditions | 84 |
+| 7.5.4. Cluster Requirements | 84 |
+| 7.6. Flow Sensor Device Type | 84 |
+| 7.6.1. Revision History | 84 |
+| 7.6.2. Classification | 84 |
+| 7.6.3. Conditions | 85 |
+| 7.6.4. Cluster Requirements | 85 |
+| 7.7. Humidity Sensor Device Type | 85 |
+| 7.7.1. Revision History | |
+| 7.7.2. Classification | 85 |
+| 7.7.3. Conditions | 85 |
 
-| 7.7.4. Cluster Requirements             |    |
-|-----------------------------------------|----|
-| 7.8. On/Off Sensor Device Type.         |    |
-| 7.8.1. Revision History                 |    |
-| 7.8.2. Classification                   |    |
-| 7.8.3. Conditions                       |    |
-| 7.8.4. Cluster Requirements             |    |
-| 7.9. Smoke CO Alarm Device Type         |    |
-| 7.9.1. Revision History                 |    |
-| 7.9.2. Classification                   |    |
-| 7.9.3. Conditions                       |    |
-| 7.9.4. Device Type Requirements         |    |
-| 7.9.5. Cluster Requirements             | 87 |
-| 7.10. Air Quality Sensor Device Type.   |    |
-| 7.10.1. Revision History                |    |
-| 7.10.2. Classification                  |    |
-| 7.10.3. Conditions                      |    |
-| 7.10.4. Cluster Requirements            |    |
-| 7.11. Water Freeze Detector Device Type |    |
-| 7.11.1. Revision History                |    |
-| 7.11.2. Classification                  |    |
-| 7.11.3. Conditions                      | 90 |
-| 7.11.4. Cluster Requirements            | 90 |
-| 7.11.5. Element Requirements            | 91 |
-| 7.12. Water Leak Detector Device Type   | 91 |
-| 7.12.1. Revision History                | 91 |
-| 7.12.2. Classification                  | 91 |
-| 7.12.3. Conditions                      | 91 |
-| 7.12.4. Cluster Requirements            | 91 |
-| 7.12.5. Element Requirements            | 92 |
-| 7.13. Rain Sensor Device Type.          | 92 |
-| 7.13.1. Revision History                | 92 |
-| 7.13.2. Classification                  | 92 |
-| 7.13.3. Conditions                      | 92 |
-| 7.13.4. Cluster Requirements            | 93 |
-| 7.13.5. Element Requirements            | 93 |
-| 7.14. Soil Sensor Device Type           | 93 |
-| 7.14.1. Revision History                |    |
-| 7.14.2. Classification                  | 94 |
-| 7.14.3. Conditions                      | 94 |
-| 7.14.4. Cluster Requirements            |    |
-| 8. Entry Control Device Types           | 95 |
+| 7.7.4. Cluster Requirements | |
+| 7.8. On/Off Sensor Device Type. | |
+| 7.8.1. Revision History | |
+| 7.8.2. Classification | |
+| 7.8.3. Conditions | |
+| 7.8.4. Cluster Requirements | |
+| 7.9. Smoke CO Alarm Device Type | |
+| 7.9.1. Revision History | |
+| 7.9.2. Classification | |
+| 7.9.3. Conditions | |
+| 7.9.4. Device Type Requirements | |
+| 7.9.5. Cluster Requirements | 87 |
+| 7.10. Air Quality Sensor Device Type. | |
+| 7.10.1. Revision History | |
+| 7.10.2. Classification | |
+| 7.10.3. Conditions | |
+| 7.10.4. Cluster Requirements | |
+| 7.11. Water Freeze Detector Device Type | |
+| 7.11.1. Revision History | |
+| 7.11.2. Classification | |
+| 7.11.3. Conditions | 90 |
+| 7.11.4. Cluster Requirements | 90 |
+| 7.11.5. Element Requirements | 91 |
+| 7.12. Water Leak Detector Device Type | 91 |
+| 7.12.1. Revision History | 91 |
+| 7.12.2. Classification | 91 |
+| 7.12.3. Conditions | 91 |
+| 7.12.4. Cluster Requirements | 91 |
+| 7.12.5. Element Requirements | 92 |
+| 7.13. Rain Sensor Device Type. | 92 |
+| 7.13.1. Revision History | 92 |
+| 7.13.2. Classification | 92 |
+| 7.13.3. Conditions | 92 |
+| 7.13.4. Cluster Requirements | 93 |
+| 7.13.5. Element Requirements | 93 |
+| 7.14. Soil Sensor Device Type | 93 |
+| 7.14.1. Revision History | |
+| 7.14.2. Classification | 94 |
+| 7.14.3. Conditions | 94 |
+| 7.14.4. Cluster Requirements | |
+| 8. Entry Control Device Types | 95 |
 
-| 8.1   | . Door Lock Device Type                   | . 95 |
-|-------|-------------------------------------------|------|
-|       | 8.1.1. Revision History                   | . 95 |
-|       | 8.1.2. Classification                     | . 95 |
-|       | 8.1.3. Conditions                         | . 95 |
-|       | 8.1.4. Condition Requirements             | . 95 |
-|       | 8.1.5. Cluster Requirements               | . 96 |
-| 8.2   | 2. Door Lock Controller Device Type       | . 96 |
-|       | 8.2.1. Revision History                   | . 96 |
-|       | 8.2.2. Classification                     | . 96 |
-|       | 8.2.3. Conditions                         | . 96 |
-|       | 8.2.4. Condition Requirements             | . 96 |
-|       | 8.2.5. Cluster Requirements               | . 97 |
-| 8.3   | 3. Window Covering Device Type            | . 97 |
-|       | 8.3.1. Revision History                   | . 97 |
-|       | 8.3.2. Classification                     | . 97 |
-|       | 8.3.3. Conditions                         | . 97 |
-|       | 8.3.4. Cluster Requirements               | . 97 |
-| 8.4   | l. Window Covering Controller Device Type | . 98 |
-|       | 8.4.1. Revision History                   | . 98 |
-|       | 8.4.2. Classification                     | . 98 |
-|       | 8.4.3. Conditions                         | . 98 |
-|       | 8.4.4. Cluster Requirements               | . 98 |
-| 8.5   | S. Closure Device Type                    | . 99 |
-|       | 8.5.1. Closure Architecture               | . 99 |
-|       | 8.5.2. Revision History                   | 101  |
-|       | 8.5.3. Classification                     | 101  |
-|       | 8.5.4. Device Type Requirements           | 101  |
-|       | 8.5.5. Cluster Requirements               | 102  |
-|       | 8.5.6. Element Requirements               | 102  |
-| 8.6   | S. Closure Panel Device Type              | 103  |
-|       | 8.6.1. Revision History                   | 103  |
-|       | 8.6.2. Classification                     | 103  |
-|       | 8.6.3. Cluster Requirements               | 103  |
-|       | 8.6.4. Element Requirements               | 103  |
-| 8.7   | 7. Closure Controller Device Type         | 104  |
-|       | 8.7.1. Introduction                       |      |
-|       | 8.7.2. Revision History                   | 104  |
-|       | 8.7.3. Classification                     | 105  |
-|       | 8.7.4. Conditions                         | 105  |
-|       | 8.7.5. Cluster Requirements               | 105  |
-| 9. HV | AC Device Types                           | 107  |
+| 8.1 | . Door Lock Device Type | . 95 |
+| | 8.1.1. Revision History | . 95 |
+| | 8.1.2. Classification | . 95 |
+| | 8.1.3. Conditions | . 95 |
+| | 8.1.4. Condition Requirements | . 95 |
+| | 8.1.5. Cluster Requirements | . 96 |
+| 8.2 | 2. Door Lock Controller Device Type | . 96 |
+| | 8.2.1. Revision History | . 96 |
+| | 8.2.2. Classification | . 96 |
+| | 8.2.3. Conditions | . 96 |
+| | 8.2.4. Condition Requirements | . 96 |
+| | 8.2.5. Cluster Requirements | . 97 |
+| 8.3 | 3. Window Covering Device Type | . 97 |
+| | 8.3.1. Revision History | . 97 |
+| | 8.3.2. Classification | . 97 |
+| | 8.3.3. Conditions | . 97 |
+| | 8.3.4. Cluster Requirements | . 97 |
+| 8.4 | l. Window Covering Controller Device Type | . 98 |
+| | 8.4.1. Revision History | . 98 |
+| | 8.4.2. Classification | . 98 |
+| | 8.4.3. Conditions | . 98 |
+| | 8.4.4. Cluster Requirements | . 98 |
+| 8.5 | S. Closure Device Type | . 99 |
+| | 8.5.1. Closure Architecture | . 99 |
+| | 8.5.2. Revision History | 101 |
+| | 8.5.3. Classification | 101 |
+| | 8.5.4. Device Type Requirements | 101 |
+| | 8.5.5. Cluster Requirements | 102 |
+| | 8.5.6. Element Requirements | 102 |
+| 8.6 | S. Closure Panel Device Type | 103 |
+| | 8.6.1. Revision History | 103 |
+| | 8.6.2. Classification | 103 |
+| | 8.6.3. Cluster Requirements | 103 |
+| | 8.6.4. Element Requirements | 103 |
+| 8.7 | 7. Closure Controller Device Type | 104 |
+| | 8.7.1. Introduction | |
+| | 8.7.2. Revision History | 104 |
+| | 8.7.3. Classification | 105 |
+| | 8.7.4. Conditions | 105 |
+| | 8.7.5. Cluster Requirements | 105 |
+| 9. HV | AC Device Types | 107 |
 
-| 9.1. Thermostat Device Type 107                                             |  |
-|-----------------------------------------------------------------------------|--|
-| 9.1.1. Revision History 107                                                 |  |
-| 9.1.2. Classification 107                                                   |  |
-| 9.1.3. Conditions 107                                                       |  |
-| 9.1.4. Cluster Requirements 107                                             |  |
-| 9.2. Fan Device Type 108                                                    |  |
-| 9.2.1. Revision History 108                                                 |  |
-| 9.2.2. Classification 108                                                   |  |
-| 9.2.3. Conditions 108                                                       |  |
-| 9.2.4. Device Type Requirements 109                                         |  |
-| 9.2.5. Cluster Requirements 109                                             |  |
-| 9.2.6. Cluster Restrictions 109                                             |  |
-| 9.3. Air Purifier Device Type 109                                           |  |
-| 9.3.1. Revision History 110                                                 |  |
-| 9.3.2. Classification 110                                                   |  |
-| 9.3.3. Conditions 110                                                       |  |
-| 9.3.4. Device Type Requirements 110                                         |  |
-| 9.3.5. Cluster Requirements 110                                             |  |
-| 9.3.6. Cluster Restrictions 111                                             |  |
-| 9.4. Thermostat Controller Device Type 111                                  |  |
-| 9.4.1. Revision History 111                                                 |  |
-| 9.4.2. Classification 111                                                   |  |
-| 9.4.3. Conditions 111                                                       |  |
-| 9.4.4. Cluster Requirements 111                                             |  |
-| 10. Media Device Types 113                                                  |  |
-| 10.1. Video Player Architecture 113                                         |  |
-| 10.1.1. Introduction 113                                                    |  |
-| 10.1.2. Clients of a Casting Video Player 114                               |  |
-| 10.1.3. Endpoint Composition for Content Apps of a Casting Video Player 114 |  |
-| 10.1.4. Commissioning 115                                                   |  |
-| 10.1.5. Determining Context 117                                             |  |
-| 10.1.6. Basic Video Player Features 118                                     |  |
-| 10.1.7. Content Launching Features 119                                      |  |
-| 10.2. Basic Video Player Device Type 120                                    |  |
-| 10.2.1. Revision History 120                                                |  |
-| 10.2.2. Classification 120                                                  |  |
-| 10.2.3. Conditions 120                                                      |  |
-| 10.2.4. Cluster Requirements 121                                            |  |
-| 10.3. Casting Video Player Device Type 121                                  |  |
-| 10.3.1. Revision History 121                                                |  |
-| 10.3.2. Classification 122                                                  |  |
+| 9.1. Thermostat Device Type 107 | |
+| 9.1.1. Revision History 107 | |
+| 9.1.2. Classification 107 | |
+| 9.1.3. Conditions 107 | |
+| 9.1.4. Cluster Requirements 107 | |
+| 9.2. Fan Device Type 108 | |
+| 9.2.1. Revision History 108 | |
+| 9.2.2. Classification 108 | |
+| 9.2.3. Conditions 108 | |
+| 9.2.4. Device Type Requirements 109 | |
+| 9.2.5. Cluster Requirements 109 | |
+| 9.2.6. Cluster Restrictions 109 | |
+| 9.3. Air Purifier Device Type 109 | |
+| 9.3.1. Revision History 110 | |
+| 9.3.2. Classification 110 | |
+| 9.3.3. Conditions 110 | |
+| 9.3.4. Device Type Requirements 110 | |
+| 9.3.5. Cluster Requirements 110 | |
+| 9.3.6. Cluster Restrictions 111 | |
+| 9.4. Thermostat Controller Device Type 111 | |
+| 9.4.1. Revision History 111 | |
+| 9.4.2. Classification 111 | |
+| 9.4.3. Conditions 111 | |
+| 9.4.4. Cluster Requirements 111 | |
+| 10. Media Device Types 113 | |
+| 10.1. Video Player Architecture 113 | |
+| 10.1.1. Introduction 113 | |
+| 10.1.2. Clients of a Casting Video Player 114 | |
+| 10.1.3. Endpoint Composition for Content Apps of a Casting Video Player 114 | |
+| 10.1.4. Commissioning 115 | |
+| 10.1.5. Determining Context 117 | |
+| 10.1.6. Basic Video Player Features 118 | |
+| 10.1.7. Content Launching Features 119 | |
+| 10.2. Basic Video Player Device Type 120 | |
+| 10.2.1. Revision History 120 | |
+| 10.2.2. Classification 120 | |
+| 10.2.3. Conditions 120 | |
+| 10.2.4. Cluster Requirements 121 | |
+| 10.3. Casting Video Player Device Type 121 | |
+| 10.3.1. Revision History 121 | |
+| 10.3.2. Classification 122 | |
 
-| 10.3.3. Conditions.                      | 122 |
-|------------------------------------------|-----|
-| 10.3.4. Cluster Requirements             | 122 |
-| 10.3.5. Element Requirements             | 123 |
-| 10.4. Speaker Device Type                | 123 |
-| 10.4.1. Revision History                 | 123 |
-| 10.4.2. Classification                   | 123 |
-| 10.4.3. Conditions                       | 124 |
-| 10.4.4. Cluster Requirements             | 124 |
-| 10.5. Content App Device Type            | 124 |
-| 10.5.1. Revision History                 | 124 |
-| 10.5.2. Classification                   | 124 |
-| 10.5.3. Conditions                       | 124 |
-| 10.5.4. Cluster Requirements             | 125 |
-| 10.5.5. Element Requirements             | 125 |
-| 10.5.6. Endpoint Composition             | 125 |
-| 10.5.7. Disambiguation                   | 125 |
-| 10.6. Casting Video Client Device Type   | 125 |
-| 10.6.1. Revision History                 | 126 |
-| 10.6.2. Classification                   | 126 |
-| 10.6.3. Conditions                       | 126 |
-| 10.6.4. Cluster Requirements             | 126 |
-| 10.7. Video Remote Control Device Type   | 127 |
-| 10.7.1. Revision History                 | 127 |
-| 10.7.2. Classification                   | 127 |
-| 10.7.3. Conditions                       | 127 |
-| 10.7.4. Cluster Requirements             | 127 |
-| 11. Generic Device Types                 | 129 |
-| 11.1. Mode Select Device Type            | 129 |
-| 11.1.1. Revision History                 | 129 |
-| 11.1.2. Classification                   | 129 |
-| 11.1.3. Conditions                       | 129 |
-| 11.1.4. Cluster Requirements             | 129 |
-| 11.2. Aggregator Device Type             | 129 |
-| 11.2.1. Revision History                 | 129 |
-| 11.2.2. Classification                   | 130 |
-| 11.2.3. Conditions                       | 130 |
-| 11.2.4. Cluster Requirements             | 130 |
-| 11.2.5. Endpoint Composition             | 130 |
-| 11.2.6. Disambiguation                   | 132 |
-| 12. Robotic Device Types                 | 135 |
+| 10.3.3. Conditions. | 122 |
+| 10.3.4. Cluster Requirements | 122 |
+| 10.3.5. Element Requirements | 123 |
+| 10.4. Speaker Device Type | 123 |
+| 10.4.1. Revision History | 123 |
+| 10.4.2. Classification | 123 |
+| 10.4.3. Conditions | 124 |
+| 10.4.4. Cluster Requirements | 124 |
+| 10.5. Content App Device Type | 124 |
+| 10.5.1. Revision History | 124 |
+| 10.5.2. Classification | 124 |
+| 10.5.3. Conditions | 124 |
+| 10.5.4. Cluster Requirements | 125 |
+| 10.5.5. Element Requirements | 125 |
+| 10.5.6. Endpoint Composition | 125 |
+| 10.5.7. Disambiguation | 125 |
+| 10.6. Casting Video Client Device Type | 125 |
+| 10.6.1. Revision History | 126 |
+| 10.6.2. Classification | 126 |
+| 10.6.3. Conditions | 126 |
+| 10.6.4. Cluster Requirements | 126 |
+| 10.7. Video Remote Control Device Type | 127 |
+| 10.7.1. Revision History | 127 |
+| 10.7.2. Classification | 127 |
+| 10.7.3. Conditions | 127 |
+| 10.7.4. Cluster Requirements | 127 |
+| 11. Generic Device Types | 129 |
+| 11.1. Mode Select Device Type | 129 |
+| 11.1.1. Revision History | 129 |
+| 11.1.2. Classification | 129 |
+| 11.1.3. Conditions | 129 |
+| 11.1.4. Cluster Requirements | 129 |
+| 11.2. Aggregator Device Type | 129 |
+| 11.2.1. Revision History | 129 |
+| 11.2.2. Classification | 130 |
+| 11.2.3. Conditions | 130 |
+| 11.2.4. Cluster Requirements | 130 |
+| 11.2.5. Endpoint Composition | 130 |
+| 11.2.6. Disambiguation | 132 |
+| 12. Robotic Device Types | 135 |
 | 12.1. Robotic Vacuum Cleaner Device Type | 135 |
 
-| 12.1.1. Revision History 135                         |  |
-|------------------------------------------------------|--|
-| 12.1.2. Classification 135                           |  |
-| 12.1.3. Conditions 135                               |  |
-| 12.1.4. Cluster Requirements 135                     |  |
-| 12.1.5. Element Requirements 136                     |  |
-| 12.1.6. Cluster Usage 136                            |  |
-| 13. Appliances Device Types 139                      |  |
-| 13.1. Laundry Washer Device Type 139                 |  |
-| 13.1.1. Revision History 139                         |  |
-| 13.1.2. Classification 139                           |  |
-| 13.1.3. Conditions 139                               |  |
-| 13.1.4. Cluster Requirements 139                     |  |
-| 13.1.5. Cluster Restrictions 140                     |  |
-| 13.1.6. Element Requirements 140                     |  |
-| 13.2. Refrigerator Device Type 141                   |  |
-| 13.2.1. Refrigerator Architecture 141                |  |
-| 13.2.2. Revision History 142                         |  |
-| 13.2.3. Classification 142                           |  |
-| 13.2.4. Conditions 142                               |  |
-| 13.2.5. Condition Requirements 142                   |  |
-| 13.2.6. Device Type Requirements 143                 |  |
-| 13.2.7. Cluster Requirements 143                     |  |
-| 13.2.8. Element Requirements 143                     |  |
-| 13.3. Room Air Conditioner Device Type 144           |  |
-| 13.3.1. Room Air Conditioner Architecture 144        |  |
-| 13.3.2. Revision History 145                         |  |
-| 13.3.3. Classification 145                           |  |
-| 13.3.4. Conditions 145                               |  |
-| 13.3.5. Device Type Requirements 145                 |  |
-| 13.3.6. Cluster Requirements 145                     |  |
-| 13.3.7. Cluster Restrictions 146                     |  |
-| 13.3.8. Element Requirements 146                     |  |
-| 13.4. Temperature Controlled Cabinet Device Type 147 |  |
-| 13.4.1. Revision History 147                         |  |
-| 13.4.2. Classification 147                           |  |
-| 13.4.3. Conditions 147                               |  |
-| 13.4.4. Cluster Requirements 148                     |  |
-| 13.4.5. Element Requirements 148                     |  |
-| 13.5. Dishwasher Device Type 149                     |  |
-| 13.5.1. Revision History 149                         |  |
-| 13.5.2. Classification 149                           |  |
+| 12.1.1. Revision History 135 | |
+| 12.1.2. Classification 135 | |
+| 12.1.3. Conditions 135 | |
+| 12.1.4. Cluster Requirements 135 | |
+| 12.1.5. Element Requirements 136 | |
+| 12.1.6. Cluster Usage 136 | |
+| 13. Appliances Device Types 139 | |
+| 13.1. Laundry Washer Device Type 139 | |
+| 13.1.1. Revision History 139 | |
+| 13.1.2. Classification 139 | |
+| 13.1.3. Conditions 139 | |
+| 13.1.4. Cluster Requirements 139 | |
+| 13.1.5. Cluster Restrictions 140 | |
+| 13.1.6. Element Requirements 140 | |
+| 13.2. Refrigerator Device Type 141 | |
+| 13.2.1. Refrigerator Architecture 141 | |
+| 13.2.2. Revision History 142 | |
+| 13.2.3. Classification 142 | |
+| 13.2.4. Conditions 142 | |
+| 13.2.5. Condition Requirements 142 | |
+| 13.2.6. Device Type Requirements 143 | |
+| 13.2.7. Cluster Requirements 143 | |
+| 13.2.8. Element Requirements 143 | |
+| 13.3. Room Air Conditioner Device Type 144 | |
+| 13.3.1. Room Air Conditioner Architecture 144 | |
+| 13.3.2. Revision History 145 | |
+| 13.3.3. Classification 145 | |
+| 13.3.4. Conditions 145 | |
+| 13.3.5. Device Type Requirements 145 | |
+| 13.3.6. Cluster Requirements 145 | |
+| 13.3.7. Cluster Restrictions 146 | |
+| 13.3.8. Element Requirements 146 | |
+| 13.4. Temperature Controlled Cabinet Device Type 147 | |
+| 13.4.1. Revision History 147 | |
+| 13.4.2. Classification 147 | |
+| 13.4.3. Conditions 147 | |
+| 13.4.4. Cluster Requirements 148 | |
+| 13.4.5. Element Requirements 148 | |
+| 13.5. Dishwasher Device Type 149 | |
+| 13.5.1. Revision History 149 | |
+| 13.5.2. Classification 149 | |
 
-| 13.5.3. Conditions                | 149 |
-|-----------------------------------|-----|
-| 13.5.4. Cluster Requirements      | 150 |
-| 13.5.5. Cluster Restrictions      | 150 |
-| 13.5.6. Element Requirements      | 151 |
-| 13.6. Laundry Dryer Device Type.  | 151 |
-| 13.6.1. Revision History          | 151 |
-| 13.6.2. Classification            | 151 |
-| 13.6.3. Conditions                | 152 |
-| 13.6.4. Cluster Requirements      | 152 |
-| 13.6.5. Cluster Restrictions      | 152 |
-| 13.6.6. Element Requirements      | 153 |
-| 13.7. Cook Surface Device Type    | 153 |
-| 13.7.1. Revision History          | 153 |
-| 13.7.2. Classification            | 154 |
-| 13.7.3. Conditions.               | 154 |
-| 13.7.4. Cluster Requirements      | 154 |
-| 13.7.5. Cluster Restrictions      | 154 |
-| 13.7.6. Element Requirements      | 154 |
-| 13.8. Cooktop Device Type         | 155 |
-| 13.8.1. Revision History          | 155 |
-| 13.8.2. Classification            | 155 |
-| 13.8.3. Conditions                | 155 |
-| 13.8.4. Device Type Requirements  | 155 |
-| 13.8.5. Cluster Requirements      | 156 |
-| 13.8.6. Cluster Restrictions      | 156 |
-| 13.8.7. Element Requirements      | 156 |
-| 13.9. Oven Device Type.           | 156 |
-| 13.9.1. Oven Architecture         | 156 |
-| 13.9.2. Revision History          | 157 |
-| 13.9.3. Classification            | 157 |
-| 13.9.4. Conditions                | 157 |
-| 13.9.5. Condition Requirements    | 157 |
+| 13.5.3. Conditions | 149 |
+| 13.5.4. Cluster Requirements | 150 |
+| 13.5.5. Cluster Restrictions | 150 |
+| 13.5.6. Element Requirements | 151 |
+| 13.6. Laundry Dryer Device Type. | 151 |
+| 13.6.1. Revision History | 151 |
+| 13.6.2. Classification | 151 |
+| 13.6.3. Conditions | 152 |
+| 13.6.4. Cluster Requirements | 152 |
+| 13.6.5. Cluster Restrictions | 152 |
+| 13.6.6. Element Requirements | 153 |
+| 13.7. Cook Surface Device Type | 153 |
+| 13.7.1. Revision History | 153 |
+| 13.7.2. Classification | 154 |
+| 13.7.3. Conditions. | 154 |
+| 13.7.4. Cluster Requirements | 154 |
+| 13.7.5. Cluster Restrictions | 154 |
+| 13.7.6. Element Requirements | 154 |
+| 13.8. Cooktop Device Type | 155 |
+| 13.8.1. Revision History | 155 |
+| 13.8.2. Classification | 155 |
+| 13.8.3. Conditions | 155 |
+| 13.8.4. Device Type Requirements | 155 |
+| 13.8.5. Cluster Requirements | 156 |
+| 13.8.6. Cluster Restrictions | 156 |
+| 13.8.7. Element Requirements | 156 |
+| 13.9. Oven Device Type. | 156 |
+| 13.9.1. Oven Architecture | 156 |
+| 13.9.2. Revision History | 157 |
+| 13.9.3. Classification | 157 |
+| 13.9.4. Conditions | 157 |
+| 13.9.5. Condition Requirements | 157 |
 | 13.9.6. Device Type Requirements. | 158 |
-| 13.9.7. Cluster Requirements      | 158 |
+| 13.9.7. Cluster Requirements | 158 |
 | 13.10. Extractor Hood Device Type | 158 |
-| 13.10.1. Revision History         | 159 |
-| 13.10.2. Classification           | 159 |
-| 13.10.3. Conditions               | 159 |
+| 13.10.1. Revision History | 159 |
+| 13.10.2. Classification | 159 |
+| 13.10.3. Conditions | 159 |
 | 13.10.4. Device Type Requirements | 159 |
-| 13.10.5. Cluster Requirements     | 159 |
-| 13.10.6. Element Requirements     | 160 |
+| 13.10.5. Cluster Requirements | 159 |
+| 13.10.6. Element Requirements | 160 |
 
-| 13.11. Microwave Oven Device Type 160    |  |
-|------------------------------------------|--|
-| 13.11.1. Microwave Oven Architecture 160 |  |
-| 13.11.2. Revision History 161            |  |
-| 13.11.3. Classification 161              |  |
-| 13.11.4. Conditions 161                  |  |
-| 13.11.5. Device Type Requirements 161    |  |
-| 13.11.6. Cluster Requirements 162        |  |
-| 13.11.7. Element Requirements 162        |  |
-| 13.11.8. Cluster Usage 162               |  |
-| 14. Energy Device Types 165              |  |
-| 14.1. EVSE Device Type 165               |  |
-| 14.1.1. EVSE Architecture 165            |  |
-| 14.1.2. Revision History 166             |  |
-| 14.1.3. Classification 166               |  |
-| 14.1.4. Conditions 166                   |  |
-| 14.1.5. Cluster Requirements 166         |  |
-| 14.1.6. Device Type Requirements 167     |  |
-| 14.2. Water Heater Device Type 168       |  |
-| 14.2.1. Water Heater Architecture 168    |  |
-| 14.2.2. Revision History 169             |  |
-| 14.2.3. Classification 169               |  |
-| 14.2.4. Conditions 169                   |  |
-| 14.2.5. Cluster Requirements 169         |  |
-| 14.2.6. Element Requirements 170         |  |
-| 14.2.7. Device Type Requirements 170     |  |
-| 14.3. Solar Power Device Type 171        |  |
-| 14.3.1. Solar Power Architecture 171     |  |
-| 14.3.2. Revision History 173             |  |
-| 14.3.3. Classification 173               |  |
-| 14.3.4. Conditions 173                   |  |
-| 14.3.5. Cluster Requirements 173         |  |
-| 14.3.6. Device Type Requirements 173     |  |
-| 14.4. Battery Storage Device Type 176    |  |
-| 14.4.1. Battery Storage Architecture 176 |  |
-| 14.4.2. Revision History 177             |  |
-| 14.4.3. Classification 178               |  |
-| 14.4.4. Conditions 178                   |  |
-| 14.4.5. Cluster Requirements 178         |  |
-| 14.4.6. Device Type Requirements 178     |  |
-| 14.5. Heat Pump Device Type 183          |  |
-| 14.5.1. Heat Pump Architecture 183       |  |
+| 13.11. Microwave Oven Device Type 160 | |
+| 13.11.1. Microwave Oven Architecture 160 | |
+| 13.11.2. Revision History 161 | |
+| 13.11.3. Classification 161 | |
+| 13.11.4. Conditions 161 | |
+| 13.11.5. Device Type Requirements 161 | |
+| 13.11.6. Cluster Requirements 162 | |
+| 13.11.7. Element Requirements 162 | |
+| 13.11.8. Cluster Usage 162 | |
+| 14. Energy Device Types 165 | |
+| 14.1. EVSE Device Type 165 | |
+| 14.1.1. EVSE Architecture 165 | |
+| 14.1.2. Revision History 166 | |
+| 14.1.3. Classification 166 | |
+| 14.1.4. Conditions 166 | |
+| 14.1.5. Cluster Requirements 166 | |
+| 14.1.6. Device Type Requirements 167 | |
+| 14.2. Water Heater Device Type 168 | |
+| 14.2.1. Water Heater Architecture 168 | |
+| 14.2.2. Revision History 169 | |
+| 14.2.3. Classification 169 | |
+| 14.2.4. Conditions 169 | |
+| 14.2.5. Cluster Requirements 169 | |
+| 14.2.6. Element Requirements 170 | |
+| 14.2.7. Device Type Requirements 170 | |
+| 14.3. Solar Power Device Type 171 | |
+| 14.3.1. Solar Power Architecture 171 | |
+| 14.3.2. Revision History 173 | |
+| 14.3.3. Classification 173 | |
+| 14.3.4. Conditions 173 | |
+| 14.3.5. Cluster Requirements 173 | |
+| 14.3.6. Device Type Requirements 173 | |
+| 14.4. Battery Storage Device Type 176 | |
+| 14.4.1. Battery Storage Architecture 176 | |
+| 14.4.2. Revision History 177 | |
+| 14.4.3. Classification 178 | |
+| 14.4.4. Conditions 178 | |
+| 14.4.5. Cluster Requirements 178 | |
+| 14.4.6. Device Type Requirements 178 | |
+| 14.5. Heat Pump Device Type 183 | |
+| 14.5.1. Heat Pump Architecture 183 | |
 
-| 14.5.2. Revision History 183                         |  |
-|------------------------------------------------------|--|
-| 14.5.3. Classification 184                           |  |
-| 14.5.4. Conditions 184                               |  |
-| 14.5.5. Cluster Requirements 184                     |  |
-| 14.5.6. Device Type Requirements 184                 |  |
-| 14.6. Meter Reference Point Device Type 187          |  |
-| 14.6.1. Revision History 187                         |  |
-| 14.6.2. Classification 187                           |  |
-| 14.6.3. Conditions 187                               |  |
-| 14.6.4. Condition Requirements 187                   |  |
-| 14.6.5. Cluster Requirements 188                     |  |
-| 14.6.6. Device Type Requirements 188                 |  |
-| 14.6.7. Meter Reference Point Topology 188           |  |
-| 14.7. Electrical Energy Tariff Device Type 193       |  |
-| 14.7.1. Revision History 193                         |  |
-| 14.7.2. Classification 193                           |  |
-| 14.7.3. Conditions 193                               |  |
-| 14.7.4. Cluster Requirements 193                     |  |
-| 14.7.5. Element Requirements 193                     |  |
-| 14.7.6. Semantic Tag Requirements 194                |  |
-| 14.8. Electrical Meter Device Type 194               |  |
-| 14.8.1. Revision History 194                         |  |
-| 14.8.2. Classification 194                           |  |
-| 14.8.3. Device Type Requirements 194                 |  |
-| 14.8.4. Cluster Requirements 194                     |  |
-| 14.9. Electrical Utility Meter Device Type 195       |  |
-| 14.9.1. Revision History 195                         |  |
-| 14.9.2. Classification 195                           |  |
-| 14.9.3. Conditions 195                               |  |
-| 14.9.4. Condition Requirements 195                   |  |
-| 14.9.5. Cluster Requirements 195                     |  |
-| 14.9.6. Electrical Utility Meter Topology 196        |  |
-| 15. Network Infrastructure Device Types 201          |  |
-| 15.1. Introduction 201                               |  |
-| 15.2. Common Requirements 201                        |  |
-| 15.2.1. Minimum Number of Devices to Support 201     |  |
-| 15.3. Network Infrastructure Manager Device Type 201 |  |
-| 15.3.1. Revision History 202                         |  |
-| 15.3.2. Classification 202                           |  |
-| 15.3.3. Conditions 202                               |  |
-| 15.3.4. Cluster Requirements 202                     |  |
-|                                                      |  |
+| 14.5.2. Revision History 183 | |
+| 14.5.3. Classification 184 | |
+| 14.5.4. Conditions 184 | |
+| 14.5.5. Cluster Requirements 184 | |
+| 14.5.6. Device Type Requirements 184 | |
+| 14.6. Meter Reference Point Device Type 187 | |
+| 14.6.1. Revision History 187 | |
+| 14.6.2. Classification 187 | |
+| 14.6.3. Conditions 187 | |
+| 14.6.4. Condition Requirements 187 | |
+| 14.6.5. Cluster Requirements 188 | |
+| 14.6.6. Device Type Requirements 188 | |
+| 14.6.7. Meter Reference Point Topology 188 | |
+| 14.7. Electrical Energy Tariff Device Type 193 | |
+| 14.7.1. Revision History 193 | |
+| 14.7.2. Classification 193 | |
+| 14.7.3. Conditions 193 | |
+| 14.7.4. Cluster Requirements 193 | |
+| 14.7.5. Element Requirements 193 | |
+| 14.7.6. Semantic Tag Requirements 194 | |
+| 14.8. Electrical Meter Device Type 194 | |
+| 14.8.1. Revision History 194 | |
+| 14.8.2. Classification 194 | |
+| 14.8.3. Device Type Requirements 194 | |
+| 14.8.4. Cluster Requirements 194 | |
+| 14.9. Electrical Utility Meter Device Type 195 | |
+| 14.9.1. Revision History 195 | |
+| 14.9.2. Classification 195 | |
+| 14.9.3. Conditions 195 | |
+| 14.9.4. Condition Requirements 195 | |
+| 14.9.5. Cluster Requirements 195 | |
+| 14.9.6. Electrical Utility Meter Topology 196 | |
+| 15. Network Infrastructure Device Types 201 | |
+| 15.1. Introduction 201 | |
+| 15.2. Common Requirements 201 | |
+| 15.2.1. Minimum Number of Devices to Support 201 | |
+| 15.3. Network Infrastructure Manager Device Type 201 | |
+| 15.3.1. Revision History 202 | |
+| 15.3.2. Classification 202 | |
+| 15.3.3. Conditions 202 | |
+| 15.3.4. Cluster Requirements 202 | |
 
-| 15.3.5. Condition Requirements 202                         |  |
-|------------------------------------------------------------|--|
-| 15.3.6. Other Requirements 203                             |  |
-| 15.4. Thread Border Router Device Type 205                 |  |
-| 15.4.1. Revision History 205                               |  |
-| 15.4.2. Classification 206                                 |  |
-| 15.4.3. Conditions 206                                     |  |
-| 15.4.4. Device Type Requirements 206                       |  |
-| 15.4.5. Cluster Requirements 206                           |  |
-| 15.4.6. Other Requirements 206                             |  |
-| 15.4.7. Cluster Usage 207                                  |  |
-| 16. Camera Device Types 211                                |  |
-| 16.1. Camera Device Type 211                               |  |
-| 16.1.1. Revision History 211                               |  |
-| 16.1.2. Classification 211                                 |  |
-| 16.1.3. Conditions 211                                     |  |
-| 16.1.4. Device Type Requirements 211                       |  |
-| 16.1.5. Condition Requirements 211                         |  |
-| 16.1.6. Cluster Requirements 212                           |  |
-| 16.1.7. Element Requirements 213                           |  |
-| 16.2. Floodlight Camera Device Type 213                    |  |
-| 16.2.1. Revision History 213                               |  |
-| 16.2.2. Classification 213                                 |  |
-| 16.2.3. Conditions 213                                     |  |
-| 16.2.4. Device Type Requirements 213                       |  |
-| 16.3. Video Doorbell Device Type 214                       |  |
-| 16.3.1. Revision History 214                               |  |
-| 16.3.2. Classification 214                                 |  |
-| 16.3.3. Device Type Requirements 214                       |  |
-| 16.4. Intercom Device Type 214                             |  |
-| 16.4.1. Revision History 215                               |  |
-| 16.4.2. Classification 215                                 |  |
-| 16.4.3. Conditions 215                                     |  |
-| 16.4.4. Device Type Requirements 215                       |  |
-| 16.4.5. Condition Requirements 215                         |  |
-| 16.4.6. Cluster Requirements 216                           |  |
-| 16.4.7. Element Requirements 216                           |  |
-| 16.4.8. Element Requirements on Component Device Types 217 |  |
-| 16.5. Audio Doorbell Device Type 217                       |  |
-| 16.5.1. Revision History 217                               |  |
-| 16.5.2. Classification 217                                 |  |
-| 16.5.3. Condition Requirements 218                         |  |
-|                                                            |  |
+| 15.3.5. Condition Requirements 202 | |
+| 15.3.6. Other Requirements 203 | |
+| 15.4. Thread Border Router Device Type 205 | |
+| 15.4.1. Revision History 205 | |
+| 15.4.2. Classification 206 | |
+| 15.4.3. Conditions 206 | |
+| 15.4.4. Device Type Requirements 206 | |
+| 15.4.5. Cluster Requirements 206 | |
+| 15.4.6. Other Requirements 206 | |
+| 15.4.7. Cluster Usage 207 | |
+| 16. Camera Device Types 211 | |
+| 16.1. Camera Device Type 211 | |
+| 16.1.1. Revision History 211 | |
+| 16.1.2. Classification 211 | |
+| 16.1.3. Conditions 211 | |
+| 16.1.4. Device Type Requirements 211 | |
+| 16.1.5. Condition Requirements 211 | |
+| 16.1.6. Cluster Requirements 212 | |
+| 16.1.7. Element Requirements 213 | |
+| 16.2. Floodlight Camera Device Type 213 | |
+| 16.2.1. Revision History 213 | |
+| 16.2.2. Classification 213 | |
+| 16.2.3. Conditions 213 | |
+| 16.2.4. Device Type Requirements 213 | |
+| 16.3. Video Doorbell Device Type 214 | |
+| 16.3.1. Revision History 214 | |
+| 16.3.2. Classification 214 | |
+| 16.3.3. Device Type Requirements 214 | |
+| 16.4. Intercom Device Type 214 | |
+| 16.4.1. Revision History 215 | |
+| 16.4.2. Classification 215 | |
+| 16.4.3. Conditions 215 | |
+| 16.4.4. Device Type Requirements 215 | |
+| 16.4.5. Condition Requirements 215 | |
+| 16.4.6. Cluster Requirements 216 | |
+| 16.4.7. Element Requirements 216 | |
+| 16.4.8. Element Requirements on Component Device Types 217 | |
+| 16.5. Audio Doorbell Device Type 217 | |
+| 16.5.1. Revision History 217 | |
+| 16.5.2. Classification 217 | |
+| 16.5.3. Condition Requirements 218 | |
 
 | Matter Device Library | Connectivity Standards Alliance Document 23-27351 March 16, 2026 |
-|-----------------------|------------------------------------------------------------------|
-|                       | 16.5.4. Cluster Requirements 218                                 |
-|                       | 16.5.5. Element Requirements 218                                 |
-|                       | 16.6. Snapshot Camera Device Type 219                            |
-|                       | 16.6.1. Revision History 219                                     |
-|                       | 16.6.2. Classification 219                                       |
-|                       | 16.6.3. Conditions 219                                           |
-|                       | 16.6.4. Device Type Requirements 219                             |
-|                       | 16.6.5. Condition Requirements 220                               |
-|                       | 16.6.6. Cluster Requirements 220                                 |
-|                       | 16.6.7. Element Requirements 220                                 |
-|                       | 16.7. Chime Device Type 221                                      |
-|                       | 16.7.1. Revision History 221                                     |
-|                       | 16.7.2. Classification 221                                       |
-|                       | 16.7.3. Conditions 221                                           |
-|                       | 16.7.4. Cluster Requirements 221                                 |
-|                       | 16.7.5. Element Requirements 221                                 |
-|                       | 16.8. Camera Controller Device Type 222                          |
-|                       | 16.8.1. Revision History 222                                     |
-|                       | 16.8.2. Classification 222                                       |
-|                       | 16.8.3. Cluster Requirements 222                                 |
-|                       | 16.9. Doorbell Device Type 223                                   |
-|                       | 16.9.1. Revision History 223                                     |
-|                       | 16.9.2. Classification 223                                       |
+| | 16.5.4. Cluster Requirements 218 |
+| | 16.5.5. Element Requirements 218 |
+| | 16.6. Snapshot Camera Device Type 219 |
+| | 16.6.1. Revision History 219 |
+| | 16.6.2. Classification 219 |
+| | 16.6.3. Conditions 219 |
+| | 16.6.4. Device Type Requirements 219 |
+| | 16.6.5. Condition Requirements 220 |
+| | 16.6.6. Cluster Requirements 220 |
+| | 16.6.7. Element Requirements 220 |
+| | 16.7. Chime Device Type 221 |
+| | 16.7.1. Revision History 221 |
+| | 16.7.2. Classification 221 |
+| | 16.7.3. Conditions 221 |
+| | 16.7.4. Cluster Requirements 221 |
+| | 16.7.5. Element Requirements 221 |
+| | 16.8. Camera Controller Device Type 222 |
+| | 16.8.1. Revision History 222 |
+| | 16.8.2. Classification 222 |
+| | 16.8.3. Cluster Requirements 222 |
+| | 16.9. Doorbell Device Type 223 |
+| | 16.9.1. Revision History 223 |
+| | 16.9.2. Classification 223 |
 
 # <span id="page-23-0"></span>**References**
 
@@ -700,12 +676,11 @@ The following standards and specifications contain provisions, which through ref
 
 <span id="page-23-6"></span><span id="page-23-5"></span><span id="page-23-4"></span>
 
-| Reference                 | Reference Location/URL                                           | Description                                                  |
-|---------------------------|------------------------------------------------------------------|--------------------------------------------------------------|
-| [Alliance<br>PNP]         | https://groups.csa-iot.org/wg/<br>members/document/21624         | Alliance Organizational Processes and Procedures,<br>13-0625 |
-| [Certification<br>Policy] | https://groups.csa-iot.org/wg/<br>members-all/document/125       | Alliance Certification Policy, 15-0288                       |
-| [MatterCore]              | https://groups.csa-iot.org/wg/<br>members-all/document/<br>27349 | Matter Core Specification                                    |
-| [MatterApp<br>Clusters]   | https://groups.csa-iot.org/wg/<br>members-all/document/<br>27350 | Matter Application Cluster Specification                     |
+| Reference | Reference Location/URL | Description |
+| [Alliance<br>PNP] | https://groups.csa-iot.org/wg/<br>members/document/21624 | Alliance Organizational Processes and Procedures,<br>13-0625 |
+| [Certification<br>Policy] | https://groups.csa-iot.org/wg/<br>members-all/document/125 | Alliance Certification Policy, 15-0288 |
+| [MatterCore] | https://groups.csa-iot.org/wg/<br>members-all/document/<br>27349 | Matter Core Specification |
+| [MatterApp<br>Clusters] | https://groups.csa-iot.org/wg/<br>members-all/document/<br>27350 | Matter Application Cluster Specification |
 
 # <span id="page-23-2"></span>**Provisional**
 
@@ -717,7 +692,7 @@ The following is a list of provisional items.
 
 # <span id="page-24-0"></span>**Chapter 1. Base Device Type**
 
-This chapter describes the [base device type.](#page-24-1)
+This chapter describes the base device type.
 
 # <span id="page-24-1"></span>**1.1. Base Device Type**
 
@@ -725,11 +700,10 @@ This chapter describes the [base device type.](#page-24-1)
 
 Because this document defines common requirements for all device types, changes to this document does affect all device types. Therefore, all device type definitions SHALL have its revision number incremented, with a new entry added to its history with a description that matches the description here, or state that the base device type is updated.
 
-| Revision | Description                                     |
-|----------|-------------------------------------------------|
-| 1        | Initial revision                                |
-| 2        | Duplicate condition replaces Multiple condition |
-| 3        | Removed certification program conditions        |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Duplicate condition replaces Multiple condition |
+| 3 | Removed certification program conditions |
 
 #### <span id="page-24-3"></span>**1.1.2. Overview**
 
@@ -748,27 +722,24 @@ Each section below is a category of conditions, each defining a list of conforma
 
 #### **1.1.3.1. Protocol Conditions**
 
-| Protocol Tag |  |
-|--------------|--|
-| Ethernet     |  |
-| Wi-Fi        |  |
-| Thread       |  |
-| TCP          |  |
-| UDP          |  |
+| Protocol Tag | |
+| Ethernet | |
+| Wi-Fi | |
+| Thread | |
+| TCP | |
+| UDP | |
 
-| Protocol Tag |  |
-|--------------|--|
-| IP           |  |
-| IPv4         |  |
-| IPv6         |  |
+| Protocol Tag | |
+| IP | |
+| IPv4 | |
+| IPv6 | |
 
 #### **1.1.3.2. Interface Conditions**
 
-| Interface Tag  | Description                                                                  |
-|----------------|------------------------------------------------------------------------------|
-| LanguageLocale | The node supports localization for conveying<br>text to the user             |
-| TimeLocale     | The node supports localization for conveying<br>time to the user             |
-| UnitLocale     | The node supports localization for conveying<br>units of measure to the user |
+| Interface Tag | Description |
+| LanguageLocale | The node supports localization for conveying<br>text to the user |
+| TimeLocale | The node supports localization for conveying<br>time to the user |
+| UnitLocale | The node supports localization for conveying<br>units of measure to the user |
 
 Note that "supports localization" in the table above refers to supporting update of localization via cluster interactions.
 
@@ -776,36 +747,32 @@ Note that "supports localization" in the table above refers to supporting update
 
 This category is for common limitations or capabilities of a node.
 
-| Capability Tag | Description                                                       |
-|----------------|-------------------------------------------------------------------|
-| SIT            | The node is a short idle time intermittently con<br>nected device |
-| LIT            | The node is a long idle time intermittently con<br>nected device  |
-| Active         | The node is always able to communicate                            |
+| Capability Tag | Description |
+| SIT | The node is a short idle time intermittently con<br>nected device |
+| LIT | The node is a long idle time intermittently con<br>nected device |
+| Active | The node is always able to communicate |
 
 # <span id="page-25-1"></span>**1.1.5. Device Type Class Conditions**
 
 This category is for classifications of device type. Some of these classifications are dependent on other conditions.
 
-| Class Tag | Summary                                                                                       |
-|-----------|-----------------------------------------------------------------------------------------------|
-| Node      | the device type is classified as a Node device<br>type (see Data Model specification)         |
-| App       | the device type is classified as an Application<br>device type (see Data Model specification) |
-| Simple    | the device type is classified as a Simple device<br>type (see Data Model specification)       |
+| Class Tag | Summary |
+| Node | the device type is classified as a Node device<br>type (see Data Model specification) |
+| App | the device type is classified as an Application<br>device type (see Data Model specification) |
+| Simple | the device type is classified as a Simple device<br>type (see Data Model specification) |
 
-| Class Tag | Summary                                                                                   |
-|-----------|-------------------------------------------------------------------------------------------|
-| Dynamic   | the device type is classified as a Dynamic device<br>type (see Data Model specification)  |
-| Composed  | the device type is composed of 2 or more device<br>types (see System Model specification) |
+| Class Tag | Summary |
+| Dynamic | the device type is classified as a Dynamic device<br>type (see Data Model specification) |
+| Composed | the device type is composed of 2 or more device<br>types (see System Model specification) |
 
 #### <span id="page-26-0"></span>**1.1.6. Endpoint Type Class Conditions**
 
 This category is for classifications of endpoints. Some of these classifications are dependent on other conditions.
 
-| Class Tag              | Summary                                                                                                                              |
-|------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| Client                 | there exists a client application cluster on the<br>endpoint                                                                         |
-| Server                 | there exists a server application cluster on the<br>endpoint                                                                         |
-| Duplicate              | the endpoint and at least one of its siblings have<br>overlap in application device type(s)                                          |
+| Class Tag | Summary |
+| Client | there exists a client application cluster on the<br>endpoint |
+| Server | there exists a server application cluster on the<br>endpoint |
+| Duplicate | the endpoint and at least one of its siblings have<br>overlap in application device type(s) |
 | BridgedPowerSourceInfo | the endpoint represents a Bridged Device, for<br>which information about the state of its power<br>source is available to the Bridge |
 
 #### <span id="page-26-3"></span>**1.1.6.1. Duplicate Condition**
@@ -816,12 +783,11 @@ The endpoint and at least one of its sibling endpoints have an overlap in applic
 
 Each Matter device type implementation SHALL include these clusters, as a minimum set, based on the conformance defined below. This conformance table SHALL assume the Matter conformance condition is TRUE (in Conformance column).
 
-| Cluster ID | Cluster Name | Client/Server | Quality | Conformance     |
-|------------|--------------|---------------|---------|-----------------|
-| 0x001D     | Descriptor   | Server        |         | M               |
-| 0x001E     | Binding      | Server        |         | Simple & Client |
-| 0x0040     | Fixed Label  | Server        |         | O               |
-| 0x0041     | User Label   | Server        |         | O               |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x001D | Descriptor | Server | | M |
+| 0x001E | Binding | Server | | Simple & Client |
+| 0x0040 | Fixed Label | Server | | O |
+| 0x0041 | User Label | Server | | O |
 
 ## <span id="page-26-2"></span>**1.1.8. Element Requirements**
 
@@ -829,25 +795,23 @@ The table below lists qualities and conformance that override the cluster specif
 
 ments. A blank entry means no change.
 
-| Cluster ID | Cluster<br>Name | Element | Name    | Constraint | Access | Confor<br>mance |
-|------------|-----------------|---------|---------|------------|--------|-----------------|
-| 0x001D     | Descriptor      | Feature | TagList |            |        | Duplicate       |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x001D | Descriptor | Feature | TagList | | | Duplicate |
 
 # <span id="page-28-0"></span>**Chapter 2. Utility Device Types**
 
 This chapter describes the utility device types. The utility device types are summarized in the table below:
 
-| Device ID | Device name                 |
-|-----------|-----------------------------|
-| 0x0016    | Root Node                   |
-| 0x0011    | Power Source                |
-| 0x0012    | OTA Requestor               |
-| 0x0014    | OTA Provider                |
-| 0x0013    | Bridged Node                |
-| 0x0510    | Electrical Sensor           |
-| 0x050D    | Device Energy Management    |
-| 0x0019    | Secondary Network Interface |
-| 0x0130    | Joint Fabric Administrator  |
+| Device ID | Device name |
+| 0x0016 | Root Node |
+| 0x0011 | Power Source |
+| 0x0012 | OTA Requestor |
+| 0x0014 | OTA Provider |
+| 0x0013 | Bridged Node |
+| 0x0510 | Electrical Sensor |
+| 0x050D | Device Energy Management |
+| 0x0019 | Secondary Network Interface |
+| 0x0130 | Joint Fabric Administrator |
 
 # <span id="page-28-1"></span>**2.1. Root Node Device Type**
 
@@ -859,80 +823,73 @@ This defines conformance for a root node endpoint (see System Model specificatio
 
 ### <span id="page-28-2"></span>**2.1.1. Revision History**
 
-| Revision | Description                                                                                |
-|----------|--------------------------------------------------------------------------------------------|
-| 1        | Initial revision                                                                           |
-| 2        | Added Power Source to device type; Deprecated<br>Power Source Configuration                |
-| 3        | Added restriction on Managed Device feature of<br>Access Control cluster                   |
-| 4        | Added conditions and cluster requirements for<br>Time Sync, TLS, and Power Source clusters |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added Power Source to device type; Deprecated<br>Power Source Configuration |
+| 3 | Added restriction on Managed Device feature of<br>Access Control cluster |
+| 4 | Added conditions and cluster requirements for<br>Time Sync, TLS, and Power Source clusters |
 
 #### <span id="page-29-0"></span>**2.1.2. Classification**
 
 | Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
-|----------------|---------------------|-------------|-------|-------|
-| 0x0016         | Root Node           |             | Node  | Node  |
+| 0x0016 | Root Node | | Node | Node |
 
 #### <span id="page-29-1"></span>**2.1.3. Conditions**
 
-The following table lists conditions that MAY be defined for this device type. This is used by device types which need certain clusters or features thereof to be present on this device type (Root Node). See [Section 1.1.3, "Base Type Conditions"](#page-24-4) for additional conformance tags.
+The following table lists conditions that MAY be defined for this device type. This is used by device types which need certain clusters or features thereof to be present on this device type (Root Node). See Section 1.1.3, "Base Type Conditions" for additional conformance tags.
 
 <span id="page-29-7"></span><span id="page-29-6"></span><span id="page-29-5"></span><span id="page-29-4"></span><span id="page-29-3"></span><span id="page-29-2"></span>
 
-| Condition              | Description                                                                                                                                                                                                                                                           |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CustomNetworkConfig    | The node only supports out-of-band-configured<br>networking (e.g. rich user interface, manufac<br>turer-specific means, custom commissioning<br>flows, or future IP-compliant network technol<br>ogy not yet directly supported by NetworkCommis<br>sioning cluster). |
-| ManagedAclAllowed      | The node has at least one endpoint where some<br>Device Type present on the endpoint has a<br>Device Library element requirement table entry<br>that sets this condition to true.                                                                                     |
-| TimeSyncCond           | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use Time Synchronization support.                                                                                                                                    |
-| TimeSyncWithClientCond | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use Time Synchronization support with Client<br>cluster support, and the TimeSyncClient feature.                                                                     |
-| TimeSyncWithNTPCCond   | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use Time Synchronization support with the NTP<br>Client feature.                                                                                                     |
-| TimeSyncWithTZCond     | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use Time Synchronization support with the<br>TimeZone feature.                                                                                                       |
-| TLSCertificatesCond    | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use TLS Certificate Management. Since TLS<br>requires basic Time Sync support, this will<br>include that dependency.                                                 |
+| Condition | Description |
+| CustomNetworkConfig | The node only supports out-of-band-configured<br>networking (e.g. rich user interface, manufac<br>turer-specific means, custom commissioning<br>flows, or future IP-compliant network technol<br>ogy not yet directly supported by NetworkCommis<br>sioning cluster). |
+| ManagedAclAllowed | The node has at least one endpoint where some<br>Device Type present on the endpoint has a<br>Device Library element requirement table entry<br>that sets this condition to true. |
+| TimeSyncCond | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use Time Synchronization support. |
+| TimeSyncWithClientCond | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use Time Synchronization support with Client<br>cluster support, and the TimeSyncClient feature. |
+| TimeSyncWithNTPCCond | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use Time Synchronization support with the NTP<br>Client feature. |
+| TimeSyncWithTZCond | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use Time Synchronization support with the<br>TimeZone feature. |
+| TLSCertificatesCond | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use TLS Certificate Management. Since TLS<br>requires basic Time Sync support, this will<br>include that dependency. |
 
 <span id="page-30-4"></span><span id="page-30-3"></span>
 
-| Condition        | Description                                                                                                                                                                                                      |
-|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| TLSClientCond    | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use TLS Client Management. Since TLS requires<br>basic Time Sync support, this will include that<br>dependency. |
-| PowerSourceCond  | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>have Power Source be on the Root Node.                                                                          |
-| ACLExtensionCond | The node has at least one endpoint where some<br>Device Type present on the endpoint needs the<br>Access Control instance to have the Extension<br>attribute.                                                    |
+| Condition | Description |
+| TLSClientCond | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>use TLS Client Management. Since TLS requires<br>basic Time Sync support, this will include that<br>dependency. |
+| PowerSourceCond | The node has at least one endpoint where some<br>Device Type present on the endpoint needs to<br>have Power Source be on the Root Node. |
+| ACLExtensionCond | The node has at least one endpoint where some<br>Device Type present on the endpoint needs the<br>Access Control instance to have the Extension<br>attribute. |
 
 #### <span id="page-30-2"></span><span id="page-30-0"></span>**2.1.4. Device Type Requirements**
 
 The table lists other device types to be implemented along with this device type based on conformance.
 
-| Device Type ID | Device Type Name | Constraint | Conformance        |
-|----------------|------------------|------------|--------------------|
-| 0x0011         | Power Source     |            | PowerSourceCond, O |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x0011 | Power Source | | PowerSourceCond, O |
 
 #### <span id="page-30-1"></span>**2.1.5. Cluster Requirements**
 
-| Cluster ID | Cluster Name                   | Client/Server | Quality | Conformance              |
-|------------|--------------------------------|---------------|---------|--------------------------|
-| 0x001F     | Access Control                 | Server        | I       | M                        |
-| 0x0028     | Basic Information              | Server        | I       | M                        |
-| 0x002B     | Localization Con<br>figuration | Server        | I       | LanguageLocale           |
-| 0x002C     | Time Format<br>Localization    | Server        | I       | TimeLocale               |
-| 0x002D     | Unit Localization              | Server        | I       | UnitLocale               |
-| 0x002E     | Power Source Con<br>figuration | Server        | I       | O, D                     |
-| 0x0030     | General Commis<br>sioning      | Server        | I       | M                        |
-| 0x0031     | Network Commis<br>sioning      | Server        |         | !CustomNetwork<br>Config |
-| 0x0032     | Diagnostic Logs                | Server        | I       | O                        |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x001F | Access Control | Server | I | M |
+| 0x0028 | Basic Information | Server | I | M |
+| 0x002B | Localization Con<br>figuration | Server | I | LanguageLocale |
+| 0x002C | Time Format<br>Localization | Server | I | TimeLocale |
+| 0x002D | Unit Localization | Server | I | UnitLocale |
+| 0x002E | Power Source Con<br>figuration | Server | I | O, D |
+| 0x0030 | General Commis<br>sioning | Server | I | M |
+| 0x0031 | Network Commis<br>sioning | Server | | !CustomNetwork<br>Config |
+| 0x0032 | Diagnostic Logs | Server | I | O |
 
-| Cluster ID | Cluster Name                    | Client/Server | Quality | Conformance                                                                                                                                        |
-|------------|---------------------------------|---------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0x0033     | General Diagnos<br>tics         | Server        | I       | M                                                                                                                                                  |
-| 0x0034     | Software Diagnos<br>tics        | Server        | I       | O                                                                                                                                                  |
-| 0x0035     | Thread Network<br>Diagnostics   | Server        |         | [Thread]                                                                                                                                           |
-| 0x0036     | Wi-Fi Network<br>Diagnostics    | Server        |         | [Wi-Fi]                                                                                                                                            |
-| 0x0037     | Ethernet Network<br>Diagnostics | Server        |         | [Ethernet]                                                                                                                                         |
-| 0x0038     | Time Synchroniza<br>tion        | Server        | I       | TimeSyncCond,<br>TimeSyncWith<br>ClientCond, Time<br>SyncWithNTPC<br>Cond, Time<br>SyncWithTZCond,<br>TLSClientCond,<br>TLSCertifi<br>catesCond, O |
-| 0x0038     | Time Synchroniza<br>tion        | Client        | I       | TimeSyncWith<br>ClientCond, O                                                                                                                      |
-| 0x003C     | Administrator<br>Commissioning  | Server        | I       | M                                                                                                                                                  |
-| 0x003E     | Operational Cre<br>dentials     | Server        | I       | M                                                                                                                                                  |
-| 0x003F     | Group Key Man<br>agement        | Server        | I       | M                                                                                                                                                  |
-| 0x0046     | ICD Management                  | Server        | I       | SIT   LIT                                                                                                                                          |
-| 0x0801     | TLS Certificate<br>Management   | Server        | I       | TLSCertifi<br>catesCond, O                                                                                                                         |
-| 0x0802     | TLS Client Man<br>agement       | Server        | I       | TLSClientCond, O                                                                                                                                   |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0033 | General Diagnos<br>tics | Server | I | M |
+| 0x0034 | Software Diagnos<br>tics | Server | I | O |
+| 0x0035 | Thread Network<br>Diagnostics | Server | | [Thread] |
+| 0x0036 | Wi-Fi Network<br>Diagnostics | Server | | [Wi-Fi] |
+| 0x0037 | Ethernet Network<br>Diagnostics | Server | | [Ethernet] |
+| 0x0038 | Time Synchroniza<br>tion | Server | I | TimeSyncCond,<br>TimeSyncWith<br>ClientCond, Time<br>SyncWithNTPC<br>Cond, Time<br>SyncWithTZCond,<br>TLSClientCond,<br>TLSCertifi<br>catesCond, O |
+| 0x0038 | Time Synchroniza<br>tion | Client | I | TimeSyncWith<br>ClientCond, O |
+| 0x003C | Administrator<br>Commissioning | Server | I | M |
+| 0x003E | Operational Cre<br>dentials | Server | I | M |
+| 0x003F | Group Key Man<br>agement | Server | I | M |
+| 0x0046 | ICD Management | Server | I | SIT LIT |
+| 0x0801 | TLS Certificate<br>Management | Server | I | TLSCertifi<br>catesCond, O |
+| 0x0802 | TLS Client Man<br>agement | Server | I | TLSClientCond, O |
 
 **NOTE**
 
@@ -942,14 +899,13 @@ The Network Diagnostics clusters present on the Root Node SHALL serve the primar
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name          | Element   | Name                    | Constraint | Access | Confor<br>mance                                                                           |
-|------------|--------------------------|-----------|-------------------------|------------|--------|-------------------------------------------------------------------------------------------|
-| 0x001F     | Access Con<br>trol       | Feature   | MNGD                    | desc       |        | [ManagedA<br>clAllowed]                                                                   |
-| 0x001F     | Access Con<br>trol       | Attribute | Extension               |            |        | ACLExten<br>sionCond                                                                      |
-| 0x0038     | Time Syn<br>chronization | Feature   | TimeSync<br>Client      |            |        | Time<br>SyncWith<br>ClientCond,<br>[TLSCertifi<br>catesCond  <br>TLSClient<br>Cond].a+, O |
-| 0x0038     | Time Syn<br>chronization | Feature   | NTPClient               |            |        | Time<br>SyncWithNT<br>PCCond,<br>[TLSCertifi<br>catesCond  <br>TLSClient<br>Cond].a+, O   |
-| 0x0038     | Time Syn<br>chronization | Feature   | TimeZone                |            |        | Time<br>SyncWithTZ<br>Cond, O                                                             |
-| 0x0046     | ICD Manage<br>ment       | Feature   | LongIdle<br>TimeSupport |            |        | LIT                                                                                       |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x001F | Access Con<br>trol | Feature | MNGD | desc | | [ManagedA<br>clAllowed] |
+| 0x001F | Access Con<br>trol | Attribute | Extension | | | ACLExten<br>sionCond |
+| 0x0038 | Time Syn<br>chronization | Feature | TimeSync<br>Client | | | Time<br>SyncWith<br>ClientCond,<br>[TLSCertifi<br>catesCond <br>TLSClient<br>Cond].a+, O |
+| 0x0038 | Time Syn<br>chronization | Feature | NTPClient | | | Time<br>SyncWithNT<br>PCCond,<br>[TLSCertifi<br>catesCond <br>TLSClient<br>Cond].a+, O |
+| 0x0038 | Time Syn<br>chronization | Feature | TimeZone | | | Time<br>SyncWithTZ<br>Cond, O |
+| 0x0046 | ICD Manage<br>ment | Feature | LongIdle<br>TimeSupport | | | LIT |
 
 #### **2.1.6.1. Access Control MNGD Conformance**
 
@@ -965,23 +921,20 @@ A Power Source device type provides information about the source of power.
 
 #### <span id="page-33-0"></span>**2.2.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-33-1"></span>**2.2.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class   | Scope |
-|----------------|---------------------|-------------|---------|-------|
-| 0x0011         | Power Source        |             | Utility | Node  |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0011 | Power Source | | Utility | Node |
 
 #### <span id="page-33-2"></span>**2.2.3. Cluster Requirements**
 
 This device SHALL support the clusters listed in the following table.
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x002F     | Power Source | Server        |         | M           |
+| 0x002F | Power Source | Server | | M |
 
 # <span id="page-33-3"></span>**2.3. OTA Requestor Device Type**
 
@@ -989,22 +942,19 @@ An OTA Requestor is a device that is capable of receiving an OTA software update
 
 #### <span id="page-33-4"></span>**2.3.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-33-5"></span>**2.3.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class   | Scope |
-|----------------|---------------------|-------------|---------|-------|
-| 0x0012         | OTA Requestor       |             | Utility | Node  |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0012 | OTA Requestor | | Utility | Node |
 
 ### <span id="page-33-6"></span>**2.3.3. Cluster Requirements**
 
-| Cluster ID | Cluster Name                     | Client/Server | Quality | Conformance |
-|------------|----------------------------------|---------------|---------|-------------|
-| 0x0029     | OTA Software<br>Update Provider  | Client        |         | M           |
-| 0x002A     | OTA Software<br>Update Requestor | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0029 | OTA Software<br>Update Provider | Client | | M |
+| 0x002A | OTA Software<br>Update Requestor | Server | | M |
 
 # <span id="page-34-0"></span>**2.4. OTA Provider Device Type**
 
@@ -1012,24 +962,21 @@ An OTA Provider is a node that is capable of providing an OTA software update to
 
 #### <span id="page-34-1"></span>**2.4.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-34-2"></span>**2.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class   | Scope |
-|----------------|---------------------|-------------|---------|-------|
-| 0x0014         | OTA Provider        |             | Utility | Node  |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0014 | OTA Provider | | Utility | Node |
 
 ### <span id="page-34-3"></span>**2.4.3. Cluster Requirements**
 
 Each node supporting this device type SHALL include these clusters based on the conformance defined below. A node SHALL only ever have, at most, one instance of the OTA Provider's required clusters.
 
-| Cluster ID | Cluster Name                     | Client/Server | Quality | Conformance |
-|------------|----------------------------------|---------------|---------|-------------|
-| 0x0029     | OTA Software<br>Update Provider  | Server        |         | M           |
-| 0x002A     | OTA Software<br>Update Requestor | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0029 | OTA Software<br>Update Provider | Server | | M |
+| 0x002A | OTA Software<br>Update Requestor | Client | | O |
 
 # <span id="page-34-4"></span>**2.5. Bridged Node Device Type**
 
@@ -1037,24 +984,21 @@ This defines conformance for a Bridged Node root endpoint. This endpoint is akin
 
 ## <span id="page-34-5"></span>**2.5.1. Revision History**
 
-| Revision | Description                                                                   |
-|----------|-------------------------------------------------------------------------------|
-| 1        | Initial revision                                                              |
-| 2        | Added Power Source to device type; Deprecated<br>Power Source Configuration   |
-| 3        | Added Ecosystem Information Cluster and Fab<br>ricSynchronizedNode Condition. |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added Power Source to device type; Deprecated<br>Power Source Configuration |
+| 3 | Added Ecosystem Information Cluster and Fab<br>ricSynchronizedNode Condition. |
 
 #### <span id="page-35-0"></span>**2.5.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class   | Scope    |
-|----------------|---------------------|-------------|---------|----------|
-| 0x0013         | Bridged Node        |             | Utility | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0013 | Bridged Node | | Utility | Endpoint |
 
 #### <span id="page-35-1"></span>**2.5.3. Conditions**
 
 This device type MAY support the following conformance conditions as defined below.
 
-| Condition              | Description            |
-|------------------------|------------------------|
+| Condition | Description |
 | FabricSynchronizedNode | See description below. |
 
 See the Base Device Type definition for additional conformance tags.
@@ -1074,37 +1018,32 @@ This device type SHALL only be indicated on endpoints which are listed in the De
 The table lists other device types to be implemented along with this device type based on conformance.
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x0011         | Power Source     |            | O           |
+| 0x0011 | Power Source | | O |
 
 ### <span id="page-35-3"></span>**2.5.5. Cluster Requirements**
 
-| Cluster ID | Cluster Name                   | Client/Server | Quality | Conformance                   |
-|------------|--------------------------------|---------------|---------|-------------------------------|
-| 0x002E     | Power Source Con<br>figuration | Server        |         | BridgedPower<br>SourceInfo, D |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x002E | Power Source Con<br>figuration | Server | | BridgedPower<br>SourceInfo, D |
 
-| Cluster ID | Cluster Name                        | Client/Server | Quality | Conformance                   |
-|------------|-------------------------------------|---------------|---------|-------------------------------|
-| 0x002F     | Power Source                        | Server        |         | BridgedPower<br>SourceInfo    |
-| 0x0039     | Bridged Device<br>Basic Information | Server        |         | M                             |
-| 0x003C     | Administrator<br>Commissioning      | Server        |         | FabricSynchro<br>nizedNode    |
-| 0x0750     | Ecosystem Infor<br>mation           | Server        |         | FabricSynchro<br>nizedNode, O |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x002F | Power Source | Server | | BridgedPower<br>SourceInfo |
+| 0x0039 | Bridged Device<br>Basic Information | Server | | M |
+| 0x003C | Administrator<br>Commissioning | Server | | FabricSynchro<br>nizedNode |
+| 0x0750 | Ecosystem Infor<br>mation | Server | | FabricSynchro<br>nizedNode, O |
 
 ### <span id="page-36-0"></span>**2.5.6. Endpoint Composition**
 
 A Bridged Node endpoint SHALL support one of the following composition patterns:
 
 - **Separate Endpoints**: All application device types are supported on separate descendant endpoints, and SHALL NOT be hosted on the Bridged Node endpoint. The Bridged Node endpoint's Descriptor cluster PartsList attribute SHALL indicate a list of all endpoints representing the functionality of the bridged device, including the endpoints supporting the application device types, i.e. the full-family pattern defined in the System Model specification. This is used for the following cases:
-  - Exposing a compound device the child endpoints each have a part of the functionality of the bridged device. See endpoints 31-34 in the example below; the bridged device is a PIR sensor which also has temperature and illuminance measurement. Endpoints 32-34 host the associated application device types and clusters. Endpoint 31 (the endpoint with the Bridged Node device type) functions as parent for these endpoints and has no application device types.
-  - Exposing a composed device type a child endpoint of the endpoint with the Bridged Node device type has the composed device type; this endpoint with the composed device type has child endpoints for the device type(s) that are mandatory or optional for the composed device type. See endpoints 41-43 in the example below; this is a refrigerator, which is a composed device type, hosted on endpoint 42, with the associated temperature controlled cabinet device type on child endpoint 43. Endpoint 41 (the endpoint with the Bridged Node device type) functions as parent for the endpoint hosting the composed device type and has no application clusters.
-  - Combinations of the above.
+- Exposing a compound device the child endpoints each have a part of the functionality of the bridged device. See endpoints 31-34 in the example below; the bridged device is a PIR sensor which also has temperature and illuminance measurement. Endpoints 32-34 host the associated application device types and clusters. Endpoint 31 (the endpoint with the Bridged Node device type) functions as parent for these endpoints and has no application device types.
+- Exposing a composed device type a child endpoint of the endpoint with the Bridged Node device type has the composed device type; this endpoint with the composed device type has child endpoints for the device type(s) that are mandatory or optional for the composed device type. See endpoints 41-43 in the example below; this is a refrigerator, which is a composed device type, hosted on endpoint 42, with the associated temperature controlled cabinet device type on child endpoint 43. Endpoint 41 (the endpoint with the Bridged Node device type) functions as parent for the endpoint hosting the composed device type and has no application clusters.
+- Combinations of the above.
 - **One Endpoint**: Both the Bridged Node and one or more application device types are supported on the same endpoint (following application device type rules). The PartsList attribute in the Descriptor cluster SHALL be empty.
-  - Since compound devices and composed device types each need more than one endpoint to expose their functionality, they cannot use the "One Endpoint" pattern and need to use the "Separate Endpoints" model described above.
-    - Example in the figure below: endpoint 21 hosts the Bridged Node utility device type, plus the application device type for a dimmable light on same endpoint. Since the dimmable light device type is a superset of on/off light, that subset device type MAY be added here as well.
+- Since compound devices and composed device types each need more than one endpoint to expose their functionality, they cannot use the "One Endpoint" pattern and need to use the "Separate Endpoints" model described above.
+- Example in the figure below: endpoint 21 hosts the Bridged Node utility device type, plus the application device type for a dimmable light on same endpoint. Since the dimmable light device type is a superset of on/off light, that subset device type MAY be added here as well.
 
 In all these composition patterns, endpoint composition SHALL conform to the application device type(s) definition.
-
-![](_page_37_Figure_3.jpeg)
 
 *Figure 1. examples of composition for bridged nodes*
 
@@ -1114,25 +1053,22 @@ An Electrical Sensor device measures the electrical power and/or energy being im
 
 ### <span id="page-37-1"></span>**2.6.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-38-0"></span>**2.6.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class   | Scope    |
-|----------------|---------------------|-------------|---------|----------|
-| 0x0510         | Electrical Sensor   |             | Utility | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0510 | Electrical Sensor | | Utility | Endpoint |
 
 ### <span id="page-38-1"></span>**2.6.3. Cluster Requirements**
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                     | Client/Server | Quality | Conformance |
-|------------|----------------------------------|---------------|---------|-------------|
-| 0x0090     | Electrical Power<br>Measurement  | Server        |         | O.a+        |
-| 0x0091     | Electrical Energy<br>Measurement | Server        |         | O.a+        |
-| 0x009C     | Power Topology                   | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0090 | Electrical Power<br>Measurement | Server | | O.a+ |
+| 0x0091 | Electrical Energy<br>Measurement | Server | | O.a+ |
+| 0x009C | Power Topology | Server | | M |
 
 **NOTE**
 
@@ -1144,26 +1080,23 @@ A Device Energy Management device provides reporting and optionally adjustment o
 
 ## <span id="page-38-3"></span>**2.7.1. Revision History**
 
-| Revision | Description                                               |
-|----------|-----------------------------------------------------------|
-| 1        | Initial revision                                          |
-| 2        | Updated description of when DEM Mode is to be<br>included |
-| 3        | Updated to include Electrical Grid Conditions             |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Updated description of when DEM Mode is to be<br>included |
+| 3 | Updated to include Electrical Grid Conditions |
 
 #### <span id="page-38-4"></span>**2.7.2. Classification**
 
-| Device Type ID | Device Type<br>Name         | Superset Of | Class   | Scope    |
-|----------------|-----------------------------|-------------|---------|----------|
-| 0x050D         | Device Energy<br>Management |             | Utility | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x050D | Device Energy<br>Management | | Utility | Endpoint |
 
 #### <span id="page-39-0"></span>**2.7.3. Conditions**
 
 See the Base Device Type definition for conformance tags.
 
-| Condition       | Description                                  |  |
-|-----------------|----------------------------------------------|--|
-| ControllableESA | The DEM cluster on this endpoint accepts com |  |
-|                 | mands to adjust its energy operation.        |  |
+| Condition | Description | |
+| ControllableESA | The DEM cluster on this endpoint accepts com | |
+| | mands to adjust its energy operation. | |
 
 A ControllableESA device is one that allows a client to request either a change in power (PowerAdjustment feature), a change in the start time (StartTimeAdjustment feature), to be paused and resumed (Pausable feature), or to have its power or state forecast adjusted (ForecastAdjustment or ConstraintBasedAdjustment features).
 
@@ -1173,23 +1106,21 @@ Simple reporting of the Forecast as a single capability on its own (PowerForecas
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                        | Client/Server | Quality | Conformance        |
-|------------|-------------------------------------|---------------|---------|--------------------|
-| 0x0098     | Device Energy<br>Management         | Server        |         | M                  |
-| 0x009F     | Device Energy<br>Management<br>Mode | Server        |         | ControllableESA, O |
-| 0x00A0     | Electrical Grid<br>Conditions       | Client        |         | O                  |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0098 | Device Energy<br>Management | Server | | M |
+| 0x009F | Device Energy<br>Management<br>Mode | Server | | ControllableESA, O |
+| 0x00A0 | Electrical Grid<br>Conditions | Client | | O |
 
 ### <span id="page-39-2"></span>**2.7.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name                 | Element | Name                              | Constraint | Access | Confor<br>mance          |
-|------------|---------------------------------|---------|-----------------------------------|------------|--------|--------------------------|
-| 0x0098     | Device<br>Energy Man<br>agement | Feature | PowerAd<br>justment               |            |        | [Control<br>lableESA].a+ |
-| 0x0098     | Device<br>Energy Man<br>agement | Feature | StartTimeAd<br>justment           |            |        | [Control<br>lableESA].a+ |
-| 0x0098     | Device<br>Energy Man<br>agement | Feature | Pausable                          |            |        | [Control<br>lableESA].a+ |
-| 0x0098     | Device<br>Energy Man<br>agement | Feature | ForecastAd<br>justment            |            |        | [Control<br>lableESA].a+ |
-| 0x0098     | Device<br>Energy Man<br>agement | Feature | Constraint<br>BasedAdjust<br>ment |            |        | [Control<br>lableESA].a+ |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0098 | Device<br>Energy Man<br>agement | Feature | PowerAd<br>justment | | | [Control<br>lableESA].a+ |
+| 0x0098 | Device<br>Energy Man<br>agement | Feature | StartTimeAd<br>justment | | | [Control<br>lableESA].a+ |
+| 0x0098 | Device<br>Energy Man<br>agement | Feature | Pausable | | | [Control<br>lableESA].a+ |
+| 0x0098 | Device<br>Energy Man<br>agement | Feature | ForecastAd<br>justment | | | [Control<br>lableESA].a+ |
+| 0x0098 | Device<br>Energy Man<br>agement | Feature | Constraint<br>BasedAdjust<br>ment | | | [Control<br>lableESA].a+ |
 
 # <span id="page-40-0"></span>**2.8. Secondary Network Interface Device Type**
 
@@ -1199,24 +1130,21 @@ A Node supporting multiple network interfaces SHALL include the primary interfac
 
 ### <span id="page-40-1"></span>**2.8.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-40-2"></span>**2.8.2. Classification**
 
-| Device Type ID | Device Type<br>Name             | Superset Of | Class   | Scope    |
-|----------------|---------------------------------|-------------|---------|----------|
-| 0x0019         | Secondary Net<br>work Interface |             | Utility | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0019 | Secondary Net<br>work Interface | | Utility | Endpoint |
 
 ### <span id="page-40-3"></span>**2.8.3. Cluster Requirements**
 
-| Cluster ID | Cluster Name                    | Client/Server | Quality | Conformance |
-|------------|---------------------------------|---------------|---------|-------------|
-| 0x0031     | Network Commis<br>sioning       | Server        |         | M           |
-| 0x0035     | Thread Network<br>Diagnostics   | Server        |         | [Thread]    |
-| 0x0036     | Wi-Fi Network<br>Diagnostics    | Server        |         | [Wi-Fi]     |
-| 0x0037     | Ethernet Network<br>Diagnostics | Server        |         | [Ethernet]  |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0031 | Network Commis<br>sioning | Server | | M |
+| 0x0035 | Thread Network<br>Diagnostics | Server | | [Thread] |
+| 0x0036 | Wi-Fi Network<br>Diagnostics | Server | | [Wi-Fi] |
+| 0x0037 | Ethernet Network<br>Diagnostics | Server | | [Ethernet] |
 
 **NOTE**
 
@@ -1226,140 +1154,134 @@ The Network Diagnostics cluster present in this device type SHALL serve the seco
 
 A Joint Fabric Administrator device provides capabilities to manage the Joint Fabric Datastore and issue an ICAC signed by the Joint Fabric Anchor Root CA.
 
-A client wanting to access the capabilities of the Joint Fabric Administrator MAY use the Joint Commissioning Method (as specified in the [Matter core specification](#page-23-5)) to be commissioned onto the Joint Fabric. Once commissioned, a client MAY access the capabilities of the Joint Fabric Administrator.
+A client wanting to access the capabilities of the Joint Fabric Administrator MAY use the Joint Commissioning Method (as specified in the Matter core specification) to be commissioned onto the Joint Fabric. Once commissioned, a client MAY access the capabilities of the Joint Fabric Administrator.
 
 ### <span id="page-41-1"></span>**2.9.1. Joint Fabric Architecture**
 
-See the Joint Fabric section of the Multiple Fabrics chapter in the [Matter core specification](#page-23-5) for more information on the Joint Fabric architecture.
+See the Joint Fabric section of the Multiple Fabrics chapter in the Matter core specification for more information on the Joint Fabric architecture.
 
 ### <span id="page-41-2"></span>**2.9.2. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-41-3"></span>**2.9.3. Classification**
 
-| Device Type ID | Device Type<br>Name           | Superset Of | Class   | Scope    |
-|----------------|-------------------------------|-------------|---------|----------|
-| 0x0130         | Joint Fabric<br>Administrator |             | Utility | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0130 | Joint Fabric<br>Administrator | | Utility | Endpoint |
 
 ## <span id="page-41-4"></span>**2.9.4. Cluster Requirements**
 
 Each endpoint supporting the Joint Fabric Administrator device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                  | Client/Server | Quality | Conformance |
-|------------|-------------------------------|---------------|---------|-------------|
-| 0x0752     | Joint Fabric Datas<br>tore    | Server        |         | M           |
-| 0x0753     | Joint Fabric<br>Administrator | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0752 | Joint Fabric Datas<br>tore | Server | | M |
+| 0x0753 | Joint Fabric<br>Administrator | Server | | M |
 
 # <span id="page-44-0"></span>**Chapter 3. Application Device Types**
 
 The following chapters list the application device types defined in this version of the Device Library. They are grouped per functional area in a chapter and are summarized in the table below:
 
-| Device ID                               | Device name                   |  |  |  |
-|-----------------------------------------|-------------------------------|--|--|--|
-| lighting                                |                               |  |  |  |
-| 0x0100                                  | On/Off Light                  |  |  |  |
-| 0x0101                                  | Dimmable Light                |  |  |  |
-| 0x010C                                  | Color Temperature Light       |  |  |  |
-| 0x010D                                  | Extended Color Light          |  |  |  |
-| smart plugs/outlets and other actuators |                               |  |  |  |
-| 0x010A                                  | On/Off Plug-in Unit           |  |  |  |
-| 0x010B                                  | Dimmable Plug-In Unit         |  |  |  |
-| 0x010F                                  | Mounted On/Off Control        |  |  |  |
-| 0x0110                                  | Mounted Dimmable Load Control |  |  |  |
-| 0x0303                                  | Pump                          |  |  |  |
-| 0x0042                                  | Water Valve                   |  |  |  |
-| 0x0040                                  | Irrigation System             |  |  |  |
-| switches and controls                   |                               |  |  |  |
-| 0x0103                                  | On/Off Light Switch           |  |  |  |
-| 0x0104                                  | Dimmer Switch                 |  |  |  |
-| 0x0105                                  | Color Dimmer Switch           |  |  |  |
-| 0x0840                                  | Control Bridge                |  |  |  |
-| 0x0304                                  | Pump Controller               |  |  |  |
-| 0x000F                                  | Generic Switch                |  |  |  |
-|                                         | sensors                       |  |  |  |
-| 0x0015                                  | Contact Sensor                |  |  |  |
-| 0x0106                                  | Light Sensor                  |  |  |  |
-| 0x0107                                  | Occupancy Sensor              |  |  |  |
-| 0x0302                                  | Temperature Sensor            |  |  |  |
-| 0x0305                                  | Pressure Sensor               |  |  |  |
-| 0x0306                                  | Flow Sensor                   |  |  |  |
-| 0x0307                                  | Humidity Sensor               |  |  |  |
-| 0x0850                                  | On/Off Sensor                 |  |  |  |
+| Device ID | Device name | | | |
+| lighting | | | | |
+| 0x0100 | On/Off Light | | | |
+| 0x0101 | Dimmable Light | | | |
+| 0x010C | Color Temperature Light | | | |
+| 0x010D | Extended Color Light | | | |
+| smart plugs/outlets and other actuators | | | | |
+| 0x010A | On/Off Plug-in Unit | | | |
+| 0x010B | Dimmable Plug-In Unit | | | |
+| 0x010F | Mounted On/Off Control | | | |
+| 0x0110 | Mounted Dimmable Load Control | | | |
+| 0x0303 | Pump | | | |
+| 0x0042 | Water Valve | | | |
+| 0x0040 | Irrigation System | | | |
+| switches and controls | | | | |
+| 0x0103 | On/Off Light Switch | | | |
+| 0x0104 | Dimmer Switch | | | |
+| 0x0105 | Color Dimmer Switch | | | |
+| 0x0840 | Control Bridge | | | |
+| 0x0304 | Pump Controller | | | |
+| 0x000F | Generic Switch | | | |
+| | sensors | | | |
+| 0x0015 | Contact Sensor | | | |
+| 0x0106 | Light Sensor | | | |
+| 0x0107 | Occupancy Sensor | | | |
+| 0x0302 | Temperature Sensor | | | |
+| 0x0305 | Pressure Sensor | | | |
+| 0x0306 | Flow Sensor | | | |
+| 0x0307 | Humidity Sensor | | | |
+| 0x0850 | On/Off Sensor | | | |
 
-| Device ID  | Device name                |  |  |
-|------------|----------------------------|--|--|
-| 0x0076     | Smoke CO Alarm             |  |  |
-| 0x002C     | Air Quality Sensor         |  |  |
-| 0x0041     | Water Freeze Detector      |  |  |
-| 0x0043     | Water Leak Detector        |  |  |
-| 0x0044     | Rain Sensor                |  |  |
-| 0x0045     | Soil Sensor                |  |  |
-|            | Entry Control              |  |  |
-| 0x000A     | Door Lock                  |  |  |
-| 0x000B     | Door Lock Controller       |  |  |
-| 0x0202     | Window Covering            |  |  |
-| 0x0203     | Window Covering Controller |  |  |
-| 0x0230     | Closure                    |  |  |
-| 0x0231     | Closure Panel              |  |  |
-| 0x023E     | Closure Controller         |  |  |
-|            | HVAC                       |  |  |
-| 0x0301     | Thermostat                 |  |  |
-| 0x002B     | Fan                        |  |  |
-| 0x002D     | Air Purifier               |  |  |
-| 0x030A     | Thermostat Controller      |  |  |
-|            | media                      |  |  |
-| 0x0028     | Basic Video Player         |  |  |
-| 0x0023     | Casting Video Player       |  |  |
-| 0x0022     | Speaker                    |  |  |
-| 0x0024     | Content App                |  |  |
-| 0x0029     | Casting Video Client       |  |  |
-| 0x002A     | Video Remote Control       |  |  |
-|            | generic                    |  |  |
-| 0x0027     | Mode Select                |  |  |
-| 0x000E     | Aggregator                 |  |  |
-|            | robotic devices            |  |  |
-| 0x0074     | Robotic Vacuum Cleaner     |  |  |
-| appliances |                            |  |  |
-| 0x0070     | Refrigerator               |  |  |
+| Device ID | Device name | | |
+| 0x0076 | Smoke CO Alarm | | |
+| 0x002C | Air Quality Sensor | | |
+| 0x0041 | Water Freeze Detector | | |
+| 0x0043 | Water Leak Detector | | |
+| 0x0044 | Rain Sensor | | |
+| 0x0045 | Soil Sensor | | |
+| | Entry Control | | |
+| 0x000A | Door Lock | | |
+| 0x000B | Door Lock Controller | | |
+| 0x0202 | Window Covering | | |
+| 0x0203 | Window Covering Controller | | |
+| 0x0230 | Closure | | |
+| 0x0231 | Closure Panel | | |
+| 0x023E | Closure Controller | | |
+| | HVAC | | |
+| 0x0301 | Thermostat | | |
+| 0x002B | Fan | | |
+| 0x002D | Air Purifier | | |
+| 0x030A | Thermostat Controller | | |
+| | media | | |
+| 0x0028 | Basic Video Player | | |
+| 0x0023 | Casting Video Player | | |
+| 0x0022 | Speaker | | |
+| 0x0024 | Content App | | |
+| 0x0029 | Casting Video Client | | |
+| 0x002A | Video Remote Control | | |
+| | generic | | |
+| 0x0027 | Mode Select | | |
+| 0x000E | Aggregator | | |
+| | robotic devices | | |
+| 0x0074 | Robotic Vacuum Cleaner | | |
+| appliances | | | |
+| 0x0070 | Refrigerator | | |
 
-| Device ID | Device name                    |  |  |  |
-|-----------|--------------------------------|--|--|--|
-| 0x0071    | Temperature Controlled Cabinet |  |  |  |
-| 0x0072    | Room Air Conditioner           |  |  |  |
-| 0x0073    | Laundry Washer                 |  |  |  |
-| 0x0075    | Dishwasher                     |  |  |  |
-| 0x0077    | Cook Surface                   |  |  |  |
-| 0x0078    | Cooktop                        |  |  |  |
-| 0x0079    | Microwave Oven                 |  |  |  |
-| 0x007A    | Extractor Hood                 |  |  |  |
-| 0x007B    | Oven                           |  |  |  |
-| 0x007C    | Laundry Dryer                  |  |  |  |
-| energy    |                                |  |  |  |
-| 0x050C    | EVSE                           |  |  |  |
-| 0x050F    | Water Heater                   |  |  |  |
-| 0x0017    | Solar Power                    |  |  |  |
-| 0x0018    | Battery Storage                |  |  |  |
-| 0x0309    | Heat Pump                      |  |  |  |
-| 0x0512    | Meter Reference Point          |  |  |  |
-| 0x0513    | Electrical Energy Tariff       |  |  |  |
-| 0x0514    | Electrical Meter               |  |  |  |
-| 0x0511    | Electrical Utility Meter       |  |  |  |
-|           | network infrastructure         |  |  |  |
-| 0x0090    | Network Infrastructure Manager |  |  |  |
-| 0x0091    | Thread Border Router           |  |  |  |
-|           | cameras                        |  |  |  |
-| 0x0142    | Camera                         |  |  |  |
-| 0x0144    | Floodlight Camera              |  |  |  |
-| 0x0143    | Video Doorbell                 |  |  |  |
-| 0x0140    | Intercom                       |  |  |  |
-| 0x0141    | Audio Doorbell                 |  |  |  |
-| 0x0145    | Snapshot Camera                |  |  |  |
-| 0x0146    | Chime                          |  |  |  |
-| 0x0147    | Camera Controller              |  |  |  |
-| 0x0148    | Doorbell                       |  |  |  |
+| Device ID | Device name | | | |
+| 0x0071 | Temperature Controlled Cabinet | | | |
+| 0x0072 | Room Air Conditioner | | | |
+| 0x0073 | Laundry Washer | | | |
+| 0x0075 | Dishwasher | | | |
+| 0x0077 | Cook Surface | | | |
+| 0x0078 | Cooktop | | | |
+| 0x0079 | Microwave Oven | | | |
+| 0x007A | Extractor Hood | | | |
+| 0x007B | Oven | | | |
+| 0x007C | Laundry Dryer | | | |
+| energy | | | | |
+| 0x050C | EVSE | | | |
+| 0x050F | Water Heater | | | |
+| 0x0017 | Solar Power | | | |
+| 0x0018 | Battery Storage | | | |
+| 0x0309 | Heat Pump | | | |
+| 0x0512 | Meter Reference Point | | | |
+| 0x0513 | Electrical Energy Tariff | | | |
+| 0x0514 | Electrical Meter | | | |
+| 0x0511 | Electrical Utility Meter | | | |
+| | network infrastructure | | | |
+| 0x0090 | Network Infrastructure Manager | | | |
+| 0x0091 | Thread Border Router | | | |
+| | cameras | | | |
+| 0x0142 | Camera | | | |
+| 0x0144 | Floodlight Camera | | | |
+| 0x0143 | Video Doorbell | | | |
+| 0x0140 | Intercom | | | |
+| 0x0141 | Audio Doorbell | | | |
+| 0x0145 | Snapshot Camera | | | |
+| 0x0146 | Chime | | | |
+| 0x0147 | Camera Controller | | | |
+| 0x0148 | Doorbell | | | |
 
 # <span id="page-48-0"></span>**Chapter 4. Lighting Device Types**
 
@@ -1369,17 +1291,15 @@ The On/Off Light is a lighting device that is capable of being switched on or of
 
 #### <span id="page-48-2"></span>**4.1.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
 
 #### <span id="page-48-3"></span>**4.1.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0100         | On/Off Light        |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0100 | On/Off Light | | Simple | Endpoint |
 
 ### <span id="page-48-4"></span>**4.1.3. Conditions**
 
@@ -1389,14 +1309,13 @@ See the Base Device Type definition for conformance tags.
 
 *Table 1. On/Off Light Cluster Requirements*
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0004     | Groups                | Server        |         | M           |
-| 0x0006     | On/Off                | Server        |         | M           |
-| 0x0008     | Level Control         | Server        |         | O           |
-| 0x0062     | Scenes Manage<br>ment | Server        |         | M           |
-| 0x0406     | Occupancy Sens<br>ing | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | M |
+| 0x0006 | On/Off | Server | | M |
+| 0x0008 | Level Control | Server | | O |
+| 0x0062 | Scenes Manage<br>ment | Server | | M |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 The inclusion of the Level Control cluster on this device is recommended to provide a consistent user experience when the device is grouped with additional dimmable lights and the "with on/off" commands are used. For this device, since its only states are on or off, if the Level Control cluster is implemented, it SHALL NOT have any effect on the actual light level except for those commands that cause an on/off state change, that is, the "with on/off" commands. In addition, if the Level Control cluster is implemented, the device SHALL accept and process Level Control cluster commands, adjusting the value of the CurrentLevel attribute accordingly and, where necessary, adjusting the On/Off cluster OnOff attribute.
 
@@ -1404,16 +1323,15 @@ The inclusion of the Level Control cluster on this device is recommended to prov
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name       | Element   | Name                  | Constraint | Access | Confor<br>mance |
-|------------|-----------------------|-----------|-----------------------|------------|--------|-----------------|
-| 0x0003     | Identify              | Command   | TriggerEffect         |            |        | M               |
-| 0x0006     | On/Off                | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | OnOff                 |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Attribute | CurrentLevel 1 to 254 |            |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MinLevel              | 1          |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MaxLevel              | 254        |        |                 |
-| 0x0062     | Scenes Man<br>agement | Command   | CopyScene             |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0003 | Identify | Command | TriggerEffect | | | M |
+| 0x0006 | On/Off | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Feature | OnOff | | | M |
+| 0x0008 | Level Con<br>trol | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Attribute | CurrentLevel 1 to 254 | | | |
+| 0x0008 | Level Con<br>trol | Attribute | MinLevel | 1 | | |
+| 0x0008 | Level Con<br>trol | Attribute | MaxLevel | 254 | | |
+| 0x0062 | Scenes Man<br>agement | Command | CopyScene | | | M |
 
 As the TriggerEffect command of the Identify cluster and the OffWithEffect command of the On/Off cluster specify light effects that require dimming of the light output, and such is not possible on this device type, the specified light effects MAY be replaced by pure on/off light effects.
 
@@ -1423,17 +1341,15 @@ A Dimmable Light is a lighting device that is capable of being switched on or of
 
 #### <span id="page-50-0"></span>**4.2.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
 
 #### <span id="page-50-1"></span>**4.2.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of  | Class  | Scope    |
-|----------------|---------------------|--------------|--------|----------|
-| 0x0101         | Dimmable Light      | On/Off Light | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0101 | Dimmable Light | On/Off Light | Simple | Endpoint |
 
 ### <span id="page-50-2"></span>**4.2.3. Conditions**
 
@@ -1443,32 +1359,29 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0004     | Groups                | Server        |         | M           |
-| 0x0006     | On/Off                | Server        |         | M           |
-| 0x0008     | Level Control         | Server        |         | M           |
-| 0x0062     | Scenes Manage<br>ment | Server        |         | M           |
-| 0x0406     | Occupancy Sens<br>ing | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | M |
+| 0x0006 | On/Off | Server | | M |
+| 0x0008 | Level Control | Server | | M |
+| 0x0062 | Scenes Manage<br>ment | Server | | M |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 ## <span id="page-50-4"></span>**4.2.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name | Element | Name          | Constraint | Access | Confor<br>mance |
-|------------|-----------------|---------|---------------|------------|--------|-----------------|
-| 0x0003     | Identify        | Command | TriggerEffect |            |        | M               |
-| 0x0006     | On/Off          | Feature | Lighting      |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0003 | Identify | Command | TriggerEffect | | | M |
+| 0x0006 | On/Off | Feature | Lighting | | | M |
 
-| Cluster ID | Cluster<br>Name       | Element   | Name                  | Constraint | Access | Confor<br>mance |
-|------------|-----------------------|-----------|-----------------------|------------|--------|-----------------|
-| 0x0008     | Level Con<br>trol     | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | OnOff                 |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Attribute | CurrentLevel 1 to 254 |            |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MinLevel              | 1          |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MaxLevel              | 254        |        |                 |
-| 0x0062     | Scenes Man<br>agement | Command   | CopyScene             |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0008 | Level Con<br>trol | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Feature | OnOff | | | M |
+| 0x0008 | Level Con<br>trol | Attribute | CurrentLevel 1 to 254 | | | |
+| 0x0008 | Level Con<br>trol | Attribute | MinLevel | 1 | | |
+| 0x0008 | Level Con<br>trol | Attribute | MaxLevel | 254 | | |
+| 0x0062 | Scenes Man<br>agement | Command | CopyScene | | | M |
 
 # <span id="page-51-0"></span>**4.3. Color Temperature Light Device Type**
 
@@ -1476,18 +1389,16 @@ A Color Temperature Light is a lighting device that is capable of being switched
 
 ### <span id="page-51-1"></span>**4.3.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Added optional occupancy sensing                                            |
-| 4        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Added optional occupancy sensing |
+| 4 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
 
 #### <span id="page-51-2"></span>**4.3.2. Classification**
 
-| Device Type ID | Device Type<br>Name         | Superset Of    | Class  | Scope    |
-|----------------|-----------------------------|----------------|--------|----------|
-| 0x010C         | Color Tempera<br>ture Light | Dimmable Light | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x010C | Color Tempera<br>ture Light | Dimmable Light | Simple | Endpoint |
 
 #### <span id="page-51-3"></span>**4.3.3. Conditions**
 
@@ -1499,35 +1410,32 @@ Each endpoint supporting this device type SHALL include these clusters based on 
 
 *Table 2. Color Temperature Light Cluster Requirements*
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0004     | Groups                | Server        |         | M           |
-| 0x0006     | On/Off                | Server        |         | M           |
-| 0x0008     | Level Control         | Server        |         | M           |
-| 0x0062     | Scenes Manage<br>ment | Server        |         | M           |
-| 0x0300     | Color Control         | Server        |         | M           |
-| 0x0406     | Occupancy Sens<br>ing | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | M |
+| 0x0006 | On/Off | Server | | M |
+| 0x0008 | Level Control | Server | | M |
+| 0x0062 | Scenes Manage<br>ment | Server | | M |
+| 0x0300 | Color Control | Server | | M |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 #### <span id="page-52-1"></span>**4.3.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name       | Element   | Name                  | Constraint | Access | Confor<br>mance |
-|------------|-----------------------|-----------|-----------------------|------------|--------|-----------------|
-| 0x0003     | Identify              | Command   | TriggerEffect         |            |        | M               |
-| 0x0006     | On/Off                | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | OnOff                 |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Attribute | CurrentLevel 1 to 254 |            |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MinLevel              | 1          |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MaxLevel              | 254        |        |                 |
-| 0x0062     | Scenes Man<br>agement | Command   | CopyScene             |            |        | M               |
-| 0x0300     | Color Con<br>trol     | Feature   | ColorTem<br>perature  |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0003 | Identify | Command | TriggerEffect | | | M |
+| 0x0006 | On/Off | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Feature | OnOff | | | M |
+| 0x0008 | Level Con<br>trol | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Attribute | CurrentLevel 1 to 254 | | | |
+| 0x0008 | Level Con<br>trol | Attribute | MinLevel | 1 | | |
+| 0x0008 | Level Con<br>trol | Attribute | MaxLevel | 254 | | |
+| 0x0062 | Scenes Man<br>agement | Command | CopyScene | | | M |
+| 0x0300 | Color Con<br>trol | Feature | ColorTem<br>perature | | | M |
 
-| Cluster ID | Cluster<br>Name   | Element   | Name              | Constraint | Access | Confor<br>mance |
-|------------|-------------------|-----------|-------------------|------------|--------|-----------------|
-| 0x0300     | Color Con<br>trol | Attribute | Remaining<br>Time |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0300 | Color Con<br>trol | Attribute | Remaining<br>Time | | | M |
 
 # <span id="page-53-0"></span>**4.4. Extended Color Light Device Type**
 
@@ -1535,18 +1443,16 @@ An Extended Color Light is a lighting device that is capable of being switched o
 
 #### <span id="page-53-1"></span>**4.4.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation; integrate<br>DM CCB 3501                |
-| 3        | Added optional occupancy sensing                                            |
-| 4        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation; integrate<br>DM CCB 3501 |
+| 3 | Added optional occupancy sensing |
+| 4 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
 
 #### <span id="page-53-2"></span>**4.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name     | Superset Of                 | Class  | Scope    |
-|----------------|-------------------------|-----------------------------|--------|----------|
-| 0x010D         | Extended Color<br>Light | Color Tempera<br>ture Light | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x010D | Extended Color<br>Light | Color Tempera<br>ture Light | Simple | Endpoint |
 
 #### <span id="page-53-3"></span>**4.4.3. Conditions**
 
@@ -1555,41 +1461,37 @@ See the Base Device Type definition for conformance tags.
 ### <span id="page-53-4"></span>**4.4.4. Cluster Requirements**
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0003     | Identify     | Server        |         | M           |
-| 0x0004     | Groups       | Server        |         | M           |
-| 0x0006     | On/Off       | Server        |         | M           |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | M |
+| 0x0006 | On/Off | Server | | M |
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0008     | Level Control         | Server        |         | M           |
-| 0x0062     | Scenes Manage<br>ment | Server        |         | M           |
-| 0x0300     | Color Control         | Server        |         | M           |
-| 0x0406     | Occupancy Sens<br>ing | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0008 | Level Control | Server | | M |
+| 0x0062 | Scenes Manage<br>ment | Server | | M |
+| 0x0300 | Color Control | Server | | M |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 #### <span id="page-54-0"></span>**4.4.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name       | Element   | Name                  | Constraint | Access | Confor<br>mance |
-|------------|-----------------------|-----------|-----------------------|------------|--------|-----------------|
-| 0x0003     | Identify              | Command   | TriggerEffect         |            |        | M               |
-| 0x0006     | On/Off                | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | OnOff                 |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Attribute | CurrentLevel 1 to 254 |            |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MinLevel              | 1          |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MaxLevel              | 254        |        |                 |
-| 0x0062     | Scenes Man<br>agement | Command   | CopyScene             |            |        | M               |
-| 0x0300     | Color Con<br>trol     | Feature   | HueSatura<br>tion     |            |        | O               |
-| 0x0300     | Color Con<br>trol     | Feature   | Enhanced<br>Hue       |            |        | O               |
-| 0x0300     | Color Con<br>trol     | Feature   | ColorLoop             |            |        | O               |
-| 0x0300     | Color Con<br>trol     | Feature   | XY                    |            |        | M               |
-| 0x0300     | Color Con<br>trol     | Feature   | ColorTem<br>perature  |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0003 | Identify | Command | TriggerEffect | | | M |
+| 0x0006 | On/Off | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Feature | OnOff | | | M |
+| 0x0008 | Level Con<br>trol | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Attribute | CurrentLevel 1 to 254 | | | |
+| 0x0008 | Level Con<br>trol | Attribute | MinLevel | 1 | | |
+| 0x0008 | Level Con<br>trol | Attribute | MaxLevel | 254 | | |
+| 0x0062 | Scenes Man<br>agement | Command | CopyScene | | | M |
+| 0x0300 | Color Con<br>trol | Feature | HueSatura<br>tion | | | O |
+| 0x0300 | Color Con<br>trol | Feature | Enhanced<br>Hue | | | O |
+| 0x0300 | Color Con<br>trol | Feature | ColorLoop | | | O |
+| 0x0300 | Color Con<br>trol | Feature | XY | | | M |
+| 0x0300 | Color Con<br>trol | Feature | ColorTem<br>perature | | | M |
 
-| Cluster ID | Cluster<br>Name   | Element   | Name              | Constraint | Access | Confor<br>mance |
-|------------|-------------------|-----------|-------------------|------------|--------|-----------------|
-| 0x0300     | Color Con<br>trol | Attribute | Remaining<br>Time |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0300 | Color Con<br>trol | Attribute | Remaining<br>Time | | | M |
 
 # <span id="page-56-0"></span>**Chapter 5. Smart Plugs/Outlets and other Actuators**
 
@@ -1597,36 +1499,32 @@ The table below lists qualities and conformance that override the cluster specif
 
 An On/Off Plug-in Unit is a device that provides power to another device that is plugged into it, and is capable of switching that provided power on or off.
 
-The [Mounted On/Off Control](#page-60-2) (added in Matter 1.4) has identical cluster requirements as the On/Off Plug-In Unit, and is marked as superset of this device type (since Matter 1.4.2). For devices intended to be mounted permanently, the [Mounted On/Off Control](#page-60-2) device type SHALL be used, with the On/Off Plug-In Unit device type optionally added in the DeviceTypeList of the Descriptor cluster in addition to the On/Off Plug-In Unit device type (see [Mounted On/Off Control server guidance](#page-61-4) section).
+The Mounted On/Off Control (added in Matter 1.4) has identical cluster requirements as the On/Off Plug-In Unit, and is marked as superset of this device type (since Matter 1.4.2). For devices intended to be mounted permanently, the Mounted On/Off Control device type SHALL be used, with the On/Off Plug-In Unit device type optionally added in the DeviceTypeList of the Descriptor cluster in addition to the On/Off Plug-In Unit device type (see Mounted On/Off Control server guidance section).
 
 <span id="page-56-3"></span>Before Matter 1.4, mounted units typically used the On/Off Plug-In Unit device type. Clients can encounter devices which were made before or after these specification updates. Therefore, clients SHOULD use the following heuristic to distinguish the type of physical device based on the device type revision found on an endpoint ("--" means the device type is not listed).
 
-| On/Off Plug-In Unit (device<br>type revision) | Mounted On/Off Control<br>(device type revision) | Device Type                                                                  |  |  |
-|-----------------------------------------------|--------------------------------------------------|------------------------------------------------------------------------------|--|--|
-| 3 or lower                                    | —                                                | On/Off Plug-in Unit or Mounted<br>On/Off Control (could be both)             |  |  |
-| 4 or higher                                   | —                                                | On/Off Plug-in Unit                                                          |  |  |
-| 4 or higher                                   | 2 or higher                                      | Mounted On/Off Control                                                       |  |  |
-| —                                             | 2 or higher                                      | Mounted On/Off Control (manu<br>facturer not interested in older<br>clients) |  |  |
-| —                                             | 1                                                | Mounted On/Off Control (Matter<br>1.4 did not have superset mark<br>ing)     |  |  |
-| 3                                             | 1                                                | Mounted On/Off Control (CCB<br>4128 for a Matter 1.4/1.4.1<br>device)        |  |  |
+| On/Off Plug-In Unit (device<br>type revision) | Mounted On/Off Control<br>(device type revision) | Device Type | | |
+| 3 or lower | — | On/Off Plug-in Unit or Mounted<br>On/Off Control (could be both) | | |
+| 4 or higher | — | On/Off Plug-in Unit | | |
+| 4 or higher | 2 or higher | Mounted On/Off Control | | |
+| — | 2 or higher | Mounted On/Off Control (manu<br>facturer not interested in older<br>clients) | | |
+| — | 1 | Mounted On/Off Control (Matter<br>1.4 did not have superset mark<br>ing) | | |
+| 3 | 1 | Mounted On/Off Control (CCB<br>4128 for a Matter 1.4/1.4.1<br>device) | | |
 
 ### <span id="page-56-2"></span>**5.1.1. Revision History**
 
-| Revision | Description                        |  |
-|----------|------------------------------------|--|
-| 1        | Initial Zigbee 3.0 revision        |  |
-| 2        | New data model format and notation |  |
+| Revision | Description | |
+| 1 | Initial Zigbee 3.0 revision | |
+| 2 | New data model format and notation | |
 
-| Revision | Description                                                                         |
-|----------|-------------------------------------------------------------------------------------|
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062         |
-| 4        | Add Mounted On/Off Control as superset, add<br>usage guidance for both device types |
+| Revision | Description |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| 4 | Add Mounted On/Off Control as superset, add<br>usage guidance for both device types |
 
 #### <span id="page-57-0"></span>**5.1.2. Classification**
 
-| Device Type ID | Device Type<br>Name    | Superset Of | Class  | Scope    |
-|----------------|------------------------|-------------|--------|----------|
-| 0x010A         | On/Off Plug-in<br>Unit |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x010A | On/Off Plug-in<br>Unit | | Simple | Endpoint |
 
 #### <span id="page-57-1"></span>**5.1.3. Conditions**
 
@@ -1638,14 +1536,13 @@ Each endpoint supporting this device type SHALL include these clusters based on 
 
 *Table 3. On/Off Plug-in Unit Cluster Requirements*
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0004     | Groups                | Server        |         | M           |
-| 0x0006     | On/Off                | Server        |         | M           |
-| 0x0008     | Level Control         | Server        |         | O           |
-| 0x0062     | Scenes Manage<br>ment | Server        |         | M           |
-| 0x0406     | Occupancy Sens<br>ing | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | M |
+| 0x0006 | On/Off | Server | | M |
+| 0x0008 | Level Control | Server | | O |
+| 0x0062 | Scenes Manage<br>ment | Server | | M |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 The inclusion of the Level Control cluster on this device is recommended to provide a consistent user experience when the device is grouped with additional dimmable lights and the "with on/off" commands are used. For this device, since its only states are on or off, if the Level Control cluster is implemented, it SHALL NOT have any effect on the actual light level except for those commands that cause an on/off state change, that is, the "with on/off" commands. In addition, if the Level Control cluster is implemented, the device SHALL accept and process Level Control cluster commands, adjusting the value of the CurrentLevel attribute accordingly and, where necessary, adjusting the On/Off cluster OnOff attribute.
 
@@ -1653,16 +1550,15 @@ The inclusion of the Level Control cluster on this device is recommended to prov
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name       | Element   | Name                  | Constraint | Access | Confor<br>mance |
-|------------|-----------------------|-----------|-----------------------|------------|--------|-----------------|
-| 0x0003     | Identify              | Command   | TriggerEffect         |            |        | M               |
-| 0x0006     | On/Off                | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | OnOff                 |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Attribute | CurrentLevel 1 to 254 |            |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MinLevel              | 1          |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MaxLevel              | 254        |        |                 |
-| 0x0062     | Scenes Man<br>agement | Command   | CopyScene             |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0003 | Identify | Command | TriggerEffect | | | M |
+| 0x0006 | On/Off | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Feature | OnOff | | | M |
+| 0x0008 | Level Con<br>trol | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Attribute | CurrentLevel 1 to 254 | | | |
+| 0x0008 | Level Con<br>trol | Attribute | MinLevel | 1 | | |
+| 0x0008 | Level Con<br>trol | Attribute | MaxLevel | 254 | | |
+| 0x0062 | Scenes Man<br>agement | Command | CopyScene | | | M |
 
 As the TriggerEffect command of the Identify cluster and the OffWithEffect command of the On/Off cluster specify light effects that require dimming of the light output, and such is not possible on this device type, the specified light effects MAY be replaced by pure on/off light effects.
 
@@ -1670,34 +1566,31 @@ As the TriggerEffect command of the Identify cluster and the OffWithEffect comma
 
 A Dimmable Plug-In Unit is a device that provides power to another device that is plugged into it, and is capable of being switched on or off and have its level adjusted. The Dimmable Plug-in Unit is typically used to control a conventional non-communicating light through its mains connection using phase cutting.
 
-The [Mounted Dimmable Load Control](#page-62-1) (added in Matter 1.4) has identical cluster requirements as the Dimmable Plug-In Unit, and is marked as a superset of this device type (since Matter 1.4.2). For devices intended to be mounted permanently, the [Mounted Dimmable Load Control](#page-62-1) device type SHALL be used, with the Dimmable Plug-In Unit device type optionally added to the DeviceTypeList of the Descriptor cluster in addition to the Mounted Dimmable Load Control device type (see [Mounted Dimmable Load Control server guidance](#page-63-4) section).
+The Mounted Dimmable Load Control (added in Matter 1.4) has identical cluster requirements as the Dimmable Plug-In Unit, and is marked as a superset of this device type (since Matter 1.4.2). For devices intended to be mounted permanently, the Mounted Dimmable Load Control device type SHALL be used, with the Dimmable Plug-In Unit device type optionally added to the DeviceTypeList of the Descriptor cluster in addition to the Mounted Dimmable Load Control device type (see Mounted Dimmable Load Control server guidance section).
 
 <span id="page-58-2"></span>Before Matter 1.4, mounted dimmable load control units typically used the Dimmable Plug-In Unit device type. Clients can encounter devices which were made before or after these specification updates. Therefore, clients SHOULD use the following heuristic to distinguish the type of physical device based on the device type revision found on an endpoint ("--" means the device type is not listed).
 
-| Dimmable Plug-In Unit<br>(device type revision) | Mounted Dimmable Load Con<br>trol (device type revision) | Device Type                                                                          |
-|-------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------------------------------------|
-| 4 or lower                                      | —                                                        | Dimmable Plug-in Unit or<br>Mounted Dimmable Load Con<br>trol (could be both)        |
-| 5 or higher                                     | —                                                        | Dimmable Plug-in Unit                                                                |
-| 5 or higher                                     | 2 or higher                                              | Mounted Dimmable Load Con<br>trol                                                    |
-| —                                               | 2 or higher                                              | Mounted Dimmable Load Con<br>trol (manufacturer not inter<br>ested in older clients) |
-| —                                               | 1                                                        | Mounted Dimmable Load Con<br>trol (Matter 1.4 did not have<br>superset marking)      |
-| 4                                               | 1                                                        | Mounted Dimmable Load Con<br>trol (CCB 4128 for a Matter<br>1.4/1.4.1 device)        |
+| Dimmable Plug-In Unit<br>(device type revision) | Mounted Dimmable Load Con<br>trol (device type revision) | Device Type |
+| 4 or lower | — | Dimmable Plug-in Unit or<br>Mounted Dimmable Load Con<br>trol (could be both) |
+| 5 or higher | — | Dimmable Plug-in Unit |
+| 5 or higher | 2 or higher | Mounted Dimmable Load Con<br>trol |
+| — | 2 or higher | Mounted Dimmable Load Con<br>trol (manufacturer not inter<br>ested in older clients) |
+| — | 1 | Mounted Dimmable Load Con<br>trol (Matter 1.4 did not have<br>superset marking) |
+| 4 | 1 | Mounted Dimmable Load Con<br>trol (CCB 4128 for a Matter<br>1.4/1.4.1 device) |
 
 #### <span id="page-59-0"></span>**5.2.1. Revision History**
 
-| Revision | Description                                                                                 |
-|----------|---------------------------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                                 |
-| 2        | New data model format and notation                                                          |
-| 3        | Added optional occupancy sensing                                                            |
-| 4        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062                 |
-| 5        | Add Mounted Dimmable Load Control as super<br>set, add usage guidance for both device types |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Added optional occupancy sensing |
+| 4 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| 5 | Add Mounted Dimmable Load Control as super<br>set, add usage guidance for both device types |
 
 #### <span id="page-59-1"></span>**5.2.2. Classification**
 
-| Device Type ID | Device Type<br>Name      | Superset Of | Class  | Scope    |
-|----------------|--------------------------|-------------|--------|----------|
-| 0x010B         | Dimmable Plug-In<br>Unit |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x010B | Dimmable Plug-In<br>Unit | | Simple | Endpoint |
 
 #### <span id="page-59-2"></span>**5.2.3. Conditions**
 
@@ -1707,54 +1600,50 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0004     | Groups                | Server        |         | M           |
-| 0x0006     | On/Off                | Server        |         | M           |
-| 0x0008     | Level Control         | Server        |         | M           |
-| 0x0062     | Scenes Manage<br>ment | Server        |         | M           |
-| 0x0406     | Occupancy Sens<br>ing | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | M |
+| 0x0006 | On/Off | Server | | M |
+| 0x0008 | Level Control | Server | | M |
+| 0x0062 | Scenes Manage<br>ment | Server | | M |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 #### <span id="page-60-1"></span>**5.2.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name       | Element   | Name                  | Constraint | Access | Confor<br>mance |
-|------------|-----------------------|-----------|-----------------------|------------|--------|-----------------|
-| 0x0003     | Identify              | Command   | TriggerEffect         |            |        | M               |
-| 0x0006     | On/Off                | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | OnOff                 |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Attribute | CurrentLevel 1 to 254 |            |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MinLevel              | 1          |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MaxLevel              | 254        |        |                 |
-| 0x0062     | Scenes Man<br>agement | Command   | CopyScene             |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0003 | Identify | Command | TriggerEffect | | | M |
+| 0x0006 | On/Off | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Feature | OnOff | | | M |
+| 0x0008 | Level Con<br>trol | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Attribute | CurrentLevel 1 to 254 | | | |
+| 0x0008 | Level Con<br>trol | Attribute | MinLevel | 1 | | |
+| 0x0008 | Level Con<br>trol | Attribute | MaxLevel | 254 | | |
+| 0x0062 | Scenes Man<br>agement | Command | CopyScene | | | M |
 
 # <span id="page-60-2"></span>**5.3. Mounted On/Off Control Device Type**
 
 A Mounted On/Off Control is a fixed device that provides power to another device or power circuit that is connected to it, and is capable of switching that provided power on or off.
 
-<span id="page-61-4"></span>This device type is intended for any wall-mounted or hardwired load controller, while [On/Off Plug](#page-56-1)[in Unit](#page-56-1) is intended only for smart plugs and other power switching devices that are not permanently connected, and which can be unplugged from their power source.
+<span id="page-61-4"></span>This device type is intended for any wall-mounted or hardwired load controller, while On/Off Plugin Unit is intended only for smart plugs and other power switching devices that are not permanently connected, and which can be unplugged from their power source.
 
 **NOTE**
 
-Since this device type was added in Matter 1.4, for endpoints using this device type it is RECOMMENDED to add the subset device type [On/Off Plug-in Unit](#page-56-1) to the Device-TypeList of the Descriptor cluster on the same endpoint for backward compatibility with existing clients.
+Since this device type was added in Matter 1.4, for endpoints using this device type it is RECOMMENDED to add the subset device type On/Off Plug-in Unit to the Device-TypeList of the Descriptor cluster on the same endpoint for backward compatibility with existing clients.
 
-See [On/Off Plug-in Unit client guidance](#page-56-3) for additional information, regarding the inclusion of these two device types.
+See On/Off Plug-in Unit client guidance for additional information, regarding the inclusion of these two device types.
 
 #### <span id="page-61-0"></span>**5.3.1. Revision History**
 
-| Revision | Description                                                             |
-|----------|-------------------------------------------------------------------------|
-| 1        | Initial release                                                         |
-| 2        | Add superset classification and usage guidance<br>for both device types |
+| Revision | Description |
+| 1 | Initial release |
+| 2 | Add superset classification and usage guidance<br>for both device types |
 
 #### <span id="page-61-1"></span>**5.3.2. Classification**
 
-| Device Type ID | Device Type<br>Name       | Superset Of            | Class  | Scope    |
-|----------------|---------------------------|------------------------|--------|----------|
-| 0x010F         | Mounted On/Off<br>Control | On/Off Plug-in<br>Unit | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x010F | Mounted On/Off<br>Control | On/Off Plug-in<br>Unit | Simple | Endpoint |
 
 #### <span id="page-61-2"></span>**5.3.3. Conditions**
 
@@ -1762,14 +1651,13 @@ See the Base Device Type definition for conformance tags.
 
 #### <span id="page-61-3"></span>**5.3.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0004     | Groups                | Server        |         | M           |
-| 0x0006     | On/Off                | Server        |         | M           |
-| 0x0008     | Level Control         | Server        |         | O           |
-| 0x0062     | Scenes Manage<br>ment | Server        |         | M           |
-| 0x0406     | Occupancy Sens<br>ing | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | M |
+| 0x0006 | On/Off | Server | | M |
+| 0x0008 | Level Control | Server | | O |
+| 0x0062 | Scenes Manage<br>ment | Server | | M |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 The inclusion of the Level Control cluster on this device is recommended to provide a consistent user experience when the device is grouped with additional dimmable lights and the "with on/off" commands are used. For this device, since its only states are on or off, if the Level Control cluster is implemented, it SHALL NOT have any effect on the actual light level except for those commands that cause an on/off state change, that is, the "with on/off" commands. In addition, if the Level Control cluster is implemented, the device SHALL accept and process Level Control cluster commands, adjusting the value of the CurrentLevel attribute accordingly and, where necessary, adjusting the On/Off cluster OnOff attribute.
 
@@ -1777,16 +1665,15 @@ The inclusion of the Level Control cluster on this device is recommended to prov
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name       | Element   | Name                  | Constraint | Access | Confor<br>mance |
-|------------|-----------------------|-----------|-----------------------|------------|--------|-----------------|
-| 0x0003     | Identify              | Command   | TriggerEffect         |            |        | M               |
-| 0x0006     | On/Off                | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | OnOff                 |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Attribute | CurrentLevel 1 to 254 |            |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MinLevel              | 1          |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MaxLevel              | 254        |        |                 |
-| 0x0062     | Scenes Man<br>agement | Command   | CopyScene             |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0003 | Identify | Command | TriggerEffect | | | M |
+| 0x0006 | On/Off | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Feature | OnOff | | | M |
+| 0x0008 | Level Con<br>trol | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Attribute | CurrentLevel 1 to 254 | | | |
+| 0x0008 | Level Con<br>trol | Attribute | MinLevel | 1 | | |
+| 0x0008 | Level Con<br>trol | Attribute | MaxLevel | 254 | | |
+| 0x0062 | Scenes Man<br>agement | Command | CopyScene | | | M |
 
 As the TriggerEffect command of the Identify cluster and the OffWithEffect command of the On/Off cluster specify light effects that require dimming of the light output, and such is not possible on this device type, the specified light effects MAY be replaced by pure on/off light effects.
 
@@ -1794,26 +1681,24 @@ As the TriggerEffect command of the Identify cluster and the OffWithEffect comma
 
 A Mounted Dimmable Load Control is a fixed device that provides power to a load connected to it, and is capable of being switched on or off and have its level adjusted. The Mounted Dimmable Load Control is typically used to control a conventional non-communicating light through its mains connection using phase cutting.
 
-This device type is intended for any wall-mounted or hardwired dimmer-capable load controller, while [Dimmable Plug-In Unit](#page-58-1) is intended only for dimmer-capable smart plugs that are not perma<span id="page-63-4"></span>nently connected, and which can be unplugged from their power source.
+This device type is intended for any wall-mounted or hardwired dimmer-capable load controller, while Dimmable Plug-In Unit is intended only for dimmer-capable smart plugs that are not perma<span id="page-63-4"></span>nently connected, and which can be unplugged from their power source.
 
 **NOTE**
 
-Since this device type was added in Matter 1.4, for endpoints using this device type it is RECOMMENDED to add the subset device type [Dimmable Plug-In Unit](#page-58-1) to the DeviceTypeList of the Descriptor cluster on the same endpoint for backward compatibility with existing clients.
+Since this device type was added in Matter 1.4, for endpoints using this device type it is RECOMMENDED to add the subset device type Dimmable Plug-In Unit to the DeviceTypeList of the Descriptor cluster on the same endpoint for backward compatibility with existing clients.
 
-See [Dimmable Plug-In Unit client guidance](#page-58-2) for additional information, regarding the inclusion of these two device types.
+See Dimmable Plug-In Unit client guidance for additional information, regarding the inclusion of these two device types.
 
 #### <span id="page-63-0"></span>**5.4.1. Revision History**
 
-| Revision | Description                                                             |
-|----------|-------------------------------------------------------------------------|
-| 1        | Initial release                                                         |
-| 2        | Add superset classification and usage guidance<br>for both device types |
+| Revision | Description |
+| 1 | Initial release |
+| 2 | Add superset classification and usage guidance<br>for both device types |
 
 #### <span id="page-63-1"></span>**5.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name               | Superset Of              | Class  | Scope    |
-|----------------|-----------------------------------|--------------------------|--------|----------|
-| 0x0110         | Mounted Dimma<br>ble Load Control | Dimmable Plug-In<br>Unit | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0110 | Mounted Dimma<br>ble Load Control | Dimmable Plug-In<br>Unit | Simple | Endpoint |
 
 #### <span id="page-63-2"></span>**5.4.3. Conditions**
 
@@ -1821,29 +1706,27 @@ See the Base Device Type definition for conformance tags.
 
 ### <span id="page-63-3"></span>**5.4.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0004     | Groups                | Server        |         | M           |
-| 0x0006     | On/Off                | Server        |         | M           |
-| 0x0008     | Level Control         | Server        |         | M           |
-| 0x0062     | Scenes Manage<br>ment | Server        |         | M           |
-| 0x0406     | Occupancy Sens<br>ing | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | M |
+| 0x0006 | On/Off | Server | | M |
+| 0x0008 | Level Control | Server | | M |
+| 0x0062 | Scenes Manage<br>ment | Server | | M |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 #### <span id="page-64-0"></span>**5.4.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name       | Element   | Name                  | Constraint | Access | Confor<br>mance |
-|------------|-----------------------|-----------|-----------------------|------------|--------|-----------------|
-| 0x0003     | Identify              | Command   | TriggerEffect         |            |        | M               |
-| 0x0006     | On/Off                | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | OnOff                 |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Feature   | Lighting              |            |        | M               |
-| 0x0008     | Level Con<br>trol     | Attribute | CurrentLevel 1 to 254 |            |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MinLevel              | 1          |        |                 |
-| 0x0008     | Level Con<br>trol     | Attribute | MaxLevel              | 254        |        |                 |
-| 0x0062     | Scenes Man<br>agement | Command   | CopyScene             |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0003 | Identify | Command | TriggerEffect | | | M |
+| 0x0006 | On/Off | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Feature | OnOff | | | M |
+| 0x0008 | Level Con<br>trol | Feature | Lighting | | | M |
+| 0x0008 | Level Con<br>trol | Attribute | CurrentLevel 1 to 254 | | | |
+| 0x0008 | Level Con<br>trol | Attribute | MinLevel | 1 | | |
+| 0x0008 | Level Con<br>trol | Attribute | MaxLevel | 254 | | |
+| 0x0062 | Scenes Man<br>agement | Command | CopyScene | | | M |
 
 # <span id="page-64-1"></span>**5.5. Pump Device Type**
 
@@ -1853,17 +1736,15 @@ A Pump device is a pump that may have variable speed. It may have optional built
 
 This is the revision history for this device type. The highest revision number in the table below is the revision for this device type.
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
 
 #### <span id="page-64-3"></span>**5.5.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0303         | Pump                |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0303 | Pump | | Simple | Endpoint |
 
 #### <span id="page-65-0"></span>**5.5.3. Conditions**
 
@@ -1873,21 +1754,20 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                       | Client/Server | Quality | Conformance |
-|------------|------------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                           | Server        |         | M           |
-| 0x0004     | Groups                             | Server        |         | O           |
-| 0x0006     | On/Off                             | Server        |         | M           |
-| 0x0008     | Level Control                      | Server        |         | O           |
-| 0x0062     | Scenes Manage<br>ment              | Server        |         | O           |
-| 0x0200     | Pump Configura<br>tion and Control | Server        |         | M           |
-| 0x0402     | Temperature Mea<br>surement        | Server        |         | O           |
-| 0x0402     | Temperature Mea<br>surement        | Client        |         | O           |
-| 0x0403     | Pressure Measure<br>ment           | Server        |         | O           |
-| 0x0403     | Pressure Measure<br>ment           | Client        |         | O           |
-| 0x0404     | Flow Measure<br>ment               | Server        |         | O           |
-| 0x0404     | Flow Measure<br>ment               | Client        |         | O           |
-| 0x0406     | Occupancy Sens<br>ing              | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | O |
+| 0x0006 | On/Off | Server | | M |
+| 0x0008 | Level Control | Server | | O |
+| 0x0062 | Scenes Manage<br>ment | Server | | O |
+| 0x0200 | Pump Configura<br>tion and Control | Server | | M |
+| 0x0402 | Temperature Mea<br>surement | Server | | O |
+| 0x0402 | Temperature Mea<br>surement | Client | | O |
+| 0x0403 | Pressure Measure<br>ment | Server | | O |
+| 0x0403 | Pressure Measure<br>ment | Client | | O |
+| 0x0404 | Flow Measure<br>ment | Server | | O |
+| 0x0404 | Flow Measure<br>ment | Client | | O |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 #### <span id="page-65-2"></span>**5.5.5. Cluster Restrictions**
 
@@ -1897,11 +1777,10 @@ The actions carried out by a Pump device on receipt of commands are shown in the
 
 *Table 4. Pump Actions on Receipt for On/Off Commands*
 
-| Command | Action on Receipt                                                                                                                                                                                                      |
-|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Off     | If the pump is powered on, store the current<br>level then immediately power it off.                                                                                                                                   |
-| On      | If the pump is powered off, power it on and<br>move immediately to the level stored by a previ<br>ous Off command. If no such level has been<br>stored, move immediately to the maximum level<br>allowed for the pump. |
-| Toggle  | If the pump is powered on, proceed as for the<br>Off command. If the device is powered off, pro<br>ceed as for the On command.                                                                                         |
+| Command | Action on Receipt |
+| Off | If the pump is powered on, store the current<br>level then immediately power it off. |
+| On | If the pump is powered off, power it on and<br>move immediately to the level stored by a previ<br>ous Off command. If no such level has been<br>stored, move immediately to the maximum level<br>allowed for the pump. |
+| Toggle | If the pump is powered on, proceed as for the<br>Off command. If the device is powered off, pro<br>ceed as for the On command. |
 
 #### **5.5.5.2. Level Control Cluster (Server) Clarifications**
 
@@ -1911,11 +1790,10 @@ The setpoint of the pump is a percentage related to the level according to the f
 
 *Table 5. Relationship between Level and Setpoint*
 
-| Level   | Setpoint               | Meaning                   |
-|---------|------------------------|---------------------------|
-| 0       | N/A                    | Pump is stopped.          |
-| 1–200   | Level / 2 (0.5–100.0%) | Pump setpoint in percent. |
-| 201–255 | 100.0%                 | Pump setpoint is 100.0%   |
+| Level | Setpoint | Meaning |
+| 0 | N/A | Pump is stopped. |
+| 1–200 | Level / 2 (0.5–100.0%) | Pump setpoint in percent. |
+| 201–255 | 100.0% | Pump setpoint is 100.0% |
 
 # <span id="page-66-0"></span>**5.6. Water Valve Device Type**
 
@@ -1923,15 +1801,13 @@ This defines conformance to the Water Valve device type.
 
 ### <span id="page-66-1"></span>**5.6.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-66-2"></span>**5.6.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0042         | Water Valve         |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0042 | Water Valve | | Simple | Endpoint |
 
 #### <span id="page-67-0"></span>**5.6.3. Conditions**
 
@@ -1941,12 +1817,11 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                        | Client/Server | Quality | Conformance |
-|------------|-------------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                            | Server        |         | M           |
-| 0x0081     | Valve Configura<br>tion and Control | Server        |         | M           |
-| 0x0404     | Flow Measure<br>ment                | Server        |         | O           |
-| 0x0404     | Flow Measure<br>ment                | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0081 | Valve Configura<br>tion and Control | Server | | M |
+| 0x0404 | Flow Measure<br>ment | Server | | O |
+| 0x0404 | Flow Measure<br>ment | Client | | O |
 
 #### **5.6.4.1. Identify Cluster**
 
@@ -1980,23 +1855,19 @@ This defines conformance to the Irrigation System device type. An irrigation sys
 
 An irrigation system is always defined via endpoint composition. Irrigation system manufacturers determine how many watering "zone" terminals are present on the physical device. Each zone is represented by a disambiguated Water Valve endpoint:
 
-![](_page_68_Figure_6.jpeg)
-
 *Figure 2. Example of an Irrigation System*
 
 ### **5.7.2. Revision History**
 
 <span id="page-68-2"></span>
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-68-3"></span>**5.7.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0040         | Irrigation System   |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0040 | Irrigation System | | Simple | Endpoint |
 
 #### <span id="page-69-0"></span>**5.7.4. Conditions**
 
@@ -2011,19 +1882,17 @@ If more than one instance of the Water Valve device type is present, each instan
 Some irrigation systems include a master valve installed at the main water supply line. When a master valve is present, the physical system is responsible for opening it first when receiving a command to open a downstream watering valve. In addition, the physical system is responsible for closing the master valve when the last open watering valve is closed. Since the master valve is orchestrated by the device, it is not represented as a Water Valve endpoint.
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x0042         | Water Valve      | min 1      | M           |
+| 0x0042 | Water Valve | min 1 | M |
 
 ### <span id="page-69-2"></span>**5.7.6. Cluster Requirements**
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name         | Client/Server | Quality | Conformance |
-|------------|----------------------|---------------|---------|-------------|
-| 0x0003     | Identify             | Server        |         | O           |
-| 0x0060     | Operational State    | Server        |         | O           |
-| 0x0404     | Flow Measure<br>ment | Server        |         | O           |
-| 0x0404     | Flow Measure<br>ment | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | O |
+| 0x0060 | Operational State | Server | | O |
+| 0x0404 | Flow Measure<br>ment | Server | | O |
+| 0x0404 | Flow Measure<br>ment | Client | | O |
 
 #### **5.7.6.1. Identify Cluster**
 
@@ -2043,7 +1912,7 @@ If present, the flow measurement client cluster is used via binding to measure f
 
 This Chapter specifies a number of "controller" device types like On/Off Light Switch and Dimmer Switch. Some products implementing these device types are intended to replace legacy switches or dimmers that directly control the power to a load. For such products, manufacturers are encouraged to implement an additional endpoint on the same product holding an "actuator" device type like an On/Off Light (or On/Off Plug-in Unit) or Dimmable Light (or Dimmable Plug-in Unit), consistent with the type of control it can provide to the load. In case product can control multiple loads separately, multiple such endpoints to each hold a device type for each load.
 
-Additionally, having a central control function allows much richer automation triggered by a press of a switch. In such case, a switch works more like a sensor. For this, the Generic Switch device type is defined. See [Section 6.6, "Generic Switch".](#page-77-0) Manufacturers are encouraged to implement the Generic Switch device type as well in products that are generically referred to as switches. See [Sec](#page-80-0)[tion 6.6.5, "Relation with other Switch device types \(informative\)"](#page-80-0) for examples how these device types can be combined.
+Additionally, having a central control function allows much richer automation triggered by a press of a switch. In such case, a switch works more like a sensor. For this, the Generic Switch device type is defined. See Section 6.6, "Generic Switch". Manufacturers are encouraged to implement the Generic Switch device type as well in products that are generically referred to as switches. See Section 6.6.5, "Relation with other Switch device types \(informative\)" for examples how these device types can be combined.
 
 # <span id="page-72-1"></span>**6.1. On/Off Light Switch Device type**
 
@@ -2051,17 +1920,15 @@ An On/Off Light Switch is a controller device that, when bound to a lighting dev
 
 #### <span id="page-72-2"></span>**6.1.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
 
 ### <span id="page-72-3"></span>**6.1.2. Classification**
 
-| Device Type ID | Device Type<br>Name    | Superset Of | Class  | Scope    |
-|----------------|------------------------|-------------|--------|----------|
-| 0x0103         | On/Off Light<br>Switch |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0103 | On/Off Light<br>Switch | | Simple | Endpoint |
 
 #### <span id="page-72-4"></span>**6.1.3. Conditions**
 
@@ -2073,13 +1940,12 @@ Each endpoint supporting this device type SHALL include these clusters based on 
 
 *Table 6. On/Off Light Switch Cluster Requirements*
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0003     | Identify              | Client        |         | M           |
-| 0x0004     | Groups                | Client        |         | O           |
-| 0x0006     | On/Off                | Client        |         | M           |
-| 0x0062     | Scenes Manage<br>ment | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0003 | Identify | Client | | M |
+| 0x0004 | Groups | Client | | O |
+| 0x0006 | On/Off | Client | | M |
+| 0x0062 | Scenes Manage<br>ment | Client | | O |
 
 # <span id="page-73-1"></span>**6.2. Dimmer Switch Device Type**
 
@@ -2087,17 +1953,15 @@ A Dimmer Switch is a controller device that, when bound to a lighting device suc
 
 #### <span id="page-73-2"></span>**6.2.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
 
 #### <span id="page-73-3"></span>**6.2.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of            | Class  | Scope    |
-|----------------|---------------------|------------------------|--------|----------|
-| 0x0104         | Dimmer Switch       | On/Off Light<br>Switch | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0104 | Dimmer Switch | On/Off Light<br>Switch | Simple | Endpoint |
 
 #### <span id="page-73-4"></span>**6.2.3. Conditions**
 
@@ -2105,14 +1969,13 @@ See the Base Device Type definition for conformance tags.
 
 # <span id="page-73-5"></span>**6.2.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0003     | Identify              | Client        |         | M           |
-| 0x0004     | Groups                | Client        |         | O           |
-| 0x0006     | On/Off                | Client        |         | M           |
-| 0x0008     | Level Control         | Client        |         | M           |
-| 0x0062     | Scenes Manage<br>ment | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0003 | Identify | Client | | M |
+| 0x0004 | Groups | Client | | O |
+| 0x0006 | On/Off | Client | | M |
+| 0x0008 | Level Control | Client | | M |
+| 0x0062 | Scenes Manage<br>ment | Client | | O |
 
 # <span id="page-74-0"></span>**6.3. Color Dimmer Switch Device Type**
 
@@ -2120,17 +1983,15 @@ A Color Dimmer Switch is a controller device that, when bound to a lighting devi
 
 #### <span id="page-74-1"></span>**6.3.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
 
 #### <span id="page-74-2"></span>**6.3.2. Classification**
 
-| Device Type ID | Device Type<br>Name    | Superset Of   | Class  | Scope    |
-|----------------|------------------------|---------------|--------|----------|
-| 0x0105         | Color Dimmer<br>Switch | Dimmer Switch | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0105 | Color Dimmer<br>Switch | Dimmer Switch | Simple | Endpoint |
 
 #### <span id="page-74-3"></span>**6.3.3. Conditions**
 
@@ -2141,17 +2002,15 @@ See the Base Device Type definition for conformance tags.
 *Table 7. Color Dimmer Switch Cluster Requirements*
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0003     | Identify     | Server        |         | M           |
-| 0x0003     | Identify     | Client        |         | M           |
+| 0x0003 | Identify | Server | | M |
+| 0x0003 | Identify | Client | | M |
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0004     | Groups                | Client        |         | O           |
-| 0x0006     | On/Off                | Client        |         | M           |
-| 0x0008     | Level Control         | Client        |         | M           |
-| 0x0062     | Scenes Manage<br>ment | Client        |         | O           |
-| 0x0300     | Color Control         | Client        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0004 | Groups | Client | | O |
+| 0x0006 | On/Off | Client | | M |
+| 0x0008 | Level Control | Client | | M |
+| 0x0062 | Scenes Manage<br>ment | Client | | O |
+| 0x0300 | Color Control | Client | | M |
 
 # <span id="page-75-0"></span>**6.4. Control Bridge Device Type**
 
@@ -2159,17 +2018,15 @@ A Control Bridge is a controller device that, when bound to a lighting device su
 
 #### <span id="page-75-1"></span>**6.4.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
 
 #### <span id="page-75-2"></span>**6.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0840         | Control Bridge      |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0840 | Control Bridge | | Simple | Endpoint |
 
 #### <span id="page-75-3"></span>**6.4.3. Conditions**
 
@@ -2180,19 +2037,17 @@ See the Base Device Type definition for conformance tags.
 *Table 8. Control Bridge Cluster Requirements*
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0003     | Identify     | Server        |         | M           |
-| 0x0003     | Identify     | Client        |         | M           |
+| 0x0003 | Identify | Server | | M |
+| 0x0003 | Identify | Client | | M |
 
-| Cluster ID | Cluster Name                | Client/Server | Quality | Conformance |
-|------------|-----------------------------|---------------|---------|-------------|
-| 0x0004     | Groups                      | Client        |         | M           |
-| 0x0006     | On/Off                      | Client        |         | M           |
-| 0x0008     | Level Control               | Client        |         | M           |
-| 0x0062     | Scenes Manage<br>ment       | Client        |         | M           |
-| 0x0300     | Color Control               | Client        |         | M           |
-| 0x0400     | Illuminance Mea<br>surement | Client        |         | O           |
-| 0x0406     | Occupancy Sens<br>ing       | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0004 | Groups | Client | | M |
+| 0x0006 | On/Off | Client | | M |
+| 0x0008 | Level Control | Client | | M |
+| 0x0062 | Scenes Manage<br>ment | Client | | M |
+| 0x0300 | Color Control | Client | | M |
+| 0x0400 | Illuminance Mea<br>surement | Client | | O |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 # <span id="page-76-0"></span>**6.5. Pump Controller Device Type**
 
@@ -2200,18 +2055,16 @@ A Pump Controller device is capable of configuring and controlling a Pump device
 
 ### <span id="page-76-1"></span>**6.5.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
-| 4        | Remove Binding client as a result of review of<br>CCB4058                   |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| 4 | Remove Binding client as a result of review of<br>CCB4058 |
 
 #### <span id="page-76-2"></span>**6.5.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0304         | Pump Controller     |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0304 | Pump Controller | | Simple | Endpoint |
 
 #### <span id="page-76-3"></span>**6.5.3. Conditions**
 
@@ -2219,18 +2072,17 @@ See the Base Device Type definition for conformance tags.
 
 ### <span id="page-76-4"></span>**6.5.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name                       | Client/Server | Quality | Conformance |
-|------------|------------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                           | Server        |         | M           |
-| 0x0003     | Identify                           | Client        |         | O           |
-| 0x0004     | Groups                             | Client        |         | O           |
-| 0x0006     | On/Off                             | Client        |         | M           |
-| 0x0008     | Level Control                      | Client        |         | O           |
-| 0x0062     | Scenes Manage<br>ment              | Client        |         | O           |
-| 0x0200     | Pump Configura<br>tion and Control | Client        |         | M           |
-| 0x0402     | Temperature Mea<br>surement        | Client        |         | O           |
-| 0x0403     | Pressure Measure<br>ment           | Client        |         | O           |
-| 0x0404     | Flow Measure<br>ment               | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0003 | Identify | Client | | O |
+| 0x0004 | Groups | Client | | O |
+| 0x0006 | On/Off | Client | | M |
+| 0x0008 | Level Control | Client | | O |
+| 0x0062 | Scenes Manage<br>ment | Client | | O |
+| 0x0200 | Pump Configura<br>tion and Control | Client | | M |
+| 0x0402 | Temperature Mea<br>surement | Client | | O |
+| 0x0403 | Pressure Measure<br>ment | Client | | O |
+| 0x0404 | Flow Measure<br>ment | Client | | O |
 
 # <span id="page-77-0"></span>**6.6. Generic Switch Device Type**
 
@@ -2238,17 +2090,15 @@ This defines conformance for the Generic Switch device type.
 
 ### <span id="page-77-1"></span>**6.6.1. Revision History**
 
-| Revision | Description                                                                                                                                                                                                               |
-|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1        | Initial revision                                                                                                                                                                                                          |
-| 2        | Removed requirement for Fixed Label cluster<br>(instead use TagList which was added in<br>Descriptor cluster)                                                                                                             |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062; note that this clus<br>ter is not used in this device type (only men<br>tioned in the informative section related to<br>On/Off Light Switch) |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Removed requirement for Fixed Label cluster<br>(instead use TagList which was added in<br>Descriptor cluster) |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062; note that this clus<br>ter is not used in this device type (only men<br>tioned in the informative section related to<br>On/Off Light Switch) |
 
 #### <span id="page-77-2"></span>**6.6.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x000F         | Generic Switch      |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x000F | Generic Switch | | Simple | Endpoint |
 
 #### <span id="page-78-0"></span>**6.6.3. Conditions**
 
@@ -2259,9 +2109,8 @@ See the Base Device Type definition for conformance tags.
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0003     | Identify     | Server        |         | M           |
-| 0x003B     | Switch       | Server        |         | M           |
+| 0x0003 | Identify | Server | | M |
+| 0x003B | Switch | Server | | M |
 
 #### **6.6.4.1. Instantaneous reporting**
 
@@ -2269,7 +2118,7 @@ The generic mechanism for subscriptions and events might not ensure that detecte
 
 #### **6.6.4.2. Labeling for multi-switch devices**
 
-A Node which contains multiple switches will need to expose multiple endpoints each hosting an instance of this device type and the associated Switch cluster. This means the [Duplicate](#page-26-3) condition in Matter base device requirements applies, so a TagList SHALL be included in the Descriptor cluster on each such endpoint. The tag(s) in this TagList are used to indicate orientation (e.g. left and right for a two-button switch) or labeling (e.g. "dim up" and "dim down" icons printed on the buttons) relevant to the user. A client SHOULD use these tags to convey such information to the user (e.g. showing it in a user interface), to help the user identify which endpoint maps to a certain orientation or labeling.
+A Node which contains multiple switches will need to expose multiple endpoints each hosting an instance of this device type and the associated Switch cluster. This means the Duplicate condition in Matter base device requirements applies, so a TagList SHALL be included in the Descriptor cluster on each such endpoint. The tag(s) in this TagList are used to indicate orientation (e.g. left and right for a two-button switch) or labeling (e.g. "dim up" and "dim down" icons printed on the buttons) relevant to the user. A client SHOULD use these tags to convey such information to the user (e.g. showing it in a user interface), to help the user identify which endpoint maps to a certain orientation or labeling.
 
 For the case where a server indicates tags from the Common Number Namespace, and the client presents entities related to the endpoints (e.g. icons for the various switches), it SHOULD present them in numerical order as indicated by the tags from the Common Number Namespace.
 
@@ -2288,26 +2137,26 @@ For devices to control a Closure (e.g. Window Covering), the semantic tags from 
 Example 1: a device with two rocker switches (mounted side by side), which has two endpoints (11,12) for the switch-related functionality
 
 - endpoint 11 has device type Generic Switch and contains
-  - cluster Switch (feature flags: LS) exposing the state and events of the left button
-  - cluster Descriptor with its TagList containing two tags: Position.Left and Number.One
+- cluster Switch (feature flags: LS) exposing the state and events of the left button
+- cluster Descriptor with its TagList containing two tags: Position.Left and Number.One
 - endpoint 12 has device type Generic Switch and contains
-  - cluster Switch (feature flags: LS) exposing the state and events of the right button
-  - cluster Descriptor with its TagList containing two tags: Position.Right and Number.Two
+- cluster Switch (feature flags: LS) exposing the state and events of the right button
+- cluster Descriptor with its TagList containing two tags: Position.Right and Number.Two
 
 If this device were to have labeling on the buttons like an "up" and "down" icon, the TagList would have a third tag (from the Switches Namespace) with values Switches.Up and Switches.Down respectively.
 
 Example 2: a device with four push buttons (mounted in a square), each labeled with an icon for a certain scene setting, which has four endpoints (21,22,23,24) for the switch-related functionality
 
 - endpoint 21 has device type Generic Switch and contains
-  - cluster Switch (feature flags: MS) exposing the events of the top-left button
-  - cluster Descriptor with its TagList containing four tags: Position.Top, Position.Left, Number.One and (Tag=Switches.Custom, Label="watch tv")
-    - This last tag is a Switches.Custom tag accompanied with a label (the other three tags do not need a Label field).
+- cluster Switch (feature flags: MS) exposing the events of the top-left button
+- cluster Descriptor with its TagList containing four tags: Position.Top, Position.Left, Number.One and (Tag=Switches.Custom, Label="watch tv")
+- This last tag is a Switches.Custom tag accompanied with a label (the other three tags do not need a Label field).
 - endpoint 22 has device type Generic Switch and contains
-  - cluster Switch (feature flags: MS) exposing the events of the top-right button
-  - cluster Descriptor with its TagList containing four tags: Position.Top, Position.Right, Number.Two and (Tag=Switches.Custom, Label="dinner")
+- cluster Switch (feature flags: MS) exposing the events of the top-right button
+- cluster Descriptor with its TagList containing four tags: Position.Top, Position.Right, Number.Two and (Tag=Switches.Custom, Label="dinner")
 - endpoint 23 has device type Generic Switch and contains
-  - cluster Switch (feature flags: MS) exposing the events of the bottom-left button
-  - cluster Descriptor with its TagList containing four tags: Position.Bottom, Position.Left, Number.Three and (Tag=Switches.Custom, Label="reading")
+- cluster Switch (feature flags: MS) exposing the events of the bottom-left button
+- cluster Descriptor with its TagList containing four tags: Position.Bottom, Position.Left, Number.Three and (Tag=Switches.Custom, Label="reading")
 - endpoint 24 has device type Generic Switch and contains
 
 - cluster Switch (feature flags: MS) exposing the events of the bottom-right button
@@ -2323,9 +2172,9 @@ The Generic Switch device type and the On/Off Light Switch device type both conv
 A device manufacturer MAY implement both device types on the same switch device, to allow it to be used for both types of control, as in this example for a rocker switch which implements:
 
 - endpoint 31 with device type On/Off Light Switch which contains
-  - (client) cluster On/Off exposing the On/Off/Toggle commands
+- (client) cluster On/Off exposing the On/Off/Toggle commands
 - endpoint 32 with device type Generic Switch which contains
-  - (server) cluster Switch (feature flags: LS) exposing the state and events of the switch
+- (server) cluster Switch (feature flags: LS) exposing the state and events of the switch
 
 When this device is used in a particular setup, binding tables and subscriptions can be used to determine how it is used:
 
@@ -2341,16 +2190,14 @@ This defines conformance to the Contact Sensor device type.
 
 #### <span id="page-82-2"></span>**7.1.1. Revision History**
 
-| Revision | Description                                            |  |
-|----------|--------------------------------------------------------|--|
-| 1        | Initial revision                                       |  |
-| 2        | Add Boolean State Configuration as optional<br>cluster |  |
+| Revision | Description | |
+| 1 | Initial revision | |
+| 2 | Add Boolean State Configuration as optional<br>cluster | |
 
 #### <span id="page-82-3"></span>**7.1.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0015         | Contact Sensor      |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0015 | Contact Sensor | | Simple | Endpoint |
 
 #### <span id="page-82-4"></span>**7.1.3. Conditions**
 
@@ -2360,11 +2207,10 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                    | Client/Server | Quality | Conformance |
-|------------|---------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                        | Server        |         | M           |
-| 0x0045     | Boolean State                   | Server        |         | M           |
-| 0x0080     | Boolean State Con<br>figuration | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0045 | Boolean State | Server | | M |
+| 0x0080 | Boolean State Con<br>figuration | Server | | O |
 
 #### **7.1.4.1. Identify Cluster**
 
@@ -2376,10 +2222,9 @@ This is used to indicate the state of the sensor/detector.
 
 The state of the Boolean State cluster SHALL reflect the sensor detection using this scheme:
 
-| Value | State              |  |
-|-------|--------------------|--|
-| True  | Closed or contact  |  |
-| False | Open or no contact |  |
+| Value | State | |
+| True | Closed or contact | |
+| False | Open or no contact | |
 
 #### **7.1.4.3. Boolean State Configuration Cluster**
 
@@ -2391,18 +2236,16 @@ A Light Sensor device is a measurement and sensing device that is capable of mea
 
 #### <span id="page-83-1"></span>**7.2.1. Revision History**
 
-| Revision | Description                          |  |
-|----------|--------------------------------------|--|
-| 1        | Initial Zigbee 3.0 revision          |  |
-| 2        | New data model format and notation   |  |
-| 3        | Restricting Groups client to Zigbee. |  |
-| 4        | Removed Zigbee related elements      |  |
+| Revision | Description | |
+| 1 | Initial Zigbee 3.0 revision | |
+| 2 | New data model format and notation | |
+| 3 | Restricting Groups client to Zigbee. | |
+| 4 | Removed Zigbee related elements | |
 
 #### <span id="page-83-2"></span>**7.2.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0106         | Light Sensor        |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0106 | Light Sensor | | Simple | Endpoint |
 
 #### <span id="page-83-3"></span>**7.2.3. Conditions**
 
@@ -2412,10 +2255,9 @@ See the Base Device Type definition for conformance tags.
 
 *Table 9. Light Sensor Cluster Requirements*
 
-| Cluster ID | Cluster Name                | Client/Server | Quality | Conformance |
-|------------|-----------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                    | Server        |         | M           |
-| 0x0400     | Illuminance Mea<br>surement | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0400 | Illuminance Mea<br>surement | Server | | M |
 
 # <span id="page-84-0"></span>**7.3. Occupancy Sensor Device Type**
 
@@ -2423,18 +2265,16 @@ An Occupancy Sensor is a measurement and sensing device that is capable of measu
 
 #### <span id="page-84-1"></span>**7.3.1. Revision History**
 
-| Revision | Description                                                                               |
-|----------|-------------------------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                               |
-| 2        | New data model format and notation                                                        |
-| 3        | Restricting Groups client to Zigbee                                                       |
-| 4        | Add Boolean State Configuration as optional<br>cluster and remove Zigbee related elements |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Restricting Groups client to Zigbee |
+| 4 | Add Boolean State Configuration as optional<br>cluster and remove Zigbee related elements |
 
 #### <span id="page-84-2"></span>**7.3.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0107         | Occupancy Sensor    |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0107 | Occupancy Sensor | | Simple | Endpoint |
 
 ### <span id="page-84-3"></span>**7.3.3. Conditions**
 
@@ -2444,11 +2284,10 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                    | Client/Server | Quality | Conformance |
-|------------|---------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                        | Server        |         | M           |
-| 0x0080     | Boolean State Con<br>figuration | Server        |         | O           |
-| 0x0406     | Occupancy Sens<br>ing           | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0080 | Boolean State Con<br>figuration | Server | | O |
+| 0x0406 | Occupancy Sens<br>ing | Server | | M |
 
 #### **7.3.4.1. Identify Cluster**
 
@@ -2467,12 +2306,12 @@ This is used to indicate occupancy as well as the type of occupancy sensor used 
 The Occupancy Sensing cluster defines multiple modalities that can be employed to sense occupancy. A device implementing multiple such modalities (exposed in the feature flags) can be implemented in two ways:
 
 - A single endpoint with an Occupancy Sensing cluster which has two or more of these feature bits set to 1.
-  - This requires reporting the combination the sensing results as a single bit in the Occupancy attribute (and the OccupancyChanged event, when supported), with a single set of timing parameters applied.
-  - Sensitivity setting (via a Boolean State Configuration cluster on the same endpoint) applies to all the sensing modalities together via a manufacturer-specific mapping.
+- This requires reporting the combination the sensing results as a single bit in the Occupancy attribute (and the OccupancyChanged event, when supported), with a single set of timing parameters applied.
+- Sensitivity setting (via a Boolean State Configuration cluster on the same endpoint) applies to all the sensing modalities together via a manufacturer-specific mapping.
 - Multiple endpoints each hosting an Occupancy Sensing cluster (each with one feature bit set):
-  - The sensing result of each modality is reported separately in the Occupancy attribute (and the OccupancyChanged event, when supported) of each endpoint, governed by the set of timing parameters provided in the cluster on that endpoint.
-    - This implies some of these attributes can have a different values than their counterparts on other endpoints and that a client MAY have to combine these values if it wants to derive a single value.
-  - Each modality can be provided with an independent sensitivity setting via a Boolean State Configuration cluster located on one or more of the endpoints.
+- The sensing result of each modality is reported separately in the Occupancy attribute (and the OccupancyChanged event, when supported) of each endpoint, governed by the set of timing parameters provided in the cluster on that endpoint.
+- This implies some of these attributes can have a different values than their counterparts on other endpoints and that a client MAY have to combine these values if it wants to derive a single value.
+- Each modality can be provided with an independent sensitivity setting via a Boolean State Configuration cluster located on one or more of the endpoints.
 
 # <span id="page-85-1"></span>**7.4. Temperature Sensor Device Type**
 
@@ -2480,17 +2319,15 @@ A Temperature Sensor device reports measurements of temperature.
 
 ### <span id="page-85-2"></span>**7.4.1. Revision History**
 
-| Revision | Description                                                                                  |
-|----------|----------------------------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                                  |
-| 2        | New data model format and notation                                                           |
-| 3        | Added Thermostat User Interface Configuration<br>cluster and removed Zigbee related elements |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Added Thermostat User Interface Configuration<br>cluster and removed Zigbee related elements |
 
 #### <span id="page-85-3"></span>**7.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name    | Superset Of | Class  | Scope    |
-|----------------|------------------------|-------------|--------|----------|
-| 0x0302         | Temperature Sen<br>sor |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0302 | Temperature Sen<br>sor | | Simple | Endpoint |
 
 #### <span id="page-86-0"></span>**7.4.3. Conditions**
 
@@ -2500,11 +2337,10 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                                   | Client/Server | Quality | Conformance |
-|------------|------------------------------------------------|---------------|---------|-------------|
-| 0x0402     | Temperature Mea<br>surement                    | Server        |         | M           |
-| 0x0003     | Identify                                       | Server        |         | M           |
-| 0x0204     | Thermostat User<br>Interface Configu<br>ration | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0402 | Temperature Mea<br>surement | Server | | M |
+| 0x0003 | Identify | Server | | M |
+| 0x0204 | Thermostat User<br>Interface Configu<br>ration | Server | | O |
 
 #### **7.4.4.1. Thermostat User Interface Configuration Cluster**
 
@@ -2514,9 +2350,8 @@ This cluster provides an interface to allow configuration of the user interface 
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name                                    | Element   | Name              | Constraint | Access | Confor<br>mance |
-|------------|----------------------------------------------------|-----------|-------------------|------------|--------|-----------------|
-| 0x0204     | Thermostat<br>User Inter<br>face Configu<br>ration | Attribute | KeypadLock<br>out |            |        | O               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0204 | Thermostat<br>User Inter<br>face Configu<br>ration | Attribute | KeypadLock<br>out | | | O |
 
 # <span id="page-86-3"></span>**7.5. Pressure Sensor Device Type**
 
@@ -2524,17 +2359,15 @@ A Pressure Sensor device measures and reports the pressure of a fluid.
 
 #### <span id="page-87-0"></span>**7.5.1. Revision History**
 
-| Revision | Description                        |
-|----------|------------------------------------|
-| 1        | Initial Zigbee 3.0 revision        |
-| 2        | New data model format and notation |
-| 3        | Removed Zigbee related elements    |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Removed Zigbee related elements |
 
 ### <span id="page-87-1"></span>**7.5.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0305         | Pressure Sensor     |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0305 | Pressure Sensor | | Simple | Endpoint |
 
 #### <span id="page-87-2"></span>**7.5.3. Conditions**
 
@@ -2544,10 +2377,9 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name             | Client/Server | Quality | Conformance |
-|------------|--------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                 | Server        |         | M           |
-| 0x0403     | Pressure Measure<br>ment | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0403 | Pressure Measure<br>ment | Server | | M |
 
 # <span id="page-87-4"></span>**7.6. Flow Sensor Device Type**
 
@@ -2555,17 +2387,15 @@ A Flow Sensor device measures and reports the flow rate of a fluid.
 
 ### <span id="page-87-5"></span>**7.6.1. Revision History**
 
-| Revision | Description                        |
-|----------|------------------------------------|
-| 1        | Initial Zigbee 3.0 revision        |
-| 2        | New data model format and notation |
-| 3        | Removed Zigbee related elements    |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Removed Zigbee related elements |
 
 #### <span id="page-87-6"></span>**7.6.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0306         | Flow Sensor         |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0306 | Flow Sensor | | Simple | Endpoint |
 
 #### <span id="page-88-0"></span>**7.6.3. Conditions**
 
@@ -2575,10 +2405,9 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name         | Client/Server | Quality | Conformance |
-|------------|----------------------|---------------|---------|-------------|
-| 0x0003     | Identify             | Server        |         | M           |
-| 0x0404     | Flow Measure<br>ment | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0404 | Flow Measure<br>ment | Server | | M |
 
 # <span id="page-88-2"></span>**7.7. Humidity Sensor Device Type**
 
@@ -2586,17 +2415,15 @@ A humidity sensor (in most cases a Relative humidity sensor) reports humidity me
 
 #### <span id="page-88-3"></span>**7.7.1. Revision History**
 
-| Revision | Description                        |
-|----------|------------------------------------|
-| 1        | Initial Zigbee 3.0 revision        |
-| 2        | New data model format and notation |
-| 3        | Removed Zigbee related elements    |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Removed Zigbee related elements |
 
 #### <span id="page-88-4"></span>**7.7.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0307         | Humidity Sensor     |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0307 | Humidity Sensor | | Simple | Endpoint |
 
 #### <span id="page-88-5"></span>**7.7.3. Conditions**
 
@@ -2604,10 +2431,9 @@ See the Base Device Type definition for conformance tags.
 
 ### <span id="page-88-6"></span>**7.7.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name                     | Client/Server | Quality | Conformance |
-|------------|----------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                         | Server        |         | M           |
-| 0x0405     | Relative Humidity<br>Measurement | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0405 | Relative Humidity<br>Measurement | Server | | M |
 
 # <span id="page-89-0"></span>**7.8. On/Off Sensor Device Type**
 
@@ -2615,17 +2441,15 @@ An On/Off Sensor is a measurement and sensing device that, when bound to a light
 
 #### <span id="page-89-1"></span>**7.8.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
 
 #### <span id="page-89-2"></span>**7.8.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0850         | On/Off Sensor       |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0850 | On/Off Sensor | | Simple | Endpoint |
 
 ### <span id="page-89-3"></span>**7.8.3. Conditions**
 
@@ -2637,15 +2461,14 @@ Each endpoint supporting this device type SHALL include these clusters based on 
 
 *Table 10. On/Off Sensor Cluster Requirements*
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0003     | Identify              | Client        |         | M           |
-| 0x0004     | Groups                | Client        |         | O           |
-| 0x0006     | On/Off                | Client        |         | M           |
-| 0x0008     | Level Control         | Client        |         | O           |
-| 0x0062     | Scenes Manage<br>ment | Client        |         | O           |
-| 0x0300     | Color Control         | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0003 | Identify | Client | | M |
+| 0x0004 | Groups | Client | | O |
+| 0x0006 | On/Off | Client | | M |
+| 0x0008 | Level Control | Client | | O |
+| 0x0062 | Scenes Manage<br>ment | Client | | O |
+| 0x0300 | Color Control | Client | | O |
 
 # <span id="page-89-5"></span>**7.9. Smoke CO Alarm Device Type**
 
@@ -2659,15 +2482,13 @@ Some smoke alarms MAY be capable of adjusting sensitivity. Smoke CO Alarm MAY ha
 
 #### <span id="page-90-0"></span>**7.9.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-90-1"></span>**7.9.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0076         | Smoke CO Alarm      |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0076 | Smoke CO Alarm | | Simple | Endpoint |
 
 #### <span id="page-90-2"></span>**7.9.3. Conditions**
 
@@ -2678,22 +2499,19 @@ See the Base Device Type definition for conformance tags.
 A Smoke CO Alarm device type SHALL support an instance of a Power Source device type on some endpoint. See the Power Source cluster for more information.
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x0011         | Power Source     | min 1      | M           |
+| 0x0011 | Power Source | min 1 | M |
 
 ## <span id="page-90-4"></span>**7.9.5. Cluster Requirements**
 
-| Cluster ID | Cluster Name                     | Client/Server | Quality | Conformance |
-|------------|----------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                         | Server        |         | M           |
-| 0x0004     | Groups                           | Server        |         | O           |
-| 0x005C     | Smoke CO Alarm                   | Server        |         | M           |
-| 0x0405     | Relative Humidity<br>Measurement | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | O |
+| 0x005C | Smoke CO Alarm | Server | | M |
+| 0x0405 | Relative Humidity<br>Measurement | Server | | O |
 
-| Cluster ID | Cluster Name                                    | Client/Server | Quality | Conformance |
-|------------|-------------------------------------------------|---------------|---------|-------------|
-| 0x0402     | Temperature Mea<br>surement                     | Server        |         | O           |
-| 0x040C     | Carbon Monoxide<br>Concentration<br>Measurement | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0402 | Temperature Mea<br>surement | Server | | O |
+| 0x040C | Carbon Monoxide<br>Concentration<br>Measurement | Server | | O |
 
 # <span id="page-91-0"></span>**7.10. Air Quality Sensor Device Type**
 
@@ -2703,15 +2521,13 @@ An air quality sensor is a device designed to monitor and measure various parame
 
 #### <span id="page-91-1"></span>**7.10.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 ### <span id="page-91-2"></span>**7.10.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x002C         | Air Quality Sensor  |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x002C | Air Quality Sensor | | Simple | Endpoint |
 
 #### <span id="page-91-3"></span>**7.10.3. Conditions**
 
@@ -2719,25 +2535,23 @@ See the Base Device Type definition for conformance tags.
 
 ## <span id="page-91-4"></span>**7.10.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name                     | Client/Server | Quality | Conformance |
-|------------|----------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                         | Server        |         | M           |
-| 0x005B     | Air Quality                      | Server        |         | M           |
-| 0x0402     | Temperature Mea<br>surement      | Server        |         | O           |
-| 0x0405     | Relative Humidity<br>Measurement | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x005B | Air Quality | Server | | M |
+| 0x0402 | Temperature Mea<br>surement | Server | | O |
+| 0x0405 | Relative Humidity<br>Measurement | Server | | O |
 
-| Cluster ID | Cluster Name                                                          | Client/Server | Quality | Conformance |
-|------------|-----------------------------------------------------------------------|---------------|---------|-------------|
-| 0x040C     | Carbon Monoxide<br>Concentration<br>Measurement                       | Server        |         | O           |
-| 0x040D     | Carbon Dioxide<br>Concentration<br>Measurement                        | Server        |         | O           |
-| 0x0413     | Nitrogen Dioxide<br>Concentration<br>Measurement                      | Server        |         | O           |
-| 0x0415     | Ozone Concentra<br>tion Measurement                                   | Server        |         | O           |
-| 0x042A     | PM2.5 Concentra<br>tion Measurement                                   | Server        |         | O           |
-| 0x042B     | Formaldehyde<br>Concentration<br>Measurement                          | Server        |         | O           |
-| 0x042C     | PM1 Concentra<br>tion Measurement                                     | Server        |         | O           |
-| 0x042D     | PM10 Concentra<br>tion Measurement                                    | Server        |         | O           |
-| 0x042E     | Total Volatile<br>Organic Com<br>pounds Concentra<br>tion Measurement | Server        |         | O           |
-| 0x042F     | Radon Concentra<br>tion Measurement                                   | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x040C | Carbon Monoxide<br>Concentration<br>Measurement | Server | | O |
+| 0x040D | Carbon Dioxide<br>Concentration<br>Measurement | Server | | O |
+| 0x0413 | Nitrogen Dioxide<br>Concentration<br>Measurement | Server | | O |
+| 0x0415 | Ozone Concentra<br>tion Measurement | Server | | O |
+| 0x042A | PM2.5 Concentra<br>tion Measurement | Server | | O |
+| 0x042B | Formaldehyde<br>Concentration<br>Measurement | Server | | O |
+| 0x042C | PM1 Concentra<br>tion Measurement | Server | | O |
+| 0x042D | PM10 Concentra<br>tion Measurement | Server | | O |
+| 0x042E | Total Volatile<br>Organic Com<br>pounds Concentra<br>tion Measurement | Server | | O |
+| 0x042F | Radon Concentra<br>tion Measurement | Server | | O |
 
 # <span id="page-92-0"></span>**7.11. Water Freeze Detector Device Type**
 
@@ -2745,15 +2559,13 @@ This defines conformance to the Water Freeze Detector device type.
 
 ### <span id="page-92-1"></span>**7.11.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-92-2"></span>**7.11.2. Classification**
 
-| Device Type ID | Device Type<br>Name      | Superset Of | Class  | Scope    |
-|----------------|--------------------------|-------------|--------|----------|
-| 0x0041         | Water Freeze<br>Detector |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0041 | Water Freeze<br>Detector | | Simple | Endpoint |
 
 #### <span id="page-93-0"></span>**7.11.3. Conditions**
 
@@ -2763,11 +2575,10 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                    | Client/Server | Quality | Conformance |
-|------------|---------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                        | Server        |         | M           |
-| 0x0045     | Boolean State                   | Server        |         | M           |
-| 0x0080     | Boolean State Con<br>figuration | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0045 | Boolean State | Server | | M |
+| 0x0080 | Boolean State Con<br>figuration | Server | | O |
 
 #### **7.11.4.1. Identify Cluster**
 
@@ -2779,9 +2590,8 @@ This is used to indicate the state of the sensor/detector.
 
 The state of the Boolean State cluster SHALL reflect the sensor detection using this scheme of:
 
-| Value | State                                                                 |
-|-------|-----------------------------------------------------------------------|
-| True  | Water could potentially freeze in the current<br>ambient conditions   |
+| Value | State |
+| True | Water could potentially freeze in the current<br>ambient conditions |
 | False | Water is very unlikely to freeze in the current<br>ambient conditions |
 
 Due to the difficulty in quantifying the risk of freezing based on the dependency on external factors such as temperature, humidity, pressure, etc, the actual triggering of a detector of this type depends on the physical construction and characteristics of the device and is therefore considered manufacturer specific.
@@ -2794,9 +2604,8 @@ This is used to configure the sensor/detector and is for this device type linked
 
 The following table lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name  | Element | Name        | Constraint | Access | Confor<br>mance |
-|------------|------------------|---------|-------------|------------|--------|-----------------|
-| 0x0045     | Boolean<br>State | Event   | StateChange |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0045 | Boolean<br>State | Event | StateChange | | | M |
 
 # <span id="page-94-1"></span>**7.12. Water Leak Detector Device Type**
 
@@ -2804,15 +2613,13 @@ This defines conformance to the Water Leak Detector device type.
 
 #### <span id="page-94-2"></span>**7.12.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 ### <span id="page-94-3"></span>**7.12.2. Classification**
 
-| Device Type ID | Device Type<br>Name     | Superset Of | Class  | Scope    |
-|----------------|-------------------------|-------------|--------|----------|
-| 0x0043         | Water Leak Detec<br>tor |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0043 | Water Leak Detec<br>tor | | Simple | Endpoint |
 
 #### <span id="page-94-4"></span>**7.12.3. Conditions**
 
@@ -2822,11 +2629,10 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                    | Client/Server | Quality | Conformance |
-|------------|---------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                        | Server        |         | M           |
-| 0x0045     | Boolean State                   | Server        |         | M           |
-| 0x0080     | Boolean State Con<br>figuration | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0045 | Boolean State | Server | | M |
+| 0x0080 | Boolean State Con<br>figuration | Server | | O |
 
 #### **7.12.4.1. Identify Cluster**
 
@@ -2838,9 +2644,8 @@ This is used to indicate the state of the sensor/detector.
 
 The state of the Boolean State cluster SHALL reflect the sensor detection using this scheme of:
 
-| Value | State                  |
-|-------|------------------------|
-| True  | Water leak detected    |
+| Value | State |
+| True | Water leak detected |
 | False | No water leak detected |
 
 #### **7.12.4.3. Boolean State Configuration Cluster**
@@ -2851,9 +2656,8 @@ This is used to configure the sensor/detector and is for this device type linked
 
 The following table lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name  | Element | Name        | Constraint | Access | Confor<br>mance |
-|------------|------------------|---------|-------------|------------|--------|-----------------|
-| 0x0045     | Boolean<br>State | Event   | StateChange |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0045 | Boolean<br>State | Event | StateChange | | | M |
 
 # <span id="page-95-1"></span>**7.13. Rain Sensor Device Type**
 
@@ -2861,15 +2665,13 @@ This defines conformance to the Rain Sensor device type.
 
 ### <span id="page-95-2"></span>**7.13.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-95-3"></span>**7.13.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0044         | Rain Sensor         |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0044 | Rain Sensor | | Simple | Endpoint |
 
 #### <span id="page-95-4"></span>**7.13.3. Conditions**
 
@@ -2879,11 +2681,10 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                    | Client/Server | Quality | Conformance |
-|------------|---------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                        | Server        |         | M           |
-| 0x0045     | Boolean State                   | Server        |         | M           |
-| 0x0080     | Boolean State Con<br>figuration | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0045 | Boolean State | Server | | M |
+| 0x0080 | Boolean State Con<br>figuration | Server | | O |
 
 #### **7.13.4.1. Identify Cluster**
 
@@ -2895,9 +2696,8 @@ This is used to indicate the state of the sensor/detector.
 
 The state of the Boolean State cluster SHALL reflect the sensor detection using this scheme of:
 
-| Value | State            |
-|-------|------------------|
-| True  | Rain detected    |
+| Value | State |
+| True | Rain detected |
 | False | No rain detected |
 
 #### **7.13.4.3. Boolean State Configuration Cluster**
@@ -2908,9 +2708,8 @@ This is used to configure the sensor/detector and is for this device type linked
 
 The following table lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name  | Element | Name        | Constraint | Access | Confor<br>mance |
-|------------|------------------|---------|-------------|------------|--------|-----------------|
-| 0x0045     | Boolean<br>State | Event   | StateChange |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0045 | Boolean<br>State | Event | StateChange | | | M |
 
 # <span id="page-96-2"></span>**7.14. Soil Sensor Device Type**
 
@@ -2918,15 +2717,13 @@ A Soil Sensor device reports measurements of soil values, such as moisture and (
 
 #### <span id="page-97-0"></span>**7.14.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-97-1"></span>**7.14.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0045         | Soil Sensor         |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0045 | Soil Sensor | | Simple | Endpoint |
 
 #### <span id="page-97-2"></span>**7.14.3. Conditions**
 
@@ -2936,11 +2733,10 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                | Client/Server | Quality | Conformance |
-|------------|-----------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                    | Server        |         | M           |
-| 0x0402     | Temperature Mea<br>surement | Server        |         | O           |
-| 0x0430     | Soil Measurement            | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0402 | Temperature Mea<br>surement | Server | | O |
+| 0x0430 | Soil Measurement | Server | | M |
 
 #### **7.14.4.1. Identify Cluster**
 
@@ -2964,18 +2760,16 @@ A Door Lock is a device used to secure a door. It is possible to actuate a door 
 
 #### <span id="page-98-2"></span>**8.1.1. Revision History**
 
-| Revision | Description                                                                                                                                            |
-|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                                                                                            |
-| 2        | Initial Matter revision                                                                                                                                |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062; as noted below,<br>this cluster remains disallowed in this device<br>type |
-| 4        | Removed Zigbee related elements                                                                                                                        |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | Initial Matter revision |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062; as noted below,<br>this cluster remains disallowed in this device<br>type |
+| 4 | Removed Zigbee related elements |
 
 #### <span id="page-98-3"></span>**8.1.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x000A         | Door Lock           |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x000A | Door Lock | | Simple | Endpoint |
 
 #### <span id="page-98-4"></span>**8.1.3. Conditions**
 
@@ -2985,22 +2779,20 @@ See the Base Device Type definition for conformance tags.
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location | Device Type ID | Device Type<br>Name | Condition                  | Conformance |
-|----------|----------------|---------------------|----------------------------|-------------|
-| Root     | 0x0016         | Root Node           | ACLExtension<br>Cond       | M           |
-| Root     | 0x0016         | Root Node           | TimeSyncCond               | O           |
-| Root     | 0x0016         | Root Node           | TimeSyncWith<br>ClientCond | O           |
+| Location | Device Type ID | Device Type<br>Name | Condition | Conformance |
+| Root | 0x0016 | Root Node | ACLExtension<br>Cond | M |
+| Root | 0x0016 | Root Node | TimeSyncCond | O |
+| Root | 0x0016 | Root Node | TimeSyncWith<br>ClientCond | O |
 
 #### <span id="page-99-0"></span>**8.1.5. Cluster Requirements**
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Server        |         | M           |
-| 0x0004     | Groups                | Server        |         | X           |
-| 0x0062     | Scenes Manage<br>ment | Server        |         | X           |
-| 0x0101     | Door Lock             | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | X |
+| 0x0062 | Scenes Manage<br>ment | Server | | X |
+| 0x0101 | Door Lock | Server | | M |
 
 # <span id="page-99-1"></span>**8.2. Door Lock Controller Device Type**
 
@@ -3008,17 +2800,15 @@ A Door Lock Controller is a device capable of controlling a door lock.
 
 ### <span id="page-99-2"></span>**8.2.1. Revision History**
 
-| Revision | Description                                                                                                       |
-|----------|-------------------------------------------------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                                                       |
-| 2        | Initial Matter revision                                                                                           |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 and remove Zigbee<br>related elements |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | Initial Matter revision |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 and remove Zigbee<br>related elements |
 
 #### <span id="page-99-3"></span>**8.2.2. Classification**
 
-| Device Type ID | Device Type<br>Name      | Superset Of | Class  | Scope    |
-|----------------|--------------------------|-------------|--------|----------|
-| 0x000B         | Door Lock Con<br>troller |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x000B | Door Lock Con<br>troller | | Simple | Endpoint |
 
 ### <span id="page-99-4"></span>**8.2.3. Conditions**
 
@@ -3028,19 +2818,17 @@ See the Base Device Type definition for conformance tags.
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location | Device Type ID | Device Type<br>Name | Condition    | Conformance |
-|----------|----------------|---------------------|--------------|-------------|
-| Root     | 0x0016         | Root Node           | TimeSyncCond | O           |
+| Location | Device Type ID | Device Type<br>Name | Condition | Conformance |
+| Root | 0x0016 | Root Node | TimeSyncCond | O |
 
 #### <span id="page-100-0"></span>**8.2.5. Cluster Requirements**
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0004     | Groups                | Client        |         | O           |
-| 0x0062     | Scenes Manage<br>ment | Client        |         | O           |
-| 0x0101     | Door Lock             | Client        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0004 | Groups | Client | | O |
+| 0x0062 | Scenes Manage<br>ment | Client | | O |
+| 0x0101 | Door Lock | Client | | M |
 
 # <span id="page-100-1"></span>**8.3. Window Covering Device Type**
 
@@ -3048,20 +2836,18 @@ This defines conformance to the Window Covering device type.
 
 #### <span id="page-100-2"></span>**8.3.1. Revision History**
 
-| Revision | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                 |
-| 2        | New data model format and notation                                          |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
-| 4        | Scenes Management cluster was removed from<br>Cluster Requirements          |
-| 5        | Introduced conditions on Closure clusters                                   |
-| 6        | Removed Zigbee related elements                                             |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| 4 | Scenes Management cluster was removed from<br>Cluster Requirements |
+| 5 | Introduced conditions on Closure clusters |
+| 6 | Removed Zigbee related elements |
 
 #### <span id="page-100-3"></span>**8.3.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0202         | Window Covering     |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0202 | Window Covering | | Simple | Endpoint |
 
 #### <span id="page-100-4"></span>**8.3.3. Conditions**
 
@@ -3069,13 +2855,12 @@ See the Base Device Type definition for conformance tags.
 
 ### <span id="page-100-5"></span>**8.3.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name             | Client/Server | Quality | Conformance |
-|------------|--------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                 | Server        |         | M           |
-| 0x0004     | Groups                   | Server        |         | Active, O   |
-| 0x0102     | Window Covering          | Server        |         | M           |
-| 0x0104     | Closure Control          | Server        |         | X           |
-| 0x0105     | Closure Dimension Server |               |         | X           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | Active, O |
+| 0x0102 | Window Covering | Server | | M |
+| 0x0104 | Closure Control | Server | | X |
+| 0x0105 | Closure Dimension Server | | | X |
 
 Furthermore, in revision at or before revision 5 for this device type, either or both of the Closure Control cluster and the Closure Dimension cluster SHALL NOT appear on the same endpoint. This is to avoid potential future usage of the closely related Closure Control cluster in this device type from interfering with non-standard usage of that cluster until proper data dependency language can be introduced, if any.
 
@@ -3085,18 +2870,16 @@ A Window Covering Controller is a device that controls an automatic window cover
 
 #### <span id="page-101-1"></span>**8.4.1. Revision History**
 
-| Revision | Description                                                                                               |
-|----------|-----------------------------------------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                                               |
-| 2        | New data model format and notation                                                                        |
-| 3        | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062                               |
-| 4        | Removed Zigbee related elements and Scenes<br>Management cluster was removed from Cluster<br>Requirements |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation |
+| 3 | Updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| 4 | Removed Zigbee related elements and Scenes<br>Management cluster was removed from Cluster<br>Requirements |
 
 #### <span id="page-101-2"></span>**8.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name           | Superset Of | Class  | Scope    |
-|----------------|-------------------------------|-------------|--------|----------|
-| 0x0203         | Window Covering<br>Controller |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0203 | Window Covering<br>Controller | | Simple | Endpoint |
 
 #### <span id="page-101-3"></span>**8.4.3. Conditions**
 
@@ -3104,16 +2887,15 @@ See the Base Device Type definition for conformance tags.
 
 ### <span id="page-101-4"></span>**8.4.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name    | Client/Server | Quality | Conformance |
-|------------|-----------------|---------------|---------|-------------|
-| 0x0003     | Identify        | Server        |         | O           |
-| 0x0003     | Identify        | Client        |         | O           |
-| 0x0004     | Groups          | Client        |         | Active, O   |
-| 0x0102     | Window Covering | Client        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | O |
+| 0x0003 | Identify | Client | | O |
+| 0x0004 | Groups | Client | | Active, O |
+| 0x0102 | Window Covering | Client | | M |
 
 # <span id="page-102-0"></span>**8.5. Closure Device Type**
 
-A Closure is an element that seals an opening (such as a window, door, cabinet, wall, facade, ceiling, or roof). It MAY contain one or more instances of a [Closure Panel](#page-106-0) device type on separate child endpoints of the Closure parent. Each Closure Panel is a sub-component of a Closure, capable of some change in state, primarily through a movement.
+A Closure is an element that seals an opening (such as a window, door, cabinet, wall, facade, ceiling, or roof). It MAY contain one or more instances of a Closure Panel device type on separate child endpoints of the Closure parent. Each Closure Panel is a sub-component of a Closure, capable of some change in state, primarily through a movement.
 
 All the common characteristics of a Closure are gathered within Closure Control Cluster. Moving parts or other physical aspects of the device are exposed using Closure Dimension Cluster.
 
@@ -3125,13 +2907,9 @@ A Closure SHALL use exactly one semantic tag from the Closure namespace in the T
 
 An example of a Closure device with multiple Closure Panel devices on separate child endpoints is illustrated below.
 
-![](_page_103_Figure_2.jpeg)
-
 *Figure 3. Example of a Closure with multiple panels*
 
 An example of a Closure with a single panel on a separate child endpoint is illustrated below.
-
-![](_page_103_Figure_5.jpeg)
 
 *Figure 4. Example of a Closure with single panel*
 
@@ -3141,15 +2919,13 @@ An example of a Closure as a standalone device type is illustrated below.
 
 #### <span id="page-104-0"></span>**8.5.2. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-104-1"></span>**8.5.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0230         | Closure             |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0230 | Closure | | Simple | Endpoint |
 
 ### <span id="page-104-2"></span>**8.5.4. Device Type Requirements**
 
@@ -3164,21 +2940,19 @@ All instances of Closure Panel devices included in a composition SHALL reflect t
 Additional device types not listed in this table MAY also be included in device compositions.
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x000A         | Door Lock        |            | O           |
-| 0x0100+        | On/Off Light+    |            | O           |
-| 0x0231         | Closure Panel    |            | O           |
+| 0x000A | Door Lock | | O |
+| 0x0100+ | On/Off Light+ | | O |
+| 0x0231 | Closure Panel | | O |
 
 #### <span id="page-105-0"></span>**8.5.5. Cluster Requirements**
 
 Each endpoint supporting the Closure device type MAY include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name             | Client/Server | Quality | Conformance |
-|------------|--------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                 | Server        |         | M           |
-| 0x0102     | Window Covering          | Server        |         | X           |
-| 0x0104     | Closure Control          | Server        |         | M           |
-| 0x0105     | Closure Dimension Server |               |         | X           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0102 | Window Covering | Server | | X |
+| 0x0104 | Closure Control | Server | | M |
+| 0x0105 | Closure Dimension Server | | | X |
 
 In revision 1 of this device type, the Window Covering cluster SHALL NOT be present on the same endpoint. This restriction prevents conflicts between future standardized uses of the Window Covering cluster and any current non-standard implementations, until appropriate data dependency language is defined.
 
@@ -3186,9 +2960,8 @@ In revision 1 of this device type, the Window Covering cluster SHALL NOT be pres
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name | Element | Name    | Constraint | Access | Confor<br>mance |  |
-|------------|-----------------|---------|---------|------------|--------|-----------------|--|
-| 0x001D     | Descriptor      | Feature | TagList |            |        | M               |  |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance | |
+| 0x001D | Descriptor | Feature | TagList | | | M | |
 
 The TagList in the Descriptor cluster of an endpoint with this device type SHALL meet the following constraints:
 
@@ -3197,7 +2970,7 @@ The TagList in the Descriptor cluster of an endpoint with this device type SHALL
 
 # <span id="page-106-0"></span>**8.6. Closure Panel Device Type**
 
-A Closure Panel SHALL ONLY exist as a part (child) of a [Closure](#page-102-0) device type. It represents a single panel aspect (e.g. position of a blind, tilt of slats, etc) within that Closure.
+A Closure Panel SHALL ONLY exist as a part (child) of a Closure device type. It represents a single panel aspect (e.g. position of a blind, tilt of slats, etc) within that Closure.
 
 This panel can be used to express the following:
 
@@ -3209,25 +2982,22 @@ A Closure Panel SHALL use exactly one semantic tag from the ClosurePanel namespa
 
 ### <span id="page-106-1"></span>**8.6.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-106-2"></span>**8.6.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0231         | Closure Panel       |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0231 | Closure Panel | | Simple | Endpoint |
 
 ### <span id="page-106-3"></span>**8.6.3. Cluster Requirements**
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name             | Client/Server | Quality | Conformance |
-|------------|--------------------------|---------------|---------|-------------|
-| 0x0102     | Window Covering          | Server        |         | X           |
-| 0x0104     | Closure Control          | Server        |         | X           |
-| 0x0105     | Closure Dimension Server |               |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0102 | Window Covering | Server | | X |
+| 0x0104 | Closure Control | Server | | X |
+| 0x0105 | Closure Dimension Server | | | M |
 
 In revision 1 of this device type, the Window Covering cluster SHALL NOT appear on the same endpoint. This restriction prevents conflicts between potential future standardized use of the Window Covering cluster and any existing non-standard implementations, until appropriate data dependency language is defined.
 
@@ -3235,9 +3005,8 @@ In revision 1 of this device type, the Window Covering cluster SHALL NOT appear 
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name | Element | Name    | Constraint | Access | Confor<br>mance |
-|------------|-----------------|---------|---------|------------|--------|-----------------|
-| 0x001D     | Descriptor      | Feature | TagList |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x001D | Descriptor | Feature | TagList | | | M |
 
 The TagList in the Descriptor cluster of an endpoint with this device type SHALL meet the following constraints:
 
@@ -3246,34 +3015,30 @@ The TagList in the Descriptor cluster of an endpoint with this device type SHALL
 
 # <span id="page-107-0"></span>**8.7. Closure Controller Device Type**
 
-A Closure Controller is capable of controlling a [Closure.](#page-102-0)
+A Closure Controller is capable of controlling a Closure.
 
 #### <span id="page-107-1"></span>**8.7.1. Introduction**
 
 Two levels of control are available:
 
 - Basic Level (Closure Control Cluster):
-  - Used for simple controller with buttons like wall switches.
-  - Also all the general status and information remain at this level.
+- Used for simple controller with buttons like wall switches.
+- Also all the general status and information remain at this level.
 - Advanced Level (Closure Dimension Cluster):
-  - Provides advanced information, controls and settings.
-  - Used for advanced controller.
-
-![](_page_107_Figure_17.jpeg)
+- Provides advanced information, controls and settings.
+- Used for advanced controller.
 
 *Figure 6. Closure Levels View*
 
 #### <span id="page-107-2"></span>**8.7.2. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-108-0"></span>**8.7.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x023E         | Closure Controller  |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x023E | Closure Controller | | Simple | Endpoint |
 
 #### <span id="page-108-1"></span>**8.7.4. Conditions**
 
@@ -3281,12 +3046,11 @@ See the Base Device Type definition for conformance tags.
 
 ### <span id="page-108-2"></span>**8.7.5. Cluster Requirements**
 
-| Cluster ID | Cluster Name             | Client/Server | Quality | Conformance |
-|------------|--------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                 | Client        |         | O           |
-| 0x0004     | Groups                   | Client        |         | O           |
-| 0x0104     | Closure Control          | Client        |         | M           |
-| 0x0105     | Closure Dimension Client |               |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Client | | O |
+| 0x0004 | Groups | Client | | O |
+| 0x0104 | Closure Control | Client | | M |
+| 0x0105 | Closure Dimension Client | | | O |
 
 # <span id="page-110-0"></span>**Chapter 9. HVAC Device Types**
 
@@ -3296,19 +3060,17 @@ A Thermostat device is capable of having either built-in or separate sensors for
 
 #### <span id="page-110-2"></span>**9.1.1. Revision History**
 
-| Revision | Description                                                                                                                                         |
-|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1        | Initial Zigbee 3.0 revision                                                                                                                         |
-| 2        | New data model format and notation, added<br>Clusters required for Matter support, restricted<br>legacy elements to Zigbee only                     |
-| 3        | Addition of Energy Preference cluster and<br>updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062                            |
-| 4        | Remove Time Synchronization cluster, Scenes<br>Management and Zigbee only clusters, remove<br>provisional marking from Energy Preference<br>cluster |
-| 5        | Moved disallowed element conformance to<br>Thermostat cluster.                                                                                      |
+| Revision | Description |
+| 1 | Initial Zigbee 3.0 revision |
+| 2 | New data model format and notation, added<br>Clusters required for Matter support, restricted<br>legacy elements to Zigbee only |
+| 3 | Addition of Energy Preference cluster and<br>updated the Scenes cluster to Scenes Manage<br>ment with Cluster ID: 0x0062 |
+| 4 | Remove Time Synchronization cluster, Scenes<br>Management and Zigbee only clusters, remove<br>provisional marking from Energy Preference<br>cluster |
+| 5 | Moved disallowed element conformance to<br>Thermostat cluster. |
 
 #### <span id="page-110-3"></span>**9.1.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0301         | Thermostat          |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0301 | Thermostat | | Simple | Endpoint |
 
 #### <span id="page-110-4"></span>**9.1.3. Conditions**
 
@@ -3316,17 +3078,16 @@ See the Base Device Type definition for conformance tags.
 
 ### <span id="page-110-5"></span>**9.1.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name                                   | Client/Server | Quality | Conformance |
-|------------|------------------------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                                       | Server        |         | M           |
-| 0x0004     | Groups                                         | Server        |         | Active      |
-| 0x009B     | Energy Preference                              | Server        |         | O           |
-| 0x0201     | Thermostat                                     | Server        |         | M           |
-| 0x0202     | Fan Control                                    | Client        |         | O           |
-| 0x0204     | Thermostat User<br>Interface Configu<br>ration | Server        |         | O           |
-| 0x0402     | Temperature Mea<br>surement                    | Client        |         | O           |
-| 0x0405     | Relative Humidity<br>Measurement               | Client        |         | O           |
-| 0x0406     | Occupancy Sens<br>ing                          | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | Active |
+| 0x009B | Energy Preference | Server | | O |
+| 0x0201 | Thermostat | Server | | M |
+| 0x0202 | Fan Control | Client | | O |
+| 0x0204 | Thermostat User<br>Interface Configu<br>ration | Server | | O |
+| 0x0402 | Temperature Mea<br>surement | Client | | O |
+| 0x0405 | Relative Humidity<br>Measurement | Client | | O |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
 
 # <span id="page-111-0"></span>**9.2. Fan Device Type**
 
@@ -3334,18 +3095,16 @@ A Fan device is typically standalone or mounted on a ceiling or wall and is used
 
 ### <span id="page-111-1"></span>**9.2.1. Revision History**
 
-| Revision | Description                                                         |
-|----------|---------------------------------------------------------------------|
-| 1        | Initial revision                                                    |
-| 2        | Added ability to be composed with a Thermostat<br>for fan heaters   |
-| 3        | Added On/Off cluster                                                |
-| 4        | Moved FanModeSequence element requirement<br>to Fan Control cluster |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added ability to be composed with a Thermostat<br>for fan heaters |
+| 3 | Added On/Off cluster |
+| 4 | Moved FanModeSequence element requirement<br>to Fan Control cluster |
 
 #### <span id="page-111-2"></span>**9.2.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x002B         | Fan                 |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x002B | Fan | | Simple | Endpoint |
 
 ### <span id="page-111-3"></span>**9.2.3. Conditions**
 
@@ -3356,19 +3115,17 @@ See the Base Device Type definition for conformance tags.
 A fan MAY expose elements of its functionality through one or more additional device types on different endpoints. All devices used in compositions SHALL adhere to the disambiguation requirements of the System Model. Other device types, not explicitly listed in the table, MAY also be included in device compositions but are not considered part of the core functionality of the device.
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x0301         | Thermostat       |            | O           |
+| 0x0301 | Thermostat | | O |
 
 #### <span id="page-112-1"></span>**9.2.5. Cluster Requirements**
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0003     | Identify     | server        |         | M           |
-| 0x0004     | Groups       | server        |         | M           |
-| 0x0006     | On/Off       | server        |         | O           |
-| 0x0202     | Fan Control  | server        |         | M           |
+| 0x0003 | Identify | server | | M |
+| 0x0004 | Groups | server | | M |
+| 0x0006 | On/Off | server | | O |
+| 0x0202 | Fan Control | server | | M |
 
 #### <span id="page-112-2"></span>**9.2.6. Cluster Restrictions**
 
@@ -3386,16 +3143,14 @@ It is a device that has a fan to control the air speed while it is operating. Op
 
 #### <span id="page-113-0"></span>**9.3.1. Revision History**
 
-| Revision | Description          |
-|----------|----------------------|
-| 1        | Initial revision     |
-| 2        | Added On/Off cluster |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added On/Off cluster |
 
 #### <span id="page-113-1"></span>**9.3.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x002D         | Air Purifier        |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x002D | Air Purifier | | Simple | Endpoint |
 
 #### <span id="page-113-2"></span>**9.3.3. Conditions**
 
@@ -3405,26 +3160,23 @@ See the Base Device Type definition for conformance tags.
 
 An Air Purifier MAY expose elements of its functionality through one or more additional device types on different endpoints. All devices used in compositions SHALL adhere to the disambiguation requirements of the System Model. Other device types, not explicitly listed in the table, MAY also be included in device compositions but are not considered part of the core functionality of the device.
 
-| Device Type ID | Device Type Name   | Constraint | Conformance |
-|----------------|--------------------|------------|-------------|
-| 0x002C         | Air Quality Sensor |            | O           |
-| 0x0301         | Thermostat         |            | O           |
-| 0x0302         | Temperature Sensor |            | O           |
-| 0x0307         | Humidity Sensor    |            | O           |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x002C | Air Quality Sensor | | O |
+| 0x0301 | Thermostat | | O |
+| 0x0302 | Temperature Sensor | | O |
+| 0x0307 | Humidity Sensor | | O |
 
 ### <span id="page-113-4"></span>**9.3.5. Cluster Requirements**
 
-| Cluster ID | Cluster Name                          | Client/Server | Quality | Conformance |
-|------------|---------------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                              | Server        |         | M           |
-| 0x0004     | Groups                                | Server        |         | O           |
-| 0x0006     | On/Off                                | Server        |         | O           |
-| 0x0071     | HEPA Filter Moni<br>toring            | Server        |         | O           |
-| 0x0072     | Activated Carbon<br>Filter Monitoring | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0004 | Groups | Server | | O |
+| 0x0006 | On/Off | Server | | O |
+| 0x0071 | HEPA Filter Moni<br>toring | Server | | O |
+| 0x0072 | Activated Carbon<br>Filter Monitoring | Server | | O |
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0202     | Fan Control  | Server        |         | M           |
+| 0x0202 | Fan Control | Server | | M |
 
 #### <span id="page-114-0"></span>**9.3.6. Cluster Restrictions**
 
@@ -3440,15 +3192,13 @@ A Thermostat Controller is a device capable of controlling a Thermostat.
 
 ### <span id="page-114-2"></span>**9.4.1. Revision History**
 
-| Revision | Description             |
-|----------|-------------------------|
-| 1        | Initial Matter revision |
+| Revision | Description |
+| 1 | Initial Matter revision |
 
 #### <span id="page-114-3"></span>**9.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name       | Superset Of | Class  | Scope    |
-|----------------|---------------------------|-------------|--------|----------|
-| 0x030A         | Thermostat Con<br>troller |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x030A | Thermostat Con<br>troller | | Simple | Endpoint |
 
 #### <span id="page-114-4"></span>**9.4.3. Conditions**
 
@@ -3456,12 +3206,11 @@ Please see the Base Device Type definition for conformance tags.
 
 ### <span id="page-114-5"></span>**9.4.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name          | Client/Server | Quality | Conformance |
-|------------|-----------------------|---------------|---------|-------------|
-| 0x0003     | Identify              | Client        |         | O           |
-| 0x0004     | Groups                | Client        |         | O           |
-| 0x0062     | Scenes Manage<br>ment | Client        |         | O           |
-| 0x0201     | Thermostat            | Client        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Client | | O |
+| 0x0004 | Groups | Client | | O |
+| 0x0062 | Scenes Manage<br>ment | Client | | O |
+| 0x0201 | Thermostat | Client | | M |
 
 # <span id="page-116-0"></span>**Chapter 10. Media Device Types**
 
@@ -3489,8 +3238,6 @@ A Video Remote Control is a **commissionable node** used to control basic featur
 
 A Casting Video Client is a **commissionable node** which extends the Video Remote Control features with the ability to initiate content launching (Content Launcher cluster client). A Casting Video Client is often associated with a Content App built by a specific Content Provider - for example, the Vendor Id of the Content App's Application Basic cluster will match the Vendor Id of the Casting Video Client.
 
-![](_page_117_Picture_2.jpeg)
-
 *Figure 7. Video Player Device Types*
 
 ### <span id="page-117-0"></span>**10.1.2. Clients of a Casting Video Player**
@@ -3507,8 +3254,6 @@ A Casting Video Player with a Content App Platform SHALL represent each Content 
 The requirements for allocating and deallocating an endpoint address for a Content App SHALL be as described in the System Model specification (see "Dynamic Endpoint allocation").
 
 The following diagram shows a Video Player device containing 3 separate Content Apps:
-
-![](_page_118_Figure_2.jpeg)
 
 *Figure 8. Endpoint Composition for Video Player Device*
 
@@ -3544,9 +3289,9 @@ Since a Client commissioned by the Casting Video Player will only have access to
 The following steps are performed by a Casting Video Player when granting and removing Client access to Content App endpoints:
 
 - 1. Upon commissioning a Client and granting it access to a Content App endpoint, the Casting Video Player SHALL invoke the Login command of the AccountLogin cluster on the Content App endpoint (when implemented by the Content App) in order to notify the Content App endpoint of the Client.
-  - a. If the Client is a Casting Video Client and it implements the Content App Observer server cluster, and if the Content App endpoint implements both the Binding server cluster and the Content App Observer client cluster, then the Casting Video Player SHALL create a binding on the Content App endpoint which specifies the Node and Endpoint of the Casting Video Client's Content App Observer server cluster. The Casting Video Player SHALL provide a way for the Content App to send a Content App Observer cluster ContentAppMessage command to the Casting Video Client and to receive a ContentAppMessageResponse in return.
+- a. If the Client is a Casting Video Client and it implements the Content App Observer server cluster, and if the Content App endpoint implements both the Binding server cluster and the Content App Observer client cluster, then the Casting Video Player SHALL create a binding on the Content App endpoint which specifies the Node and Endpoint of the Casting Video Client's Content App Observer server cluster. The Casting Video Player SHALL provide a way for the Content App to send a Content App Observer cluster ContentAppMessage command to the Casting Video Client and to receive a ContentAppMessageResponse in return.
 - 2. Upon removing access to a Content App endpoint for a Client, the Casting Video Player SHALL invoke the Logout command of the AccountLogin cluster on the Content App endpoint (when implemented by the Content App) in order to notify the Content App endpoint that Client access has been removed.
-  - a. If the Casting Video Player created a binding on the Content App endpoint corresponding to the Casting Video Client's Content App Observer server cluster, then the Casting Video Player SHALL remove this binding.
+- a. If the Casting Video Player created a binding on the Content App endpoint corresponding to the Casting Video Client's Content App Observer server cluster, then the Casting Video Player SHALL remove this binding.
 
 When the Content App endpoint generates a LoggedOut event, the Casting Video Player SHALL remove access to the Node specified to the given Content App endpoint.
 
@@ -3647,7 +3392,7 @@ Many Video Player devices (traditional TVs, Set Top Boxes, Content Streamers) ha
 
 #### **10.1.7.1. Discover and Launch Content App from another Device**
 
-This feature allows a client to discover the Content App identification catalogs supported by a Video Player device, and launch an Application based upon a Content App identifier within a given catalog. An example Content App identification catalog is the DIAL registry [\(http://www.dial-](http://www.dial-multiscreen.org/) [multiscreen.org/\)](http://www.dial-multiscreen.org/).
+This feature allows a client to discover the Content App identification catalogs supported by a Video Player device, and launch an Application based upon a Content App identifier within a given catalog. An example Content App identification catalog is the DIAL registry \(http://www.dial- multiscreen.org/\).
 
 The Application Launcher cluster SHALL be used for this functionality.
 
@@ -3667,27 +3412,24 @@ A Basic Video Player has playback controls (play, pause, etc.) and keypad remote
 
 For example, a Basic Video Player can be a traditional TV device a physical media playback device such as a DVD Player, or a device that provides input to another device like a TV or computer monitor.
 
-See [Section 10.1, "Video Player Architecture"](#page-116-1) for additional Basic Video Player requirements relating to Video Player device endpoint composition, commissioning, feature representation in clusters, and UI context.
+See Section 10.1, "Video Player Architecture" for additional Basic Video Player requirements relating to Video Player device endpoint composition, commissioning, feature representation in clusters, and UI context.
 
 #### <span id="page-123-1"></span>**10.2.1. Revision History**
 
-| Revision | Description                                 |
-|----------|---------------------------------------------|
-| 1        | Initial revision                            |
-| 2        | Added Messages and Content Control clusters |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added Messages and Content Control clusters |
 
 #### <span id="page-123-2"></span>**10.2.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0028         | Basic Video Player  |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0028 | Basic Video Player | | Simple | Endpoint |
 
 #### <span id="page-123-3"></span>**10.2.3. Conditions**
 
 This device type SHALL support the following conformance conditions as defined below.
 
-| Condition      | Description                               |
-|----------------|-------------------------------------------|
+| Condition | Description |
 | PhysicalInputs | The device has physical inputs for media. |
 
 See the Base Device Type definition for additional conformance tags.
@@ -3696,19 +3438,18 @@ See the Base Device Type definition for additional conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name     | Client/Server | Quality | Conformance    |
-|------------|------------------|---------------|---------|----------------|
-| 0x0006     | On/Off           | Server        |         | M              |
-| 0x0097     | Messages         | Server        |         | O              |
-| 0x0503     | Wake On LAN      | Server        |         | O              |
-| 0x0504     | Channel          | Server        |         | O              |
-| 0x0505     | Target Navigator | Server        |         | O              |
-| 0x0506     | Media Playback   | Server        |         | M              |
-| 0x0507     | Media Input      | Server        |         | PhysicalInputs |
-| 0x0508     | Low Power        | Server        |         | O              |
-| 0x0509     | Keypad Input     | Server        |         | M              |
-| 0x050B     | Audio Output     | Server        |         | O              |
-| 0x050F     | Content Control  | Server        |         | P, O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0006 | On/Off | Server | | M |
+| 0x0097 | Messages | Server | | O |
+| 0x0503 | Wake On LAN | Server | | O |
+| 0x0504 | Channel | Server | | O |
+| 0x0505 | Target Navigator | Server | | O |
+| 0x0506 | Media Playback | Server | | M |
+| 0x0507 | Media Input | Server | | PhysicalInputs |
+| 0x0508 | Low Power | Server | | O |
+| 0x0509 | Keypad Input | Server | | M |
+| 0x050B | Audio Output | Server | | O |
+| 0x050F | Content Control | Server | | P, O |
 
 # <span id="page-124-1"></span>**10.3. Casting Video Player Device Type**
 
@@ -3720,61 +3461,55 @@ A Casting Video Player has basic controls for playback (play, pause, etc.) and k
 
 For example, a Casting Video Player can be a smart TV device, a TV Set Top Box, or a content streaming device that provides input to another device like a TV or computer monitor.
 
-See [Section 10.1, "Video Player Architecture"](#page-116-1) for additional Casting Video Player requirements relating to Video Player device endpoint composition, commissioning, feature representation in clusters, and UI context.
+See Section 10.1, "Video Player Architecture" for additional Casting Video Player requirements relating to Video Player device endpoint composition, commissioning, feature representation in clusters, and UI context.
 
 ### <span id="page-124-2"></span>**10.3.1. Revision History**
 
-| Revision | Description                                 |
-|----------|---------------------------------------------|
-| 1        | Initial revision                            |
-| 2        | Added Messages and Content Control clusters |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added Messages and Content Control clusters |
 
 #### <span id="page-125-0"></span>**10.3.2. Classification**
 
-| Device Type ID | Device Type<br>Name     | Superset Of | Class  | Scope    |
-|----------------|-------------------------|-------------|--------|----------|
-| 0x0023         | Casting Video<br>Player |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0023 | Casting Video<br>Player | | Simple | Endpoint |
 
 #### <span id="page-125-1"></span>**10.3.3. Conditions**
 
 This device type SHALL support the following conformance conditions as defined below.
 
-| Condition          | Description                                                                                                                                                                                                                                                        |
-|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Condition | Description |
 | ContentAppPlatform | The device includes a Content App Platform. A<br>Content App is usually an application built by a<br>Content Provider. A Casting Video Player with a<br>Content App Platform is able to launch Content<br>Apps and represent these apps as separate end<br>points. |
-| PhysicalInputs     | The device has physical inputs for media.                                                                                                                                                                                                                          |
+| PhysicalInputs | The device has physical inputs for media. |
 
 See the Base Device Type definition for additional conformance tags.
 
 ### <span id="page-125-2"></span>**10.3.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name     | Client/Server | Quality | Conformance    |
-|------------|------------------|---------------|---------|----------------|
-| 0x0006     | On/Off           | Server        |         | M              |
-| 0x0097     | Messages         | Server        |         | O              |
-| 0x0503     | Wake On LAN      | Server        |         | O              |
-| 0x0504     | Channel          | Server        |         | O              |
-| 0x0505     | Target Navigator | Server        |         | O              |
-| 0x0506     | Media Playback   | Server        |         | M              |
-| 0x0507     | Media Input      | Server        |         | PhysicalInputs |
-| 0x0508     | Low Power        | Server        |         | O              |
-| 0x0509     | Keypad Input     | Server        |         | M              |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0006 | On/Off | Server | | M |
+| 0x0097 | Messages | Server | | O |
+| 0x0503 | Wake On LAN | Server | | O |
+| 0x0504 | Channel | Server | | O |
+| 0x0505 | Target Navigator | Server | | O |
+| 0x0506 | Media Playback | Server | | M |
+| 0x0507 | Media Input | Server | | PhysicalInputs |
+| 0x0508 | Low Power | Server | | O |
+| 0x0509 | Keypad Input | Server | | M |
 
-| Cluster ID | Cluster Name            | Client/Server | Quality | Conformance            |
-|------------|-------------------------|---------------|---------|------------------------|
-| 0x050A     | Content Launcher        | Server        |         | M                      |
-| 0x050B     | Audio Output            | Server        |         | O                      |
-| 0x050C     | Application<br>Launcher | Server        |         | ContentAppPlat<br>form |
-| 0x050E     | Account Login           | Server        |         | O                      |
-| 0x050F     | Content Control         | Server        |         | P, O                   |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x050A | Content Launcher | Server | | M |
+| 0x050B | Audio Output | Server | | O |
+| 0x050C | Application<br>Launcher | Server | | ContentAppPlat<br>form |
+| 0x050E | Account Login | Server | | O |
+| 0x050F | Content Control | Server | | P, O |
 
 #### <span id="page-126-0"></span>**10.3.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank entry means no change.
 
-| Cluster ID | Cluster<br>Name         | Element | Name                    | Constraint | Access | Confor<br>mance |
-|------------|-------------------------|---------|-------------------------|------------|--------|-----------------|
-| 0x050C     | Application<br>Launcher | Feature | Application<br>Platform |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x050C | Application<br>Launcher | Feature | Application<br>Platform | | | M |
 
 # <span id="page-126-1"></span>**10.4. Speaker Device Type**
 
@@ -3790,15 +3525,13 @@ The decision to use Level and On/Off clusters for volume (rather than defining a
 
 ### <span id="page-126-2"></span>**10.4.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-126-3"></span>**10.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0022         | Speaker             |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0022 | Speaker | | Simple | Endpoint |
 
 #### <span id="page-127-0"></span>**10.4.3. Conditions**
 
@@ -3808,10 +3541,9 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name  | Client/Server | Quality | Conformance |
-|------------|---------------|---------------|---------|-------------|
-| 0x0006     | On/Off        | Server        |         | M           |
-| 0x0008     | Level Control | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0006 | On/Off | Server | | M |
+| 0x0008 | Level Control | Server | | M |
 
 # <span id="page-127-2"></span>**10.5. Content App Device Type**
 
@@ -3821,22 +3553,19 @@ A Content App is usually an application built by a Content Provider. A Casting V
 
 ### <span id="page-127-3"></span>**10.5.1. Revision History**
 
-| Revision | Description                        |  |
-|----------|------------------------------------|--|
-| 1        | Initial revision                   |  |
-| 2        | Added Content App Observer cluster |  |
+| Revision | Description | |
+| 1 | Initial revision | |
+| 2 | Added Content App Observer cluster | |
 
 #### <span id="page-127-4"></span>**10.5.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0024         | Content App         |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0024 | Content App | | Simple | Endpoint |
 
 #### <span id="page-127-5"></span>**10.5.3. Conditions**
 
-| Condition      | Description                                   |  |  |
-|----------------|-----------------------------------------------|--|--|
-| ObserverClient | The node is a client for ContentAppObservers. |  |  |
+| Condition | Description | | |
+| ObserverClient | The node is a client for ContentAppObservers. | | |
 
 See the Base Device Type definition for additional conformance tags.
 
@@ -3844,25 +3573,23 @@ See the Base Device Type definition for additional conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name            | Client/Server | Quality | Conformance    |
-|------------|-------------------------|---------------|---------|----------------|
-| 0x0504     | Channel                 | Server        |         | O              |
-| 0x0505     | Target Navigator        | Server        |         | O              |
-| 0x0506     | Media Playback          | Server        |         | O              |
-| 0x0509     | Keypad Input            | Server        |         | M              |
-| 0x050A     | Content Launcher        | Server        |         | O              |
-| 0x050C     | Application<br>Launcher | Server        |         | M              |
-| 0x050D     | Application Basic       | Server        |         | M              |
-| 0x050E     | Account Login           | Server        |         | O              |
-| 0x0510     | Content App<br>Observer | Client        |         | ObserverClient |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0504 | Channel | Server | | O |
+| 0x0505 | Target Navigator | Server | | O |
+| 0x0506 | Media Playback | Server | | O |
+| 0x0509 | Keypad Input | Server | | M |
+| 0x050A | Content Launcher | Server | | O |
+| 0x050C | Application<br>Launcher | Server | | M |
+| 0x050D | Application Basic | Server | | M |
+| 0x050E | Account Login | Server | | O |
+| 0x0510 | Content App<br>Observer | Client | | ObserverClient |
 
 ### <span id="page-128-1"></span>**10.5.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank entry means no change.
 
-| Cluster ID | Cluster<br>Name         | Element | Name                    | Constraint | Access | Confor<br>mance |
-|------------|-------------------------|---------|-------------------------|------------|--------|-----------------|
-| 0x050C     | Application<br>Launcher | Feature | Application<br>Platform |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x050C | Application<br>Launcher | Feature | Application<br>Platform | | | X |
 
 ### <span id="page-128-2"></span>**10.5.6. Endpoint Composition**
 
@@ -3882,16 +3609,14 @@ Smart Speaker or a Content Provider phone app.
 
 #### <span id="page-129-0"></span>**10.6.1. Revision History**
 
-| Revision | Description                                                          |
-|----------|----------------------------------------------------------------------|
-| 1        | Initial revision                                                     |
-| 2        | Added Content App Observer, Messages and<br>Content Control Clusters |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added Content App Observer, Messages and<br>Content Control Clusters |
 
 #### <span id="page-129-1"></span>**10.6.2. Classification**
 
-| Device Type ID | Device Type<br>Name     | Superset Of | Class  | Scope    |
-|----------------|-------------------------|-------------|--------|----------|
-| 0x0029         | Casting Video<br>Client |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0029 | Casting Video<br>Client | | Simple | Endpoint |
 
 #### <span id="page-129-2"></span>**10.6.3. Conditions**
 
@@ -3901,30 +3626,28 @@ See the Base Device Type definition for additional conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-See [Section 1.1.7, "Cluster Requirements"](#page-26-1) for additional clusters including the Binding cluster.
+See Section 1.1.7, "Cluster Requirements" for additional clusters including the Binding cluster.
 
-| Cluster ID | Cluster Name     | Client/Server | Quality | Conformance |
-|------------|------------------|---------------|---------|-------------|
-| 0x0006     | On/Off           | Client        |         | M           |
-| 0x0008     | Level Control    | Client        |         | O           |
-| 0x0097     | Messages         | Client        |         | O           |
-| 0x0503     | Wake On LAN      | Client        |         | O           |
-| 0x0504     | Channel          | Client        |         | O           |
-| 0x0505     | Target Navigator | Client        |         | O           |
-| 0x0506     | Media Playback   | Client        |         | O           |
-| 0x0507     | Media Input      | Client        |         | O           |
-| 0x0508     | Low Power        | Client        |         | O           |
-| 0x0509     | Keypad Input     | Client        |         | M           |
-| 0x050A     | Content Launcher | Client        |         | M           |
-| 0x050B     | Audio Output     | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0006 | On/Off | Client | | M |
+| 0x0008 | Level Control | Client | | O |
+| 0x0097 | Messages | Client | | O |
+| 0x0503 | Wake On LAN | Client | | O |
+| 0x0504 | Channel | Client | | O |
+| 0x0505 | Target Navigator | Client | | O |
+| 0x0506 | Media Playback | Client | | O |
+| 0x0507 | Media Input | Client | | O |
+| 0x0508 | Low Power | Client | | O |
+| 0x0509 | Keypad Input | Client | | M |
+| 0x050A | Content Launcher | Client | | M |
+| 0x050B | Audio Output | Client | | O |
 
-| Cluster ID | Cluster Name            | Client/Server | Quality | Conformance |
-|------------|-------------------------|---------------|---------|-------------|
-| 0x050C     | Application<br>Launcher | Client        |         | O           |
-| 0x050D     | Application Basic       | Client        |         | M           |
-| 0x050E     | Account Login           | Client        |         | O           |
-| 0x050F     | Content Control         | Client        |         | P, O        |
-| 0x0510     | Content App<br>Observer | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x050C | Application<br>Launcher | Client | | O |
+| 0x050D | Application Basic | Client | | M |
+| 0x050E | Account Login | Client | | O |
+| 0x050F | Content Control | Client | | P, O |
+| 0x0510 | Content App<br>Observer | Server | | O |
 
 # <span id="page-130-0"></span>**10.7. Video Remote Control Device Type**
 
@@ -3934,16 +3657,14 @@ A Video Remote Control is a client that can control a Video Player, for example,
 
 #### <span id="page-130-1"></span>**10.7.1. Revision History**
 
-| Revision | Description                   |
-|----------|-------------------------------|
-| 1        | Initial revision              |
-| 2        | Added Content Control cluster |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added Content Control cluster |
 
 #### <span id="page-130-2"></span>**10.7.2. Classification**
 
-| Device Type ID | Device Type<br>Name      | Superset Of | Class  | Scope    |
-|----------------|--------------------------|-------------|--------|----------|
-| 0x002A         | Video Remote Con<br>trol |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x002A | Video Remote Con<br>trol | | Simple | Endpoint |
 
 #### <span id="page-130-3"></span>**10.7.3. Conditions**
 
@@ -3951,25 +3672,23 @@ See the Base Device Type definition for additional conformance tags.
 
 #### <span id="page-130-4"></span>**10.7.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name  | Client/Server | Quality | Conformance |
-|------------|---------------|---------------|---------|-------------|
-| 0x0006     | On/Off        | Client        |         | M           |
-| 0x0008     | Level Control | Client        |         | O           |
-| 0x0503     | Wake On LAN   | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0006 | On/Off | Client | | M |
+| 0x0008 | Level Control | Client | | O |
+| 0x0503 | Wake On LAN | Client | | O |
 
-| Cluster ID | Cluster Name            | Client/Server | Quality | Conformance |
-|------------|-------------------------|---------------|---------|-------------|
-| 0x0504     | Channel                 | Client        |         | O           |
-| 0x0505     | Target Navigator        | Client        |         | O           |
-| 0x0506     | Media Playback          | Client        |         | M           |
-| 0x0507     | Media Input             | Client        |         | O           |
-| 0x0508     | Low Power               | Client        |         | O           |
-| 0x0509     | Keypad Input            | Client        |         | M           |
-| 0x050A     | Content Launcher        | Client        |         | O           |
-| 0x050B     | Audio Output            | Client        |         | O           |
-| 0x050C     | Application<br>Launcher | Client        |         | O           |
-| 0x050E     | Account Login           | Client        |         | O           |
-| 0x050F     | Content Control         | Client        |         | P, O        |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0504 | Channel | Client | | O |
+| 0x0505 | Target Navigator | Client | | O |
+| 0x0506 | Media Playback | Client | | M |
+| 0x0507 | Media Input | Client | | O |
+| 0x0508 | Low Power | Client | | O |
+| 0x0509 | Keypad Input | Client | | M |
+| 0x050A | Content Launcher | Client | | O |
+| 0x050B | Audio Output | Client | | O |
+| 0x050C | Application<br>Launcher | Client | | O |
+| 0x050E | Account Login | Client | | O |
+| 0x050F | Content Control | Client | | P, O |
 
 # <span id="page-132-0"></span>**Chapter 11. Generic Device Types**
 
@@ -3979,15 +3698,13 @@ This defines conformance to the Mode Select device type.
 
 #### <span id="page-132-2"></span>**11.1.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 ### <span id="page-132-3"></span>**11.1.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0027         | Mode Select         |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0027 | Mode Select | | Simple | Endpoint |
 
 ### <span id="page-132-4"></span>**11.1.3. Conditions**
 
@@ -3998,8 +3715,7 @@ See the Base Device Type definition for conformance tags.
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0050     | Mode Select  | Server        |         | M           |
+| 0x0050 | Mode Select | Server | | M |
 
 # <span id="page-132-6"></span>**11.2. Aggregator Device Type**
 
@@ -4011,24 +3727,21 @@ When using this device type as a collection of bridged nodes, please see the "Br
 
 ### <span id="page-132-7"></span>**11.2.1. Revision History**
 
-| Revision | Description                                                                 |  |
-|----------|-----------------------------------------------------------------------------|--|
-| 1        | Initial revision                                                            |  |
-| 2        | Added Commissioner Control Cluster and Fabric<br>Synchronization Condition. |  |
+| Revision | Description | |
+| 1 | Initial revision | |
+| 2 | Added Commissioner Control Cluster and Fabric<br>Synchronization Condition. | |
 
 #### <span id="page-133-0"></span>**11.2.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x000E         | Aggregator          |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x000E | Aggregator | | Simple | Endpoint |
 
 #### <span id="page-133-1"></span>**11.2.3. Conditions**
 
 This device type MAY support the following conformance conditions as defined below.
 
-| Condition             | Description            |  |
-|-----------------------|------------------------|--|
-| FabricSynchronization | See description below. |  |
+| Condition | Description | |
+| FabricSynchronization | See description below. | |
 
 See the Base Device Type definition for additional conformance tags.
 
@@ -4040,11 +3753,10 @@ The FabricSynchronization condition applies when there is a Commissioner Control
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name            | Client/Server | Quality | Conformance               |
-|------------|-------------------------|---------------|---------|---------------------------|
-| 0x0025     | Actions                 | Server        |         | O                         |
-| 0x0003     | Identify                | Server        |         | O                         |
-| 0x0751     | Commissioner<br>Control | Server        |         | FabricSynchro<br>nization |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0025 | Actions | Server | | O |
+| 0x0003 | Identify | Server | | O |
+| 0x0751 | Commissioner<br>Control | Server | | FabricSynchro<br>nization |
 
 The Identify cluster SHOULD be used in case this device type is used to represent a Bridge which has a mechanism to identify itself to the user (e.g. blinking LED on the bridge itself).
 
@@ -4061,12 +3773,10 @@ points aggregated by the Aggregator device type, i.e. the full-family pattern de
 When a Node has multiple instances of the Aggregator device type, the composition SHALL comply with one of the following two patterns for any given pair (A,B) of endpoints with the Aggregator device type:
 
 - **No overlap**: The endpoints in the PartsList attribute of Aggregator A do not appear in the PartsList attribute of Aggregator B, and vice versa.
-  - Example: A Node which bridges to two non-Matter independent technologies (e.g. Zigbee and Z-Wave), see the aggregators on endpoints 11 and 31 in the figure below - their lists of endpoints (12-14, 21-23 versus 32-33) do not overlap.
+- Example: A Node which bridges to two non-Matter independent technologies (e.g. Zigbee and Z-Wave), see the aggregators on endpoints 11 and 31 in the figure below - their lists of endpoints (12-14, 21-23 versus 32-33) do not overlap.
 - **Strict subset**: The endpoint where aggregator B is exposed and all endpoints in its PartsList attribute (the subset) are included in the PartsList attribute of Aggregator A (the superset).
-  - This maintains the rule that there SHALL be a single path from the Root Node to each endpoint (see [System Model\)](#page-23-5).
-  - Example: A Node which implements a bridge to Zigbee, and one of those Zigbee devices is connected to a string of DALI lights, which can be addressed individually and thus this Zigbee/DALI device functions as a bridge from Zigbee to DALI; in the figure below one can see that the endpoints for the Zigbee/DALI bridge listed in the PartsList of the aggregator on endpoint 14 (21-23) form a strict subset of the endpoints for the Zigbee bridge in the PartsList of the aggregator on endpoint 11 (12-14, 21-23), and the endpoint 14 of the "subset" aggregator is included in the PartsList of the "superset" aggregator on endpoint 11.
-
-![](_page_135_Figure_2.jpeg)
+- This maintains the rule that there SHALL be a single path from the Root Node to each endpoint (see System Model\).
+- Example: A Node which implements a bridge to Zigbee, and one of those Zigbee devices is connected to a string of DALI lights, which can be addressed individually and thus this Zigbee/DALI device functions as a bridge from Zigbee to DALI; in the figure below one can see that the endpoints for the Zigbee/DALI bridge listed in the PartsList of the aggregator on endpoint 14 (21-23) form a strict subset of the endpoints for the Zigbee bridge in the PartsList of the aggregator on endpoint 11 (12-14, 21-23), and the endpoint 14 of the "subset" aggregator is included in the PartsList of the "superset" aggregator on endpoint 11.
 
 *Figure 9. examples of multiple aggregators*
 
@@ -4080,8 +3790,6 @@ Typically this is done using the NodeLabel attribute of the Bridged Device Basic
 
 Example: the Aggregator in this figure (copied from the "Bridge for non-Matter devices" section in the Core Specification) exposes several Color Temperature Lights (endpoints 13 and 22) which are disambiguated with their NodeLabel. Note that the compound device at endpoints 24, 25 and 26 also uses a TagList (for information rather than disambiguation) since, for this case, the bridge knows the lighting direction of both elements of the compound device.
 
-![](_page_136_Figure_4.jpeg)
-
 *Figure 10. use of NodeLabel and TagList for disambiguation*
 
 # <span id="page-138-0"></span>**Chapter 12. Robotic Device Types**
@@ -4092,18 +3800,16 @@ This defines conformance for the Robotic Vacuum Cleaner device type.
 
 #### <span id="page-138-2"></span>**12.1.1. Revision History**
 
-| Revision | Description                                                                                                                                                                  |
-|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1        | Initial revision                                                                                                                                                             |
-| 2        | Add cluster usage constraints and informative<br>data. Remove the element requirements section,<br>after moving all constraints to the respective<br>cluster specifications. |
-| 3        | Add support for the Service Area cluster                                                                                                                                     |
-| 4        | Mandate OperationCompletion Event                                                                                                                                            |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Add cluster usage constraints and informative<br>data. Remove the element requirements section,<br>after moving all constraints to the respective<br>cluster specifications. |
+| 3 | Add support for the Service Area cluster |
+| 4 | Mandate OperationCompletion Event |
 
 #### <span id="page-138-3"></span>**12.1.2. Classification**
 
-| Device Type ID | Device Type<br>Name       | Superset Of | Class  | Scope    |
-|----------------|---------------------------|-------------|--------|----------|
-| 0x0074         | Robotic Vacuum<br>Cleaner |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0074 | Robotic Vacuum<br>Cleaner | | Simple | Endpoint |
 
 #### <span id="page-138-4"></span>**12.1.3. Conditions**
 
@@ -4111,21 +3817,19 @@ See the Base Device Type definition for conformance tags.
 
 ## <span id="page-138-5"></span>**12.1.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name             | Client/Server | Quality | Conformance |
-|------------|--------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                 | Server        |         | M           |
-| 0x0054     | RVC Run Mode             | Server        |         | M           |
-| 0x0055     | RVC Clean Mode           | Server        |         | O           |
-| 0x0061     | RVC Operational<br>State | Server        |         | M           |
-| 0x0150     | Service Area             | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x0054 | RVC Run Mode | Server | | M |
+| 0x0055 | RVC Clean Mode | Server | | O |
+| 0x0061 | RVC Operational<br>State | Server | | M |
+| 0x0150 | Service Area | Server | | O |
 
 #### <span id="page-139-0"></span>**12.1.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name           | Element | Name                        | Constraint | Access | Confor<br>mance |
-|------------|---------------------------|---------|-----------------------------|------------|--------|-----------------|
-| 0x0061     | RVC Opera<br>tional State | Event   | Opera<br>tionComple<br>tion |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0061 | RVC Opera<br>tional State | Event | Opera<br>tionComple<br>tion | | | M |
 
 #### <span id="page-139-1"></span>**12.1.6. Cluster Usage**
 
@@ -4211,16 +3915,14 @@ A Laundry Washer SHALL be composed of at least one endpoint with the Laundry Was
 
 #### <span id="page-142-2"></span>**13.1.1. Revision History**
 
-| Revision | Description                       |
-|----------|-----------------------------------|
-| 1        | Initial revision                  |
-| 2        | Mandate OperationCompletion Event |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Mandate OperationCompletion Event |
 
 #### <span id="page-142-3"></span>**13.1.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0073         | Laundry Washer      |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0073 | Laundry Washer | | Simple | Endpoint |
 
 #### <span id="page-142-4"></span>**13.1.3. Conditions**
 
@@ -4228,14 +3930,13 @@ See the Base Device Type definition for conformance tags.
 
 ### <span id="page-142-5"></span>**13.1.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name               | Client/Server | Quality | Conformance |
-|------------|----------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                   | Server        |         | O           |
-| 0x0006     | On/Off                     | Server        |         | O           |
-| 0x0051     | Laundry Washer<br>Mode     | Server        |         | O           |
-| 0x0053     | Laundry Washer<br>Controls | Server        |         | O           |
-| 0x0056     | Temperature Con<br>trol    | Server        |         | O           |
-| 0x0060     | Operational State          | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | O |
+| 0x0006 | On/Off | Server | | O |
+| 0x0051 | Laundry Washer<br>Mode | Server | | O |
+| 0x0053 | Laundry Washer<br>Controls | Server | | O |
+| 0x0056 | Temperature Con<br>trol | Server | | O |
+| 0x0060 | Operational State | Server | | M |
 
 #### <span id="page-143-0"></span>**13.1.5. Cluster Restrictions**
 
@@ -4251,20 +3952,19 @@ As indicated in the Element Requirements section below, the DF (Dead Front) feat
 
 When in "dead front", should the operational values of the cluster attributes not be available or accessible, the following are the RECOMMENDED best effort values for per cluster attributes when responding to a new subscription request or a read request. Attributes not listed have no change in their defined or expected values.
 
-| Cluster Name            | Attribute        | Fallback |
-|-------------------------|------------------|----------|
-| Laundry Washer Mode     | CurrentMode      | MS       |
-| Laundry Washer Controls | SpinSpeedCurrent | null     |
-|                         | NumberOfRinses   | null     |
-|                         | SpinSpeeds       | null     |
-|                         | MaxRinses        | null     |
-| Temperature Control     | All attributes   | MS       |
-| Identify                | All attributes   | MS       |
-| Operational State       | PhaseList        | null     |
-|                         | CurrentPhase     | null     |
-|                         | CountdownTime    | null     |
-|                         | OperationalState | Stopped  |
-|                         | OperationalError | No Error |
+| Cluster Name | Attribute | Fallback |
+| Laundry Washer Mode | CurrentMode | MS |
+| Laundry Washer Controls | SpinSpeedCurrent | null |
+| | NumberOfRinses | null |
+| | SpinSpeeds | null |
+| | MaxRinses | null |
+| Temperature Control | All attributes | MS |
+| Identify | All attributes | MS |
+| Operational State | PhaseList | null |
+| | CurrentPhase | null |
+| | CountdownTime | null |
+| | OperationalState | Stopped |
+| | OperationalError | No Error |
 
 #### <span id="page-143-1"></span>**13.1.6. Element Requirements**
 
@@ -4272,12 +3972,11 @@ The table below lists qualities and conformance that override the cluster specif
 
 ments. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name           | Element   | Name                        | Constraint | Access | Confor<br>mance |
-|------------|---------------------------|-----------|-----------------------------|------------|--------|-----------------|
-| 0x0006     | On/Off                    | Feature   | DeadFront<br>Behavior       |            |        | M               |
-| 0x0051     | Laundry<br>Washer<br>Mode | Feature   | OnOff                       |            |        | X               |
-| 0x0051     | Laundry<br>Washer<br>Mode | Attribute | StartUpMode                 |            |        | X               |
-| 0x0060     | Operational<br>State      | Event     | Opera<br>tionComple<br>tion |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0006 | On/Off | Feature | DeadFront<br>Behavior | | | M |
+| 0x0051 | Laundry<br>Washer<br>Mode | Feature | OnOff | | | X |
+| 0x0051 | Laundry<br>Washer<br>Mode | Attribute | StartUpMode | | | X |
+| 0x0060 | Operational<br>State | Event | Opera<br>tionComple<br>tion | | | M |
 
 # <span id="page-144-0"></span>**13.2. Refrigerator Device Type**
 
@@ -4285,7 +3984,7 @@ A refrigerator represents a device that contains one or more cabinets that are c
 
 ### <span id="page-144-1"></span>**13.2.1. Refrigerator Architecture**
 
-A Refrigerator is always defined via endpoint composition. See [Section 13.2.6, "Device Type](#page-146-0) [Requirements"](#page-146-0) for more details.
+A Refrigerator is always defined via endpoint composition. See Section 13.2.6, "Device Type Requirements" for more details.
 
 A Refrigerator MAY include a semantic tag in the TagList attribute of the Descriptor cluster to describe the primary function of the device, e.g., "Refrigerator" or "Freezer".
 
@@ -4295,16 +3994,14 @@ An example of a Refrigerator with multiple cabinets is illustrated below.
 
 #### <span id="page-145-0"></span>**13.2.2. Revision History**
 
-| Revision | Description              |
-|----------|--------------------------|
-| 1        | Initial revision         |
-| 2        | Added Cooler requirement |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added Cooler requirement |
 
 #### <span id="page-145-1"></span>**13.2.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0070         | Refrigerator        |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0070 | Refrigerator | | Simple | Endpoint |
 
 #### <span id="page-145-2"></span>**13.2.4. Conditions**
 
@@ -4314,9 +4011,8 @@ See the Base Device Type definition for conformance tags.
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location   | Device Type<br>ID | Device Type<br>Name                   | Condition | Conformance | Constraint |
-|------------|-------------------|---------------------------------------|-----------|-------------|------------|
-| Descendant | 0x0071            | Temperature<br>Controlled Cab<br>inet | Cooler    | M           | min 1      |
+| Location | Device Type<br>ID | Device Type<br>Name | Condition | Conformance | Constraint |
+| Descendant | 0x0071 | Temperature<br>Controlled Cab<br>inet | Cooler | M | min 1 |
 
 #### <span id="page-146-0"></span>**13.2.6. Device Type Requirements**
 
@@ -4324,31 +4020,27 @@ A Refrigerator SHALL be composed of at least one endpoint with the Temperature C
 
 If the Refrigerator contains more than one instance of a Temperature Controlled Cabinet, those instances SHALL include a semantic tag in the TagList attribute of the Descriptor cluster to disambiguate the cabinet, e.g., "freezer" or "refrigerator". Such a semantic tag SHALL be from either the defined Common or Refrigerator namespaces.
 
-| Device Type ID | Device Type Name                   | Constraint | Conformance |
-|----------------|------------------------------------|------------|-------------|
-| 0x0071         | Temperature Con<br>trolled Cabinet | min 1      | M           |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x0071 | Temperature Con<br>trolled Cabinet | min 1 | M |
 
 #### <span id="page-146-1"></span>**13.2.7. Cluster Requirements**
 
 Each endpoint supporting the refrigerator device type MAY include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                                                   | Client/Server | Quality | Conformance |
-|------------|----------------------------------------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                                                       | Server        |         | O           |
-| 0x0052     | Refrigerator And<br>Temperature Con<br>trolled Cabinet<br>Mode | Server        |         | O           |
-| 0x0057     | Refrigerator<br>Alarm                                          | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | O |
+| 0x0052 | Refrigerator And<br>Temperature Con<br>trolled Cabinet<br>Mode | Server | | O |
+| 0x0057 | Refrigerator<br>Alarm | Server | | O |
 
 ## <span id="page-146-2"></span>**13.2.8. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name                                                     | Element | Name  | Constraint | Access | Confor<br>mance |
-|------------|---------------------------------------------------------------------|---------|-------|------------|--------|-----------------|
-| 0x0052     | Refrigerator<br>And Temper<br>ature Con<br>trolled Cabi<br>net Mode | Feature | OnOff |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0052 | Refrigerator<br>And Temper<br>ature Con<br>trolled Cabi<br>net Mode | Feature | OnOff | | | X |
 
-| Cluster ID | Cluster<br>Name                                                     | Element   | Name        | Constraint | Access | Confor<br>mance |
-|------------|---------------------------------------------------------------------|-----------|-------------|------------|--------|-----------------|
-| 0x0052     | Refrigerator<br>And Temper<br>ature Con<br>trolled Cabi<br>net Mode | Attribute | StartUpMode |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0052 | Refrigerator<br>And Temper<br>ature Con<br>trolled Cabi<br>net Mode | Attribute | StartUpMode | | | X |
 
 # <span id="page-147-0"></span>**13.3. Room Air Conditioner Device Type**
 
@@ -4360,28 +4052,24 @@ A Room Air Conditioner is a device with the primary function of controlling the 
 
 A Room Air Conditioner is a device which at a minimum is capable of being turned on and off and of controlling the temperature in the living space.
 
-A Room Air Conditioner MAY also support additional capabilities via endpoint composition. See [Sec](#page-148-3)[tion 13.3.5, "Device Type Requirements"](#page-148-3) for typical device types.
+A Room Air Conditioner MAY also support additional capabilities via endpoint composition. See Section 13.3.5, "Device Type Requirements" for typical device types.
 
 The following diagram shows an example Room Air Conditioner consisting of a parent endpoint that is the Room Air Conditioner device type and several child endpoints providing additional capabilities. Note that two of the child endpoints are of the same device type, Temperature Sensor, which are being disambiguated via the requirements of endpoint composition defined in the system model.
-
-![](_page_147_Figure_11.jpeg)
 
 *Figure 12. Example of a Room Air Conditioner*
 
 #### <span id="page-148-0"></span>**13.3.2. Revision History**
 
-| Revision | Description                                                                                                                          |
-|----------|--------------------------------------------------------------------------------------------------------------------------------------|
-| 1        | Initial revision                                                                                                                     |
-| 2        | Thermostat User Interface Configuration cluster<br>added; Updated the Scenes cluster to Scenes<br>Management with Cluster ID: 0x0062 |
-| 3        | Added filter monitoring clusters                                                                                                     |
-| 4        |                                                                                                                                      |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Thermostat User Interface Configuration cluster<br>added; Updated the Scenes cluster to Scenes<br>Management with Cluster ID: 0x0062 |
+| 3 | Added filter monitoring clusters |
+| 4 | |
 
 ### <span id="page-148-1"></span>**13.3.3. Classification**
 
-| Device Type ID | Device Type<br>Name      | Superset Of | Class  | Scope    |
-|----------------|--------------------------|-------------|--------|----------|
-| 0x0072         | Room Air Condi<br>tioner |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0072 | Room Air Condi<br>tioner | | Simple | Endpoint |
 
 #### <span id="page-148-2"></span>**13.3.4. Conditions**
 
@@ -4391,29 +4079,26 @@ See the Base Device Type definition for conformance tags.
 
 A Room Air Conditioner MAY have zero or more of each device type listed in this table subject to the conformance column of the table. All devices used in compositions SHALL adhere to the disambiguation requirements of the System Model. Additional device types not listed in this table MAY also be included in device compositions.
 
-| Device Type ID | Device Type Name   | Constraint | Conformance |
-|----------------|--------------------|------------|-------------|
-| 0x0302         | Temperature Sensor |            | O           |
-| 0x0307         | Humidity Sensor    |            | O           |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x0302 | Temperature Sensor | | O |
+| 0x0307 | Humidity Sensor | | O |
 
 ### <span id="page-148-4"></span>**13.3.6. Cluster Requirements**
 
-| Cluster ID | Cluster Name           | Client/Server | Conformance |
-|------------|------------------------|---------------|-------------|
-| 0x0003     | Identify               | Server        | M           |
-| 0x0004     | Groups                 | Server        | O           |
-| 0x0006     | On/Off                 | Server        | M           |
-| 0x0062     | Scenes Management      | Server        | O           |
-| 0x0071     | HEPA Filter Monitoring | Server        | O           |
+| Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0003 | Identify | Server | M |
+| 0x0004 | Groups | Server | O |
+| 0x0006 | On/Off | Server | M |
+| 0x0062 | Scenes Management | Server | O |
+| 0x0071 | HEPA Filter Monitoring | Server | O |
 
-| Cluster ID | Cluster Name                                | Client/Server | Conformance |
-|------------|---------------------------------------------|---------------|-------------|
-| 0x0072     | Activated Carbon Filter<br>Monitoring       | Server        | O           |
-| 0x0201     | Thermostat                                  | Server        | M           |
-| 0x0202     | Fan Control                                 | Server        | O           |
-| 0x0204     | Thermostat User Inter<br>face Configuration | Server        | O           |
-| 0x0402     | Temperature Measure<br>ment                 | Server        | O           |
-| 0x0405     | Relative Humidity Mea<br>surement           | Server        | O           |
+| Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0072 | Activated Carbon Filter<br>Monitoring | Server | O |
+| 0x0201 | Thermostat | Server | M |
+| 0x0202 | Fan Control | Server | O |
+| 0x0204 | Thermostat User Inter<br>face Configuration | Server | O |
+| 0x0402 | Temperature Measure<br>ment | Server | O |
+| 0x0405 | Relative Humidity Mea<br>surement | Server | O |
 
 #### <span id="page-149-0"></span>**13.3.7. Cluster Restrictions**
 
@@ -4425,22 +4110,20 @@ As indicated in the Element Requirements section below, the DF (Dead Front) feat
 
 When in "dead front", should the operational values of the cluster attributes not be available or accessible, the following are the RECOMMENDED best effort values for per cluster attributes when responding to a new subscription request or a read request. Attributes not listed have no change in their defined or expected values.
 
-| Cluster Name                      | Attribute        | Fallback |
-|-----------------------------------|------------------|----------|
-| Thermostat                        | LocalTemperature | null     |
-| Temperature Measurement           | MeasuredValue    | null     |
-| Relative Humidity Measure<br>ment | MeasuredValue    | null     |
-| Fan Control                       | SpeedSetting     | null     |
-|                                   | PercentSetting   | null     |
+| Cluster Name | Attribute | Fallback |
+| Thermostat | LocalTemperature | null |
+| Temperature Measurement | MeasuredValue | null |
+| Relative Humidity Measure<br>ment | MeasuredValue | null |
+| Fan Control | SpeedSetting | null |
+| | PercentSetting | null |
 
 ### <span id="page-149-1"></span>**13.3.8. Element Requirements**
 
 This lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name                                       | Element   | Name                  | Constraint | Access | Confor<br>mance | Fallback |
-|------------|-------------------------------------------------------|-----------|-----------------------|------------|--------|-----------------|----------|
-| 0x0006     | On/Off                                                | Feature   | DeadFront<br>Behavior |            |        | M               |          |
-| 0x0204     | Thermo<br>stat User<br>Interface<br>Configura<br>tion | Attribute | Keypad<br>Lockout     |            |        | O               |          |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance | Fallback |
+| 0x0006 | On/Off | Feature | DeadFront<br>Behavior | | | M | |
+| 0x0204 | Thermo<br>stat User<br>Interface<br>Configura<br>tion | Attribute | Keypad<br>Lockout | | | O | |
 
 # <span id="page-150-0"></span>**13.4. Temperature Controlled Cabinet Device Type**
 
@@ -4448,19 +4131,17 @@ A Temperature Controlled Cabinet only exists composed as part of another device 
 
 #### <span id="page-150-1"></span>**13.4.1. Revision History**
 
-| Revision | Description                                                                    |
-|----------|--------------------------------------------------------------------------------|
-| 1        | Initial revision                                                               |
-| 2        | Extension to heating cabinets                                                  |
-| 3        | Added exclusivity for conditions                                               |
-| 4        | Mandate OperationCompletion Event for Oven<br>Cavity Operational State cluster |
-| 5        | Made TemperatureNumber (TN) the only valid<br>temperature control mode         |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Extension to heating cabinets |
+| 3 | Added exclusivity for conditions |
+| 4 | Mandate OperationCompletion Event for Oven<br>Cavity Operational State cluster |
+| 5 | Made TemperatureNumber (TN) the only valid<br>temperature control mode |
 
 #### <span id="page-150-2"></span>**13.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name                | Superset Of | Class  | Scope    |
-|----------------|------------------------------------|-------------|--------|----------|
-| 0x0071         | Temperature Con<br>trolled Cabinet |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0071 | Temperature Con<br>trolled Cabinet | | Simple | Endpoint |
 
 #### <span id="page-150-3"></span>**13.4.3. Conditions**
 
@@ -4468,10 +4149,9 @@ This device type SHALL support the following conformance conditions as defined b
 
 <span id="page-150-5"></span><span id="page-150-4"></span>
 
-| Condition | Description                           |
-|-----------|---------------------------------------|
-| Cooler    | The device has cooling functionality. |
-| Heater    | The device has heating functionality. |
+| Condition | Description |
+| Cooler | The device has cooling functionality. |
+| Heater | The device has heating functionality. |
 
 Endpoints SHALL support at most one condition.
 
@@ -4481,32 +4161,29 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                                                   | Client/Server | Quality | Conformance |
-|------------|----------------------------------------------------------------|---------------|---------|-------------|
-| 0x0056     | Temperature Con<br>trol                                        | Server        |         | M           |
-| 0x0402     | Temperature Mea<br>surement                                    | Server        |         | O           |
-| 0x0052     | Refrigerator And<br>Temperature Con<br>trolled Cabinet<br>Mode | Server        |         | [Cooler]    |
-| 0x0049     | Oven Mode                                                      | Server        |         | [Heater]    |
-| 0x0048     | Oven Cavity Oper<br>ational State                              | Server        |         | [Heater]    |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0056 | Temperature Con<br>trol | Server | | M |
+| 0x0402 | Temperature Mea<br>surement | Server | | O |
+| 0x0052 | Refrigerator And<br>Temperature Con<br>trolled Cabinet<br>Mode | Server | | [Cooler] |
+| 0x0049 | Oven Mode | Server | | [Heater] |
+| 0x0048 | Oven Cavity Oper<br>ational State | Server | | [Heater] |
 
 ### <span id="page-151-1"></span>**13.4.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name                                                     | Element   | Name        | Constraint | Access | Confor<br>mance |
-|------------|---------------------------------------------------------------------|-----------|-------------|------------|--------|-----------------|
-| 0x0052     | Refrigerator<br>And Temper<br>ature Con<br>trolled Cabi<br>net Mode | Attribute | StartUpMode |            |        | X               |
-| 0x0052     | Refrigerator<br>And Temper<br>ature Con<br>trolled Cabi<br>net Mode | Feature   | OnOff       |            |        | X               |
-| 0x0049     | Oven Mode                                                           | Attribute | StartUpMode |            |        | X               |
-| 0x0049     | Oven Mode                                                           | Feature   | OnOff       |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0052 | Refrigerator<br>And Temper<br>ature Con<br>trolled Cabi<br>net Mode | Attribute | StartUpMode | | | X |
+| 0x0052 | Refrigerator<br>And Temper<br>ature Con<br>trolled Cabi<br>net Mode | Feature | OnOff | | | X |
+| 0x0049 | Oven Mode | Attribute | StartUpMode | | | X |
+| 0x0049 | Oven Mode | Feature | OnOff | | | X |
 
-| Cluster ID | Cluster<br>Name                     | Element | Name                        | Constraint | Access | Confor<br>mance |
-|------------|-------------------------------------|---------|-----------------------------|------------|--------|-----------------|
-| 0x0048     | Oven Cavity<br>Operational<br>State | Command | Pause                       |            |        | X               |
-| 0x0048     | Oven Cavity<br>Operational<br>State | Command | Resume                      |            |        | X               |
-| 0x0048     | Oven Cavity<br>Operational<br>State | Event   | Opera<br>tionComple<br>tion |            |        | M               |
-| 0x0056     | Temperature<br>Control              | Feature | Tempera<br>tureNumber       |            |        | M               |
-| 0x0056     | Temperature<br>Control              | Feature | Tempera<br>tureLevel        |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0048 | Oven Cavity<br>Operational<br>State | Command | Pause | | | X |
+| 0x0048 | Oven Cavity<br>Operational<br>State | Command | Resume | | | X |
+| 0x0048 | Oven Cavity<br>Operational<br>State | Event | Opera<br>tionComple<br>tion | | | M |
+| 0x0056 | Temperature<br>Control | Feature | Tempera<br>tureNumber | | | M |
+| 0x0056 | Temperature<br>Control | Feature | Tempera<br>tureLevel | | | X |
 
 Temperature Controlled cabinets only allow the Temperature Control cluster to use the TemperatureNumber feature (i.e. actual temperature in °C). This is because using qualitative temperature levels (e.g. Low/Medium/High) does not allow the behavior expected by the majority of clients. Clients would be trying to "set the temperature" of a cabinet using that cluster, such as an oven's cooking temperature, or a refrigerator's internal cabinet temperature setpoint.
 
@@ -4516,16 +4193,14 @@ A dishwasher is a device that is generally installed in residential homes and is
 
 ### <span id="page-152-1"></span>**13.5.1. Revision History**
 
-| Revision | Description                       |
-|----------|-----------------------------------|
-| 1        | Initial revision                  |
-| 2        | Mandate OperationCompletion Event |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Mandate OperationCompletion Event |
 
 #### <span id="page-152-2"></span>**13.5.2. Classification**
 
-| ID     | Device Name | Superset Of | Class  | Scope    |
-|--------|-------------|-------------|--------|----------|
-| 0x0075 | Dishwasher  |             | Simple | Endpoint |
+| ID | Device Name | Superset Of | Class | Scope |
+| 0x0075 | Dishwasher | | Simple | Endpoint |
 
 #### <span id="page-152-3"></span>**13.5.3. Conditions**
 
@@ -4535,14 +4210,13 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| ID     | Cluster             | Client/Server | Conformance |
-|--------|---------------------|---------------|-------------|
-| 0x0003 | Identify            | Server        | O           |
-| 0x0006 | On/Off              | Server        | O           |
-| 0x0056 | Temperature Control | Server        | O           |
-| 0x0059 | Dishwasher Mode     | Server        | O           |
-| 0x005D | Dishwasher Alarm    | Server        | O           |
-| 0x0060 | Operational State   | Server        | M           |
+| ID | Cluster | Client/Server | Conformance |
+| 0x0003 | Identify | Server | O |
+| 0x0006 | On/Off | Server | O |
+| 0x0056 | Temperature Control | Server | O |
+| 0x0059 | Dishwasher Mode | Server | O |
+| 0x005D | Dishwasher Alarm | Server | O |
+| 0x0060 | Operational State | Server | M |
 
 **NOTE**
 
@@ -4562,26 +4236,24 @@ As indicated in the Element Requirements section below, the DF (Dead Front) feat
 
 When in "dead front", should the operational values of the cluster attributes not be available or accessible, the following are the RECOMMENDED best effort values for per cluster attributes when responding to a new subscription request or a read request. Attributes not listed have no change in their defined or expected values.
 
-| Cluster Name                 | Attribute        | Fallback |
-|------------------------------|------------------|----------|
-| Dishwasher Mode              | CurrentMode      | MS       |
-| Temperature Control          | All attributes   | MS       |
-| Dishwasher Operational State | PhaseList        | null     |
-|                              | CurrentPhase     | null     |
-|                              | CountdownTime    | null     |
-|                              | OperationalState | Stopped  |
-|                              | OperationalError | No Error |
+| Cluster Name | Attribute | Fallback |
+| Dishwasher Mode | CurrentMode | MS |
+| Temperature Control | All attributes | MS |
+| Dishwasher Operational State | PhaseList | null |
+| | CurrentPhase | null |
+| | CountdownTime | null |
+| | OperationalState | Stopped |
+| | OperationalError | No Error |
 
 #### <span id="page-154-0"></span>**13.5.6. Element Requirements**
 
 This lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| ID     | Cluster              | Element   | Name                        | Constraint | Access | Confor<br>mance |
-|--------|----------------------|-----------|-----------------------------|------------|--------|-----------------|
-| 0x0006 | On/Off               | Feature   | DeadFront<br>Behavior       |            |        | M               |
-| 0x0059 | Dishwasher<br>Mode   | Attribute | StartUpMode                 |            |        | X               |
-| 0x0059 | Dishwasher<br>Mode   | Feature   | OnOff                       |            |        | X               |
-| 0x0060 | Operational<br>State | Event     | Opera<br>tionComple<br>tion |            |        | M               |
+| ID | Cluster | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0006 | On/Off | Feature | DeadFront<br>Behavior | | | M |
+| 0x0059 | Dishwasher<br>Mode | Attribute | StartUpMode | | | X |
+| 0x0059 | Dishwasher<br>Mode | Feature | OnOff | | | X |
+| 0x0060 | Operational<br>State | Event | Opera<br>tionComple<br>tion | | | M |
 
 # <span id="page-154-1"></span>**13.6. Laundry Dryer Device Type**
 
@@ -4589,16 +4261,14 @@ A Laundry Dryer represents a device that is capable of drying laundry items.
 
 ### <span id="page-154-2"></span>**13.6.1. Revision History**
 
-| Revision | Description                       |  |
-|----------|-----------------------------------|--|
-| 1        | Initial revision                  |  |
-| 2        | Mandate OperationCompletion Event |  |
+| Revision | Description | |
+| 1 | Initial revision | |
+| 2 | Mandate OperationCompletion Event | |
 
 #### <span id="page-154-3"></span>**13.6.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x007C         | Laundry Dryer       |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x007C | Laundry Dryer | | Simple | Endpoint |
 
 #### <span id="page-155-0"></span>**13.6.3. Conditions**
 
@@ -4608,14 +4278,13 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name              | Client/Server | Quality | Conformance |
-|------------|---------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                  | Server        |         | O           |
-| 0x0051     | Laundry Washer<br>Mode    | Server        |         | O           |
-| 0x0006     | On/Off                    | Server        |         | O           |
-| 0x004A     | Laundry Dryer<br>Controls | Server        |         | O           |
-| 0x0056     | Temperature Con<br>trol   | Server        |         | O           |
-| 0x0060     | Operational State         | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | O |
+| 0x0051 | Laundry Washer<br>Mode | Server | | O |
+| 0x0006 | On/Off | Server | | O |
+| 0x004A | Laundry Dryer<br>Controls | Server | | O |
+| 0x0056 | Temperature Con<br>trol | Server | | O |
+| 0x0060 | Operational State | Server | | M |
 
 #### <span id="page-155-2"></span>**13.6.5. Cluster Restrictions**
 
@@ -4631,29 +4300,27 @@ The actions carried out by a Laundry Dryer device on receipt of specific command
 
 When in "dead front", should the operational values of the cluster attributes not be available or accessible, the following are the RECOMMENDED best effort values for per cluster attributes when responding to a new subscription request or a read request. Note that some of these attributes may be missing for the clusters not implemented on the endpoint due to optionality.
 
-| Cluster Name           | Attribute            | Value                 |  |
-|------------------------|----------------------|-----------------------|--|
-| Laundry Dryer Mode     | CurrentMode          | Manufacturer Specific |  |
-| Laundry Dryer Controls | TemperatureLevel     | Null                  |  |
-|                        | DrynessLevel         | Null                  |  |
-| Temperature Control    | All attributes       | Manufacturer Specific |  |
-| Operational State      | PhaseList            | Null                  |  |
-|                        | CurrentPhase         | Null                  |  |
-|                        | CountdownTime        | Null                  |  |
-|                        | OperationalStateList | Fully populated       |  |
-|                        | OperationalState     | Stopped               |  |
-|                        | OperationalError     | No Error              |  |
+| Cluster Name | Attribute | Value | |
+| Laundry Dryer Mode | CurrentMode | Manufacturer Specific | |
+| Laundry Dryer Controls | TemperatureLevel | Null | |
+| | DrynessLevel | Null | |
+| Temperature Control | All attributes | Manufacturer Specific | |
+| Operational State | PhaseList | Null | |
+| | CurrentPhase | Null | |
+| | CountdownTime | Null | |
+| | OperationalStateList | Fully populated | |
+| | OperationalState | Stopped | |
+| | OperationalError | No Error | |
 
 ### <span id="page-156-0"></span>**13.6.6. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name           | Element   | Name                        | Constraint | Access | Confor<br>mance |
-|------------|---------------------------|-----------|-----------------------------|------------|--------|-----------------|
-| 0x0006     | On/Off                    | Feature   | DeadFront<br>Behavior       |            |        | M               |
-| 0x0051     | Laundry<br>Washer<br>Mode | Feature   | OnOff                       |            |        | X               |
-| 0x0051     | Laundry<br>Washer<br>Mode | Attribute | StartUpMode                 |            |        | X               |
-| 0x0060     | Operational<br>State      | Event     | Opera<br>tionComple<br>tion |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0006 | On/Off | Feature | DeadFront<br>Behavior | | | M |
+| 0x0051 | Laundry<br>Washer<br>Mode | Feature | OnOff | | | X |
+| 0x0051 | Laundry<br>Washer<br>Mode | Attribute | StartUpMode | | | X |
+| 0x0060 | Operational<br>State | Event | Opera<br>tionComple<br>tion | | | M |
 
 # <span id="page-156-1"></span>**13.7. Cook Surface Device Type**
 
@@ -4661,16 +4328,14 @@ A Cook Surface device type represents a heating object on a cooktop or other sim
 
 ### <span id="page-156-2"></span>**13.7.1. Revision History**
 
-| Revision | Description                                                            |
-|----------|------------------------------------------------------------------------|
-| 1        | Initial revision                                                       |
-| 2        | Made TemperatureLevel (TL) the only valid tem<br>perature control mode |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Made TemperatureLevel (TL) the only valid tem<br>perature control mode |
 
 #### <span id="page-157-0"></span>**13.7.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0077         | Cook Surface        |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0077 | Cook Surface | | Simple | Endpoint |
 
 #### <span id="page-157-1"></span>**13.7.3. Conditions**
 
@@ -4680,11 +4345,10 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                | Client/Server | Quality | Conformance |
-|------------|-----------------------------|---------------|---------|-------------|
-| 0x0006     | On/Off                      | Server        |         | O           |
-| 0x0056     | Temperature Con<br>trol     | Server        |         | O.a+        |
-| 0x0402     | Temperature Mea<br>surement | Server        |         | O.a+        |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0006 | On/Off | Server | | O |
+| 0x0056 | Temperature Con<br>trol | Server | | O.a+ |
+| 0x0402 | Temperature Mea<br>surement | Server | | O.a+ |
 
 #### <span id="page-157-3"></span>**13.7.5. Cluster Restrictions**
 
@@ -4696,14 +4360,12 @@ The OffOnly feature is required for the On/Off cluster in this device type due t
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name | Element | Name    | Constraint | Access | Confor<br>mance |
-|------------|-----------------|---------|---------|------------|--------|-----------------|
-| 0x0006     | On/Off          | Feature | OffOnly |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0006 | On/Off | Feature | OffOnly | | | M |
 
-| Cluster ID | Cluster<br>Name        | Element | Name                  | Constraint | Access | Confor<br>mance |
-|------------|------------------------|---------|-----------------------|------------|--------|-----------------|
-| 0x0056     | Temperature<br>Control | Feature | Tempera<br>tureLevel  |            |        | M               |
-| 0x0056     | Temperature<br>Control | Feature | Tempera<br>tureNumber |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0056 | Temperature<br>Control | Feature | Tempera<br>tureLevel | | | M |
+| 0x0056 | Temperature<br>Control | Feature | Tempera<br>tureNumber | | | X |
 
 Whenever the Temperature Control cluster is included on a Cook Surface, the Temperature Control cluster SHALL use the TemperatureLevel feature rather than the TemperatureNumber feature. This is because users are usually in the loop for controlling the temperature of the food being cooked within a heated cooking utensil. For example, while the surface temperature of a cooktop may be significantly above 100°C, an open pot of water will never exceed the boiling point of water as all excess energy transmitted is spent on the water's phase change to steam and the liquid within the pot reaches an equilibrium temperature.
 
@@ -4713,15 +4375,13 @@ A cooktop is a cooking surface that heats food either by transferring currents f
 
 #### <span id="page-158-1"></span>**13.8.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-158-2"></span>**13.8.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0078         | Cooktop             |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0078 | Cooktop | | Simple | Endpoint |
 
 #### <span id="page-158-3"></span>**13.8.3. Conditions**
 
@@ -4736,17 +4396,15 @@ A cooktop falls under strict regulatory control in some regions. One of these re
 If the Cooktop contains more than one instance of a Cook Surface, those instances SHALL include a semantic tag in the TagList attribute of the Descriptor cluster to disambiguate the cook surface, e.g., "front", "left", or "back". Such a semantic tag SHALL be from the Common namespaces.
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x0077         | Cook Surface     | min 1      | O           |
+| 0x0077 | Cook Surface | min 1 | O |
 
 #### <span id="page-159-0"></span>**13.8.5. Cluster Requirements**
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0003     | Identify     | Server        |         | O           |
-| 0x0006     | On/Off       | Server        |         | M           |
+| 0x0003 | Identify | Server | | O |
+| 0x0006 | On/Off | Server | | M |
 
 #### <span id="page-159-1"></span>**13.8.6. Cluster Restrictions**
 
@@ -4758,9 +4416,8 @@ The OffOnly feature is required for the On/Off cluster in this device type due t
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name | Element | Name    | Constraint | Access | Confor<br>mance |
-|------------|-----------------|---------|---------|------------|--------|-----------------|
-| 0x0006     | On/Off          | Feature | OffOnly |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0006 | On/Off | Feature | OffOnly | | | M |
 
 # <span id="page-159-3"></span>**13.9. Oven Device Type**
 
@@ -4768,26 +4425,22 @@ An oven represents a device that contains one or more cabinets, and optionally a
 
 #### <span id="page-159-4"></span>**13.9.1. Oven Architecture**
 
-An oven is always defined via endpoint composition. See [Section 13.9.6, "Device Type Require](#page-161-0)[ments"](#page-161-0) for more details.
+An oven is always defined via endpoint composition. See Section 13.9.6, "Device Type Requirements" for more details.
 
 An example of an oven with two cabinets (one above the other) and a cooktop (with two cook surfaces) is illustrated below.
-
-![](_page_160_Figure_3.jpeg)
 
 *Figure 13. Example of an Oven*
 
 #### <span id="page-160-0"></span>**13.9.2. Revision History**
 
-| Revision | Description              |
-|----------|--------------------------|
-| 1        | Initial revision         |
-| 2        | Added Heater requirement |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added Heater requirement |
 
 #### <span id="page-160-1"></span>**13.9.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x007B         | Oven                |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x007B | Oven | | Simple | Endpoint |
 
 #### <span id="page-160-2"></span>**13.9.4. Conditions**
 
@@ -4797,9 +4450,8 @@ See the Base Device Type definition for conformance tags.
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location   | Device Type<br>ID | Device Type<br>Name                   | Condition | Conformance | Constraint |
-|------------|-------------------|---------------------------------------|-----------|-------------|------------|
-| Descendant | 0x0071            | Temperature<br>Controlled Cab<br>inet | Heater    | M           | min 1      |
+| Location | Device Type<br>ID | Device Type<br>Name | Condition | Conformance | Constraint |
+| Descendant | 0x0071 | Temperature<br>Controlled Cab<br>inet | Heater | M | min 1 |
 
 #### <span id="page-161-0"></span>**13.9.6. Device Type Requirements**
 
@@ -4809,18 +4461,16 @@ If the Oven contains more than one instance of a Temperature Controlled Cabinet,
 
 Regional restrictions and safety regulations may dictate which aspects of a Temperature Controlled Cabinet may be remotely accessible. In such cases, clusters exposed by an instance of a Temperature Controlled Cabinet MAY have limitations on what commands are supported or what attributes are mutable.
 
-| Device Type ID | Device Type Name                   | Constraint | Conformance |
-|----------------|------------------------------------|------------|-------------|
-| 0x0071         | Temperature Con<br>trolled Cabinet | min 1      | M           |
-| 0x0078         | Cooktop                            | max 1      | O           |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x0071 | Temperature Con<br>trolled Cabinet | min 1 | M |
+| 0x0078 | Cooktop | max 1 | O |
 
 ### <span id="page-161-1"></span>**13.9.7. Cluster Requirements**
 
 Each endpoint supporting this device type MAY include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0003     | Identify     | Server        |         | O           |
+| 0x0003 | Identify | Server | | O |
 
 # <span id="page-161-2"></span>**13.10. Extractor Hood Device Type**
 
@@ -4838,15 +4488,13 @@ Extractor Hoods may also be known by the following names:
 
 #### <span id="page-162-0"></span>**13.10.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-162-1"></span>**13.10.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x007A         | Extractor Hood      |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x007A | Extractor Hood | | Simple | Endpoint |
 
 #### <span id="page-162-2"></span>**13.10.3. Conditions**
 
@@ -4854,33 +4502,29 @@ See the Base Device Type definition for conformance tags.
 
 ### <span id="page-162-3"></span>**13.10.4. Device Type Requirements**
 
-An Extractor Hood is composed of other device types listed in this table subject to the conformance column of the table. All devices used in compositions SHALL adhere to the disambiguation and superset requirements of the System Model. Specifically, please note that the On/Off Light as listed is a Superset Device Type as defined by the System Model (see *Superset Device Types* in [\[Matter-](#page-23-5)[Core\]\)](#page-23-5), and so the rules defined in that section apply to the use of On/Off Light as a superset when composed in this device type. Additional device types not listed in this table MAY also be included in device compositions.
+An Extractor Hood is composed of other device types listed in this table subject to the conformance column of the table. All devices used in compositions SHALL adhere to the disambiguation and superset requirements of the System Model. Specifically, please note that the On/Off Light as listed is a Superset Device Type as defined by the System Model (see *Superset Device Types* in \[Matter-[Core\]\)](#page-23-5), and so the rules defined in that section apply to the use of On/Off Light as a superset when composed in this device type. Additional device types not listed in this table MAY also be included in device compositions.
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x0100+        | On/Off Light+    |            | O           |
+| 0x0100+ | On/Off Light+ | | O |
 
 ## <span id="page-162-4"></span>**13.10.5. Cluster Requirements**
 
-| Cluster ID | Cluster Name           | Client/Server | Conformance |
-|------------|------------------------|---------------|-------------|
-| 0x0003     | Identify               | Server        | O           |
-| 0x0071     | HEPA Filter Monitoring | Server        | O           |
+| Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0003 | Identify | Server | O |
+| 0x0071 | HEPA Filter Monitoring | Server | O |
 
-| Cluster ID | Cluster Name                          | Client/Server | Conformance |
-|------------|---------------------------------------|---------------|-------------|
-| 0x0072     | Activated Carbon Filter<br>Monitoring | Server        | O           |
-| 0x0202     | Fan Control                           | Server        | M           |
+| Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0072 | Activated Carbon Filter<br>Monitoring | Server | O |
+| 0x0202 | Fan Control | Server | M |
 
 #### <span id="page-163-0"></span>**13.10.6. Element Requirements**
 
 This lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name | Element | Name                 | Constraint | Access | Confor<br>mance |
-|------------|-----------------|---------|----------------------|------------|--------|-----------------|
-| 0x0202     | Fan Control     | Feature | Rocking              |            |        | X               |
-| 0x0202     | Fan Control     | Feature | Wind                 |            |        | X               |
-| 0x0202     | Fan Control     | Feature | AirflowDi<br>rection |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0202 | Fan Control | Feature | Rocking | | | X |
+| 0x0202 | Fan Control | Feature | Wind | | | X |
+| 0x0202 | Fan Control | Feature | AirflowDi<br>rection | | | X |
 
 # <span id="page-163-1"></span>**13.11. Microwave Oven Device Type**
 
@@ -4892,28 +4536,24 @@ A Microwave Oven is a device with the primary function of heating foods and beve
 
 A Microwave Oven is a device which at a minimum is capable of being started and stopped and of setting a power level.
 
-A Microwave Oven MAY also support additional capabilities via endpoint composition. See [Section](#page-164-3) [13.11.5, "Device Type Requirements"](#page-164-3) for typical device types.
+A Microwave Oven MAY also support additional capabilities via endpoint composition. See Section 13.11.5, "Device Type Requirements" for typical device types.
 
 The following diagram shows an example Microwave Oven consisting of a parent endpoint that is the Microwave Oven device type and a child endpoint providing additional capabilities.
 
 A microwave oven placed above a thermal oven or cooktop/hob may also include a light for illuminating the cooking surface of the thermal oven or cooktop/hob and an exhaust fan for removing cooking odors.
 
-![](_page_164_Figure_3.jpeg)
-
 *Figure 14. Example of a Microwave Oven*
 
 #### <span id="page-164-0"></span>**13.11.2. Revision History**
 
-| Revision | Description                       |  |
-|----------|-----------------------------------|--|
-| 1        | Initial revision                  |  |
-| 2        | Mandate OperationCompletion Event |  |
+| Revision | Description | |
+| 1 | Initial revision | |
+| 2 | Mandate OperationCompletion Event | |
 
 #### <span id="page-164-1"></span>**13.11.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0079         | Microwave Oven      |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0079 | Microwave Oven | | Simple | Endpoint |
 
 #### <span id="page-164-2"></span>**13.11.4. Conditions**
 
@@ -4924,8 +4564,7 @@ See the Base Device Type definition for conformance tags.
 Each endpoint supporting this device type SHALL include endpoints with these device types based on the conformance defined below.
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x0100+        | On/Off Light+    |            | O           |
+| 0x0100+ | On/Off Light+ | | O |
 
 When a light is included as part of a composed device type, it is intended to be used as surface light when the microwave oven is installed above a range in an "over the range" configuration rather than the internal light of the microwave oven cavity.
 
@@ -4933,13 +4572,12 @@ When a light is included as part of a composed device type, it is intended to be
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name               | Client/Server | Conformance |
-|------------|----------------------------|---------------|-------------|
-| 0x0003     | Identify                   | Server        | O           |
-| 0x0060     | Operational State          | Server        | M           |
-| 0x0202     | Fan Control                | Server        | O           |
-| 0x005E     | Microwave Oven Mode        | Server        | M           |
-| 0x005F     | Microwave Oven Con<br>trol | Server        | M           |
+| Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0003 | Identify | Server | O |
+| 0x0060 | Operational State | Server | M |
+| 0x0202 | Fan Control | Server | O |
+| 0x005E | Microwave Oven Mode | Server | M |
+| 0x005F | Microwave Oven Con<br>trol | Server | M |
 
 When the Fan Control cluster is supported on an endpoint of this device type, it is intended to be used as a ventilation fan when the microwave oven is installed above a range in an "over the range" configuration rather than the internal fan of the microwave oven cavity.
 
@@ -4947,12 +4585,11 @@ When the Fan Control cluster is supported on an endpoint of this device type, it
 
 This lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name      | Element   | Name                        | Constraint | Access | Confor<br>mance |
-|------------|----------------------|-----------|-----------------------------|------------|--------|-----------------|
-| 0x0060     | Operational<br>State | Attribute | Countdown<br>Time           |            |        | M               |
-| 0x0060     | Operational<br>State | Event     | Opera<br>tionComple<br>tion |            |        | M               |
-| 0x0202     | Fan Control          | Feature   | Wind                        |            |        | X               |
-| 0x0202     | Fan Control          | Feature   | AirflowDi<br>rection        |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0060 | Operational<br>State | Attribute | Countdown<br>Time | | | M |
+| 0x0060 | Operational<br>State | Event | Opera<br>tionComple<br>tion | | | M |
+| 0x0202 | Fan Control | Feature | Wind | | | X |
+| 0x0202 | Fan Control | Feature | AirflowDi<br>rection | | | X |
 
 ### <span id="page-165-2"></span>**13.11.8. Cluster Usage**
 
@@ -4990,11 +4627,9 @@ An EVSE (Electric Vehicle Supply Equipment) is a device that allows an EV (Elect
 
 #### <span id="page-168-2"></span>**14.1.1. EVSE Architecture**
 
-An EVSE is always defined via endpoint composition. See [Section 14.1.6, "Device Type Require](#page-170-0)[ments"](#page-170-0) for more details.
+An EVSE is always defined via endpoint composition. See Section 14.1.6, "Device Type Requirements" for more details.
 
 An example of an EVSE with single phase AC supply is illustrated below.
-
-![](_page_168_Figure_8.jpeg)
 
 *Figure 15. Example of a single phase EVSE*
 
@@ -5002,22 +4637,18 @@ The EVSE may also indicate its internal temperature using the temperature measur
 
 An example of an EVSE with a 3 phase AC supply is illustrated below.
 
-![](_page_169_Figure_2.jpeg)
-
 *Figure 16. Example of a 3 phase EVSE*
 
 #### <span id="page-169-0"></span>**14.1.2. Revision History**
 
-| Revision | Description                                                |
-|----------|------------------------------------------------------------|
-| 1        | Initial revision                                           |
-| 2        | Addition of associated Device Energy Manage<br>ment device |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Addition of associated Device Energy Manage<br>ment device |
 
 #### <span id="page-169-1"></span>**14.1.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x050C         | Energy EVSE         |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x050C | Energy EVSE | | Simple | Endpoint |
 
 #### <span id="page-169-2"></span>**14.1.4. Conditions**
 
@@ -5025,34 +4656,30 @@ See the Base Device Type definition for conformance tags.
 
 ### <span id="page-169-3"></span>**14.1.5. Cluster Requirements**
 
-| Cluster ID | Cluster Name     | Client/Server | Conformance |
-|------------|------------------|---------------|-------------|
-| 0x0003     | Identify         | Server        | O           |
-| 0x0099     | Energy EVSE      | Server        | M           |
-| 0x009D     | Energy EVSE Mode | Server        | M           |
+| Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0003 | Identify | Server | O |
+| 0x0099 | Energy EVSE | Server | M |
+| 0x009D | Energy EVSE Mode | Server | M |
 
-| Cluster ID | Cluster Name                | Client/Server | Conformance |
-|------------|-----------------------------|---------------|-------------|
-| 0x0402     | Temperature Measure<br>ment | Server        | O           |
+| Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0402 | Temperature Measure<br>ment | Server | O |
 
 #### <span id="page-170-0"></span>**14.1.6. Device Type Requirements**
 
 An EVSE SHALL be composed of at least one endpoint with device types as defined by the conformance below. There MAY be more endpoints with other device types existing in the EVSE.
 
-| Device Type ID | Device Type Name             | Constraint | Conformance |
-|----------------|------------------------------|------------|-------------|
-| 0x0011         | Power Source                 | min 1      | M           |
-| 0x050D         | Device Energy Manage<br>ment | min 1      | M           |
-| 0x0510         | Electrical Sensor            | min 1      | M           |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x0011 | Power Source | min 1 | M |
+| 0x050D | Device Energy Manage<br>ment | min 1 | M |
+| 0x0510 | Electrical Sensor | min 1 | M |
 
 #### **14.1.6.1. Cluster Requirements on Component Device Types**
 
 The table below lists qualities and conformance that override the cluster requirements for the component device types.
 
-| Device Type<br>ID | Device Type<br>Name   | Cluster ID | Cluster Name                         | Client/Server | Conformance |
-|-------------------|-----------------------|------------|--------------------------------------|---------------|-------------|
-| 0x0510            | Electrical Sen<br>sor | 0x0090     | Electrical<br>Power Mea<br>surement  | Server        | M           |
-| 0x0510            | Electrical Sen<br>sor | 0x0091     | Electrical<br>Energy Mea<br>surement | Server        | M           |
+| Device Type<br>ID | Device Type<br>Name | Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0510 | Electrical Sen<br>sor | 0x0090 | Electrical<br>Power Mea<br>surement | Server | M |
+| 0x0510 | Electrical Sen<br>sor | 0x0091 | Electrical<br>Energy Mea<br>surement | Server | M |
 
 The Electrical Sensor device SHALL include both the Electrical Energy Measurement and Electrical Power Measurement clusters, measuring the total energy and power of the EVSE.
 
@@ -5060,14 +4687,12 @@ The Electrical Sensor device SHALL include both the Electrical Energy Measuremen
 
 The table below lists qualities and conformance that override the cluster specification requirements for the clusters of the component device types. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Device<br>Type ID        | Device<br>Type<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
-|--------------------------|------------------------|---------------|-----------------|---------|------|----------------|--------|-----------------|
-| Device Energy Management |                        |               |                 |         |      |                |        |                 |
+| Device<br>Type ID | Device<br>Type<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| Device Energy Management | | | | | | | | |
 
-| Device<br>Type ID | Device<br>Type<br>Name             | Cluster<br>ID | Cluster<br>Name                    | Element | Name                               | Con<br>straint | Access | Confor<br>mance |
-|-------------------|------------------------------------|---------------|------------------------------------|---------|------------------------------------|----------------|--------|-----------------|
-| 0x050D            | Device<br>Energy<br>Manage<br>ment | 0x0098        | Device<br>Energy<br>Manage<br>ment | Feature | Power<br>Forecas<br>tReport<br>ing |                |        | M               |
-| 0x050D            | Device<br>Energy<br>Manage<br>ment | 0x0098        | Device<br>Energy<br>Manage<br>ment | Feature | PowerAd<br>justment                |                |        | desc            |
+| Device<br>Type ID | Device<br>Type<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| 0x050D | Device<br>Energy<br>Manage<br>ment | 0x0098 | Device<br>Energy<br>Manage<br>ment | Feature | Power<br>Forecas<br>tReport<br>ing | | | M |
+| 0x050D | Device<br>Energy<br>Manage<br>ment | 0x0098 | Device<br>Energy<br>Manage<br>ment | Feature | PowerAd<br>justment | | | desc |
 
 If an EVSE supports three phase power then it SHALL include three additional endpoints including an Electrical Sensor Device Type as child elements. For each child endpoint it SHALL include a semantic tag from the Electrical Measurement Namespace in the TagList attribute of the Descriptor cluster to describe the endpoint for the relevant Electrical Power Measurement and Electrical Energy Measurement clusters indicating the relevant AC phase that is being measured.
 
@@ -5091,21 +4716,17 @@ In order to add energy management capability, the Device Energy Management clust
 
 An example of a Water Heater device is illustrated below.
 
-![](_page_172_Figure_2.jpeg)
-
 *Figure 17. Example of a Water Heater*
 
 #### <span id="page-172-0"></span>**14.2.2. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-172-1"></span>**14.2.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x050F         | Water Heater        |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x050F | Water Heater | | Simple | Endpoint |
 
 #### <span id="page-172-2"></span>**14.2.4. Conditions**
 
@@ -5113,20 +4734,18 @@ See the Base Device Type definition for conformance tags.
 
 #### <span id="page-172-3"></span>**14.2.5. Cluster Requirements**
 
-| Cluster ID | Cluster Name                | Client/Server | Conformance |
-|------------|-----------------------------|---------------|-------------|
-| 0x0003     | Identify                    | Server        | O           |
-| 0x0094     | Water Heater Manage<br>ment | Server        | M           |
-| 0x009E     | Water Heater Mode           | Server        | M           |
-| 0x0201     | Thermostat                  | Server        | M           |
+| Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0003 | Identify | Server | O |
+| 0x0094 | Water Heater Manage<br>ment | Server | M |
+| 0x009E | Water Heater Mode | Server | M |
+| 0x0201 | Thermostat | Server | M |
 
 #### <span id="page-173-0"></span>**14.2.6. Element Requirements**
 
 This lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name | Element | Name    | Constraint | Access | Confor<br>mance | Fallback |
-|------------|-----------------|---------|---------|------------|--------|-----------------|----------|
-| 0x0201     | Thermo<br>stat  | Feature | Heating |            |        | M               |          |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance | Fallback |
+| 0x0201 | Thermo<br>stat | Feature | Heating | | | M | |
 
 The Energy Management feature of the Water Heater cluster SHALL be supported if the Device Energy Management device type is included.
 
@@ -5138,12 +4757,11 @@ At least one entry in the SupportedModes attribute of the Water Heater Mode clus
 
 A Water Heater SHALL be composed of at least one endpoint with device types as defined by the conformance below. There MAY be more endpoints with other device types existing in the Water Heater.
 
-| Device Type ID | Device Type Name             | Constraint | Conformance |
-|----------------|------------------------------|------------|-------------|
-| 0x0011         | Power Source                 |            | O           |
-| 0x0302         | Temperature Sensor           |            | O           |
-| 0x050D         | Device Energy Manage<br>ment |            | O           |
-| 0x0510         | Electrical Sensor            |            | desc        |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x0011 | Power Source | | O |
+| 0x0302 | Temperature Sensor | | O |
+| 0x050D | Device Energy Manage<br>ment | | O |
+| 0x0510 | Electrical Sensor | | desc |
 
 #### **14.2.7.1. Electrical Sensor Device Type**
 
@@ -5153,14 +4771,12 @@ If a Device Energy Management device type is included as part of a composition, 
 
 The table below lists qualities and conformance that override the cluster requirements for the component device types.
 
-| Device Type<br>ID | Device Type<br>Name | Cluster ID | Cluster Name | Client/Server | Conformance |  |
-|-------------------|---------------------|------------|--------------|---------------|-------------|--|
-| Electrical Sensor |                     |            |              |               |             |  |
+| Device Type<br>ID | Device Type<br>Name | Cluster ID | Cluster Name | Client/Server | Conformance | |
+| Electrical Sensor | | | | | | |
 
-| Device Type<br>ID | Device Type<br>Name   | Cluster ID | Cluster Name                         | Client/Server | Conformance |
-|-------------------|-----------------------|------------|--------------------------------------|---------------|-------------|
-| 0x0510            | Electrical Sen<br>sor | 0x0090     | Electrical<br>Power Mea<br>surement  | Server        | M           |
-| 0x0510            | Electrical Sen<br>sor | 0x0091     | Electrical<br>Energy Mea<br>surement | Server        | M           |
+| Device Type<br>ID | Device Type<br>Name | Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0510 | Electrical Sen<br>sor | 0x0090 | Electrical<br>Power Mea<br>surement | Server | M |
+| 0x0510 | Electrical Sen<br>sor | 0x0091 | Electrical<br>Energy Mea<br>surement | Server | M |
 
 If an Electrical Sensor device is included as part of a composition, it SHALL include both the Electrical Energy Measurement and Electrical Power Measurement clusters, measuring the total energy and power of the Water Heater.
 
@@ -5168,10 +4784,9 @@ If an Electrical Sensor device is included as part of a composition, it SHALL in
 
 The table below lists qualities and conformance that override the cluster specification requirements for the clusters of the component device types. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Device<br>Type ID        | Device<br>Type<br>Name             | Cluster<br>ID | Cluster<br>Name                    | Element | Name                               | Con<br>straint | Access | Confor<br>mance |
-|--------------------------|------------------------------------|---------------|------------------------------------|---------|------------------------------------|----------------|--------|-----------------|
-| Device Energy Management |                                    |               |                                    |         |                                    |                |        |                 |
-| 0x050D                   | Device<br>Energy<br>Manage<br>ment | 0x0098        | Device<br>Energy<br>Manage<br>ment | Feature | Power<br>Forecas<br>tReport<br>ing |                |        | M               |
+| Device<br>Type ID | Device<br>Type<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| Device Energy Management | | | | | | | | |
+| 0x050D | Device<br>Energy<br>Manage<br>ment | 0x0098 | Device<br>Energy<br>Manage<br>ment | Feature | Power<br>Forecas<br>tReport<br>ing | | | M |
 
 If a Device Energy Management device type is included on a separate endpoint as part of a composition and the Device Energy Management cluster is supported on the same endpoint, the Power-ForecastReporting feature of the Device Energy Management cluster SHALL also be supported.
 
@@ -5181,37 +4796,29 @@ A Solar Power device is a device that allows a solar panel array, which can opti
 
 #### <span id="page-174-1"></span>**14.3.1. Solar Power Architecture**
 
-A Solar Power device is always defined via endpoint composition. See [Section 14.3.6, "Device Type](#page-176-4) [Requirements"](#page-176-4) for more details.
+A Solar Power device is always defined via endpoint composition. See Section 14.3.6, "Device Type Requirements" for more details.
 
 An example of a Solar Power device with single phase AC output is illustrated below.
-
-![](_page_175_Figure_2.jpeg)
 
 *Figure 18. Example of a Solar Power device with single phase AC output*
 
 An example of a Solar Power device with single phase AC output, but with the ability to measure the output from 4 sets of solar panels supplying the overall device is illustrated below.
 
-![](_page_175_Figure_5.jpeg)
-
 *Figure 19. Example of a Solar Power device with solar panel measurements*
 
 An example of a Solar Power device with single phase AC output, but with the ability to measure the output from 4 individual solar panels, arranged as 2 strings or 2 panels each is illustrated below.
-
-![](_page_176_Figure_2.jpeg)
 
 *Figure 20. Example of a Solar Power device with solar panel measurements*
 
 #### <span id="page-176-0"></span>**14.3.2. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-176-1"></span>**14.3.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0017         | Solar Power         |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0017 | Solar Power | | Simple | Endpoint |
 
 #### <span id="page-176-2"></span>**14.3.4. Conditions**
 
@@ -5222,8 +4829,7 @@ See the Base Device Type definition for conformance tags.
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Conformance |
-|------------|--------------|---------------|-------------|
-| 0x0003     | Identify     | Server        | O           |
+| 0x0003 | Identify | Server | O |
 
 ### <span id="page-176-4"></span>**14.3.6. Device Type Requirements**
 
@@ -5231,12 +4837,11 @@ A Solar Power device SHALL be composed of at least one endpoint with device type
 
 the conformance below. There MAY be more endpoints with additional instances of these device types or additional device types existing in the Solar Power device.
 
-| Device Type ID | Device Type Name             | Constraint | Conformance |
-|----------------|------------------------------|------------|-------------|
-| 0x0011         | Power Source                 | min 1      | M           |
-| 0x0302         | Temperature Sensor           |            | O           |
-| 0x050D         | Device Energy Manage<br>ment |            | desc        |
-| 0x0510         | Electrical Sensor            | min 1      | M           |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x0011 | Power Source | min 1 | M |
+| 0x0302 | Temperature Sensor | | O |
+| 0x050D | Device Energy Manage<br>ment | | desc |
+| 0x0510 | Electrical Sensor | min 1 | M |
 
 #### **14.3.6.1. Device Energy Management Device Type**
 
@@ -5246,11 +4851,10 @@ If the Solar Power device output power can be controlled, then the Device Energy
 
 The table below lists qualities and conformance that override the cluster requirements for the component device types.
 
-| Device Type<br>ID | Device Type<br>Name   | Cluster ID | Cluster Name                         | Client/Server | Conformance |
-|-------------------|-----------------------|------------|--------------------------------------|---------------|-------------|
-| 0x0510            | Electrical Sen<br>sor | 0x0041     | User Label                           | Server        | desc        |
-| 0x0510            | Electrical Sen<br>sor | 0x0090     | Electrical<br>Power Mea<br>surement  | Server        | M           |
-| 0x0510            | Electrical Sen<br>sor | 0x0091     | Electrical<br>Energy Mea<br>surement | Server        | M           |
+| Device Type<br>ID | Device Type<br>Name | Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0510 | Electrical Sen<br>sor | 0x0041 | User Label | Server | desc |
+| 0x0510 | Electrical Sen<br>sor | 0x0090 | Electrical<br>Power Mea<br>surement | Server | M |
+| 0x0510 | Electrical Sen<br>sor | 0x0091 | Electrical<br>Energy Mea<br>surement | Server | M |
 
 If a Solar Power device supports measurement of the output of individual solar panels or strings of solar panels then it MAY include additional endpoints for each such measurement, including an Electrical Sensor Device Type as child elements. For each such child endpoint:
 
@@ -5260,19 +4864,18 @@ If a Solar Power device supports measurement of the output of individual solar p
 
 The table below lists qualities and conformance that override the cluster specification requirements for the clusters of the component device types. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Device<br>Type ID | Device<br>Type<br>Name             | Cluster<br>ID | Cluster<br>Name                         | Element   | Name                | Con<br>straint | Access | Confor<br>mance |
-|-------------------|------------------------------------|---------------|-----------------------------------------|-----------|---------------------|----------------|--------|-----------------|
-| Power Source      |                                    |               |                                         |           |                     |                |        |                 |
-| 0x0011            | Power<br>Source                    | 0x002F        | Power<br>Source                         | Feature   | Wired               |                |        | M               |
-| 0x0011            | Power<br>Source                    | 0x001D        | Descrip<br>tor                          | Feature   | TagList             |                |        | M               |
-|                   | Temperature Sensor                 |               |                                         |           |                     |                |        |                 |
-| 0x0302            | Tempera<br>ture Sen<br>sor         | 0x001D        | Descrip<br>tor                          | Feature   | TagList             |                |        | M               |
-|                   | Device Energy Management           |               |                                         |           |                     |                |        |                 |
-| 0x050D            | Device<br>Energy<br>Manage<br>ment | 0x0098        | Device<br>Energy<br>Manage<br>ment      | Feature   | PowerAd<br>justment |                |        | M               |
-| Electrical Sensor |                                    |               |                                         |           |                     |                |        |                 |
-| 0x0510            | Electrical<br>Sensor               | 0x0091        | Electrical<br>Energy<br>Measure<br>ment | Feature   | Exporte<br>dEnergy  |                |        | M               |
-| 0x0510            | Electrical<br>Sensor               | 0x0090        | Electrical<br>Power<br>Measure<br>ment  | Attribute | Voltage             |                |        | M               |
-| 0x0510            | Electrical<br>Sensor               | 0x0090        | Electrical<br>Power<br>Measure<br>ment  | Attribute | Active<br>Current   |                |        | M               |
+| Device<br>Type ID | Device<br>Type<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| Power Source | | | | | | | | |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Feature | Wired | | | M |
+| 0x0011 | Power<br>Source | 0x001D | Descrip<br>tor | Feature | TagList | | | M |
+| | Temperature Sensor | | | | | | | |
+| 0x0302 | Tempera<br>ture Sen<br>sor | 0x001D | Descrip<br>tor | Feature | TagList | | | M |
+| | Device Energy Management | | | | | | | |
+| 0x050D | Device<br>Energy<br>Manage<br>ment | 0x0098 | Device<br>Energy<br>Manage<br>ment | Feature | PowerAd<br>justment | | | M |
+| Electrical Sensor | | | | | | | | |
+| 0x0510 | Electrical<br>Sensor | 0x0091 | Electrical<br>Energy<br>Measure<br>ment | Feature | Exporte<br>dEnergy | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Attribute | Voltage | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Attribute | Active<br>Current | | | M |
 
 The Electrical Sensor device SHALL also conform to the following:
 
@@ -5301,32 +4904,26 @@ A Battery Storage device is a device that allows a DC battery, which can optiona
 
 ### <span id="page-179-1"></span>**14.4.1. Battery Storage Architecture**
 
-A Battery Storage device is always defined via endpoint composition. See [Section 14.4.6, "Device](#page-181-3) [Type Requirements"](#page-181-3) for more details.
+A Battery Storage device is always defined via endpoint composition. See Section 14.4.6, "Device Type Requirements" for more details.
 
 An example of a Battery Storage device with single phase AC output is illustrated below.
-
-![](_page_180_Figure_2.jpeg)
 
 *Figure 21. Example of a Battery Storage device with single phase AC output*
 
 An example of a Battery Storage device which also includes a directly connected Solar Power device supplying DC power to the battery and using a single common inverter to the single phase AC input and output is illustrated below.
 
-![](_page_180_Figure_5.jpeg)
-
 *Figure 22. Example of a Battery Storage device with DC-connected Solar Power device*
 
 ### <span id="page-180-0"></span>**14.4.2. Revision History**
 
-| Revision | Description                                                                        |
-|----------|------------------------------------------------------------------------------------|
-| 1        | Initial revision                                                                   |
-| 2        | Added mandate of two Power Source and Elec<br>trical Sensor composed devices types |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Added mandate of two Power Source and Elec<br>trical Sensor composed devices types |
 
 #### <span id="page-181-0"></span>**14.4.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0018         | Battery Storage     |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0018 | Battery Storage | | Simple | Endpoint |
 
 #### <span id="page-181-1"></span>**14.4.4. Conditions**
 
@@ -5337,38 +4934,34 @@ See the Base Device Type definition for conformance tags.
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Conformance |
-|------------|--------------|---------------|-------------|
-| 0x0003     | Identify     | Server        | O           |
+| 0x0003 | Identify | Server | O |
 
 #### <span id="page-181-3"></span>**14.4.6. Device Type Requirements**
 
 A Battery Storage device SHALL be composed of at least two endpoints with device types as defined by the conformance below. There MAY be more endpoints with additional instances of these device types or additional device types existing in the Battery Storage device.
 
-| Device Type ID | Device Type Name             | Constraint | Conformance |
-|----------------|------------------------------|------------|-------------|
-| 0x0011         | Power Source                 | min 2      | M           |
-| 0x0017         | Solar Power                  |            | O           |
-| 0x0302         | Temperature Sensor           |            | O           |
-| 0x050D         | Device Energy Manage<br>ment |            | M           |
-| 0x0510         | Electrical Sensor            | min 2      | M           |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x0011 | Power Source | min 2 | M |
+| 0x0017 | Solar Power | | O |
+| 0x0302 | Temperature Sensor | | O |
+| 0x050D | Device Energy Manage<br>ment | | M |
+| 0x0510 | Electrical Sensor | min 2 | M |
 
-The Solar Power devices, if included, SHALL have separate endpoints, and include their own Power Source, Electrical Sensor, and Device Energy Management devices, as defined by the [Solar Power](#page-174-0) device.
+The Solar Power devices, if included, SHALL have separate endpoints, and include their own Power Source, Electrical Sensor, and Device Energy Management devices, as defined by the Solar Power device.
 
 #### **14.4.6.1. Cluster Requirements on Component Device Types**
 
 The table below lists qualities and conformance that override the cluster requirements for the component device types.
 
-| Device Type<br>ID       | Device Type<br>Name | Cluster ID | Cluster Name | Client/Server | Conformance |
-|-------------------------|---------------------|------------|--------------|---------------|-------------|
-| Electrical Sensor (1st) |                     |            |              |               |             |
+| Device Type<br>ID | Device Type<br>Name | Cluster ID | Cluster Name | Client/Server | Conformance |
+| Electrical Sensor (1st) | | | | | |
 
-| Device Type<br>ID       | Device Type<br>Name   | Cluster ID | Cluster Name                         | Client/Server | Conformance |
-|-------------------------|-----------------------|------------|--------------------------------------|---------------|-------------|
-| 0x0510                  | Electrical Sen<br>sor | 0x0090     | Electrical<br>Power Mea<br>surement  | Server        | M           |
-| 0x0510                  | Electrical Sen<br>sor | 0x0091     | Electrical<br>Energy Mea<br>surement | Server        | M           |
-| Electrical Sensor (2st) |                       |            |                                      |               |             |
-| 0x0510                  | Electrical Sen<br>sor | 0x0090     | Electrical<br>Power Mea<br>surement  | Server        | M           |
-| 0x0510                  | Electrical Sen<br>sor | 0x0091     | Electrical<br>Energy Mea<br>surement | Server        | M           |
+| Device Type<br>ID | Device Type<br>Name | Cluster ID | Cluster Name | Client/Server | Conformance |
+| 0x0510 | Electrical Sen<br>sor | 0x0090 | Electrical<br>Power Mea<br>surement | Server | M |
+| 0x0510 | Electrical Sen<br>sor | 0x0091 | Electrical<br>Energy Mea<br>surement | Server | M |
+| Electrical Sensor (2st) | | | | | |
+| 0x0510 | Electrical Sen<br>sor | 0x0090 | Electrical<br>Power Mea<br>surement | Server | M |
+| 0x0510 | Electrical Sen<br>sor | 0x0091 | Electrical<br>Energy Mea<br>surement | Server | M |
 
 **NOTE**
 
@@ -5378,44 +4971,41 @@ The use of 1st and 2nd to annotate the device types is purely to distinguish the
 
 The table below lists qualities and conformance that override the cluster specification requirements for the clusters of the component device types. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Device<br>Type ID | Device<br>Type<br>Name | Cluster<br>ID | Cluster<br>Name | Element   | Name           | Con<br>straint | Access | Confor<br>mance |
-|-------------------|------------------------|---------------|-----------------|-----------|----------------|----------------|--------|-----------------|
-|                   | Power Source (1st)     |               |                 |           |                |                |        |                 |
-| 0x0011            | Power<br>Source        | 0x001D        | Descrip<br>tor  | Feature   | TagList        |                |        | M               |
-| 0x0011            | Power<br>Source        | 0x002F        | Power<br>Source | Feature   | Wired          |                |        | M               |
-|                   | Power Source (2nd)     |               |                 |           |                |                |        |                 |
-| 0x0011            | Power<br>Source        | 0x001D        | Descrip<br>tor  | Feature   | TagList        |                |        | M               |
-| 0x0011            | Power<br>Source        | 0x002F        | Power<br>Source | Feature   | Battery        |                |        | M               |
-| 0x0011            | Power<br>Source        | 0x002F        | Power<br>Source | Attribute | BatVolt<br>age |                |        | M               |
+| Device<br>Type ID | Device<br>Type<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| | Power Source (1st) | | | | | | | |
+| 0x0011 | Power<br>Source | 0x001D | Descrip<br>tor | Feature | TagList | | | M |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Feature | Wired | | | M |
+| | Power Source (2nd) | | | | | | | |
+| 0x0011 | Power<br>Source | 0x001D | Descrip<br>tor | Feature | TagList | | | M |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Feature | Battery | | | M |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Attribute | BatVolt<br>age | | | M |
 
-| Device<br>Type ID | Device<br>Type<br>Name             | Cluster<br>ID | Cluster<br>Name                        | Element   | Name                            | Con<br>straint | Access | Confor<br>mance |
-|-------------------|------------------------------------|---------------|----------------------------------------|-----------|---------------------------------|----------------|--------|-----------------|
-| 0x0011            | Power<br>Source                    | 0x002F        | Power<br>Source                        | Attribute | BatPer<br>centRema<br>ining     |                |        | M               |
-| 0x0011            | Power<br>Source                    | 0x002F        | Power<br>Source                        | Attribute | Bat<br>TimeRe<br>maining        |                |        | M               |
-| 0x0011            | Power<br>Source                    | 0x002F        | Power<br>Source                        | Attribute | Active<br>BatFaults             |                |        | M               |
-| 0x0011            | Power<br>Source                    | 0x002F        | Power<br>Source                        | Attribute | BatCapac<br>ity                 |                |        | M               |
-| 0x0011            | Power<br>Source                    | 0x002F        | Power<br>Source                        | Attribute | Bat<br>TimeTo<br>FullCharg<br>e |                |        | M               |
-| 0x0011            | Power<br>Source                    | 0x002F        | Power<br>Source                        | Attribute | BatCharg<br>ingCur<br>rent      |                |        | M               |
-| 0x0011            | Power<br>Source                    | 0x002F        | Power<br>Source                        | Attribute | Active<br>BatCharg<br>eFaults   |                |        | M               |
-|                   | Temperature Sensor                 |               |                                        |           |                                 |                |        |                 |
-| 0x0302            | Tempera<br>ture Sen<br>sor         | 0x001D        | Descrip<br>tor                         | Feature   | TagList                         |                |        | M               |
-|                   | Device Energy Management           |               |                                        |           |                                 |                |        |                 |
-| 0x050D            | Device<br>Energy<br>Manage<br>ment | 0x0098        | Device<br>Energy<br>Manage<br>ment     | Feature   | PowerAd<br>justment             |                |        | M               |
-|                   | Electrical Sensor (1st)            |               |                                        |           |                                 |                |        |                 |
-| 0x0510            | Electrical<br>Sensor               | 0x001D        | Descrip<br>tor                         | Feature   | TagList                         |                |        | M               |
-| 0x0510            | Electrical<br>Sensor               | 0x0090        | Electrical<br>Power<br>Measure<br>ment | Feature   | Alternat<br>ingCur<br>rent      |                |        | M               |
+| Device<br>Type ID | Device<br>Type<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Attribute | BatPer<br>centRema<br>ining | | | M |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Attribute | Bat<br>TimeRe<br>maining | | | M |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Attribute | Active<br>BatFaults | | | M |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Attribute | BatCapac<br>ity | | | M |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Attribute | Bat<br>TimeTo<br>FullCharg<br>e | | | M |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Attribute | BatCharg<br>ingCur<br>rent | | | M |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Attribute | Active<br>BatCharg<br>eFaults | | | M |
+| | Temperature Sensor | | | | | | | |
+| 0x0302 | Tempera<br>ture Sen<br>sor | 0x001D | Descrip<br>tor | Feature | TagList | | | M |
+| | Device Energy Management | | | | | | | |
+| 0x050D | Device<br>Energy<br>Manage<br>ment | 0x0098 | Device<br>Energy<br>Manage<br>ment | Feature | PowerAd<br>justment | | | M |
+| | Electrical Sensor (1st) | | | | | | | |
+| 0x0510 | Electrical<br>Sensor | 0x001D | Descrip<br>tor | Feature | TagList | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Feature | Alternat<br>ingCur<br>rent | | | M |
 
-| Device<br>Type ID | Device<br>Type<br>Name  | Cluster<br>ID | Cluster<br>Name                         | Element   | Name               | Con<br>straint | Access | Confor<br>mance |
-|-------------------|-------------------------|---------------|-----------------------------------------|-----------|--------------------|----------------|--------|-----------------|
-| 0x0510            | Electrical<br>Sensor    | 0x0090        | Electrical<br>Power<br>Measure<br>ment  | Attribute | Voltage            |                |        | M               |
-| 0x0510            | Electrical<br>Sensor    | 0x0090        | Electrical<br>Power<br>Measure<br>ment  | Attribute | Active<br>Current  |                |        | M               |
-| 0x0510            | Electrical<br>Sensor    | 0x0091        | Electrical<br>Energy<br>Measure<br>ment | Feature   | Exporte<br>dEnergy |                |        | M               |
-|                   | Electrical Sensor (2nd) |               |                                         |           |                    |                |        |                 |
-| 0x0510            | Electrical<br>Sensor    | 0x001D        | Descrip<br>tor                          | Feature   | TagList            |                |        | M               |
-| 0x0510            | Electrical<br>Sensor    | 0x0090        | Electrical<br>Power<br>Measure<br>ment  | Feature   | DirectCur<br>rent  |                |        | M               |
-| 0x0510            | Electrical<br>Sensor    | 0x0090        | Electrical<br>Power<br>Measure<br>ment  | Attribute | Voltage            |                |        | M               |
-| 0x0510            | Electrical<br>Sensor    | 0x0090        | Electrical<br>Power<br>Measure<br>ment  | Attribute | Active<br>Current  |                |        | M               |
-| 0x0510            | Electrical<br>Sensor    | 0x0091        | Electrical<br>Energy<br>Measure<br>ment | Feature   | Exporte<br>dEnergy |                |        | M               |
+| Device<br>Type ID | Device<br>Type<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Attribute | Voltage | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Attribute | Active<br>Current | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0091 | Electrical<br>Energy<br>Measure<br>ment | Feature | Exporte<br>dEnergy | | | M |
+| | Electrical Sensor (2nd) | | | | | | | |
+| 0x0510 | Electrical<br>Sensor | 0x001D | Descrip<br>tor | Feature | TagList | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Feature | DirectCur<br>rent | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Attribute | Voltage | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Attribute | Active<br>Current | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0091 | Electrical<br>Energy<br>Measure<br>ment | Feature | Exporte<br>dEnergy | | | M |
 
 The Power Source cluster in the Power Source device SHALL support the RECHG feature if it can be charged as well as discharged through the connection to the premises wiring.
 
@@ -5438,16 +5028,15 @@ Any Temperature Sensors included SHALL include Tag(s), and for non-standard Name
 
 The table below lists conformance requirements for semantic tags associated with the device types listed in the table when used in a composed device.
 
-| Device Type<br>ID       | Device Type<br>Name     | Namespace<br>ID | Namespace       | Tag ID | Tag     | Confor<br>mance |  |  |
-|-------------------------|-------------------------|-----------------|-----------------|--------|---------|-----------------|--|--|
-|                         | Power Source (1st)      |                 |                 |        |         |                 |  |  |
-| 0x0011                  | Power<br>Source         | 0x0F            | Power<br>Source | 0x01   | Grid    | M               |  |  |
-| Power Source (2nd)      |                         |                 |                 |        |         |                 |  |  |
-| 0x0011                  | Power<br>Source         | 0x0F            | Power<br>Source | 0x03   | Battery | M               |  |  |
-|                         | Electrical Sensor (1st) |                 |                 |        |         |                 |  |  |
-| 0x0510                  | Electrical<br>Sensor    | 0x0F            | Power<br>Source | 0x01   | Grid    | M               |  |  |
-| Electrical Sensor (2nd) |                         |                 |                 |        |         |                 |  |  |
-| 0x0510                  | Electrical<br>Sensor    | 0x0F            | Power<br>Source | 0x03   | Battery | M               |  |  |
+| Device Type<br>ID | Device Type<br>Name | Namespace<br>ID | Namespace | Tag ID | Tag | Confor<br>mance | | |
+| | Power Source (1st) | | | | | | | |
+| 0x0011 | Power<br>Source | 0x0F | Power<br>Source | 0x01 | Grid | M | | |
+| Power Source (2nd) | | | | | | | | |
+| 0x0011 | Power<br>Source | 0x0F | Power<br>Source | 0x03 | Battery | M | | |
+| | Electrical Sensor (1st) | | | | | | | |
+| 0x0510 | Electrical<br>Sensor | 0x0F | Power<br>Source | 0x01 | Grid | M | | |
+| Electrical Sensor (2nd) | | | | | | | | |
+| 0x0510 | Electrical<br>Sensor | 0x0F | Power<br>Source | 0x03 | Battery | M | | |
 
 # <span id="page-186-0"></span>**14.5. Heat Pump Device Type**
 
@@ -5457,7 +5046,7 @@ Note that the Water Heater device type can also be heated by a heat pump and has
 
 #### <span id="page-186-1"></span>**14.5.1. Heat Pump Architecture**
 
-A Heat Pump device is always defined via endpoint composition. See [Section 14.5.6, "Device Type](#page-187-3) [Requirements"](#page-187-3) for more details.
+A Heat Pump device is always defined via endpoint composition. See Section 14.5.6, "Device Type Requirements" for more details.
 
 The Heat Pump device may contain Temperature Sensors for example to measure the flow and return temperatures of the water it is providing to the premises heating system.
 
@@ -5465,21 +5054,17 @@ The Heat Pump device may also include Thermostats located in the rooms that are 
 
 An example of a Heat Pump device is illustrated below.
 
-![](_page_186_Figure_10.jpeg)
-
 *Figure 23. Example of a Heat Pump device*
 
 ### <span id="page-186-2"></span>**14.5.2. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-187-0"></span>**14.5.3. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0309         | Heat Pump           |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0309 | Heat Pump | | Simple | Endpoint |
 
 #### <span id="page-187-1"></span>**14.5.4. Conditions**
 
@@ -5490,22 +5075,20 @@ See the Base Device Type definition for conformance tags.
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Conformance |
-|------------|--------------|---------------|-------------|
-| 0x0003     | Identify     | Server        | O           |
-| 0x0201     | Thermostat   | Client        | O           |
+| 0x0003 | Identify | Server | O |
+| 0x0201 | Thermostat | Client | O |
 
 #### <span id="page-187-3"></span>**14.5.6. Device Type Requirements**
 
 A Heat Pump device SHALL be composed of at least one endpoint with device types as defined by the conformance below. There MAY be more endpoints with additional instances of these device types or additional device types existing in the Heat Pump device.
 
-| Device Type ID | Device Type Name             | Constraint | Conformance |
-|----------------|------------------------------|------------|-------------|
-| 0x0011         | Power Source                 |            | M           |
-| 0x0301         | Thermostat                   |            | O           |
-| 0x0302         | Temperature Sensor           |            | O           |
-| 0x050D         | Device Energy Manage<br>ment |            | M           |
-| 0x050F         | Water Heater                 |            | O           |
-| 0x0510         | Electrical Sensor            | min 1      | M           |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x0011 | Power Source | | M |
+| 0x0301 | Thermostat | | O |
+| 0x0302 | Temperature Sensor | | O |
+| 0x050D | Device Energy Manage<br>ment | | M |
+| 0x050F | Water Heater | | O |
+| 0x0510 | Electrical Sensor | min 1 | M |
 
 The Heat Pump device SHALL include either one or more Thermostat devices, or include a Thermostat client.
 
@@ -5513,36 +5096,33 @@ The Heat Pump device SHALL include either one or more Thermostat devices, or inc
 
 The table below lists qualities and conformance that override the cluster requirements for the component device types.
 
-| Device Type<br>ID | Device Type<br>Name   | Cluster ID | Cluster Name                         | Client/Server | Conformance |  |  |  |
-|-------------------|-----------------------|------------|--------------------------------------|---------------|-------------|--|--|--|
-| Thermostat        |                       |            |                                      |               |             |  |  |  |
-| 0x0301            | Thermostat            | 0x0041     | User Label                           | Server        | M           |  |  |  |
-| Electrical Sensor |                       |            |                                      |               |             |  |  |  |
-| 0x0510            | Electrical Sen<br>sor | 0x0090     | Electrical<br>Power Mea<br>surement  | Server        | M           |  |  |  |
-| 0x0510            | Electrical Sen<br>sor | 0x0091     | Electrical<br>Energy Mea<br>surement | Server        | M           |  |  |  |
+| Device Type<br>ID | Device Type<br>Name | Cluster ID | Cluster Name | Client/Server | Conformance | | | |
+| Thermostat | | | | | | | | |
+| 0x0301 | Thermostat | 0x0041 | User Label | Server | M | | | |
+| Electrical Sensor | | | | | | | | |
+| 0x0510 | Electrical Sen<br>sor | 0x0090 | Electrical<br>Power Mea<br>surement | Server | M | | | |
+| 0x0510 | Electrical Sen<br>sor | 0x0091 | Electrical<br>Energy Mea<br>surement | Server | M | | | |
 
 #### **14.5.6.2. Element Requirements on Component Device Types**
 
 The table below lists qualities and conformance that override the cluster specification requirements for the clusters of the component device types. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Device<br>Type ID | Device<br>Name                     | Cluster<br>ID | Cluster<br>Name                    | Element | Name                | Con<br>straint | Access | Confor<br>mance |
-|-------------------|------------------------------------|---------------|------------------------------------|---------|---------------------|----------------|--------|-----------------|
-| Power Source      |                                    |               |                                    |         |                     |                |        |                 |
-| 0x0011            | Power<br>Source                    | 0x002F        | Power<br>Source                    | Feature | Wired               |                |        | M               |
-| 0x0011            | Power<br>Source                    | 0x001D        | Descrip<br>tor                     | Feature | TagList             |                |        | M               |
-| Thermostat        |                                    |               |                                    |         |                     |                |        |                 |
-| 0x0301            | Thermo<br>stat                     | 0x001D        | Descrip<br>tor                     | Feature | TagList             |                |        | M               |
-|                   | Temperature Sensor                 |               |                                    |         |                     |                |        |                 |
-| 0x0302            | Tempera<br>ture Sen<br>sor         | 0x001D        | Descrip<br>tor                     | Feature | TagList             |                |        | M               |
-|                   | Device Energy Management           |               |                                    |         |                     |                |        |                 |
-| 0x050D            | Device<br>Energy<br>Manage<br>ment | 0x0098        | Device<br>Energy<br>Manage<br>ment | Feature | PowerAd<br>justment |                |        | M               |
-| Electrical Sensor |                                    |               |                                    |         |                     |                |        |                 |
+| Device<br>Type ID | Device<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| Power Source | | | | | | | | |
+| 0x0011 | Power<br>Source | 0x002F | Power<br>Source | Feature | Wired | | | M |
+| 0x0011 | Power<br>Source | 0x001D | Descrip<br>tor | Feature | TagList | | | M |
+| Thermostat | | | | | | | | |
+| 0x0301 | Thermo<br>stat | 0x001D | Descrip<br>tor | Feature | TagList | | | M |
+| | Temperature Sensor | | | | | | | |
+| 0x0302 | Tempera<br>ture Sen<br>sor | 0x001D | Descrip<br>tor | Feature | TagList | | | M |
+| | Device Energy Management | | | | | | | |
+| 0x050D | Device<br>Energy<br>Manage<br>ment | 0x0098 | Device<br>Energy<br>Manage<br>ment | Feature | PowerAd<br>justment | | | M |
+| Electrical Sensor | | | | | | | | |
 
-| Device<br>Type ID | Device<br>Name       | Cluster<br>ID | Cluster<br>Name                        | Element   | Name                       | Con<br>straint | Access | Confor<br>mance |
-|-------------------|----------------------|---------------|----------------------------------------|-----------|----------------------------|----------------|--------|-----------------|
-| 0x0510            | Electrical<br>Sensor | 0x0090        | Electrical<br>Power<br>Measure<br>ment | Feature   | Alternat<br>ingCur<br>rent |                |        | M               |
-| 0x0510            | Electrical<br>Sensor | 0x0090        | Electrical<br>Power<br>Measure<br>ment | Attribute | Voltage                    |                |        | M               |
-| 0x0510            | Electrical<br>Sensor | 0x0090        | Electrical<br>Power<br>Measure<br>ment | Attribute | Active<br>Current          |                |        | M               |
+| Device<br>Type ID | Device<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Feature | Alternat<br>ingCur<br>rent | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Attribute | Voltage | | | M |
+| 0x0510 | Electrical<br>Sensor | 0x0090 | Electrical<br>Power<br>Measure<br>ment | Attribute | Active<br>Current | | | M |
 
 If a Heat Pump device supports two or three phase power input then it MAY include two or three additional endpoints, each including an Electrical Sensor Device Type as child elements. For each such child endpoint it SHALL include a semantic tag from the Electrical Measurement Namespace in the TagList attribute of the Descriptor cluster to describe the endpoint for the relevant Electrical Power Measurement and Electrical Energy Measurement clusters indicating the relevant AC phase that is being measured.
 
@@ -5560,10 +5140,9 @@ Any Thermostat SHALL include a semantic tag from a Common Namespace, or a Manufa
 
 The table below lists conformance requirements for semantic tags associated with the device types listed in the table when used in a composition.
 
-| Device Type<br>ID | Device<br>Name  | Namespace<br>ID | Namespace       | Tag ID | Tag  | Confor<br>mance |
-|-------------------|-----------------|-----------------|-----------------|--------|------|-----------------|
-| Power Source      |                 |                 |                 |        |      |                 |
-| 0x0011            | Power<br>Source | 0x0F            | Power<br>Source | 0x01   | Grid | M               |
+| Device Type<br>ID | Device<br>Name | Namespace<br>ID | Namespace | Tag ID | Tag | Confor<br>mance |
+| Power Source | | | | | | |
+| 0x0011 | Power<br>Source | 0x0F | Power<br>Source | 0x01 | Grid | M |
 
 # <span id="page-190-0"></span>**14.6. Meter Reference Point Device Type**
 
@@ -5571,22 +5150,19 @@ A Meter Reference Point device provides details about tariffs and metering.
 
 #### <span id="page-190-1"></span>**14.6.1. Revision History**
 
-| Revision | Description     |
-|----------|-----------------|
-| 1        | Initial release |
+| Revision | Description |
+| 1 | Initial release |
 
 #### <span id="page-190-2"></span>**14.6.2. Classification**
 
-| Device Type ID | Device Type<br>Name      | Superset Of | Class  | Scope    |
-|----------------|--------------------------|-------------|--------|----------|
-| 0x0512         | Meter Reference<br>Point |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0512 | Meter Reference<br>Point | | Simple | Endpoint |
 
 ### <span id="page-190-3"></span>**14.6.3. Conditions**
 
 This device type MAY support the following conformance conditions as defined below.
 
-| Condition        | Description            |
-|------------------|------------------------|
+| Condition | Description |
 | ElectricalEnergy | See description below. |
 
 See the Base Device Type definition for additional conformance tags.
@@ -5599,35 +5175,31 @@ The ElectricalEnergy condition applies to a Meter Reference Point representing a
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location | Device Type ID | Device Type<br>Name | Condition    | Conformance |
-|----------|----------------|---------------------|--------------|-------------|
-| Root     | 0x0016         | Root Node           | TimeSyncCond | M           |
+| Location | Device Type ID | Device Type<br>Name | Condition | Conformance |
+| Root | 0x0016 | Root Node | TimeSyncCond | M |
 
 #### <span id="page-191-0"></span>**14.6.5. Cluster Requirements**
 
 Each endpoint supporting the Meter Reference Point device type SHALL include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0003     | Identify     | Server        |         | M           |
+| 0x0003 | Identify | Server | | M |
 
 #### <span id="page-191-1"></span>**14.6.6. Device Type Requirements**
 
 A Meter Reference Point is composed of other endpoints with device types listed in this table, subject to the conformance column of the table. Additional device types not listed in this table MAY also be included in device compositions.
 
-| Device Type ID | Device Type Name         | Constraint | Conformance           |  |
-|----------------|--------------------------|------------|-----------------------|--|
-| 0x0513         | Electrical Energy Tariff | min 1      | [ElectricalEnergy].a+ |  |
-| 0x0514         | Electrical Meter         | min 1      | [ElectricalEnergy].a+ |  |
+| Device Type ID | Device Type Name | Constraint | Conformance | |
+| 0x0513 | Electrical Energy Tariff | min 1 | [ElectricalEnergy].a+ | |
+| 0x0514 | Electrical Meter | min 1 | [ElectricalEnergy].a+ | |
 
 #### **14.6.6.1. Element Requirements on Component Device Types**
 
 The table below lists qualities and conformance that override the cluster specification requirements for the clusters of the component device types. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Device<br>Type ID        | Device<br>Type<br>Name         | Cluster<br>ID | Cluster<br>Name      | Element   | Name       | Con<br>straint | Access | Confor<br>mance |
-|--------------------------|--------------------------------|---------------|----------------------|-----------|------------|----------------|--------|-----------------|
-| Electrical Energy Tariff |                                |               |                      |           |            |                |        |                 |
-| 0x0513                   | Electrical<br>Energy<br>Tariff | 0x700         | Commod<br>ity Tariff | Attribute | TariffUnit | kWh  <br>kVAh  |        | M               |
+| Device<br>Type ID | Device<br>Type<br>Name | Cluster<br>ID | Cluster<br>Name | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| Electrical Energy Tariff | | | | | | | | |
+| 0x0513 | Electrical<br>Energy<br>Tariff | 0x700 | Commod<br>ity Tariff | Attribute | TariffUnit | kWh <br>kVAh | | M |
 
 ### <span id="page-191-2"></span>**14.6.7. Meter Reference Point Topology**
 
@@ -5637,13 +5209,9 @@ A basic electrical Meter Reference Point device type has a simple import tariff 
 
 Optionally, this endpoint may have a child endpoint representing an upcoming tariff, if available, tagged as Grid, Import, AC, and Upcoming.
 
-![](_page_192_Figure_2.jpeg)
-
 *Figure 24. Example of a basic Meter Reference Point*
 
 Optionally, the tariff endpoint may have child endpoints representing tariffs for individual phases of a polyphase power supply.
-
-![](_page_192_Figure_5.jpeg)
 
 *Figure 25. Example of a Meter Reference Point with multiple phases*
 
@@ -5653,8 +5221,6 @@ Building on the basic topology, a Meter Reference Point device type which has a 
 
 Optionally, this endpoint may have a child endpoint representing an upcoming EV tariff, if available, tagged as EV, Import, AC, and Upcoming.
 
-![](_page_193_Figure_3.jpeg)
-
 *Figure 26. Example of a Meter Reference Point with a separate EV tariff*
 
 #### **14.6.7.3. Export Rate**
@@ -5663,23 +5229,17 @@ Similarly, a Meter Reference Point device type which has a separate rate for exp
 
 Optionally, this endpoint may have a child endpoint representing an upcoming export tariff, if available, tagged as Grid, Export, AC, and Upcoming.
 
-![](_page_194_Figure_2.jpeg)
-
 *Figure 27. Example of a Meter Reference Point with an export tariff*
 
 #### **14.6.7.4. Combination of EV and Export**
 
 The above topologies can be composed to represent various combinations of tariffs. In this example, a tariff has separate rates for an EV and for exporting energy to the grid.
 
-![](_page_195_Figure_2.jpeg)
-
 *Figure 28. Example of a Meter Reference Point with both an export and an EV tariff*
 
 #### **14.6.7.5. Inclusion of Metering Data**
 
 Instead of Electrical Energy Tariff endpoints, a Meter Reference Point may use endpoints with the Electrical Meter device type to represent tariffs with associated metering data.
-
-![](_page_195_Figure_6.jpeg)
 
 *Figure 29. Example of a Meter Reference Point that supports metering*
 
@@ -5689,50 +5249,44 @@ A Electrical Energy Tariff is a device that defines a tariff for the consumption
 
 #### <span id="page-196-1"></span>**14.7.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-196-2"></span>**14.7.2. Classification**
 
-| Device Type ID | Device Type<br>Name         | Superset Of | Class  | Scope    |
-|----------------|-----------------------------|-------------|--------|----------|
-| 0x0513         | Electrical Energy<br>Tariff |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0513 | Electrical Energy<br>Tariff | | Simple | Endpoint |
 
 #### <span id="page-196-3"></span>**14.7.3. Conditions**
 
 See the Base Device Type definition for conformance tags.
 
-| Condition    | Description                                       |
-|--------------|---------------------------------------------------|
+| Condition | Description |
 | ActiveTariff | The tariff represents the currently active tariff |
 
 ### <span id="page-196-4"></span>**14.7.4. Cluster Requirements**
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                  | Client/Server | Quality | Conformance       |
-|------------|-------------------------------|---------------|---------|-------------------|
-| 0x0095     | Commodity Price               | Server        |         | [ActiveTariff].a+ |
-| 0x00A0     | Electrical Grid<br>Conditions | Server        |         | O                 |
-| 0x0700     | Commodity Tariff              | Server        |         | O.a+              |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0095 | Commodity Price | Server | | [ActiveTariff].a+ |
+| 0x00A0 | Electrical Grid<br>Conditions | Server | | O |
+| 0x0700 | Commodity Tariff | Server | | O.a+ |
 
 ## <span id="page-196-5"></span>**14.7.5. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank entry means no change.
 
-| Cluster ID | Cluster<br>Name | Element | Name    | Constraint | Access | Confor<br>mance |
-|------------|-----------------|---------|---------|------------|--------|-----------------|
-| 0x001D     | Descriptor      | Feature | TagList |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x001D | Descriptor | Feature | TagList | | | M |
 
 #### <span id="page-197-0"></span>**14.7.6. Semantic Tag Requirements**
 
 The table below lists conformance requirements for semantic tags for this device type.
 
-| Namespace ID | Namespace                      | Tag ID | Tag              | Conformance  |
-|--------------|--------------------------------|--------|------------------|--------------|
-| 0x0B         | Commodity Tariff<br>Chronology | 0x00   | Current          | ActiveTariff |
-| 0x0D         | Commodity Tariff<br>Commodity  | 0x00   | ElectricalEnergy | M            |
+| Namespace ID | Namespace | Tag ID | Tag | Conformance |
+| 0x0B | Commodity Tariff<br>Chronology | 0x00 | Current | ActiveTariff |
+| 0x0D | Commodity Tariff<br>Commodity | 0x00 | ElectricalEnergy | M |
 
 # <span id="page-197-1"></span>**14.8. Electrical Meter Device Type**
 
@@ -5740,34 +5294,29 @@ An Electrical Meter device meters the electrical energy being imported and/or ex
 
 #### <span id="page-197-2"></span>**14.8.1. Revision History**
 
-| Revision | Description      |
-|----------|------------------|
-| 1        | Initial revision |
+| Revision | Description |
+| 1 | Initial revision |
 
 #### <span id="page-197-3"></span>**14.8.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of                 | Class  | Scope    |
-|----------------|---------------------|-----------------------------|--------|----------|
-| 0x0514         | Electrical Meter    | Electrical Energy<br>Tariff | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0514 | Electrical Meter | Electrical Energy<br>Tariff | Simple | Endpoint |
 
 ### <span id="page-197-4"></span>**14.8.3. Device Type Requirements**
 
 An Electrical Meter SHALL be composed of at least one endpoint with device types as defined by the conformance below.
 
-| Device Type ID | Device Type Name  | Constraint | Conformance |
-|----------------|-------------------|------------|-------------|
-| 0x0510         | Electrical Sensor | min 1      | M           |
+| Device Type ID | Device Type Name | Constraint | Conformance |
+| 0x0510 | Electrical Sensor | min 1 | M |
 
 ## <span id="page-197-5"></span>**14.8.4. Cluster Requirements**
 
-| Cluster ID | Cluster Name           | Client/Server | Quality | Conformance |
-|------------|------------------------|---------------|---------|-------------|
-| 0x0B07     | Commodity Meter<br>ing | Server        |         | P, M        |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0B07 | Commodity Meter<br>ing | Server | | P, M |
 
-| Cluster ID | Cluster Name                     | Client/Server | Quality | Conformance |
-|------------|----------------------------------|---------------|---------|-------------|
-| 0x0090     | Electrical Power<br>Measurement  | Server        |         | M           |
-| 0x0091     | Electrical Energy<br>Measurement | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0090 | Electrical Power<br>Measurement | Server | | M |
+| 0x0091 | Electrical Energy<br>Measurement | Server | | M |
 
 # <span id="page-198-0"></span>**14.9. Electrical Utility Meter Device Type**
 
@@ -5775,15 +5324,13 @@ An Electrical Utility Meter device provides utility account information, as well
 
 #### <span id="page-198-1"></span>**14.9.1. Revision History**
 
-| Revision | Description     |
-|----------|-----------------|
-| 1        | Initial release |
+| Revision | Description |
+| 1 | Initial release |
 
 #### <span id="page-198-2"></span>**14.9.2. Classification**
 
-| Device Type ID | Device Type<br>Name         | Superset Of              | Class  | Scope    |
-|----------------|-----------------------------|--------------------------|--------|----------|
-| 0x0511         | Electrical Utility<br>Meter | Meter Reference<br>Point | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0511 | Electrical Utility<br>Meter | Meter Reference<br>Point | Simple | Endpoint |
 
 #### <span id="page-198-3"></span>**14.9.3. Conditions**
 
@@ -5793,17 +5340,15 @@ Please see the Base Device Type definition for conformance tags.
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location | Device Type ID | Device Type<br>Name | Condition    | Conformance |
-|----------|----------------|---------------------|--------------|-------------|
-| Root     | 0x0016         | Root Node           | TimeSyncCond | M           |
+| Location | Device Type ID | Device Type<br>Name | Condition | Conformance |
+| Root | 0x0016 | Root Node | TimeSyncCond | M |
 
 ## <span id="page-198-5"></span>**14.9.5. Cluster Requirements**
 
 Each endpoint supporting the Electrical Utility Meter device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name             | Client/Server | Quality | Conformance |
-|------------|--------------------------|---------------|---------|-------------|
-| 0x0B06     | Meter Identifica<br>tion | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0B06 | Meter Identifica<br>tion | Server | | M |
 
 #### <span id="page-199-0"></span>**14.9.6. Electrical Utility Meter Topology**
 
@@ -5813,13 +5358,9 @@ A basic Electrical Utility Meter device type has a simple import tariff endpoint
 
 Optionally, this endpoint may have a child endpoint representing an upcoming tariff, if available, tagged as Grid, Import, AC, and Upcoming.
 
-![](_page_199_Figure_6.jpeg)
-
 *Figure 30. Example of a basic Electrical Utility Meter*
 
 Optionally, this endpoint may have child endpoints representing measurements of individual phases of a polyphase power supply.
-
-![](_page_199_Figure_9.jpeg)
 
 *Figure 31. Example of a phased Electrical Utility Meter*
 
@@ -5829,8 +5370,6 @@ Building on the basic topology, an Electrical Utility Meter device type which ha
 
 Optionally, this endpoint may have a child endpoint representing an upcoming EV tariff, if available, tagged as EV, Import, AC, and Upcoming.
 
-![](_page_200_Figure_5.jpeg)
-
 *Figure 32. Example of an Electrical Utility Meter with a separate EV tariff*
 
 #### **14.9.6.3. Export Rate**
@@ -5839,15 +5378,11 @@ Similarly, an Electrical Utility Meter device type which has a separate rate for
 
 Optionally, this endpoint may have a child endpoint representing an upcoming export tariff, if available, tagged as Grid, Export, AC, and Upcoming.
 
-![](_page_201_Figure_2.jpeg)
-
 *Figure 33. Example of an Electrical Utility Meter with a separate export tariff*
 
 #### **14.9.6.4. Combination of EV and Export**
 
 The above topologies can be composed to represent various combinations of tariffs. In this example, a tariff has separate rates for an EV and for exporting energy to the grid.
-
-![](_page_202_Figure_2.jpeg)
 
 *Figure 34. Example of an Electrical Utility Meter with separate export and EV tariffs*
 
@@ -5867,7 +5402,7 @@ Note that Matter devices and applications cannot rely on the presence of Matter-
 
 The count of IoT devices within a smart home can quickly grow to a substantial number when factoring in the quantity of light points, light switches, and an array of sensor devices that all require connectivity. Consequently, the network infrastructure must be capable of accommodating a substantial number of devices to avoid hitting constraints when users wish to add "one more" product. The requirements in this chapter were designed to result in an IP network (which MAY be a combination of Ethernet LAN, Wi-Fi WLAN, and Thread PAN networks) with a minimum of 300 Matter devices.
 
-• Requirements related to Wi-Fi Access Points and Thread Border Routers are detailed in the sections for the [Network Infrastructure Manager](#page-204-4) and [Thread Border Router](#page-208-0) device types below.
+• Requirements related to Wi-Fi Access Points and Thread Border Routers are detailed in the sections for the Network Infrastructure Manager and Thread Border Router device types below.
 
 # <span id="page-204-4"></span>**15.3. Network Infrastructure Manager Device Type**
 
@@ -5875,22 +5410,20 @@ A Network Infrastructure Manager provides interfaces that allow for the manageme
 
 Examples of physical devices that implement the Matter Network Infrastructure Manager device type include Wi-Fi gateway routers.
 
-Relevant hardware and software requirements for Network Infrastructure Manager devices are defined in [Section 15.3.6, "Other Requirements"](#page-206-0) and within the clusters mandated by this device type.
+Relevant hardware and software requirements for Network Infrastructure Manager devices are defined in Section 15.3.6, "Other Requirements" and within the clusters mandated by this device type.
 
-A Network Infrastructure Manager device MAY be managed by a service associated with the device vendor, for example, an Internet Service Provider. Sometimes this managing service will have policies that require the use of the Managed Device feature of the Access Control Cluster (see [Section](#page-206-1) [15.3.5.1, "ManagedAclAllowed Condition"\)](#page-206-1). Consequently, Commissioners of this device type should be aware of this feature and its use.
+A Network Infrastructure Manager device MAY be managed by a service associated with the device vendor, for example, an Internet Service Provider. Sometimes this managing service will have policies that require the use of the Managed Device feature of the Access Control Cluster (see Section 15.3.5.1, "ManagedAclAllowed Condition"\). Consequently, Commissioners of this device type should be aware of this feature and its use.
 
 #### <span id="page-205-0"></span>**15.3.1. Revision History**
 
-| Revision | Description                                                                        |
-|----------|------------------------------------------------------------------------------------|
-| 1        | Initial release                                                                    |
-| 2        | Add Thread Network Diagnostics requirement;<br>extend "Other Requirements" section |
+| Revision | Description |
+| 1 | Initial release |
+| 2 | Add Thread Network Diagnostics requirement;<br>extend "Other Requirements" section |
 
 #### <span id="page-205-1"></span>**15.3.2. Classification**
 
-| Device Type ID | Device Type<br>Name                | Superset Of | Class  | Scope    |
-|----------------|------------------------------------|-------------|--------|----------|
-| 0x0090         | Network Infra<br>structure Manager |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0090 | Network Infra<br>structure Manager | | Simple | Endpoint |
 
 #### <span id="page-205-2"></span>**15.3.3. Conditions**
 
@@ -5900,20 +5433,18 @@ See the Base Device Type definition for conformance tags.
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                           | Client/Server | Quality | Conformance |
-|------------|----------------------------------------|---------------|---------|-------------|
-| 0x0035     | Thread Network<br>Diagnostics          | Server        |         | M           |
-| 0x0451     | Wi-Fi Network<br>Management            | Server        |         | M           |
-| 0x0452     | Thread Border<br>Router Manage<br>ment | Server        |         | M           |
-| 0x0453     | Thread Network<br>Directory            | Server        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0035 | Thread Network<br>Diagnostics | Server | | M |
+| 0x0451 | Wi-Fi Network<br>Management | Server | | M |
+| 0x0452 | Thread Border<br>Router Manage<br>ment | Server | | M |
+| 0x0453 | Thread Network<br>Directory | Server | | M |
 
 ## <span id="page-205-4"></span>**15.3.5. Condition Requirements**
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location | Device Type ID | Device Type<br>Name | Condition             | Conformance |
-|----------|----------------|---------------------|-----------------------|-------------|
-| Root     | 0x0016         | Root Node           | ManagedAclAl<br>lowed | O           |
+| Location | Device Type ID | Device Type<br>Name | Condition | Conformance |
+| Root | 0x0016 | Root Node | ManagedAclAl<br>lowed | O |
 
 #### <span id="page-206-1"></span>**15.3.5.1. ManagedAclAllowed Condition**
 
@@ -5954,8 +5485,8 @@ The device SHALL be certified by the Wi-Fi Alliance in the Access Point role for
 To support the efficient operation of the network generally, and for low-power stations in particular, the Network Infrastructure Manager SHALL support, and upon (or before) Matter commissioning SHALL enable, the following Wi-Fi features:
 
 - Extended Sleep Time with a sleep time support up to at least 60 minutes, which includes the following IEEE 802.11 features:
-  - Basic Service Set (BSS) Max Idle Period
-  - dot11BSSMaxIdlePeriodIndicationByNonAPSTA
+- Basic Service Set (BSS) Max Idle Period
+- dot11BSSMaxIdlePeriodIndicationByNonAPSTA
 - IPv6 Proxy Neighbor Discovery Protocol (NDP) including IPv6 duplicate address detection
 - IPv4 Proxy Address Resolution Protocol (ARP)
 
@@ -5963,7 +5494,7 @@ The device SHALL support at least 100 simultaneous Wi-Fi associations - irrespec
 
 **NOTE**
 
-For the case of in-field upgrades of pre-Matter Wi-Fi access points, an exemption (simultaneous association requirement reduced to 64) can be requested when applying for Matter certification, e.g. in case of Wi-Fi chipset limitations (see the [Alliance Certification Policy\)](#page-23-6).
+For the case of in-field upgrades of pre-Matter Wi-Fi access points, an exemption (simultaneous association requirement reduced to 64) can be requested when applying for Matter certification, e.g. in case of Wi-Fi chipset limitations (see the Alliance Certification Policy\).
 
 #### **15.3.6.3. Thread Requirements**
 
@@ -5995,16 +5526,14 @@ The necessary hardware and software prerequisites are detailed within the cluste
 
 ### <span id="page-208-1"></span>**15.4.1. Revision History**
 
-| Revision | Description                         |
-|----------|-------------------------------------|
-| 1        | Initial revision                    |
-| 2        | Extend "Other Requirements" section |
+| Revision | Description |
+| 1 | Initial revision |
+| 2 | Extend "Other Requirements" section |
 
 #### <span id="page-209-0"></span>**15.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name     | Superset Of | Class  | Scope    |
-|----------------|-------------------------|-------------|--------|----------|
-| 0x0091         | Thread Border<br>Router |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0091 | Thread Border<br>Router | | Simple | Endpoint |
 
 #### <span id="page-209-1"></span>**15.4.3. Conditions**
 
@@ -6014,9 +5543,8 @@ See the Base Device Type definition for additional conformance tags.
 
 The following table lists other device types to be implemented along with this device type based on conformance.
 
-| ID     | Name                           | Constraint | Conformance |
-|--------|--------------------------------|------------|-------------|
-| 0x0019 | Secondary Network<br>Interface |            | O           |
+| ID | Name | Constraint | Conformance |
+| 0x0019 | Secondary Network<br>Interface | | O |
 
 If a Thread Border Router endpoint supports the Secondary Network Interface device type, then
 
@@ -6027,11 +5555,10 @@ If a Thread Border Router endpoint supports the Secondary Network Interface devi
 
 Each endpoint supporting the Thread Border Router device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                           | Client/Server | Quality | Conformance |
-|------------|----------------------------------------|---------------|---------|-------------|
-| 0x0035     | Thread Network<br>Diagnostics          | Server        |         | M           |
-| 0x0452     | Thread Border<br>Router Manage<br>ment | Server        |         | M           |
-| 0x0453     | Thread Network<br>Directory            | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0035 | Thread Network<br>Diagnostics | Server | | M |
+| 0x0452 | Thread Border<br>Router Manage<br>ment | Server | | M |
+| 0x0453 | Thread Network<br>Directory | Server | | O |
 
 #### <span id="page-209-4"></span>**15.4.6. Other Requirements**
 
@@ -6064,15 +5591,11 @@ The Thread Border Router Device Type provides the Thread Border Router Managemen
 
 In this use case, there is initially no PAN at the user's home. The user installs a Matter certified Thread Border Router to use Thread connectivity for their Matter devices.
 
-![](_page_211_Figure_2.jpeg)
-
 After installation, the PAN configured by Admin A on the Thread Border Router is used to install the Thread Matter device on Fabric A.
 
 #### **15.4.7.2. Joining an existing PAN**
 
 In this use case, there is already a PAN in the user's home that is managed by a Fabric A with TBR1 (e.g. as a result of the above sequence diagram applied previously between Admin 1 and TBR1). The user installs a Matter-certified Thread Border Router (TBR2) to extend the Thread coverage and Internet access redundancy of Thread networks for their Matter devices.
-
-![](_page_211_Figure_6.jpeg)
 
 After installation, a single Thread PAN is shared by all Border Routers.
 
@@ -6081,8 +5604,6 @@ After installation, a single Thread PAN is shared by all Border Routers.
 In this use case, there is already a PAN in the user's home that is managed by Fabric A with TBR1
 
 (e.g. as a result of the above sequence diagram applied previously between Admin 1 and TBR1). The user wants to use the Thread connectivity provided by the Matter-certified Thread Border Router managed by Fabric A with Fabric B to share its connectivity.
-
-![](_page_212_Figure_3.jpeg)
 
 After the installation, the Thread PAN is shared by Fabric A and B.
 
@@ -6093,8 +5614,6 @@ After the installation, the Thread PAN is shared by Fabric A and B.
 This use case is a specific configuration where the user already has 2 PANs. One is managed by a Fabric A through a Matter Thread Border Router (TBR1) and the other is managed by a Fabric B through another Matter Thread Border Router (TBR2).
 
 The user wishes to merge the existing Thread connectivity provided by the two Matter certified Thread Border Routers to share their connectivity to extend the Thread coverage and Internet access redundancy of the Thread networks for their Matter devices.
-
-![](_page_213_Figure_2.jpeg)
 
 After installation, the Thread PAN is shared between Fabrics A and B.
 
@@ -6110,15 +5629,13 @@ A Camera device is a camera that provides interfaces for controlling and transpo
 
 #### <span id="page-214-2"></span>**16.1.1. Revision History**
 
-| Revision | Description     |
-|----------|-----------------|
-| 1        | Initial release |
+| Revision | Description |
+| 1 | Initial release |
 
 ### <span id="page-214-3"></span>**16.1.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0142         | Camera              |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0142 | Camera | | Simple | Endpoint |
 
 #### <span id="page-214-4"></span>**16.1.3. Conditions**
 
@@ -6128,52 +5645,48 @@ See the Base Device Type definition for conformance tags.
 
 A Camera MAY expose elements of its functionality through one or more additional device types on different endpoints. All devices used in compositions SHALL adhere to the disambiguation requirements of the System Model. Other device types, not explicitly listed in the table, MAY also be included in device compositions but are not considered part of the core functionality of the device.
 
-Cameras which implement occupancy detection based on the signals from the optical sensor, MAY expose this functionality using an Occupancy Sensing cluster on the primary camera endpoint along with the other [camera functionality](#page-215-0). The device type Occupancy Sensor SHALL NOT be added to the DeviceTypeList of this endpoint.
+Cameras which implement occupancy detection based on the signals from the optical sensor, MAY expose this functionality using an Occupancy Sensing cluster on the primary camera endpoint along with the other camera functionality. The device type Occupancy Sensor SHALL NOT be added to the DeviceTypeList of this endpoint.
 
 Cameras MAY have an Occupancy Sensor of a different type for occupancy detection independent of the optical sensor. If this sensor is exposed, it SHALL be placed on a child endpoint of the primary camera endpoint, with the corresponding device type Occupancy Sensor, as indicated in the following table:
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x0107         | Occupancy Sensor |            | O           |
+| 0x0107 | Occupancy Sensor | | O |
 
 # <span id="page-214-6"></span>**16.1.5. Condition Requirements**
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location | Device Type ID | Device Type<br>Name | Condition                  | Conformance |
-|----------|----------------|---------------------|----------------------------|-------------|
-| Root     | 0x0016         | Root Node           | TLSCertifi<br>catesCond    | M           |
-| Root     | 0x0016         | Root Node           | PowerSourceCond            | M           |
-| Root     | 0x0016         | Root Node           | TimeSyncWithNT<br>PCCond   | M           |
-| Root     | 0x0016         | Root Node           | TimeSyncWith<br>ClientCond | M           |
-| Root     | 0x0016         | Root Node           | TimeSyncWithTZ<br>Cond     | M           |
-| Root     | 0x0016         | Root Node           | TLSClientCond              | M           |
+| Location | Device Type ID | Device Type<br>Name | Condition | Conformance |
+| Root | 0x0016 | Root Node | TLSCertifi<br>catesCond | M |
+| Root | 0x0016 | Root Node | PowerSourceCond | M |
+| Root | 0x0016 | Root Node | TimeSyncWithNT<br>PCCond | M |
+| Root | 0x0016 | Root Node | TimeSyncWith<br>ClientCond | M |
+| Root | 0x0016 | Root Node | TimeSyncWithTZ<br>Cond | M |
+| Root | 0x0016 | Root Node | TLSClientCond | M |
 
 #### <span id="page-215-0"></span>**16.1.6. Cluster Requirements**
 
-| Cluster ID | Cluster Name                                    | Client/Server | Quality | Conformance |
-|------------|-------------------------------------------------|---------------|---------|-------------|
-| 0x0551     | Camera AV Stream<br>Management                  | Server        |         | M           |
-| 0x0553     | WebRTC Transport<br>Provider                    | Server        |         | M           |
-| 0x0554     | WebRTC Transport<br>Requestor                   | Client        |         | M           |
-| 0x0553     | WebRTC Transport<br>Provider                    | Client        |         | O           |
-| 0x0554     | WebRTC Transport<br>Requestor                   | Server        |         | O           |
-| 0x0555     | Push AV Stream<br>Transport                     | Server        |         | O           |
-| 0x0552     | Camera AV Set<br>tings User Level<br>Management | Server        |         | O           |
-| 0x0550     | Zone Management                                 | Server        |         | O           |
-| 0x0406     | Occupancy Sens<br>ing                           | Server        |         | O           |
-| 0x0003     | Identify                                        | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0551 | Camera AV Stream<br>Management | Server | | M |
+| 0x0553 | WebRTC Transport<br>Provider | Server | | M |
+| 0x0554 | WebRTC Transport<br>Requestor | Client | | M |
+| 0x0553 | WebRTC Transport<br>Provider | Client | | O |
+| 0x0554 | WebRTC Transport<br>Requestor | Server | | O |
+| 0x0555 | Push AV Stream<br>Transport | Server | | O |
+| 0x0552 | Camera AV Set<br>tings User Level<br>Management | Server | | O |
+| 0x0550 | Zone Management | Server | | O |
+| 0x0406 | Occupancy Sens<br>ing | Server | | O |
+| 0x0003 | Identify | Server | | O |
 
 #### <span id="page-216-0"></span>**16.1.7. Element Requirements**
 
 This lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name                    | Element | Name                                | Constraint | Access | Confor<br>mance |
-|------------|------------------------------------|---------|-------------------------------------|------------|--------|-----------------|
-| 0x0550     | Zone Man<br>agement                | Feature | TwoDimen<br>sionalCarte<br>sianZone |            |        | M               |
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Video                               |            |        | M               |
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Audio                               |            |        | M               |
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Snapshot                            |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0550 | Zone Man<br>agement | Feature | TwoDimen<br>sionalCarte<br>sianZone | | | M |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Video | | | M |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Audio | | | M |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Snapshot | | | M |
 
 # <span id="page-216-1"></span>**16.2. Floodlight Camera Device Type**
 
@@ -6181,15 +5694,13 @@ A Floodlight Camera device is a composite device which combines a camera and a l
 
 ### <span id="page-216-2"></span>**16.2.1. Revision History**
 
-| Revision | Description     |
-|----------|-----------------|
-| 1        | Initial release |
+| Revision | Description |
+| 1 | Initial release |
 
 #### <span id="page-216-3"></span>**16.2.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0144         | Floodlight Camera   |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0144 | Floodlight Camera | | Simple | Endpoint |
 
 #### <span id="page-216-4"></span>**16.2.3. Conditions**
 
@@ -6197,12 +5708,11 @@ See the Base Device Type definition for conformance tags.
 
 #### <span id="page-216-5"></span>**16.2.4. Device Type Requirements**
 
-A Floodlight Camera is composed of other device types listed in this table subject to the conformance column of the table. All devices used in compositions SHALL adhere to the disambiguation and superset requirements of the System Model. Specifically, please note that the On/Off Light, as listed, is a Superset Device Type as defined by the System Model (see *Superset Device Types* in [\[Mat](#page-23-5)[terCore\]\)](#page-23-5), and so the rules defined in that section apply to the use of On/Off Light as a superset when composed in this device type. Additional device types not listed in this table MAY also be included in device compositions.
+A Floodlight Camera is composed of other device types listed in this table subject to the conformance column of the table. All devices used in compositions SHALL adhere to the disambiguation and superset requirements of the System Model. Specifically, please note that the On/Off Light, as listed, is a Superset Device Type as defined by the System Model (see *Superset Device Types* in \[Mat[terCore\]\)](#page-23-5), and so the rules defined in that section apply to the use of On/Off Light as a superset when composed in this device type. Additional device types not listed in this table MAY also be included in device compositions.
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x0100+        | On/Off Light+    | min 1      | M           |
-| 0x0142         | Camera           | 1          | M           |
+| 0x0100+ | On/Off Light+ | min 1 | M |
+| 0x0142 | Camera | 1 | M |
 
 # <span id="page-217-0"></span>**16.3. Video Doorbell Device Type**
 
@@ -6210,24 +5720,21 @@ A Video Doorbell device is a composite device which combines a camera and a swit
 
 #### <span id="page-217-1"></span>**16.3.1. Revision History**
 
-| Revision | Description     |
-|----------|-----------------|
-| 1        | Initial release |
+| Revision | Description |
+| 1 | Initial release |
 
 ### <span id="page-217-2"></span>**16.3.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0143         | Video Doorbell      |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0143 | Video Doorbell | | Simple | Endpoint |
 
 ### <span id="page-217-3"></span>**16.3.3. Device Type Requirements**
 
 This device type is composed of other device types listed in this table subject to the conformance column of the table. All devices used in compositions SHALL adhere to the disambiguation and superset requirements of the System Model. Additional device types not listed in this table MAY also be included in device compositions.
 
-| Device Type ID | Device Type Name<br>Constraint |       | Conformance |
-|----------------|--------------------------------|-------|-------------|
-| 0x0142         | Camera                         | 1     | M           |
-| 0x0148         | Doorbell                       | min 1 | M           |
+| Device Type ID | Device Type Name<br>Constraint | | Conformance |
+| 0x0142 | Camera | 1 | M |
+| 0x0148 | Doorbell | min 1 | M |
 
 # <span id="page-217-4"></span>**16.4. Intercom Device Type**
 
@@ -6241,16 +5748,14 @@ Examples include but are not limited to:
 
 #### <span id="page-218-0"></span>**16.4.1. Revision History**
 
-| Revision | Description                |  |
-|----------|----------------------------|--|
-| 1        | Initial release            |  |
-| 2        | Addition of Generic Switch |  |
+| Revision | Description | |
+| 1 | Initial release | |
+| 2 | Addition of Generic Switch | |
 
 #### <span id="page-218-1"></span>**16.4.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0140         | Intercom            |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0140 | Intercom | | Simple | Endpoint |
 
 ### <span id="page-218-2"></span>**16.4.3. Conditions**
 
@@ -6262,24 +5767,21 @@ An Intercom SHALL be composed of at least one endpoint with the Generic Switch d
 
 All devices used in compositions SHALL adhere to the disambiguation and superset requirements of the System Model.
 
-| ID     | Name           | Constraint | Conformance |
-|--------|----------------|------------|-------------|
-| 0x000F | Generic Switch | min 1      | M           |
+| ID | Name | Constraint | Conformance |
+| 0x000F | Generic Switch | min 1 | M |
 
 ### <span id="page-218-4"></span>**16.4.5. Condition Requirements**
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location | Device Type ID | Device Type<br>Name | Condition                  | Conformance |
-|----------|----------------|---------------------|----------------------------|-------------|
-| Root     | 0x0016         | Root Node           | TLSCertifi<br>catesCond    | M           |
-| Root     | 0x0016         | Root Node           | PowerSourceCond            | M           |
-| Root     | 0x0016         | Root Node           | TimeSyncWithNT<br>PCCond   | M           |
-| Root     | 0x0016         | Root Node           | TimeSyncWith<br>ClientCond | M           |
+| Location | Device Type ID | Device Type<br>Name | Condition | Conformance |
+| Root | 0x0016 | Root Node | TLSCertifi<br>catesCond | M |
+| Root | 0x0016 | Root Node | PowerSourceCond | M |
+| Root | 0x0016 | Root Node | TimeSyncWithNT<br>PCCond | M |
+| Root | 0x0016 | Root Node | TimeSyncWith<br>ClientCond | M |
 
-| Location | Device Type ID | Device Type<br>Name | Condition              | Conformance |
-|----------|----------------|---------------------|------------------------|-------------|
-| Root     | 0x0016         | Root Node           | TimeSyncWithTZ<br>Cond | M           |
+| Location | Device Type ID | Device Type<br>Name | Condition | Conformance |
+| Root | 0x0016 | Root Node | TimeSyncWithTZ<br>Cond | M |
 
 ### <span id="page-219-0"></span>**16.4.6. Cluster Requirements**
 
@@ -6290,35 +5792,32 @@ An Audio connection MAY be established with an instance of an Intercom in one of
 - via WebRTC, with the Intercom acting as a WebRTC Transport Requestor Client.
 - via WebRTC, with a Controller acting as the WebRTC Transport Requestor and the Intercom, in this instance, acting as a WebRTC Transport Provider Server. In this case, the Controller may trigger the establishment of Audio through knowledge that there is user intent via subscriptions to the attributes of the Generic Switch, or other means.
 
-| Cluster ID | Cluster Name                                    | Client/Server | Quality | Conformance |
-|------------|-------------------------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                                        | Server        |         | O           |
-| 0x0551     | Camera AV Stream<br>Management                  | Server        |         | M           |
-| 0x0552     | Camera AV Set<br>tings User Level<br>Management | Server        |         | O           |
-| 0x0553     | WebRTC Transport<br>Provider                    | Server        |         | M           |
-| 0x0553     | WebRTC Transport<br>Provider                    | Client        |         | M           |
-| 0x0554     | WebRTC Transport<br>Requestor                   | Server        |         | M           |
-| 0x0554     | WebRTC Transport<br>Requestor                   | Client        |         | M           |
-| 0x0556     | Chime                                           | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | O |
+| 0x0551 | Camera AV Stream<br>Management | Server | | M |
+| 0x0552 | Camera AV Set<br>tings User Level<br>Management | Server | | O |
+| 0x0553 | WebRTC Transport<br>Provider | Server | | M |
+| 0x0553 | WebRTC Transport<br>Provider | Client | | M |
+| 0x0554 | WebRTC Transport<br>Requestor | Server | | M |
+| 0x0554 | WebRTC Transport<br>Requestor | Client | | M |
+| 0x0556 | Chime | Client | | O |
 
 ### <span id="page-219-1"></span>**16.4.7. Element Requirements**
 
 This lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name                    | Element | Name     | Constraint | Access | Confor<br>mance |
-|------------|------------------------------------|---------|----------|------------|--------|-----------------|
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Audio    |            |        | M               |
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Video    |            |        | O               |
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Snapshot |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Audio | | | M |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Video | | | O |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Snapshot | | | X |
 
 #### <span id="page-220-0"></span>**16.4.8. Element Requirements on Component Device Types**
 
 The table below lists qualities and conformance that override the cluster specification requirements for the clusters of the component device types. A blank table cell means there is no change to that item, and the value from the cluster specification applies.
 
-| Device<br>ID   | Device            | Cluster<br>ID | Cluster | Element | Name                    | Con<br>straint | Access | Confor<br>mance |
-|----------------|-------------------|---------------|---------|---------|-------------------------|----------------|--------|-----------------|
-| Generic Switch |                   |               |         |         |                         |                |        |                 |
-| 0x000F         | Generic<br>Switch | 0x003B        | Switch  | Feature | Momen<br>tarySwitc<br>h |                |        | M               |
+| Device<br>ID | Device | Cluster<br>ID | Cluster | Element | Name | Con<br>straint | Access | Confor<br>mance |
+| Generic Switch | | | | | | | | |
+| 0x000F | Generic<br>Switch | 0x003B | Switch | Feature | Momen<br>tarySwitc<br>h | | | M |
 
 # <span id="page-220-1"></span>**16.5. Audio Doorbell Device Type**
 
@@ -6326,53 +5825,48 @@ An Audio Doorbell device is composed in all cases with a generic switch to provi
 
 ### <span id="page-220-2"></span>**16.5.1. Revision History**
 
-| Revision | Description     |
-|----------|-----------------|
-| 1        | Initial release |
-| 2        | Remove superset |
+| Revision | Description |
+| 1 | Initial release |
+| 2 | Remove superset |
 
 #### <span id="page-220-3"></span>**16.5.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0141         | Audio Doorbell      |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0141 | Audio Doorbell | | Simple | Endpoint |
 
 #### <span id="page-221-0"></span>**16.5.3. Condition Requirements**
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location | Device Type ID | Device Type<br>Name | Condition                | Conformance |
-|----------|----------------|---------------------|--------------------------|-------------|
-| Root     | 0x0016         | Root Node           | TLSCertifi<br>catesCond  | M           |
-| Root     | 0x0016         | Root Node           | PowerSourceCond          | M           |
-| Root     | 0x0016         | Root Node           | TimeSyncWithNT<br>PCCond | O           |
-| Root     | 0x0016         | Root Node           | TLSClientCond            | O           |
+| Location | Device Type ID | Device Type<br>Name | Condition | Conformance |
+| Root | 0x0016 | Root Node | TLSCertifi<br>catesCond | M |
+| Root | 0x0016 | Root Node | PowerSourceCond | M |
+| Root | 0x0016 | Root Node | TimeSyncWithNT<br>PCCond | O |
+| Root | 0x0016 | Root Node | TLSClientCond | O |
 
 #### <span id="page-221-1"></span>**16.5.4. Cluster Requirements**
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                   | Client/Server | Quality | Conformance |
-|------------|--------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                       | Server        |         | M           |
-| 0x003B     | Switch                         | Server        |         | M           |
-| 0x0551     | Camera AV Stream<br>Management | Server        |         | M           |
-| 0x0553     | WebRTC Transport<br>Provider   | Server        |         | M           |
-| 0x0553     | WebRTC Transport<br>Provider   | Client        |         | O           |
-| 0x0554     | WebRTC Transport<br>Requestor  | Server        |         | O           |
-| 0x0554     | WebRTC Transport<br>Requestor  | Client        |         | M           |
-| 0x0555     | Push AV Stream<br>Transport    | Server        |         | O           |
-| 0x0556     | Chime                          | Client        |         | M           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | M |
+| 0x003B | Switch | Server | | M |
+| 0x0551 | Camera AV Stream<br>Management | Server | | M |
+| 0x0553 | WebRTC Transport<br>Provider | Server | | M |
+| 0x0553 | WebRTC Transport<br>Provider | Client | | O |
+| 0x0554 | WebRTC Transport<br>Requestor | Server | | O |
+| 0x0554 | WebRTC Transport<br>Requestor | Client | | M |
+| 0x0555 | Push AV Stream<br>Transport | Server | | O |
+| 0x0556 | Chime | Client | | M |
 
 ## <span id="page-221-2"></span>**16.5.5. Element Requirements**
 
 The table below lists qualities and conformance values that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name                    | Element | Name     | Constraint | Access | Confor<br>mance |
-|------------|------------------------------------|---------|----------|------------|--------|-----------------|
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Audio    |            |        | M               |
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Snapshot |            |        | X               |
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Video    |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Audio | | | M |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Snapshot | | | X |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Video | | | X |
 
 # <span id="page-222-0"></span>**16.6. Snapshot Camera Device Type**
 
@@ -6380,15 +5874,13 @@ A Snapshot Camera device is a camera which can only support retrieving still ima
 
 #### <span id="page-222-1"></span>**16.6.1. Revision History**
 
-| Revision | Description     |
-|----------|-----------------|
-| 1        | Initial release |
+| Revision | Description |
+| 1 | Initial release |
 
 #### <span id="page-222-2"></span>**16.6.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0145         | Snapshot Camera     |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0145 | Snapshot Camera | | Simple | Endpoint |
 
 #### <span id="page-222-3"></span>**16.6.3. Conditions**
 
@@ -6398,66 +5890,59 @@ See the Base Device Type definition for conformance tags.
 
 A Snapshot Camera MAY expose elements of its functionality through one or more additional device types on different endpoints. All devices used in compositions SHALL adhere to the disambiguation requirements of the System Model. Other device types, not explicitly listed in the table, MAY also be included in device compositions but are not considered part of the core functionality of the device.
 
-Snapshot Cameras which implement occupancy detection based on the signals from the optical sensor, MAY expose this functionality using an Occupancy Sensing cluster on the primary camera endpoint along with the other [camera functionality.](#page-215-0) The device type Occupancy Sensor SHALL NOT be added to the DeviceTypeList of this endpoint.
+Snapshot Cameras which implement occupancy detection based on the signals from the optical sensor, MAY expose this functionality using an Occupancy Sensing cluster on the primary camera endpoint along with the other camera functionality. The device type Occupancy Sensor SHALL NOT be added to the DeviceTypeList of this endpoint.
 
 Snapshot Cameras MAY have an Occupancy Sensor of a different type for occupancy detection inde-
 
 pendent of the optical sensor. If this sensor is exposed, it SHALL be placed on a child endpoint of the primary camera endpoint, with the corresponding device type Occupancy Sensor, as indicated in the following table:
 
 | Device Type ID | Device Type Name | Constraint | Conformance |
-|----------------|------------------|------------|-------------|
-| 0x0107         | Occupancy Sensor |            | O           |
+| 0x0107 | Occupancy Sensor | | O |
 
 #### <span id="page-223-0"></span>**16.6.5. Condition Requirements**
 
 The table below lists conditions and conformance values that override the device type definition.
 
-| Location | Device Type ID | Device Type<br>Name | Condition              | Conformance |
-|----------|----------------|---------------------|------------------------|-------------|
-| Root     | 0x0016         | Root Node           | PowerSourceCond        | M           |
-| Root     | 0x0016         | Root Node           | TimeSyncWithTZ<br>Cond | M           |
+| Location | Device Type ID | Device Type<br>Name | Condition | Conformance |
+| Root | 0x0016 | Root Node | PowerSourceCond | M |
+| Root | 0x0016 | Root Node | TimeSyncWithTZ<br>Cond | M |
 
 #### <span id="page-223-1"></span>**16.6.6. Cluster Requirements**
 
 Each endpoint supporting the Snapshot Camera device type SHALL include these clusters based on the conformance defined below.
 
-| Cluster ID | Cluster Name                                    | Client/Server | Quality | Conformance |
-|------------|-------------------------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                                        | Server        |         | O           |
-| 0x0406     | Occupancy Sens<br>ing                           | Server        |         | O           |
-| 0x0550     | Zone Management                                 | Server        |         | O           |
-| 0x0551     | Camera AV Stream<br>Management                  | Server        |         | M           |
-| 0x0552     | Camera AV Set<br>tings User Level<br>Management | Server        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Server | | O |
+| 0x0406 | Occupancy Sens<br>ing | Server | | O |
+| 0x0550 | Zone Management | Server | | O |
+| 0x0551 | Camera AV Stream<br>Management | Server | | M |
+| 0x0552 | Camera AV Set<br>tings User Level<br>Management | Server | | O |
 
 ### <span id="page-223-2"></span>**16.6.7. Element Requirements**
 
 This lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name     | Element | Name                                | Constraint | Access | Confor<br>mance |
-|------------|---------------------|---------|-------------------------------------|------------|--------|-----------------|
-| 0x0550     | Zone Man<br>agement | Feature | TwoDimen<br>sionalCarte<br>sianZone |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0550 | Zone Man<br>agement | Feature | TwoDimen<br>sionalCarte<br>sianZone | | | M |
 
-| Cluster ID | Cluster<br>Name                    | Element | Name     | Constraint | Access | Confor<br>mance |
-|------------|------------------------------------|---------|----------|------------|--------|-----------------|
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Snapshot |            |        | M               |
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Video    |            |        | X               |
-| 0x0551     | Camera AV<br>Stream Man<br>agement | Feature | Audio    |            |        | X               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Snapshot | | | M |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Video | | | X |
+| 0x0551 | Camera AV<br>Stream Man<br>agement | Feature | Audio | | | X |
 
 # <span id="page-224-0"></span>**16.7. Chime Device Type**
 
-A Chime device is a device which can play from a range of pre installed sounds and is typically used with a [Doorbell](#page-226-0), [Audio Doorbell](#page-220-1), or [Video Doorbell.](#page-217-0)
+A Chime device is a device which can play from a range of pre installed sounds and is typically used with a Doorbell, Audio Doorbell, or Video Doorbell.
 
 #### <span id="page-224-1"></span>**16.7.1. Revision History**
 
-| Revision | Description     |
-|----------|-----------------|
-| 1        | Initial release |
+| Revision | Description |
+| 1 | Initial release |
 
 #### <span id="page-224-2"></span>**16.7.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0146         | Chime               |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0146 | Chime | | Simple | Endpoint |
 
 #### <span id="page-224-3"></span>**16.7.3. Conditions**
 
@@ -6468,9 +5953,8 @@ See the Base Device Type definition for conformance tags.
 Each endpoint supporting the Chime device type SHALL include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
-|------------|--------------|---------------|---------|-------------|
-| 0x0556     | Chime        | Server        |         | M           |
-| 0x0003     | Identify     | Server        |         | O           |
+| 0x0556 | Chime | Server | | M |
+| 0x0003 | Identify | Server | | O |
 
 # <span id="page-224-5"></span>**16.7.5. Element Requirements**
 
@@ -6482,68 +5966,60 @@ A Camera controller device is a device that provides interfaces for controlling 
 
 #### <span id="page-225-1"></span>**16.8.1. Revision History**
 
-| Revision | Description     |
-|----------|-----------------|
-| 1        | Initial release |
+| Revision | Description |
+| 1 | Initial release |
 
 #### <span id="page-225-2"></span>**16.8.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0147         | Camera Controller   |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0147 | Camera Controller | | Simple | Endpoint |
 
 ### <span id="page-225-3"></span>**16.8.3. Cluster Requirements**
 
 Each endpoint supporting the Camera Controller device type SHALL include these clusters based on the conformance defined below. A node SHALL only ever have, at most, one instance of the Camera Controller's required clusters.
 
-| Cluster ID | Cluster Name                                    | Client/Server | Quality | Conformance |
-|------------|-------------------------------------------------|---------------|---------|-------------|
-| 0x0003     | Identify                                        | Client        |         | O           |
-| 0x002F     | Power Source                                    | Client        |         | O           |
-| 0x0406     | Occupancy Sens<br>ing                           | Client        |         | O           |
-| 0x0550     | Zone Management                                 | Client        |         | O           |
-| 0x0551     | Camera AV Stream<br>Management                  | Client        |         | O           |
-| 0x0552     | Camera AV Set<br>tings User Level<br>Management | Client        |         | O           |
-| 0x0553     | WebRTC Transport<br>Provider                    | Client        |         | M           |
-| 0x0554     | WebRTC Transport<br>Requestor                   | Server        |         | M           |
-| 0x0555     | Push AV Stream<br>Transport                     | Client        |         | O           |
-| 0x0801     | TLS Certificate<br>Management                   | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0003 | Identify | Client | | O |
+| 0x002F | Power Source | Client | | O |
+| 0x0406 | Occupancy Sens<br>ing | Client | | O |
+| 0x0550 | Zone Management | Client | | O |
+| 0x0551 | Camera AV Stream<br>Management | Client | | O |
+| 0x0552 | Camera AV Set<br>tings User Level<br>Management | Client | | O |
+| 0x0553 | WebRTC Transport<br>Provider | Client | | M |
+| 0x0554 | WebRTC Transport<br>Requestor | Server | | M |
+| 0x0555 | Push AV Stream<br>Transport | Client | | O |
+| 0x0801 | TLS Certificate<br>Management | Client | | O |
 
-| Cluster ID | Cluster Name              | Client/Server | Quality | Conformance |
-|------------|---------------------------|---------------|---------|-------------|
-| 0x0802     | TLS Client Man<br>agement | Client        |         | O           |
+| Cluster ID | Cluster Name | Client/Server | Quality | Conformance |
+| 0x0802 | TLS Client Man<br>agement | Client | | O |
 
 # <span id="page-226-0"></span>**16.9. Doorbell Device Type**
 
-A Doorbell device is a switch which when pressed usually causes a [Chime](#page-224-0) to activate.
+A Doorbell device is a switch which when pressed usually causes a Chime to activate.
 
 #### <span id="page-226-1"></span>**16.9.1. Revision History**
 
-| Revision | Description     |  |
-|----------|-----------------|--|
-| 1        | Initial release |  |
-| 2        | Remove superset |  |
+| Revision | Description | |
+| 1 | Initial release | |
+| 2 | Remove superset | |
 
 #### <span id="page-226-2"></span>**16.9.2. Classification**
 
-| Device Type ID | Device Type<br>Name | Superset Of | Class  | Scope    |
-|----------------|---------------------|-------------|--------|----------|
-| 0x0148         | Doorbell            |             | Simple | Endpoint |
+| Device Type ID | Device Type<br>Name | Superset Of | Class | Scope |
+| 0x0148 | Doorbell | | Simple | Endpoint |
 
 #### **16.9.2.1. Cluster Requirements**
 
 Each endpoint supporting this device type SHALL include these clusters based on the conformance defined below.
 
 | Cluster ID | Cluster Name | Client/Server | Conformance |
-|------------|--------------|---------------|-------------|
-| 0x0003     | Identify     | Server        | M           |
-| 0x003B     | Switch       | Server        | M           |
-| 0x0556     | Chime        | Client        | M           |
+| 0x0003 | Identify | Server | M |
+| 0x003B | Switch | Server | M |
+| 0x0556 | Chime | Client | M |
 
 #### **16.9.2.2. Element Requirements**
 
 The table below lists qualities and conformance that override the cluster specification requirements. A blank table cell means there is no change to that item and the value from the cluster specification applies.
 
-| Cluster ID | Cluster<br>Name | Element | Name                | Constraint | Access | Confor<br>mance |
-|------------|-----------------|---------|---------------------|------------|--------|-----------------|
-| 0x003B     | Switch          | Feature | Momen<br>tarySwitch |            |        | M               |
+| Cluster ID | Cluster<br>Name | Element | Name | Constraint | Access | Confor<br>mance |
+| 0x003B | Switch | Feature | Momen<br>tarySwitch | | | M |

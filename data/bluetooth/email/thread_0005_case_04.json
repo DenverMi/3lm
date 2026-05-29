@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0005",
+    "cases": [
+        {
+            "case_id": "thread_0005_case_04",
+            "iut_type": "HFP device",
+            "customer_question": "What DUT equipment and supporting materials are required for HFP qualification testing?",
+            "question_variants": [
+                "What should we send for HFP testing?",
+                "What DUT configuration is required for profile testing?",
+                "Do we need a modified DUT for HFP qualification?",
+                "What accessories and documents are needed for HFP testing?",
+                "What should accompany the DUT shipment?"
+            ],
+            "actual_issue": "The customer needed guidance on the required DUT hardware configuration, accessories, and operational documentation needed to execute HFP qualification testing.",
+            "plain_english_explanation": "The test lab requires a working production-equivalent device so that Bluetooth HFP features can be exercised during testing. The lab also needs enough operational guidance to perform HFP functions correctly during the test procedures.",
+            "consultant_answer": "The consultant instructed the customer to provide one DUT with production-equivalent functionality and no hardware modification requirement, along with the required power accessories such as the AC adapter or USB cable. The consultant also requested HFP operation manuals or operation notes to support execution of the HFP test procedures. The DUT shipment destination and responsible contact information were also provided.",
+            "decision_logic": "Profile testing requires a functioning DUT capable of executing the implemented HFP features under normal operating conditions. Supporting operational documentation is necessary so the testing team can reliably perform required qualification procedures.",
+            "final_recommendation": "Send a production-equivalent DUT with required power accessories and provide HFP operation instructions or usage notes before testing begins.",
+            "risk_if_done_wrong": "Missing accessories, incomplete operational guidance, or a non-functional DUT can delay testing, interrupt test execution, or require rescheduling and additional shipment handling.",
+            "bluetooth_tags": [
+                "HFP",
+                "DUT",
+                "testing",
+                "profile",
+                "qualification"
+            ],
+            "search_aliases": [
+                "HFP DUT requirements",
+                "production equivalent DUT",
+                "HFP operation manual",
+                "Bluetooth test sample",
+                "qualification hardware setup",
+                "profile test equipment",
+                "DUT shipment",
+                "HFP test preparation"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

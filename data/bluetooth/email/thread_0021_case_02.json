@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0021",
+    "cases": [
+        {
+            "case_id": "thread_0021_case_02",
+            "iut_type": "module-integrated Bluetooth device",
+            "customer_question": "Does a product using an unlisted Bluetooth module still require Bluetooth SIG RF PHY testing even if the underlying SoC already has a QDID?",
+            "question_variants": [
+                "Can SoC qualification be reused when the module itself is not listed?",
+                "If the module is not Bluetooth qualified, what testing is still required?",
+                "Does an ESP32 SoC QDID eliminate RF PHY testing for the final product?",
+                "Can protocol tests be reused from the chip vendor QDID?",
+                "What happens when a module has radio certification but no Bluetooth SIG listing?"
+            ],
+            "actual_issue": "A module product was not found in the Bluetooth Qualified Product database even though its embedded SoC had a registered QDID, creating a split qualification scenario where protocol layers could be reused but RF PHY testing still remained mandatory.",
+            "plain_english_explanation": "A Bluetooth chip inside a module may already be qualified, but that does not automatically mean the complete module is qualified. In this case, the Bluetooth stack and protocol portions could be reused from the chip qualification, but the actual radio implementation of the module still needed RF PHY testing because the module itself was not listed as a qualified Bluetooth product.",
+            "consultant_answer": "The consultant searched for the module and supplier in the Bluetooth qualification database and found no matching Bluetooth qualification records, concluding that the module was likely unqualified. The embedded SoC was identified as already registered under an existing QDID, allowing reuse of protocol-layer qualification evidence including LL, L2CAP, GAP, GATT, ATT, and Security Manager. However, because the module itself lacked Bluetooth qualification coverage, the final product using that module still required RF PHY testing. The consultant then estimated the required RF-related test scope and associated qualification support activities.",
+            "decision_logic": "Bluetooth protocol qualification reuse from a qualified SoC does not automatically cover the RF implementation of an unqualified module. If the module-level RF implementation lacks Bluetooth qualification coverage, RF PHY testing remains required even when lower protocol layers can be inherited from the SoC QDID.",
+            "final_recommendation": "Verify whether the exact module itself has a Bluetooth qualification listing before assuming full reuse eligibility. If only the SoC is qualified, plan for RF PHY testing on the final implementation while reusing eligible protocol-layer qualification evidence from the SoC QDID.",
+            "risk_if_done_wrong": "Assuming SoC qualification automatically covers the module can lead to incomplete testing, invalid qualification assumptions, underquoted project costs, schedule overruns, and failed qualification review.",
+            "bluetooth_tags": [
+                "qualification",
+                "module",
+                "SoC",
+                "QDID",
+                "RF PHY",
+                "LL",
+                "GATT",
+                "reuse"
+            ],
+            "search_aliases": [
+                "SoC QDID reuse",
+                "module not qualified",
+                "RF PHY still required",
+                "ESP32-S3R8 QDID",
+                "protocol layer reuse",
+                "LL L2CAP GAP GATT ATT SM reuse",
+                "unlisted Bluetooth module",
+                "module qualification missing",
+                "chip qualified module not qualified"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -161,6 +161,57 @@ def extract_core_term(query: str) -> str:
 
     return q.strip(" ?")
 
+def looks_like_term_definition(text: str, term: str) -> bool:
+    if not term:
+        return False
+
+    raw = text or ""
+    term_l = " ".join(term.lower().split())
+    text_l = raw.lower()
+
+    # Check line-by-line first — best for Markdown tables / glossary rows
+    for line in raw.splitlines():
+        line_l = " ".join(line.lower().split())
+
+        if term_l not in line_l:
+            continue
+
+        # Markdown table / glossary row with definition-like wording
+        if "|" in line_l and (
+            "portable device" in line_l
+            or "containing one or more access credentials" in line_l
+            or "access credentials" in line_l
+        ):
+            return True
+
+        # Plain glossary line
+        if (
+            line_l.startswith(term_l)
+            and (
+                "portable device" in line_l
+                or "containing one or more access credentials" in line_l
+                or "access credentials" in line_l
+            )
+        ):
+            return True
+
+    # Then check only a small window after the term, not the whole chunk
+    idx = text_l.find(term_l)
+    if idx == -1:
+        return False
+
+    window = " ".join(text_l[idx:idx + 350].split())
+
+    patterns = [
+        rf"\b{re.escape(term_l)}\b\s+means\b",
+        rf"\b{re.escape(term_l)}\b\s+is\b",
+        rf"\b{re.escape(term_l)}\b\s+refers to\b",
+        rf"\b{re.escape(term_l)}\b\s+a portable device\b",
+        rf"\b{re.escape(term_l)}\b.*?\bcontaining one or more access credentials\b",
+    ]
+
+    return any(re.search(p, window, re.IGNORECASE) for p in patterns)
+
 def is_acronym_term(term: str) -> bool:
     term = term.strip()
     return bool(re.fullmatch(r"[a-z0-9/\-]{2,10}", term.lower()))
@@ -411,7 +462,7 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
             bonus += 2.0
 
         if chunk_kind == "definition":
-            bonus += 2.0
+            bonus += 9.0
 
         if chunk_kind == "glossary":
             bonus += 2.0
@@ -654,6 +705,9 @@ def merge_and_rerank(
                 normalized_term = " ".join(term.split())
                 if normalized_term in normalized_text:
                     bonus += 2.0
+            
+            if looks_like_term_definition(item.get("text") or "", term):
+                bonus += 6.0
 
         semantic_distance = item.get("semantic_distance")
         semantic_bonus = 0.0
@@ -789,8 +843,11 @@ def find_exact_acronym_definition_chunks(
 
     return hits
 
-def retrieve(query: str, top_k: int = DEFAULT_TOP_K) -> List[Dict[str, Any]]:
+def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = None) -> List[Dict[str, Any]]:
     domain_filter, clean_query = parse_domain_prefix(query)
+
+    if program:
+        domain_filter = program.lower()
 
     bm25, chunks = get_chunks_for_bm25()
 

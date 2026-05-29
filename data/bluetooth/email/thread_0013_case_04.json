@@ -4,17 +4,41 @@
         {
             "case_id": "thread_0013_case_04",
             "iut_type": "lighting device",
-            "customer_question": "Can prototype hardware and incomplete software (e.g., alpha control app) be used for DIS profile testing?",
-            "actual_issue": "Uncertainty about test readiness requirements for profile testing, including hardware labeling and supporting software.",
-            "consultant_answer": "Profile testing can be performed using prototype hardware as long as functionality matches the final product. Labeling (e.g., temporary labels) is acceptable. Additionally, external control applications (e.g., smartphone apps) are not required if the profile functionality can be tested directly on the device.",
-            "final_recommendation": "Proceed with profile testing using functional prototype hardware; no need to wait for final labeling or supporting apps if core profile functionality is testable.",
-            "bluetooth_tags": [
-                "testing",
-                "DIS",
-                "prototype",
-                "profile"
+            "customer_question": "Is an operation control application required for DIS profile testing, and can prototype hardware be used for testing?",
+            "question_variants": [
+                "Can DIS testing use prototype hardware?",
+                "Is a smartphone control app required for DIS qualification?",
+                "Do we need production labels for Bluetooth profile testing?",
+                "Can profile testing be done with engineering samples?",
+                "What hardware is needed for DIS testing?"
             ],
-            "qualification_stage": "testing"
+            "actual_issue": "The customer needed clarification on whether Bluetooth DIS profile testing required a production-ready product and a companion control application.",
+            "plain_english_explanation": "The customer only had prototype hardware and an unfinished smartphone control application available for testing. They were concerned this might block Bluetooth qualification testing. The consultant clarified that the DIS profile test only required the Bluetooth-enabled product itself and that prototype labels were acceptable.",
+            "consultant_answer": "The consultant explained that DIS profile testing can be performed using prototype hardware with temporary labeling as long as the Bluetooth functionality is representative of the final implementation. The smartphone control application was not required because DIS testing could be performed directly against the product implementing the DIS profile.",
+            "decision_logic": "Bluetooth profile testing validates the implemented Bluetooth profile behavior rather than final cosmetic manufacturing details. Companion applications are only required if they are necessary to exercise the tested Bluetooth functionality.",
+            "final_recommendation": "Provide a representative prototype unit implementing the DIS profile functionality and proceed with testing even if the final production labeling or control application is not complete.",
+            "risk_if_done_wrong": "Delaying testing unnecessarily until production hardware or applications are finalized can delay qualification schedules and product launch timelines.",
+            "bluetooth_tags": [
+                "DIS",
+                "profile",
+                "testing",
+                "prototype",
+                "PTS",
+                "qualification"
+            ],
+            "search_aliases": [
+                "prototype acceptable for testing",
+                "DIS app required",
+                "engineering sample qualification",
+                "temporary label testing",
+                "profile-only testing",
+                "Bluetooth prototype testing",
+                "control app unnecessary",
+                "DIS profile sample"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0011",
+    "cases": [
+        {
+            "case_id": "thread_0011_case_03",
+            "iut_type": "",
+            "customer_question": "Can Bluetooth qualification testing be fully waived when using existing qualified Bluetooth designs in a rebadged product?",
+            "question_variants": [
+                "Can all Bluetooth tests be waived?",
+                "Is testing unnecessary when reusing an existing qualified design?",
+                "Can a private-label product avoid Bluetooth testing?",
+                "When is full test exemption possible in Bluetooth qualification?",
+                "Can Multi-Design reuse eliminate testing requirements?"
+            ],
+            "actual_issue": "The thread references a qualification scenario where all testing may be waived if the product fully reuses existing qualified Bluetooth designs without requiring additional testing.",
+            "plain_english_explanation": "The customer was informed that some products may qualify without new Bluetooth testing if they reuse existing qualified Bluetooth designs correctly. This depends on the Bluetooth implementation details and whether the reused design remains unchanged. The consultant noted that this affects both qualification cost and support scope.",
+            "consultant_answer": "The consultant noted that there is a baseline support cost scenario for cases where all testing can be waived through reuse of existing qualified designs, referenced as a Multi-Design scenario. However, eligibility depends on the registered module, SoC, host stack, and profile configuration used in the product.",
+            "decision_logic": "Bluetooth qualification testing may be reduced or waived only when the product qualifies for reuse of existing qualified designs without modifications that would trigger new testing requirements.",
+            "final_recommendation": "Verify whether the product's Bluetooth implementation fully matches existing qualified designs before assuming that testing can be waived.",
+            "risk_if_done_wrong": "Incorrectly assuming test exemption eligibility may result in incomplete qualification evidence, rejected submissions, or later rework requiring additional testing.",
+            "bluetooth_tags": [
+                "qualification",
+                "reuse",
+                "QDID",
+                "Multi-Design",
+                "test plan",
+                "listing"
+            ],
+            "search_aliases": [
+                "full test waiver",
+                "qualification reuse",
+                "existing qualified design",
+                "Multi-Design reuse",
+                "QDID reuse",
+                "testing exemption",
+                "rebrand qualification reuse",
+                "no testing qualification"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

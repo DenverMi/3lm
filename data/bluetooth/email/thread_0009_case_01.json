@@ -3,20 +3,47 @@
     "cases": [
         {
             "case_id": "thread_0009_case_01",
-            "iut_type": "host subsystem",
-            "customer_question": "For HOGP Host implementation, are additional services such as DIS, HIDS, BAS required for qualification?",
-            "actual_issue": "Misinterpretation of required profiles/services for HOGP Host role due to inconsistencies between specification interpretation and Qualification Workspace test plan behavior.",
-            "consultant_answer": "The consultant verified actual requirements by generating a Test Plan using the Qualification Workspace with correct ICS settings and consistency check (Invalid=0). The result showed that for HOGP Host, only HOGP-related test cases plus a minimal additional test (e.g., SCPP-related CGGIT item) are required. Earlier assumptions about mandatory inclusion of DIS, HIDS, BAS were due to temporary inconsistencies or misinterpretation of tools/spec updates.",
-            "final_recommendation": "Always validate required profiles and services by generating the Test Plan from the Qualification Workspace using the final ICS. Do not rely solely on specification interpretation or previous listings.",
-            "bluetooth_tags": [
-                "HOGP",
-                "ICS",
-                "test plan",
-                "qualification",
-                "profile",
-                "PTS"
+            "iut_type": "host device",
+            "customer_question": "Does HOGP Host qualification under the new Qualification Workspace require additional DIS, HIDS, BAS, and ScPS profile support and testing?",
+            "question_variants": [
+                "Are DIS/HIDS/BAS mandatory for HOGP Host?",
+                "Does HOGP Report Host require ScPS testing?",
+                "Why does Qualification Workspace add HIDS and DIS to HOGP Host test plans?",
+                "Can HOGP Host be qualified without HIDS and BAS?",
+                "Did the 7/1 Qualification Workspace update change HOGP Host requirements?",
+                "Is the HOGP Host ICS enough without extra services?"
             ],
-            "qualification_stage": "planning"
+            "actual_issue": "After the July 2024 Qualification Workspace migration under QPRDv3, Consistency Check and generated test plans temporarily appeared to require additional services and profile tests for HOGP Host roles that were historically not required.",
+            "plain_english_explanation": "The customer saw new Bluetooth qualification test requirements appear after the SIG updated its qualification system. They believed these extra services should not apply to an HOGP Host device because the specification only requires service discovery for the host side. The consultant verified the generated test plans and confirmed the system behavior was corrected after the Workspace recovered from temporary issues.",
+            "consultant_answer": "Initial Consistency Check behavior in the new Qualification Workspace showed HIDS, DIS, BAS, and ScPS dependencies for HOGP Host roles. The customer challenged this based on the HOGP specification wording and existing market listings such as iPhone listings that did not include those services. After Qualification Workspace recovered from timeout and rule-update issues, the consultant regenerated the test plan using the minimum required HOGP Report Host ICS with Invalid=0 and confirmed that the generated plan only required standard HOGP test cases plus a single SCPP/CL/CGGIT/SER test case. The previously observed extra DIS, HIDS, BAS, and ScPS requirements were no longer present.",
+            "decision_logic": "Qualification requirements are determined by the active Qualification Workspace ICS consistency rules and generated test plan, not only by historical listings. Temporary rule inconsistencies in the new QPRDv3 Workspace caused additional dependencies to appear. Once the Workspace rules were corrected and the proper HOGP Host ICS was used, only the expected HOGP-related tests remained mandatory.",
+            "final_recommendation": "Use the corrected Qualification Workspace-generated test plan based on the minimum HOGP Host ICS and execute only the required HOGP tests plus the listed SCPP service discovery test case. Recheck the generated test plan after Workspace or TCRL updates before starting testing.",
+            "risk_if_done_wrong": "If the wrong interpretation is followed, the company may perform unnecessary profile testing, increase qualification cost and schedule, or submit incomplete evidence if relying on outdated Workspace behavior.",
+            "bluetooth_tags": [
+                "qualification",
+                "HOGP",
+                "HOGP Host",
+                "ICS",
+                "Consistency Check",
+                "PTS",
+                "ScPP",
+                "test plan"
+            ],
+            "search_aliases": [
+                "HOGP Host DIS not required",
+                "HOGP Report Host BAS requirement",
+                "Qualification Workspace HOGP issue",
+                "HOGP Host extra services",
+                "ScPS requirement for HOGP",
+                "Consistency Check HOGP dependency",
+                "HOGP ICS validation",
+                "SCPP CL CGGIT SER",
+                "HOGP Report Host test plan",
+                "QPRDv3 HOGP"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0028",
+    "cases": [
+        {
+            "case_id": "thread_0028_case_02",
+            "iut_type": "module",
+            "customer_question": "When are Stable Modulation Index transmitter and receiver RF PHY tests required, and are they practically useful?",
+            "question_variants": [
+                "What is Stable Modulation Index testing?",
+                "Do we need Stable RX/TX Mod tests?",
+                "When is Stable Modulation Index required?",
+                "Why add Stable Modulation Index qualification?",
+                "What happens if Stable Modulation Index fails?"
+            ],
+            "actual_issue": "The customer needed clarification on the purpose, requirements, and practical value of optional Stable Modulation Index RF PHY tests for BLE GFSK modulation accuracy.",
+            "plain_english_explanation": "Stable Modulation Index testing checks whether the Bluetooth radio generates extremely accurate GFSK modulation. Normal BLE devices are allowed a wider modulation tolerance, but Stable Modulation Index support requires much tighter accuracy. Most products do not need this feature unless they specifically claim support for it.",
+            "consultant_answer": "The consultant explained that standard BLE devices allow a GFSK modulation index range of approximately 0.5±10%, while Stable Modulation Index support narrows the acceptable range to approximately 0.5±1%. These tests are optional and mainly depend on the intrinsic RF quality of the selected SoC. If the SoC already produces very clean modulation, the tests are likely to pass, but if not, the tests will simply fail without providing much practical benefit because the SoC usually cannot be changed at that stage.",
+            "decision_logic": "Stable Modulation Index is an optional Bluetooth RF PHY capability with significantly tighter modulation accuracy requirements than standard BLE modulation tolerance.",
+            "final_recommendation": "Only include Stable Modulation Index qualification if there is a clear product requirement or feature claim that depends on it. Confirm SoC RF performance capability before committing to these optional tests.",
+            "risk_if_done_wrong": "Unnecessary Stable Modulation Index testing can increase qualification cost and create avoidable RF PHY failures that may not be correctable without changing the underlying SoC.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "LE",
+                "GFSK",
+                "Stable Modulation Index",
+                "testing",
+                "SoC"
+            ],
+            "search_aliases": [
+                "Stable RX Mod",
+                "Stable TX Mod",
+                "Stable Modulation Index",
+                "GFSK modulation tolerance",
+                "0.5±1% modulation",
+                "optional RF PHY feature",
+                "BLE modulation accuracy",
+                "RF PHY optional test",
+                "stable modulation fail"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -4,20 +4,43 @@
         {
             "case_id": "thread_0011_case_01",
             "iut_type": "",
-            "customer_question": "What is the cost to obtain Bluetooth SIG qualification when rebranding and selling a purchased product under our own brand, including testing, certification, membership, and fees?",
-            "actual_issue": "The customer assumes a fixed cost for Bluetooth SIG qualification, but the required testing scope and cost depend on the specific Bluetooth design details (module/SoC, host stack, profiles) and whether existing qualified designs can be reused.",
-            "consultant_answer": "The consultant explains that qualification cost cannot be determined without detailed information about the product’s Bluetooth implementation. The required test scope depends on the registered design elements such as module/SoC, host stack, and supported profiles. These factors determine whether testing is required or can be waived (e.g., reuse of existing qualified designs). The consultant also outlines the standard qualification workflow: SIG membership registration, test plan creation, sample testing and report generation, payment of qualification fees, submission/registration, and compliance folder delivery. A baseline cost is provided only for the scenario where all testing is exempted.",
-            "final_recommendation": "Collect and provide detailed Bluetooth design information (module/SoC, host stack, profiles) using a formal quotation request form so that the correct qualification path and cost (including potential test exemptions via design reuse) can be determined.",
+            "customer_question": "How should a company estimate Bluetooth SIG qualification costs when reselling an existing Bluetooth product under its own brand?",
+            "question_variants": [
+                "What information is needed for a Bluetooth SIG qualification quotation?",
+                "How is Bluetooth qualification test scope determined for a rebadged product?",
+                "Can you estimate Bluetooth SIG certification costs before knowing the module and profiles?",
+                "What affects Bluetooth qualification testing costs?",
+                "How do we quote qualification support for an OEM or private-label Bluetooth product?"
+            ],
+            "actual_issue": "The quotation and qualification scope for a rebranded Bluetooth product cannot be determined until the underlying Bluetooth architecture is identified, including the module or SoC, host stack, and implemented profiles.",
+            "plain_english_explanation": "The customer wanted a quotation for Bluetooth SIG certification of a product they planned to sell under their own brand. The consultant explained that the required testing and qualification cost depend on the Bluetooth components and software used inside the product. Without knowing the module, stack, and supported profiles, it is not possible to determine the correct qualification path or estimate the full cost.",
+            "consultant_answer": "The consultant explained that qualification cost and required testing are determined by the registered Bluetooth components used in the product, specifically the module or SoC, host stack, and profiles. These determine the applicable test plan and whether existing qualified designs can be reused or whether additional testing is required. Therefore, the customer must first provide technical registration details using a quotation request form before an accurate estimate can be prepared.",
+            "decision_logic": "Bluetooth qualification obligations and test scope depend on the exact Bluetooth design composition and reuse eligibility. Test requirements cannot be determined from product branding alone.",
+            "final_recommendation": "Collect and review the module or SoC information, host stack details, and Bluetooth profiles used in the product before preparing a qualification quotation or defining the test plan.",
+            "risk_if_done_wrong": "Estimating qualification cost without confirming the Bluetooth architecture may lead to incorrect quotations, missing required tests, project delays, or unexpected qualification expenses.",
             "bluetooth_tags": [
                 "qualification",
-                "listing",
-                "QDID",
                 "module",
+                "SoC",
                 "profile",
+                "test plan",
                 "reuse",
-                "test plan"
+                "listing"
             ],
-            "qualification_stage": "planning"
+            "search_aliases": [
+                "qualification quotation",
+                "Bluetooth certification estimate",
+                "module-based qualification",
+                "host stack qualification",
+                "profile test scope",
+                "rebranded Bluetooth product",
+                "OEM Bluetooth qualification",
+                "test plan generation",
+                "qualification cost dependency"
+            ],
+            "qualification_stage": "pre-sales",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

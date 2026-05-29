@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0036",
+    "cases": [
+        {
+            "case_id": "thread_0036_case_02",
+            "iut_type": "TV",
+            "customer_question": "How can a product avoid new IOPT testing requirements under QPRDv3/QPRDv4 during Bluetooth qualification?",
+            "question_variants": [
+                "When does IOPT become mandatory?",
+                "Can we avoid IOPT by registering before the active date?",
+                "Will QPRDv4 increase required interoperability testing?",
+                "Does TCRL selection affect IOPT obligations?",
+                "Can IOPT be waived under TCRL 2024-2?"
+            ],
+            "actual_issue": "The customer faced upcoming IOPT enforcement and needed to determine whether qualification timing and TCRL selection could reduce interoperability testing obligations.",
+            "plain_english_explanation": "Bluetooth SIG introduced new interoperability testing requirements called IOPT. The customer wanted to know whether submitting qualification before the enforcement timing would reduce testing scope. The consultant evaluated timing, TCRL usage, and policy transition effects to minimize qualification burden.",
+            "consultant_answer": "The consultant explained that IOPT requirements become active depending on TCRL version and qualification timing. By completing registration before the newer enforcement window, the customer could avoid additional interoperability obligations that would otherwise apply under newer QPRD/TCRL conditions. The consultant also referenced waiver applicability and explained that later TCRL packages would require full IOPT execution. Timing the submission correctly was treated as a strategic qualification control point.",
+            "decision_logic": "IOPT applicability is controlled by active TCRL policy state, QPRD rules, and submission timing. Products registered before mandatory enforcement or using eligible waiver conditions can avoid additional interoperability test execution.",
+            "final_recommendation": "Complete qualification and registration before the newer IOPT enforcement timing using the eligible TCRL path and maintain qualification scope under the older applicable requirements.",
+            "risk_if_done_wrong": "Missing the qualification timing window could trigger mandatory IOPT execution, increasing testing scope, qualification effort, tooling requirements, and schedule impact.",
+            "bluetooth_tags": [
+                "IOPT",
+                "QPRDv3",
+                "QPRDv4",
+                "TCRL",
+                "PTS",
+                "qualification",
+                "TCW"
+            ],
+            "search_aliases": [
+                "IOPT active date",
+                "avoid IOPT testing",
+                "TCRL 2024-2 waiver",
+                "QPRDv4 interoperability testing",
+                "PTS IOPT requirement",
+                "IOPT enforcement timing",
+                "registration before IOPT",
+                "mandatory interoperability testing"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

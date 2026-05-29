@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0025",
+    "cases": [
+        {
+            "case_id": "thread_0025_case_01",
+            "iut_type": "module",
+            "customer_question": "How should a company handle Bluetooth qualification when a reused Host and Controller combination fails the new QPRDv3 consistency checks due to GAP and LL ICS mismatches?",
+            "question_variants": [
+                "QPRDv3 consistency check failed for reused Host and Controller",
+                "How do we resolve GAP and LL ICS dependency mismatches?",
+                "Can we qualify a combined Host and Controller design with inconsistent ICS selections?",
+                "What happens if periodic advertising GAP features are enabled but LL support is missing?",
+                "How should we proceed when ILD consistency checks fail in Qualification Workspace?",
+                "Can we avoid extra testing caused by ICS corrections?"
+            ],
+            "actual_issue": "A reused Host and Controller combination contained incompatible GAP and LL ICS selections related to Periodic Advertising, Synchronization, and Periodic Advertising Sync Transfer features. Under QPRDv3, the Qualification Workspace consistency check enforces inter-layer dependency validation, causing the combined design to fail qualification unless the inconsistencies are removed or otherwise resolved.",
+            "plain_english_explanation": "The Bluetooth qualification system now checks whether higher-level Bluetooth features match the capabilities actually supported by the lower protocol layers. In this case, the product claimed support for synchronization and transfer features that the lower Link Layer did not fully support. Fixing the mismatch directly would likely trigger additional Bluetooth testing obligations and increase qualification complexity.",
+            "consultant_answer": "The consultant explained that the GAP features depended on LL capabilities that were marked unsupported in the reused Controller design. Because QPRDv3 performs ILD and consistency validation across included designs, the qualification tool rejected the combination. The consultant further explained that correcting the ICS selections would likely create modified-layer obligations under QPRDv3, generating additional mandatory protocol testing. Rather than modifying inherited Host and GAP behavior, the consultant recommended restructuring the qualification approach to avoid triggering broad upper-layer retesting.",
+            "decision_logic": "Under QPRDv3, new combined designs must pass consistency checks validating ILDs between layers and proper feature dependencies. If GAP capabilities reference unsupported LL features, the design becomes inconsistent. Correcting ICS selections changes the effective design scope and can trigger mandatory testing for modified layers. Therefore, minimizing ICS modifications reduces qualification risk and testing exposure.",
+            "final_recommendation": "Avoid modifying the incompatible Host and GAP layers unless full protocol-layer retesting is acceptable. Instead, restructure the qualification scope so the reusable module is qualified independently as a compliant Controller-focused design with required RF PHY testing and downstream reuse support.",
+            "risk_if_done_wrong": "Directly modifying the inconsistent ICS selections could trigger additional mandatory GAP and protocol-layer testing, retesting cycles, debugging work, and dependency on stack vendor support. Incorrect handling of the consistency failure could also prevent creation of a reusable compliant design suitable for downstream customer qualification reuse.",
+            "bluetooth_tags": [
+                "qualification",
+                "QPRDv3",
+                "ICS",
+                "consistency check",
+                "ILD",
+                "GAP",
+                "LL",
+                "controller"
+            ],
+            "search_aliases": [
+                "QPRDv3 consistency check failed",
+                "GAP LL mismatch",
+                "ILD dependency failure",
+                "Periodic Advertising ICS conflict",
+                "PAST feature mismatch",
+                "Host Controller combination invalid",
+                "ICS correction triggers testing",
+                "Qualification Workspace inconsistency",
+                "Periodic Advertising Sync Transfer issue",
+                "LL unsupported GAP enabled"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

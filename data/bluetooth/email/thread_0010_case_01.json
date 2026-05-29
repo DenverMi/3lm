@@ -3,20 +3,41 @@
     "cases": [
         {
             "case_id": "thread_0010_case_01",
-            "iut_type": "keyboard",
-            "customer_question": "Can we change an already registered Bluetooth product from Core Spec 4.2 to 5.0 without additional testing?",
-            "actual_issue": "Whether a specification version upgrade can be done as a modification to an existing listing or requires a new qualification.",
-            "consultant_answer": "The consultant explains that once a product is registered with a specific Core Specification version (e.g., 4.2), it is fixed under that specification. Even if the referenced QDID supports a newer version (e.g., 5.0), the existing listing cannot be updated to a new spec version. However, if there are no hardware or software changes, existing test reports can be reused, so no new testing is required.",
-            "final_recommendation": "Create a new qualification listing for the product under the desired specification version (e.g., 5.0) and reuse existing test evidence where applicable; do not attempt to modify the existing listing.",
+            "iut_type": "",
+            "customer_question": "Which company name must be used for Bluetooth SIG qualification registration when the manufacturing company and selling company are different?",
+            "question_variants": [
+                "Should the Bluetooth SIG listing use the seller name or manufacturer name?",
+                "Which company account should be used for Bluetooth qualification?",
+                "Can the manufacturing company register the product for another brand owner?",
+                "Whose company name must appear in the Bluetooth SIG registration?",
+                "Should the Qualification Workspace account belong to the sales company?"
+            ],
+            "actual_issue": "The product was manufactured by one company but sold under another company's brand name, creating uncertainty about which company identity must be used for Bluetooth SIG qualification registration and account ownership.",
+            "plain_english_explanation": "The customer wanted to know whose company name should be used when registering a Bluetooth product. The product was made by one company but sold under another company's brand. The consultant clarified that Bluetooth qualification must follow the company name shown on the product branding and labeling, not necessarily the manufacturer.",
+            "consultant_answer": "The consultant explained that Bluetooth SIG qualification rules require the qualification registration to use the company name of the selling company displayed on the product label or branding. The manufacturing company does not necessarily need to register the product under its own company name. The decision should therefore be based on the company identified as the seller of the finished product.",
+            "decision_logic": "Bluetooth qualification ownership is tied to the marketed and branded product identity. The member company associated with the product branding and sales identity must be the company completing the qualification registration.",
+            "final_recommendation": "Register the product under the Bluetooth SIG member account of the company whose name appears on the product branding and product label.",
+            "risk_if_done_wrong": "If the wrong company identity is used, the Bluetooth qualification listing may not correctly match the marketed product ownership, potentially causing compliance issues, re-registration work, or listing correction delays.",
             "bluetooth_tags": [
                 "qualification",
                 "listing",
-                "spec upgrade",
-                "QDID",
-                "reuse",
-                "test report"
+                "Qualification Workspace",
+                "member account",
+                "product branding",
+                "declaration"
             ],
-            "qualification_stage": "listing / declaration"
+            "search_aliases": [
+                "seller company registration",
+                "manufacturer vs seller qualification",
+                "Bluetooth SIG account ownership",
+                "product label company",
+                "listing company mismatch",
+                "brand owner qualification",
+                "member company registration"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

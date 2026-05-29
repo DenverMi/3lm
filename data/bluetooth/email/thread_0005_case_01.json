@@ -3,20 +3,46 @@
     "cases": [
         {
             "case_id": "thread_0005_case_01",
-            "iut_type": "",
-            "customer_question": "The customer does not have an HFP ICS document and asks how to obtain or substitute it.",
-            "actual_issue": "Lack of Implementation Conformance Statement (ICS) documentation required for Bluetooth qualification and test plan generation.",
-            "consultant_answer": "The ICS is not a generic specification document but a mandatory Bluetooth SIG-defined form that must reflect the actual implemented features of the product. It cannot be substituted with general documentation. The ICS is typically derived from the implementation details of the Bluetooth stack and is usually maintained by the software development team or the third-party vendor who implemented the stack. Without a properly completed ICS, the test plan cannot be generated. If full feature mapping is not possible, a reduced scope using only mandatory items may be considered.",
-            "final_recommendation": "Obtain the HFP ICS from the internal software development team or the Bluetooth stack supplier and complete it based on actual implementation. If unavailable, complete at least the mandatory ICS items to proceed with limited testing and qualification.",
-            "bluetooth_tags": [
-                "ICS",
-                "HFP",
-                "qualification",
-                "test plan",
-                "profile",
-                "implementation"
+            "iut_type": "module-based device",
+            "customer_question": "How should a company qualify a product that uses a SIG-qualified module while adding HFP and custom BLE functionality?",
+            "question_variants": [
+                "Can we reuse the module's SIG registration for our product?",
+                "How do we qualify a product using an already qualified Bluetooth module?",
+                "What qualification option applies when adding HFP and BLE on top of a qualified module?",
+                "Can custom BLE communication remain outside SIG profile scope?",
+                "Do we need new testing if we use an existing qualified module?"
             ],
-            "qualification_stage": "pre-test review"
+            "actual_issue": "A company is integrating a previously qualified Bluetooth module into a new product that implements HFP and proprietary BLE communication, and needs to determine the required Bluetooth SIG qualification scope, testing scope, and listing approach.",
+            "plain_english_explanation": "Using a pre-qualified Bluetooth module does not automatically qualify the final product. The final product still needs its own Bluetooth SIG qualification listing. However, existing qualified designs from the module can often be reused, reducing the amount of new testing required if the Bluetooth-compliant portions are unchanged.",
+            "consultant_answer": "The consultant determined that the product uses an existing qualified module but also implements HFP and BLE functionality at the product level. The quotation and qualification plan assumed HFP profile testing and Single Design reuse. The consultant also noted that the BLE communication appeared to use proprietary GATT-based communication rather than SIG-defined profiles, which affects the qualification scope and testing assumptions. The registration support would therefore proceed using existing qualified module references combined with additional qualification work for the implemented HFP functionality.",
+            "decision_logic": "A product using an existing qualified module must still complete its own Bluetooth qualification process. Existing qualified designs may be reused if unchanged, but any implemented Bluetooth functionality such as HFP must be represented correctly in the ICS and tested as required. Proprietary GATT communication without SIG-defined profiles may reduce profile qualification scope.",
+            "final_recommendation": "Reuse the qualified module design references during qualification, declare implemented HFP functionality correctly in the ICS, perform required HFP testing, and qualify the final branded product under the company's own SIG membership.",
+            "risk_if_done_wrong": "Assuming the module qualification alone covers the final product can result in incomplete qualification, incorrect listing scope, missing test coverage, or Bluetooth SIG enforcement risk.",
+            "bluetooth_tags": [
+                "qualification",
+                "module",
+                "HFP",
+                "GATT",
+                "BLE",
+                "reuse",
+                "listing",
+                "ICS"
+            ],
+            "search_aliases": [
+                "qualified module reuse",
+                "existing QDID reuse",
+                "Single Design qualification",
+                "HFP profile testing",
+                "custom BLE communication",
+                "proprietary GATT service",
+                "module-based qualification",
+                "final product listing",
+                "reuse existing design",
+                "SIG profile non-implemented"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

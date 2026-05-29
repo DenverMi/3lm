@@ -1,22 +1,45 @@
 {
     "source_thread": "thread_0009",
     "cases": [
-
         {
             "case_id": "thread_0009_case_02",
-            "iut_type": "host subsystem",
-            "customer_question": "Can a product be qualified without enabling HOGP in the initial version if the Bluetooth stack already supports it and it will be enabled in a later update?",
-            "actual_issue": "Whether unused features present in the Bluetooth stack must be declared and qualified in the initial product listing.",
-            "consultant_answer": "Qualification is based on the actual implemented and enabled features declared in the ICS. If HOGP is not used in the initial product version, it does not need to be included in the qualification, even if the underlying stack supports it.",
-            "final_recommendation": "Only declare and qualify features that are actually enabled in the product at the time of listing. Add new qualification later when features are enabled.",
-            "bluetooth_tags": [
-                "ICS",
-                "feature scope",
-                "design change",
-                "qualification",
-                "host"
+            "iut_type": "host device",
+            "customer_question": "Can a product qualify without enabling HOGP functionality in the initial release if the Bluetooth stack already contains the feature and it will be enabled later by firmware update?",
+            "question_variants": [
+                "Can unused HOGP functionality stay disabled at launch?",
+                "Does SIG qualification require enabling all stack features immediately?",
+                "Can HOGP be added later without changing the stack?",
+                "Can the first product release omit HOGP support?",
+                "Is dormant HOGP functionality acceptable for qualification?"
             ],
-            "qualification_stage": "planning"
+            "actual_issue": "The product used a Bluetooth stack that supported HOGP, but the initial commercial release would not expose or enable HOGP functionality until a later software update.",
+            "plain_english_explanation": "The customer wanted to ship a product before enabling one Bluetooth feature already present in the software stack. The concern was whether Bluetooth SIG qualification requires every supported stack feature to be active in the first product release. The discussion focused on qualifying only the features actually used in the shipping product.",
+            "consultant_answer": "The thread indicates the qualification strategy was based on creating a Host Subsystem including HOGP capability not contained in the base QDID while the first release would not actually use the HOGP function. The reasoning presented was that because the Bluetooth stack itself remained unchanged between releases, the initial product could qualify without enabling HOGP functionality. The later firmware update would activate the feature without changing the underlying stack implementation.",
+            "decision_logic": "Bluetooth qualification is tied to the implemented and claimed Bluetooth functionality reflected in the product's ICS and listing scope. Dormant functionality that is not enabled or claimed in the released product may be excluded from the initial qualification scope if the Bluetooth-compliant implementation being declared does not change.",
+            "final_recommendation": "Qualify the initial product release based on the Bluetooth features actually enabled and exposed at launch. When enabling HOGP later, review whether the updated feature set changes the declared ICS or qualification scope and perform additional qualification work if required.",
+            "risk_if_done_wrong": "If unsupported assumptions are made about deferred features, the product may later require requalification, updated listings, or additional testing after the firmware update. Incorrectly claiming unsupported features in the initial listing could also create compliance issues.",
+            "bluetooth_tags": [
+                "qualification",
+                "HOGP",
+                "Host Subsystem",
+                "ICS",
+                "QDID",
+                "firmware update",
+                "design change"
+            ],
+            "search_aliases": [
+                "disabled HOGP at launch",
+                "future firmware Bluetooth feature",
+                "dormant profile qualification",
+                "ICS feature not enabled",
+                "later enable HOGP",
+                "Bluetooth stack unchanged",
+                "Host Subsystem deferred feature",
+                "qualification scope by enabled feature"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "medium",
+            "source_type": "email_case"
         }
     ]
 }

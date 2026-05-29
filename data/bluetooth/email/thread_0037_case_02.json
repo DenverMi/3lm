@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0037",
+    "cases": [
+        {
+            "case_id": "thread_0037_case_02",
+            "iut_type": "module-based BLE product",
+            "customer_question": "Can a product using an already qualified BLE module complete Bluetooth SIG qualification without additional testing, and what documents are still required?",
+            "question_variants": [
+                "Can we skip Bluetooth testing if the module is already qualified?",
+                "Do we need RF testing when reusing a qualified BLE module?",
+                "What documents are needed for the compliance folder?",
+                "Can module qualification be reused without submitting hardware?",
+                "Is the antenna datasheet from the module vendor acceptable?"
+            ],
+            "actual_issue": "A product reusing an already qualified Bluetooth component may avoid new testing if the adopted design already satisfies required qualification coverage, but the final product still requires its own qualification submission and compliance documentation.",
+            "plain_english_explanation": "Even when a product uses a previously qualified Bluetooth module, the final product still needs its own Bluetooth SIG qualification listing. In this case, the consultant determined that no additional lab testing was required because the adopted component already covered the needed qualification scope. However, the customer still had to provide compliance folder documents such as Bluetooth user instructions, block diagrams, external drawings, and antenna information.",
+            "consultant_answer": "After reviewing the customer's qualification request and adopted Bluetooth component information, the consultant concluded that no physical testing or equipment submission was required because the selected component had already passed the necessary qualification tests. The consultant instructed the customer to proceed with qualification registration and later submit compliance folder materials including the Bluetooth-related operating manual, product block diagram, external dimension drawing, and antenna data containing radiation gain characteristics. The consultant also confirmed that Japanese-language documents were acceptable for the compliance folder.",
+            "decision_logic": "Previously qualified Bluetooth designs and test coverage can be reused when the Bluetooth-compliant portion is unchanged. Even when testing is unnecessary, the final product owner must still complete its own qualification submission and maintain compliance folder documentation.",
+            "final_recommendation": "Reuse the qualified Bluetooth component design for the product listing, complete the qualification submission process, and prepare the required compliance folder documents including Bluetooth manual sections, block diagrams, product drawings, and antenna data.",
+            "risk_if_done_wrong": "The product may fail qualification review, experience delays during submission, or lack required compliance evidence during audit or enforcement review. Incorrect assumptions about qualification reuse could also lead to unnecessary testing or incomplete documentation.",
+            "bluetooth_tags": [
+                "qualification",
+                "module",
+                "reuse",
+                "compliance folder",
+                "listing",
+                "antenna",
+                "documentation",
+                "submission"
+            ],
+            "search_aliases": [
+                "module reuse qualification",
+                "no testing required reuse",
+                "qualified BLE module reuse",
+                "compliance folder documents",
+                "antenna radiation gain chart",
+                "Bluetooth manual requirement",
+                "block diagram submission",
+                "external drawing requirement",
+                "Japanese documents accepted",
+                "qualification without retest"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

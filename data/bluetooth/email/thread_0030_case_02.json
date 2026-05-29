@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0030",
+    "cases": [
+        {
+            "case_id": "thread_0030_case_02",
+            "iut_type": "medical device",
+            "customer_question": "How can an existing Bluetooth module qualification be reused without triggering additional testing or qualification cost?",
+            "question_variants": [
+                "Can we avoid additional Bluetooth testing by reusing existing QDIDs?",
+                "Will this qualification structure trigger extra Test Plans?",
+                "Can the product be listed using existing module qualifications only?",
+                "How do we minimize Bluetooth qualification cost and schedule impact?",
+                "Can future products reuse the same module declaration?"
+            ],
+            "actual_issue": "The customer needed a compliant Bluetooth qualification strategy that reused existing qualified components while avoiding additional testing, qualification cost, and future reuse limitations.",
+            "plain_english_explanation": "The product already used a Bluetooth module and previously qualified software components. The challenge was to build the declaration correctly so the company would not need unnecessary testing or pay for avoidable qualification work. The consultant also considered how future products could reuse the same qualification structure efficiently.",
+            "consultant_answer": "The consultant reviewed the proposed qualification architecture using Multi-Design Option 2b and verified that the revised QDID combination did not generate additional Test Plans during project validation. The consultant also advised selecting an appropriate Design Name so future products using the same module and host stack could later be added as derivative products without additional registration fees. The final Review Page was prepared and approved before submission.",
+            "decision_logic": "If a product reuses already qualified Bluetooth layers in a valid configuration, the declaration can often proceed without additional testing. Proper qualification architecture and naming decisions also affect whether future derivative products can efficiently reuse the same declaration structure.",
+            "final_recommendation": "Use a validated reuse-based qualification structure with existing compliant QDIDs, confirm that no additional Test Plans are generated before submission, and choose a reusable Design Name strategy for future derivative products.",
+            "risk_if_done_wrong": "An incorrect qualification structure could trigger unnecessary testing, additional qualification effort, avoidable registration cost, or future reuse limitations for derivative products.",
+            "bluetooth_tags": [
+                "qualification",
+                "reuse",
+                "QDID",
+                "module",
+                "listing",
+                "design reuse",
+                "derivative product",
+                "test plan"
+            ],
+            "search_aliases": [
+                "avoid additional Test Plans",
+                "reuse existing qualification",
+                "derivative product strategy",
+                "module qualification reuse",
+                "no extra Bluetooth testing",
+                "qualification cost reduction",
+                "review page validation",
+                "Multi-Design Option 2b reuse",
+                "future product reuse",
+                "existing QDID declaration"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

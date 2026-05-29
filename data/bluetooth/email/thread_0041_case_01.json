@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0041",
+    "cases": [
+        {
+            "case_id": "thread_0041_case_01",
+            "iut_type": "module-based Bluetooth product",
+            "customer_question": "When must Bluetooth SIG compliance folder documents be prepared and who is responsible for storing them after qualification registration?",
+            "question_variants": [
+                "When do compliance documents need to be ready after Bluetooth qualification?",
+                "Who keeps the Bluetooth SIG compliance folder?",
+                "Is the compliance folder required before product launch?",
+                "How long must Bluetooth qualification documents be retained?",
+                "What documents are required for Bluetooth SIG audit preparation?",
+                "Who is the Listing Owner responsible for compliance evidence?"
+            ],
+            "actual_issue": "Clarification of post-listing compliance folder obligations, document retention timing, and Listing Owner responsibility after Bluetooth SIG qualification registration completion.",
+            "plain_english_explanation": "The customer wanted to understand when product documents must be prepared after Bluetooth SIG qualification registration and who is responsible for keeping them. The consultant explained that Bluetooth SIG does not define a strict submission deadline for compliance-folder creation, but the documents must be prepared promptly after registration. The Listing Owner is responsible for storing the documents and presenting them if Bluetooth SIG performs an audit.",
+            "consultant_answer": "The consultant explained that qualification registration was already completed and that the product could be released after the stated launch date. Bluetooth SIG does not specify an exact compliance-folder preparation deadline, but requires documents to be stored 'promptly after registration.' The Listing Owner is responsible for maintaining the compliance folder and retaining documents until one year after the product listed in the Product List is discontinued. Required supporting materials may include operation manuals, external appearance drawings, block diagrams, and antenna documentation. These materials must be available if Bluetooth SIG requests them during an audit or investigation.",
+            "decision_logic": "Bluetooth SIG qualification approval and compliance-folder maintenance are separate obligations. Registration completion allows product launch, but the Listing Owner remains responsible for maintaining compliance evidence for possible future audits.",
+            "final_recommendation": "Prepare and store the compliance-folder documentation immediately after qualification registration, ensure the Listing Owner controls the records, and retain the materials until at least one year after product end-of-sale.",
+            "risk_if_done_wrong": "If compliance documents are not prepared or retained correctly, the company may be unable to respond to a Bluetooth SIG audit or compliance investigation, potentially creating qualification compliance issues or product listing disputes.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "compliance folder",
+                "Listing Owner",
+                "Product List",
+                "audit",
+                "documentation"
+            ],
+            "search_aliases": [
+                "compliance folder timing",
+                "Listing Owner responsibility",
+                "Bluetooth audit documents",
+                "Product List retention",
+                "qualification document storage",
+                "SIG audit preparation",
+                "post-registration compliance",
+                "Bluetooth compliance folder",
+                "document retention rule",
+                "qualification evidence"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

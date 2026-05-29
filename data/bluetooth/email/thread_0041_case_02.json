@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0041",
+    "cases": [
+        {
+            "case_id": "thread_0041_case_02",
+            "iut_type": "module-based Bluetooth product",
+            "customer_question": "What work is actually performed during a Bluetooth SIG qualification registration project and how are responsibilities divided between the customer and consultant?",
+            "question_variants": [
+                "What does the Bluetooth qualification consultant do?",
+                "What tasks does the customer perform during qualification?",
+                "What happens inside Qualification Workspace?",
+                "What is Consistency Check in Bluetooth SIG qualification?",
+                "How is TCW used during qualification registration?",
+                "What activities are required to complete Bluetooth SIG submission?"
+            ],
+            "actual_issue": "Clarification of the practical qualification workflow, including Qualification Workspace registration, Consistency Check handling, TCW usage, and responsibility separation between customer and consultant.",
+            "plain_english_explanation": "The customer wanted a clearer explanation of what work was actually done during the Bluetooth SIG qualification process. The consultant explained that the customer provides account access, QDID information, product details, and payment support, while the consultant performs registration-site operations, consistency validation, and submission handling. The thread also explains that some inconsistencies can be accepted using TCW allowances permitted by Bluetooth SIG.",
+            "consultant_answer": "The consultant explained that the customer was responsible for providing the qualification account information, obtaining invoices for qualification fee payment, and supplying the implemented module QDID, model name, launch timing, and product overview. The consultant handled the Qualification Workspace registration process, payment transfer support, entry of qualification information, and Consistency Check validation for the selected qualification hierarchy. The consultant attempted to reduce inconsistencies to zero but proceeded using SIG-accepted TCW (Test Case Waiver) allowances where permitted before completing Submission.",
+            "decision_logic": "Bluetooth SIG qualification registration requires both administrative ownership from the product company and technical qualification processing inside Qualification Workspace. Consistency Check validation is a key gate, but SIG-approved TCW allowances may permit submission even when some inconsistencies remain.",
+            "final_recommendation": "Clearly separate customer responsibilities and consultant responsibilities at the beginning of qualification projects, verify QDID and product information early, and review Consistency Check results together before submission.",
+            "risk_if_done_wrong": "Misunderstanding qualification responsibilities can delay registration, create incorrect submissions, or leave unresolved Consistency Check issues. Failure to properly evaluate TCW eligibility could lead to rejected submissions or qualification inconsistencies.",
+            "bluetooth_tags": [
+                "qualification",
+                "Qualification Workspace",
+                "Consistency Check",
+                "TCW",
+                "QDID",
+                "submission",
+                "listing"
+            ],
+            "search_aliases": [
+                "Qualification Workspace process",
+                "Consistency Check handling",
+                "TCW usage",
+                "submission workflow",
+                "Bluetooth qualification consultant role",
+                "QDID registration flow",
+                "qualification responsibility split",
+                "SIG submission process",
+                "Test Case Waiver allowance",
+                "consistency validation"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

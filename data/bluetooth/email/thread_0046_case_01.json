@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0046",
+    "cases": [
+        {
+            "case_id": "thread_0046_case_01",
+            "iut_type": "projector",
+            "customer_question": "Does a Linux-based projector using a commercial off-the-shelf Bluetooth USB dongle still require Bluetooth SIG qualification?",
+            "question_variants": [
+                "Is Bluetooth SIG qualification required when using a generic USB Bluetooth dongle?",
+                "Can a projector avoid qualification by letting users purchase the Bluetooth dongle separately?",
+                "Does a product using BlueZ and a commercial Bluetooth adapter need Core-Host registration?",
+                "Can an end product rely only on the USB dongle's existing Bluetooth qualification?",
+                "Is Bluetooth qualification still required when Bluetooth is added through an external USB adapter?"
+            ],
+            "actual_issue": "The customer assumed that using a commercially available Bluetooth USB dongle might eliminate the need for Bluetooth SIG qualification of the end product, but the actual issue was that the projector implemented the Host stack and Bluetooth profiles itself using unqualified BlueZ on PetaLinux.",
+            "plain_english_explanation": "Even if the Bluetooth radio hardware comes from a pre-qualified USB dongle, the final product may still require qualification if the product itself implements Bluetooth software functions. In this case, the projector handled the Host stack and PAN-related Bluetooth behavior through BlueZ, so the projector itself became part of the Bluetooth implementation that needed qualification.",
+            "consultant_answer": "The consultant explained that qualification was still required because the projector implemented the Host stack and profiles while the USB dongle only provided the Controller layer. Since the planned configuration used generic third-party USB dongles rather than a dedicated bundled adapter, the previous printer-style end-product reuse approach was not applicable. The projector therefore needed Core-Host registration. Because AMD PetaLinux SDK with BlueZ5 was not Bluetooth SIG qualified, the implementation required protocol and profile testing including L2CAP, GAP, SDP, BNEP, and PAN. The consultant also warned that BlueZ-based testing historically had low first-pass rates and often required multiple debug and retest cycles.",
+            "decision_logic": "Bluetooth qualification responsibility follows the implemented Bluetooth functionality, not just the radio hardware. When the end product implements unqualified Host stack functionality and profiles, the product itself requires qualification and associated protocol testing even if the Controller hardware is already qualified.",
+            "final_recommendation": "Register the projector as a Core-Host product and plan for full protocol/profile qualification testing if continuing with unqualified BlueZ on PetaLinux. Alternatively, replace the Host stack with an already qualified Bluetooth stack from a recognized vendor to reduce qualification risk and testing scope.",
+            "risk_if_done_wrong": "Assuming the USB dongle qualification alone is sufficient could result in unqualified Bluetooth functionality being marketed or shipped. This may cause Bluetooth SIG compliance exposure, failed qualification reviews, unexpected protocol testing, schedule delays, retesting cycles, and significant additional qualification cost.",
+            "bluetooth_tags": [
+                "qualification",
+                "Core-Host",
+                "BlueZ",
+                "PetaLinux",
+                "PAN",
+                "BNEP",
+                "L2CAP",
+                "reuse"
+            ],
+            "search_aliases": [
+                "generic USB dongle qualification",
+                "Core-Host registration",
+                "BlueZ qualification required",
+                "PetaLinux Bluetooth qualification",
+                "PAN profile testing",
+                "commercial Bluetooth dongle reuse",
+                "Host stack qualification",
+                "USB adapter not sufficient",
+                "unqualified BlueZ stack",
+                "protocol testing required"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

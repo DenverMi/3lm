@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0046",
+    "cases": [
+        {
+            "case_id": "thread_0046_case_03",
+            "iut_type": "projector",
+            "customer_question": "Can Bluetooth functionality be enabled later through a software update and qualified after the product has already shipped?",
+            "question_variants": [
+                "Can Bluetooth qualification be completed after product launch?",
+                "Can we add Bluetooth support later through a software update?",
+                "Is post-launch Bluetooth qualification allowed?",
+                "Does a software change require a new Bluetooth qualification?",
+                "When does a Bluetooth software update trigger requalification?"
+            ],
+            "actual_issue": "The customer wanted to know whether the product could ship first and later gain Bluetooth functionality through a software update because qualification timing for the BlueZ implementation was uncertain.",
+            "plain_english_explanation": "Bluetooth qualification requirements depend on whether Bluetooth functionality changes. Some software updates do not require a new qualification, while others do if they add new Bluetooth features or capabilities defined by the Bluetooth specifications.",
+            "consultant_answer": "The consultant explained that adding support items defined in the Bluetooth Core or Profile specification ICS tables requires a new qualification registration. Software modifications that do not add new supported Bluetooth functions do not require new registration. The consultant also clarified that Bluetooth marketing, promotion, sales, exhibition, or public announcements should only occur after qualification registration is completed and publicly visible.",
+            "decision_logic": "Bluetooth qualification impact is determined by whether the software change alters declared Bluetooth functionality in the applicable ICS feature definitions. Functional Bluetooth feature additions trigger new qualification obligations.",
+            "final_recommendation": "Delay Bluetooth marketing claims until qualification is completed, and evaluate all future software changes against the relevant ICS feature tables to determine whether requalification is required.",
+            "risk_if_done_wrong": "Advertising or shipping Bluetooth functionality before proper qualification may create Bluetooth SIG compliance violations. Misjudging whether a software update changes ICS functionality could also result in unqualified feature deployment and forced corrective qualification work later.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "software update",
+                "listing",
+                "post-launch change",
+                "BlueZ"
+            ],
+            "search_aliases": [
+                "ICS feature addition",
+                "software requalification",
+                "post-launch Bluetooth enablement",
+                "Bluetooth feature update",
+                "new registration required",
+                "qualification after shipment",
+                "Bluetooth marketing restriction",
+                "ICS table change",
+                "Bluetooth software modification",
+                "requalification trigger"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

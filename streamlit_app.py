@@ -10,6 +10,7 @@ from app.answer import answer_question
 st.set_page_config(page_title="Compliance RAG", layout="wide")
 CONVERSATION_LOG_PATH = Path("storage/conversations.jsonl")
 CORRECTION_LOG_PATH = Path("storage/corrections.jsonl")
+NOTE_LOG_PATH = Path("storage/notes.jsonl")
 
 def log_conversation_event(event: dict) -> None:
     CONVERSATION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -21,6 +22,12 @@ def log_correction_event(event: dict) -> None:
     CORRECTION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     with CORRECTION_LOG_PATH.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(event, ensure_ascii=False) + "\n")
+
+def log_note_event(event: dict) -> None:
+    NOTE_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    with NOTE_LOG_PATH.open("a", encoding="utf-8") as f:
         f.write(json.dumps(event, ensure_ascii=False) + "\n")
 
 top_left, top_right = st.columns([5, 2])

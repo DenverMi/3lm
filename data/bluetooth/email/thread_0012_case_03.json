@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0012",
+    "cases": [
+        {
+            "case_id": "thread_0012_case_03",
+            "iut_type": "module",
+            "customer_question": "How should RF PHY testing be controlled for a Qualcomm-based Bluetooth device using BlueTest3 and BlueSuite?",
+            "question_variants": [
+                "How do we execute RF PHY testing with BlueTest3?",
+                "What DUT control method is required for RF PHY tests?",
+                "Should the device remain connected during RF PHY testing?",
+                "Does RF PHY testing use HCI or 2-Wire control?",
+                "What documentation is needed for BlueSuite test operation?"
+            ],
+            "actual_issue": "The test laboratory lacked sufficient operational information to place the Qualcomm-based DUT into RF PHY test mode and execute RF PHY qualification testing correctly.",
+            "plain_english_explanation": "The customer provided the BlueSuite installer but not enough instructions to actually operate the test setup. The lab needed to know how the DUT enters test mode, how the serial connection is wired, which control protocol is used, and how BlueTest3 should be operated during RF PHY testing.",
+            "consultant_answer": "The consultant identified that the provided software package alone was insufficient for RF PHY qualification testing because operational guidance was missing. The lab requested BlueSuite and TRBI200 user guides along with details covering DUT connection state, serial routing, baud rate, and whether control commands use HCI or 2-Wire transport. The consultant emphasized that the testing setup and DUT control method must be fully understood before RF PHY testing begins.",
+            "decision_logic": "RF PHY qualification testing requires deterministic DUT control and repeatable test-mode entry. Without complete setup documentation, the laboratory cannot guarantee correct PHY configuration, command transport, or RF test execution.",
+            "final_recommendation": "Obtain complete operational documentation for BlueSuite, BlueTest3, and associated test hardware before scheduling RF PHY testing. Confirm DUT mode entry procedure, serial interface routing, baud rate, and command transport method with the design supplier.",
+            "risk_if_done_wrong": "Incorrect DUT control or serial configuration can produce invalid RF PHY results, failed tests, wasted lab time, and repeated qualification runs.",
+            "bluetooth_tags": [
+                "RF PHY",
+                "testing",
+                "BlueTest3",
+                "BlueSuite",
+                "HCI",
+                "2-Wire",
+                "Qualcomm",
+                "test setup"
+            ],
+            "search_aliases": [
+                "BlueTest3 RF PHY",
+                "BlueSuite user guide",
+                "RF PHY DUT mode",
+                "HCI vs 2-Wire",
+                "Qualcomm RF test control",
+                "serial control for RF PHY",
+                "TRBI200 guide",
+                "RF PHY setup",
+                "BlueTest3 operation"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

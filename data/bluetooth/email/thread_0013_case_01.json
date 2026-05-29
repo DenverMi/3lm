@@ -4,20 +4,42 @@
         {
             "case_id": "thread_0013_case_01",
             "iut_type": "lighting device",
-            "customer_question": "How should we proceed with Bluetooth SIG qualification when using either a Component (v5.3) or a Core-Controller (v6.1) design that appear to overlap?",
-            "actual_issue": "Overlapping RF PHY, LL, and HCI layers between different design approaches creates ambiguity in how to structure qualification and reuse evidence.",
-            "consultant_answer": "The Component and Core-Controller designs both cover the same lower layers (RF PHY, LL, HCI), so they cannot be independently reused without considering overlap. Instead, a new qualification must be created that includes RF PHY test reports (1M, 2M, Coded) and PTS-based profile test reports (DIS) as evidence. The final design submission should consolidate the required layers and include both RF and profile validation evidence.",
-            "final_recommendation": "Create a new qualification listing that includes RF PHY test reports and DIS PTS test evidence, regardless of whether starting from Component or Core-Controller, and submit as a new design including all required layers.",
+            "customer_question": "Can multiple lighting product variants using the same Bluetooth module be added as derivative products under one Bluetooth SIG qualification?",
+            "question_variants": [
+                "Can we register one model first and add the remaining variants later?",
+                "Are additional product variants free if they use the same module?",
+                "Can chip antenna and external antenna versions share one qualification?",
+                "Can multiple lamp models reuse the same Bluetooth registration?",
+                "Do different form factors using the same Bluetooth design require separate qualification?"
+            ],
+            "actual_issue": "Determining whether multiple product variants using the same Bluetooth-qualified module and unchanged Bluetooth implementation can reuse a single qualification and be added as derivative products without additional qualification fees.",
+            "plain_english_explanation": "The customer had many lighting product variants that all used the same Bluetooth module and software implementation. They wanted to know whether every model needed a separate Bluetooth qualification. The consultant clarified that products using the same Bluetooth design can be added as additional product listings without repeating the full qualification process or paying extra registration fees.",
+            "consultant_answer": "The consultant explained that when the Bluetooth module type and Bluetooth-compliant implementation remain the same, multiple end-product variants can be registered as derivative or additional products under the same qualification. Differences such as chip antenna versus external antenna implementation do not require separate qualification if the module type is unchanged and the Bluetooth implementation is identical. Additional product registrations can therefore be added without extra qualification fees.",
+            "decision_logic": "Bluetooth qualification reuse is allowed when the Bluetooth-compliant portion of the design is unchanged. Cosmetic, mechanical, or product-family differences do not create a new Bluetooth design if the module and implemented Bluetooth features remain identical.",
+            "final_recommendation": "Register one representative product first, then add the remaining variants as additional products under the same qualified Bluetooth design.",
+            "risk_if_done_wrong": "Treating each variant as a separate qualification could lead to unnecessary testing, duplicate qualification effort, and unnecessary SIG fees. Incorrectly reusing a qualification when the Bluetooth implementation actually changed could create compliance exposure.",
             "bluetooth_tags": [
                 "qualification",
-                "RF PHY",
-                "LL",
-                "HCI",
-                "profile",
-                "PTS",
-                "design combination"
+                "listing",
+                "module",
+                "reuse",
+                "design reuse",
+                "product listing",
+                "DIS"
             ],
-            "qualification_stage": "planning"
+            "search_aliases": [
+                "additional product registration",
+                "derivative product listing",
+                "same module reuse",
+                "chip antenna external antenna",
+                "free additional registration",
+                "same Bluetooth design",
+                "product family qualification",
+                "module-based qualification reuse"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

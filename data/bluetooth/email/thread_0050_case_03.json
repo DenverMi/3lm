@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0050",
+    "cases": [
+        {
+            "case_id": "thread_0050_case_03",
+            "iut_type": "communication terminal",
+            "customer_question": "Can multiple similar product variants share one representative Bluetooth qualification and compliance folder?",
+            "question_variants": [
+                "Can one representative model cover multiple variants?",
+                "Do similar products need separate Bluetooth qualification?",
+                "Can compliance evidence be reused across product variants?",
+                "Representative model qualification for multiple SKUs",
+                "How to handle derivative Bluetooth product listings"
+            ],
+            "actual_issue": "The project needed to determine whether one representative product qualification and compliance package could be used to support multiple related product variants using the same Bluetooth architecture.",
+            "plain_english_explanation": "The customer had several closely related products using the same Bluetooth module and software platform. Instead of fully qualifying every model separately, the consultant evaluated whether one representative qualification could cover the family. The key factor was whether the Bluetooth implementation stayed materially identical across the variants.",
+            "consultant_answer": "The consultant explained that the representative model approach was acceptable because the related products reused the same Bluetooth module, host stack, and qualification scope. The compliance folder and qualification evidence could therefore be retained and reused across the covered variants as long as the Bluetooth implementation remained unchanged. Future derivative registrations would need to remain within the inherited qualification boundaries.",
+            "decision_logic": "Bluetooth qualification reuse across product variants is allowed when the Bluetooth implementation, architecture, and inherited qualification scope remain materially identical. The representative product acts as the qualification anchor for the related variants.",
+            "final_recommendation": "Use a representative model qualification approach for all variants sharing the same Bluetooth implementation, and maintain a complete compliance folder documenting the shared qualification basis for future derivative registrations.",
+            "risk_if_done_wrong": "Incorrectly treating materially different products as covered by the same qualification could create audit exposure or invalid product listings. Conversely, failing to recognize valid reuse opportunities could result in unnecessary duplicate qualification work and administrative overhead.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "reuse",
+                "compliance folder",
+                "derivative product",
+                "QDID"
+            ],
+            "search_aliases": [
+                "representative model",
+                "family qualification",
+                "reuse compliance folder",
+                "derivative listing",
+                "multiple SKU qualification",
+                "shared Bluetooth architecture",
+                "variant reuse",
+                "same module reuse"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

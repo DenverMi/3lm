@@ -3,21 +3,40 @@
     "cases": [
         {
             "case_id": "thread_0004_case_01",
-            "iut_type": "automotive display",
-            "customer_question": "How should Bluetooth SIG qualification be handled for a product using a pre-qualified module with an external antenna and only LE (Auracast) functionality?",
-            "actual_issue": "Determining the correct qualification strategy when reusing a pre-qualified module but modifying the RF path (external antenna) and limiting functionality to LE only, while avoiding unnecessary test scope such as BR/EDR and IOPT.",
-            "consultant_answer": "The consultant identified that inheriting BR/EDR profiles from an existing design would trigger unnecessary IOPT testing requirements. Since the product only supports LE, the BR/EDR profiles should be removed from the qualification scope. This avoids triggering additional interoperability testing that is not relevant to the implementation. The guidance implies careful control of ICS/profile selection to minimize test burden and align with actual product functionality.",
-            "final_recommendation": "Exclude BR/EDR profiles from the qualification design and declare only LE functionality to avoid unnecessary IOPT testing requirements; ensure the qualification scope accurately reflects the implemented features.",
-            "bluetooth_tags": [
-                "qualification",
-                "IOPT",
-                "profile",
-                "LE",
-                "BR/EDR",
-                "ICS",
-                "test scope"
+            "iut_type": "",
+            "customer_question": "Can we provide antenna gain values including cable loss, and should the loss be based on the product cable or measurement cable for Bluetooth RF testing?",
+            "question_variants": [
+                "Is it acceptable to submit antenna + cable loss instead of antenna-only gain?",
+                "Can total RF path loss be used when antenna-only data is unavailable?",
+                "Should cable loss in RF test documentation refer to product cable or measurement cable?",
+                "What value should be entered if antenna gain alone is not measured?",
+                "For Bluetooth RF test plans, can we use measurement cable loss values?"
             ],
-            "qualification_stage": "planning"
+            "actual_issue": "How to correctly report antenna-related RF parameters when standalone antenna gain is unavailable, specifically whether combined antenna and cable loss values are acceptable and which cable loss (product vs measurement setup) should be used.",
+            "plain_english_explanation": "The customer does not have a clean antenna-only measurement and instead has a combined value that includes cable loss. They are unsure if this is acceptable for Bluetooth RF testing and which cable’s loss should be documented. This matters because incorrect RF parameters can affect test validity and interpretation.",
+            "consultant_answer": "It is acceptable to provide a combined value that includes both antenna and cable loss when antenna-only data is not available. For the purpose of RF test documentation and planning, the loss value should be based on the measurement setup cable rather than the product’s internal antenna cable. If BLE test mode details are not yet finalized, the value can be temporarily marked as TBD and updated later.",
+            "decision_logic": "RF test documentation prioritizes practical measurement conditions. When antenna-only gain is unavailable, total path loss is acceptable as long as it reflects the actual test setup. Measurement cable loss is preferred because it directly impacts conducted RF test accuracy.",
+            "final_recommendation": "Submit the combined antenna + cable loss value using the measurement cable loss. Mark any unknown parameters (e.g., BLE test mode details) as TBD and update them once finalized.",
+            "risk_if_done_wrong": "Using incorrect cable loss (e.g., product cable instead of measurement cable) can lead to inaccurate RF test results, potential test failures, or the need to repeat RF testing due to inconsistent or non-representative data.",
+            "bluetooth_tags": [
+                "RF",
+                "RF PHY",
+                "testing",
+                "test plan",
+                "antenna",
+                "measurement setup"
+            ],
+            "search_aliases": [
+                "antenna gain with cable loss",
+                "RF cable loss measurement vs product cable",
+                "Bluetooth RF test antenna value",
+                "conducted RF loss input",
+                "antenna gain unavailable workaround",
+                "RF test setup cable loss"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

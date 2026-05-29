@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0021",
+    "cases": [
+        {
+            "case_id": "thread_0021_case_03",
+            "iut_type": "module-integrated Bluetooth device",
+            "customer_question": "What fees and responsibilities remain when Bluetooth SIG testing is not required?",
+            "question_variants": [
+                "Do we still need Bluetooth SIG product registration if testing is waived?",
+                "What costs remain if no Bluetooth testing is needed?",
+                "Who performs the Bluetooth SIG listing?",
+                "Is company membership different from product qualification?",
+                "Can the consultant perform SIG registration on behalf of the customer?"
+            ],
+            "actual_issue": "The customer confused Bluetooth SIG company membership, product qualification, testing requirements, and consultant support fees, especially in cases where testing might be waived through qualified module reuse.",
+            "plain_english_explanation": "Even when Bluetooth testing is not required, the final product still must complete the Bluetooth SIG qualification and listing process. The product owner must maintain its own Bluetooth SIG membership and product declaration. Consultants can help with registration and documentation, but their support fees are separate from Bluetooth SIG fees.",
+            "consultant_answer": "The consultant explained that Bluetooth SIG company membership registration and product qualification are separate activities. Company membership registration is completed directly by the customer, while the consultant can support or perform the product qualification registration process. Even when testing is unnecessary because a qualified module is reused, the final branded product still requires Bluetooth SIG product registration and associated fees. The consultant also clarified that support fees for registration assistance are separate from the Bluetooth SIG administrative qualification fee.",
+            "decision_logic": "Bluetooth qualification obligations apply to the final branded product owner regardless of whether testing is required. Reusing a qualified design may reduce testing scope but does not eliminate the need for product qualification submission and Bluetooth SIG fees.",
+            "final_recommendation": "Ensure the final product owner has an active Bluetooth SIG membership account and budget separately for Bluetooth SIG qualification fees and any consultant support services, even when testing is minimized through qualification reuse.",
+            "risk_if_done_wrong": "Confusing membership, listing, and testing responsibilities can delay product launch, create budgeting errors, prevent proper product declaration, or expose the company to Bluetooth SIG enforcement issues.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "declaration",
+                "QDID",
+                "reuse",
+                "module",
+                "membership"
+            ],
+            "search_aliases": [
+                "Bluetooth SIG membership",
+                "product listing required",
+                "testing waived but listing required",
+                "qualification fee",
+                "registration support",
+                "final brand qualification",
+                "SIG declaration",
+                "reuse without testing",
+                "Bluetooth product registration"
+            ],
+            "qualification_stage": "pre-sales",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0029",
+    "cases": [
+        {
+            "case_id": "thread_0029_case_02",
+            "iut_type": "module",
+            "customer_question": "Which Bluetooth SIG account must be used for qualification registration and payment processing?",
+            "question_variants": [
+                "Why does the SIG login fail during registration?",
+                "Does the invoice account need to match the qualification account?",
+                "Which Bluetooth SIG member account should be used?",
+                "Can qualification proceed with a different login account?",
+                "How do we recover access to the SIG qualification account?"
+            ],
+            "actual_issue": "The qualification process depended on using the correct Bluetooth SIG member account associated with the invoice and registration activity, but the customer experienced account access and authentication problems.",
+            "plain_english_explanation": "Bluetooth SIG qualification activities are tied to specific member accounts. If the wrong account is used or the correct credentials are unavailable, the registration process may stop completely. The thread explains the need to use the correct account and recover access properly instead of bypassing the process.",
+            "consultant_answer": "The consultant clarified that qualification registration must use the same Bluetooth SIG account associated with the qualification fee invoice and member membership. When the customer could not authenticate successfully, the consultant recommended standard account recovery and reset procedures rather than attempting alternative submission paths. The consultant also coordinated confirmation of account ownership before proceeding with registration.",
+            "decision_logic": "Bluetooth SIG qualification workflows are account-bound, and payment, membership, and declaration activities depend on valid access to the correct member account. Using mismatched or unauthorized accounts can invalidate or block the registration process.",
+            "final_recommendation": "Verify ownership of the correct Bluetooth SIG member account early, confirm that the invoice and qualification activity are tied to the same account, and resolve login issues through official recovery procedures before registration work begins.",
+            "risk_if_done_wrong": "Using the wrong account or failing to recover access could delay or block qualification submission and prevent completion of the Bluetooth listing process.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "declaration",
+                "SIG",
+                "member account"
+            ],
+            "search_aliases": [
+                "SIG account mismatch",
+                "Bluetooth SIG login failure",
+                "qualification account access",
+                "invoice account mismatch",
+                "member account recovery",
+                "Bluetooth declaration login",
+                "SIG credential issue",
+                "registration authentication"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

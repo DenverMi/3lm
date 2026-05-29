@@ -3,19 +3,46 @@
     "cases": [
         {
             "case_id": "thread_0008_case_01",
-            "iut_type": "",
-            "customer_question": "Is it mandatory to provide a user manual that includes Bluetooth pairing/operation details for the compliance folder, even if the product is not yet publicly released and the manual content is not accessible?",
-            "actual_issue": "Clarification of documentation requirements for the Compliance Folder, specifically whether a Bluetooth-related user manual is required at the time of qualification when the product is not yet launched.",
-            "consultant_answer": "The consultant requested the Bluetooth-related portion of the user manual as part of the required Compliance Folder documentation. This indicates that documentation describing Bluetooth functionality (e.g., pairing/operation) is expected as part of qualification evidence, regardless of product release status.",
-            "final_recommendation": "Prepare and provide a Bluetooth-related user manual (or equivalent documentation describing pairing and operation) for the Compliance Folder, even if the product is not yet publicly released.",
+            "iut_type": "BLE peripheral device",
+            "customer_question": "When using a pre-qualified Bluetooth SoC and host/controller stack, which additional qualification tests are still required for a product implementing BAS and DIS?",
+            "question_variants": [
+                "Do BAS and DIS still require PTS testing when Core is already qualified?",
+                "Can Core protocol testing be skipped when reusing qualified Nordic QDIDs?",
+                "What testing remains when using pre-qualified nRF52832 designs?",
+                "Are RF PHY tests still required when integrating a SoC directly?",
+                "Does using a certified module eliminate RF PHY testing?"
+            ],
+            "actual_issue": "The customer needed to determine the remaining Bluetooth qualification obligations when reusing existing qualified Core Host and Controller designs while implementing BAS and DIS services on a product using nRF52832.",
+            "plain_english_explanation": "The Bluetooth chip and protocol stack were already qualified, so the customer wanted to know which tests could be reused and which still had to be performed. The consultant clarified that Core protocol testing could be reused from existing QDIDs, but RF PHY testing was still required when directly integrating the SoC. BAS and DIS profile testing also still needed to be performed using PTS.",
+            "consultant_answer": "The consultant explained that the referenced Core Protocol QDIDs and Design Numbers already covered Core specification qualification for the implemented host and controller stack, so additional Core protocol testing was not required. However, because the customer directly implemented the SoC rather than a pre-qualified module, RF PHY testing for 1 Mbps and 2 Mbps modes was still required. The consultant further clarified that BAS and DIS profile qualification remained necessary and that customer-generated PTS reports for those services were acceptable for registration support.",
+            "decision_logic": "Bluetooth Core qualification reuse only applies to the referenced qualified layers. Direct SoC integration creates a new RF implementation requiring RF PHY validation, while implemented GATT services such as BAS and DIS still require profile-level qualification evidence.",
+            "final_recommendation": "Reuse the existing qualified Core Host and Controller designs, perform RF PHY testing for the implemented PHY modes if directly integrating the SoC, and submit BAS/DIS PTS reports for profile qualification.",
+            "risk_if_done_wrong": "If RF PHY or profile qualification requirements are incorrectly assumed to be covered by existing QDIDs, the Bluetooth listing may be incomplete, rejected during review, or require late-stage retesting and documentation correction.",
             "bluetooth_tags": [
                 "qualification",
-                "compliance folder",
-                "documentation",
-                "manual",
-                "audit"
+                "QDID",
+                "RF PHY",
+                "PTS",
+                "BAS",
+                "DIS",
+                "profile",
+                "reuse"
             ],
-            "qualification_stage": "listing / declaration"
+            "search_aliases": [
+                "BAS DIS PTS required",
+                "Core qualification reuse",
+                "nRF52832 RF PHY test",
+                "direct SoC integration",
+                "module reuse exemption",
+                "1M 2M RF PHY",
+                "Core Host Controller reuse",
+                "Bluetooth service qualification",
+                "PTS report submission",
+                "RF PHY testing required"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

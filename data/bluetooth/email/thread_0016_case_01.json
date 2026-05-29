@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0016",
+    "cases": [
+        {
+            "case_id": "thread_0016_case_01",
+            "iut_type": "wireless communication device",
+            "customer_question": "Can a device qualified using a Class 1 Link Layer QDID pass RF PHY qualification if measured transmit output power only meets Class 2 levels?",
+            "question_variants": [
+                "Does a Class 1 QDID require Class 1 RF PHY output power?",
+                "Can Class 2 RF PHY results be used with a Class 1 Link Layer?",
+                "Why did the RF PHY test fail for output power?",
+                "Is RF PHY evidence valid if transmit power is below 10 dBm?",
+                "Can a Class 1 Bluetooth design qualify with Class 2 measurements?"
+            ],
+            "actual_issue": "The DUT referenced a Class 1 Link Layer QDID, but RF PHY testing showed transmit output power below the minimum threshold required for Class 1 qualification, making the RF PHY evidence invalid for the intended design classification.",
+            "plain_english_explanation": "Bluetooth Class 1 and Class 2 devices have different transmit power requirements. If a product claims or reuses a Class 1 Bluetooth design, the measured RF output power must satisfy Class 1 requirements during qualification testing. A device operating at lower Class 2 power levels cannot reuse Class 1 qualification evidence without correction.",
+            "consultant_answer": "The consultant identified that the 1M mode RF PHY measurements produced average transmit powers around 8.6 to 9.2 dBm, which passed Class 2 limits but failed Class 1 requirements because Class 1 requires transmit power of at least 10 dBm. Since the referenced Link Layer QDID was classified as Class 1, the RF PHY test evidence was not valid for registration. The consultant instructed the customer to request firmware changes from the module vendor to increase output power above 10 dBm or provide updated Class 1-compliant test samples for retesting.",
+            "decision_logic": "The RF PHY qualification evidence must match the Bluetooth class capabilities declared by the referenced Link Layer QDID. If the measured output power does not meet the minimum Class 1 requirement, the RF PHY evidence cannot support a Class 1 qualification listing.",
+            "final_recommendation": "Confirm the intended Bluetooth power class before testing and align DUT firmware output power settings with the referenced QDID classification. If using a Class 1 design, update firmware or hardware settings so measured RF output power exceeds the Class 1 threshold before retesting.",
+            "risk_if_done_wrong": "Using RF PHY evidence that only satisfies Class 2 requirements with a Class 1 QDID can invalidate the qualification evidence and cause registration rejection, retesting delays, and additional firmware update cycles.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "Class 1",
+                "Class 2",
+                "Link Layer",
+                "QDID",
+                "output power",
+                "testing"
+            ],
+            "search_aliases": [
+                "Class 1 output power fail",
+                "Class 2 measured power",
+                "RF PHY output below 10dBm",
+                "invalid RF PHY evidence",
+                "Class mismatch",
+                "Link Layer Class 1",
+                "Bluetooth transmit power fail",
+                "RF PHY retest required",
+                "output power qualification",
+                "Class 1 RF requirement"
+            ],
+            "qualification_stage": "test failure",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

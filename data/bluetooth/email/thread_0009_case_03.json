@@ -1,21 +1,43 @@
 {
     "source_thread": "thread_0009",
     "cases": [
-
         {
             "case_id": "thread_0009_case_03",
-            "iut_type": "",
-            "customer_question": "Is it possible to control when a product becomes publicly visible after Bluetooth SIG listing?",
-            "actual_issue": "Understanding constraints on Product Publication Date in the qualification process.",
-            "consultant_answer": "The publication timing can be specified during registration, but it is limited to a maximum of 90 days after registration and is generally not changeable afterward.",
-            "final_recommendation": "Plan the listing timing carefully and set the publication date during submission, ensuring it falls within the allowed 90-day window.",
-            "bluetooth_tags": [
-                "listing",
-                "publication",
-                "qualification",
-                "process"
+            "iut_type": "host device",
+            "customer_question": "How can a consultant support Bluetooth SIG registration if the customer refuses to share Qualification Workspace account credentials?",
+            "question_variants": [
+                "Can SIG registration be supported without account sharing?",
+                "Is screen-sharing registration support allowed?",
+                "Can consultants register products without customer login credentials?",
+                "What are the alternatives to sharing Bluetooth SIG account passwords?",
+                "Can qualification support be done through Teams screen sharing?"
             ],
-            "qualification_stage": "listing / declaration"
+            "actual_issue": "The customer would not allow direct sharing of Bluetooth SIG Qualification Workspace account credentials required for registration support and submission handling.",
+            "plain_english_explanation": "The consultant normally needed temporary access to the customer's Bluetooth SIG account to complete qualification submissions. The customer security policy prohibited sharing credentials. The parties explored alternatives such as temporary passwords and live screen-sharing support sessions.",
+            "consultant_answer": "The consultant explained that after the SIG site update, normal registration support workflows required using the customer's login account for direct submission handling. As an alternative for customers unwilling to share credentials, the consultant proposed temporary password changes during the support window or conducting guided registration sessions through a web meeting system with screen sharing. The consultant also explained that required upload materials could be prepared in advance to support remote guided registration.",
+            "decision_logic": "Bluetooth qualification submissions must be completed under the member company's own Bluetooth SIG account. Operationally, consultants may need account access to complete submissions, but credential-sharing restrictions can be mitigated using temporary passwords or supervised live registration sessions.",
+            "final_recommendation": "Use supervised screen-sharing sessions or temporary password procedures to complete Qualification Workspace submissions while maintaining customer control of the account.",
+            "risk_if_done_wrong": "If registration is attempted without proper account access coordination, qualification submissions may be delayed, incomplete, or blocked by customer security policies.",
+            "bluetooth_tags": [
+                "qualification",
+                "Qualification Workspace",
+                "listing",
+                "submission",
+                "account access",
+                "registration support"
+            ],
+            "search_aliases": [
+                "Qualification Workspace credential sharing",
+                "SIG account access",
+                "screen share qualification support",
+                "Teams registration support",
+                "temporary password qualification",
+                "consultant submission access",
+                "Bluetooth SIG login policy"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

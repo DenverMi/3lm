@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0005",
+    "cases": [
+        {
+            "case_id": "thread_0005_case_03",
+            "iut_type": "",
+            "customer_question": "How should a customer handle Bluetooth SIG Qualification Fee invoice generation when the invoice portal UI has changed?",
+            "question_variants": [
+                "The Product Qualification Fee screen does not match the instructions",
+                "Why can't we enter invoice data in the SIG invoice page?",
+                "Has the Qualification Fee invoice page changed?",
+                "What should be entered in the Attn field for SIG invoice generation?",
+                "How do we complete the invoice process for registration support?"
+            ],
+            "actual_issue": "The customer encountered a changed Bluetooth SIG Product Qualification Fee invoice interface that no longer matched the provided invoice generation instructions, preventing completion of the payment support workflow.",
+            "plain_english_explanation": "The Bluetooth SIG invoice page changed from the version shown in the existing instructions. Because of the changed layout, the customer could not enter the expected information. The consultant identified the updated input method and provided the correct Attn field format needed to continue the process.",
+            "consultant_answer": "The consultant recognized that the Qualification Fee invoice acquisition page had changed recently. The consultant instructed the customer to enter the consultant representative's name and company in the Attn field using the updated format. A typo in the example name was corrected in follow-up guidance. The invoice PDF would then be generated and submitted as part of the qualification support process.",
+            "decision_logic": "The invoice workflow remained valid, but the portal UI and required field presentation had changed. Correct population of the Attn field was necessary to proceed with invoice generation for payment handling.",
+            "final_recommendation": "Use the updated invoice page workflow and populate the Attn field with the instructed representative name and company information before generating the Qualification Fee invoice PDF.",
+            "risk_if_done_wrong": "Incorrect invoice generation can delay Qualification Fee payment processing, delay registration support activities, and postpone completion of the Bluetooth qualification schedule.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "Qualification Fee",
+                "invoice",
+                "registration",
+                "payment"
+            ],
+            "search_aliases": [
+                "Qualification Fee invoice",
+                "Product Qualification Fee screen",
+                "invoice page changed",
+                "Attn field format",
+                "SIG invoice workflow",
+                "invoice generation issue",
+                "registration payment support",
+                "invoice PDF generation"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0024",
+    "cases": [
+        {
+            "case_id": "thread_0024_case_01",
+            "iut_type": "dual-mode host subsystem device",
+            "customer_question": "Does adding CTKD support require a new Bluetooth qualification or additional testing when CTKD was already implemented in the existing BT5.1 qualified stack?",
+            "question_variants": [
+                "Is CTKD requalification required?",
+                "Does enabling Cross-Transport Key Derivation need new Bluetooth certification?",
+                "If CTKD is added by application and Android layer changes only, is requalification necessary?",
+                "Does CTKD appear in the Bluetooth ICS?",
+                "Can CTKD changes be covered by the existing qualification?"
+            ],
+            "actual_issue": "Determining whether enabling CTKD functionality constitutes a Bluetooth qualification-impacting change requiring a new qualification submission.",
+            "plain_english_explanation": "The customer planned to add CTKD after an earlier Bluetooth release and wanted to know if another Bluetooth qualification was required. The consultant checked whether CTKD appears as a Bluetooth qualification feature in the relevant qualification layers and whether the implementation changes affected protocol or profile behavior. Since the changes were limited to application and Android layers and CTKD was not represented as a separate ICS capability, the existing qualification remained valid.",
+            "consultant_answer": "The consultant explained that CTKD is related to the Bluetooth core security architecture, but the relevant qualification layers SEC and LESEC do not contain ICS items for CTKD or Cross-Transport Key Derivation. Therefore changing CTKD from unsupported to supported does not itself trigger a new qualification registration. The consultant further clarified that application-layer and Android-layer modifications remain covered by the existing qualification as long as they do not alter protocol or profile layer functionality.",
+            "decision_logic": "Bluetooth qualification impact is determined by whether the change modifies qualified protocol/profile functionality or changes ICS-declared capabilities. CTKD was not represented as a standalone ICS item in SEC or LESEC, and the implementation changes were outside the qualified protocol/profile layers.",
+            "final_recommendation": "Do not create a separate Bluetooth qualification solely for enabling CTKD if the changes are confined to application or Android layers and do not modify Bluetooth protocol/profile behavior or ICS-declared features. Verify that no lower-layer functionality changed before relying on the existing qualification.",
+            "risk_if_done_wrong": "Incorrectly assuming protocol-layer changes are exempt could leave an unqualified modified Bluetooth implementation in the market. Conversely, unnecessarily requalifying a non-impacting CTKD change could create avoidable cost and schedule delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "CTKD",
+                "SEC",
+                "LESEC",
+                "ICS",
+                "reuse",
+                "design change",
+                "BT5.1"
+            ],
+            "search_aliases": [
+                "CTKD requalification",
+                "Cross-Transport Key Derivation qualification",
+                "CTKD ICS item",
+                "CTKD existing qualification",
+                "application layer change Bluetooth",
+                "Android layer Bluetooth change",
+                "SEC LESEC CTKD",
+                "protocol layer impact"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

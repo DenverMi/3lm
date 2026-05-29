@@ -3,17 +3,43 @@
     "cases": [
         {
             "case_id": "thread_0013_case_03",
-            "iut_type": "",
-            "customer_question": "How to access a Bluetooth SIG account when the verification code is sent to an inaccessible (former employer) email address?",
-            "actual_issue": "Account lock due to inaccessible registered email prevents login and continuation of qualification activities.",
-            "consultant_answer": "Bluetooth SIG account verification codes are sent only to the registered email. If that email is no longer accessible, the account cannot be recovered by others. The only viable option is to create a new account using an accessible email address.",
-            "final_recommendation": "Register a new Bluetooth SIG account with a valid, accessible email address and continue qualification activities under the new account.",
-            "bluetooth_tags": [
-                "SIG account",
-                "access",
-                "process"
+            "iut_type": "lighting device",
+            "customer_question": "What is the ICS for a DIS profile qualification and can a regulatory test report be used instead?",
+            "question_variants": [
+                "What is a Bluetooth ICS document?",
+                "Can RF certification reports replace Bluetooth ICS documents?",
+                "How do we prepare the DIS ICS?",
+                "Which document defines supported profile features for testing?",
+                "Why is the ICS required for Bluetooth testing?"
             ],
-            "qualification_stage": "planning"
+            "actual_issue": "The customer did not understand the purpose of the Bluetooth SIG ICS document and attempted to use unrelated regulatory certification reports instead of the required Bluetooth qualification ICS documentation.",
+            "plain_english_explanation": "Bluetooth qualification testing requires a formal document called an ICS that lists which Bluetooth features and options the product supports. Regulatory RF reports from certification labs are not substitutes for Bluetooth qualification ICS documents. The ICS is used to generate the Bluetooth test plan and determine which tests are required.",
+            "consultant_answer": "The consultant explained that the ICS is a Bluetooth SIG-defined document used to specify supported profile features and options. It is essential for generating the qualification test plan. The submitted TUV regulatory reports were unrelated to the Bluetooth ICS requirement. The consultant instructed the customer to complete the official SIG ICS form by marking supported mandatory and optional DIS profile capabilities.",
+            "decision_logic": "Bluetooth qualification testing depends on accurate ICS declarations because test plans and required test cases are generated from ICS selections. Regulatory RF approvals and non-SIG reports do not define Bluetooth profile capabilities and therefore cannot replace ICS documentation.",
+            "final_recommendation": "Obtain the official Bluetooth SIG ICS form for the implemented profile, complete all mandatory and supported optional feature selections accurately, and submit the ICS for test plan generation.",
+            "risk_if_done_wrong": "Using incorrect or incomplete ICS information can generate invalid test plans, missing required test cases, failed consistency checks, or incorrect qualification submissions.",
+            "bluetooth_tags": [
+                "ICS",
+                "DIS",
+                "PTS",
+                "test plan",
+                "profile",
+                "qualification",
+                "IXIT"
+            ],
+            "search_aliases": [
+                "DIS ICS",
+                "Bluetooth ICS form",
+                "ICS versus RF report",
+                "profile capability declaration",
+                "SIG ICS template",
+                "test plan generation",
+                "mandatory ICS items",
+                "Bluetooth qualification ICS"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

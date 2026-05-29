@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0031",
+    "cases": [
+        {
+            "case_id": "thread_0031_case_02",
+            "iut_type": "module",
+            "customer_question": "Can Bluetooth Mesh capability be declared for a BM832 module product when using nRF Connect SDK v2.8.0 Mesh QDIDs?",
+            "question_variants": [
+                "Can BM832 support Bluetooth Mesh qualification?",
+                "Can we reference Mesh QDIDs with BM832 hardware?",
+                "Is Bluetooth Mesh allowed with BM832 and nRF Connect SDK 2.8.0?",
+                "Can Mesh functionality be added without new module hardware?",
+                "Can Nordic Mesh qualification references be reused for BM832?"
+            ],
+            "actual_issue": "The customer needed to confirm whether Bluetooth Mesh functionality could be qualified on BM832 hardware using nRF Connect SDK v2.8.0 Mesh qualification references.",
+            "plain_english_explanation": "The customer planned to use Bluetooth Mesh features on hardware originally qualified with older firmware. They needed confirmation that the module hardware could still be used if the firmware changed to a newer Mesh-capable Nordic SDK. The issue was whether the Mesh qualification could legally apply to the same hardware platform.",
+            "consultant_answer": "The consultant reviewed the manufacturer's response confirming that the BM832 hardware could be used with the Mesh capability QDID under nRF Connect SDK v2.8.0. The consultant further clarified that products implementing nRF Connect SDK 2.8.0 object code on nRF52 series SoCs could later be added as derivative products to the Product List without additional qualification fees, provided the implemented stack remained within the qualified SDK scope.",
+            "decision_logic": "Bluetooth Mesh qualification eligibility depends on the implemented qualified SDK object code and referenced Mesh QDIDs. If the device uses nRF Connect SDK 2.8.0 qualified Mesh implementations on supported nRF52 hardware, Mesh functionality can be declared under the corresponding qualification references.",
+            "final_recommendation": "Reference the approved nRF Connect SDK v2.8.0 Mesh QDID together with the associated BLE stack QDIDs when declaring Bluetooth Mesh functionality on BM832-based products.",
+            "risk_if_done_wrong": "Declaring Mesh capability without matching qualified Mesh SDK references or using firmware outside the declared SDK scope could invalidate the Bluetooth qualification or require corrective requalification.",
+            "bluetooth_tags": [
+                "Bluetooth Mesh",
+                "qualification",
+                "QDID",
+                "nRF Connect SDK",
+                "module",
+                "reuse",
+                "Mesh",
+                "declaration"
+            ],
+            "search_aliases": [
+                "BM832 Mesh qualification",
+                "Bluetooth Mesh QDID reuse",
+                "nRF Connect SDK Mesh",
+                "Mesh declaration",
+                "nRF52 Mesh qualification",
+                "BM832 BLE Mesh",
+                "Mesh capable module",
+                "Nordic Mesh QDID",
+                "Bluetooth Mesh reuse",
+                "Mesh SDK qualification"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

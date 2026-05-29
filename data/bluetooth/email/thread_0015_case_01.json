@@ -3,20 +3,46 @@
     "cases": [
         {
             "case_id": "thread_0015_case_01",
-            "iut_type": "",
-            "customer_question": "Can the provided combination of QDIDs be used to achieve Bluetooth qualification despite Consistency Check errors reported by another test house?",
-            "actual_issue": "The proposed QDID combination results in Inter-Layer Dependency (IDL) / Consistency Check errors due to mismatched ICS requirements between GAP, LL, and Core layers, and the chipset vendor does not support updating the ICS.",
-            "consultant_answer": "The consultant confirms that the reported QDID combination indeed produces multiple IDL (Consistency Check) errors. However, under specific conditions (e.g., referencing legacy PRD2.3 registrations), qualification may still be possible even if IDL errors remain, depending on how the design is declared and reused.",
-            "final_recommendation": "Verify whether the design qualifies under legacy or special conditions that allow IDL exceptions. If not, avoid the problematic QDID combination and consider alternative design paths that eliminate ICS inconsistencies.",
+            "iut_type": "wireless networking device",
+            "customer_question": "Can a Bluetooth product still be qualified when the selected QDID combination produces Consistency Check / IDL errors that require unsupported ICS modifications from the chip vendor?",
+            "question_variants": [
+                "Can qualification proceed with Consistency Check errors?",
+                "What happens if IDL errors remain in a QDID combination?",
+                "Can PRD2.3 QDIDs still be used despite ICS inconsistencies?",
+                "Can we qualify a product if the IC vendor no longer supports ICS updates?",
+                "Are unresolved inter-layer dependency errors always fatal?"
+            ],
+            "actual_issue": "Determining whether a Bluetooth SIG qualification can proceed when a reused QDID combination triggers inter-layer dependency (IDL) consistency check errors and the original silicon vendor no longer supports ICS corrections.",
+            "plain_english_explanation": "Bluetooth qualification tools check whether all Bluetooth layers and features are logically compatible. Sometimes older QDID combinations produce consistency check errors because the feature definitions no longer align with newer qualification rules. In some limited cases, older PRD2.3-based registrations can still be reused if specific qualification conditions are met.",
+            "consultant_answer": "The consultant confirmed that the referenced QDID combination generated multiple GAP and LL inter-layer dependency inconsistencies during the Consistency Check. The consultant explained that another certification body had identified the need for ICS modifications from the IC vendor, but the vendor no longer supported the old device. Despite the remaining IDL errors, the consultant stated that the customer's requested registration could still proceed because the reused PRD2.3 QDID combination satisfied specific conditions allowing new registration even with unresolved Consistency Check errors.",
+            "decision_logic": "Not all IDL or Consistency Check errors automatically block qualification. Certain legacy PRD2.3 QDID reuse scenarios may remain acceptable if the qualification conditions permit reuse without requiring unsupported ICS modifications.",
+            "final_recommendation": "Evaluate whether the QDID reuse scenario qualifies under legacy PRD2.3 reuse conditions before attempting ICS modification work. If the chip vendor no longer supports the platform, confirm whether the remaining IDL errors are acceptable under the applicable qualification path.",
+            "risk_if_done_wrong": "Assuming all IDL errors are fatal may cause unnecessary redesign work or migration to newer silicon. Conversely, ignoring non-permitted IDL inconsistencies could lead to rejected qualification submissions.",
             "bluetooth_tags": [
                 "qualification",
                 "QDID",
                 "ICS",
                 "IDL",
                 "consistency check",
-                "design reuse"
+                "PRD2.3",
+                "reuse",
+                "Link Layer"
             ],
-            "qualification_stage": "planning"
+            "search_aliases": [
+                "Consistency Check error",
+                "IDL inconsistency",
+                "ICS modification required",
+                "legacy QDID reuse",
+                "PRD2.3 reuse",
+                "unsupported silicon vendor",
+                "inter-layer dependency error",
+                "QDID combination issue",
+                "ICS inconsistency",
+                "qualification despite IDL"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "medium",
+            "source_type": "email_case"
         }
     ]
 }

@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0033",
+    "cases": [
+        {
+            "case_id": "thread_0033_case_01",
+            "iut_type": "controller",
+            "customer_question": "How can Bluetooth RF PHY qualification testing be started when the DUT documentation only explains RF regulatory test mode and not Bluetooth LE Direct Test Mode control for the qualification tester?",
+            "question_variants": [
+                "How do we enter BLE DTM for RF PHY qualification?",
+                "Why can the InterLab tester not control the DUT during RF PHY testing?",
+                "Does the DUT support automated LE Direct Test Mode over UART?",
+                "What is missing from the RF PHY qualification procedure?",
+                "How should Qualcomm BLE DTM be connected to the test system?"
+            ],
+            "actual_issue": "The supplied DUT procedure described only RF regulatory test mode operation and did not provide the Bluetooth LE Direct Test Mode interface and automation details required for RF PHY qualification testing with the InterLab tester.",
+            "plain_english_explanation": "The device could enter a radio test mode, but the qualification lab could not automatically control it using the Bluetooth qualification tester. Bluetooth RF PHY qualification requires a specific Direct Test Mode interface so the tester can send commands and collect results. Without those instructions and interfaces, qualification testing cannot properly begin.",
+            "consultant_answer": "The consultant determined that the provided procedure was incomplete for Bluetooth RF PHY qualification because it only documented a generic RF test mode rather than Bluetooth LE Direct Test Mode under automated tester control. Qualcomm reference documentation clarified that the DUT must be controlled through the QC.BluetoothLE_DirectMode.exe utility using UART or USB serial communication integrated with the InterLab tester. The consultant also identified the required tester topology where the PC acts as a serial bridge between the tester and DUT, and verified that correct COM port mapping and HCI-Serial configuration were necessary for automated RF PHY execution.",
+            "decision_logic": "Bluetooth RF PHY qualification requires standardized LE Direct Test Mode communication under tester automation, not merely a manual or regulatory RF transmit mode. If the tester cannot control the DUT through the supported DTM interface, RF PHY qualification cannot proceed correctly.",
+            "final_recommendation": "Obtain and validate the vendor-specific BLE DTM procedure for qualification testing, configure the DUT for HCI-Serial DTM communication, verify COM port assignments between the tester and DUT, and confirm that the InterLab system can control the DUT before starting RF PHY testing.",
+            "risk_if_done_wrong": "The qualification lab may be unable to start RF PHY testing despite scheduled test time. Misinterpreting RF regulatory test mode as sufficient for Bluetooth qualification can cause failed tester integration, repeated debugging cycles, and qualification delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "DTM",
+                "LE",
+                "HCI",
+                "testing",
+                "controller"
+            ],
+            "search_aliases": [
+                "BLE DTM setup",
+                "RF PHY tester control",
+                "InterLab DTM connection",
+                "UART DTM interface",
+                "HCI serial DTM",
+                "RF PHY qualification blocked",
+                "Direct Test Mode missing",
+                "BLE qualification test mode",
+                "Qualcomm DTM utility",
+                "automated RF PHY testing"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

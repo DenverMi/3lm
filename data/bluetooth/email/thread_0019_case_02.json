@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0019",
+    "cases": [
+        {
+            "case_id": "thread_0019_case_02",
+            "iut_type": "module",
+            "customer_question": "Does a product using a BLE-only Controller QDID need to be qualified as BLE-only even if the original request mentioned BR/EDR/BLE?",
+            "question_variants": [
+                "Can this module be qualified as BR/EDR/BLE?",
+                "Why must the product be registered as BLE-only?",
+                "Does the Controller subsystem limit the qualification type?",
+                "Can a BLE-only Controller support BR/EDR qualification?",
+                "How does the referenced QDID affect supported Bluetooth technologies?"
+            ],
+            "actual_issue": "The requested qualification scope originally included BR/EDR and BLE, but the referenced Controller subsystem QDID supported BLE only, limiting the final qualification scope.",
+            "plain_english_explanation": "The customer initially expected to register the product as supporting both Classic Bluetooth and BLE. However, the referenced Controller subsystem only supported BLE functionality. Because Bluetooth qualification must match the capabilities of the referenced designs, the final registration had to be treated as a BLE-only product.",
+            "consultant_answer": "The consultant explained that the referenced Controller subsystem QDID was BLE-only. Even though the original request described a BR/EDR/BLE product, the qualification had to follow the capabilities of the referenced subsystem combination. Therefore, the resulting registration could only be handled as a BLE-only product.",
+            "decision_logic": "Bluetooth qualification scope must remain consistent with the capabilities declared by the referenced subsystem QDIDs. If the referenced Controller subsystem is BLE-only, the final product qualification cannot claim BR/EDR support.",
+            "final_recommendation": "Confirm the actual capabilities of all referenced subsystem QDIDs before defining the qualification scope. Register the product as BLE-only when the referenced Controller subsystem does not support BR/EDR.",
+            "risk_if_done_wrong": "Declaring unsupported BR/EDR capability can create SIG consistency check failures, qualification rejection, incorrect declarations, or rework during submission review.",
+            "bluetooth_tags": [
+                "qualification",
+                "BLE",
+                "BR/EDR",
+                "Controller",
+                "QDID",
+                "declaration",
+                "consistency check"
+            ],
+            "search_aliases": [
+                "BLE-only registration",
+                "BR/EDR unsupported",
+                "BLE-only Controller",
+                "qualification scope mismatch",
+                "Controller capability limitation",
+                "QDID capability mismatch",
+                "SIG declaration inconsistency",
+                "BLE only product"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

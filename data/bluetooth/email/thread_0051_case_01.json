@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0051",
+    "cases": [
+        {
+            "case_id": "thread_0051_case_01",
+            "iut_type": "TV",
+            "customer_question": "Can existing RF/RF PHY test reports be reused for a Bluetooth SIG re-listing when only the OS version changes and the wireless module remains unchanged?",
+            "question_variants": [
+                "Can RF/RF PHY reports be reused after an OS update?",
+                "Does an OS-only update require new RF testing?",
+                "Can prior Bluetooth SIG RF reports be reused?",
+                "Bluetooth re-listing without RF hardware changes",
+                "Reuse RF PHY evidence for existing module",
+                "Do unchanged RF specifications require retesting?"
+            ],
+            "actual_issue": "The product was being re-listed due to an OS version update, but the selected Controller Subsystem introduced RF/RF PHY and LL ICS differences that could unintentionally trigger extensive new qualification requirements under newer Bluetooth SIG registration rules.",
+            "plain_english_explanation": "The customer assumed no new Bluetooth testing would be needed because the wireless hardware had not changed. However, the newer Controller Subsystem registration being referenced did not exactly match the previous qualification behavior. Small RF/RF PHY and Link Layer differences in the reused QDID could force the Bluetooth SIG system to require a large amount of additional testing even though the physical hardware was unchanged.",
+            "consultant_answer": "The consultant confirmed that RF/RF PHY reports could be reused when the wireless module and RF specifications were unchanged. However, comparison of the historical qualification and the proposed Controller Subsystem revealed differences in LL and RF Power Class support. Although ICS modification could theoretically resolve the mismatch, the post-July-2024 registration process would generate approximately 300 LL-related test evidence upload requirements. The consultant also identified hierarchy inconsistencies inside the proposed Controller Subsystem registration. To avoid unnecessary retesting and inconsistency issues, the consultant recommended replacing the proposed Controller Subsystem with a compatible Subset QDID having the same RF/RF PHY Class 2 characteristics as the original qualification.",
+            "decision_logic": "Bluetooth SIG reuse is only practical when the inherited subsystem behavior and ICS declarations remain compatible with the previously qualified implementation. Introducing a different Controller Subsystem with mismatched RF/RF PHY or LL declarations can trigger mandatory retesting and consistency validation failures under newer qualification rules.",
+            "final_recommendation": "Reuse the existing RF/RF PHY reports only in combination with a compatible Subset Controller Subsystem QDID that matches the original RF/RF PHY behavior and avoids hierarchy inconsistencies.",
+            "risk_if_done_wrong": "Using the incompatible Controller Subsystem or modifying LL ICS incorrectly could trigger approximately 300 additional LL-related test report uploads, causing major schedule and cost impact. The project could also encounter hierarchy inconsistency issues that generate cascading new qualification requirements.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF",
+                "RF PHY",
+                "ICS",
+                "controller",
+                "QDID",
+                "reuse",
+                "consistency check"
+            ],
+            "search_aliases": [
+                "RF report reuse",
+                "RF PHY reuse",
+                "OS-only relisting",
+                "LL ICS mismatch",
+                "Power Class mismatch",
+                "Controller Subsystem inconsistency",
+                "subset QDID needed",
+                "300 test reports",
+                "hierarchy inconsistency",
+                "reuse existing RF evidence"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

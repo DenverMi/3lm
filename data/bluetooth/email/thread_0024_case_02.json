@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0024",
+    "cases": [
+        {
+            "case_id": "thread_0024_case_02",
+            "iut_type": "host subsystem",
+            "customer_question": "Under QPRDv3 Qualification Workspace, when adding HID11 to an existing referenced design, is testing limited to HID11-related IOPT cases or does the combined referenced profile set require broader IOPT testing?",
+            "question_variants": [
+                "Does adding HID11 require all IOPT tests from the included profiles?",
+                "How does QPRDv3 change Profile Subsystem qualification testing?",
+                "Can HID11 qualification use only HID-related IOPT cases?",
+                "What IOPT scope is generated for Include QDID registrations in Qualification Workspace?",
+                "Does Option 2 profile combination trigger full interoperability testing?"
+            ],
+            "actual_issue": "Understanding how QPRDv3 Qualification Workspace handles interoperability testing for new designs that include existing qualified designs plus added profiles.",
+            "plain_english_explanation": "The customer believed only the newly added HID11 profile and related interoperability tests would need testing. The consultant explained that under the newer QPRDv3 and Qualification Workspace process, adding a new profile to an included existing design causes the entire combined profile set to become part of the interoperability test scope. This is different from older PRDv2.3 Launch Studio behavior.",
+            "consultant_answer": "The consultant clarified that under PRDv2.3 Launch Studio, the customer's assumption would previously have been correct. However, under QPRDv3/v4 Qualification Workspace there is no registration method equivalent to adding a Profile Subsystem plus existing DN/QDID while limiting interoperability testing to only the added profile. Instead, Qualification Workspace combines the referenced profiles and newly added profile into one integrated design scope. As a result, the referenced profiles inherited from the included QDID also generate required IOPT test cases, and the added HID11 profile generates both profile tests and ICS-linked test items. The consultant listed the resulting required IOPT cases inherited from the referenced profiles.",
+            "decision_logic": "QPRDv3 Qualification Workspace generates testing obligations from the complete combined design represented by the included DN/QDID plus new profile additions. Interoperability requirements are based on the final integrated ICS and profile combination, not only the incremental added profile.",
+            "final_recommendation": "Generate the official Qualification Workspace Test Plan and execute all generated IOPT and profile test cases for the full combined design, including inherited profiles from the referenced DN/QDID and the newly added HID11 functionality.",
+            "risk_if_done_wrong": "Limiting testing to only HID11-related cases may leave mandatory Qualification Workspace test items incomplete, causing registration failure, rejected evidence, or rework after submission.",
+            "bluetooth_tags": [
+                "qualification",
+                "QPRDv3",
+                "Qualification Workspace",
+                "IOPT",
+                "HID11",
+                "QDID",
+                "DN",
+                "profile"
+            ],
+            "search_aliases": [
+                "QPRDv3 IOPT scope",
+                "Qualification Workspace Include QDID",
+                "HID11 interoperability testing",
+                "Profile Subsystem testing",
+                "combined design IOPT",
+                "Launch Studio difference",
+                "included QDID test plan",
+                "Option 2a IOPT"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

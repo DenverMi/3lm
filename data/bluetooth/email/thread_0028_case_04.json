@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0028",
+    "cases": [
+        {
+            "case_id": "thread_0028_case_04",
+            "iut_type": "module",
+            "customer_question": "Can FCC radio certification tools or procedures be used together with Bluetooth SIG RF PHY qualification testing?",
+            "question_variants": [
+                "FCC_assist tool causes RF PHY failure",
+                "Can FCC tools be used for SIG RF PHY testing?",
+                "InterLab and FCC_assist conflict",
+                "RF PHY COM port conflict",
+                "Why does RF PHY fail after FCC_assist use?",
+                "FCC procedure interfering with qualification testing"
+            ],
+            "actual_issue": "A regulatory RF test tool intended for FCC or radio-law testing interfered with the Bluetooth SIG RF PHY qualification test system by disrupting the DUT serial communication path.",
+            "plain_english_explanation": "The lab accidentally used an FCC-oriented RF assist tool together with the Bluetooth SIG qualification tester. Both tools attempted to control the same DUT communication interface, causing the qualification tester to lose access to the device. Once the FCC tool was removed and HCI mode was used directly with the SIG tester, RF PHY testing succeeded.",
+            "consultant_answer": "The consultant determined that the root cause was the installation and use of FCC_assist1.0.4.exe on the InterLab test management PC. The FCC tool established its own COM port handling sequence and disrupted the serial communication path required by the InterLab RF PHY qualification tester. The consultant instructed the team to stop using FCC_assist entirely and perform RF PHY testing directly through the InterLab system in Serial - HCI mode. After this correction, RF PHY 1M testing passed successfully.",
+            "decision_logic": "Bluetooth SIG RF PHY qualification requires exclusive and stable tester-to-DUT communication control. External FCC or regulatory RF tools that manipulate the same serial interface can break the qualification tester communication path and invalidate testing.",
+            "final_recommendation": "Do not use FCC or regulatory RF assist tools during Bluetooth SIG RF PHY qualification testing unless explicitly required and validated for compatibility. Use only the approved SIG qualification tester workflow and validated HCI communication mode.",
+            "risk_if_done_wrong": "Conflicting COM port control can prevent RF PHY testing from running, create misleading FAIL results, waste lab schedules, and delay qualification completion.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "testing",
+                "HCI",
+                "COM port",
+                "InterLab",
+                "FCC",
+                "module"
+            ],
+            "search_aliases": [
+                "FCC_assist conflict",
+                "COM port conflict",
+                "InterLab communication failure",
+                "RF PHY cannot start",
+                "FCC tool interference",
+                "Serial HCI only",
+                "RF PHY tester conflict",
+                "FCC_assist1.0.4.exe",
+                "qualification tester path issue",
+                "RF PHY timeout cause"
+            ],
+            "qualification_stage": "test failure",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

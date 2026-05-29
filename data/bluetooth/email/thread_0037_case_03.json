@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0037",
+    "cases": [
+        {
+            "case_id": "thread_0037_case_03",
+            "iut_type": "BLE product",
+            "customer_question": "Are non-Bluetooth accessories or cosmetic options required to be included in Bluetooth SIG qualification?",
+            "question_variants": [
+                "Do optional accessories need Bluetooth qualification?",
+                "Must a plastic cover accessory be included in the listing?",
+                "Are non-Bluetooth options part of the qualification scope?",
+                "Do cosmetic product variants affect Bluetooth qualification?",
+                "Can unrelated accessories be excluded from qualification?"
+            ],
+            "actual_issue": "Non-Bluetooth accessories and product options that do not affect the Bluetooth implementation do not need to be included in the Bluetooth qualification scope.",
+            "plain_english_explanation": "The customer asked whether an optional resin cover accessory had to be included in the Bluetooth qualification. The consultant clarified that accessories unrelated to Bluetooth functionality are outside the qualification scope. Cosmetic or non-communication-related options generally do not require separate qualification treatment.",
+            "consultant_answer": "The consultant explained that optional resin covers and other accessories unrelated to Bluetooth functionality do not need to be included in the Bluetooth SIG registration. The qualification scope only needs to cover the Bluetooth-related implementation and features.",
+            "decision_logic": "Bluetooth qualification scope is determined by the Bluetooth-compliant implementation and related features. Accessories or industrial design changes that do not affect Bluetooth behavior are outside the qualification scope.",
+            "final_recommendation": "Exclude purely cosmetic or non-Bluetooth accessories from the qualification scope unless they change Bluetooth hardware, RF behavior, firmware, or declared Bluetooth functionality.",
+            "risk_if_done_wrong": "The customer may unnecessarily expand the qualification scope, increase administrative complexity, or spend time preparing documentation for unrelated accessories.",
+            "bluetooth_tags": [
+                "qualification",
+                "scope",
+                "accessory",
+                "module",
+                "reuse",
+                "listing"
+            ],
+            "search_aliases": [
+                "optional accessory qualification",
+                "non Bluetooth accessory",
+                "plastic cover qualification",
+                "cosmetic change Bluetooth",
+                "industrial design change",
+                "Bluetooth unrelated option",
+                "qualification scope exclusion",
+                "accessory outside qualification"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

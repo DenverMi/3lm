@@ -1,45 +1,44 @@
-## **BR/EDR Radio Physical Layer (RF)** 
+## **BR/EDR Radio Physical Layer (RF)**
 
-## _**Bluetooth[®]**_ **Test Suite** 
+## _**Bluetooth[®]**_ **Test Suite**
 
-- **Revision:** RF.TS.p36 
+- **Revision:** RF.TS.p36
 
-- **Revision Date:** 2025-11-04 
+- **Revision Date:** 2025-11-04
 
-- **Prepared By:** BTI 
+- **Prepared By:** BTI
 
-- **Published during TCRL:** TCRL.pkg101 
-
-**==> picture [17 x 23] intentionally omitted <==**
-
-Bluetooth SIG Proprietary 
-
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
-
-**This document, regardless of its title or content, is not a Bluetooth Specification as defined in the Bluetooth Patent/Copyright License Agreement (“PCLA”) and Bluetooth Trademark License Agreement. Use of this document by members of Bluetooth SIG is governed by the membership and other related agreements between Bluetooth SIG Inc. (“Bluetooth SIG”) and its members, including the PCLA and other agreements posted on Bluetooth SIG’s website located at www.bluetooth.com.** 
-
-**THIS DOCUMENT IS PROVIDED “AS IS” AND BLUETOOTH SIG, ITS MEMBERS, AND THEIR AFFILIATES MAKE NO REPRESENTATIONS OR WARRANTIES AND DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING ANY WARRANTY OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT, FITNESS FOR ANY PARTICULAR PURPOSE, THAT THE CONTENT OF THIS DOCUMENT IS FREE OF ERRORS.** 
-
-**TO THE EXTENT NOT PROHIBITED BY LAW, BLUETOOTH SIG, ITS MEMBERS, AND THEIR AFFILIATES DISCLAIM ALL LIABILITY ARISING OUT OF OR RELATING TO USE OF THIS DOCUMENT AND ANY INFORMATION CONTAINED IN THIS DOCUMENT, INCLUDING LOST REVENUE, PROFITS, DATA OR PROGRAMS, OR BUSINESS INTERRUPTION, OR FOR SPECIAL, INDIRECT, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, AND EVEN IF BLUETOOTH SIG, ITS MEMBERS, OR THEIR AFFILIATES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.** 
-
-**This document is proprietary to Bluetooth SIG. This document may contain or cover subject matter that is intellectual property of Bluetooth SIG and its members. The furnishing of this document does not grant any license to any intellectual property of Bluetooth SIG or its members.** 
-
-**This document is subject to change without notice.** 
-
-**Copyright © 2003–2025 by Bluetooth SIG, Inc. The Bluetooth word mark and logos are owned by Bluetooth SIG, Inc. Other third-party brands and names are the property of their respective owners.** 
+- **Published during TCRL:** TCRL.pkg101
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **2 of 63** 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**This document, regardless of its title or content, is not a Bluetooth Specification as defined in the Bluetooth Patent/Copyright License Agreement (“PCLA”) and Bluetooth Trademark License Agreement. Use of this document by members of Bluetooth SIG is governed by the membership and other related agreements between Bluetooth SIG Inc. (“Bluetooth SIG”) and its members, including the PCLA and other agreements posted on Bluetooth SIG’s website located at www.bluetooth.com.**
 
-## **Contents** 
+**THIS DOCUMENT IS PROVIDED “AS IS” AND BLUETOOTH SIG, ITS MEMBERS, AND THEIR AFFILIATES MAKE NO REPRESENTATIONS OR WARRANTIES AND DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING ANY WARRANTY OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT, FITNESS FOR ANY PARTICULAR PURPOSE, THAT THE CONTENT OF THIS DOCUMENT IS FREE OF ERRORS.**
+
+**TO THE EXTENT NOT PROHIBITED BY LAW, BLUETOOTH SIG, ITS MEMBERS, AND THEIR AFFILIATES DISCLAIM ALL LIABILITY ARISING OUT OF OR RELATING TO USE OF THIS DOCUMENT AND ANY INFORMATION CONTAINED IN THIS DOCUMENT, INCLUDING LOST REVENUE, PROFITS, DATA OR PROGRAMS, OR BUSINESS INTERRUPTION, OR FOR SPECIAL, INDIRECT, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, AND EVEN IF BLUETOOTH SIG, ITS MEMBERS, OR THEIR AFFILIATES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.**
+
+**This document is proprietary to Bluetooth SIG. This document may contain or cover subject matter that is intellectual property of Bluetooth SIG and its members. The furnishing of this document does not grant any license to any intellectual property of Bluetooth SIG or its members.**
+
+**This document is subject to change without notice.**
+
+**Copyright © 2003–2025 by Bluetooth SIG, Inc. The Bluetooth word mark and logos are owned by Bluetooth SIG, Inc. Other third-party brands and names are the property of their respective owners.**
+
+**==> picture [17 x 23] intentionally omitted <==**
+
+Bluetooth SIG Proprietary
+
+Page **2 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+## **Contents**
 
 |**1**|**Scope ..................................................................................................................................................... 5**|
-|---|---|
 |**2**|**References, definitions, and abbreviations ....................................................................................... 6**|
 ||2.1<br>References .................................................................................................................................... 6|
 ||2.2<br>Definitions ..................................................................................................................................... 6|
@@ -88,18 +87,15 @@ Page **2 of 63**
 ||RF/RCV/CA/BV-09-C [EDR C/I Performance] ...................................................................................................... 46|
 ||RF/RCV/CA/BV-10-C [EDR Maximum Input Level] .............................................................................................. 48|
 
-
-
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **3 of 63** 
+Page **3 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
 |**5**|**Test**|**case mapping ............................................................................................................................. 50**|
-|---|---|---|
 |**6**|**Annex ................................................................................................................................................... 51**||
 ||6.1|Reference Signal Definition ........................................................................................................ 51|
 ||6.1.1|2 Mbps Reference Signal (EDR) ........................................................................................................... 52|
@@ -124,1823 +120,1790 @@ Page **3 of 63**
 ||6.8.6|Peak frequency deviation ...................................................................................................................... 56|
 |**7**|**Revision history and acknowledgments .......................................................................................... 57**||
 
+**==> picture [17 x 23] intentionally omitted <==**
 
+Bluetooth SIG Proprietary
+
+Page **4 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+## **1 Sco e p**
+
+This Bluetooth document contains the Test Suite Structure (TSS) and test cases to test the implementation of the Bluetooth RF layer, including Enhanced Data Rate, with the objective to provide a high probability of air interface interoperability between the tested implementation and other manufacturers’ Bluetooth devices.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **4 of 63** 
+Page **5 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **1 Sco e p** 
+## **2 References, definitions, and abbreviations**
 
-This Bluetooth document contains the Test Suite Structure (TSS) and test cases to test the implementation of the Bluetooth RF layer, including Enhanced Data Rate, with the objective to provide a high probability of air interface interoperability between the tested implementation and other manufacturers’ Bluetooth devices. 
+## **2.1 References**
 
-**==> picture [17 x 23] intentionally omitted <==**
+This document incorporates provisions from other publications by dated or undated reference. These references are cited at the appropriate places in the text, and the publications are listed hereinafter. Additional definitions and abbreviations can be found in [1] and [2].
 
-Bluetooth SIG Proprietary 
+- [1] Specification of the Bluetooth System, Version 2.1 + EDR or later, Core System Package, Volume 2, Part A
 
-Page **5 of 63** 
+- [2] Test Strategy and Terminology Overview
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+- [3] ICS Proforma for BR/EDR Radio Physical Layer (RF)
 
-## **2 References, definitions, and abbreviations** 
+- [4] ETS 300 328: “Electromagnetic compatibility and Radio spectrum Matters (ERM); Wideband transmission systems; Data transmission equipment operating in the 2,4 GHz ISM band and sing wide band modulation techniques; Harmonized EN covering the essential requirements of article 3.2 of the R&TTE Directive v 1.9.1 (2015-02)”
 
-## **2.1 References** 
+- [5] FCC Part 15: CFR 47, Part 15 “Radio Frequency Device”, Sections 15.205, 15.209, 15.247
 
-This document incorporates provisions from other publications by dated or undated reference. These references are cited at the appropriate places in the text, and the publications are listed hereinafter. Additional definitions and abbreviations can be found in [1] and [2]. 
+- [6] Specification of the Bluetooth System, Core System Package, Volume 2, Part B, Baseband (BB)
 
-- [1] Specification of the Bluetooth System, Version 2.1 + EDR or later, Core System Package, Volume 2, Part A 
+- [7] IXIT Proforma for Bluetooth Conformance Test Suites
 
-- [2] Test Strategy and Terminology Overview 
+- [8] Specification of the Bluetooth System, Version 5.4 or later, Core System Package, Volume 2, Part A
 
-- [3] ICS Proforma for BR/EDR Radio Physical Layer (RF) 
+## **2.2 Definitions**
 
-- [4] ETS 300 328: “Electromagnetic compatibility and Radio spectrum Matters (ERM); Wideband transmission systems; Data transmission equipment operating in the 2,4 GHz ISM band and sing wide band modulation techniques; Harmonized EN covering the essential requirements of article 3.2 of the R&TTE Directive v 1.9.1 (2015-02)” 
+In this Bluetooth document, the definitions from [1] and [2] apply.
 
-- [5] FCC Part 15: CFR 47, Part 15 “Radio Frequency Device”, Sections 15.205, 15.209, 15.247 
+## **2.3 Acronyms and abbreviations**
 
-- [6] Specification of the Bluetooth System, Core System Package, Volume 2, Part B, Baseband (BB) 
-
-- [7] IXIT Proforma for Bluetooth Conformance Test Suites 
-
-- [8] Specification of the Bluetooth System, Version 5.4 or later, Core System Package, Volume 2, Part A 
-
-## **2.2 Definitions** 
-
-In this Bluetooth document, the definitions from [1] and [2] apply. 
-
-## **2.3 Acronyms and abbreviations** 
-
-In this Bluetooth document, the definitions, acronyms, and abbreviations from [1] and [2] apply. 
+In this Bluetooth document, the definitions, acronyms, and abbreviations from [1] and [2] apply.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **6 of 63** 
+Page **6 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **3 Test Suite Structure (TSS)** 
+## **3 Test Suite Structure (TSS)**
 
-## **3.1 Test Strategy** 
+## **3.1 Test Strategy**
 
-The Bluetooth RF is layer 1 of the Bluetooth protocol stack. 
+The Bluetooth RF is layer 1 of the Bluetooth protocol stack.
 
 **==> picture [264 x 162] intentionally omitted <==**
 
 **----- Start of picture text -----**<br>
 Audio<br>L2CAP<br>HCI<br>Link Manager<br>Protocol (LMP)<br>Baseband (BB)<br>Bluetooth RF<br>**----- End of picture text -----**<br>
 
+_Figure 3.1: Bluetooth protocol stack, Basic Layers_
 
-_Figure 3.1: Bluetooth protocol stack, Basic Layers_ 
-
-## Bluetooth RF Test Suite Structure 
+## Bluetooth RF Test Suite Structure
 
 **==> picture [192 x 178] intentionally omitted <==**
 
 **----- Start of picture text -----**<br>
 Transmitter<br>Output Power<br>Power Density<br>Power Control<br>TX Output Spectrum-Frequency Range<br>TX Output Spectrum-20 dB Bandwidth<br>TX Output Spectrum-Adjacent Channel Power<br>Modulation Characteristics<br>InitialCarrier Frequency Tolerance<br>Carrier Frequency Drift<br>Receiver<br>Sensitivity – Single slot packets<br>Sensitivity – Multi slot packets<br>C/I Performance<br>Blocking Performance<br>Intermodulation Performance<br>Maximum Input Level<br>**----- End of picture text -----**<br>
 
+_Figure 3.2: Test Suite Structure for Bluetooth RF_
 
-_Figure 3.2: Test Suite Structure for Bluetooth RF_ 
+## Bluetooth EDR RF Test Suite Structure
 
-## Bluetooth EDR RF Test Suite Structure 
+## Transmitter
 
-## Transmitter 
+Enhanced Data Rate Relative Transmit PowerEnhanced Data Rate Carrier Frequency Stability and Modulation Accuracy Enhanced Data Rate Differential Phase Encoding Enhanced Data Rate In-Band Spurious Emission Receiver Enhanced Data Rate Sensitivity Enhanced Data Rate BER Floor Sensitivity Enhanced Data Rate C/I Performance Enhanced Data Rate Maximum Input Level
 
-Enhanced Data Rate Relative Transmit PowerEnhanced Data Rate Carrier Frequency Stability and Modulation Accuracy Enhanced Data Rate Differential Phase Encoding Enhanced Data Rate In-Band Spurious Emission Receiver Enhanced Data Rate Sensitivity Enhanced Data Rate BER Floor Sensitivity Enhanced Data Rate C/I Performance Enhanced Data Rate Maximum Input Level 
-
-_Figure 3.3: Test Suite Structure for Bluetooth EDR RF_ 
-
-**==> picture [17 x 23] intentionally omitted <==**
-
-Bluetooth SIG Proprietary 
-
-Page **7 of 63** 
-
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
-
-## **3.2 Test groups** 
-
-The test groups are organized in three levels. The first level defines the protocol groups representing the protocol services. The second level separates the protocol services in functional modules. The last level in each branch contains the standard ISO subgroups BV and BI (not shown in Figure 3.3). 
-
-## **3.2.1 Protocol groups** 
-
-The protocol group identifies the kind of test for Bluetooth RF test purposes: 
-
-- Transmitter 
-
-- Receiver 
-
-## **3.2.2 Main test groups** 
-
-The main test groups are the capability group, the valid behavior group and the invalid behavior group. 
-
-## **3.2.2.1 Capability (CA) tests** 
-
-This subgroup provides testing of the major IUT capabilities aiming to ensure that the claimed capabilities are correctly supported, according to the ICS. 
-
-## **3.2.2.2 Valid Behavior (BV) tests** 
-
-This subgroup provides testing to verify that the IUT reacts in conformity with the Bluetooth standard, after receipt or exchange of a valid Protocol Data Units (PDUs). Valid PDUs means that the exchange of messages and the content of the exchanged messages are considered as valid. 
-
-## **3.2.2.3 Invalid Behavior (BI) tests** 
-
-This subgroup provides testing to verify that the IUT reacts in conformity with the Bluetooth standard, after receipt of a syntactically or semantically invalid PDU. 
+_Figure 3.3: Test Suite Structure for Bluetooth EDR RF_
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **8 of 63** 
+Page **7 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **4 Test cases (TC)** 
+## **3.2 Test groups**
 
-## **4.1 Introduction** 
+The test groups are organized in three levels. The first level defines the protocol groups representing the protocol services. The second level separates the protocol services in functional modules. The last level in each branch contains the standard ISO subgroups BV and BI (not shown in Figure 3.3).
 
-## **4.1.1 Test case identification conventions** 
+## **3.2.1 Protocol groups**
 
-Test cases are assigned unique identifiers per the conventions in [2]. The convention used here is: **<spec abbreviation>/<IUT role>/** <class>/ **<feat>** /<func>/<subfunc>/<cap>/ **<xx>-<nn>-<y>** . 
+The protocol group identifies the kind of test for Bluetooth RF test purposes:
+
+- Transmitter
+
+- Receiver
+
+## **3.2.2 Main test groups**
+
+The main test groups are the capability group, the valid behavior group and the invalid behavior group.
+
+## **3.2.2.1 Capability (CA) tests**
+
+This subgroup provides testing of the major IUT capabilities aiming to ensure that the claimed capabilities are correctly supported, according to the ICS.
+
+## **3.2.2.2 Valid Behavior (BV) tests**
+
+This subgroup provides testing to verify that the IUT reacts in conformity with the Bluetooth standard, after receipt or exchange of a valid Protocol Data Units (PDUs). Valid PDUs means that the exchange of messages and the content of the exchanged messages are considered as valid.
+
+## **3.2.2.3 Invalid Behavior (BI) tests**
+
+This subgroup provides testing to verify that the IUT reacts in conformity with the Bluetooth standard, after receipt of a syntactically or semantically invalid PDU.
+
+**==> picture [17 x 23] intentionally omitted <==**
+
+Bluetooth SIG Proprietary
+
+Page **8 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+## **4 Test cases (TC)**
+
+## **4.1 Introduction**
+
+## **4.1.1 Test case identification conventions**
+
+Test cases are assigned unique identifiers per the conventions in [2]. The convention used here is: **<spec abbreviation>/<IUT role>/** <class>/ **<feat>** /<func>/<subfunc>/<cap>/ **<xx>-<nn>-<y>** .
 
 |**Identifier Abbreviation**|**Spec Identifier <spec abbreviation>**|
-|---|---|
 |RF|Radio|
 |**Identifier Abbreviation**|**Feature Identifier <feat>**|
 |RCV|Receiver Tests|
 |TRM|Transmitter Tests|
 
+_Table 4.1: RF TC feature naming conventions_
 
+## **4.1.2 Conformance**
 
-_Table 4.1: RF TC feature naming conventions_ 
+When conformance is claimed for a particular specification, all capabilities are to be supported in the specified manner. The mandated tests from this Test Suite depend on the capabilities to which conformance is claimed.
 
-## **4.1.2 Conformance** 
+The Bluetooth Qualification Program may employ tests to verify implementation robustness. The level of implementation robustness that is verified varies from one specification to another and may be revised for cause based on interoperability issues found in the market.
 
-When conformance is claimed for a particular specification, all capabilities are to be supported in the specified manner. The mandated tests from this Test Suite depend on the capabilities to which conformance is claimed. 
+Such tests may verify:
 
-The Bluetooth Qualification Program may employ tests to verify implementation robustness. The level of implementation robustness that is verified varies from one specification to another and may be revised for cause based on interoperability issues found in the market. 
+- That claimed capabilities may be used in any order and any number of repetitions not excluded by the specification
 
-Such tests may verify: 
+- That capabilities enabled by the implementations are sustained over durations expected by the use case
 
-- That claimed capabilities may be used in any order and any number of repetitions not excluded by the specification 
+- That the implementation gracefully handles any quantity of data expected by the use case
 
-- That capabilities enabled by the implementations are sustained over durations expected by the use case 
+- That in cases where more than one valid interpretation of the specification exists, the implementation complies with at least one interpretation and gracefully handles other interpretations
 
-- That the implementation gracefully handles any quantity of data expected by the use case 
+- That the implementation is immune to attempted security exploits
 
-- That in cases where more than one valid interpretation of the specification exists, the implementation complies with at least one interpretation and gracefully handles other interpretations 
+A single execution of each of the required tests is required to constitute a Pass verdict. However, it is noted that to provide a foundation for interoperability, it is necessary that a qualified implementation consistently and repeatedly pass any of the applicable tests.
 
-- That the implementation is immune to attempted security exploits 
-
-A single execution of each of the required tests is required to constitute a Pass verdict. However, it is noted that to provide a foundation for interoperability, it is necessary that a qualified implementation consistently and repeatedly pass any of the applicable tests. 
-
-In any case, where a member finds an issue with the test plan generated by the Bluetooth SIG qualification tool, with the test case as described in the Test Suite, or with the test system utilized, the member is required to notify the responsible party via an erratum request such that the issue may be addressed. 
+In any case, where a member finds an issue with the test plan generated by the Bluetooth SIG qualification tool, with the test case as described in the Test Suite, or with the test system utilized, the member is required to notify the responsible party via an erratum request such that the issue may be addressed.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **9 of 63** 
+Page **9 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **4.2 Common test case conditions** 
+## **4.2 Common test case conditions**
 
-Unless stated otherwise in individual test cases the following applies throughout this Test Suite: 
+Unless stated otherwise in individual test cases the following applies throughout this Test Suite:
 
-1. The IUT is connected to the tester via a 50Ω connector. If there is no antenna interface, a temporary 50Ω interface or a suitable coupling device may be used. 
+2. The test case is to be performed at normal operating conditions.
 
-2. The test case is to be performed at normal operating conditions. 
+## **4.3 Pass/Fail verdict conventions**
 
-## **4.3 Pass/Fail verdict conventions** 
+Each test case has an Expected Outcome section. The IUT is granted the Pass verdict when all the detailed pass criteria conditions within the Expected Outcome section are met.
 
-Each test case has an Expected Outcome section. The IUT is granted the Pass verdict when all the detailed pass criteria conditions within the Expected Outcome section are met. 
+The convention in this Test Suite is that, unless there is a specific set of fail conditions outlined in the test case, the IUT fails the test case as soon as one of the pass criteria conditions cannot be met. If this occurs, then the outcome of the test is a Fail verdict.
 
-The convention in this Test Suite is that, unless there is a specific set of fail conditions outlined in the test case, the IUT fails the test case as soon as one of the pass criteria conditions cannot be met. If this occurs, then the outcome of the test is a Fail verdict. 
+## **4.4 Common Packet Contents**
 
-## **4.4 Common Packet Contents** 
+## **4.4.1 Fields and Bits Reserved for Future Use**
 
-## **4.4.1 Fields and Bits Reserved for Future Use** 
+Unless a specific test states otherwise, all fields within packets and all bits within fields that are described as reserved for future use are set to 0 in packets sent by the Upper and Lower Testers.
 
-Unless a specific test states otherwise, all fields within packets and all bits within fields that are described as reserved for future use are set to 0 in packets sent by the Upper and Lower Testers. 
+## **4.5 Transmitter**
 
-## **4.5 Transmitter** 
+## **RF/TRM/CA/BV-01-C [Output Power]**
 
-## **RF/TRM/CA/BV-01-C [Output Power]** 
+- Test Purpose
 
-- Test Purpose 
+Verification of the maximum average RF output power.
 
-Verification of the maximum average RF output power. 
+- Reference
 
-- Reference 
+- [1] 3
 
-   - [1] 3 
+- Initial Condition
 
-- Initial Condition 
+- IUT in test mode loop back or TX mode.
 
-   - IUT in test mode loop back or TX mode. 
+- IUT hopping on or off.
 
-   - IUT hopping on or off. 
+- The IUT transmits to the Lower Tester at maximum supported output power.
 
-   - The IUT transmits to the Lower Tester at maximum supported output power. 
+- TSPX_Antenna_Gain is declared by the manufacturer of the IUT in the IXIT [7].
 
-   - TSPX_Antenna_Gain is declared by the manufacturer of the IUT in the IXIT [7]. 
+- Test Procedure
 
-- Test Procedure 
+The test is run using the supported modulation mode that has the highest output power.
 
-The test is run using the supported modulation mode that has the highest output power. 
+- a) Tester transmits longest supported packet in the chosen modulation mode, with full payload with PRBS9 as payload to the IUT. (See Section 6.1 “Reference Signal Definition”.)
 
-- a) Tester transmits longest supported packet in the chosen modulation mode, with full payload with PRBS9 as payload to the IUT. (See Section 6.1 “Reference Signal Definition”.) 
+- b) If Hopping is off, IUT transmits at lowest operating TX frequency.
 
-- b) If Hopping is off, IUT transmits at lowest operating TX frequency. 
+- c) The spectrum analyzer settings are as follows:
 
-- c) The spectrum analyzer settings are as follows: 
+- Center frequency: the lowest operating frequency
 
-   - Center frequency: the lowest operating frequency 
+- Span: Zero Span
 
-   - Span: Zero Span 
-
-   - Resolution Bandwidth: 3 MHz 
+- Resolution Bandwidth: 3 MHz
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **10 of 63** 
+Page **10 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-   - Video Bandwidth: 3 MHz 
+- Video Bandwidth: 3 MHz
 
-   - Detector: Peak 
+- Detector: Peak
 
-   - Mode: Clear/Write 
+- Mode: Clear/Write
 
-   - Sweeptime: depending on packet type (one complete packet) 
+- Sweeptime: depending on packet type (one complete packet)
 
-   - Trigger: extern (to signaling unit.) 
+- Trigger: extern (to signaling unit.)
 
-- d) Tester calculates average power PAV over at least 20% to 80% of the duration of the burst (position of p0 defines the begin of the burst) 
+- d) Tester calculates average power PAV over at least 20% to 80% of the duration of the burst (position of p0 defines the begin of the burst)
 
-## **or** 
+## **or**
 
-if the measuring system is not able to determine the p0 bit in the burst: Tester calculates average power PAV over at least 20% to 80% of the duration of the burst. (The duration of the burst is the time between the leading and trailing 3 dB points compared to the average power). 
+if the measuring system is not able to determine the p0 bit in the burst: Tester calculates average power PAV over at least 20% to 80% of the duration of the burst. (The duration of the burst is the time between the leading and trailing 3 dB points compared to the average power).
 
-- e) Repeat b)–d) while the analyzer center frequency is set to: 
+- e) Repeat b)–d) while the analyzer center frequency is set to:
 
-   - the mid operating frequency; and the highest operating frequency. 
+- the mid operating frequency; and the highest operating frequency.
 
-These frequencies are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off.” 
+These frequencies are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off.”
 
-NOTE: When using test equipment that can follow the hopping sequence the low, mid, and upper frequencies can be tested when hopped to. 
+NOTE: When using test equipment that can follow the hopping sequence the low, mid, and upper frequencies can be tested when hopped to.
 
-   - f) The TSPX_Antenna_Gain (in dBi) is added to the results (in dBm) measured in part a)–e) to calculate average equivalent isotropic radiated power PAV EIRP. 
+- f) The TSPX_Antenna_Gain (in dBi) is added to the results (in dBm) measured in part a)–e) to calculate average equivalent isotropic radiated power PAV EIRP.
 
-- Test Condition 
+- Test Condition
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Expected Outcome 
+- Expected Outcome
 
-## Pass verdict 
+## Pass verdict
 
-All values as measured fulfill the following conditions. 
+All values as measured fulfill the following conditions.
 
-PAV EIRP < 100 mW (20 dBm) EIRP 
+PAV EIRP < 100 mW (20 dBm) EIRP
 
-If the IUT is a power class 1 equipment: 
+If the IUT is a power class 1 equipment:
 
-- PAV > 2.5 mW (4 dBm) 
+- PAV > 2.5 mW (4 dBm)
 
-If the IUT is not a power class 1 equipment: 
+If the IUT is not a power class 1 equipment:
 
-   - PAV ≤ 2.5 mW (4 dBm) 
+- PAV ≤ 2.5 mW (4 dBm)
 
-- Notes 
+- Notes
 
-If the test is performed using loopback mode, then it is recommended that the payload content is checked as well. 
+If the test is performed using loopback mode, then it is recommended that the payload content is checked as well.
 
-## **RF/TRM/CA/BV-02-C [Power Density]** 
+## **RF/TRM/CA/BV-02-C [Power Density]**
 
-- Test Purpose 
+- Test Purpose
 
-Verification of the maximum RF-output power density. 
+Verification of the maximum RF-output power density.
 
-- Reference 
+- Reference
 
-## [4] 
+## 4
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **11 of 63** 
+Page **11 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- Initial Condition 
+- Initial Condition
 
-   - IUT in test mode loop back or TX mode. 
+- IUT in test mode loop back or TX mode.
 
-   - Hopping on. 
+- Hopping on.
 
-   - The IUT transmits to the Lower Tester at maximum supported output power. 
+- The IUT transmits to the Lower Tester at maximum supported output power.
 
-- Test Procedure 
+- Test Procedure
 
-The test is run using the supported modulation mode that has the highest output power. 
+The test is run using the supported modulation mode that has the highest output power.
 
-- a) Tester transmits longest supported packet in the chosen modulation mode, with full payload with PRBS9 as payload to the IUT. (See Section 6.1 “Reference Signal Definition”.) 
+- a) Tester transmits longest supported packet in the chosen modulation mode, with full payload with PRBS9 as payload to the IUT. (See Section 6.1 “Reference Signal Definition”.)
 
-- b) The spectrum analyzer settings are as follows: 
+- b) The spectrum analyzer settings are as follows:
 
-   - Center frequency: 2441 MHz 
+- Center frequency: 2441 MHz
 
-   - Span: ≥ 80 MHz 
+- Span: ≥ 80 MHz
 
-   - Resolution Bandwidth: 100 kHz 
+- Resolution Bandwidth: 100 kHz
 
-   - Video Bandwidth: 100 kHz 
+- Video Bandwidth: 100 kHz
 
-   - Detector: Peak 
+- Detector: Peak
 
-   - Mode: Maxhold 
+- Mode: Maxhold
 
-   - Sweeptime: 1 sec per 100 kHz span 
+- Sweeptime: 1 sec per 100 kHz span
 
-   - Trigger: freerun. 
+- Trigger: freerun.
 
-If the measurement equipment is not able to store one sample for each 100 kHz frequency range, the span may be split for several measurements. 
+If the measurement equipment is not able to store one sample for each 100 kHz frequency range, the span may be split for several measurements.
 
-   - c) A trace is done and the peak value of the trace is found. 
+- c) A trace is done and the peak value of the trace is found.
 
-   - d) The spectrum analyzer is set to Zero Span, the center frequency is set to the frequency found in Step c), and the sweep time is set to 1 minute. A single sweep is running. 
+- d) The spectrum analyzer is set to Zero Span, the center frequency is set to the frequency found in Step c), and the sweep time is set to 1 minute. A single sweep is running.
 
-   - e) The power density is calculated as the peak value of the trace captured in Step d). 
+- e) The power density is calculated as the peak value of the trace captured in Step d).
 
-   - f) The antenna gain G (in dBi) is added to the results (in dBm) measured in part a)–e). 
+- f) The antenna gain G (in dBi) is added to the results (in dBm) measured in part a)–e).
 
-- Test Condition 
+- Test Condition
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Expected Outcome 
+- Expected Outcome
 
-## Pass verdict 
+## Pass verdict
 
-All values as measured fulfill the following conditions. 
+All values as measured fulfill the following conditions.
 
-Power Density < 100 mW (20dBm) per 100 kHz EIRP. 
+Power Density < 100 mW (20dBm) per 100 kHz EIRP.
 
-- Notes 
+- Notes
 
-If the test is performed using loopback mode, then it is recommended that the payload content is checked as well. 
+If the test is performed using loopback mode, then it is recommended that the payload content is checked as well.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **12 of 63** 
+Page **12 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **RF/TRM/CA/BV-03-C [Power Control]** 
+## **RF/TRM/CA/BV-03-C [Power Control]**
 
-- Test Purpose 
+- Test Purpose
 
-Verification of the TX power control. 
+Verification of the TX power control.
 
-- Reference 
+- Reference
 
-   - [1] 3 
+- [1] 3
 
-- Initial Condition 
+- Initial Condition
 
-   - IUT in test mode loop back or TX mode. 
+- IUT in test mode loop back or TX mode.
 
-   - Hopping off. 
+- Hopping off.
 
-   - IUT transmits to the Lower Tester at maximum supported output power. 
+- IUT transmits to the Lower Tester at maximum supported output power.
 
-   - TSPX_Timer_TX_Power_Control is declared by the manufacturer of the IUT in the IXIT [7]. 
+- TSPX_Timer_TX_Power_Control is declared by the manufacturer of the IUT in the IXIT [7].
 
-- Test Procedure 
+- Test Procedure
 
-The test is run using the supported modulation mode that has the highest output power. 
+The test is run using the supported modulation mode that has the highest output power.
 
-- a) Tester sets IUT to lowest operating TX frequency using LMP commands. 
+- a) Tester sets IUT to lowest operating TX frequency using LMP commands.
 
-- b) Tester transmits longest supported packet in the chosen modulation mode, with full payload with PRBS9 as payload to the IUT. (See Section 6.1 “Reference Signal Definition”.) 
+- b) Tester transmits longest supported packet in the chosen modulation mode, with full payload with PRBS9 as payload to the IUT. (See Section 6.1 “Reference Signal Definition”.)
 
-- c) The spectrum analyzer settings are as follows: 
+- c) The spectrum analyzer settings are as follows:
 
-   - Center frequency: the lowest operating frequency 
+- Center frequency: the lowest operating frequency
 
-   - Span: Zero Span 
+- Span: Zero Span
 
-   - Resolution Bandwidth: 3 MHz 
+- Resolution Bandwidth: 3 MHz
 
-   - Video Bandwidth: 3 MHz 
+- Video Bandwidth: 3 MHz
 
-   - Detector: Peak 
+- Detector: Peak
 
-   - Mode: Clear/Write 
+- Mode: Clear/Write
 
-   - Sweeptime: one complete DH1 packet 
+- Sweeptime: one complete DH1 packet
 
-   - Trigger: extern (to signaling unit) 
+- Trigger: extern (to signaling unit)
 
-- d) Tester calculates average power PAV over at least 20%–80% of the duration of the burst (position of p0 defines the begin of the burst) 
+- d) Tester calculates average power PAV over at least 20%–80% of the duration of the burst (position of p0 defines the begin of the burst)
 
-## **or** 
+## **or**
 
-if the measuring system is not able to determine the p0 bit in the burst: 
+if the measuring system is not able to determine the p0 bit in the burst:
 
-Tester calculates average power PAV over at least 20%–80% of the duration of the burst. (The duration of the burst is the time between the leading and trailing 3 dB points compared to the average power). 
+Tester calculates average power PAV over at least 20%–80% of the duration of the burst. (The duration of the burst is the time between the leading and trailing 3 dB points compared to the average power).
 
-- e) Decrease IUT output power for one power step. 
+- e) Decrease IUT output power for one power step.
 
-The next measurement starts after the IUT has reached the new power step (TSPX_Timer_TX_Power_Control, default value = 1 second, see Section 5). 
+The next measurement starts after the IUT has reached the new power step (TSPX_Timer_TX_Power_Control, default value = 1 second, see Section 5).
 
-- f) Repeat Steps b)–f) until minimum possible output power step of the IUT is reached. 
+- f) Repeat Steps b)–f) until minimum possible output power step of the IUT is reached.
 
-- g) Tester increases IUT's output power one step using LMP command. Repeat Steps b)–e). Step size is recorded by the tester. 
+- g) Tester increases IUT's output power one step using LMP command. Repeat Steps b)–e). Step size is recorded by the tester.
 
-- h) Repeat Step h) to the maximum possible output power setting of the IUT. 
+- h) Repeat Step h) to the maximum possible output power setting of the IUT.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **13 of 63** 
+Page **13 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-   - i) Repeat Steps b)–h) while the IUT receives (fRX) / loops back (fTX) at: the mid operating frequency; and the highest operating frequency. 
+- i) Repeat Steps b)–h) while the IUT receives (fRX) / loops back (fTX) at: the mid operating frequency; and the highest operating frequency.
 
-   - j) These frequencies are defined Section 6.2.2, “Frequencies for testing, loopback, hopping off”. 
+- j) These frequencies are defined Section 6.2.2, “Frequencies for testing, loopback, hopping off”.
 
-- Test Condition 
+- Test Condition
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Expected Outcome 
+- Expected Outcome
 
-## Pass verdict 
+## Pass verdict
 
-All values as measured fulfill the following conditions. 
+All values as measured fulfill the following conditions.
 
-Expected Outcome refers to the step size and to the minimum output power. The latter depends on the power class of the IUT. 
+Expected Outcome refers to the step size and to the minimum output power. The latter depends on the power class of the IUT.
 
-Step size of the power control: 2dB  step size  8 dB 
+Step size of the power control: 2dB  step size  8 dB
 
-For power class 1 equipment: 
+For power class 1 equipment:
 
-   - At minimum power step: PAV < 4dBm 
+- At minimum power step: PAV < 4dBm
 
-- Notes 
+- Notes
 
-If the test is performed using loopback mode, then it is recommended that the payload content is checked as well. 
+If the test is performed using loopback mode, then it is recommended that the payload content is checked as well.
 
-**RF/TRM/CA/BV-04-C [TX Output Spectrum – Frequency Range]** 
+**RF/TRM/CA/BV-04-C [TX Output Spectrum – Frequency Range]**
 
-- Test Purpose 
+- Test Purpose
 
-Verification that the emissions inside the operating frequency range are within the limits. 
+Verification that the emissions inside the operating frequency range are within the limits.
 
-- Reference 
+- Reference
 
-[1] 3 
+[1] 3
 
-- Initial Condition 
+- Initial Condition
 
-   - IUT in test mode loop back or TX mode. 
+- IUT in test mode loop back or TX mode.
 
-   - Hopping off. 
+- Hopping off.
 
-   - IUT transmits to the Lower Tester at maximum supported output power. 
+- IUT transmits to the Lower Tester at maximum supported output power.
 
-- Test Procedure 
+- Test Procedure
 
-The test is run using the supported modulation mode that has the highest output power. 
+The test is run using the supported modulation mode that has the highest output power.
 
-- a) IUT is set to lowest TX frequency. 
+- a) IUT is set to lowest TX frequency.
 
-- b) Tester transmits longest supported packet in the chosen modulation mode, with full payload with PRBS9 as payload to the IUT. (See Section 6.1 “Reference Signal Definition”.) 
+- b) Tester transmits longest supported packet in the chosen modulation mode, with full payload with PRBS9 as payload to the IUT. (See Section 6.1 “Reference Signal Definition”.)
 
-- c) The spectrum analyzer settings are set as follows: 
+- c) The spectrum analyzer settings are set as follows:
 
-   - Resolution bandwidth (RBW): 100 kHz 
+- Resolution bandwidth (RBW): 100 kHz
 
-   - Video bandwidth: 300 kHz 
+- Video bandwidth: 300 kHz
 
-   - Center frequency: lowest supported TX frequency 
+- Center frequency: lowest supported TX frequency
 
-   - Start frequency: see Table 4.1 
+- Start frequency: see Table 4.1
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **14 of 63** 
+Page **14 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- Stop frequency: see Table 4.1 
+- Stop frequency: see Table 4.1
 
-- Detector: Peak 
+- Detector: Peak
 
-- Mode: averaging 
+- Mode: averaging
 
-- Sweep time: 2s (at least one burst per sample) 
+- Sweep time: 2s (at least one burst per sample)
 
-- Trigger: extern (to signaling unit) 
+- Trigger: extern (to signaling unit)
 
-- Number of sweeps: 50. 
+- Number of sweeps: 50.
 
 ||||
-|---|---|---|
 |**TX channel**|**Start frequency/MHz**|**Stop frequency/MHz**|
 ||||
-||||
 |Lowest|2399|2405|
-||||
 ||||
 |Highest|2475|2485|
 ||||
 
+_Table 4.1: Start and Stop Frequency_
 
+- d) Find lowest frequency below the operating frequencies at which spectral power density drops below the level of –80 dBm/Hz e.i.r.p (-30 dBm if measured in a 100 kHz bandwidth). This frequency is called fL. It is recorded in the test report.
 
-_Table 4.1: Start and Stop Frequency_ 
+- e) Set IUT to transmit on highest TX frequency.
 
-   - d) Find lowest frequency below the operating frequencies at which spectral power density drops below the level of –80 dBm/Hz e.i.r.p (-30 dBm if measured in a 100 kHz bandwidth). This frequency is called fL. It is recorded in the test report. 
+- f) Set spectrum analyzer center frequency to highest TX frequency. The other spectrum analyzer settings are as in Step c).
 
-   - e) Set IUT to transmit on highest TX frequency. 
+- g) Find highest frequency above the operating frequencies at which spectral power density drops below the level of –80 dBm/Hz e.i.r.p (-30 dBm if measured in a 100 kHz bandwidth). This frequency is called fH. It is recorded in the test report.
 
-   - f) Set spectrum analyzer center frequency to highest TX frequency. The other spectrum analyzer settings are as in Step c). 
+-
 
-   - g) Find highest frequency above the operating frequencies at which spectral power density drops below the level of –80 dBm/Hz e.i.r.p (-30 dBm if measured in a 100 kHz bandwidth). This frequency is called fH. It is recorded in the test report. 
+- IUT Test Condition
 
-- 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- IUT Test Condition 
+-
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+- Expected Outcome
 
-- 
+## Pass verdict
 
-- Expected Outcome 
+All values as measured fulfill the following conditions.
 
-## Pass verdict 
+fL, fH within the allowed frequency band:
 
-All values as measured fulfill the following conditions. 
+2.4 GHz – 2.4835 GHz
 
-fL, fH within the allowed frequency band: 
+- Notes
 
-2.4 GHz – 2.4835 GHz 
-
-- Notes 
-
-If the test is performed using loopback mode it is recommended that the payload content is checked as well. 
+If the test is performed using loopback mode it is recommended that the payload content is checked as well.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **15 of 63** 
+Page **15 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **RF/TRM/CA/BV-05-C [TX Output Spectrum – 20 dB Bandwidth]** 
+## **RF/TRM/CA/BV-05-C [TX Output Spectrum – 20 dB Bandwidth]**
 
-- Test Purpose 
+- Test Purpose
 
-Verification that the emissions inside the operating frequency range are within the limits. 
+Verification that the emissions inside the operating frequency range are within the limits.
 
-- Reference 
+- Reference
 
-   - [1] 3.1.2.1 
+- [1] 3.1.2.1
 
-   - [5] Regulatory Requirement FCC Part 15.247, a(1ii) 
+- [5] Regulatory Requirement FCC Part 15.247, a(1ii)
 
-- Initial Condition 
+- Initial Condition
 
-   - IUT in test mode loop back or TX mode. 
+- IUT in test mode loop back or TX mode.
 
-   - Hopping off. 
+- Hopping off.
 
-   - IUT transmits to the Lower Tester at maximum supported output power. 
+- IUT transmits to the Lower Tester at maximum supported output power.
 
-- Test Procedure 
+- Test Procedure
 
-The test is run using GFSK. 
+The test is run using GFSK.
 
-- a) The IUT is set to transmit at: 
+- a) The IUT is set to transmit at:
 
-   - The lowest operating frequency. 
+- The lowest operating frequency.
 
-The related receiving frequency is defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off”. 
+The related receiving frequency is defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off”.
 
-- b) Tester transmits longest supported GFSK packet with full payload with PRBS9 as payload to the IUT. (See Section 6.1 “Reference Signal Definition”.) 
+- b) Tester transmits longest supported GFSK packet with full payload with PRBS9 as payload to the IUT. (See Section 6.1 “Reference Signal Definition”.)
 
-- c) The spectrum analyzer settings are as follows: 
+- c) The spectrum analyzer settings are as follows:
 
-   - Resolution bandwidth (RBW): 10 kHz 
+- Resolution bandwidth (RBW): 10 kHz
 
-   - Video bandwidth: 30 kHz 
+- Video bandwidth: 30 kHz
 
-   - Center frequency: fTX center (lowest TX operating frequency) 
+- Center frequency: fTX center (lowest TX operating frequency)
 
-   - Span: 3.0 MHz 
+- Span: 3.0 MHz
 
-   - Detector: Peak 
+- Detector: Peak
 
-   - Mode: Maxhold 
+- Mode: Maxhold
 
-   - Sweep time: >= 1sec. per sweep. 
+- Sweep time: >= 1sec. per sweep.
 
-   - Trigger: freerun 
+- Trigger: freerun
 
-   - Number of sweeps: 10. 
+- Number of sweeps: 10.
 
-- d) Find the highest power value in the transmit channel (peak of the emission). 
+- d) Find the highest power value in the transmit channel (peak of the emission).
 
-- e) Find lowest frequency below the operating frequency at which transmit power drops 20 dB below the level measured in Step d). This frequency is called fL. It is recorded in the test report. 
+- e) Find lowest frequency below the operating frequency at which transmit power drops 20 dB below the level measured in Step d). This frequency is called fL. It is recorded in the test report.
 
-- f) Find highest frequency above the operating frequencies at transmit power drops 20 dB below the level measured in Step d). This frequency is called fH. It is recorded in the test report. 
+- f) Find highest frequency above the operating frequencies at transmit power drops 20 dB below the level measured in Step d). This frequency is called fH. It is recorded in the test report.
 
-- g) The difference between the frequencies f := fH - fL measured in the former steps is the 20 dB bandwidth. It is recorded in the test report. 
+- g) The difference between the frequencies f := fH - fL measured in the former steps is the 20 dB bandwidth. It is recorded in the test report.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **16 of 63** 
+Page **16 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## h) Repeat Steps b)–g) while the IUT transmits (fTX) at: 
+## h) Repeat Steps b)–g) while the IUT transmits (fTX) at:
 
-- The mid operating frequency; and 
+- The mid operating frequency; and
 
-- The highest operating frequency. 
+- The highest operating frequency.
 
-These frequencies and the related RX frequencies are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off.” 
+These frequencies and the related RX frequencies are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off.”
 
-- Test Condition 
+- Test Condition
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Expected Outcome 
+- Expected Outcome
 
-## Pass verdict 
+## Pass verdict
 
-All values as measured fulfill the following conditions. 
+All values as measured fulfill the following conditions.
 
-The Transmit spectrum fulfils the following mask: 
+The Transmit spectrum fulfils the following mask:
 
-   - If the highest power value measured in Step d) is equal or higher than 0 dBm: 
+- If the highest power value measured in Step d) is equal or higher than 0 dBm:
 
-      - f = |fH - fL|  1.0 MHz 
+- f = |fH - fL|  1.0 MHz
 
-   - If the highest power value measured in Step d) is lower than 0 dBm: 
+- If the highest power value measured in Step d) is lower than 0 dBm:
 
-      - f = |fH - fL|  1.5 MHz 
+- f = |fH - fL|  1.5 MHz
 
-- Notes 
+- Notes
 
-If the test is performed using loopback mode, then it is recommended that the payload content is checked as well. 
+If the test is performed using loopback mode, then it is recommended that the payload content is checked as well.
 
-**RF/TRM/CA/BV-06-C [TX Output Spectrum – Adjacent Channel Power]** 
+**RF/TRM/CA/BV-06-C [TX Output Spectrum – Adjacent Channel Power]**
 
-- Test Purpose 
+- Test Purpose
 
-Verification that the emissions inside the operating frequency range are within the limits. 
+Verification that the emissions inside the operating frequency range are within the limits.
 
-- Reference 
+- Reference
 
-[1] 3.1.2.1 
+[1] 3.1.2.1
 
-- Initial Condition 
+- Initial Condition
 
-   - IUT in test mode loop back. 
+- IUT in test mode loop back.
 
-   - Hopping off. 
+- Hopping off.
 
-   - IUT transmits to the Lower Tester at maximum supported output power. 
+- IUT transmits to the Lower Tester at maximum supported output power.
 
-- Test Procedure 
+- Test Procedure
 
-The test is run using GFSK. 
+The test is run using GFSK.
 
-The transmit frequency is defined by the index M (transmit frequency f(M) is calculated according to Section 6.2, “Frequencies for testing” substituting M for k). In the same way, the measurement frequency is defined by the index N. 
+The transmit frequency is defined by the index M (transmit frequency f(M) is calculated according to Section 6.2, “Frequencies for testing” substituting M for k). In the same way, the measurement frequency is defined by the index N.
 
-- a) IUT is set to transmit on (fTX) = f(3) (M = 3) 
+- a) IUT is set to transmit on (fTX) = f(3) (M = 3)
 
-- b) Set N := 0. 
+- b) Set N := 0.
 
-- c) Tester transmits longest supported GFSK packet, with full payload with PRBS9 as payload to the IUT (see Section 6.1, Reference Signal Definition). 
+- c) Tester transmits longest supported GFSK packet, with full payload with PRBS9 as payload to the IUT (see Section 6.1, Reference Signal Definition).
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **17 of 63** 
+Page **17 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- d) The Spectrum Analyzer is set as follows: 
+- d) The Spectrum Analyzer is set as follows:
 
-   - Span: Zero Span 
+- Span: Zero Span
 
-   - Center frequency: f(N) – 450 kHz 
+- Center frequency: f(N) – 450 kHz
 
-   - Resolution bandwidth: 100 kHz 
+- Resolution bandwidth: 100 kHz
 
-   - Video bandwidth: 300 kHz 
+- Video bandwidth: 300 kHz
 
-   - Detector: Average 
+- Detector: Average
 
-   - Mode: maxhold 
+- Mode: maxhold
 
-   - Sweep time: 100 ms 
+- Sweep time: 100 ms
 
-   - Number of sweeps: 10 
+- Number of sweeps: 10
 
-- e) Determine maximum value PTXn of the trace. 
+- e) Determine maximum value PTXn of the trace.
 
-- f) Increase center frequency for 100 kHz. 
+- f) Increase center frequency for 100 kHz.
 
-- g) Repeat Steps e)–f) until center frequency = f(N) + 450 kHz. 
+- g) Repeat Steps e)–f) until center frequency = f(N) + 450 kHz.
 
-- h) Calculate PTX (f) = (PTXi), i = 1....10. 
+- h) Calculate PTX (f) = (PTXi), i = 1....10.
 
-- i) Increase center frequency by 1 MHZ: N := N+1 AND skip to next frequency if the increased frequency equals to fTX or "fTX - 1MHz" or "fTX + 1MHz". 
+- i) Increase center frequency by 1 MHZ: N := N+1 AND skip to next frequency if the increased frequency equals to fTX or "fTX - 1MHz" or "fTX + 1MHz".
 
-- j) Repeat Steps c)–i) until f(N) is above the maximum TX frequency. 
+- j) Repeat Steps c)–i) until f(N) is above the maximum TX frequency.
 
-- k) Set the IUT transmit frequency (fTX) to: 
+- k) Set the IUT transmit frequency (fTX) to:
 
-   - The mid operating frequency; and 
+- The mid operating frequency; and
 
-   - The frequency f(Mmax – 3) where f(Mmax)) corresponds to the highest operating frequency. 
+- The frequency f(Mmax – 3) where f(Mmax)) corresponds to the highest operating frequency.
 
-These frequencies (mid, high) and the related RX frequencies for polling are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off”. 
+These frequencies (mid, high) and the related RX frequencies for polling are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off”.
 
-   - l) Set N := 0. 
+- l) Set N := 0.
 
-   - m) Repeat Steps c)–j). 
+- m) Repeat Steps c)–j).
 
-- Test Condition 
+- Test Condition
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Expected Outcome 
+- Expected Outcome
 
-## Pass verdict 
+## Pass verdict
 
-All values as measured fulfill the following conditions. 
+All values as measured fulfill the following conditions.
 
-The IUT is transmitting on channel M and the adjacent channel power is measured on channel number N. N is chosen to cover the whole regulatory range, see Section 6.2.1, “Operating frequency bands”. 
+The IUT is transmitting on channel M and the adjacent channel power is measured on channel number N. N is chosen to cover the whole regulatory range, see Section 6.2.1, “Operating frequency bands”.
 
-- PTX (f)  – 20 dBm for M-N= 2 
+- PTX (f)  – 20 dBm for M-N= 2
 
-- PTX (f)  – 40 dBm for M-N >= 3 
+- PTX (f)  – 40 dBm for M-N >= 3
 
-For each operating frequency M, exceptions in up to three bands are allowed where |M-N| ≥ 3. For exceptions, Ptx (f)  -20 dBm. 
-
-**==> picture [17 x 23] intentionally omitted <==**
-
-Bluetooth SIG Proprietary 
-
-Page **18 of 63** 
-
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
-
-- Notes 
-
-If the test is performed using loopback mode, then it is recommended that the payload content is checked as well. 
-
-**RF/TRM/CA/BV-07-C [Modulation Characteristics]** 
-
-- Test Purpose 
-
-Verification of the modulation index. 
-
-- Reference 
-
-   - [1] 3.1.1 
-
-- 
-
-   - Initial Condition 
-
-   - IUT in test mode loop back with whitening turned off or TX mode. 
-
-   - Hopping off. 
-
-   - IUT transmits to the Lower Tester at maximum supported output power. 
-
-- 
-
-- Test Procedure 
-
-The test is run using GFSK. 
-
-- a) IUT transmits (fTX) at: lowest operating frequency 
-
-- b) Tester transmits longest supported GFSK packet with full payload with 11110000…-Bit pattern as payload. 
-
-The measurement bandwidth of the tester is at least 1.3 MHz. Passband ripple to ± 550 kHz: is a maximum of 0.5 dB (peak to peak) 
-
-It is recommended that the test equipment should use a measurement filter with the following specification: 
-
-Transition band minimum attenuations: 
-
-   - ± 650 kHz: -3 dB 
-
-   - ± 1 MHz: -14 dB 
-
-   - ± 2 MHz: -44 dB 
-
-- c) Tester determines the position of bit p0 (see Section 6.5, “Definition of the position of Bit p0”) in the packets looped back by the IUT. This is the timing reference to identify the bits in the payload field. 
-
-- d) Tester calculates for each "00001111" 8 bit sequence in the payload the average frequency over the frequency values of the 8 bits. To determine the correct deviation value of each bit it is oversampled at least four times. Then take the average over these at least four samples as the deviation for each bit. For each second, third, sixth and seventh of the 8 bits the deviation from the average frequency within the bit period is recorded as f1max. 
-
-- e) The average of all the f1max deviation values measured before is calculated, and recorded as f1avg. 
-
-- f) Tester transmits longest supported DM or DH packet with full payload (1, 3 or 5 slot) with 101010…-Bit pattern as payload. 
+For each operating frequency M, exceptions in up to three bands are allowed where |M-N| ≥ 3. For exceptions, Ptx (f)  -20 dBm.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **19 of 63** 
+Page **18 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- g) Tester determines the position of bit p0 (see Section 6.5, “Definition of the position of Bit p0”) in the packets looped back by the IUT. This is the timing reference to identify the bits in the payload field. 
+- Notes
 
-- h) Starting with the second payload bit, the STE calculates for each "01010101" 8 bit sequence in the payload the average frequency over these 8 bits. For each of the 8 bits the maximum deviation from this average within the bit period is recorded as f2max. 
+If the test is performed using loopback mode, then it is recommended that the payload content is checked as well.
 
-- i) The average of all the maximum deviation values measured before is calculated, and recorded as f2avg. 
+**RF/TRM/CA/BV-07-C [Modulation Characteristics]**
 
-- j) Repeat Steps b)–i) for at least 10 packets. 
+- Test Purpose
 
-- k) Repeat Steps b)–j) while the IUT transmits (fTX) at: 
+Verification of the modulation index.
 
-   - The mid operating frequency; and 
+- Reference
 
-   - The highest operating frequency. 
+- [1] 3.1.1
 
-These frequencies and the related RX frequencies are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off”. 
+-
 
-- Test Condition 
+- Initial Condition
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+- IUT in test mode loop back with whitening turned off or TX mode.
 
-- Expected Outcome 
+- Hopping off.
 
-## Pass verdict 
+- IUT transmits to the Lower Tester at maximum supported output power.
 
-All values as measured fulfill the following conditions. 
+-
 
-The average of all frequency deviations f1avg, as measured, is within 140 kHz and 175 kHz. 
+- Test Procedure
 
-At least 99.9% of all frequency deviations f2max, as measured, are greater than 115 kHz. 
+The test is run using GFSK.
 
-The ratio of all frequency deviations f2avg, as measured, and f1avg does not lie below 80%. 
+- a) IUT transmits (fTX) at: lowest operating frequency
 
-140 kHz  f1avg  175 kHz 
+- b) Tester transmits longest supported GFSK packet with full payload with 11110000…-Bit pattern as payload.
 
-- f2max  115 kHz for at least 99.9% of all f2max 
+The measurement bandwidth of the tester is at least 1.3 MHz. Passband ripple to ± 550 kHz: is a maximum of 0.5 dB (peak to peak)
 
-f2avg ≥0.8 f1avg 
+It is recommended that the test equipment should use a measurement filter with the following specification:
 
-- Notes 
+Transition band minimum attenuations:
 
-Whitening is disabled while the test case is performed. 
+- ± 650 kHz: -3 dB
 
-Alternatively, it is allowed to use TX mode instead of loop back mode for sending the 1010. bit pattern and 1111000 … bit pattern, if possible. 
+- ± 1 MHz: -14 dB
 
-The figure of 99.9% was used to compensate the influence of the statistical distribution of the measured values as each single value is considered in the verdict. 
+- ± 2 MHz: -44 dB
 
-If the test is performed using loopback mode, then it is recommended that the payload content is checked as well. 
+- c) Tester determines the position of bit p0 (see Section 6.5, “Definition of the position of Bit p0”) in the packets looped back by the IUT. This is the timing reference to identify the bits in the payload field.
 
-It is allowed for the tester to change the order of the test sequence in loopback and TX test mode. The tester can send and measure packets with either payload in any order. 
+- d) Tester calculates for each "00001111" 8 bit sequence in the payload the average frequency over the frequency values of the 8 bits. To determine the correct deviation value of each bit it is oversampled at least four times. Then take the average over these at least four samples as the deviation for each bit. For each second, third, sixth and seventh of the 8 bits the deviation from the average frequency within the bit period is recorded as f1max.
 
-**==> picture [17 x 23] intentionally omitted <==**
+- e) The average of all the f1max deviation values measured before is calculated, and recorded as f1avg.
 
-Bluetooth SIG Proprietary 
-
-Page **20 of 63** 
-
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
-
-## **RF/TRM/CA/BV-08-C [Initial Carrier Frequency Tolerance]** 
-
-- Test Purpose 
-
-Verification of the transmitter carrier frequency accuracy 
-
-- Reference 
-
-[1] 3.1.3 
-
-- Initial Condition 
-
-   - IUT in test mode loop back or TX mode. 
-
-   - Hopping off. 
-
-   - IUT transmits to the Lower Tester at maximum supported output power, 
-
-- Test Procedure 
-
-The test is run using GFSK. 
-
-- a) IUT transmits DH1 packets with PRBS9 as payload to the tester. 
-
-- b) Tester measures packets received at the lowest operating frequency. The measurement bandwidth of the tester is at least 1.3MHz. Passband ripple to ± 550kHz: is a maximum of 0.5 dB (peak to peak) 
-
-It is recommended that the test equipment should use a measurement filter with the following specification: 
-
-Transition band minimum attenuations: 
-
-   - ± 650 kHz: -3 dB 
-
-   - ± 1 MHz: -14 dB 
-
-   - ± 2 MHz: -44dB 
-
-- c) Tester determines the position of bit p0 (see Section 6.5, “Definition of the position of Bit p0”) in the packets looped back by the IUT. This is the timing reference to identify the bits in the payload field. 
-
-- d) The tester makes an integration of the packet’s 4 preamble bits and the first bit after the 4[th] preamble bit on the IUT’s fTX channel. The measurement starts at the center of the first preamble bit until the center of the first bit following the 4[th] preamble bit. 
-
-- e) The IUT’s carrier frequency is assumed to be the result of this integration done in d) and is named f0. 
-
-- f) Repeat Steps b)–e) for at least 10 packets. 
-
-- g) Repeat Steps c)–f) with packets measured: 
-
-   - The mid operating frequency; and 
-
-   - The highest operating frequency. 
-
-These frequencies can be found in Section 6.2.2. 
-
-- Test Condition 
-
-Common Test Case Conditions defined in Section 4.2 apply. 
+- f) Tester transmits longest supported DM or DH packet with full payload (1, 3 or 5 slot) with 101010…-Bit pattern as payload.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **21 of 63** 
+Page **19 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- Expected Outcome 
+- g) Tester determines the position of bit p0 (see Section 6.5, “Definition of the position of Bit p0”) in the packets looped back by the IUT. This is the timing reference to identify the bits in the payload field.
 
-## Pass verdict 
+- h) Starting with the second payload bit, the STE calculates for each "01010101" 8 bit sequence in the payload the average frequency over these 8 bits. For each of the 8 bits the maximum deviation from this average within the bit period is recorded as f2max.
 
-All values as measured fulfill the following conditions. 
+- i) The average of all the maximum deviation values measured before is calculated, and recorded as f2avg.
 
-Each of the IUT’s carrier frequency f0 as measured is within 75 kHz from the IUT's chosen nominal carrier frequency fTX. 
+- j) Repeat Steps b)–i) for at least 10 packets.
 
-fTX – 75 kHz  f0  fTX + 75 kHz. 
+- k) Repeat Steps b)–j) while the IUT transmits (fTX) at:
 
-## **RF/TRM/CA/BV-09-C [Carrier Frequency Drift]** 
+- The mid operating frequency; and
 
-- Test Purpose 
+- The highest operating frequency.
 
-Verification of the transmitter center frequency drift within a packet. 
+These frequencies and the related RX frequencies are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off”.
 
-- Reference 
+- Test Condition
 
-   - [1] 3.1.3 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Initial Condition 
+- Expected Outcome
 
-   - IUT in loop back mode with whitening turned off or TX mode. 
+## Pass verdict
 
-   - Hopping off. 
+All values as measured fulfill the following conditions.
 
-   - IUT transmits to the Lower Tester at maximum supported output power. 
+The average of all frequency deviations f1avg, as measured, is within 140 kHz and 175 kHz.
 
-- Test Procedure 
+At least 99.9% of all frequency deviations f2max, as measured, are greater than 115 kHz.
 
-   - a) IUT transmits packets with a 1010-sequence as payload. All supported packets (DH1/3/5) with the longest supported payload length are used. 
+The ratio of all frequency deviations f2avg, as measured, and f1avg does not lie below 80%.
 
-   - b) Tester measures packets received at the lowest operating frequency. The measurement bandwidth of the tester is at least 1.3MHz. Passband ripple to ± 550KHz: is a maximum of 0.5 dB (peak to peak) 
+140 kHz  f1avg  175 kHz
 
-It is recommended that the test equipment should use a measurement filter with the following specification: 
+- f2max  115 kHz for at least 99.9% of all f2max
 
-Transition band minimum attenuations: 
+f2avg ≥0.8 f1avg
 
-± 650 kHz: -3 dB 
+- Notes
 
-± 1 MHz: -14 dB 
+Whitening is disabled while the test case is performed.
 
-± 2 MHz: -44dB 
+Alternatively, it is allowed to use TX mode instead of loop back mode for sending the 1010. bit pattern and 1111000 … bit pattern, if possible.
 
-- c) Tester determines the position of bit p0 (see Section 6.5, “Definition of the position of Bit p0”) in the packets looped back by the IUT. This is the timing reference to identify the bits in the payload field. 
+The figure of 99.9% was used to compensate the influence of the statistical distribution of the measured values as each single value is considered in the verdict.
 
-- d) The tester makes an integration of the packet’s 4 preamble bits and the first bit after the 4[th] preamble bit on the IUT's fTX channel. The measurement starts at the center of the first preamble bit until the center of the first bit following the 4[th] preamble bit. The IUT's carrier frequency is assumed to be the result of this integration and is named f0. 
+If the test is performed using loopback mode, then it is recommended that the payload content is checked as well.
 
-- e) Tester integrates the frequency deviations of every 10 bit symbols in the payload body (k-th measurement leads to fk). The measurement starts with the 2[nd] payload bit, so that the first 10 bit block includes payload bit 2-11. 
+It is allowed for the tester to change the order of the test sequence in loopback and TX test mode. The tester can send and measure packets with either payload in any order.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **22 of 63** 
+Page **20 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- f) Repeat Steps b)–e) for at least 10 packets. 
+## **RF/TRM/CA/BV-08-C [Initial Carrier Frequency Tolerance]**
 
-- g) Repeat Steps b)–f) for all supported packet lengths (DH1/3/5 packets). 
+- Test Purpose
 
-- h) Repeat Steps c)–g) with packets measured at: 
+Verification of the transmitter carrier frequency accuracy
 
-   - Mid operating frequency; and 
+- Reference
 
-   - Highest operating frequency. 
+[1] 3.1.3
 
-These frequencies can be found in Section 6.2.2, “Frequencies for testing, loopback, hopping off”. 
+- Initial Condition
 
-- Test Condition 
+- IUT in test mode loop back or TX mode.
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+- Hopping off.
 
-- Expected Outcome 
+- IUT transmits to the Lower Tester at maximum supported output power,
 
-## Pass verdict 
+- Test Procedure
 
-All values as measured fulfill the following conditions. 
+The test is run using GFSK.
 
-The transmitter center frequency is not allowed to drift more than the limits given in Table 4.2. 
+- a) IUT transmits DH1 packets with PRBS9 as payload to the tester.
+
+- b) Tester measures packets received at the lowest operating frequency. The measurement bandwidth of the tester is at least 1.3MHz. Passband ripple to ± 550kHz: is a maximum of 0.5 dB (peak to peak)
+
+It is recommended that the test equipment should use a measurement filter with the following specification:
+
+Transition band minimum attenuations:
+
+- ± 650 kHz: -3 dB
+
+- ± 1 MHz: -14 dB
+
+- ± 2 MHz: -44dB
+
+- c) Tester determines the position of bit p0 (see Section 6.5, “Definition of the position of Bit p0”) in the packets looped back by the IUT. This is the timing reference to identify the bits in the payload field.
+
+- d) The tester makes an integration of the packet’s 4 preamble bits and the first bit after the 4[th] preamble bit on the IUT’s fTX channel. The measurement starts at the center of the first preamble bit until the center of the first bit following the 4[th] preamble bit.
+
+- e) The IUT’s carrier frequency is assumed to be the result of this integration done in d) and is named f0.
+
+- f) Repeat Steps b)–e) for at least 10 packets.
+
+- g) Repeat Steps c)–f) with packets measured:
+
+- The mid operating frequency; and
+
+- The highest operating frequency.
+
+These frequencies can be found in Section 6.2.2.
+
+- Test Condition
+
+Common Test Case Conditions defined in Section 4.2 apply.
+
+**==> picture [17 x 23] intentionally omitted <==**
+
+Bluetooth SIG Proprietary
+
+Page **21 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+- Expected Outcome
+
+## Pass verdict
+
+All values as measured fulfill the following conditions.
+
+Each of the IUT’s carrier frequency f0 as measured is within 75 kHz from the IUT's chosen nominal carrier frequency fTX.
+
+fTX – 75 kHz  f0  fTX + 75 kHz.
+
+## **RF/TRM/CA/BV-09-C [Carrier Frequency Drift]**
+
+- Test Purpose
+
+Verification of the transmitter center frequency drift within a packet.
+
+- Reference
+
+- [1] 3.1.3
+
+- Initial Condition
+
+- IUT in loop back mode with whitening turned off or TX mode.
+
+- Hopping off.
+
+- IUT transmits to the Lower Tester at maximum supported output power.
+
+- Test Procedure
+
+- a) IUT transmits packets with a 1010-sequence as payload. All supported packets (DH1/3/5) with the longest supported payload length are used.
+
+- b) Tester measures packets received at the lowest operating frequency. The measurement bandwidth of the tester is at least 1.3MHz. Passband ripple to ± 550KHz: is a maximum of 0.5 dB (peak to peak)
+
+It is recommended that the test equipment should use a measurement filter with the following specification:
+
+Transition band minimum attenuations:
+
+± 650 kHz: -3 dB
+
+± 1 MHz: -14 dB
+
+± 2 MHz: -44dB
+
+- c) Tester determines the position of bit p0 (see Section 6.5, “Definition of the position of Bit p0”) in the packets looped back by the IUT. This is the timing reference to identify the bits in the payload field.
+
+- d) The tester makes an integration of the packet’s 4 preamble bits and the first bit after the 4[th] preamble bit on the IUT's fTX channel. The measurement starts at the center of the first preamble bit until the center of the first bit following the 4[th] preamble bit. The IUT's carrier frequency is assumed to be the result of this integration and is named f0.
+
+- e) Tester integrates the frequency deviations of every 10 bit symbols in the payload body (k-th measurement leads to fk). The measurement starts with the 2[nd] payload bit, so that the first 10 bit block includes payload bit 2-11.
+
+**==> picture [17 x 23] intentionally omitted <==**
+
+Bluetooth SIG Proprietary
+
+Page **22 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+- f) Repeat Steps b)–e) for at least 10 packets.
+
+- g) Repeat Steps b)–f) for all supported packet lengths (DH1/3/5 packets).
+
+- h) Repeat Steps c)–g) with packets measured at:
+
+- Mid operating frequency; and
+
+- Highest operating frequency.
+
+These frequencies can be found in Section 6.2.2, “Frequencies for testing, loopback, hopping off”.
+
+- Test Condition
+
+Common Test Case Conditions defined in Section 4.2 apply.
+
+- Expected Outcome
+
+## Pass verdict
+
+All values as measured fulfill the following conditions.
+
+The transmitter center frequency is not allowed to drift more than the limits given in Table 4.2.
 
 |||
-|---|---|
 |**Type of Packet**|**Frequency Drift**|
-|||
 |||
 |One slot packet|25 kHz|
 |||
-|||
 |Three slot packet|40 kHz|
-|||
 |||
 |Five slot packet|40 kHz|
 |||
 
+_Table 4.2: Frequency Drift within a packet_
 
+The frequency drift limits apply to the difference between the average frequency of the 4 preamble bits f0 and the average frequency of any 10 bits in the payload field of the returned packets fk.
 
-_Table 4.2: Frequency Drift within a packet_ 
+The maximum drift rate applies to the difference between any two 10-bit groups separated by 50 s within the payload field of the returned packets.
 
-The frequency drift limits apply to the difference between the average frequency of the 4 preamble bits f0 and the average frequency of any 10 bits in the payload field of the returned packets fk. 
+fk+5 - fk  20000 Hz, k=1 … max.
 
-The maximum drift rate applies to the difference between any two 10-bit groups separated by 50 s within the payload field of the returned packets. 
+## **RF/TRM/CA/BV-10-C [EDR Relative Transmit Power]**
 
-fk+5 - fk  20000 Hz, k=1 … max. 
+- Test Purpose
 
-## **RF/TRM/CA/BV-10-C [EDR Relative Transmit Power]** 
+Verification of the acceptable range for the difference in average transmit power during frequency modulated [GFSK] and phase modulated [DPSK] portions of a packet.
 
-- Test Purpose 
+- Reference
 
-Verification of the acceptable range for the difference in average transmit power during frequency modulated [GFSK] and phase modulated [DPSK] portions of a packet. 
+[1] 3.2.4
 
-- Reference 
+- Initial Condition
 
-[1] 3.2.4 
+- IUT in test mode loop back or TX mode, with whitening off.
 
-- Initial Condition 
+- Hopping off (transmit and receive frequencies are defined in Section 6.2.2.
 
-   - IUT in test mode loop back or TX mode, with whitening off. 
-
-   - Hopping off (transmit and receive frequencies are defined in Section 6.2.2. 
-
-   - The IUT transmits to the Lower Tester at maximum supported output power. 
+- The IUT transmits to the Lower Tester at maximum supported output power.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **23 of 63** 
+Page **23 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- Test Procedure 
+- Test Procedure
 
-   - a) IUT transmits longest supported /4-DQPSK packet type (2-DHx or 2-EVx) with maximum length payload containing PRBS9. 
+- a) IUT transmits longest supported /4-DQPSK packet type (2-DHx or 2-EVx) with maximum length payload containing PRBS9.
 
-   - b) IUT transmits at lowest operating TX frequency. 
+- b) IUT transmits at lowest operating TX frequency.
 
-   - c) The spectrum analyzer is set as follows: 
+- c) The spectrum analyzer is set as follows:
 
-      - Center frequency: IUT transmit frequency 
+- Center frequency: IUT transmit frequency
 
-      - Span: Zero Span 
+- Span: Zero Span
 
-      - Resolution Bandwidth: 3 MHz 
+- Resolution Bandwidth: 3 MHz
 
-      - Video Bandwidth: 3 MHz 
+- Video Bandwidth: 3 MHz
 
-      - Detector: Average (Sample may also be used) 
+- Detector: Average (Sample may also be used)
 
-      - Mode: Clear Write (continuous update) 
+- Mode: Clear Write (continuous update)
 
-      - Sweeptime: depending on packet type (one complete packet) 
+- Sweeptime: depending on packet type (one complete packet)
 
-      - Trace Average: 10 
+- Trace Average: 10
 
-   - d) Tester calculates average power PGFSK over at least 80% of the GFSK portion (Access Code & Header period) of the packet. 
+- d) Tester calculates average power PGFSK over at least 80% of the GFSK portion (Access Code & Header period) of the packet.
 
-   - e) Tester calculates the average power PDPSK over at least 80% of the DPSK portion of the packet (Synchronization sequence and payload). 
+- e) Tester calculates the average power PDPSK over at least 80% of the DPSK portion of the packet (Synchronization sequence and payload).
 
-   - f) Repeat Steps d)–f) while the IUT transmits at: 
+- f) Repeat Steps d)–f) while the IUT transmits at:
 
-      - The mid operating frequency; and 
+- The mid operating frequency; and
 
-      - The highest operating frequency. 
+- The highest operating frequency.
 
-   - g) If power control is supported, repeat Steps c)–f) with IUT transmitting minimum output power. If the IUT does not support power control, continue to Step h). 
+- g) If power control is supported, repeat Steps c)–f) with IUT transmitting minimum output power. If the IUT does not support power control, continue to Step h).
 
-   - h) If 8DPSK modulation is supported by the IUT, repeat Steps b)–h) while the IUT transmits longest supported 8DPSK packet type (3-DHx or 3-EVx) with maximum length payload containing PRBS9. 
+- h) If 8DPSK modulation is supported by the IUT, repeat Steps b)–h) while the IUT transmits longest supported 8DPSK packet type (3-DHx or 3-EVx) with maximum length payload containing PRBS9.
 
-- Test Conditions 
+- Test Conditions
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Expected Outcome 
+- Expected Outcome
 
-Pass verdict 
+Pass verdict
 
-For all pairs of results: (PGFSK – 4dB) < PDPSK < (PGFSK + 1dB) 
+For all pairs of results: (PGFSK – 4dB) < PDPSK < (PGFSK + 1dB)
 
-## **RF/TRM/CA/BV-11-C [EDR Carrier Frequency Stability and Modulation Accuracy]** 
+## **RF/TRM/CA/BV-11-C [EDR Carrier Frequency Stability and Modulation Accuracy]**
 
-- Test Purpose 
+- Test Purpose
 
-Verification of the transmitter carrier frequency stability and modulation accuracy. 
+Verification of the transmitter carrier frequency stability and modulation accuracy.
 
-- Reference 
+- Reference
 
-   - [1] 3.2.1.4, 3.2.3 
-
-**==> picture [17 x 23] intentionally omitted <==**
-
-Bluetooth SIG Proprietary 
-
-Page **24 of 63** 
-
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
-
-- Initial Condition 
-
-   - IUT in test mode loop back or TX mode, with whitening off. 
-
-   - Hopping off (transmit and receive frequencies are defined in Section 6.2.2. 
-
-   - IUT transmits to the Lower Tester at maximum supported output power. 
-
-- Test Procedure 
-
-      - a) IUT transmits the longest supported /4-DQPSK packet type (2-DH1, 2-DH3, 2-DH5, 2-EV3, or 2-EV5). The user payload bytes contain PRBS9 pseudo-random data. The number of user payload bytes is 31 for 2-DH1 packets, 58 for 2-EV3 packets, 356 for 2-DH3 packets, 358 for 2-EV5 packets or 656 for 2-DH5 packets. 
-
-      - b) IUT transmits at the lowest operating frequency. 
-
-      - c) Tester calculates the initial center frequency error for a packet transmitted by the IUT using the following method applied to the basic rate portion of the packet: 
-
-         - a. Tester determines the start time of the first preamble bit p0 using the measurement method. 
-
-         - b. Tester calculates the frequency deviations at the bit centers (referenced to p0) of the packet header bits, relative to the ideal carrier frequency. 
-
-         - c. Tester selects those bits from the header that have the same value as both the previous and following bits so are not significantly affected by inter-symbol interference (there will be at least 18 bits of this type). The tester may also select other bits from the header, but the frequency deviations of these bits are compensated to remove inter-symbol interference. 
-
-         - d. Tester calculates the average frequency deviation 1 of those selected packet header bits that represent a transmitted ‘1’. 
-
-         - e. Tester calculates the average frequency deviation 2 of those selected packet header bits that represent a transmitted ‘0’. 
-
-         - f. Tester calculates the initial frequency error i = (1+2)/2. 
-
-      - d) Tester compensates the Enhanced Data Rate portion of the packet for the initial frequency error i of the packet. 
-
-      - e) Tester applies a square-root raised cosine measurement filter with a roll-off factor of 0.4 and a 3 dB bandwidth of ±500 kHz to the Enhanced Data Rate portion of the packet. 
-
-      - f) Tester partitions the output of the measurement filter into non-overlapping blocks of 50 µsecs beginning at the nominal start of the synchronization symbol following the reference symbol and finishing at the nominal end of the final payload CRC symbol (the number of user payload bytes has been chosen to make this an integral number of blocks). 
-
-      - g) For each block, tester calculates the sampling phase 0 and frequency error 0 for the RMS DEVM for the block, as defined Appendix C of the Enhanced Data Rate RF Specification (note that this computation includes information from the symbol immediately before the block to generate the 50 differential error vectors). The frequency error 0 and the RMS DEVM for each block are recorded. 
-
-      - h) For each block, tester calculates the DEVM for each symbol in the block using the sampling phase 0 and frequency error 0 for the block as calculated in Step g). The DEVM for each symbol is recorded. 
+- [1] 3.2.1.4, 3.2.3
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **25 of 63** 
+Page **24 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-   - i) Repeat Steps c)–h) for further packets transmitted by the IUT until a total of 200 blocks have been measured (any remaining blocks from the end of the final packet should be discarded). 
+- Initial Condition
 
-   - j) Repeat Steps b)–i) while the IUT transmits at: 
+- IUT in test mode loop back or TX mode, with whitening off.
 
-      - The mid operating frequency; and 
+- Hopping off (transmit and receive frequencies are defined in Section 6.2.2.
 
-      - The highest operating frequency. 
+- IUT transmits to the Lower Tester at maximum supported output power.
 
-   - k) If 8DPSK modulation is supported by the IUT, repeat Steps b)–j) using the longest supported 8DPSK packet type (3-DH1, 3-DH3, 3-DH5, 3-EV3, or 3-EV5). The user payload bytes contain PRBS9 pseudo-random data. The number of user payload bytes is 11 for 3-DH1 packets, 88 for 3-EV3 packets, 536 for 3-DH3 packets, 538 bytes for 3-EV5 packets or 986 for 3-DH5 packets. 
+- Test Procedure
 
-- Test Condition 
+- a) IUT transmits the longest supported /4-DQPSK packet type (2-DH1, 2-DH3, 2-DH5, 2-EV3, or 2-EV5). The user payload bytes contain PRBS9 pseudo-random data. The number of user payload bytes is 31 for 2-DH1 packets, 58 for 2-EV3 packets, 356 for 2-DH3 packets, 358 for 2-EV5 packets or 656 for 2-DH5 packets.
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+- b) IUT transmits at the lowest operating frequency.
 
-- Expected Outcome 
+- c) Tester calculates the initial center frequency error for a packet transmitted by the IUT using the following method applied to the basic rate portion of the packet:
 
-## Pass verdict 
+- a. Tester determines the start time of the first preamble bit p0 using the measurement method.
 
-If the IUT does not support 8DPSK modulation then the outcomes based on this modulation do not apply. 
+- b. Tester calculates the frequency deviations at the bit centers (referenced to p0) of the packet header bits, relative to the ideal carrier frequency.
 
-All values as measured fulfill the following conditions: 
+- c. Tester selects those bits from the header that have the same value as both the previous and following bits so are not significantly affected by inter-symbol interference (there will be at least 18 bits of this type). The tester may also select other bits from the header, but the frequency deviations of these bits are compensated to remove inter-symbol interference.
 
-1. Carrier frequency stability: 
+- d. Tester calculates the average frequency deviation 1 of those selected packet header bits that represent a transmitted ‘1’.
 
-   - -75 kHz < i < +75 kHz, for all packets 
+- e. Tester calculates the average frequency deviation 2 of those selected packet header bits that represent a transmitted ‘0’.
 
-   - -75 kHz < (i + 0) < +75 kHz, for all blocks 
+- f. Tester calculates the initial frequency error i = (1+2)/2.
 
-   - -10 kHz <0 < +10 kHz, for all blocks 
+- d) Tester compensates the Enhanced Data Rate portion of the packet for the initial frequency error i of the packet.
 
-2. RMS DEVM: 
+- e) Tester applies a square-root raised cosine measurement filter with a roll-off factor of 0.4 and a 3 dB bandwidth of ±500 kHz to the Enhanced Data Rate portion of the packet.
 
-RMS DEVM ≤ 0.20, for all /4-DQPSK blocks RMS DEVM ≤ 0.13, for all 8DPSK blocks 
+- f) Tester partitions the output of the measurement filter into non-overlapping blocks of 50 µsecs beginning at the nominal start of the synchronization symbol following the reference symbol and finishing at the nominal end of the final payload CRC symbol (the number of user payload bytes has been chosen to make this an integral number of blocks).
 
-3. Peak DEVM: 
+- g) For each block, tester calculates the sampling phase 0 and frequency error 0 for the RMS DEVM for the block, as defined Appendix C of the Enhanced Data Rate RF Specification (note that this computation includes information from the symbol immediately before the block to generate the 50 differential error vectors). The frequency error 0 and the RMS DEVM for each block are recorded.
 
-DEVM ≤ 0.35 for all /4-DQPSK symbols DEVM ≤ 0.25 for all 8DPSK symbols 
-
-4. 99% DEVM: 
-
-DEVM ≤ 0.30, for 99% of /4-DQPSK symbols DEVM ≤ 0.20, for 99% of 8DPSK symbols 
-
-- Notes 
-
-The tester checks that the correct packet type (for loop back and TX test modes) and payload (for loop back test mode only) have been transmitted by the IUT; any invalid packets should be discarded to avoid corruption of the measurements. 
-
-For measurements based on basic rate symbols: 
-
-- The requirements on the measurement bandwidth of the tester are the same as used in TRM/CA/BV-07-C Modulation Characteristics. 
-
-- The method for measuring the position of bit p0 in the basic rate signal is that same as used in TRM/CA/BV-07-C Modulation Characteristics. 
+- h) For each block, tester calculates the DEVM for each symbol in the block using the sampling phase 0 and frequency error 0 for the block as calculated in Step g). The DEVM for each symbol is recorded.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **26 of 63** 
+Page **25 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- The minimum sampling rate for the basic rate portion of the packet is 8 samples per bit period to obtain a sufficiently accurate estimate of the initial frequency error (interpolation may be used to obtain this sampling rate from a lower initial sampling rate). 
+- i) Repeat Steps c)–h) for further packets transmitted by the IUT until a total of 200 blocks have been measured (any remaining blocks from the end of the final packet should be discarded).
 
-- It is recommended that the tester uses combinations of UAP and AM_ADDR values that result in non-whitened packet headers with at least five 1’s and at least five 0’s (including the HEC, but prior to FEC) to ensure a good estimate of initial carrier frequency. 
+- j) Repeat Steps b)–i) while the IUT transmits at:
 
-For measurements based on Enhanced Data Rate symbols: 
+- The mid operating frequency; and
 
-- The number of user payload bytes has been chosen to be as close as possible to the maximum packet size, subject to the constraint that the synchronization symbols, the two payload header bytes (for n-DHx packets), the user payload and the two CRC bytes constitute an integer number of DEVM blocks. This ensures that the modulation accuracy of all symbols, other than the trailer symbols, is measured. 
+- The highest operating frequency.
 
-- The PRBS9 pseudo random generator is initialized with a seed of all ones at the beginning of each test packet. The first PRBS9 output bit represents the least significant bit of the first user payload byte. 
+- k) If 8DPSK modulation is supported by the IUT, repeat Steps b)–j) using the longest supported 8DPSK packet type (3-DH1, 3-DH3, 3-DH5, 3-EV3, or 3-EV5). The user payload bytes contain PRBS9 pseudo-random data. The number of user payload bytes is 11 for 3-DH1 packets, 88 for 3-EV3 packets, 536 for 3-DH3 packets, 538 bytes for 3-EV5 packets or 986 for 3-DH5 packets.
 
-- The definition of the square-root raised cosine measurement filter is given in [RF Spec]. The measurement filter frequency response is accurate of ±0.25 dB up to 0.65 MHz from the carrier frequency and provides at least 40 dB suppression for frequencies more than 0.8 MHz from the carrier frequency. The measurement filter requirement is referenced to the connector on the IUT, so includes the contributions due to all aspects of the signal processing applied by the tester. 
+- Test Condition
 
-- The tester gives an RMS DEVM of less than 3% and a Peak DEVM of less than 8% when a test signal from a reference signal generator is applied and the defined test procedure is followed. This requirement is met when the test signal has any frequency error up to 75 kHz and any symbol rate error up to ±20 ppm. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-## **RF/TRM/CA/BV-12-C [EDR Differential Phase Encoding]** 
+- Expected Outcome
 
-- Test Purpose 
+## Pass verdict
 
-Verification that the modulator correctly differential phase encodes the data. 
+If the IUT does not support 8DPSK modulation then the outcomes based on this modulation do not apply.
 
-- Reference 
+All values as measured fulfill the following conditions:
 
-   - [1] 3.2.1.2 
+1. Carrier frequency stability:
 
-- Initial Condition 
+- -75 kHz < i < +75 kHz, for all packets
 
-   - IUT in TX mode with whitening turned off. 
+- -75 kHz < (i + 0) < +75 kHz, for all blocks
 
-   - Hopping off (transmit and receive frequencies are defined in Section 6.2.2. 
+- -10 kHz <0 < +10 kHz, for all blocks
 
-   - IUT transmits to the Lower Tester at maximum supported output power. 
+2. RMS DEVM:
 
-- Test Procedure 
+RMS DEVM ≤ 0.20, for all /4-DQPSK blocks RMS DEVM ≤ 0.13, for all 8DPSK blocks
 
-   - a) IUT transmits 2-DH1 or 2-EV3 packets to the tester with maximum length payload containing PRBS9. 
+3. Peak DEVM:
 
-   - b) IUT transmits at lowest operating frequency. 
+DEVM ≤ 0.35 for all /4-DQPSK symbols DEVM ≤ 0.25 for all 8DPSK symbols
 
-   - c) Tester demodulates 100 packets and compares each payload with the expected PRBS9 data. 
+4. 99% DEVM:
 
-   - d) If 8DPSK modulation is supported by the IUT repeat Steps b)–c) using 3-DH1 or 3-EV3 packets with maximum length payload containing PRBS9. 
+DEVM ≤ 0.30, for 99% of /4-DQPSK symbols DEVM ≤ 0.20, for 99% of 8DPSK symbols
 
-**==> picture [17 x 23] intentionally omitted <==**
+- Notes
 
-Bluetooth SIG Proprietary 
+The tester checks that the correct packet type (for loop back and TX test modes) and payload (for loop back test mode only) have been transmitted by the IUT; any invalid packets should be discarded to avoid corruption of the measurements.
 
-Page **27 of 63** 
+For measurements based on basic rate symbols:
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+- The requirements on the measurement bandwidth of the tester are the same as used in TRM/CA/BV-07-C Modulation Characteristics.
 
-- Test Condition 
-
-Common Test Case Conditions defined in Section 4.2 apply. 
-
-- Expected Outcome 
-
-## Pass verdict 
-
-The expected outcome of this test is zero errors detected by the tester in 99% of the packets. 
-
-- Notes 
-
-The PRBS9 pseudo random generator is initialized with a seed of all ones at the beginning of each test packet. The first PRBS9 output bit represents the least significant bit of the first user payload byte. 
-
-## **RF/TRM/CA/BV-13-C [EDR In-band Spurious Emissions]** 
-
-- Test Purpose 
-
-Verification that the level of unwanted signals from the DPSK transmitter, within the frequency range used by the device, is below the required level. 
-
-- Reference 
-
-   - [1] 3.2.2.1 
-
-- Initial Condition 
-
-   - IUT in test mode loop back or TX mode, with whitening off. 
-
-   - Hopping off (transmit and receive frequencies are defined in Section 6.2.2). 
-
-   - IUT transmits to the Lower Tester at maximum supported output power. 
-
-- Test Procedure 
-
-The transmit frequency is defined by the index M (transmit frequency f(M) is calculated according to Section 6.2, (substituting M for k). In the same way the measurement frequency is defined by the index N. N is chosen to cover the whole regulatory range, see Section 6.2.1. 
-
-- a) Tester transmits longest supported /4-DQPSK packet type (2-DHx or 2-EVx) with maximum length payload containing PRBS9. 
-
-- b) IUT is set to transmit on (fTX) = f(3) (M = 3) 
-
-- c) Set N := 0 
-
-- d) The Spectrum Analyzer is set as follows: 
-
-   - Span: Zero Span 
-
-   - Center frequency: f(N) – 450 kHz 
-
-   - Resolution bandwidth: 100 kHz 
-
-   - Video bandwidth: 300 kHz 
-
-   - Detector: Average 
-
-   - Mode: Max Hold 
-
-   - Gating: Edge 
+- The method for measuring the position of bit p0 in the basic rate signal is that same as used in TRM/CA/BV-07-C Modulation Characteristics.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **28 of 63** 
+Page **26 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-      - Gating Delay, Length: Adjust to include the guard period, the DPSK portion of the packet and the power down ramp 
+- The minimum sampling rate for the basic rate portion of the packet is 8 samples per bit period to obtain a sufficiently accurate estimate of the initial frequency error (interpolation may be used to obtain this sampling rate from a lower initial sampling rate).
 
-      - Sweep time: Setting dependent on packet length (one complete packet) 
+- It is recommended that the tester uses combinations of UAP and AM_ADDR values that result in non-whitened packet headers with at least five 1’s and at least five 0’s (including the HEC, but prior to FEC) to ensure a good estimate of initial carrier frequency.
 
-      - Number of sweeps: 10 
+For measurements based on Enhanced Data Rate symbols:
 
-- e) If |M-N| > 1, 
+- The number of user payload bytes has been chosen to be as close as possible to the maximum packet size, subject to the constraint that the synchronization symbols, the two payload header bytes (for n-DHx packets), the user payload and the two CRC bytes constitute an integer number of DEVM blocks. This ensures that the modulation accuracy of all symbols, other than the trailer symbols, is measured.
 
-   - i) Set center frequency to f(N) - 450kHz and set n := 1 
+- The PRBS9 pseudo random generator is initialized with a seed of all ones at the beginning of each test packet. The first PRBS9 output bit represents the least significant bit of the first user payload byte.
 
-ii) Determine maximum value PTXn of the trace 
+- The tester gives an RMS DEVM of less than 3% and a Peak DEVM of less than 8% when a test signal from a reference signal generator is applied and the defined test procedure is followed. This requirement is met when the test signal has any frequency error up to 75 kHz and any symbol rate error up to ±20 ppm.
 
-iii) Increase center frequency by 100 kHz and set n := n+1 
+## **RF/TRM/CA/BV-12-C [EDR Differential Phase Encoding]**
 
-iv) Repeat Steps ii) and iii) until center frequency > f(N) + 450kHz 
+- Test Purpose
 
-   - v) Calculate PTX (f) = (PTXi), i = 1....10 
+Verification that the modulator correctly differential phase encodes the data.
 
-- f) If (M-N) = +1, 
+- Reference
 
-   - i) Set center frequency to f(N) - 450kHz and set n := 1 
+- [1] 3.2.1.2
 
-ii) Determine maximum value PTXn of the trace 
+- Initial Condition
 
-iii) Increase center frequency by 100 kHz and set n := n+1 
+- IUT in TX mode with whitening turned off.
 
-iv) Repeat Steps ii) and iii) until center frequency > f(N) – 50kHz 
+- Hopping off (transmit and receive frequencies are defined in Section 6.2.2.
 
-   - v) Calculate PTX – 26dB (f) = Sum(PTxi)/5, i = 1....5 
+- IUT transmits to the Lower Tester at maximum supported output power.
 
-- g) If (M-N) = 0, 
+- Test Procedure
 
-   - i) Set center frequency to f(N) - 450kHz and set n := 1 
+- a) IUT transmits 2-DH1 or 2-EV3 packets to the tester with maximum length payload containing PRBS9.
 
-ii) Determine maximum value PTXn of the trace 
+- b) IUT transmits at lowest operating frequency.
 
-iii) Increase center frequency by 100 kHz and set n := n+1 
+- c) Tester demodulates 100 packets and compares each payload with the expected PRBS9 data.
 
-iv) Repeat Steps ii) and iii) until center frequency > f(N) + 450kHz 
-
-   - v) Calculate PTXref (f) = max(PTXi), i = 1....10 
-
-- h) If (M-N) = -1, 
-
-   - i) Set center frequency to f(N) + 50kHz and set n := 1 
-
-   - ii) Determine maximum value PTXn of the trace 
-
-iii) Increase center frequency by 100 kHz and set n := n+1 
-
-   - iv) Repeat Steps ii) and iii) until center frequency > f(N) + 450kHz 
-
-   - v) Calculate PTX – 26dB (f) = Sum(PTxi)/5, i = 1....5 
-
-- i) Set N := N+1 
-
-- j) Repeat Steps d)–h) until f(N) is above the maximum TX frequency. 
-
-- k) Repeat Steps c)–i) with the IUT transmit frequency (fTX) set to: 
-
-      - The mid operating frequency; and 
-
-      - The frequency f(Mmax-3), where f(Mmax) is the highest operating frequency. 
-
-      - These frequencies and the related receive frequencies are defined in Section 6.2.2. 
+- d) If 8DPSK modulation is supported by the IUT repeat Steps b)–c) using 3-DH1 or 3-EV3 packets with maximum length payload containing PRBS9.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **29 of 63** 
+Page **27 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-   - l) If 8DPSK modulation is supported by the IUT, repeat Steps b)–j) while the IUT transmits longest supported 8DPSK packet type (3-DHx or 3-EVx) with maximum length payload containing PRBS9. 
+- Test Condition
 
-- Test Conditions 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+- Expected Outcome
 
-- 
+## Pass verdict
 
-- Expected Outcome 
+The expected outcome of this test is zero errors detected by the tester in 99% of the packets.
 
-## Pass verdict 
+- Notes
 
-All values as measured fulfill the following conditions. 
+The PRBS9 pseudo random generator is initialized with a seed of all ones at the beginning of each test packet. The first PRBS9 output bit represents the least significant bit of the first user payload byte.
 
-- PTX-26dB  (f) ≤ PTXref   -26 dB for |M-N| = 1 
+## **RF/TRM/CA/BV-13-C [EDR In-band Spurious Emissions]**
 
-- PTX  (f) ≤ – 20 dBm for |M-N| = 2 
+- Test Purpose
 
-- PTX  (f) ≤ – 40 dBm for |M-N| **≥** 3. 
+Verification that the level of unwanted signals from the DPSK transmitter, within the frequency range used by the device, is below the required level.
 
-For each operating frequency M, exceptions in up to three bands are allowed where |M - N| **≥** 3. For exceptions, Ptx(f) ≤ -20 dBm. 
+- Reference
 
-- Notes 
+- [1] 3.2.2.1
 
-This test is similar to TRM/CA/BV-06-C except here the measurement is gated to cover only the DPSK portion of the packet. 
+- Initial Condition
 
-## **RF/TRM/CA/BV-14-C [Enhanced Power Control]** 
+- IUT in test mode loop back or TX mode, with whitening off.
 
-- Test Purpose 
+- Hopping off (transmit and receive frequencies are defined in Section 6.2.2).
 
-Verification of the TX Enhanced power control. 
+- IUT transmits to the Lower Tester at maximum supported output power.
 
-- Reference 
+- Test Procedure
 
-   - [1] 3 
+The transmit frequency is defined by the index M (transmit frequency f(M) is calculated according to Section 6.2, (substituting M for k). In the same way the measurement frequency is defined by the index N. N is chosen to cover the whole regulatory range, see Section 6.2.1.
 
-- Initial Condition 
+- a) Tester transmits longest supported /4-DQPSK packet type (2-DHx or 2-EVx) with maximum length payload containing PRBS9.
 
-   - IUT in test mode loop back or TX mode may be used, whitening off. 
+- b) IUT is set to transmit on (fTX) = f(3) (M = 3)
 
-   - Hopping off. 
+- c) Set N := 0
 
-   - The tester puts the IUT at maximum output power using the LMP_power_control_req PDU with the power adjustment_req set to “go to max.” 
+- d) The Spectrum Analyzer is set as follows:
 
-- Test Procedure 
+- Span: Zero Span
 
-   - a) Tester sets IUT to lowest operating TX frequency using LMP commands. 
+- Center frequency: f(N) – 450 kHz
 
-   - b) Tester transmits DH1 packets with PRBS9 as payload to the IUT. (See Section 6.1, “Reference Signal Definition”). 
+- Resolution bandwidth: 100 kHz
 
-   - c) The spectrum analyzer settings are as follows: 
+- Video bandwidth: 300 kHz
 
-      - Center frequency: the lowest operating frequency 
+- Detector: Average
 
-      - Span: Zero Span 
+- Mode: Max Hold
 
-      - Resolution Bandwidth: 3 MHz 
-
-      - Video Bandwidth: 3 MHz 
-
-      - Detector: Peak 
+- Gating: Edge
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **30 of 63** 
+Page **28 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-   - Mode: Clear/Write 
+- Gating Delay, Length: Adjust to include the guard period, the DPSK portion of the packet and the power down ramp
 
-   - Sweeptime: one complete packet as selected under Step b) 
+- Sweep time: Setting dependent on packet length (one complete packet)
 
-   - Trigger: extern (to signaling unit) 
+- Number of sweeps: 10
 
-- d) Tester calculates average power PAV over at least 20% - 80% of the duration of GFSK header of the burst (position of p0 defines the beginning of the burst). 
+- e) If |M-N| > 1,
 
-- e) Repeat Steps b)–e) for the IUT transmitting 2-DH1 and 3-DH1 packet types (EDR packets) if they are supported. 
+- i) Set center frequency to f(N) - 450kHz and set n := 1
 
-- f) Tester uses the power change request LMP command to decrease the IUT output power for one power step. 
+ii) Determine maximum value PTXn of the trace
 
-The next measurement starts after the Tester has received the power change response for the power change request from the IUT. 
+iii) Increase center frequency by 100 kHz and set n := n+1
 
-- g) Repeat Steps b)–g) until minimum output power of the IUT is indicated by the Power change response for all supported modulations. 
+iv) Repeat Steps ii) and iii) until center frequency > f(N) + 450kHz
 
-The power step size of each modulation, if the response indicates a power change for the modulation, and the difference between the GFSK header of the different modulations, are recorded for each step. 
+- v) Calculate PTX (f) = (PTXi), i = 1....10
 
-- h) Tester uses the power change request LMP command to increase the IUT output power one step. 
+- f) If (M-N) = +1,
 
-The next measurement starts after the Tester has received the power change response for the power change request from the IUT. 
+- i) Set center frequency to f(N) - 450kHz and set n := 1
 
-- i) Repeat Steps b)–f) and i) until the maximum output power of the IUT is indicated by the Power change response for all modulations supported. 
+ii) Determine maximum value PTXn of the trace
 
-The power step size of each modulation, if the response indicates a power change for the modulation, and the difference between the GFSK header of the different modulations, are recorded for each step. 
+iii) Increase center frequency by 100 kHz and set n := n+1
 
-- j) Repeat Steps b)–j) while the IUT transmits 
+iv) Repeat Steps ii) and iii) until center frequency > f(N) – 50kHz
 
-   - (fTX) / loops back (fRX - fTX) at: the mid operating frequency; and the highest operating frequency. 
+- v) Calculate PTX – 26dB (f) = Sum(PTxi)/5, i = 1....5
 
-These frequencies are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off”. 
+- g) If (M-N) = 0,
 
-- Test Condition 
+- i) Set center frequency to f(N) - 450kHz and set n := 1
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+ii) Determine maximum value PTXn of the trace
 
-- Expected Outcome 
+iii) Increase center frequency by 100 kHz and set n := n+1
 
-## Pass verdict 
+iv) Repeat Steps ii) and iii) until center frequency > f(N) + 450kHz
 
-All values as measured fulfill the following conditions. 
+- v) Calculate PTXref (f) = max(PTXi), i = 1....10
 
-Expected outcome depends on the power class of the IUT. 
+- h) If (M-N) = -1,
 
-- Step size for the enhanced power control requests for all supported modulations 2dB  step size  8 dB. 
+- i) Set center frequency to f(N) + 50kHz and set n := 1
 
-- The power differences between GFSK headers of the supported modulations at every stage within 10dB (10dB). 
+- ii) Determine maximum value PTXn of the trace
 
-- For power class 1 equipment: At minimum power step of all supported modulations: PAV  4dBm. 
+iii) Increase center frequency by 100 kHz and set n := n+1
 
-**==> picture [17 x 23] intentionally omitted <==**
+- iv) Repeat Steps ii) and iii) until center frequency > f(N) + 450kHz
 
-Bluetooth SIG Proprietary 
+- v) Calculate PTX – 26dB (f) = Sum(PTxi)/5, i = 1....5
 
-Page **31 of 63** 
+- i) Set N := N+1
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+- j) Repeat Steps d)–h) until f(N) is above the maximum TX frequency.
 
-   - The Maximum power level for each of the supported modulations measured in stage e) at the start of the test is within +/- 3dB of the power measured at the end of the test sequence when the IUT has reported maximum power for each of the supported modulations. 
+- k) Repeat Steps c)–i) with the IUT transmit frequency (fTX) set to:
 
-- Notes 
+- The mid operating frequency; and
 
-If the test is performed using loopback mode, then it is recommended that the payload content is checked as well. 
+- The frequency f(Mmax-3), where f(Mmax) is the highest operating frequency.
 
-## **RF/TRM/CA/BV-15-C [EDR Guard Time]** 
-
-- Test Purpose 
-
-Verify the duration of the guard time between the basic rate packet header and the Enhanced Data Rate synchronization sequence. 
-
-- Reference 
-
-   - [6] 6.6.1 
-
-- Initial Condition 
-
-   - IUT in test mode loop back or TX mode (or manual configuration if loopback is not available), whitening off. 
-
-   - Hopping off. 
-
-   - IUT transmits at maximum output power back to the Lower Tester. 
-
-- Test Procedure 
-
-   - a) IUT transmits maximum length 2-DH1 or 2-EV3 packets containing PRBS9. 
-
-   - b) Lower Tester demodulates a packet. 
-
-   - c) Lower Tester determines the start time of the first preamble bit p0 using the measurement method defined in Section 6.6 of the Radio Frequency Test Suite [5]. 
-
-   - d) Lower Tester determines the start time of the reference symbol of the Enhanced Data Rate portion of the packet from the Enhanced Data Rate synchronization sequence. The start time of the reference symbol is defined as 1 µs before the time when the symbol following the reference symbol becomes the dominant contributor to the transmitter’s instantaneous phase. The required method of determining the start time of the reference symbol is provided in the Notes section. 
-
-   - e) Lower Tester determines the guard time, that is the time difference between the end of the last header symbol (defined as 126 microseconds after p0) and the start of the reference symbol of the Enhanced Data Rate portion, referenced to the output of the IUT transmitter. 
-
-   - f) Repeat Steps b)–e) for 100 packets 
-
-   - g) If Enhanced Data Rate 3 Mbps payload data rate is supported by the IUT, repeat Steps b)–f) using maximum length 3-DH1 or 3-EV3 packets containing PRBS9 data. 
-
-- Test Condition 
-
-Common Test Case Conditions defined in Section 4.2 apply. 
+- These frequencies and the related receive frequencies are defined in Section 6.2.2.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **32 of 63** 
+Page **29 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- Expected Outcome 
+- l) If 8DPSK modulation is supported by the IUT, repeat Steps b)–j) while the IUT transmits longest supported 8DPSK packet type (3-DHx or 3-EVx) with maximum length payload containing PRBS9.
 
-## Pass verdict 
+- Test Conditions
 
-95% of the measured guard times of the packets must fall within the range 4.75 -  µs < guard time < 5.25 +  µs, where  = 0.15 µs is the allowed uncertainty due to the measurement process. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Notes 
+-
 
-The Lower Tester should use all the symbols in the synchronization sequence to determine the timing of the reference symbol. 
+- Expected Outcome
 
-## **Background of Method of Measurement** 
+## Pass verdict
 
-The method of determining the start time of the reference symbol is based on the following observation. 
+All values as measured fulfill the following conditions.
 
-According to Section 3.2.1.3 of [5], the lowpass equivalent information bearing signal v(t) is given by: 
+- PTX-26dB (f) ≤ PTXref -26 dB for |M-N| = 1
+
+- PTX (f) ≤ – 20 dBm for |M-N| = 2
+
+- PTX (f) ≤ – 40 dBm for |M-N| **≥** 3.
+
+For each operating frequency M, exceptions in up to three bands are allowed where |M - N| **≥** 3. For exceptions, Ptx(f) ≤ -20 dBm.
+
+- Notes
+
+This test is similar to TRM/CA/BV-06-C except here the measurement is gated to cover only the DPSK portion of the packet.
+
+## **RF/TRM/CA/BV-14-C [Enhanced Power Control]**
+
+- Test Purpose
+
+Verification of the TX Enhanced power control.
+
+- Reference
+
+- [1] 3
+
+- Initial Condition
+
+- IUT in test mode loop back or TX mode may be used, whitening off.
+
+- Hopping off.
+
+- The tester puts the IUT at maximum output power using the LMP_power_control_req PDU with the power adjustment_req set to “go to max.”
+
+- Test Procedure
+
+- a) Tester sets IUT to lowest operating TX frequency using LMP commands.
+
+- b) Tester transmits DH1 packets with PRBS9 as payload to the IUT. (See Section 6.1, “Reference Signal Definition”).
+
+- c) The spectrum analyzer settings are as follows:
+
+- Center frequency: the lowest operating frequency
+
+- Span: Zero Span
+
+- Resolution Bandwidth: 3 MHz
+
+- Video Bandwidth: 3 MHz
+
+- Detector: Peak
+
+**==> picture [17 x 23] intentionally omitted <==**
+
+Bluetooth SIG Proprietary
+
+Page **30 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+- Mode: Clear/Write
+
+- Sweeptime: one complete packet as selected under Step b)
+
+- Trigger: extern (to signaling unit)
+
+- d) Tester calculates average power PAV over at least 20% - 80% of the duration of GFSK header of the burst (position of p0 defines the beginning of the burst).
+
+- e) Repeat Steps b)–e) for the IUT transmitting 2-DH1 and 3-DH1 packet types (EDR packets) if they are supported.
+
+- f) Tester uses the power change request LMP command to decrease the IUT output power for one power step.
+
+The next measurement starts after the Tester has received the power change response for the power change request from the IUT.
+
+- g) Repeat Steps b)–g) until minimum output power of the IUT is indicated by the Power change response for all supported modulations.
+
+The power step size of each modulation, if the response indicates a power change for the modulation, and the difference between the GFSK header of the different modulations, are recorded for each step.
+
+- h) Tester uses the power change request LMP command to increase the IUT output power one step.
+
+The next measurement starts after the Tester has received the power change response for the power change request from the IUT.
+
+- i) Repeat Steps b)–f) and i) until the maximum output power of the IUT is indicated by the Power change response for all modulations supported.
+
+The power step size of each modulation, if the response indicates a power change for the modulation, and the difference between the GFSK header of the different modulations, are recorded for each step.
+
+- j) Repeat Steps b)–j) while the IUT transmits
+
+- (fTX) / loops back (fRX - fTX) at: the mid operating frequency; and the highest operating frequency.
+
+These frequencies are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off”.
+
+- Test Condition
+
+Common Test Case Conditions defined in Section 4.2 apply.
+
+- Expected Outcome
+
+## Pass verdict
+
+All values as measured fulfill the following conditions.
+
+Expected outcome depends on the power class of the IUT.
+
+- Step size for the enhanced power control requests for all supported modulations 2dB  step size  8 dB.
+
+- The power differences between GFSK headers of the supported modulations at every stage within 10dB (10dB).
+
+- For power class 1 equipment: At minimum power step of all supported modulations: PAV  4dBm.
+
+**==> picture [17 x 23] intentionally omitted <==**
+
+Bluetooth SIG Proprietary
+
+Page **31 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+- The Maximum power level for each of the supported modulations measured in stage e) at the start of the test is within +/- 3dB of the power measured at the end of the test sequence when the IUT has reported maximum power for each of the supported modulations.
+
+- Notes
+
+If the test is performed using loopback mode, then it is recommended that the payload content is checked as well.
+
+## **RF/TRM/CA/BV-15-C [EDR Guard Time]**
+
+- Test Purpose
+
+Verify the duration of the guard time between the basic rate packet header and the Enhanced Data Rate synchronization sequence.
+
+- Reference
+
+- [6] 6.6.1
+
+- Initial Condition
+
+- IUT in test mode loop back or TX mode (or manual configuration if loopback is not available), whitening off.
+
+- Hopping off.
+
+- IUT transmits at maximum output power back to the Lower Tester.
+
+- Test Procedure
+
+- a) IUT transmits maximum length 2-DH1 or 2-EV3 packets containing PRBS9.
+
+- b) Lower Tester demodulates a packet.
+
+- c) Lower Tester determines the start time of the first preamble bit p0 using the measurement method defined in Section 6.6 of the Radio Frequency Test Suite [5].
+
+- d) Lower Tester determines the start time of the reference symbol of the Enhanced Data Rate portion of the packet from the Enhanced Data Rate synchronization sequence. The start time of the reference symbol is defined as 1 µs before the time when the symbol following the reference symbol becomes the dominant contributor to the transmitter’s instantaneous phase. The required method of determining the start time of the reference symbol is provided in the Notes section.
+
+- e) Lower Tester determines the guard time, that is the time difference between the end of the last header symbol (defined as 126 microseconds after p0) and the start of the reference symbol of the Enhanced Data Rate portion, referenced to the output of the IUT transmitter.
+
+- f) Repeat Steps b)–e) for 100 packets
+
+- g) If Enhanced Data Rate 3 Mbps payload data rate is supported by the IUT, repeat Steps b)–f) using maximum length 3-DH1 or 3-EV3 packets containing PRBS9 data.
+
+- Test Condition
+
+Common Test Case Conditions defined in Section 4.2 apply.
+
+**==> picture [17 x 23] intentionally omitted <==**
+
+Bluetooth SIG Proprietary
+
+Page **32 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+- Expected Outcome
+
+## Pass verdict
+
+95% of the measured guard times of the packets must fall within the range 4.75 -  µs < guard time < 5.25 +  µs, where  = 0.15 µs is the allowed uncertainty due to the measurement process.
+
+- Notes
+
+The Lower Tester should use all the symbols in the synchronization sequence to determine the timing of the reference symbol.
+
+## **Background of Method of Measurement**
+
+The method of determining the start time of the reference symbol is based on the following observation.
+
+According to Section 3.2.1.3 of [5], the lowpass equivalent information bearing signal v(t) is given by:
 
 **==> picture [105 x 23] intentionally omitted <==**
 
-Symbol K becomes the dominant contributor to the transmitter phase when: 
+Symbol K becomes the dominant contributor to the transmitter phase when:
 
 **==> picture [166 x 46] intentionally omitted <==**
 
-The instantaneous frequency of the signal will be: 
+The instantaneous frequency of the signal will be:
 
 **==> picture [135 x 25] intentionally omitted <==**
 
-It can be shown that: 
+It can be shown that:
 
 **==> picture [120 x 21] intentionally omitted <==**
 
-At the point where symbol K becomes the dominant contributor then the instantaneous frequency will have an extreme value. 
+At the point where symbol K becomes the dominant contributor then the instantaneous frequency will have an extreme value.
 
-The position of the start of the reference symbol, s0, is calculated using an averaging based on the position of all the frequency extremes in the sync word. 
+The position of the start of the reference symbol, s0, is calculated using an averaging based on the position of all the frequency extremes in the sync word.
 
-## **Required Measurement Method** 
+## **Required Measurement Method**
 
-The required method of measuring the start of the reference symbol and thus the guard time is defined below. 
+The required method of measuring the start of the reference symbol and thus the guard time is defined below.
 
-Set the test equipment to vector analyzer mode and turn on FM demodulation with symbol rate 1 MHz. Trigger by any means to achieve reliable viewing of the guard period. Look for and identify the synchronization sequence. The start of the reference symbol is defined to be one micro-second preceding the first frequency extreme of the synchronization sequence. 
+Set the test equipment to vector analyzer mode and turn on FM demodulation with symbol rate 1 MHz. Trigger by any means to achieve reliable viewing of the guard period. Look for and identify the synchronization sequence. The start of the reference symbol is defined to be one micro-second preceding the first frequency extreme of the synchronization sequence.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **33 of 63** 
+Page **33 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-For the 10 frequency extreme values in the sync word, the i’th frequency extreme value time is t(i) in sec, this is the start of symbol i. 
+For the 10 frequency extreme values in the sync word, the i’th frequency extreme value time is t(i) in sec, this is the start of symbol i.
 
-- 1  _i_ 10 
+- 1  _i_ 10
 
-The start of symbol s0 is then 
+The start of symbol s0 is then
 
 **==> picture [160 x 35] intentionally omitted <==**
 
-where symbol time is 1 sec. 
+where symbol time is 1 sec.
 
 **==> picture [341 x 298] intentionally omitted <==**
 
 **----- Start of picture text -----**<br>
 6µs 6µs 5µs 1µs 10µs<br>The last 6<br>6 Header-<br>Bits<br>Guard-<br>Header-<br>Bits space<br>Reference- Syncword<br>symbol<br>**----- End of picture text -----**<br>
 
-
-_Figure 4.1: Instantaneous Frequency of Signal about the Guard Time_ 
+_Figure 4.1: Instantaneous Frequency of Signal about the Guard Time_
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **34 of 63** 
+Page **34 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-Instantaneous Frequency of Signal about the Guard Time is a plot of how the instantaneous frequency will look during the last bits of the header and the EDR sync word: 
+Instantaneous Frequency of Signal about the Guard Time is a plot of how the instantaneous frequency will look during the last bits of the header and the EDR sync word:
 
 **==> picture [340 x 289] intentionally omitted <==**
 
 **----- Start of picture text -----**<br>
 6µs 6µs 5µs 1µs 10µs<br>The last 6<br>6 Header-<br>Bits<br>Guard-<br>Header-<br>Bits space<br>Reference- Syncword<br>**----- End of picture text -----**<br>
 
+symbol
 
-symbol 
+## _Figure 4.2: Instantaneous Frequency of Signal about the Guard Time_
 
-## _Figure 4.2: Instantaneous Frequency of Signal about the Guard Time_ 
+## **RF/TRM/CA/BV-16-C [EDR Synchronization Sequence and Trailer]**
 
-## **RF/TRM/CA/BV-16-C [EDR Synchronization Sequence and Trailer]** 
+- Test Purpose
 
-- Test Purpose 
+Verify the synchronization sequence and trailer symbols that are transmitted in Enhanced Data Rate packets.
 
-Verify the synchronization sequence and trailer symbols that are transmitted in Enhanced Data Rate packets. 
+- Reference
 
-- Reference 
+- [6] 6.6.1
 
-   - [6] 6.6.1 
+- Initial Condition
 
-- Initial Condition 
+- IUT in test mode loop back or TX mode (or manual configuration if loopback is not available), whitening off.
 
-   - IUT in test mode loop back or TX mode (or manual configuration if loopback is not available), whitening off. 
+- Hopping off.
 
-   - Hopping off. 
+- IUT transmits at maximum output power back to the Lower Tester.
 
-   - IUT transmits at maximum output power back to the Lower Tester. 
+- Test Procedure
 
-- Test Procedure 
+- a) IUT transmits maximum length 2-DH1 or 2-EV3 packets containing PRBS9 data.
 
-   - a) IUT transmits maximum length 2-DH1 or 2-EV3 packets containing PRBS9 data. 
+- b) Lower Tester demodulates a packet, including the synchronization sequence and the two trailer symbols.
 
-   - b) Lower Tester demodulates a packet, including the synchronization sequence and the two trailer symbols. 
-
-   - c) Lower Tester compares the demodulated bits corresponding to the synchronization sequence with the correct bit sequence defined in [1] and compares the demodulated trailer bits with zeros. 
+- c) Lower Tester compares the demodulated bits corresponding to the synchronization sequence with the correct bit sequence defined in [1] and compares the demodulated trailer bits with zeros.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **35 of 63** 
+Page **35 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-   - d) Repeat Steps b)–c) for 50 packets. 
+- d) Repeat Steps b)–c) for 50 packets.
 
-   - e) If Enhanced Data Rate 3 Mbps payload data rate is supported by the IUT, repeat Steps b)–d) with maximum length 3-DH1 or 3-EV3 packets containing PRBS9 data. 
+- e) If Enhanced Data Rate 3 Mbps payload data rate is supported by the IUT, repeat Steps b)–d) with maximum length 3-DH1 or 3-EV3 packets containing PRBS9 data.
 
-- Test Condition 
+- Test Condition
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Expected Outcome 
+- Expected Outcome
 
-## Pass verdict 
+## Pass verdict
 
-For each modulation, the Expected Outcome over all 50 tested packets is zero bit errors in the synchronization sequences and no more than one bit error in all the trailer symbols. 
+For each modulation, the Expected Outcome over all 50 tested packets is zero bit errors in the synchronization sequences and no more than one bit error in all the trailer symbols.
 
-## **4.6 Receiver** 
+## **4.6 Receiver**
 
-## **4.6.1 Packet sensitivity** 
+## **4.6.1 Packet sensitivity**
 
-||||||
-|---|---|---|---|---|
 ||||||
 |**Test**|**Packet**|**Packet type**|**Synchronized sine**<br>**wave frequency**<br>**modulation**|**Frequency**<br>**modulation**|
 ||||||
-||||||
 |RF/RCV/CA/BV-01-C<br>[Sensitivity - single slot<br>packets]|Single slot|DH1|± 25kHz|1.6kHz|
-||||||
 ||||||
 |RF/RCV/CA/BV-02-C<br>[Sensitivity - multi-slot<br>packets]|Multi slot|DH5 or DH3 if<br>DH5 is not<br>supported|± 40 kHz|500 Hz for 3 slot<br>packets<br>300 Hz for 5 slot<br>packets|
 ||||||
 
-
-
-_Table 4.3: Packet sensitivity tests_ 
+_Table 4.3: Packet sensitivity tests_
 
 |||||
-|---|---|---|---|
 |**Set of**<br>**parameters**|**Carrier frequency**<br>**offset**|**Modulation index**|**Symbol time period error**|
 |||||
-|||||
 |1|75 kHz|0.28|- 20 ppm|
-|||||
 |||||
 |2|14 kHz|0.30|- 20 ppm|
 |||||
@@ -1956,18 +1919,15 @@ _Table 4.3: Packet sensitivity tests_
 |||||
 |8|74 kHz|0.31|- 20 ppm|
 
-
-
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **36 of 63** 
+Page **36 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
 |||||
-|---|---|---|---|
 |**Set of**<br>**parameters**|**Carrier frequency**<br>**offset**|**Modulation index**|**Symbol time period error**|
 |||||
 |9|-19 kHz|0.28|- 20 ppm|
@@ -1975,1095 +1935,1011 @@ Page **36 of 63**
 |10|-75 kHz|0.35|+ 20 ppm|
 |||||
 
+_Table 4.4: Dirty transmitter packets_
 
+- Test Purpose
 
-_Table 4.4: Dirty transmitter packets_ 
+The sensitivity is tested using a non-ideal transmitter. These test cases define the signal sent to the IUT in detail. The IUT is to meet the required sensitivity for this non-ideal signal.
 
-- Test Purpose 
+- Reference
 
-The sensitivity is tested using a non-ideal transmitter. These test cases define the signal sent to the IUT in detail. The IUT is to meet the required sensitivity for this non-ideal signal. 
+[1] 4.1.1
 
-- Reference 
+-
 
-[1] 4.1.1 
+- Initial Condition
 
-- 
+- IUT in test mode. Loop back.
 
-   - Initial Condition 
+- Hopping off.
 
-   - IUT in test mode. Loop back. 
+- IUT transmits at maximum output power back to the tester.
 
-   - Hopping off. 
+- The tester's transmit power is chosen such that the input power to the IUT receiver is – 70 dBm.
 
-   - IUT transmits at maximum output power back to the tester. 
+-
 
-   - The tester's transmit power is chosen such that the input power to the IUT receiver is – 70 dBm. 
+## Test Procedure
 
-- 
+When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported.
 
-## Test Procedure 
+1. IUT receives (fRX)/loops back (fTX) at:
 
-When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported. 
+- the lowest operating frequency.
 
-1. IUT receives (fRX)/loops back (fTX) at: 
+2. The tester continuously sends the packet type specified in Table 4.3 to the IUT. The Payload is PRBS9.
 
-- the lowest operating frequency. 
+3. The properties of the packets are chosen according to Table 4.4. Beside those parameters, the reference signal settings of Section 6.1, “Reference Signal Definition” have to be used. The tester transmits the first 20 ms using the first parameter set (see Table 4.4). The second 20 ms are transmitted with parameter set 2 and so forth. After the 10[th] set of parameters has been used, the tester continues using the first set again.
 
-2. The tester continuously sends the packet type specified in Table 4.3 to the IUT. The Payload is PRBS9. 
+4. The returned packets are received and the BER is measured by the tester according to Section 6.4 “Bit error rate (BER) measurements” (minimum number of samples, 1 600 000 returned payload bits.)
 
-3. The properties of the packets are chosen according to Table 4.4. Beside those parameters, the reference signal settings of Section 6.1, “Reference Signal Definition” have to be used. The tester transmits the first 20 ms using the first parameter set (see Table 4.4). The second 20 ms are transmitted with parameter set 2 and so forth. After the 10[th] set of parameters has been used, the tester continues using the first set again. 
+5. Repeat Steps 2–4 while the IUT receives (fRX) /loops back (fTX) at:
 
-4. The returned packets are received and the BER is measured by the tester according to Section 6.4 “Bit error rate (BER) measurements” (minimum number of samples, 1 600 000 returned payload bits.) 
+- the mid operating frequency; and
 
-5. Repeat Steps 2–4 while the IUT receives (fRX) /loops back (fTX) at: 
+- the highest operating frequency.
 
-- the mid operating frequency; and 
+These frequencies and the related RX frequencies are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off”.
 
-- the highest operating frequency. 
-
-These frequencies and the related RX frequencies are defined in Section 6.2.2, “Frequencies for testing, loopback, hopping off”. 
-
-Additionally, to the described dirty transmitter signal parameters in Table 4.4, a synchronized sine wave frequency modulation (alternate packets will switch start phase between 0 and 180 degrees) 
+Additionally, to the described dirty transmitter signal parameters in Table 4.4, a synchronized sine wave frequency modulation (alternate packets will switch start phase between 0 and 180 degrees)
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **37 of 63** 
+Page **37 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-and a modulation frequency defined in Table 4.3 is to be modulated on the signal to realize the carrier frequency drift. 
+and a modulation frequency defined in Table 4.3 is to be modulated on the signal to realize the carrier frequency drift.
 
-- Test Condition 
+- Test Condition
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Expected Outcome 
+- Expected Outcome
 
-## Pass verdict 
+## Pass verdict
 
-All values as measured are to fulfill the following conditions. 
+All values as measured are to fulfill the following conditions.
 
-BER  0.1% (minimum number of samples, 1 600 000 returned payload bits). 
+BER  0.1% (minimum number of samples, 1 600 000 returned payload bits).
 
-- Uncertainties 
+- Uncertainties
 
-It is fixed if the measurement equipment can support a dirty transmitter as specified in this test case. 
+It is fixed if the measurement equipment can support a dirty transmitter as specified in this test case.
 
-- Notes 
+- Notes
 
-If suitable test equipment is available this test case should be done with hopping on. 
+If suitable test equipment is available this test case should be done with hopping on.
 
-## **RF/RCV/CA/BV-03-C [C/I Performance]** 
+## **RF/RCV/CA/BV-03-C [C/I Performance]**
 
-- Test Purpose 
+- Test Purpose
 
-Verification of the receiver’s performance in presence of co-/adjacent channel interference. 
+Verification of the receiver’s performance in presence of co-/adjacent channel interference.
 
-- Reference 
+- Reference
 
-[1] 4.1.1 
+[1] 4.1.1
 
-- Initial Condition 
+- Initial Condition
 
-   - IUT in test mode loop back. 
+- IUT in test mode loop back.
 
-   - Hopping off. 
+- Hopping off.
 
-   - IUT transmits at maximum output power back to the tester. 
+- IUT transmits at maximum output power back to the tester.
 
-   - TSPX_Inband_Image_Frequency is declared by the manufacturer of the IUT in the IXIT [7]. 
+- TSPX_Inband_Image_Frequency is declared by the manufacturer of the IUT in the IXIT [7].
 
-- Test Procedure 
+- Test Procedure
 
-When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported. 
+When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported.
 
-- a) IUT receives (fRX) / loops back (fTX) at low operating frequency (see Table 4.5). 
+- a) IUT receives (fRX) / loops back (fTX) at low operating frequency (see Table 4.5).
 
-- b) Tester transmits at the same time: 
+- b) Tester transmits at the same time:
 
-   - Wanted signal (Reference Bluetooth signal, see Section 6.1, “Reference Signal Definition”): DH1 packet with PRBS9 as payload for interfering signal on Co-channel and adjacent 1 MHz and 2 MHz :10 dB over the reference sensitivity level (see Section 6.6 ”Definition of the reference sensitivity level”), for interfering signal on all other frequencies: 3 dB over the reference sensitivity level. 
+- Wanted signal (Reference Bluetooth signal, see Section 6.1, “Reference Signal Definition”): DH1 packet with PRBS9 as payload for interfering signal on Co-channel and adjacent 1 MHz and 2 MHz :10 dB over the reference sensitivity level (see Section 6.6 ”Definition of the reference sensitivity level”), for interfering signal on all other frequencies: 3 dB over the reference sensitivity level.
 
-   - Bluetooth modulated interfering signal with PRBS15 as payload (see Section 51 “Reference Signal Definition”). This interfering signal is operating at fI =fRX. For the interference power level see Table 4.6. 
+- Bluetooth modulated interfering signal with PRBS15 as payload (see Section 51 “Reference Signal Definition”). This interfering signal is operating at fI =fRX. For the interference power level see Table 4.6.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **38 of 63** 
+Page **38 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- c) The returned packets are received and the BER is measured by the tester according to Section 6.4 “Bit error rate (BER) measurements” (minimum number of samples, 1 600 000 returned payload bits). 
+- c) The returned packets are received and the BER is measured by the tester according to Section 6.4 “Bit error rate (BER) measurements” (minimum number of samples, 1 600 000 returned payload bits).
 
-- d) Repeat Steps b)–c) for all frequencies fI + k MHz, that are regular Bluetooth transmit frequencies. 
+- d) Repeat Steps b)–c) for all frequencies fI + k MHz, that are regular Bluetooth transmit frequencies.
 
-- e) Repeat Steps b)–d) for the wanted signal at the frequencies (Mid operating frequency, high operating frequency) that are specified in Table 4.5. 
+- e) Repeat Steps b)–d) for the wanted signal at the frequencies (Mid operating frequency, high operating frequency) that are specified in Table 4.5.
 
 |||||||
-|---|---|---|---|---|---|
 |**Low operating frequency**||**Mid operating**|**frequency**|**High operating frequency**||
 |||||||
-|||||||
 |**IUT fRX**|**IUT fTX**|**IUT fRX**|**IUT fTX**|**IUT fRX**|**IUT fTX**|
-|||||||
 |||||||
 |2405 MHz|2405 MHz|2441 MHz|2441 MHz|2477 MHz|2477 MHz|
 |||||||
 
-
-
-_Table 4.5: Low, Mid, and High Operating Frequency_ 
+_Table 4.5: Low, Mid, and High Operating Frequency_
 
 |||
-|---|---|
 |**Interferer Frequency**|**Ratio**|
-|||
 |||
 |Co-Channel interference, C/I co-channel|11 dB|
 |||
-|||
 |Adjacent (1 MHz) interferenceNote 1, C/I1MHz|0 dB|
-|||
 |||
 |Adjacent (2 MHz) interferenceNote 1, C/I2MHz|-30 dB|
 |||
-|||
 |Adjacent (3 MHz) interferenceNote 1, C/I3MHz|-40 dB|
 |||
-|||
 |Image frequency InterferenceNotes 1, 2, 3, C/IImage|-9 dB|
-|||
 |||
 |Adjacent (1 MHz) interference to in-band mirror frequencyNotes 1, 2, 3, C/I<br>Image1MHz|-20 dB|
 |||
 
+_Table 4.6: Interferer and wanted signal settings_
 
+- Note 1: If two adjacent channel specifications from Table 4.6 are applicable to the same channel, the more relaxed specification applies.
 
-_Table 4.6: Interferer and wanted signal settings_ 
+- Note 2: If the image frequency  n*1 MHz, then the image reference frequency is defined as closest n*1 MHz frequency.
 
-   - Note 1: If two adjacent channel specifications from Table 4.6 are applicable to the same channel, the more relaxed specification applies. 
+- Note 3: TSPX_Inband_Image_Frequency
 
-   - Note 2: If the image frequency  n*1 MHz, then the image reference frequency is defined as closest n*1 MHz frequency. 
+- Test Condition
 
-   - Note 3: TSPX_Inband_Image_Frequency 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Test Condition 
+- Expected Outcome
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+## Pass verdict
 
-- Expected Outcome 
+All values as measured fulfill the following conditions.
 
-## Pass verdict 
-
-All values as measured fulfill the following conditions. 
-
-BER  0.1 % 
+BER  0.1 %
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **39 of 63** 
+Page **39 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-Frequencies where the BER is greater than 10-3 are called spurious response frequencies. For each RX frequency, five spurious response frequencies are allowed. On these spurious response frequencies, a relaxed interference requirement C/I = -17 dB is met. This relaxation does not apply to the following measurements: 
+Frequencies where the BER is greater than 10-3 are called spurious response frequencies. For each RX frequency, five spurious response frequencies are allowed. On these spurious response frequencies, a relaxed interference requirement C/I = -17 dB is met. This relaxation does not apply to the following measurements:
 
-- Co-Channel interference, C/Ico-channel 
+- Co-Channel interference, C/Ico-channel
 
-- Adjacent (1 MHz) interference, C/1MHz 
+- Adjacent (1 MHz) interference, C/1MHz
 
-- Image frequency Interference, C/IImage 
+- Image frequency Interference, C/IImage
 
-## **RF/RCV/CA/BV-04-C [Blocking Performance]** 
+## **RF/RCV/CA/BV-04-C [Blocking Performance]**
 
-- Test Purpose 
+- Test Purpose
 
-Verification of the receiver's performance in presence of interference. 
+Verification of the receiver's performance in presence of interference.
 
-- Reference 
+- Reference
 
-   - [1] 4.1.3 
+- [1] 4.1.3
 
-- Initial Condition 
+- Initial Condition
 
-   - IUT in test mode loop back. 
+- IUT in test mode loop back.
 
-   - Hopping off. 
+- Hopping off.
 
-   - IUT: fRX= fTX = 2460 MHz. 
+- IUT: fRX= fTX = 2460 MHz.
 
-   - IUT transmits at maximum output power back to the tester. 
+- IUT transmits at maximum output power back to the tester.
 
-- Test Procedure 
+- Test Procedure
 
-When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported. 
+When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported.
 
-- a) The tester continuously sends the wanted nominal signal (see Section 6.1, “Reference Signal Definition”) to the IUT. 
+- a) The tester continuously sends the wanted nominal signal (see Section 6.1, “Reference Signal Definition”) to the IUT.
 
-- b) This wanted signal is transmitted at 3 dB over the reference sensitivity level (see Section 6.6 ”Definition of the reference sensitivity level”) at fRX = 2460 MHz. 
+- b) This wanted signal is transmitted at 3 dB over the reference sensitivity level (see Section 6.6 ”Definition of the reference sensitivity level”) at fRX = 2460 MHz.
 
-- c) DH1 packets are used. The Payload is PRBS9. 
+- c) DH1 packets are used. The Payload is PRBS9.
 
-- d) Additionally, the tester produces a continuous wave interfering signal at frequency fI = 30 Mhz, at the IUT receiver input. The power levels of this interfering signal are 2 dB higher as defined in Table 4.7. 
+- d) Additionally, the tester produces a continuous wave interfering signal at frequency fI = 30 Mhz, at the IUT receiver input. The power levels of this interfering signal are 2 dB higher as defined in Table 4.7.
 
-- e) Tester measures BER according to Section 6.4 “Bit error rate (BER) measurements” (minimum number of samples, 100 000 returned payload bits.) If the BER is measured to be > 0.1 %, the frequency of the blocking signal is recorded. 
+- e) Tester measures BER according to Section 6.4 “Bit error rate (BER) measurements” (minimum number of samples, 100 000 returned payload bits.) If the BER is measured to be > 0.1 %, the frequency of the blocking signal is recorded.
 
-- f) Repeat Steps a)–e) for 30 MHz  fI  12.75 GHz, with the measurement frequency resolution defined in Table 4.7. 
+- f) Repeat Steps a)–e) for 30 MHz  fI  12.75 GHz, with the measurement frequency resolution defined in Table 4.7.
 
-- g) The signal level of the blocking signal is set as in Table 4.7 at the IUT receiver input and the BER (minimum number of samples, 1 600 000 returned payload bits) is measured with the same nominal signal as in b) but for all frequencies found in e). If BER is measured to be > 0.1 % the frequency of the blocking signal is recorded. 
+- g) The signal level of the blocking signal is set as in Table 4.7 at the IUT receiver input and the BER (minimum number of samples, 1 600 000 returned payload bits) is measured with the same nominal signal as in b) but for all frequencies found in e). If BER is measured to be > 0.1 % the frequency of the blocking signal is recorded.
 
-- h) The signal level of the blocking signal is reduced to –50 dBm at the IUT receiver input and the BER (minimum number of samples, 1 600 000 returned payload bits) is measured with the same 
+- h) The signal level of the blocking signal is reduced to –50 dBm at the IUT receiver input and the BER (minimum number of samples, 1 600 000 returned payload bits) is measured with the same
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **40 of 63** 
+Page **40 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-nominal signal as in b) but for all frequencies found in g). If BER is measured to be > 0.1 % the frequency of the blocking signal is recorded. 
+nominal signal as in b) but for all frequencies found in g). If BER is measured to be > 0.1 % the frequency of the blocking signal is recorded.
 
-||||
-|---|---|---|
 ||||
 |**Interfering Signal Frequency**|**Interfering Signal Power**<br>**Level**|**Measurement frequency**<br>**resolution**|
 ||||
-||||
 |30 – 2000 MHz|-10 dBm|10 MHz|
-||||
 ||||
 |2000 – 2400 MHz|-27 dBm|1 MHz|
 ||||
-||||
 |2500 – 3000 MHz|-27 dBm|1 MHz|
-||||
 ||||
 |3000 MHz – 12.75 GHz|-10 dBm|25 MHz|
 ||||
 
+_Table 4.7: Power levels of the CW interfering signal_
 
+- Test Condition
 
-_Table 4.7: Power levels of the CW interfering signal_ 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Test Condition 
+-
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+- Expected Outcome
 
-- 
+## Pass verdict
 
-- Expected Outcome 
+All values as measured fulfill the following conditions.
 
-## Pass verdict 
+BER  0.1% (minimum number of samples, 1 600 000 returned payload bits).
 
-All values as measured fulfill the following conditions. 
+The number of frequencies recorded in Step g) does not exceed 24 and the number of frequencies recorded in Step h) does not exceed 5.
 
-BER  0.1% (minimum number of samples, 1 600 000 returned payload bits). 
+## **RF/RCV/CA/BV-05-C [Intermodulation Performance]**
 
-The number of frequencies recorded in Step g) does not exceed 24 and the number of frequencies recorded in Step h) does not exceed 5. 
+- Test Purpose
 
-## **RF/RCV/CA/BV-05-C [Intermodulation Performance]** 
+Verification of the receiver's intermodulation characteristics.
 
-- Test Purpose 
+- Reference
 
-Verification of the receiver's intermodulation characteristics. 
+[1] 4.1.4
 
-- Reference 
+-
 
-[1] 4.1.4 
+- Initial Condition
 
-- 
+- IUT in test mode loop back. Hopping off.
 
-   - Initial Condition 
+- fTX = fRX during the test case.
 
-   - IUT in test mode loop back. Hopping off. 
+- IUT transmits at maximum output power back to the tester.
 
-   - fTX = fRX during the test case. 
+- TSPX_Intermod_Test_Number is declared by the manufacturer of the IUT in the IXIT [7].
 
-   - IUT transmits at maximum output power back to the tester. 
+- Test Procedure
 
-   - TSPX_Intermod_Test_Number is declared by the manufacturer of the IUT in the IXIT [7]. 
+When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported.
 
-- Test Procedure 
+- a) IUT is set to transmit and receive at lowest supported frequency.
 
-When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported. 
-
-- a) IUT is set to transmit and receive at lowest supported frequency. 
-
-- b) The tester continuously sends the wanted nominal signal (see Section 6.1, “Reference Signal Definition”) to the IUT. This wanted signal is transmitted at 6 dB over the reference sensitivity 
+- b) The tester continuously sends the wanted nominal signal (see Section 6.1, “Reference Signal Definition”) to the IUT. This wanted signal is transmitted at 6 dB over the reference sensitivity
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **41 of 63** 
+Page **41 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-level (see Section 6.6 ”Definition of the reference sensitivity level”) at fTX. DH1 packets are used. The Payload is PRBS9. 
+level (see Section 6.6 ”Definition of the reference sensitivity level”) at fTX. DH1 packets are used. The Payload is PRBS9.
 
-   - c) Static sine wave signal at f1 with a power level of –39 dBm. 
+- c) Static sine wave signal at f1 with a power level of –39 dBm.
 
-   - d) A Bluetooth modulated signal (see Section 6.1, “Reference Signal Definition”) at f2 with a power level of –39 dBm and a payload of PRBS15. 
+- d) A Bluetooth modulated signal (see Section 6.1, “Reference Signal Definition”) at f2 with a power level of –39 dBm and a payload of PRBS15.
 
-   - e) Such that fTX=2f1-f2 and  f2-f1 = n * 1 MHz, where TSPX_Intermod_Test_Number is 3, 4, or 5. 
+- e) Such that fTX=2f1-f2 and  f2-f1 = n * 1 MHz, where TSPX_Intermod_Test_Number is 3, 4, or 5.
 
-   - f) Measure BER according to Section 6.4 “Bit error rate (BER) measurements” (minimum number of samples, 1 600 000 returned payload bits.) 
+- f) Measure BER according to Section 6.4 “Bit error rate (BER) measurements” (minimum number of samples, 1 600 000 returned payload bits.)
 
-   - g) Repeat Steps b)–f) for the mid and highest operating frequencies fTX supported by the IUT. These frequencies are defined in Section 6.2.2 “Frequencies for testing, loopback, hopping off”. 
+- g) Repeat Steps b)–f) for the mid and highest operating frequencies fTX supported by the IUT. These frequencies are defined in Section 6.2.2 “Frequencies for testing, loopback, hopping off”.
 
-- Test Condition 
+- Test Condition
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Expected Outcome 
+- Expected Outcome
 
-## Pass verdict 
+## Pass verdict
 
-All values as measured fulfill the following conditions. 
+All values as measured fulfill the following conditions.
 
-BER  0.1% 
+BER  0.1%
 
-## **RF/RCV/CA/BV-06-C [Maximum Input Level]** 
+## **RF/RCV/CA/BV-06-C [Maximum Input Level]**
 
-- Test Purpose 
+- Test Purpose
 
-Verification of the receiver performance. 
+Verification of the receiver performance.
 
-- Reference 
+- Reference
 
-   - [1] 4.1.5 
+- [1] 4.1.5
 
-- Initial Condition 
+- Initial Condition
 
-   - IUT in test mode loop back. 
+- IUT in test mode loop back.
 
-   - Hopping off. 
+- Hopping off.
 
-   - IUT transmits at maximum output power back to the tester. 
+- IUT transmits at maximum output power back to the tester.
 
-- Test Procedure 
+- Test Procedure
 
-When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported. 
+When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported.
 
-- a) IUT receives (fRX) / loops back (fTX) at the lowest operating frequency. 
+- a) IUT receives (fRX) / loops back (fTX) at the lowest operating frequency.
 
-- b) Tester sends DH1 packets with a nominal Bluetooth signal (see Section 6.1, “Reference Signal Definition”) (payload is the PRBS9) continuously at –20 dBm power at the receiver input of the IUT. 
-
-**==> picture [17 x 23] intentionally omitted <==**
-
-Bluetooth SIG Proprietary 
-
-Page **42 of 63** 
-
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
-
-- c) Tester measures BER according to Section 6.4 “Bit error rate (BER) measurements” (minimum number of samples, 1 600 000 returned payload bits). 
-
-- d) Repeat Steps b)–c) while the IUT receives (fRX) / loops back (fTX) at: 
-
-   - The mid operating frequency; and 
-
-   - The highest operating frequency. 
-
-These frequencies are defined in Section 6.2.2 “Frequencies for testing, loopback, hopping off”. 
-
-- Test Condition 
-
-Common Test Case Conditions defined in Section 4.2 apply. 
-
-- Expected Outcome 
-
-## Pass verdict 
-
-All values as measured fulfill the following conditions. 
-
-BER  0.1 % (minimum number of samples, 1 600 000 returned payload bits). 
+- b) Tester sends DH1 packets with a nominal Bluetooth signal (see Section 6.1, “Reference Signal Definition”) (payload is the PRBS9) continuously at –20 dBm power at the receiver input of the IUT.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **43 of 63** 
+Page **42 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **4.6.2 Sensitivity bit error rate** 
+- c) Tester measures BER according to Section 6.4 “Bit error rate (BER) measurements” (minimum number of samples, 1 600 000 returned payload bits).
 
-||||||||
-|---|---|---|---|---|---|---|
-||||||||
+- d) Repeat Steps b)–c) while the IUT receives (fRX) / loops back (fTX) at:
+
+- The mid operating frequency; and
+
+- The highest operating frequency.
+
+These frequencies are defined in Section 6.2.2 “Frequencies for testing, loopback, hopping off”.
+
+- Test Condition
+
+Common Test Case Conditions defined in Section 4.2 apply.
+
+- Expected Outcome
+
+## Pass verdict
+
+All values as measured fulfill the following conditions.
+
+BER  0.1 % (minimum number of samples, 1 600 000 returned payload bits).
+
+**==> picture [17 x 23] intentionally omitted <==**
+
+Bluetooth SIG Proprietary
+
+Page **43 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+## **4.6.2 Sensitivity bit error rate**
+
 |**Test**|**Bit error**<br>**rate**|**Reference**|**Input**<br>**power**|**Received**<br>**bits**|**BER**<br>**threshold**|**Pass criteria**|
-||||||||
-||||||||
 |RF/RCV/CA/BV-07-C<br>[EDR Sensitivity]|10-4|[1]4.2.1|-70dBm|1 600 000|7*10-5|BER ≤ 7*10-5after 1 600 000 bits or BER ≤ 10-4after<br>16 000 000 bits|
-||||||||
-||||||||
 |RF/RCV/CA/BV-08-C<br>[EDR BER Floor<br>Performance]|10-5|[1]4.2.2|-60dBm|8 000 000|7*10-6|BER ≤ 7*10-6after 8 000 000 bits or BER ≤ 10-5after<br>160 000 000 bits|
-||||||||
 
-
-
-_Table 4.8: Bit error rate tests_ 
+_Table 4.8: Bit error rate tests_
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **44 of 63** 
+Page **44 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## • Test Purpose 
+## • Test Purpose
 
-Verification of the receiver sensitivity for the specified bit error rate using a non-ideal transmitter. 
+Verification of the receiver sensitivity for the specified bit error rate using a non-ideal transmitter.
 
-- Initial Condition 
+- Initial Condition
 
-   - IUT in test mode loop back, whitening on. 
+- IUT in test mode loop back, whitening on.
 
-   - Hopping off (transmit and receive frequencies are defined in Section 6.2.2. 
+- Hopping off (transmit and receive frequencies are defined in Section 6.2.2.
 
-   - IUT transmits at maximum output power back to the tester. 
+- IUT transmits at maximum output power back to the tester.
 
-- Test Procedure 
+- Test Procedure
 
-When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported. 
+When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported.
 
-1. The tester continuously sends /4-DQPSK packets with the longest supported packet type (2DHx or 2-EVx) and with maximum length payload containing PRBS9. 
+1. The tester continuously sends /4-DQPSK packets with the longest supported packet type (2DHx or 2-EVx) and with maximum length payload containing PRBS9.
 
-2. The tester transmit power is chosen such that the input power to the IUT receiver is specified in Table 4.8, measured over the DPSK modulated portion of the packets. 
+2. The tester transmit power is chosen such that the input power to the IUT receiver is specified in Table 4.8, measured over the DPSK modulated portion of the packets.
 
-3. The IUT receives (fRX) at: 
+3. The IUT receives (fRX) at:
 
-- the lowest operation frequency 
+- the lowest operation frequency
 
-4. The properties of the packets are chosen according to Table 4.9. Except for these parameters the reference signal settings of Annex 6.1 “Reference Signal Definition” are used. The tester transmits the first 20 packets using the first parameter set of Table 1.The second 20 packets are transmitted with parameter set 2 and so forth. After the third set of parameters has been used, the tester continues using the first set again. 
+4. The properties of the packets are chosen according to Table 4.9. Except for these parameters the reference signal settings of Annex 6.1 “Reference Signal Definition” are used. The tester transmits the first 20 packets using the first parameter set of Table 1.The second 20 packets are transmitted with parameter set 2 and so forth. After the third set of parameters has been used, the tester continues using the first set again.
 
-5. The returned packets are received and the BER is measured by the tester according to Section 6.4 “Bit error rate (BER) measurements”. After 1 600 000 bits have been received the BER is compared with threshold 7*10[-5] . If the BER is less than this threshold then the tester proceeds to Step 7; otherwise the tester proceeds to Step 6. 
+5. The returned packets are received and the BER is measured by the tester according to Section 6.4 “Bit error rate (BER) measurements”. After 1 600 000 bits have been received the BER is compared with threshold 7*10[-5] . If the BER is less than this threshold then the tester proceeds to Step 7; otherwise the tester proceeds to Step 6.
 
-6. Sampling is to be continued until a minimum number of 160 000 000 bits payload bits are returned. 
+6. Sampling is to be continued until a minimum number of 160 000 000 bits payload bits are returned.
 
-7. Repeat Steps 4–6 while the IUT receives (fRX) at: 
+7. Repeat Steps 4–6 while the IUT receives (fRX) at:
 
-- the mid operating frequency 
+- the mid operating frequency
 
-- the highest operating frequency 
+- the highest operating frequency
 
-If 8DPSK is supported by the IUT then repeat Steps 2–7 while the tester continuously sends 8DPSK packets with the longest supported packet type (3-DHx or 3-EVx) and with maximum length payload containing PRBS9. 
+If 8DPSK is supported by the IUT then repeat Steps 2–7 while the tester continuously sends 8DPSK packets with the longest supported packet type (3-DHx or 3-EVx) and with maximum length payload containing PRBS9.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **45 of 63** 
+Page **45 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
 ||||
-|---|---|---|
 |**Set of parameters**|**Carrier offset frequency**|**Symbol time period error**|
-||||
 ||||
 |1|0 kHz|0 ppm|
 ||||
-||||
 |2|+65 kHz|+20 ppm|
-||||
 ||||
 |3|-65 kHz|-20 ppm|
 ||||
 
+_Table 4.9: Dirty transmitter for enhanced data rate packets_
 
+Note: Additionally to the described dirty transmitter signal parameters in the above table, a frequency modulation with a deviation of ±10 kHz and a synchronized sine wave modulation period of 100 s is to be modulated onto the signal starting at the beginning of the DPSK synchronization word to realize the worst case transmitter carrier frequency stability. The frequency modulation alternately switches starting phase between 0 and 180 degrees for successive packets.
 
-_Table 4.9: Dirty transmitter for enhanced data rate packets_ 
+-
 
-Note: Additionally to the described dirty transmitter signal parameters in the above table, a frequency modulation with a deviation of ±10 kHz and a synchronized sine wave modulation period of 100 s is to be modulated onto the signal starting at the beginning of the DPSK synchronization word to realize the worst case transmitter carrier frequency stability. The frequency modulation alternately switches starting phase between 0 and 180 degrees for successive packets. 
+- Test Condition
 
-- 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Test Condition 
+-
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+- Expected Outcome
 
-- 
+## Pass verdict
 
-- Expected Outcome 
+All values as measured fulfill the pass conditions in Table 4.8: Bit error rate tests at low, medium and high frequencies.
 
-## Pass verdict 
+## **RF/RCV/CA/BV-09-C [EDR C/I Performance]**
 
-All values as measured fulfill the pass conditions in Table 4.8: Bit error rate tests at low, medium and high frequencies. 
+- Test Purpose
 
-## **RF/RCV/CA/BV-09-C [EDR C/I Performance]** 
+Verification of the receiver performance in the presence of co-/adjacent channel interference.
 
-- Test Purpose 
+- Reference
 
-Verification of the receiver performance in the presence of co-/adjacent channel interference. 
+[1] 4.2.3
 
-- Reference 
+- Initial Condition
 
-[1] 4.2.3 
+- IUT in test mode loop back, whitening on.
 
-- Initial Condition 
+- Hopping off.
 
-   - IUT in test mode loop back, whitening on. 
+- IUT transmits at maximum output power back to the tester.
 
-   - Hopping off. 
+- TSPX_Inband_Image_Frequency is declared by the manufacturer of the IUT in the IXIT [7].
 
-   - IUT transmits at maximum output power back to the tester. 
+- Test Procedure
 
-   - TSPX_Inband_Image_Frequency is declared by the manufacturer of the IUT in the IXIT [7]. 
+When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported. The IUT's transmit frequency is on the same channel as its receive frequency.
 
-- Test Procedure 
+- a) The tester continuously sends as the wanted signal /4-DQPSK packets, according to Section 6.1, “Reference Signal Definition”, with the longest supported packet type (2-DHx or 2-EVx) and with maximum length payload containing PRBS9.
 
-When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported. The IUT's transmit frequency is on the same channel as its receive frequency. 
+- b) The IUT receives (fRX) at:
 
-- a) The tester continuously sends as the wanted signal /4-DQPSK packets, according to Section 6.1, “Reference Signal Definition”, with the longest supported packet type (2-DHx or 2-EVx) and with maximum length payload containing PRBS9. 
-
-- b) The IUT receives (fRX) at: 
-
-   - The lowest operation frequency + 3 MHz 
+- The lowest operation frequency + 3 MHz
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **46 of 63** 
+Page **46 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- c) The tester transmits power at the input of the IUT (wanted signal) measured over the DPSK modulated portion of the packets is: 
+- c) The tester transmits power at the input of the IUT (wanted signal) measured over the DPSK modulated portion of the packets is:
 
-   - -60dBm for the interfering signal on the co-channel or at ±1MHz or ±2MHz adjacent channel 
+- -60dBm for the interfering signal on the co-channel or at ±1MHz or ±2MHz adjacent channel
 
-   - -67dBm for the interfering signal on all other frequencies 
+- -67dBm for the interfering signal on all other frequencies
 
-- d) The interfering signal is continuously modulated using PRBS15 data. For co-channel measurements, the interferer uses the same modulation as the wanted signal and its properties are as defined in Section 6.1, “Reference Signal Definition”. For adjacent channel measurements, the interferer uses GFSK modulation as defined in Section 6.1. For interferer power levels see Table 4.10. 
+- d) The interfering signal is continuously modulated using PRBS15 data. For co-channel measurements, the interferer uses the same modulation as the wanted signal and its properties are as defined in Section 6.1, “Reference Signal Definition”. For adjacent channel measurements, the interferer uses GFSK modulation as defined in Section 6.1. For interferer power levels see Table 4.10.
 
-- e) The returned packets are received and the BER is measured by the tester according to Section 6.4. The minimum number of samples is 1 600 000 returned payload bits. 
+- e) The returned packets are received and the BER is measured by the tester according to Section 6.4. The minimum number of samples is 1 600 000 returned payload bits.
 
-- f) Repeat Steps c)–e) with the interferer at all regular Bluetooth frequencies. 
+- f) Repeat Steps c)–e) with the interferer at all regular Bluetooth frequencies.
 
-- g) Repeat Steps c)–f) while the IUT receives (fRX) at: 
+- g) Repeat Steps c)–f) while the IUT receives (fRX) at:
 
-   - The mid operating frequency 
+- The mid operating frequency
 
-   - The highest operating frequency – 3 MHz 
+- The highest operating frequency – 3 MHz
 
-- h) If 8DPSK is supported by the IUT then repeat Steps b)–g) while the tester continuously sends 8DPSK packets, according to Annex 6.1 Reference Signal Definition, with the longest supported packet type (3-DHx or 3-EVx) and with maximum length payload containing PRBS9. 
+- h) If 8DPSK is supported by the IUT then repeat Steps b)–g) while the tester continuously sends 8DPSK packets, according to Annex 6.1 Reference Signal Definition, with the longest supported packet type (3-DHx or 3-EVx) and with maximum length payload containing PRBS9.
 
 ||||
-|---|---|---|
 |**Frequency of Interference**|**2Mbps**<br>**(****/4-DQPSK)**<br>**C/I ratio**|**3Mbps (8dpsk)**<br>**C/I ratio**|
-||||
 ||||
 |Co-Channel interference, C/I co-channel|13 dB|21 dB|
 ||||
-||||
 |Adjacent (1 MHz) interferenceNote 1, C/I 1MHz|0 dB|5 dB|
-||||
 ||||
 |Adjacent (2 MHz) interferenceNote 1, C/I 2MHz|-30 dB|-25 dB|
 ||||
-||||
 |Adjacent (≥3MHz) interferenceNote 1, C/I≥3MHz|-40 dB|-33 dB|
 ||||
-||||
 |Image frequency InterferenceNotes 1, 2, 3, C/I Image|-7 dB|0 dB|
-||||
 ||||
 |Adjacent (1 MHz) interference to in-band image<br>frequencyNotes 1, 2, 3, C/I Image ±1MHz|-20 dB|-13 dB|
 ||||
 
+_Table 4.10: Interference Performance_
 
+- Note 1: If two adjacent channel specifications from Table 4.10 are applicable to the same channel, the more relaxed specification applies.
 
-_Table 4.10: Interference Performance_ 
+- Note 2: If the image frequency is not equal to n*1 MHz, then the image reference frequency is defined as the closest n*1 MHz frequency.
 
-- Note 1: If two adjacent channel specifications from Table 4.10 are applicable to the same channel, the more relaxed specification applies. 
-
-- Note 2: If the image frequency is not equal to n*1 MHz, then the image reference frequency is defined as the closest n*1 MHz frequency. 
-
-- Note 3: TSPX_Inband_Image_Frequency 
+- Note 3: TSPX_Inband_Image_Frequency
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **47 of 63** 
+Page **47 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-- Test Condition 
+- Test Condition
 
-Common Test Case Conditions defined in Section 4.2 apply. 
+Common Test Case Conditions defined in Section 4.2 apply.
 
-- Expected Outcome 
+- Expected Outcome
 
-## Pass verdict 
+## Pass verdict
 
-All values as measured fulfill the following conditions. 
+All values as measured fulfill the following conditions.
 
-- BER 0.1% 
+- BER 0.1%
 
-Frequencies where the BER is greater than 10[-3] are called spurious response frequencies. For each RX frequency, five spurious response frequencies are allowed. On these spurious response frequencies, a relaxed interference requirement C/I = -15 dB for /4-DQPSK and C/I = -10 dB for 8DPSK is met. 
+Frequencies where the BER is greater than 10[-3] are called spurious response frequencies. For each RX frequency, five spurious response frequencies are allowed. On these spurious response frequencies, a relaxed interference requirement C/I = -15 dB for /4-DQPSK and C/I = -10 dB for 8DPSK is met.
 
-- This relaxation does not apply to the following measurements: 
+- This relaxation does not apply to the following measurements:
 
-- Co-Channel interference, C/Ico-channel 
+- Co-Channel interference, C/Ico-channel
 
-- Adjacent (1 MHz) interference, C/I1MHz 
+- Adjacent (1 MHz) interference, C/I1MHz
 
-- Image frequency Interference, C/IImage 
+- Image frequency Interference, C/IImage
 
-## **RF/RCV/CA/BV-10-C [EDR Maximum Input Level]** 
+## **RF/RCV/CA/BV-10-C [EDR Maximum Input Level]**
 
-- Test Purpose 
+- Test Purpose
 
-Verification of the receiver performance at the maximum specified input signal level. 
+Verification of the receiver performance at the maximum specified input signal level.
 
-- Reference 
+- Reference
 
-   - [1] 4.2.4 
+- [1] 4.2.4
 
-- Initial Condition 
+- Initial Condition
 
-   - IUT in test mode loop back, whitening on. 
+- IUT in test mode loop back, whitening on.
 
-   - Hopping off (transmit and receive frequencies are defined in Section 6.2.2). 
+- Hopping off (transmit and receive frequencies are defined in Section 6.2.2).
 
-   - IUT transmits at maximum output power back to the tester. 
+- IUT transmits at maximum output power back to the tester.
 
-- Test Procedure 
+- Test Procedure
 
-When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported. 
+When multiple power classes are declared in the ICS, the test is performed using the power class representing the highest power supported.
 
-- a) The tester continuously sends /4-DQPSK packets with the longest supported packet type (2DHx or 2-EVx) and with maximum length payload containing PRBS9. 
+- a) The tester continuously sends /4-DQPSK packets with the longest supported packet type (2DHx or 2-EVx) and with maximum length payload containing PRBS9.
 
-- b) The tester transmit power is chosen such that the input power to the IUT receiver is -20dBm, measured over the DPSK modulated portion of the packets. 
+- b) The tester transmit power is chosen such that the input power to the IUT receiver is -20dBm, measured over the DPSK modulated portion of the packets.
 
-- c) The IUT receives (fRX) at: 
+- c) The IUT receives (fRX) at:
 
-   - The lowest operation frequency 
+- The lowest operation frequency
 
-- d) The returned packets are received and the BER is measured by the tester according to Section 6.4 “Bit error rate (BER) measurements”. The minimum number of samples is 1 600 000 returned payload bits. 
-
-**==> picture [17 x 23] intentionally omitted <==**
-
-Bluetooth SIG Proprietary 
-
-Page **48 of 63** 
-
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
-
-## e) Repeat Step d) while the IUT receives (fRX) at: 
-
-      - The mid operating frequency 
-
-      - The highest operating frequency 
-
-   - f) If 8DPSK is supported by the IUT then repeat Steps b)–e) while the tester continuously sends 8DPSK packets with the longest supported packet type (3-DHx or 3-EVx) and with maximum length payload containing PRBS9. 
-
-- Test Condition 
-
-Common Test Case Conditions defined in Section 4.3 apply. 
-
-- Expected Outcome 
-
-## Pass verdict 
-
-All values as measured fulfill the following conditions: 
-
-BER ≤ 10[-3 ] 
+- d) The returned packets are received and the BER is measured by the tester according to Section 6.4 “Bit error rate (BER) measurements”. The minimum number of samples is 1 600 000 returned payload bits.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **49 of 63** 
+Page **48 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **5 Test case ma in pp g** 
+## e) Repeat Step d) while the IUT receives (fRX) at:
 
-The Test Case Mapping Table (TCMT) maps test cases to specific requirements in the ICS. The IUT is tested in all roles for which support is declared in the ICS document. 
+- The mid operating frequency
 
-The columns for the TCMT are defined as follows: 
+- The highest operating frequency
 
-**Item:** Contains a logical expression based on specific entries from the associated ICS document. Contains a logical expression (using the operators AND, OR, NOT as needed) based on specific entries from the applicable ICS document(s). The entries are in the form of y/x references, where y corresponds to the table number and x corresponds to the feature number as defined in the ICS document for RF [3]. 
+- f) If 8DPSK is supported by the IUT then repeat Steps b)–e) while the tester continuously sends 8DPSK packets with the longest supported packet type (3-DHx or 3-EVx) and with maximum length payload containing PRBS9.
 
-If a test case is mandatory within the respective layer, then the y/x reference is omitted. 
+- Test Condition
 
-**Feature:** A brief, informal description of the feature being tested. 
+Common Test Case Conditions defined in Section 4.3 apply.
 
-**Test Case(s):** The applicable test case identifiers are required for Bluetooth Qualification if the corresponding y/x references defined in the Item column are supported. Further details about the function of the TCMT are elaborated in [2]. 
+- Expected Outcome
 
-For the purpose and structure of the ICS/IXIT, refer to [2]. 
+## Pass verdict
+
+All values as measured fulfill the following conditions:
+
+BER ≤ 10[-3 ]
+
+**==> picture [17 x 23] intentionally omitted <==**
+
+Bluetooth SIG Proprietary
+
+Page **49 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+## **5 Test case ma in pp g**
+
+The Test Case Mapping Table (TCMT) maps test cases to specific requirements in the ICS. The IUT is tested in all roles for which support is declared in the ICS document.
+
+The columns for the TCMT are defined as follows:
+
+**Item:** Contains a logical expression based on specific entries from the associated ICS document. Contains a logical expression (using the operators AND, OR, NOT as needed) based on specific entries from the applicable ICS document(s). The entries are in the form of y/x references, where y corresponds to the table number and x corresponds to the feature number as defined in the ICS document for RF [3].
+
+If a test case is mandatory within the respective layer, then the y/x reference is omitted.
+
+**Feature:** A brief, informal description of the feature being tested.
+
+**Test Case(s):** The applicable test case identifiers are required for Bluetooth Qualification if the corresponding y/x references defined in the Item column are supported. Further details about the function of the TCMT are elaborated in [2].
+
+For the purpose and structure of the ICS/IXIT, refer to [2].
 
 |**Item**|**Feature**|**Test Case(s)**|
-|---|---|---|
 |RF 1/9|Default GFSK RF Test|RF/TRM/CA/BV-01-C<br>RF/TRM/CA/BV-02-C<br>RF/TRM/CA/BV-04-C<br>RF/TRM/CA/BV-05-C<br>RF/TRM/CA/BV-06-C<br>RF/TRM/CA/BV-07-C<br>RF/TRM/CA/BV-08-C<br>RF/TRM/CA/BV-09-C<br>RF/RCV/CA/BV-01-C<br>RF/RCV/CA/BV-03-C<br>RF/RCV/CA/BV-04-C<br>RF/RCV/CA/BV-05-C<br>RF/RCV/CA/BV-06-C|
 |RF 1/4 AND<br>RF 1/9|Power Control|RF/TRM/CA/BV-03-C|
 |RF 1/9 AND<br>(RF 1/6 OR<br>RF 1/7)|Multi Slot|RF/RCV/CA/BV-02-C|
 |RF 1/10 OR<br>RF 1/11|Default EDR RF Test|RF/TRM/CA/BV-10-C<br>RF/TRM/CA/BV-11-C<br>RF/TRM/CA/BV-12-C<br>RF/TRM/CA/BV-13-C<br>RF/RCV/CA/BV-07-C<br>RF/RCV/CA/BV-08-C<br>RF/RCV/CA/BV-09-C<br>RF/RCV/CA/BV-10-C<br>RF/TRM/CA/BV-15-C<br>RF/TRM/CA/BV-16-C|
 |RF 1/12|Enhanced Power Control|RF/TRM/CA/BV-14-C|
 
-
-
-_Table 5.1: Test case mapping_ 
+_Table 5.1: Test case mapping_
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **50 of 63** 
+Page **50 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **6 Annex** 
+## **6 Annex**
 
-## **6.1 Reference Signal Definition** 
+## **6.1 Reference Signal Definition**
 
-If not stated differently in the corresponding test cases, the IUT always transmits at the maximum output power and the tester transmits with a power between -60 dBm and -40 dBm at the IUT receiver input. 
+If not stated differently in the corresponding test cases, the IUT always transmits at the maximum output power and the tester transmits with a power between -60 dBm and -40 dBm at the IUT receiver input.
 
-The modulated interfering signal is continuous modulated. 
+The modulated interfering signal is continuous modulated.
 
-A Bluetooth modulated signal used as “wanted signal” and “interfering signal” is defined as: 
+A Bluetooth modulated signal used as “wanted signal” and “interfering signal” is defined as:
 
-- Modulation = GFSK 
+- Modulation = GFSK
 
-- Modulation index = 0.32 1% 
+- Modulation index = 0.32 1%
 
-- BT= 0.5 1% 
+- BT= 0.5 1%
 
-- Bit Rate = 1 Mbps 1 ppm 
+- Bit Rate = 1 Mbps 1 ppm
 
-- 
+-
 
-   - Frequency accuracy better than 1 ppm 
+- Frequency accuracy better than 1 ppm
 
-- 
+-
 
-   - Free selectable Access Code 
+- Free selectable Access Code
 
-- Modulating Data for wanted signal = PRBS9 
+- Modulating Data for wanted signal = PRBS9
 
-- Modulating Data for interfering signal = PRBS15 
+- Modulating Data for interfering signal = PRBS15
 
-Additionally, the signal follows the ramp up as shown in Figure 6.1. 
+Additionally, the signal follows the ramp up as shown in Figure 6.1.
 
-- trampup is the time taken for the output power from the signal generator to increase from below -40 dB to with +/- 3 dB of the final output power x dBm. 
+- trampup is the time taken for the output power from the signal generator to increase from below -40 dB to with +/- 3 dB of the final output power x dBm.
 
-- tsettling is the time taken for the output power from the signal generator to reach to within better than +/1 dB of the final output power x dBm. 
+- tsettling is the time taken for the output power from the signal generator to reach to within better than +/1 dB of the final output power x dBm.
 
-- tPO is the time at which the first bit of the preamble begins. 
+- tPO is the time at which the first bit of the preamble begins.
 
 **==> picture [264 x 176] intentionally omitted <==**
 
 **----- Start of picture text -----**<br>
 trampup= 2 µs<br>tsettling= 4 µs<br>±1 dB<br>±3 dB<br>x dBm<br>-40 dB tP0<br>**----- End of picture text -----**<br>
 
+_Figure 6.1: Ramp-up profile of signal generator used in Bluetooth RF testing_
 
-_Figure 6.1: Ramp-up profile of signal generator used in Bluetooth RF testing_ 
-
-The lower limit of below –40 dB is very important since above this level, the signal would be of sufficient power to be detected by the receiver. 
+The lower limit of below –40 dB is very important since above this level, the signal would be of sufficient power to be detected by the receiver.
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **51 of 63** 
+Page **51 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **6.1.1 2 Mbps Reference Signal (EDR)** 
+## **6.1.1 2 Mbps Reference Signal (EDR)**
 
-A 2 Mbps Bluetooth signal used as "wanted" or "interfering signal" is defined as: 
+A 2 Mbps Bluetooth signal used as "wanted" or "interfering signal" is defined as:
 
-- Modulation: /4-DQPSK 
+- Modulation: /4-DQPSK
 
-- Symbol Rate = 1 Msym/s ±1 ppm 
+- Symbol Rate = 1 Msym/s ±1 ppm
 
-- Frequency accuracy better than ±1 ppm 
+- Frequency accuracy better than ±1 ppm
 
-- Modulating Data for wanted signal = PRBS9 
+- Modulating Data for wanted signal = PRBS9
 
-- Modulating Data for interfering signal = PRBS15 
+- Modulating Data for interfering signal = PRBS15
 
-- RMS Differential Error Vector Magnitude < 5% 
+- RMS Differential Error Vector Magnitude < 5%
 
-- Average power over the GFSK and DPSK portions of the packet is within ±1 dB 
+- Average power over the GFSK and DPSK portions of the packet is within ±1 dB
 
-## **6.1.2 3 Mbps Reference Signal (EDR)** 
+## **6.1.2 3 Mbps Reference Signal (EDR)**
 
-- A 3 Mbps Bluetooth signal used as “wanted” or “interfering signal” is defined as: 
+- A 3 Mbps Bluetooth signal used as “wanted” or “interfering signal” is defined as:
 
-- Modulation: 8DPSK 
+- Modulation: 8DPSK
 
-- Symbol Rate = 1 Msym/s ±1 ppm 
+- Symbol Rate = 1 Msym/s ±1 ppm
 
-- Frequency accuracy better than ±1 ppm 
+- Frequency accuracy better than ±1 ppm
 
-- Modulating Data for wanted signal = PRBS9 
+- Modulating Data for wanted signal = PRBS9
 
-- Modulating Data for interfering signal = PRBS15 
+- Modulating Data for interfering signal = PRBS15
 
-- RMS Differential Error Vector Magnitude < 5% 
+- RMS Differential Error Vector Magnitude < 5%
 
-- Average power over the GFSK and DPSK portions of the packet is within ±1 dB 
+- Average power over the GFSK and DPSK portions of the packet is within ±1 dB
 
-## **6.2 Frequencies for testing** 
+## **6.2 Frequencies for testing**
 
-## **6.2.1 Operating frequency bands** 
+## **6.2.1 Operating frequency bands**
 
-The Bluetooth system is operating in the 2.4 GHz ISM band. 
+The Bluetooth system is operating in the 2.4 GHz ISM band.
 
 |||
-|---|---|
 |**Regulatory Range**|**RF Channels used by Bluetooth**|
-|||
 |||
 |2400-2483.5 MHz|f =2402+k MHz, k = 0,…,78|
 |||
 
-
-
-_Table 6.1: Operating frequency bands_ 
+_Table 6.1: Operating frequency bands_
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **52 of 63** 
+Page **52 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **6.2.2 Frequencies for testing, loopback, hopping off** 
+## **6.2.2 Frequencies for testing, loopback, hopping off**
 
-Several test cases of this RF Test Suite make use of the Bluetooth test mode, loopback with hopping turned off. These test cases reference to this section and the IUT's receive and transmit frequencies are set according to Table 6.2 and Table 6.3: 
+Several test cases of this RF Test Suite make use of the Bluetooth test mode, loopback with hopping turned off. These test cases reference to this section and the IUT's receive and transmit frequencies are set according to Table 6.2 and Table 6.3:
 
-For transmit test cases: 
+For transmit test cases:
 
 |||||||
-|---|---|---|---|---|---|
 |**Low operating frequency**||**Mid operating**|**frequency**|**High operating frequency**||
 |||||||
-|||||||
 |**IUT fTX**|**IUT fRX**|**IUT fTX1**|**IUT fRX1**|**IUT fTX**|**IUT fRX**|
-|||||||
 |||||||
 |2402 MHz|2480 MHz|2441 MHz|2402 MHz|2480 MHz|2402 MHz|
 |||||||
 
+_Table 6.2: Frequencies for transmit test cases_
 
-
-_Table 6.2: Frequencies for transmit test cases_ 
-
-For receive test cases: 
+For receive test cases:
 
 |||||||
-|---|---|---|---|---|---|
 |**Low operating frequency**||**Mid operating**|**frequency**|**High operating frequency**||
 |||||||
-|||||||
 |**IUT fTX**|**IUT fRX**|**IUT fTX**|**IUT fRX**|**IUT fTX**|**IUT fRX**|
-|||||||
 |||||||
 |2480 MHz|2402 MHz|2402 MHz|2441 MHz|2402 MHz|2480 MHz|
 |||||||
 
+_Table 6.3: Frequencies for receive test cases_
 
+## **6.2.3 Frequencies for testing, TX-Test, hopping off**
 
-_Table 6.3: Frequencies for receive test cases_ 
-
-## **6.2.3 Frequencies for testing, TX-Test, hopping off** 
-
-Some test cases of this RF Test Suite make use of the Bluetooth test mode, TX-test, with hopping turned off. These test cases reference to this section and the IUT's transmit frequencies are set according to Table 6.4: 
+Some test cases of this RF Test Suite make use of the Bluetooth test mode, TX-test, with hopping turned off. These test cases reference to this section and the IUT's transmit frequencies are set according to Table 6.4:
 
 ||||
-|---|---|---|
 |**Low operating frequency**|**Mid operating frequency**|**High operating frequency**|
 ||||
-||||
 |**IUT fTX**|**IUT fTX**|**IUT fTX**|
-||||
 ||||
 |2402 MHz|2441 MHz|2480 MHz|
 ||||
 
+_Table 6.4: Frequencies TX-test, hopping off_
 
+## **6.3 Normal test conditions**
 
-_Table 6.4: Frequencies TX-test, hopping off_ 
+All test cases are performed under the following normal test conditions.
 
-## **6.3 Normal test conditions** 
+## **6.3.1 Normal temperature and humidity**
 
-All test cases are performed under the following normal test conditions. 
+The normal temperature and humidity conditions for tests are any convenient combination of temperature and humidity within the following ranges:
 
-## **6.3.1 Normal temperature and humidity** 
+- Temperature: +15°C to +35°C
 
-The normal temperature and humidity conditions for tests are any convenient combination of temperature and humidity within the following ranges: 
-
-- Temperature: +15°C to +35°C 
-
-- Relative humidity: 20% to 75% 
+- Relative humidity: 20% to 75%
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **53 of 63** 
+Page **53 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-The actual values during the tests are recorded in the test report. 
+The actual values during the tests are recorded in the test report.
 
-When it is impracticable to carry out the tests under these conditions, a note to this effect, stating the ambient temperature and relative humidity during the tests, is recorded in the test report. 
+When it is impracticable to carry out the tests under these conditions, a note to this effect, stating the ambient temperature and relative humidity during the tests, is recorded in the test report.
 
-## **6.3.2 Nominal Power source** 
+## **6.3.2 Nominal Power source**
 
-See Section A.1.2 in [1]. 
+See Section A.1.2 in [1].
 
-## **6.4 Bit error rate (BER) measurements** 
+## **6.4 Bit error rate (BER) measurements**
 
-BER measurements are carried out by comparing data in the payload fields transmitted by the tester with data in the payload fields received from the IUT. If the tester does not support the loop back method of measuring BER for 2 Mbps or 3 Mbps, it is allowed to use an alternative measurement method as specified in Section 6.2. 
+BER measurements are carried out by comparing data in the payload fields transmitted by the tester with data in the payload fields received from the IUT. If the tester does not support the loop back method of measuring BER for 2 Mbps or 3 Mbps, it is allowed to use an alternative measurement method as specified in Section 6.2.
 
-Payload as used in this Test Suite will mean the IUT transmitted data. Only Payload data is counted for the BER measurement. The Payload header and Payload CRC are ignored. 
+Payload as used in this Test Suite will mean the IUT transmitted data. Only Payload data is counted for the BER measurement. The Payload header and Payload CRC are ignored.
 
-If the IUT is unable to loop back a packet (e.g., sync not found or header check fails), this packet is disregarded from the BER measurement. The IUT regenerates the payload CRC based on the actual received payload bits. 
+If the IUT is unable to loop back a packet (e.g., sync not found or header check fails), this packet is disregarded from the BER measurement. The IUT regenerates the payload CRC based on the actual received payload bits.
 
-Let the number of payload bits counted in error be , let the number of payload bits received (via loop back) from the IUT be , then: 
+Let the number of payload bits counted in error be , let the number of payload bits received (via loop back) from the IUT be , then:
 
-## γ BER= ξ 
+## γ BER= ξ
 
-For BER sensitivity testing and floor testing an Early Exit option applies. If the early exit option is exercised the required number of bits () and BER Limit are given in Table 6.5 and Table 6.6. 
+For BER sensitivity testing and floor testing an Early Exit option applies. If the early exit option is exercised the required number of bits () and BER Limit are given in Table 6.5 and Table 6.6.
 
 |||
-|---|---|
 |**BER Limit**||
 |||
-|||
 |7•10-5|1 600 000|
-|||
 |||
 |7•10-6|8 000 000|
 |||
 
+_Table 6.5: Number of Bits for BER Limit with Early Exit_
 
-
-_Table 6.5: Number of Bits for BER Limit with Early Exit_ 
-
-For the following BER limits the following values of  apply: 
+For the following BER limits the following values of  apply:
 
 |||
-|---|---|
 |**BER Limit**||
-|||
 |||
 |10-3|1 600 000|
 |||
-|||
 |10-4|16 000 000|
-|||
 |||
 |10-5|160 000 000|
 |||
 
-
-
-_Table 6.6: Number of Bits for BER Limit without Early Exit_ 
+_Table 6.6: Number of Bits for BER Limit without Early Exit_
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **54 of 63** 
+Page **54 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **6.5 Definition of the position of Bit p0** 
+## **6.5 Definition of the position of Bit p0**
 
-The start of bit p0, which is the first preamble bit, is defined to occur at the point in time 68 bit periods before the instant at which the modulated carrier passes through the nominal channel frequency immediately prior to the deviation corresponding to the first bit of the Access Code trailer for the IUT as defined in the Baseband Specification Section 4.2. 
+The start of bit p0, which is the first preamble bit, is defined to occur at the point in time 68 bit periods before the instant at which the modulated carrier passes through the nominal channel frequency immediately prior to the deviation corresponding to the first bit of the Access Code trailer for the IUT as defined in the Baseband Specification Section 4.2.
 
-The position of the start of bit p0 is calculated using an averaging based on the position of all the zero crossings in the packet: 
+The position of the start of bit p0 is calculated using an averaging based on the position of all the zero crossings in the packet:
 
-For the **m** zero crossings in the packet, the **i'th** zero crossing time is **t(i)** in s; this is the start of bit **p(i)** . 
+For the **m** zero crossings in the packet, the **i'th** zero crossing time is **t(i)** in s; this is the start of bit **p(i)** .
 
-(1 <= **i** <= **m** ). 
+(1 <= **i** <= **m** ).
 
-The start of bit p0 is then: 
+The start of bit p0 is then:
 
 **==> picture [112 x 22] intentionally omitted <==**
 
-with bit time is 1s. 
+with bit time is 1s.
 
-## **6.6 Definition of the reference sensitivity level** 
+## **6.6 Definition of the reference sensitivity level**
 
-The reference sensitivity level is defined as –70 dBm. 
+The reference sensitivity level is defined as –70 dBm.
 
-## **6.7 Antenna gain** 
+## **6.7 Antenna gain**
 
-If it is necessary for Regulatory test purposes the TX peak antenna gain is used and declared by the manufacturer. 
+If it is necessary for Regulatory test purposes the TX peak antenna gain is used and declared by the manufacturer.
 
-## **6.8 Measurement Uncertainty** 
+## **6.8 Measurement Uncertainty**
 
-The following values of measurement uncertainty associated with each measurement parameter apply to all the test cases described in this RF Test Suite. 
+The following values of measurement uncertainty associated with each measurement parameter apply to all the test cases described in this RF Test Suite.
 
-The measurement uncertainties of the used measurement equipment is equal or better than what is described below. The verdicts of the TCs consider already these measurement uncertainties.” 
+The measurement uncertainties of the used measurement equipment is equal or better than what is described below. The verdicts of the TCs consider already these measurement uncertainties.”
 
-## **6.8.1 Conducted measurements:** 
+## **6.8.1 Conducted measurements:**
 
-- Absolute RF power (wanted channel):  1.2 dB 
+- Absolute RF power (wanted channel):  1.2 dB
 
-- Absolute RF power (for unwanted emissions in the BT band) :  3 dB 
+- Absolute RF power (for unwanted emissions in the BT band) :  3 dB
 
-- Absolute RF power (for unwanted emissions outside the BT band) :  3 dB,  4 dB for frequencies above 4 GHz 
+- Absolute RF power (for unwanted emissions outside the BT band) :  3 dB,  4 dB for frequencies above 4 GHz
 
-## **6.8.2 Relative RF power** 
+## **6.8.2 Relative RF power**
 
-- Relative RF power:  1 dB 
+- Relative RF power:  1 dB
 
-## **6.8.3 Radiated measurements** 
+## **6.8.3 Radiated measurements**
 
-- Absolute RF power (wanted channel) :  6dB 
+- Absolute RF power (wanted channel) :  6dB
 
-- Radiated emissions (for unwanted emissions):  6dB 
-
-**==> picture [17 x 23] intentionally omitted <==**
-
-Bluetooth SIG Proprietary 
-
-Page **55 of 63** 
-
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
-
-## **6.8.4 Absolute radio frequency** 
-
-- Absolute radio frequency:  5 kHz 
-
-## **6.8.5 Relative drift radio frequency** 
-
-- Relative drift radio frequency:  1 kHz 
-
-## **6.8.6 Peak frequency deviation** 
-
-- Peak frequency deviation:  4 kHz 
+- Radiated emissions (for unwanted emissions):  6dB
 
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **56 of 63** 
+Page **55 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
-## **7 Revision histor and acknowled ments y g** 
+## **6.8.4 Absolute radio frequency**
 
-## _**Revision History**_ 
+- Absolute radio frequency:  5 kHz
+
+## **6.8.5 Relative drift radio frequency**
+
+- Relative drift radio frequency:  1 kHz
+
+## **6.8.6 Peak frequency deviation**
+
+- Peak frequency deviation:  4 kHz
+
+**==> picture [17 x 23] intentionally omitted <==**
+
+Bluetooth SIG Proprietary
+
+Page **56 of 63**
+
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
+
+## **7 Revision histor and acknowled ments y g**
+
+## _**Revision History**_
 
 |**Publication**<br>**Number**|**Revision**<br>**Number**|**Date**|**Comments**|
-|---|---|---|---|
 ||D5r3|2003-11-05|Original Release|
 ||D10R00|2004-03-03|Re-partitioned to match Main Specification<br>Volume/Partpartitioning.|
 ||1.2.1|2004-03-25|Editorial changes. Changed document numbering and<br>revision number to conform with legacysystem.|
@@ -3079,18 +2955,15 @@ Page **56 of 63**
 |15|2.1.E.2|2008-04-30|TSE 2099: RCV/CA/BV-01-C,RCV/CA/BV-02-C,<br>RCV/CA/BV-07-C clarification of timing symbol<br>TSE 2416: TRM/CA/BV-01-C: change hopping to<br>optional|
 ||2.1.E.3r0|2008-11-05|TSE 2473: RCV/CA/BV-03-C, RCV/CA/BV-09-C: Test<br>condition update<br>TSE 2482: TRM/CA/BV-13-C: Update Expected<br>Outcome|
 
-
-
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **57 of 63** 
+Page **57 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
 |**Publication**<br>**Number**|**Revision**<br>**Number**|**Date**|**Comments**|
-|---|---|---|---|
 ||||TSE 2492: RCV/CA/BV-03-C: Remove column in<br>Table 5.7<br>TSE 2505: TRM/CA/BV-01-C, TRM/CA/BV-02-C. Add<br>clarification to Notes.|
 |16|21.E.3|2008-12-08|Prepare forpublication.|
 ||2.1.E.4r0|2009-02-22|New test case TRM/CA/BV-14-C for EPC<br>Updated TCMT to match TPG|
@@ -3099,26 +2972,23 @@ Page **57 of 63**
 |18|3.0.H.1|2009-08-06|Prepare forpublication.|
 ||4.0.2.r0|2010-12-12|TSE 3153: TRM/CA/BV-14-C: update Test procedure.<br>TSE 3154: TRM/CA/BV-01-C, TRM/CA/BV-03-C,<br>TRM/CA/BV-14-C: update test procedure<br>TSE 3156: TRM/CA/BV-01-C, TRM/CA/BV-03-C:<br>update test procedure<br>TSE 3195: TRM/CA/BV-14-C: update test procedure<br>TSE 3285: TRM/CA/BV-05-C: fix spectrum expression<br>TSE 3407: RCV/CA/BV-03-C, RCV/CA/BV-09-C:<br>update Expected outcome<br>TSE 3409: TRM/CA/BV-09-C: Update Expect<br>Outcome<br>TSE 3455: TRM/CA/BV-05-C: see TSE 3285<br>TSE 3678: Section 6.5.2|
 |19|4.0.2|2011-07-18|Prepare forpublication.|
-||4.0.3r0|2012-09-06|TSE 4907: Change to test procedure 5.1.8  add, "AND<br>skip to next frequency if the increased frequency<br>equals to fTX or "fTX - 1MHz" or "fTX + 1MHz".|
+||4.0.3r0|2012-09-06|TSE 4907: Change to test procedure 5.1.8 add, "AND<br>skip to next frequency if the increased frequency<br>equals to fTX or "fTX - 1MHz" or "fTX + 1MHz".|
 ||4.0.3r1|2012-10-22|Addedpage breaks for new main sections.|
 |20|4.0.3|2012-11-12|Prepare for Publication|
 ||4.1.0|2013-11-11|Updated revision to 4.1.0<br>Updated references to include version 4.1<br>Updated topsheet to include version 4.1|
 |21|4.1.0|2013-12-03|Prepare for Publication|
 ||4.1.0 –<br>Template<br>Conversion|2014-01-22|Template Conversion into Template_TS_2014r01|
 
-
-
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **58 of 63** 
+Page **58 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
 |**Publication**<br>**Number**|**Revision**<br>**Number**|**Date**|**Comments**|
-|---|---|---|---|
-||4.1.1r00|2014-01-22|TSE 5506: Correctly formatted the TC IDs for<br>TRM/CA/BV-01-C,  TRM/CA/BV-02-C,  TRM/CA/BV-<br>03-C,  TRM/CA/BV-04-C,  TRM/CA/BV-05-C,<br>TRM/CA/BV-06-C,  TRM/CA/BV-07-C,  TRM/CA/BV-<br>08-C,  TRM/CA/BV-09-C,  TRM/CA/BV-10-C,<br>TRM/CA/BV-11-C,  TRM/CA/BV-12-C,  TRM/CA/BV-<br>13-C,  TRM/CA/BV-14-C,  RCV/CA/BV-01-C,<br>RCV/CA/BV-02-C,  RCV/CA/BV-03-C,  RCV/CA/BV-<br>04-C,  RCV/CA/BV-05-C,  RCV/CA/BV-06-C,<br>RCV/CA/BV-07-C,  RCV/CA/BV-08-C,  RCV/CA/BV-<br>09-C,  RCV/CA/BV-10-C.|
+||4.1.1r00|2014-01-22|TSE 5506: Correctly formatted the TC IDs for<br>TRM/CA/BV-01-C, TRM/CA/BV-02-C, TRM/CA/BV-<br>03-C, TRM/CA/BV-04-C, TRM/CA/BV-05-C,<br>TRM/CA/BV-06-C, TRM/CA/BV-07-C, TRM/CA/BV-<br>08-C, TRM/CA/BV-09-C, TRM/CA/BV-10-C,<br>TRM/CA/BV-11-C, TRM/CA/BV-12-C, TRM/CA/BV-<br>13-C, TRM/CA/BV-14-C, RCV/CA/BV-01-C,<br>RCV/CA/BV-02-C, RCV/CA/BV-03-C, RCV/CA/BV-<br>04-C, RCV/CA/BV-05-C, RCV/CA/BV-06-C,<br>RCV/CA/BV-07-C, RCV/CA/BV-08-C, RCV/CA/BV-<br>09-C, RCV/CA/BV-10-C.|
 ||4.1.1r01|2014-05-09|Review by Dan Ralley:<br>- Added hyperlinks to references within the document|
 ||4.1.1r02|2014-05-21|Review by Siegfried Lehmann:<br>Corrected revision history for 5506.<br>Updated ToC and TCMT for new format.|
 ||4.2.0r00|2014-11-24|Revved to 4.2.0 to align with Core Specification<br>Version 4.2 Release.<br>Updated Test Case numbering convention to match<br>convention in TCRL.|
@@ -3129,18 +2999,15 @@ Page **58 of 63**
 ||4.2.1r02|2015-05-21|Integrated review from Dave Richter – editorial<br>changes|
 ||4.2.1r03|2015-06-03|Further editorial review continuing changes made at<br>4.2.1r00.|
 
-
-
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **59 of 63** 
+Page **59 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
 |**Publication**<br>**Number**|**Revision**<br>**Number**|**Date**|**Comments**|
-|---|---|---|---|
 |23|4.2.1|2015-07-14|Prepared for TCRL 2015-1publication|
 ||4.2.2r00|2015-10-14|TSE 6584: Simplified initial condition regarding<br>coupling device for consistency between tests. Affects<br>TP/TRM/CA/BV-01-C, TP/TRM/CA/BV-14-C,<br>TP/RCV/CA/BV-01-C, TP/RCV/CA/BV-02-C,<br>TP/RCV/CA/BV-03-C, TP/RCV/CA/BV-04-C,<br>TP/RCV/CA/BV-05-C, TP/RCV/CA/BV-06-C. Also<br>corrected typos in TP/TRM/CA/BV-02-C.<br>TSE 6550: Corrected missing header formatting issue<br>by making Extreme test conditions a level 2 header<br>(now Section 6.5).<br>TSE 6507: Added note to TP/TRM/CA/BV-02-C to<br>perform test at each supported power class. All other<br>tests: added note to perform test at highest supported<br>power class.|
 |24|4.2.2|2015-12-22|Prepared for TCRL 2015-2publication|
@@ -3152,18 +3019,15 @@ Page **59 of 63**
 |26|5.0.0|2016-12-13|Approved by BTI. Prepared for TCRL 2016-2<br>publication.|
 ||5.0.1r00|2017-03-07|TSE 8138: Moved TP/PHYS/TRX/BV-06-C EDR<br>Guard Time<br>TP/PHYS/TRX/BV-07-C EDR Synchronization<br>Sequence and Trailer from the BB.TS to the RF.TS.<br>Renamed TP/PHYS/TRX/BV-06-C to<br>RF/TRM/CA/BV-15-C, TP/PHYS/TRX/BV-07-C to<br>RF/TRM/CA/BV-16-C.|
 
-
-
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **60 of 63** 
+Page **60 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
 |**Publication**<br>**Number**|**Revision**<br>**Number**|**Date**|**Comments**|
-|---|---|---|---|
 ||5.0.1r01|2017-03-26|TSE 8334: Modify Initial Condition in RF/TRM/CA/BV-<br>01-C [Output Power] FROM (2nd bullet item which<br>currently says) "Hopping on"<br>TO "IUT hoppingon or off".|
 ||5.0.1r02|2017-05-16|Incorporate further BTI review comments. Modify the<br>Change History for TSE 8334 after reviews identified<br>the initial changes were wrongly incorporated.<br>Converted to new Test Case ID conventions as<br>defined in TSTO v4.1.|
 |27|5.0.1|2017-07-05|Approved by BTI. Prepared for TCRL 2017-1<br>publication.|
@@ -3177,18 +3041,15 @@ Page **60 of 63**
 ||p30e2|2020-01-27|Approved by BTI on 2019-01-27. Prepared for<br>edition 2publication.|
 ||p31r00–r05|2020-01-31 –<br>2021-03-11|TSE 12811 (rating 1): Removed “Extreme test<br>conditions” section from the Annex; that type of<br>testing is no longer required in the spec.<br>TSE 13594 (rating 2): Updated test steps and added a<br>frequency column to the power levels/frequency table<br>for test case RF/RCV/CA/BV-04-C to harmonize with<br>content in the RF-PHY layer.<br>TSE 15087 (rating 1): Concatenated like items in the<br>TCMT in the same rows.<br>TSE 15230 (rating 1): Removed previous Sections 4.2<br>and 6.2 to vet obsolete information regarding<br>provisional RF testing.<br>TSE 15249 (rating 1): Updated IXIT items throughout<br>the doc to align with changes made to the Core.IXIT.<br>Template-related editorials. Formatting fixes made by<br>Magnus in interim checkins of r01 (to fix IXIT<br>references)and r05(to fix sub/superscript text).|
 
-
-
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **61 of 63** 
+Page **61 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
 |**Publication**<br>**Number**|**Revision**<br>**Number**|**Date**|**Comments**|
-|---|---|---|---|
 |31|p31|2021-07-13|Approved by BTI on 2021-06-27. Prepared for<br>TCRL 2021-1publication.|
 ||p32r00–r02|2021-10-13 –<br>2021-10-18|TSE 17648 (rating 1): Updated test purpose for<br>RF/TRM/CA/BV-01-C.<br>TSE 17649 (rating 2): Corrected a typo in<br>RF/TRM/CA/BV-02-C and revised its test procedure<br>to fix the span measurement.<br>TSE 17726(rating1): Updated Acknowledgments list.|
 |32|p32|2022-01-25|Approved by BTI on 2021-12-27. Prepared for<br>TCRL 2021-2publication.|
@@ -3201,36 +3062,27 @@ Page **61 of 63**
 ||p35r00–r02|2024-11-01 –<br>2024-12-11|TSE 25102 (rating 2): Per E25101, updated<br>requirements wording by updating the initial condition<br>and test procedure for RF/TRM/CA/BV-01-C – -13-C,<br>updating the test procedure for RF/TRM/CA/BV-14-C,<br>and updating the pass verdict for RF/TRM/CA/BV-01-<br>C.<br>TSE 25104 (rating 1): Updated RF/RCV/CA/BV-09-C<br>to move the test procedure's last step to the test<br>procedure's introduction.<br>TSE 25145 (rating 1): Added a reference to the<br>References list. Added a "Packet sensitivity" section<br>to the "Receiver" section and moved RF/RCV/CA/BV-<br>01-C and RF/RCV/CA/BV-02-C to it. Added a<br>"Sensitivity bit error rate section" to the "Receiver"<br>section and moved RF/RCV/CA/BV-07-C and<br>RF/RCV/CA/BV-08-C to it.<br>TSE 25483 (rating 2): Updated pass verdict for<br>RF/TRM/CA/BV-01-C.<br>TSE 26598 (rating 1): Updated test doc title to better<br>align with the associated spec.|
 |35|p35|2025-02-18|Approved by BTI on 2024-12-26. Prepared for<br>TCRL 2025-1publication.|
 
-
-
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **62 of 63** 
+Page **62 of 63**
 
-**BR/EDR Radio Physical Layer (RF)  /** Test Suite 
+**BR/EDR Radio Physical Layer (RF) /** Test Suite
 
 |**Publication**<br>**Number**|**Revision**<br>**Number**|**Date**|**Comments**|
-|---|---|---|---|
 ||p36r00|2025-07-30|TSE 25103 (rating 2): Corrected the initial condition,<br>updated the test procedure, and removed the Notes<br>from RF/TRM/CA/BV-08-C and -09-C.<br>TSE 27283 (rating 3): Added an additional Pass<br>verdict to RF/TRM/CA/BV-01-C.|
 |36|p36|2025-11-04|Approved by BTI on 2025-10-05. Prepared for TCRL<br>pkg101publication.|
 
-
-
-## _**Acknowledgments**_ 
+## _**Acknowledgments**_
 
 |**Name**|**Company**|
-|---|---|
 |Totti Huang|Attestation of Global Compliance(Shenzhen)Co., Ltd.|
 |Magnus Sommansson|Cambridge Silicon Radio|
 |ZhangZhiwei|China Academyof Information and Communications Technology|
 
-
-
 **==> picture [17 x 23] intentionally omitted <==**
 
-Bluetooth SIG Proprietary 
+Bluetooth SIG Proprietary
 
-Page **63 of 63** 
-
+Page **63 of 63**

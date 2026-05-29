@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0051",
+    "cases": [
+        {
+            "case_id": "thread_0051_case_03",
+            "iut_type": "TV",
+            "customer_question": "How does the QPRDv4 IOPT effective date affect Bluetooth qualification testing requirements and project cost?",
+            "question_variants": [
+                "What changes after QPRDv4 IOPT enforcement?",
+                "Can IOPT testing be avoided before November 10 2025?",
+                "When do new IOPT profile tests become mandatory?",
+                "How does registration timing affect Bluetooth testing scope?",
+                "QPRDv4 IOPT transition impact",
+                "Can profile testing be avoided by early registration?"
+            ],
+            "actual_issue": "New QPRDv4 IOPT requirements becoming effective on November 10, 2025 would introduce additional mandatory profile-related interoperability testing unless registration was completed before the enforcement date.",
+            "plain_english_explanation": "The Bluetooth SIG qualification rules were changing to require new IOPT tests for many classic Bluetooth profiles. The consultant recognized that the project could avoid those new tests if the qualification registration was completed before the enforcement deadline. Timing therefore became a critical project planning factor.",
+            "consultant_answer": "The consultant explained that QPRDv4 introduced new IOPT testing requirements for multiple profiles including A2DP, AVRCP, HFP, HSP, MAP, OPP, PAN, PBAP, SPP, DID, and HID11. Because publication dates could now be scheduled up to 180 days in advance, registration submitted before November 10, 2025 could avoid both RF/RF PHY retesting and the new IOPT profile tests. Registrations after that date would require additional IOPT testing and associated project cost.",
+            "decision_logic": "Qualification obligations are determined by the effective rules active at the time of registration submission. If the project can be submitted before a new enforcement date while still using valid inherited qualification evidence, newly introduced mandatory tests can be avoided.",
+            "final_recommendation": "Complete Bluetooth SIG registration submission before the QPRDv4 IOPT effective date to avoid additional mandatory IOPT profile testing.",
+            "risk_if_done_wrong": "Submitting after the enforcement date would trigger additional mandatory IOPT testing for multiple profiles and increase project cost and qualification effort.",
+            "bluetooth_tags": [
+                "qualification",
+                "QPRD",
+                "IOPT",
+                "profile",
+                "listing",
+                "Classic"
+            ],
+            "search_aliases": [
+                "QPRDv4 IOPT",
+                "IOPT effective date",
+                "November 10 2025",
+                "avoid IOPT",
+                "registration timing",
+                "future compatibility testing",
+                "SDP future compatibility",
+                "profile interoperability test",
+                "pre-deadline registration"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

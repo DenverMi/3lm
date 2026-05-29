@@ -1,5 +1,3 @@
-![](_page_0_Picture_1.jpeg)
-
 # Portfolio Certification Program
 
 Addendum to Alliance Certification Policy
@@ -18,32 +16,31 @@ The above notice and this paragraph must be included on all copies of this docum
 
 ## Contents
 
-| 1.<br>2                                                                  |    |
-|--------------------------------------------------------------------------|----|
-| 1<br>Scope                                                               | 2  |
-| 2<br>Term of Program                                                     | 3  |
-| 1.<br>2.1 Revision history                                               | 3  |
-| 3<br>References                                                          | 3  |
-| 4<br>Abbreviations and Terminology                                       | 3  |
-| 5<br>Portfolio Certification Program                                     | 4  |
-| 5.1<br>Requirements for Portfolio membership                             | 4  |
-| 5.1.1<br>PICS subset                                                     | 5  |
-| 5.1.2<br>Superset Device Types                                           | 6  |
-| 5.1.3<br>Composed Device Types                                           | 9  |
-| 5.1.4<br>Compound Devices                                                | 11 |
-| 1.<br>15                                                                 |    |
+| 1.<br>2 | |
+| 1<br>Scope | 2 |
+| 2<br>Term of Program | 3 |
+| 1.<br>2.1 Revision history | 3 |
+| 3<br>References | 3 |
+| 4<br>Abbreviations and Terminology | 3 |
+| 5<br>Portfolio Certification Program | 4 |
+| 5.1<br>Requirements for Portfolio membership | 4 |
+| 5.1.1<br>PICS subset | 5 |
+| 5.1.2<br>Superset Device Types | 6 |
+| 5.1.3<br>Composed Device Types | 9 |
+| 5.1.4<br>Compound Devices | 11 |
+| 1.<br>15 | |
 | 5.1.4.1<br>Compound Devices including Matter Software Component features | 15 |
-| 5.2<br>Portfolio Certification Policy                                    | 16 |
-| 5.3<br>Portfolio Certification Guidelines                                | 18 |
-| 5.4<br>Portfolio Certification Procedure                                 | 18 |
-| 5.4.1<br>Initial Procedure for submission for a Portfolio Certification  | 18 |
-| 5.4.2<br>Procedure to extend a Portfolio Certification                   | 18 |
-| 5.4.3<br>Procedure to re-certify a Portfolio                             | 19 |
-| 5.5<br>Portfolio Certification vs Certification Transfer Program         | 19 |
-| 6<br>Appendix A – Superset Device Types for Zigbee                       | 20 |
-| 6.1<br>Definition of Superset Device Type for Zigbee                     | 20 |
-| 6.2<br>Zigbee Superset Device Types                                      | 20 |
-| 7<br>Appendix B – Zigbee examples of compound devices                    | 21 |
+| 5.2<br>Portfolio Certification Policy | 16 |
+| 5.3<br>Portfolio Certification Guidelines | 18 |
+| 5.4<br>Portfolio Certification Procedure | 18 |
+| 5.4.1<br>Initial Procedure for submission for a Portfolio Certification | 18 |
+| 5.4.2<br>Procedure to extend a Portfolio Certification | 18 |
+| 5.4.3<br>Procedure to re-certify a Portfolio | 19 |
+| 5.5<br>Portfolio Certification vs Certification Transfer Program | 19 |
+| 6<br>Appendix A – Superset Device Types for Zigbee | 20 |
+| 6.1<br>Definition of Superset Device Type for Zigbee | 20 |
+| 6.2<br>Zigbee Superset Device Types | 20 |
+| 7<br>Appendix B – Zigbee examples of compound devices | 21 |
 
 ## <span id="page-1-0"></span>1.
 
@@ -69,10 +66,9 @@ The Test and Certification Oversight Committee (TCOC), in collaboration with the
 
 #### 1. 2.1 Revision history
 
-| Revision # | Date       | History                                                                                 |
-|------------|------------|-----------------------------------------------------------------------------------------|
-| 1          | 2024-11-04 | Initial version                                                                         |
-| 2          | 2025-06-18 | Added clarification for application of this certification program to<br>Zigbee products |
+| Revision # | Date | History |
+| 1 | 2024-11-04 | Initial version |
+| 2 | 2025-06-18 | Added clarification for application of this certification program to<br>Zigbee products |
 
 ## <span id="page-2-2"></span>3 REFERENCES
 
@@ -82,20 +78,18 @@ The Test and Certification Oversight Committee (TCOC), in collaboration with the
 ## <span id="page-2-3"></span>4 ABBREVIATIONS AND TERMINOLOGY
 
 | Alliance | Connectivity Standards Alliance |
-|----------|---------------------------------|
-| ATL      | Authorized Test Laboratory      |
-| BoD      | Board of Directors              |
-| CSA      | Connectivity Standards Alliance |
-| DoC      | Declaration of Conformity       |
+| ATL | Authorized Test Laboratory |
+| BoD | Board of Directors |
+| CSA | Connectivity Standards Alliance |
+| DoC | Declaration of Conformity |
 
-| Member  | An Alliance member company                                        |
-|---------|-------------------------------------------------------------------|
-| Program | Portfolio Certification Program                                   |
-| SC      | Steering Committee                                                |
-| SWC     | Software Component                                                |
-| TCOC    | Test and Certification Oversight Committee                        |
-| Vendor  | An Alliance member company that produces/sells certified products |
-| WG      | Working Group                                                     |
+| Member | An Alliance member company |
+| Program | Portfolio Certification Program |
+| SC | Steering Committee |
+| SWC | Software Component |
+| TCOC | Test and Certification Oversight Committee |
+| Vendor | An Alliance member company that produces/sells certified products |
+| WG | Working Group |
 
 ## <span id="page-3-0"></span>5 PORTFOLIO CERTIFICATION PROGRAM
 
@@ -129,45 +123,39 @@ This Portfolio Certification program allows for variation in functionality of th
 
 The PICS for each portfolio member shall be identical to, or a subset of, the PICS of the Parent Product. All PICS items are Boolean values ("does the product support feature ABC?"). The following table indicates which combination of PICS values for parent and portfolio member(s) are allowed to qualify as "PICS subset".
 
-| PICS item<br>for parent | PICS item for<br>portfolio<br>member | Allowed for<br>Portfolio? | Explanation                                        |
-|-------------------------|--------------------------------------|---------------------------|----------------------------------------------------|
-| Y                       | Y                                    | yes                       | Parent and portfolio member both support a feature |
-| Y                       | N                                    | yes                       | Parent supports a feature,                         |
-|                         |                                      |                           | portfolio member does not support a feature        |
-| N                       | Y                                    | no                        | Parent does not support a feature,                 |
-|                         |                                      |                           | while portfolio member supports a feature          |
+| PICS item<br>for parent | PICS item for<br>portfolio<br>member | Allowed for<br>Portfolio? | Explanation |
+| Y | Y | yes | Parent and portfolio member both support a feature |
+| Y | N | yes | Parent supports a feature, |
+| | | | portfolio member does not support a feature |
+| N | Y | no | Parent does not support a feature, |
+| | | | while portfolio member supports a feature |
 
 In addition to the Boolean PICS items, there are PIXIT items which can have non-Boolean values. Portfolio members should have identical PIXIT values.
 
 *Example 1*: Acme makes laundry dryers where some products (LD1) allow the user to set the wanted dryness level via Matter (cluster Laundry Dryer Controls), while others (LD2) do not expose this functionality via Matter (e.g. only via a knob on the product itself). The parent product LD1 is the one which includes the Laundry Dryer Controls cluster in its PICS and has enabled it in its firmware, while portfolio member LD2 has a configuration to not expose this cluster and has a "N" for this cluster in its PICS. Therefore, the PICS for LD2 is a subset of the pics of LD1 and the portfolio concept may be applied to this group of products.
 
-|                                | PICS for LD1 | PICS for LD2 |
-|--------------------------------|--------------|--------------|
-| Laundry Dryer Controls cluster | Y            | N            |
+| | PICS for LD1 | PICS for LD2 |
+| Laundry Dryer Controls cluster | Y | N |
 
 *Example 2A*: Acme makes door lock products D1 and D2 where D1 allows unlocking via PIN code (but not RFID tag), and D2 allows unlocking via RFID tag (but not PIN code). D1 and D2 have the same firmware, with appropriate configuration to enable/disable the features for a particular product. In the PICS for D1, the PIN feature (in the Matter Door Lock cluster) is enabled, and the RID feature is disabled. In the PICS for D2, the PIN feature is disabled, and the RID feature is enabled. This means
 
 PICS for D1 is not a subset of the PICS of D2; also, the PICS for D2 is not a subset of the PICS of D1. Therefore, D1 and D2 cannot be a portfolio, since neither can be a parent of the other.
 
-|             | PICS for D1 | PICS for D2 |
-|-------------|-------------|-------------|
-| PIN feature | Y           | N           |
-| RID feature | N           | Y           |
+| | PICS for D1 | PICS for D2 |
+| PIN feature | Y | N |
+| RID feature | N | Y |
 
 *Example 2B*: Acme adds a new design , door lock D3 which allows unlocking both via PIN code and RFID tag recognition – reusing the same firmware as used in D1 and D2. This allows D3 to be the parent of a portfolio with D1 and D2 as members since the PICS for D1 and D2 are a subset of the PICS for D3.
 
-|             | PICS for D1 | PICS for D2 | PICS for D3 |
-|-------------|-------------|-------------|-------------|
-| PIN feature | Y           | N           | Y           |
-| RID feature | N           | Y           | Y           |
+| | PICS for D1 | PICS for D2 | PICS for D3 |
+| PIN feature | Y | N | Y |
+| RID feature | N | Y | Y |
 
 The figures below show the endpoints, device types and clusters used in these example devices:
 
-![](_page_5_Figure_6.jpeg)
-
 #### <span id="page-5-0"></span>5.1.2 Superset Device Types
 
-Some Alliance-defined standards support the concept of superset device types, where the superset device type is a device type that is functionally similar to a subset device type and has an overlap in its cluster requirements with a subset device type. The Matter Specification defines the Superset Device Type (Matter Specification, Data Model section "Superset Device Types" and Device Library). Zigbee has a similar concept, albeit implicit in the current Zigbee specification text and detailed in [Appendix A – Superset Device Types for Zigbee](#page-19-0) of this document . This is due to be made explicit in an upcoming Zigbee specification release.
+Some Alliance-defined standards support the concept of superset device types, where the superset device type is a device type that is functionally similar to a subset device type and has an overlap in its cluster requirements with a subset device type. The Matter Specification defines the Superset Device Type (Matter Specification, Data Model section "Superset Device Types" and Device Library). Zigbee has a similar concept, albeit implicit in the current Zigbee specification text and detailed in Appendix A – Superset Device Types for Zigbee of this document . This is due to be made explicit in an upcoming Zigbee specification release.
 
 This concept is used for example in the hierarchy of lighting device types:
 
@@ -181,19 +169,14 @@ Products which satisfy the subset rules for PICS (see section 5.1.1) and which h
 
 From the table, it is clear that L1 is the parent of this portfolio since its PICS is a superset of all the other ones. Note that L2 could not be the parent since L1 is more capable than L2 (as can be observed from the PICS item for the HS feature).
 
-|                                       | PICS for<br>L1 | PICS for<br>L2 | PICS for<br>L3       | PICS for<br>L4 | PICS for<br>L5 |
-|---------------------------------------|----------------|----------------|----------------------|----------------|----------------|
-| Device Type                           | Extended       | Extended       | Color                | Dimmable       | On/Off         |
-|                                       | Color<br>Light | Color<br>Light | Temperature<br>Light | Light          | Light          |
-| Color Control cluster with XY feature | Y              | Y              | N                    | N              | N              |
-| Color Control cluster with HS feature | Y              | N              | N                    | N              | N              |
-| Color Control cluster with CT feature | Y              | Y              | Y                    | N              | N              |
-| Level Control cluster                 | Y              | Y              | Y                    | Y              | N              |
-| On/Off cluster                        | Y              | Y              | Y                    | Y              | Y              |
-
-![](_page_6_Figure_6.jpeg)
-
-![](_page_8_Figure_2.jpeg)
+| | PICS for<br>L1 | PICS for<br>L2 | PICS for<br>L3 | PICS for<br>L4 | PICS for<br>L5 |
+| Device Type | Extended | Extended | Color | Dimmable | On/Off |
+| | Color<br>Light | Color<br>Light | Temperature<br>Light | Light | Light |
+| Color Control cluster with XY feature | Y | Y | N | N | N |
+| Color Control cluster with HS feature | Y | N | N | N | N |
+| Color Control cluster with CT feature | Y | Y | Y | N | N |
+| Level Control cluster | Y | Y | Y | Y | N |
+| On/Off cluster | Y | Y | Y | Y | Y |
 
 #### <span id="page-8-0"></span>5.1.3 Composed Device Types
 
@@ -203,18 +186,15 @@ In Composed Device Types, the Device Type ID of the product indicates a device t
 
 *Example 4*: Acme makes a number of refrigerator products, based on the same Matter firmware but offering different features. The parent R1 has two compartments (freezer and cooler), each with a temperature sensor. R2 has the same compartments, but no exposed temperature sensors. R3 has a single cooler compartment with a temperature sensor. R4 has a single cooler compartment without an exposed temperature sensor.
 
-|                                    | PICS for R1   | PICS for R2   | PICS for R3   | PICS for R4   |
-|------------------------------------|---------------|---------------|---------------|---------------|
-| Device Types                       | Refrigerator, | Refrigerator, | Refrigerator, | Refrigerator, |
-|                                    | Temperature   | Temperature   | Temperature   | Temperature   |
-|                                    | Controlled    | Controlled    | Controlled    | Controlled    |
-|                                    | Cabinet,      | Cabinet       | Cabinet,      | Cabinet       |
-|                                    | Temperature   |               | Temperature   |               |
-|                                    | Sensor        |               | Sensor        |               |
-| Temperature Control cluster        | Y             | Y             | Y             | Y             |
-| Temperature Measurement<br>cluster | Y             | N             | Y             | N             |
-
-![](_page_10_Figure_1.jpeg)
+| | PICS for R1 | PICS for R2 | PICS for R3 | PICS for R4 |
+| Device Types | Refrigerator, | Refrigerator, | Refrigerator, | Refrigerator, |
+| | Temperature | Temperature | Temperature | Temperature |
+| | Controlled | Controlled | Controlled | Controlled |
+| | Cabinet, | Cabinet | Cabinet, | Cabinet |
+| | Temperature | | Temperature | |
+| | Sensor | | Sensor | |
+| Temperature Control cluster | Y | Y | Y | Y |
+| Temperature Measurement<br>cluster | Y | N | Y | N |
 
 #### <span id="page-10-0"></span>5.1.4 Compound Devices
 
@@ -230,30 +210,24 @@ The following three examples illustrate how the portfolio concept can be applied
 
 *Example 5A*: Acme makes a series of table luminaires with a built-in switch to control the luminaire (where the switch functionality is exposed to Matter so it can for example be used in automations). Luminaires TL1 and TL2 are both color capable, TL2 has a larger size and larger light output than TL1 (note that this does not impact the device types and clusters so they expose the same set to the controller). TL3 does not have color capabilities but can provide different variations of white light (color temperature), and also does not expose the switch functionality on the interface. The PICS of TL3 is a subset of the PICS of TL1 (see section 5.1.1) so can be part of the portfolio, where either TL1 or TL2 would be chosen as the parent of the portfolio.
 
-|                                       | PICS for TL1   | PICS for TL2   | PICS for TL3      |
-|---------------------------------------|----------------|----------------|-------------------|
-| Device Type(s)                        | Extended Color | Extended Color | Color Temperature |
-|                                       | Light,         | Light,         | Light             |
-|                                       | Generic Switch | Generic Switch |                   |
-| Color Control cluster with XY feature | Y              | Y              | N                 |
-| Color Control cluster with HS feature | Y              | Y              | N                 |
-| Color Control cluster with CT feature | Y              | Y              | Y                 |
-| Level Control cluster                 | Y              | Y              | Y                 |
-| On/Off cluster                        | Y              | Y              | Y                 |
-| Switch cluster                        | Y              | Y              | N                 |
-
-![](_page_11_Figure_4.jpeg)
+| | PICS for TL1 | PICS for TL2 | PICS for TL3 |
+| Device Type(s) | Extended Color | Extended Color | Color Temperature |
+| | Light, | Light, | Light |
+| | Generic Switch | Generic Switch | |
+| Color Control cluster with XY feature | Y | Y | N |
+| Color Control cluster with HS feature | Y | Y | N |
+| Color Control cluster with CT feature | Y | Y | Y |
+| Level Control cluster | Y | Y | Y |
+| On/Off cluster | Y | Y | Y |
+| Switch cluster | Y | Y | N |
 
 *Example 5B*: Acme makes a power strip which has multiple outlets. Each of those has the same functionality, and the device exposes each outlet as a separate endpoint. For devices like these, the PICS lists each relevant cluster once – they are not repeated per endpoint since all endpoints share the same implementation and thus testing one outlet endpoint is sufficient. In this example, the products with more than one outlet (such as PS2, PS4) have identical PICS; PS1 cannot be the parent since it has only one outlet (meaning that the TagList in Descriptor cluster is optional while it is mandatory for the portfolio members with multiple outlets) but can be a portfolio member; PS4 is the Portfolio Parent since it has the largest number of outlets and thus is more "feature rich" than PS2.
 
-|                                  | PICS for PS1        | PICS for PS2        | PICS for PS4        |
-|----------------------------------|---------------------|---------------------|---------------------|
-| Device Type                      | On/Off Plug-In Unit | On/Off Plug-In Unit | On/Off Plug-In Unit |
-| Clusters for On/Off Plug-In Unit | Y                   | Y                   | Y                   |
-| TagList in Descriptor cluster    | N                   | Y                   | Y                   |
-| #endpoints                       | 1+1                 | 1+2                 | 1+4                 |
-
-![](_page_12_Figure_2.jpeg)
+| | PICS for PS1 | PICS for PS2 | PICS for PS4 |
+| Device Type | On/Off Plug-In Unit | On/Off Plug-In Unit | On/Off Plug-In Unit |
+| Clusters for On/Off Plug-In Unit | Y | Y | Y |
+| TagList in Descriptor cluster | N | Y | Y |
+| #endpoints | 1+1 | 1+2 | 1+4 |
 
 *Example 5C*: Acme makes a range of switch bank solutions, offering a number of slots where the function for each slot can be selected out of two-way rocker switch, toggle switch, or dimmer switch. The parent product S1 consists of 3 slots (one of each of the types). Portfolio members can use any permutation of the slot functions, for example:
 
@@ -261,23 +235,18 @@ The following three examples illustrate how the portfolio concept can be applied
 - S3 has 2 slots, both dimmer switches
 - S4 has 6 slots, 4 rockers switches and 2 toggle switches
 
-|                                                  | PICS for | PICS for | PICS for | PICS for |
-|--------------------------------------------------|----------|----------|----------|----------|
-|                                                  | S1       | S2       | S3       | S4       |
-| Device Type(s)                                   | Generic  | Generic  |          | Generic  |
-|                                                  | Switch,  | Switch   |          | Switch   |
-|                                                  | Dimmer   |          | Dimmer   |          |
-|                                                  | Switch   |          | Switch   |          |
-| Switch cluster with LS* feature (for rocker)     | Y        | Y        | N        | Y        |
-| Switch cluster with MS* feature (for toggle)     | Y        | N        | N        | Y        |
-| On/Off client cluster (for Dimmer Switch)        | Y        | N        | Y        | N        |
-| Level Control client cluster (for Dimmer Switch) | Y        | N        | Y        | N        |
+| | PICS for | PICS for | PICS for | PICS for |
+| | S1 | S2 | S3 | S4 |
+| Device Type(s) | Generic | Generic | | Generic |
+| | Switch, | Switch | | Switch |
+| | Dimmer | | Dimmer | |
+| | Switch | | Switch | |
+| Switch cluster with LS* feature (for rocker) | Y | Y | N | Y |
+| Switch cluster with MS* feature (for toggle) | Y | N | N | Y |
+| On/Off client cluster (for Dimmer Switch) | Y | N | Y | N |
+| Level Control client cluster (for Dimmer Switch) | Y | N | Y | N |
 
 <sup>\*</sup> LS = Latching Switch, MS = Momentary Switch – see Matter Specification for Switch cluster
-
-![](_page_13_Figure_4.jpeg)
-
-![](_page_14_Figure_1.jpeg)
 
 <span id="page-14-1"></span><span id="page-14-0"></span>5.1.4.1 Compound Devices including Matter Software Component features
 
@@ -285,14 +254,13 @@ The Certification Program for Matter defines certifiable Software Component (SWC
 
 *Example 6*: Acme makes a refrigerator that implements refrigerator features as a Matter controller and device controlling features as a Matter controller through its on-device user interface. This parent refrigerator model (R1) PICS has both SWC PICSs and refrigerator related PICSs. However, based on product variations, some refrigerator model (R2) will only support SWC PICSs (its temperature cannot be controlled via Matter) while another model (R3) will only support refrigerator featured PICSs (no control of other Matter devices from R3's UI).
 
-|                                             | PICS for R1              | PICS for R2 | PICS for R3  |
-|---------------------------------------------|--------------------------|-------------|--------------|
-| Device Type                                 | Refrigerator +<br>Matter | Matter      | Refrigerator |
-|                                             | Controller               | Controller  |              |
-| Temperature Control cluster (server)        | Y                        | N           | Y            |
-| Temperature Measurement cluster<br>(server) | Y                        | N           | Y            |
-| SWC Controller                              | Y                        | Y           | N            |
-| SWC OTA                                     | Y                        | Y           | N            |
+| | PICS for R1 | PICS for R2 | PICS for R3 |
+| Device Type | Refrigerator +<br>Matter | Matter | Refrigerator |
+| | Controller | Controller | |
+| Temperature Control cluster (server) | Y | N | Y |
+| Temperature Measurement cluster<br>(server) | Y | N | Y |
+| SWC Controller | Y | Y | N |
+| SWC OTA | Y | Y | N |
 
 #### <span id="page-15-0"></span>5.2 Portfolio Certification Policy
 
@@ -311,19 +279,9 @@ The Parent product might have been originally certified as a single product, wit
 
 At the time of application for the initial Portfolio Certification, the procedures and fees defined for the Portfolio Certification program apply.
 
-![](_page_15_Picture_11.jpeg)
-
-![](_page_15_Picture_12.jpeg)
-
 Once a Portfolio has been certified, it can be extended with further Portfolio Member Products. If the most recent certification of the Parent Product on which the Portfolio Certification is based is older than three (3) years, then complete testing is required for the most feature complete product which will become the new Parent Product for that Portfolio. Once this is completed, extensions with additional Portfolio Member Products can be made.
 
-![](_page_16_Picture_2.jpeg)
-
-![](_page_16_Figure_3.jpeg)
-
 The Portfolio can also undergo recertification (for example in the case of updates to firmware).
-
-![](_page_16_Figure_5.jpeg)
 
 More details on the guidelines that govern the Portfolio Certification can be found in Section 5.3.
 
@@ -344,8 +302,8 @@ Audits by the Alliance that reveal discrepancies between shipping product and sa
 - 3) When applicable, the Alliance will obtain specification sheets/drawings of both the Parent Product and Portfolio Member Products.
 - 4) A review of the DoC will be performed by the Alliance Certification Team under the direction of the Alliance Director of Certifications. The review will encompass the assessment of the full documentation of the Parent Product and the Portfolio Member Product list. One or more of the Authorized Test Laboratories and/or other experts (e.g. Alliance Expert Review Panel) may be consulted by the Alliance, keeping in mind the confidential sensitivities that come with an unreleased Product.
 - 5) The Alliance will issue its assessment to the applicant within one (1) calendar week. One of two outcomes is possible:
-  - a. Portfolio Certification is granted for the Parent Product and all listed Portfolio Member Products of the Portfolio, and the Alliance will process the application as any other certification.
-  - b. Portfolio Certification is denied for one or more Portfolio Member Products of the Portfolio. Those Portfolio Member Products for which Portfolio Certification is denied, need to go through a different form of certification, as applicable: testing at one of the Authorized Test Laboratories or Certification by Similarity or Product Family Certification. For the Portfolio Member Products for which the certification is granted, including the Parent Product, the Alliance will process the application as any other certification.
+- a. Portfolio Certification is granted for the Parent Product and all listed Portfolio Member Products of the Portfolio, and the Alliance will process the application as any other certification.
+- b. Portfolio Certification is denied for one or more Portfolio Member Products of the Portfolio. Those Portfolio Member Products for which Portfolio Certification is denied, need to go through a different form of certification, as applicable: testing at one of the Authorized Test Laboratories or Certification by Similarity or Product Family Certification. For the Portfolio Member Products for which the certification is granted, including the Parent Product, the Alliance will process the application as any other certification.
 - 6) At the time that the Portfolio certification is issued, a unique Portfolio identifier shall be assigned. This will uniquely identify the Portfolio (parent and other members) for certification purposes in the future.
 
 #### <span id="page-17-3"></span>5.4.2 Procedure to extend a Portfolio Certification
@@ -360,8 +318,8 @@ include the unique Portfolio identifier (assigned in step 6 in section 5.4.1) to
 - 3) When applicable, the Alliance will obtain new specification sheets/drawings of both the Parent Product and new Portfolio Member Products to be added.
 - 4) A review of the DoC will be performed by the Alliance Certification Team under the direction of the Alliance Director of Certifications. The review will encompass the assessment of the full documentation of the Parent Product (excluding the original test result) and the further Portfolio list, to ascertain that the previously certified products are unmodified. One or more of the Authorized Test Laboratories and/or other experts (e.g. Alliance Expert Review Panel) may be consulted by the Alliance, keeping in mind the confidential sensitivities that come with an unreleased Product.
 - 5) The Alliance will issue its assessment to the applicant within one (1) calendar week. One of two outcomes is possible:
-  - a. Portfolio Certification is granted for all the new listed Portfolio Member Products of the Portfolio and the Alliance will process the application as any other certification.
-  - b. Portfolio Certification is denied for one or more of the new listed Portfolio Member Products of the Portfolio.
+- a. Portfolio Certification is granted for all the new listed Portfolio Member Products of the Portfolio and the Alliance will process the application as any other certification.
+- b. Portfolio Certification is denied for one or more of the new listed Portfolio Member Products of the Portfolio.
 
 Those Portfolio Member Products for which Portfolio Certification is denied, need to go through a different form of certification, as applicable: testing at one of the Authorized Test Laboratories or Certification by Similarity.
 
@@ -386,7 +344,7 @@ Every individual certified Portfolio Member Product can be offered for the Certi
 
 ## <span id="page-19-0"></span>6 APPENDIX A – SUPERSET DEVICE TYPES FOR ZIGBEE
 
-Note: The text in section [6.1](#page-19-1) is a copy of the "superset device type" definition in the Matter specification (section 9.2.9), with the parts which are not applicable to Zigbee removed (since Zigbee does not have the concepts of DeviceTypeList and Composed Device Types). Section [6.2](#page-19-2) provides a list of the Zigbee device types for which this concept applies.
+Note: The text in section 6.1 is a copy of the "superset device type" definition in the Matter specification (section 9.2.9), with the parts which are not applicable to Zigbee removed (since Zigbee does not have the concepts of DeviceTypeList and Composed Device Types). Section 6.2 provides a list of the Zigbee device types for which this concept applies.
 
 The text of this appendix is due to be added to a future release of the Zigbee specification, and is provided here ad-interim.
 
@@ -428,33 +386,23 @@ Example 7A: Acme makes a series of table luminaires with a built-in switch to co
 
 Luminaires TL1 and TL2 are both color capable, TL2 has a larger size and larger light output than TL1 (note that this does not impact the device types and clusters so they expose the same set to the controller). TL3 does not have color capabilities but can provide different variations of white light (color temperature), and also does not expose the switch functionality on the interface. The PICS of TL3 is a subset of the PICS of TL1 (see section 5.1.1) so can be part of the portfolio, where either TL1 or TL2 would be chosen as the parent of the portfolio.
 
-|                                        | PICS for TL1   | PICS for TL2   | PICS for TL3      |  |
-|----------------------------------------|----------------|----------------|-------------------|--|
-| Device Type(s)                         | Extended Color | Extended Color | Color Temperature |  |
-|                                        | Light,         | Light,         | Light             |  |
-|                                        | Generic Switch | Generic Switch |                   |  |
-| Color Control cluster with XY feature  | Y              | Y              | N                 |  |
-| Color Control cluster with HS feature  | Y              | Y              | N                 |  |
-| Color Control cluster with CT feature  | Y              | Y              | Y                 |  |
-| Level Control cluster                  | Y              | Y              | Y                 |  |
-| On/Off cluster                         | Y              | Y              | Y                 |  |
-| Switch cluster (Manufacturer Specific) | N/A            | N/A            | N/A               |  |
-
-![](_page_20_Figure_11.jpeg)
+| | PICS for TL1 | PICS for TL2 | PICS for TL3 | |
+| Device Type(s) | Extended Color | Extended Color | Color Temperature | |
+| | Light, | Light, | Light | |
+| | Generic Switch | Generic Switch | | |
+| Color Control cluster with XY feature | Y | Y | N | |
+| Color Control cluster with HS feature | Y | Y | N | |
+| Color Control cluster with CT feature | Y | Y | Y | |
+| Level Control cluster | Y | Y | Y | |
+| On/Off cluster | Y | Y | Y | |
+| Switch cluster (Manufacturer Specific) | N/A | N/A | N/A | |
 
 *Example 7B*: Acme makes a power strip which has multiple outlets. Each of those has the same functionality, and the device exposes each outlet as a separate endpoint. For devices like these, the PICS lists each relevant cluster once – they are not repeated per endpoint since all endpoints share the same implementation and thus testing one outlet endpoint is sufficient. In this example, all products have identical PICS; PS4 is the Portfolio Parent since it has the largest number of outlets and thus is more "feature rich" than PS1 and PS2.
 
-|                                  | PICS for PS1        | PICS for PS2        | PICS for PS4        |
-|----------------------------------|---------------------|---------------------|---------------------|
-| Device Type                      | On/Off Plug-In Unit | On/Off Plug-In Unit | On/Off Plug-In Unit |
-| Clusters for On/Off Plug-In Unit | Y                   | Y                   | Y                   |
-| #endpoints                       | 1+1                 | 1+2                 | 1+4                 |
-
-![](_page_22_Figure_3.jpeg)
-
-![](_page_22_Figure_5.jpeg)
-
-![](_page_22_Figure_7.jpeg)
+| | PICS for PS1 | PICS for PS2 | PICS for PS4 |
+| Device Type | On/Off Plug-In Unit | On/Off Plug-In Unit | On/Off Plug-In Unit |
+| Clusters for On/Off Plug-In Unit | Y | Y | Y |
+| #endpoints | 1+1 | 1+2 | 1+4 |
 
 *Example 7C*: Acme makes a range of switch bank solutions, offering a number of slots where the function for each slot can be selected out of two-way rocker switch, toggle switch, on/off switch and dimmer switch. The parent product S1 consists of 2 slots (one of each of the types). Portfolio members can use any permutation of the slot functions, for example:
 
@@ -462,21 +410,14 @@ Luminaires TL1 and TL2 are both color capable, TL2 has a larger size and larger 
 - S3 has 2 slots, both dimmer switches
 - S4 has 6 slots, 4 on/off, 2 dimmer switches
 
-|                                                  | PICS for | PICS for | PICS for | PICS for |
-|--------------------------------------------------|----------|----------|----------|----------|
-|                                                  | S1       | S2       | S3       | S4       |
-| Device Type(s)                                   | On/Off   | On/Off   |          | On/Off   |
-|                                                  | Light    | Light    |          | Light    |
-|                                                  | Switch,  | Switch   |          | Switch,  |
-|                                                  | Dimmer   |          | Dimmer   | Dimmer   |
-|                                                  | Switch   |          | Switch   | Switch   |
-| Switch cluster with LS* feature (for rocker)     | Y        | Y        | N        | Y        |
-| Switch cluster with MS* feature (for toggle)     | Y        | N        | N        | Y        |
-| On/Off client cluster (for Dimmer Switch)        | Y        | Y        | Y        | Y        |
-| Level Control client cluster (for Dimmer Switch) | Y        | N        | Y        | Y        |
-
-![](_page_23_Figure_7.jpeg)
-
-![](_page_23_Figure_9.jpeg)
-
-![](_page_24_Figure_1.jpeg)
+| | PICS for | PICS for | PICS for | PICS for |
+| | S1 | S2 | S3 | S4 |
+| Device Type(s) | On/Off | On/Off | | On/Off |
+| | Light | Light | | Light |
+| | Switch, | Switch | | Switch, |
+| | Dimmer | | Dimmer | Dimmer |
+| | Switch | | Switch | Switch |
+| Switch cluster with LS* feature (for rocker) | Y | Y | N | Y |
+| Switch cluster with MS* feature (for toggle) | Y | N | N | Y |
+| On/Off client cluster (for Dimmer Switch) | Y | Y | Y | Y |
+| Level Control client cluster (for Dimmer Switch) | Y | N | Y | Y |

@@ -1,7 +1,8 @@
 Read the attached JSON file and extract retrieval-optimized reusable Bluetooth consulting cases from it.
 
-The attached file contains one email thread in JSON format.
-Use the attached file as the only source of truth.
+The attached JSON file contains one email thread.
+The attached JSON file is the ONLY allowed source.
+All reasoning, extraction, and conclusions must come from the FULL contents of the attached JSON thread.
 
 Important:
 - One thread may contain one or more distinct Bluetooth consulting cases.
@@ -17,6 +18,7 @@ Your goal:
 - Preserve practical actionability
 - Improve future retrieval by including alternate phrasings, plain-English explanation, and search aliases
 - Remove customer-specific details
+- Resolve conflicting intermediate conclusions into the final authoritative outcome
 - Output JSON only
 
 Rules:
@@ -30,11 +32,11 @@ Rules:
    - email addresses -> [EMAIL]
    - URLs -> [URL]
    - product IDs / quote numbers / project codes -> [ID]
-6. Ignore greetings, signatures, disclaimers, and repeated quoted history unless they affect the decision.
+6. Ignore greetings, signatures, disclaimers, and duplicated quoted history only after confirming they do not contain additional decision logic, corrections, customer confirmations, or final outcomes.
 7. If the consultant answer is spread across multiple messages, combine it into one coherent answer.
 8. If a field is unknown, use an empty string or an empty array, as appropriate.
-9. Do not hallucinate details.
-10. Only create separate cases when the issues are meaningfully distinct and reusable on their own.
+9. Do not infer missing emails, attachments, screenshots, or technical evidence that are not explicitly visible in the thread.
+10. Only create separate cases when the issues are meaningfully distinct and reusable on their own. Prefer fewer high-quality atomic cases over many overlapping cases extracted from the same discussion.
 11. Keep each case atomic. Do not mix unrelated issues into one case.
 12. Prefer Bluetooth qualification meaning over generic business summarization.
 13. Make each case independently understandable and independently retrievable without requiring the full thread.
@@ -42,7 +44,9 @@ Rules:
 15. Include both technical terminology and plain-English phrasing when strongly supported by the thread.
 16. Do not invent alternative phrasings that change the meaning of the case.
 17. Do not invent risks, costs, timelines, or test counts unless explicitly supported by the thread or directly implied by the qualification outcome.
-18. Keep wording concise, dense, and reusable.
+18. Later messages override earlier assumptions, drafts, tentative conclusions, or superseded internal discussions.
+19. Keep wording concise, dense, and reusable.
+20. Do not infer thread structure, outcomes, or case boundaries from snippets, previews, or partial retrieval context. Analyze the complete thread before extracting cases.
 
 Return this exact schema:
 
@@ -187,6 +191,25 @@ Decision policy:
     "source_thread": "<thread_id>",
     "cases": []
   }
+
+Thread completeness requirements:
+
+- Read and process the FULL attached JSON thread before generating output.
+- Do not rely only on preview snippets, truncated excerpts, search snippets, or partial context windows.
+- Parse the entire messages array in the attached JSON.
+- Review all messages before deciding how many cases exist.
+- Cases may depend on information spread across multiple emails.
+- Do not generate output until the entire thread has been analyzed.
+- If only a partial thread is visible, continue reading the file until the full thread is available.
+- Output is invalid if source_thread or case reasoning is derived from filename, preview text, or partial snippets instead of the full JSON content.
+
+Final-state resolution policy:
+- When determining the final recommendation or final issue state:
+  1. Prefer explicit customer confirmation
+  2. Then explicit consultant conclusion
+  3. Then latest corrected internal decision
+  4. Ignore superseded earlier assumptions or draft conclusions
+- If the thread contains conflicting intermediate conclusions, extract the final resolved outcome.
 
 Quality standard:
 - A good output should be directly useful for:

@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0027",
+    "cases": [
+        {
+            "case_id": "thread_0027_case_02",
+            "iut_type": "module",
+            "customer_question": "Can FCC or radio-law RF transmit procedures be used for Bluetooth SIG RF-PHY qualification testing?",
+            "question_variants": [
+                "Difference between FCC RF mode and Bluetooth SIG RF-PHY",
+                "RF-PHY test procedure confusion",
+                "Customer RF test instructions do not work",
+                "Can legal certification transmit mode be used for SIG testing",
+                "Bluetooth SIG RF PHY preparation vs operation mode",
+                "Wrong RF PHY test method"
+            ],
+            "actual_issue": "The customer documentation mixed regulatory radio transmit procedures with Bluetooth SIG RF-PHY qualification procedures, causing incorrect DUT setup and test execution.",
+            "plain_english_explanation": "Bluetooth SIG RF-PHY testing is different from regulatory radio transmit testing such as FCC or radio-law certification. Regulatory procedures often force the DUT to continuously transmit radio signals, while Bluetooth qualification testing requires controlled tester communication with the DUT. Using the wrong procedure can prevent the qualification tester from operating correctly.",
+            "consultant_answer": "The consultant identified that the customer documentation contained separate sections for RF-PHY preparation and RF-PHY operation, but the operation section clearly described regulatory transmit testing behavior rather than Bluetooth SIG qualification testing. The consultant explained that only the preparation steps should be used for SIG RF-PHY testing and that the DUT command response must first be validated through Automation Explore. The team was instructed to confirm the proper Bluetooth SIG RF-PHY procedure with the module or SoC vendor.",
+            "decision_logic": "Bluetooth SIG RF-PHY qualification testing requires tester-controlled DUT operation through command communication, while FCC or radio-law testing often uses autonomous RF transmit modes. Mixing these procedures prevents valid SIG RF-PHY execution.",
+            "final_recommendation": "Use only the Bluetooth SIG RF-PHY preparation procedure required for tester communication and confirm the official SIG RF-PHY workflow with the module or SoC vendor before testing.",
+            "risk_if_done_wrong": "Using regulatory transmit modes during Bluetooth SIG qualification testing can cause communication failures, invalid RF-PHY execution, misleading FAIL results, and unnecessary debugging or retesting.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "testing",
+                "RF",
+                "FCC",
+                "InterLab",
+                "Automation Explore",
+                "module"
+            ],
+            "search_aliases": [
+                "FCC mode vs RF PHY",
+                "radio law test mode",
+                "Bluetooth SIG RF PHY procedure",
+                "wrong RF test workflow",
+                "regulatory transmit mode",
+                "SIG RF PHY mismatch",
+                "continuous transmit mode",
+                "RF PHY preparation only",
+                "FCC assist tool",
+                "legal certification mode"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

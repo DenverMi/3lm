@@ -1,0 +1,49 @@
+{
+    "source_thread": "thread_0027",
+    "cases": [
+        {
+            "case_id": "thread_0027_case_01",
+            "iut_type": "module",
+            "customer_question": "Why does Bluetooth RF-PHY testing fail with ERROR or FAIL results in Automation Explore even though the DUT was configured according to the customer procedure?",
+            "question_variants": [
+                "RF-PHY test shows ERROR 100%",
+                "Automation Explore command response stays red",
+                "2-wire UART RF-PHY test fails",
+                "SkipCommand causes RF-PHY FAIL",
+                "InterLab RF-PHY DUT communication error",
+                "BLE RF PHY test mode setup not working"
+            ],
+            "actual_issue": "The DUT could not establish proper command communication with the RF-PHY qualification tester because the HCI mode, UART configuration, baud rate, or DUT test setup procedure was incorrect.",
+            "plain_english_explanation": "The Bluetooth qualification tester must communicate correctly with the DUT before RF-PHY testing can begin. In this case, the tester could not get valid command responses from the DUT, so the RF-PHY tests failed before real RF measurements were properly executed. The issue was likely related to UART settings, HCI mode configuration, or incorrect test preparation instructions.",
+            "consultant_answer": "The consultant determined that the DUT communication check in Automation Explore must succeed before RF-PHY qualification testing can proceed. The provided configuration specified 2-wire UART at 115200 bps, but the DUT consistently returned ERROR responses while a reference DUT worked correctly. This suggested that the DUT might not actually be operating in HCI mode or might be using a different baud rate. The consultant instructed the team to verify DUT control settings with the module or SoC vendor and avoid using SkipCommand as a workaround because the command communication stage itself was failing.",
+            "decision_logic": "RF-PHY qualification testing depends on successful DUT command communication through Automation Explore before RF measurements are valid. If the tester cannot exchange commands with the DUT, RF-PHY failures are caused by setup or control path issues rather than confirmed RF noncompliance.",
+            "final_recommendation": "Verify the DUT HCI mode, UART interface type, baud rate, and command communication settings with the module or SoC vendor. Confirm that Automation Explore shows successful DUT command responses before starting RF-PHY testing.",
+            "risk_if_done_wrong": "Engineers may incorrectly treat the issue as an RF performance failure and waste time repeating RF-PHY tests that cannot execute correctly. Incorrect use of SkipCommand or invalid DUT communication settings can produce misleading FAIL or ERROR results and delay Bluetooth qualification.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "testing",
+                "HCI",
+                "UART",
+                "InterLab",
+                "Automation Explore",
+                "module"
+            ],
+            "search_aliases": [
+                "Automation Explore ERROR",
+                "RF PHY ERROR 100%",
+                "2-wire UART issue",
+                "HCI mode mismatch",
+                "baud rate mismatch",
+                "SkipCommand fail",
+                "DUT command response red",
+                "InterLab command error",
+                "RF PHY setup failure",
+                "UART communication failure"
+            ],
+            "qualification_stage": "test failure",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

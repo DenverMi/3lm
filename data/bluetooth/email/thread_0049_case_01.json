@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0049",
+    "cases": [
+        {
+            "case_id": "thread_0049_case_01",
+            "iut_type": "",
+            "customer_question": "Should 3-DH1 RF measurements be included when the implementation appears to support 3 Mbps EDR operation but the referenced RF ICS does not declare 3 Mbps support?",
+            "question_variants": [
+                "Do we need 3-DH1 testing if logs show 3 Mbps capability?",
+                "Can RF tests omit 3 Mbps measurements when RF ICS excludes 3 Mbps?",
+                "What determines whether 3-DH1 RF testing is required?",
+                "Does observed EDR behavior override RF ICS declarations?",
+                "Should RF test scope follow implementation logs or declared RF ICS?"
+            ],
+            "actual_issue": "A reviewer questioned why 3-DH1 RF measurements were omitted even though test logs appeared to indicate 3 Mbps EDR capability. The actual issue was ensuring that RF test scope remained consistent with the declared RF ICS inherited from the referenced qualification design.",
+            "plain_english_explanation": "Bluetooth RF testing is based on the officially declared supported features, not just what the hardware may appear capable of doing during testing. In this case, the inherited RF ICS did not declare 3 Mbps EDR support, so 3-DH1 measurements were intentionally excluded from the RF test plan. Even if some logs seem to show 3 Mbps behavior, undeclared features should not expand the qualification scope.",
+            "consultant_answer": "The consultant clarified that the RF ICS inherited from the referenced RF qualification did not support 3 Mbps operation, as already documented in the approved test plan. Therefore, 3-DH1 measurements were not required despite observations in the test logs that could suggest 3 Mbps capability. The consultant reinforced that qualification testing scope must follow the declared RF ICS capabilities and referenced qualification configuration rather than inferred implementation behavior.",
+            "decision_logic": "Bluetooth RF qualification scope is controlled by the declared RF ICS capabilities associated with the referenced qualified design. If 3 Mbps EDR support is not declared in the RF ICS, then 3-DH1 RF measurements are outside the required test scope regardless of apparent implementation behavior.",
+            "final_recommendation": "Ensure that RF test plans, executed measurements, and qualification reports strictly follow the declared RF ICS capabilities inherited from the referenced qualification design. Resolve any apparent mismatches between logs and ICS declarations before final report approval.",
+            "risk_if_done_wrong": "If RF test scope and RF ICS declarations become inconsistent, qualification evidence may be challenged during review, leading to report corrections, retesting requests, or confusion about the product's supported Bluetooth capabilities. Incorrectly expanding test scope could also introduce unnecessary qualification complexity.",
+            "bluetooth_tags": [
+                "RF",
+                "RF ICS",
+                "EDR",
+                "3Mbps",
+                "3-DH1",
+                "qualification",
+                "test plan"
+            ],
+            "search_aliases": [
+                "3-DH1 measurement required",
+                "3Mbps RF ICS",
+                "EDR support mismatch",
+                "RF ICS scope",
+                "3Mbps not declared",
+                "test scope inconsistency",
+                "referenced RF qualification",
+                "Bluetooth RF test plan",
+                "ICS versus test log",
+                "EDR capability review"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

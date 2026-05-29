@@ -3,20 +3,41 @@
     "cases": [
         {
             "case_id": "thread_0014_case_02",
-            "iut_type": "module-based end products",
-            "customer_question": "When registering multiple products with different use cases but the same Bluetooth implementation, can each product have a different Product Name, and what are the constraints?",
-            "actual_issue": "Clarification of how Product Name and Design Name are handled in Bluetooth SIG qualification when multiple products share a single Design.",
-            "consultant_answer": "A single Design Name must be used for the qualification entry, but each individual product listed under the Product List can have its own distinct Product Name. This allows multiple end products with different branding or use cases to be grouped under one Design while maintaining unique product identities.",
-            "final_recommendation": "Define one Design Name for the shared Bluetooth implementation and assign unique Product Names to each product entry in the Product List.",
+            "iut_type": "medical device accessory",
+            "customer_question": "Can products with different purposes and Product Names share one Bluetooth Design Name during qualification?",
+            "question_variants": [
+                "Can different products use different Product Names under one Design?",
+                "Can one Design contain multiple Product Names?",
+                "Can products with different use cases share the same Bluetooth qualification design?",
+                "Do all products under one design need the same product name?",
+                "Can Product List entries have different names under one Design Name?"
+            ],
+            "actual_issue": "Clarifying the relationship between Design Name and Product Name in Bluetooth qualification when multiple products share the same Bluetooth implementation.",
+            "plain_english_explanation": "Bluetooth qualification separates the technical Bluetooth design from the commercial product names. A company can use one shared Bluetooth design while marketing several products with different names and purposes. The important requirement is that the Bluetooth implementation itself remains the same.",
+            "consultant_answer": "The consultant explained that the registration requires a single Design Name, but each individual product listed in the Product List may use a different Product Name. The differing end-use applications of the products do not prevent reuse of the same Bluetooth design as long as the Bluetooth implementation remains unchanged.",
+            "decision_logic": "Bluetooth SIG qualification distinguishes between the underlying Bluetooth Design and individual marketed products. Multiple Product Names may reference the same qualified Design when the Bluetooth implementation and ICS remain consistent.",
+            "final_recommendation": "Use one common Design Name for the shared Bluetooth implementation and assign separate Product Names to each marketed product entry in the Product List.",
+            "risk_if_done_wrong": "Confusing Design Name and Product Name structure may lead to incorrect listing organization, duplicate submissions, or inconsistent qualification records.",
             "bluetooth_tags": [
                 "qualification",
+                "Design Name",
+                "Product Name",
+                "Product List",
                 "listing",
-                "design",
-                "product name",
-                "QDID",
-                "reuse"
+                "design reuse"
             ],
-            "qualification_stage": "listing / declaration"
+            "search_aliases": [
+                "different Product Names same design",
+                "shared Design Name",
+                "Product List naming",
+                "multiple products one design",
+                "Bluetooth design naming",
+                "Product Name versus Design Name",
+                "same Bluetooth implementation different products"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }

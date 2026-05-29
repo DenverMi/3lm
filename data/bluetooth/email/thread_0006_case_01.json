@@ -1,23 +1,47 @@
 {
-    "source_thread": "thread_0007",
+    "source_thread": "thread_0006",
     "cases": [
         {
-            "case_id": "thread_0007_case_01",
-            "iut_type": "module",
-            "customer_question": "Can a Core-Host (CS non-supported) and existing Core-Controller combination be used for new Bluetooth qualification registration without issues?",
-            "actual_issue": "Inter-layer dependency (ILD) inconsistency between GAP and LL caused by mismatch in Channel Sounding (CS) support between Host and Controller QDIDs, preventing normal Design combination in qualification.",
-            "consultant_answer": "The consultant explains that certain Host Design Numbers derived as subsets still inherit CS-related ICS flags (e.g., GAP 33a/1, 33a/2 = YES), which creates an inter-layer inconsistency when combined with a Controller that does not support CS. As a result, the combination fails the standard consistency check and cannot be used for normal new Design registration. However, by selecting 'Combine Unmodified Designs', the system allows registration without modifying ICS, even though the inconsistency remains. This works because the qualification system permits reuse of existing Designs without enforcing correction of inherited inconsistencies, and no additional testing is triggered in this specific case.",
-            "final_recommendation": "Proceed with qualification using the 'Combine Unmodified Designs' option without modifying the ICS, accepting the inherited inter-layer inconsistency, since it still allows valid registration without additional testing.",
+            "case_id": "thread_0006_case_01",
+            "iut_type": "digital camera",
+            "customer_question": "How can we pre-check whether the Bluetooth RF test interface is working correctly before official RF/RF PHY qualification testing?",
+            "question_variants": [
+                "How do we verify UART to HCI command conversion before testing?",
+                "How can we confirm DTM communication before Bluetooth RF testing?",
+                "What commands must respond correctly for RF PHY testing readiness?",
+                "Can AutomationExplorer be used to validate RF test connectivity?",
+                "What is the minimum pretest check before sending samples to a BQTF?"
+            ],
+            "actual_issue": "The customer needed a practical method to verify that the DUT correctly responds to Bluetooth RF PHY Direct Test Mode commands before formal qualification testing.",
+            "plain_english_explanation": "Before official Bluetooth RF testing starts, the test system must be able to communicate correctly with the product. The consultant explained how to use a PC utility to confirm that the required RF test commands respond properly. This does not guarantee a pass result, but it confirms the device is testable and avoids wasted lab time.",
+            "consultant_answer": "The consultant explained that AutomationExplorer can be used to confirm proper response behavior for RF PHY DTM and RF DUT test commands. For Serial Two-Wire configuration, Reset, LE Reset, LE Transmitter Test, LE Receiver Test, and LE TestEnd must all respond successfully and show green status. This validation confirms that UART-to-HCI command conversion and basic RF test communication are functioning. The consultant also clarified that the available AutomationExplorer version only supports legacy 1M PHY verification because the tool was never updated for Bluetooth 5.0 PHY modes.",
+            "decision_logic": "RF/RF PHY testing requires correct DTM command communication between the DUT and the qualification test system. If the required HCI test commands do not respond correctly, formal testing cannot proceed. Basic command responsiveness is therefore a prerequisite for qualification testing readiness.",
+            "final_recommendation": "Run AutomationExplorer in Serial Two-Wire mode and confirm successful responses for Reset, LE Reset, LE Transmitter Test, LE Receiver Test, and LE TestEnd before shipping samples for qualification testing.",
+            "risk_if_done_wrong": "If DTM communication is not validated in advance, qualification testing may fail to start, causing schedule delays, wasted lab reservations, and additional debugging effort during the booked test window.",
             "bluetooth_tags": [
                 "qualification",
-                "ICS",
-                "ILD",
-                "Core-Host",
-                "Core-Controller",
-                "QDID",
-                "reuse"
+                "RF PHY",
+                "DTM",
+                "HCI",
+                "testing",
+                "pre-test review",
+                "LE"
             ],
-            "qualification_stage": "listing / declaration"
+            "search_aliases": [
+                "AutomationExplorer",
+                "DTM precheck",
+                "UART to HCI validation",
+                "LE Transmitter Test",
+                "LE Receiver Test",
+                "RF PHY command check",
+                "Serial Two-Wire",
+                "RF test communication",
+                "DTM command response",
+                "HCI RF test mode"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
         }
     ]
 }
