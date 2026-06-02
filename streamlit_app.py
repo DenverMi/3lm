@@ -129,6 +129,51 @@ if question:
 
         st.rerun()
 
+    if question.strip().lower().startswith("/note:"):
+        note_text = question.strip()[len("/note:"):].strip()
+
+        if not st.session_state["conversation_title"]:
+            st.session_state["conversation_title"] = note_text[:120]
+
+        previous_user_question = ""
+        previous_assistant_answer = ""
+
+        for message in reversed(st.session_state["messages"]):
+            if message.get("role") == "assistant" and not previous_assistant_answer:
+                previous_assistant_answer = message.get("content", "")
+            elif message.get("role") == "user" and not previous_user_question:
+                previous_user_question = message.get("content", "")
+
+            if previous_user_question and previous_assistant_answer:
+                break
+
+        log_note_event(
+            {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "note_id": str(uuid.uuid4()),
+                "conversation_id": st.session_state["conversation_id"],
+                "conversation_title": st.session_state["conversation_title"],
+                "program": program_choice,
+                "note": note_text,
+                "status": "unreviewed",
+                "source": "user_command",
+                "previous_user_question": previous_user_question,
+                "previous_assistant_answer": previous_assistant_answer,
+            }
+        )
+
+        st.session_state["messages"].append(
+            {"role": "user", "content": question}
+        )
+        st.session_state["messages"].append(
+            {
+                "role": "assistant",
+                "content": "Note saved for review. It will not affect answers until approved and ingested.",
+            }
+        )
+
+        st.rerun()    
+
     if not st.session_state["conversation_title"]:
         st.session_state["conversation_title"] = question[:120]
 
