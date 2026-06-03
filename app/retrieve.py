@@ -399,6 +399,333 @@ def detect_intent(query: str) -> str:
         return "definition"
     return "general"
 
+def extract_exact_lookup_phrases(query: str) -> List[str]:
+    q = query.lower()
+    phrases = []
+
+    patterns = [
+        r"\boption\s+\d+[a-z]?\b",
+        r"\btable\s+\d+(?:\.\d+)*\b",
+        r"\bsection\s+\d+(?:\.\d+)*\b",
+        r"\bclause\s+\d+(?:\.\d+)*\b",
+    ]
+
+    for pattern in patterns:
+        for match in re.finditer(pattern, q, flags=re.IGNORECASE):
+            phrase = " ".join(match.group(0).split()).lower()
+            if phrase not in phrases:
+                phrases.append(phrase)
+
+    return phrases
+
+def extract_topic_heading_phrases(query: str) -> List[str]:
+    q = query.lower()
+
+    stop_terms = {
+        "what", "which", "when", "where", "who", "why", "how",
+        "do", "does", "did", "we", "i", "you", "they",
+        "need", "needed", "prepare", "prepared", "include", "included",
+        "required", "requirement", "requirements",
+        "in", "on", "for", "to", "of", "the", "a", "an",
+        "is", "are", "be", "with", "and", "or",
+    }
+
+    tokens = [
+        token for token in tokenize(q)
+        if len(token) >= 3 and token not in stop_terms
+    ]
+
+    phrases = []
+
+    for size in range(4, 1, -1):
+        for i in range(0, len(tokens) - size + 1):
+            phrase = " ".join(tokens[i:i + size])
+            if phrase not in phrases:
+                phrases.append(phrase)
+
+    return phrases[:10]
+
+def extract_acronyms_for_glossary_lookup(text: str) -> List[str]:
+    candidates = re.findall(r"\b[A-Z][A-Z0-9]{1,9}\b", text or "")
+
+    skip = {
+        "SIG",
+        "FAQ",
+        "JSON",
+        "PDF",
+        "URL",
+        "HTTP",
+        "HTTPS",
+    }
+
+    acronyms = []
+    for candidate in candidates:
+        if candidate in skip:
+            continue
+        if candidate not in acronyms:
+            acronyms.append(candidate)
+
+    return acronyms[:10]
+
+def search_glossary_acronyms(
+    query: str,
+    chunks: List[Dict[str, Any]],
+    top_k: int = 10,
+) -> List[Dict[str, Any]]:
+    acronyms = extract_acronyms_for_glossary_lookup(query)
+
+    if not acronyms:
+        return []
+
+    hits = []
+
+    for chunk in chunks:
+        text = chunk.get("text", "") or ""
+        text_lower = text.lower()
+
+        doc_type = (chunk.get("doc_type") or "").lower()
+        source_type = (chunk.get("source_type") or "").lower()
+
+        if doc_type not in {"policies", "specs", "reference"}:
+            continue
+
+        if source_type in {"email_case", "email_thread_analysis", "email"}:
+            continue
+
+        doc_name = (chunk.get("doc_name") or "").lower()
+
+        glossaryish = (
+            "definitions" in text_lower
+            or "acronym" in text_lower
+            or "abbreviation" in text_lower
+            or "glossary" in text_lower
+            or "glossary" in doc_name
+        )
+
+        if not glossaryish:
+            continue
+
+        matched = []
+
+        for acronym in acronyms:
+            definition_patterns = [
+                # Markdown heading: ### TCW — Test Coverage Waiver
+                rf"^\s*#{{1,6}}\s+{re.escape(acronym)}\s*(?:—|-|:)",
+
+                # Markdown table row: | TCW | Test Coverage Waiver |
+                rf"\|\s*{re.escape(acronym)}\s*\|",
+
+                # QPRD split table text: Test Coverage Waiver (TCW)
+                rf"\b[A-Z][A-Za-z ]{{2,80}}\s*\(\s*{re.escape(acronym)}\s*\)",
+            ]
+
+            if any(re.search(p, text, flags=re.IGNORECASE | re.MULTILINE) for p in definition_patterns):
+                matched.append(acronym)
+
+        if not matched:
+            continue
+
+        score = 16.0 + len(matched)
+
+        if doc_type == "policies":
+            score += 4.0
+        elif doc_type == "specs":
+            score += 3.0
+        elif doc_type == "reference":
+            score += 2.0
+
+        meta = {
+            "program": chunk.get("program"),
+            "doc_type": chunk.get("doc_type"),
+            "source_type": chunk.get("source_type"),
+            "doc_name": chunk.get("doc_name"),
+            "chunk_kind": chunk.get("chunk_kind"),
+            "priority": chunk.get("priority", 0),
+            "page_start": chunk.get("page_start"),
+            "page_end": chunk.get("page_end"),
+        }
+
+        hits.append(
+            {
+                "chunk_id": chunk["chunk_id"],
+                "text": chunk["text"],
+                "metadata": meta,
+                "bm25_score": score,
+                "bm25_rank": 1,
+                "semantic_distance": None,
+                "semantic_rank": None,
+                "glossary_score": score,
+                "glossary_acronyms": matched,
+            }
+        )
+
+    return sorted(
+        hits,
+        key=lambda item: item["glossary_score"],
+        reverse=True,
+    )[: max(top_k, 30)]
+
+def search_topic_headings(
+    query: str,
+    chunks: List[Dict[str, Any]],
+    top_k: int = 10,
+) -> List[Dict[str, Any]]:
+    phrases = extract_topic_heading_phrases(query)
+
+    if not phrases:
+        return []
+
+    hits = []
+
+    for chunk in chunks:
+        text = chunk.get("text", "") or ""
+        doc_type = (chunk.get("doc_type") or "").lower()
+        source_type = (chunk.get("source_type") or "").lower()
+
+        # Only use structured/official-ish documents for heading matches.
+        # Email cases already have their own lane.
+        if source_type in {"email_case", "email_thread_analysis", "email"}:
+            continue
+
+        matched_phrases = []
+
+        for phrase in phrases:
+            heading_pattern = rf"^\s*#{{1,6}}\s+(?:[\d\.]+\s+)?[^\n]*\b{re.escape(phrase)}\b[^\n]*$"
+
+            if re.search(heading_pattern, text, flags=re.IGNORECASE | re.MULTILINE):
+                matched_phrases.append(phrase)
+
+        if not matched_phrases:
+            continue
+
+        score = 18.0 + len(matched_phrases)
+
+        if doc_type in {"policies", "specs"}:
+            score += 8.0
+        elif doc_type == "reference":
+            score += 4.0
+
+        meta = {
+            "program": chunk.get("program"),
+            "doc_type": chunk.get("doc_type"),
+            "source_type": chunk.get("source_type"),
+            "doc_name": chunk.get("doc_name"),
+            "chunk_kind": chunk.get("chunk_kind"),
+            "priority": chunk.get("priority", 0),
+            "page_start": chunk.get("page_start"),
+            "page_end": chunk.get("page_end"),
+        }
+
+        hits.append(
+            {
+                "chunk_id": chunk["chunk_id"],
+                "text": chunk["text"],
+                "metadata": meta,
+                "bm25_score": score,
+                "bm25_rank": 1,
+                "semantic_distance": None,
+                "semantic_rank": None,
+                "topic_heading_score": score,
+                "topic_heading_phrases": matched_phrases,
+            }
+        )
+
+    return sorted(
+        hits,
+        key=lambda item: item["topic_heading_score"],
+        reverse=True,
+    )[: max(top_k, 30)]
+
+def search_exact_phrases(
+    query: str,
+    chunks: List[Dict[str, Any]],
+    top_k: int = 10,
+) -> List[Dict[str, Any]]:
+    phrases = extract_exact_lookup_phrases(query)
+
+    if not phrases:
+        return []
+
+    hits = []
+
+    for chunk in chunks:
+        text = chunk.get("text", "") or ""
+        text_lower = " ".join(text.lower().split())
+        text_for_heading_match = text.lower()
+
+        matched_phrases = [
+            phrase for phrase in phrases
+            if phrase in text_lower
+        ]
+
+        if not matched_phrases:
+            continue
+
+        score = 20.0 + len(matched_phrases)
+
+        doc_type = (chunk.get("doc_type") or "").lower()
+        source_type = (chunk.get("source_type") or "").lower()
+
+        doc_name = (chunk.get("doc_name") or "").lower()
+        query_tokens = set(tokenize(query))
+
+        doc_name_tokens = set(tokenize(doc_name))
+        shared_doc_tokens = query_tokens & doc_name_tokens
+
+        if shared_doc_tokens:
+            score += 10.0
+
+        # Prefer exact matches in official/reviewed sources over raw email-derived material.
+        if doc_type in {"policies", "specs", "reference"} and source_type not in {"email_case", "email_thread_analysis", "email"}:
+            score += 8.0
+
+        # Prefer exact matches that appear in headings / section titles.
+        for phrase in matched_phrases:
+            heading_pattern = rf"^\s*#{{1,6}}\s+.*\b{re.escape(phrase)}\b"
+            numbered_heading_pattern = rf"^\s*#{{1,6}}\s+[\d\.]+\s+.*\b{re.escape(phrase)}\b"
+
+            if re.search(numbered_heading_pattern, text_for_heading_match, flags=re.IGNORECASE | re.MULTILINE):
+                score += 18.0
+                break
+
+            if re.search(heading_pattern, text_for_heading_match, flags=re.IGNORECASE | re.MULTILINE):
+                score += 14.0
+                break
+
+        # Raw email cases can still help, but should not outrank exact official headings.
+        if source_type in {"email_case", "email_thread_analysis", "email"}:
+                score -= 4.0
+
+        meta = {
+            "program": chunk.get("program"),
+            "doc_type": chunk.get("doc_type"),
+            "source_type": chunk.get("source_type"),
+            "doc_name": chunk.get("doc_name"),
+            "chunk_kind": chunk.get("chunk_kind"),
+            "priority": chunk.get("priority", 0),
+            "page_start": chunk.get("page_start"),
+            "page_end": chunk.get("page_end"),
+        }
+
+        hits.append(
+            {
+                "chunk_id": chunk["chunk_id"],
+                "text": chunk["text"],
+                "metadata": meta,
+                "bm25_score": score,
+                "bm25_rank": 1,
+                "semantic_distance": None,
+                "semantic_rank": None,
+                "exact_phrase_score": score,
+                "exact_phrases": matched_phrases,
+            }
+        )
+
+    return sorted(
+        hits,
+        key=lambda item: item["exact_phrase_score"],
+        reverse=True,
+    )[: max(top_k, 50)]
 
 def format_citation(meta: Dict[str, Any]) -> str:
     doc_name = meta.get("doc_name", "unknown")
@@ -652,6 +979,9 @@ def reciprocal_rank(rank: Optional[int], k: int = RRF_K) -> float:
         return 0.0
     return 1.0 / (k + rank)
 
+def text_signature(text: str, limit: int = 500) -> str:
+    normalized = " ".join((text or "").lower().split())
+    return normalized[:limit]
 
 def merge_and_rerank(
     query: str,
@@ -674,6 +1004,12 @@ def merge_and_rerank(
                 "bm25_rank": item.get("bm25_rank"),
                 "semantic_distance": item.get("semantic_distance"),
                 "semantic_rank": item.get("semantic_rank"),
+                "exact_phrase_score": item.get("exact_phrase_score", 0.0),
+                "exact_phrases": item.get("exact_phrases", []),
+                "glossary_score": item.get("glossary_score", 0.0),
+                "glossary_acronyms": item.get("glossary_acronyms", []),
+                "topic_heading_score": item.get("topic_heading_score", 0.0),
+                "topic_heading_phrases": item.get("topic_heading_phrases", []),
             }
         else:
             current = merged[chunk_id]
@@ -683,6 +1019,30 @@ def merge_and_rerank(
             if current.get("semantic_rank") is None and item.get("semantic_rank") is not None:
                 current["semantic_rank"] = item["semantic_rank"]
                 current["semantic_distance"] = item["semantic_distance"]
+            if item.get("exact_phrase_score"):
+                current["exact_phrase_score"] = max(
+                    float(current.get("exact_phrase_score") or 0.0),
+                    float(item.get("exact_phrase_score") or 0.0),
+                )
+                current["exact_phrases"] = item.get("exact_phrases", current.get("exact_phrases", []))
+            if item.get("topic_heading_score"):
+                current["topic_heading_score"] = max(
+                    float(current.get("topic_heading_score") or 0.0),
+                    float(item.get("topic_heading_score") or 0.0),
+                )
+                current["topic_heading_phrases"] = item.get(
+                    "topic_heading_phrases",
+                    current.get("topic_heading_phrases", []),
+                )
+            if item.get("glossary_score"):
+                current["glossary_score"] = max(
+                    float(current.get("glossary_score") or 0.0),
+                    float(item.get("glossary_score") or 0.0),
+                )
+                current["glossary_acronyms"] = item.get(
+                    "glossary_acronyms",
+                    current.get("glossary_acronyms", []),
+                )
 
     reranked: List[Dict[str, Any]] = []
     for item in merged.values():
@@ -714,7 +1074,26 @@ def merge_and_rerank(
         if semantic_distance is not None:
             semantic_bonus = max(0.0, 0.35 - semantic_distance * 0.1)
 
-        final_score = rrf_score + bonus + semantic_bonus
+        exact_phrase_score = float(item.get("exact_phrase_score") or 0.0)
+        exact_phrase_bonus = exact_phrase_score * 0.5
+
+        topic_heading_score = float(item.get("topic_heading_score") or 0.0)
+        topic_heading_bonus = topic_heading_score * 0.5
+
+        glossary_score = float(item.get("glossary_score") or 0.0)
+        if intent == "definition":
+            glossary_bonus = glossary_score * 0.9
+        else:
+            glossary_bonus = glossary_score * 0.5
+
+        final_score = (
+            rrf_score
+            + bonus
+            + semantic_bonus
+            + exact_phrase_bonus
+            + topic_heading_bonus
+            + glossary_bonus
+        )
 
         item["intent"] = intent
         item["score"] = final_score
@@ -726,11 +1105,23 @@ def merge_and_rerank(
     email_case_count = 0
     thread_analysis_count = 0
     has_official = False
+    doc_name_counts = {}
+    max_per_doc = 2
+    seen_text_signatures = set()
 
     for item in reranked:
         meta = item["metadata"]
         source_type = (meta.get("source_type") or "").lower()
         doc_type = (meta.get("doc_type") or "").lower()
+        doc_name = meta.get("doc_name") or ""
+
+        if doc_name_counts.get(doc_name, 0) >= max_per_doc:
+            continue
+
+        signature = text_signature(item.get("text") or "")
+
+        if signature in seen_text_signatures:
+            continue
 
         is_official = doc_type in {"policies", "specs", "reference"} and source_type not in {"email_case", "email_thread_analysis", "email"}
 
@@ -746,6 +1137,10 @@ def merge_and_rerank(
 
         if is_official:
             has_official = True
+
+        doc_name_counts[doc_name] = doc_name_counts.get(doc_name, 0) + 1
+
+        seen_text_signatures.add(signature)
 
         selected.append(item)
         if len(selected) >= top_k:
@@ -870,6 +1265,24 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = No
     else:
         filtered_chunks = chunks
 
+    exact_results = search_exact_phrases(
+        clean_query,
+        filtered_chunks,
+        top_k=10,
+    )
+
+    topic_heading_results = search_topic_headings(
+        clean_query,
+        filtered_chunks,
+        top_k=10,
+    )
+
+    glossary_results = search_glossary_acronyms(
+        clean_query,
+        filtered_chunks,
+        top_k=10,
+    )
+
     # Force an email-case lane for advisory/process questions
     email_chunks = [
         c for c in filtered_chunks
@@ -881,7 +1294,7 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = No
         email_bm25 = build_bm25(email_chunks)
         email_results = search_bm25(clean_query, email_chunks, email_bm25, top_k=10)
 
-    combined_bm25 = bm25_results + email_results
+    combined_bm25 = exact_results + topic_heading_results + glossary_results + bm25_results + email_results
 
     return merge_and_rerank(clean_query, combined_bm25, semantic_results, top_k=top_k)
 

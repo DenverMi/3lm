@@ -6,12 +6,13 @@ import time
 import ollama
 
 from app.config import RAG_LLM_MODEL, GENERAL_LLM_MODEL
-from app.retrieve import retrieve, format_citation, is_definition_query
+from app.retrieve import retrieve, format_citation, is_definition_query, extract_acronyms_for_glossary_lookup
 
 ANSWER_VARIANT_CHUNKS = None
 # Retrieval / context limits
 TOP_K_TO_MODEL = 3
-MAX_CONTEXT_CHARS = 12000
+MAX_CONTEXT_CHARS = 6000
+MAX_SNIPPET_CHARS = 1400
 
 # Weak retrieval guardrails
 MIN_TOP_SCORE = 1.20
@@ -27,6 +28,34 @@ def parse_mode_and_question(raw_question: str) -> tuple[str, str]:
 
     return "auto", raw_question.strip()
 
+def looks_like_followup_question(question: str) -> bool:
+    q = question.strip().lower()
+
+    followup_signals = [
+        "it",
+        "this",
+        "that",
+        "they",
+        "them",
+        "those",
+        "these",
+        "how about",
+        "what about",
+        "compare it",
+        "compare this",
+        "how is it different",
+        "how is this different",
+        "tell me more",
+        "explain more",
+    ]
+
+    if any(re.search(rf"\b{re.escape(signal)}\b", q) for signal in followup_signals):
+        return True
+
+    if q.startswith(("and ", "also ", "but ")):
+        return True
+
+    return False
 
 def looks_like_rag_query(question: str) -> bool:
     q = question.lower()
@@ -96,7 +125,40 @@ def ask_llm_general(question: str) -> str:
         ],
     )
 
-    return response["message"]["content"].strip()
+    answer = response["message"]["content"].strip()
+
+    if answer:
+        return answer
+
+    print("⚠️ Empty model output. Retrying with simplified prompt...")
+
+    simple_prompt = (
+        "Answer the question using only the evidence below. "
+        "Write a concise final answer. Do not include reasoning.\n\n"
+        f"Question:\n{question}\n\n"
+        f"Evidence:\n{format_context_for_simple_retry(items)}"
+    )
+
+    retry_response = ollama.chat(
+        model=RAG_LLM_MODEL,
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a technical assistant. Give only the final answer.",
+            },
+            {
+                "role": "user",
+                "content": simple_prompt,
+            },
+        ],
+        options={
+            "temperature": 0.1,
+            "num_predict": 300,
+            "num_ctx": 4096,
+        },
+    )
+
+    return retry_response["message"]["content"].strip()
 
 def resolve_language(query: str) -> str:
     q = query.lower()
@@ -159,6 +221,7 @@ Use only the provided INTERNAL EVIDENCE unless it is genuinely insufficient.
 
 Rules:
 - Treat INTERNAL EVIDENCE as the source of truth.
+- Do not expand acronyms unless the provided evidence explicitly expands them. If the evidence uses only the acronym, keep only the acronym.
 - Do not invent facts, definitions, expansions, translations, examples, or process steps not supported by the evidence.
 - Do not mix grounded evidence and model knowledge in the same paragraph.
 - If the evidence is sufficient, do not output any "General knowledge (model-based)" section.
@@ -178,6 +241,7 @@ For definition questions:
 - Do not replace the glossary definition with protocol behavior, implementation details, key handling, certificate handling, or procedure details.
 - If the evidence contains an acronym expansion in the form "Full Term (ACRONYM)" or "ACRONYM (Full Term)", use that exact expansion.
 - Do not invent or substitute a different expansion.
+- Do not expand acronyms unless the evidence explicitly provides the expansion or approved memory defines it.
 - FAQ or reference content may be used only to simplify or clarify, not to override a spec definition.
 - Do not repeat the same definition in different words.
 
@@ -202,6 +266,179 @@ Output format:
 - If internal evidence is sufficient, output only one grounded paragraph with citations.
 """.strip()
 
+def extract_compliance_folder_table_facts(items: List[Dict[str, Any]]) -> List[str]:
+    facts = []
+
+    for item in items:
+        text = item.get("text") or ""
+        meta = item.get("metadata", {})
+        doc_name = meta.get("doc_name") or ""
+
+        if "Compliance Folder requirements" not in text:
+            continue
+        if "BT Qualification Program Reference Document_QPRD" not in doc_name:
+            continue
+
+        facts.append(
+            "QPRD Table 3.3 Compliance Folder requirements: "
+            "Product details and Design details are required. "
+            "For a new Design, Test declaration, Test report(s), and Test logs are required if a test plan is generated. "
+            "TCW is included as required."
+        )
+        break
+
+    return facts
+
+def extract_practical_compliance_folder_facts(items: List[Dict[str, Any]]) -> List[str]:
+    facts = []
+
+    for item in items:
+        text = item.get("text") or ""
+        source_type = (item.get("metadata", {}).get("source_type") or "").lower()
+
+        if source_type not in {"email_case", "email_thread_analysis", "email"}:
+            continue
+
+        text_lower = text.lower()
+
+        if "compliance folder" not in text_lower:
+            continue
+
+        practical_items = []
+
+        if "operating manual" in text_lower or "operation manual" in text_lower or "operating instructions" in text_lower or "user documentation" in text_lower:
+            practical_items.append("Bluetooth-related operating instructions or user documentation")
+
+        if "block diagram" in text_lower:
+            practical_items.append("product block diagram")
+
+        if "external drawing" in text_lower or "external-dimension drawing" in text_lower or "external dimension drawing" in text_lower:
+            practical_items.append("external-dimension drawing")
+
+        if "antenna" in text_lower and ("radiation gain" in text_lower or "gain characteristics" in text_lower):
+            practical_items.append("antenna datasheet or antenna radiation-gain characteristics, as practical/internal evidence")
+
+        if practical_items:
+            facts.append(
+                "Practical/internal compliance-folder checklist from email cases: "
+                + ", ".join(practical_items)
+                + "."
+            )
+            break
+
+    return facts
+
+def add_glossary_support_sources(
+    question: str,
+    selected: List[Dict[str, Any]],
+    program: str | None,
+    max_added: int = 2,
+) -> List[Dict[str, Any]]:
+    selected_ids = {item["chunk_id"] for item in selected}
+
+    effective_program = program or (
+        selected[0].get("metadata", {}).get("program") if selected else None
+    )
+
+    evidence_text = question + "\n" + "\n".join(
+        item.get("text") or "" for item in selected
+    )
+
+    acronyms = extract_acronyms_for_glossary_lookup(evidence_text)
+
+    if not acronyms:
+        return selected
+
+    added = 0
+
+    for acronym in acronyms:
+        query = f"in {effective_program} what is {acronym}?"
+
+        glossary_hits = retrieve(
+            query,
+            top_k=8,
+            program=effective_program,
+        )
+
+        for hit in glossary_hits:
+            if hit["chunk_id"] in selected_ids:
+                continue
+
+            meta = hit.get("metadata", {})
+            doc_type = (meta.get("doc_type") or "").lower()
+            source_type = (meta.get("source_type") or "").lower()
+            doc_name = (meta.get("doc_name") or "").lower()
+            text = hit.get("text") or ""
+            text_lower = text.lower()
+
+            if doc_type not in {"policies", "specs", "reference"}:
+                continue
+
+            if source_type in {"email_case", "email_thread_analysis", "email"}:
+                continue
+
+            if acronym.lower() not in text_lower:
+                continue
+
+            looks_like_glossary = (
+                "glossary" in doc_name
+                or "definitions" in text_lower
+                or "acronym" in text_lower
+                or "abbreviation" in text_lower
+            )
+
+            if not looks_like_glossary:
+                continue
+
+            selected.append(hit)
+            selected_ids.add(hit["chunk_id"])
+            added += 1
+            break
+
+        if added >= max_added:
+            break
+
+    return selected
+
+def compact_email_case_text(text: str) -> str:
+    """
+    Convert email-case JSON chunks into compact evidence notes.
+    Keeps the useful advisory content and removes JSON noise.
+    """
+    if not text:
+        return ""
+
+    try:
+        import json
+
+        data = json.loads(text)
+        cases = data.get("cases", [])
+
+        if not cases:
+            return text
+
+        case = cases[0]
+
+        fields = [
+            ("Customer question", case.get("customer_question")),
+            ("Actual issue", case.get("actual_issue")),
+            ("Plain explanation", case.get("plain_english_explanation")),
+            ("Consultant answer", case.get("consultant_answer")),
+            ("Decision logic", case.get("decision_logic")),
+            ("Final recommendation", case.get("final_recommendation")),
+            ("Risk if done wrong", case.get("risk_if_done_wrong")),
+        ]
+
+        lines = []
+        for label, value in fields:
+            if value:
+                lines.append(f"{label}: {value}")
+
+        return "\n".join(lines) if lines else text
+
+    except Exception:
+        return text
+
 def build_model_input(
     question: str,
     items: List[Dict[str, Any]],
@@ -211,12 +448,40 @@ def build_model_input(
 ) -> str:
     parts: List[str] = []
 
+    parts.append(
+        "\nSource synthesis guidance:\n"
+        "- Use all relevant retrieved excerpts, not only the first one.\n"
+        "- For exact-label questions such as Option, Table, Section, or Clause questions, use the highest-ranked exact heading match as the primary answer, and use nearby subsection chunks only as supporting details.\n"
+        "- If official policy/spec excerpts are present, use them as the primary source for definitions, requirements, and rules.\n"
+        "- Use FAQ/reference excerpts to clarify or summarize the official source.\n"
+        "- Use email/case excerpts as practical examples or implementation context, not as the main authority when official sources are available.\n"
+        "- If retrieved sources disagree, say so clearly and prefer official policy/spec text for requirements.\n"
+        "- Treat the excerpt marked source_role: PRIMARY as the main source for the answer. Do not let SUPPORTING excerpts redefine or narrow the primary source.\n"
+        "- If an excerpt contains a table that directly answers the question, extract and include the relevant table row labels rather than only referring to the table number.\n"
+    )
+
     if language == "ja":
         parts.append("Requested output language: Japanese (日本語 only).")
     else:
         parts.append("Requested output language: English.")
 
     parts.append(f"\nQuestion:\n{question}")
+    table_facts = extract_compliance_folder_table_facts(items)
+    if table_facts:
+        parts.append(
+            "\nExtracted table facts:\n"
+            + "\n".join(f"- {fact}" for fact in table_facts)
+            + "\nUse these table facts directly when they answer the question."
+        )
+
+    practical_facts = extract_practical_compliance_folder_facts(items)
+    if practical_facts:
+        parts.append(
+            "\nExtracted practical checklist facts:\n"
+            + "\n".join(f"- {fact}" for fact in practical_facts)
+            + "\nUse these as practical/internal checklist items, but do not present them as official QPRD Table 3.3 items unless the policy excerpt says so."
+        )
+
     if grounded_expansion:
         parts.append(
             f"\nGrounded acronym expansion found in the evidence:\n"
@@ -268,7 +533,7 @@ def build_model_input(
     parts.append("\nINTERNAL EVIDENCE EXCERPTS:")
 
     total_chars = 0
-    for item in items:
+    for idx, item in enumerate(items):
         meta = item["metadata"]
 
         citation = format_citation(meta)
@@ -280,10 +545,22 @@ def build_model_input(
             f"chunk_kind: {meta.get('chunk_kind')}\n"
             f"priority: {meta.get('priority', 0)}\n"
             f"score: {item.get('score', 0.0):.4f}\n"
+            f"source_role: {'PRIMARY' if idx == 0 else 'SUPPORTING'}\n"
         )
 
         text = (item.get("text") or "").strip()
+        source_type = (meta.get("source_type") or "").lower()
+
+        if source_type in {"email_case", "email_thread_analysis", "email"}:
+            text = compact_email_case_text(text).strip()
+        
         remaining = MAX_CONTEXT_CHARS - total_chars
+        doc_type = (meta.get("doc_type") or "").lower()
+
+        if doc_type in {"policies", "specs"}:
+            remaining = min(remaining, 2200)
+        else:
+            remaining = min(remaining, MAX_SNIPPET_CHARS)
         if remaining <= 0:
             break
 
@@ -348,6 +625,34 @@ def build_model_input(
 
     return "\n".join(parts)
 
+def format_context_for_simple_retry(items: List[Dict[str, Any]], max_chars: int = 4000) -> str:
+    parts = []
+    total = 0
+
+    for item in items:
+        meta = item["metadata"]
+        citation = format_citation(meta)
+
+        text = (item.get("text") or "").strip()
+        source_type = (meta.get("source_type") or "").lower()
+
+        if source_type in {"email_case", "email_thread_analysis", "email"}:
+            text = compact_email_case_text(text).strip()
+
+        block = (
+            f"[{item['chunk_id']} | {citation}]\n"
+            f"{text}\n"
+        )
+
+        remaining = max_chars - total
+        if remaining <= 0:
+            break
+
+        parts.append(block[:remaining])
+        total += len(block[:remaining])
+
+    return "\n---\n".join(parts)
+
 def ask_llm(
     question: str,
     items: List[Dict[str, Any]],
@@ -377,6 +682,11 @@ def ask_llm(
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
+        options={
+            "temperature": 0.1,
+            "num_predict": 500,
+            "num_ctx": 8192,
+        },
     )
 
     return response["message"]["content"].strip()
@@ -871,6 +1181,61 @@ def supports_query_semantically(question: str, item: Dict[str, Any]) -> bool:
 
     return hits >= 2
 
+def select_exact_label_items(items: List[Dict[str, Any]], limit: int = 5) -> List[Dict[str, Any]]:
+    selected: List[Dict[str, Any]] = []
+    selected_ids = set()
+
+    def add_first_matching(predicate) -> None:
+        for item in items:
+            if item["chunk_id"] in selected_ids:
+                continue
+            if predicate(item):
+                selected.append(item)
+                selected_ids.add(item["chunk_id"])
+                return
+
+    # 1. Primary exact policy/spec/reference heading/source
+    add_first_matching(
+        lambda item: float(item.get("exact_phrase_score") or 0.0) > 0.0
+        and (item["metadata"].get("doc_type") or "").lower() in {"policies", "specs", "reference"}
+    )
+
+    # 2. Second official source from a different document if available.
+    # Avoid letting a child subsection from the same document redefine the parent heading.
+    primary_doc_name = ""
+    if selected:
+        primary_doc_name = selected[0]["metadata"].get("doc_name") or ""
+
+    add_first_matching(
+        lambda item: is_official_source(item)
+        and (item["metadata"].get("doc_name") or "") != primary_doc_name
+    )
+
+    # 3. FAQ/reference clarification
+    add_first_matching(
+        lambda item: (
+            (item["metadata"].get("doc_type") or "").lower() == "reference"
+            or "faq" in (item["metadata"].get("doc_name") or "").lower()
+        )
+    )
+
+    # 4. Practical email/case example
+    add_first_matching(
+        lambda item: (item["metadata"].get("source_type") or "").lower()
+        in {"email_case", "email_thread_analysis", "email"}
+    )
+
+    # 5. Fill remaining by rank
+    for item in items:
+        if len(selected) >= limit:
+            break
+        if item["chunk_id"] in selected_ids:
+            continue
+        selected.append(item)
+        selected_ids.add(item["chunk_id"])
+
+    return selected[:limit]
+
 def answer_question(
     question: str,
     top_k: int = TOP_K_TO_MODEL,
@@ -884,7 +1249,7 @@ def answer_question(
     prompt_question = clean_question
     retrieval_question = clean_question
 
-    if chat_history:
+    if chat_history and looks_like_followup_question(clean_question):
         previous_user_messages = [
             message.get("content", "").strip()
             for message in chat_history
@@ -1005,6 +1370,43 @@ def answer_question(
             else:
                 selected = items[:WEAK_RETRIEVAL_FALLBACK_K]
 
+            selected = add_glossary_support_sources(
+                clean_question,
+                selected,
+                program=program,
+                max_added=2,
+            )
+
+            selected = add_glossary_support_sources(
+                clean_question,
+                selected,
+                program=program,
+                max_added=2,
+            )
+
+            print("Selected after glossary support:")
+            for item in selected:
+                print("-", item["chunk_id"])
+
+            selected = add_glossary_support_sources(
+                clean_question,
+                selected,
+                program=program,
+                max_added=2,
+            )
+
+            if debug:
+                print("\nSelected sources for model:")
+                for item in selected:
+                    meta = item["metadata"]
+                    print(
+                        f"- score={item['score']:.4f}  "
+                        f"{format_citation(meta)}  "
+                        f"id={item['chunk_id']}  "
+                        f"priority={meta.get('priority', 0)}  "
+                        f"kind={meta.get('chunk_kind')}"
+                    )
+            
             print("🧠 Building grounded prompt...")
             print("🤖 Generating answer with local model...")
 
@@ -1049,30 +1451,47 @@ def answer_question(
     intent = "definition" if is_definition_query(clean_question) else "other"
 
     if intent == "definition":
-        if detail_mode == "wide":
-            definition_limit = 6
-        elif detail_mode == "deep":
-            definition_limit = 4
-        else:
-            definition_limit = 2
-
-        if grounded_expansion:
-            selected = exact_acronym_items[:max(1, min(2, definition_limit))]
-        elif exact_acronym_items:
-            selected = exact_acronym_items[:min(2, definition_limit)]
-        else:
-            selected = choose_best_definition_items(
-                clean_question,
-                items,
-                grounded_expansion,
-                limit=definition_limit,
-            )
-
-        selected = sorted(
-            selected,
-            key=lambda item: float(item.get("score", 0.0)),
-            reverse=True,
+        has_exact_phrase_hits = any(
+            float(item.get("exact_phrase_score") or 0.0) > 0.0
+            for item in items
         )
+
+        if has_exact_phrase_hits:
+            if detail_mode == "wide":
+                definition_limit = 6
+            elif detail_mode == "deep":
+                definition_limit = 4
+            else:
+                definition_limit = 3
+
+            selected = select_exact_label_items(items, limit=definition_limit)
+
+        else:
+            if detail_mode == "wide":
+                definition_limit = 6
+            elif detail_mode == "deep":
+                definition_limit = 4
+            else:
+                definition_limit = 2
+
+            if grounded_expansion:
+                selected = exact_acronym_items[:max(1, min(2, definition_limit))]
+            elif exact_acronym_items:
+                selected = exact_acronym_items[:min(2, definition_limit)]
+            else:
+                selected = choose_best_definition_items(
+                    clean_question,
+                    items,
+                    grounded_expansion,
+                    limit=definition_limit,
+                )
+
+        if not has_exact_phrase_hits:
+            selected = sorted(
+                selected,
+                key=lambda item: float(item.get("score", 0.0)),
+                reverse=True,
+            )
 
     else:
         if detail_mode == "wide":
@@ -1080,7 +1499,7 @@ def answer_question(
         elif detail_mode == "deep":
             model_k = 5
         else:
-            model_k = top_k
+            model_k = max(top_k, 4)
 
         selected = items[:model_k]
 
@@ -1088,21 +1507,45 @@ def answer_question(
             (item["metadata"].get("source_type") or "").lower() == "email_case"
             for item in selected
         )
-        has_official = any(is_official_source(item) for item in selected)
 
-        if has_email_case and not has_official:
+        has_policy_or_spec = any(
+            (item["metadata"].get("doc_type") or "").lower() in {"policies", "specs"}
+            for item in selected
+        )
+
+        if has_email_case and not has_policy_or_spec:
             selected_ids = {x["chunk_id"] for x in selected}
 
             for item in items:
                 if item["chunk_id"] in selected_ids:
                     continue
-                if is_official_source(item) and supports_query_semantically(clean_question, item):
+                if (
+                    (item["metadata"].get("doc_type") or "").lower() in {"policies", "specs"}
+                    and supports_query_semantically(clean_question, item)
+                ):
                     if len(selected) >= model_k:
                         selected[-1] = item
                     else:
                         selected.append(item)
                     break
+        
+        selected = sorted(
+            selected,
+            key=lambda item: (
+                0 if (item["metadata"].get("doc_type") or "").lower() in {"policies", "specs"} else
+                1 if (item["metadata"].get("doc_type") or "").lower() == "reference" else
+                2,
+                -float(item.get("score", 0.0)),
+            ),
+        )
 
+    selected = add_glossary_support_sources(
+        clean_question,
+        selected,
+        program=program,
+        max_added=2,
+    )
+    
     if debug:
         print("\nSelected sources for model:")
         for item in selected:
@@ -1114,6 +1557,7 @@ def answer_question(
                 f"priority={meta.get('priority', 0)}  "
                 f"kind={meta.get('chunk_kind')}"
             )
+
 
     t1 = time.perf_counter()
 
