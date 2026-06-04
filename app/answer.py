@@ -262,71 +262,11 @@ General knowledge:
 
 Output format:
 - Write only the final answer prose.
+- Never write citations inside the answer paragraph. Put citations only in the final Citations section.
+- Avoid repeating the same requirement in different wording. State each requirement once.
 - Do not print section headers unless "General knowledge (model-based)" is truly needed.
 - If internal evidence is sufficient, output only one grounded paragraph with citations.
 """.strip()
-
-def extract_compliance_folder_table_facts(items: List[Dict[str, Any]]) -> List[str]:
-    facts = []
-
-    for item in items:
-        text = item.get("text") or ""
-        meta = item.get("metadata", {})
-        doc_name = meta.get("doc_name") or ""
-
-        if "Compliance Folder requirements" not in text:
-            continue
-        if "BT Qualification Program Reference Document_QPRD" not in doc_name:
-            continue
-
-        facts.append(
-            "QPRD Table 3.3 Compliance Folder requirements: "
-            "Product details and Design details are required. "
-            "For a new Design, Test declaration, Test report(s), and Test logs are required if a test plan is generated. "
-            "TCW is included as required."
-        )
-        break
-
-    return facts
-
-def extract_practical_compliance_folder_facts(items: List[Dict[str, Any]]) -> List[str]:
-    facts = []
-
-    for item in items:
-        text = item.get("text") or ""
-        source_type = (item.get("metadata", {}).get("source_type") or "").lower()
-
-        if source_type not in {"email_case", "email_thread_analysis", "email"}:
-            continue
-
-        text_lower = text.lower()
-
-        if "compliance folder" not in text_lower:
-            continue
-
-        practical_items = []
-
-        if "operating manual" in text_lower or "operation manual" in text_lower or "operating instructions" in text_lower or "user documentation" in text_lower:
-            practical_items.append("Bluetooth-related operating instructions or user documentation")
-
-        if "block diagram" in text_lower:
-            practical_items.append("product block diagram")
-
-        if "external drawing" in text_lower or "external-dimension drawing" in text_lower or "external dimension drawing" in text_lower:
-            practical_items.append("external-dimension drawing")
-
-        if "antenna" in text_lower and ("radiation gain" in text_lower or "gain characteristics" in text_lower):
-            practical_items.append("antenna datasheet or antenna radiation-gain characteristics, as practical/internal evidence")
-
-        if practical_items:
-            facts.append(
-                "Practical/internal compliance-folder checklist from email cases: "
-                + ", ".join(practical_items)
-                + "."
-            )
-            break
-
-    return facts
 
 def add_glossary_support_sources(
     question: str,
@@ -456,8 +396,9 @@ def build_model_input(
         "- Use FAQ/reference excerpts to clarify or summarize the official source.\n"
         "- Use email/case excerpts as practical examples or implementation context, not as the main authority when official sources are available.\n"
         "- If retrieved sources disagree, say so clearly and prefer official policy/spec text for requirements.\n"
+        "- Keep official table requirements separate from practical examples. Do not place email-derived items under an official table row label unless the official excerpt explicitly says those items belong to that row.\n"
         "- Treat the excerpt marked source_role: PRIMARY as the main source for the answer. Do not let SUPPORTING excerpts redefine or narrow the primary source.\n"
-        "- If an excerpt contains a table that directly answers the question, extract and include the relevant table row labels rather than only referring to the table number.\n"
+        "- If an excerpt contains a table that directly answers the question, extract only the table row labels and conditions stated in that table. Do not infer what belongs inside a table row label unless another excerpt explicitly defines it.\n"
     )
 
     if language == "ja":
@@ -466,21 +407,6 @@ def build_model_input(
         parts.append("Requested output language: English.")
 
     parts.append(f"\nQuestion:\n{question}")
-    table_facts = extract_compliance_folder_table_facts(items)
-    if table_facts:
-        parts.append(
-            "\nExtracted table facts:\n"
-            + "\n".join(f"- {fact}" for fact in table_facts)
-            + "\nUse these table facts directly when they answer the question."
-        )
-
-    practical_facts = extract_practical_compliance_folder_facts(items)
-    if practical_facts:
-        parts.append(
-            "\nExtracted practical checklist facts:\n"
-            + "\n".join(f"- {fact}" for fact in practical_facts)
-            + "\nUse these as practical/internal checklist items, but do not present them as official QPRD Table 3.3 items unless the policy excerpt says so."
-        )
 
     if grounded_expansion:
         parts.append(
@@ -682,12 +608,16 @@ def ask_llm(
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
+        think=False,
         options={
             "temperature": 0.1,
-            "num_predict": 500,
+            "num_predict": 700,
             "num_ctx": 8192,
         },
     )
+
+    print("RAW OLLAMA RESPONSE:")
+    print(response)
 
     return response["message"]["content"].strip()
 
@@ -707,6 +637,14 @@ def separate_citations(answer: str, items: List[Dict[str, Any]]) -> str:
         answer = answer.replace(f"[chunk_id: {chunk_id}]", full_citation)
         answer = answer.replace(f"[chunk_id: {chunk_id} | {doc_name}]", full_citation)
 
+    # Remove model-inserted inline citation blocks that contain internal chunk IDs.
+    answer = re.sub(
+        r"\s*\[[^\]]*bluetooth:[^\]]+\]",
+        "",
+        answer,
+        flags=re.IGNORECASE,
+    )
+
     found = []
     for full_citation in citation_map.values():
         if full_citation in answer and full_citation not in found:
@@ -720,6 +658,7 @@ def separate_citations(answer: str, items: List[Dict[str, Any]]) -> str:
     answer = re.sub(r"\n+\**Answer:\**\s*", "\n\n", answer, flags=re.IGNORECASE)
 
     answer = re.sub(r"[ \t]+", " ", answer)
+    answer = re.sub(r"\s+([.,;:!?])", r"\1", answer)
     answer = re.sub(r"\n{3,}", "\n\n", answer).strip()
     answer = re.sub(r"\n*Citations:\s*(?:-|\n-\s*)*", "", answer, flags=re.IGNORECASE).strip()
     answer = re.sub(r"(?m)^[\*\-\s]+$", "", answer).strip()
@@ -1157,6 +1096,46 @@ def is_official_source(item: Dict[str, Any]) -> bool:
         and source_type not in {"email_case", "email_thread_analysis", "email"}
     )
 
+def preserve_relevant_email_case(
+    question: str,
+    selected: List[Dict[str, Any]],
+    items: List[Dict[str, Any]],
+    limit: int,
+) -> List[Dict[str, Any]]:
+    has_email = any(
+        (item["metadata"].get("source_type") or "").lower()
+        in {"email_case", "email_thread_analysis", "email"}
+        for item in selected
+    )
+
+    if has_email:
+        return selected
+
+    for item in items:
+        source_type = (item["metadata"].get("source_type") or "").lower()
+
+        if source_type not in {"email_case", "email_thread_analysis", "email"}:
+            continue
+
+        if not supports_query_semantically(question, item):
+            continue
+
+        if len(selected) >= limit:
+            # Replace the lowest-priority non-policy source first.
+            for idx in range(len(selected) - 1, -1, -1):
+                doc_type = (selected[idx]["metadata"].get("doc_type") or "").lower()
+                if doc_type not in {"policies", "specs"}:
+                    selected[idx] = item
+                    return selected
+
+            selected[-1] = item
+        else:
+            selected.append(item)
+
+        return selected
+
+    return selected
+
 def supports_query_semantically(question: str, item: Dict[str, Any]) -> bool:
     text = (item.get("text") or "").lower()
     q = question.lower()
@@ -1377,24 +1356,6 @@ def answer_question(
                 max_added=2,
             )
 
-            selected = add_glossary_support_sources(
-                clean_question,
-                selected,
-                program=program,
-                max_added=2,
-            )
-
-            print("Selected after glossary support:")
-            for item in selected:
-                print("-", item["chunk_id"])
-
-            selected = add_glossary_support_sources(
-                clean_question,
-                selected,
-                program=program,
-                max_added=2,
-            )
-
             if debug:
                 print("\nSelected sources for model:")
                 for item in selected:
@@ -1545,7 +1506,14 @@ def answer_question(
         program=program,
         max_added=2,
     )
-    
+
+    selected = preserve_relevant_email_case(
+        clean_question,
+        selected,
+        items,
+        limit=max(top_k, 5),
+    )
+
     if debug:
         print("\nSelected sources for model:")
         for item in selected:

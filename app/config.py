@@ -20,8 +20,8 @@ CHROMA_PATH = INDEX_DIR / "chroma"
 COLLECTION_NAME = "docs"
 
 # Models
-RAG_LLM_MODEL = "mistral-nemo:12b"
-GENERAL_LLM_MODEL = "qwen3.6:27b"
+RAG_LLM_MODEL = "gemma4:26b"
+GENERAL_LLM_MODEL = "gemma4:26b"
 EMBED_MODEL = "all-MiniLM-L6-v2"
 
 # Chunking
