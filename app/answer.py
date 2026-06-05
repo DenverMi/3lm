@@ -27,6 +27,8 @@ def parse_mode_and_question(raw_question: str) -> tuple[str, str]:
         return "rag", text[2:].strip()
     if text.startswith("- "):
         return "general", text[2:].strip()
+    if text.startswith("@ "):
+        return "email", text[2:].strip()
 
     return "auto", raw_question.strip()
 
@@ -1155,6 +1157,13 @@ def is_official_source(item: Dict[str, Any]) -> bool:
         and source_type not in {"email_case", "email_thread_analysis", "email"}
     )
 
+def filter_email_sources(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return [
+        item for item in items
+        if (item["metadata"].get("source_type") or "").lower()
+        in {"email_case", "email_thread_analysis", "email"}
+    ]
+
 def preserve_relevant_email_case(
     question: str,
     selected: List[Dict[str, Any]],
@@ -1365,6 +1374,52 @@ def answer_question(
             "weak_retrieval": False,
             "mode": mode,
         }
+    
+    if mode == "email":
+        print("\n📧 Email/case-only mode...")
+        print("\n🔍 Retrieving relevant email/case evidence...")
+
+        retrieve_k = 30
+        items = retrieve(retrieval_question, top_k=retrieve_k, program=program)
+        email_items = filter_email_sources(items)
+
+        if not email_items:
+            return {
+                "answer": "No relevant email or case evidence found.",
+                "items": [],
+                "weak_retrieval": True,
+                "mode": mode,
+            }
+
+        selected = email_items[:top_k]
+
+        print("🧠 Building email-grounded prompt...")
+        print("🤖 Generating answer with local model...")
+
+        email_prompt_question = (
+            "過去のemail/case事例に基づいて、公式ポリシーではなく"
+            "実務上の参考情報として答えてください。\n\n"
+            + clean_question
+        )
+
+        answer = separate_citations(
+            ask_llm(
+                email_prompt_question,
+                selected,
+                weak_retrieval=False,
+                detail_mode=detail_mode,
+            ),
+            selected,
+        )
+
+        print("✅ Done.\n")
+
+        return {
+            "answer": answer,
+            "items": selected,
+            "weak_retrieval": False,
+            "mode": mode,
+        }    
 
     if mode == "auto" and program is None and not looks_like_rag_query(clean_question):
         print("\n🤖 Auto mode chose general...")
