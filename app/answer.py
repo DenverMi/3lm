@@ -591,7 +591,7 @@ def build_model_input(
             "- Do not say that Japanese translation is unavailable unless the user explicitly asks whether an official Japanese term exists.\n"
             "- Do not append 'Not clearly specified in retrieved internal evidence.' unless some required part of the question truly cannot be answered from the excerpts.\n"
             "- Answer strictly from the excerpts when possible.\n"
-            "- Preserve official requirement labels such as 'N/A', 'Required', 'Required if', and 'As required' exactly; do not rewrite 'As required' as 'required as required'.\n"
+            "- When reporting table values, preserve labels exactly. If a table cell says 'As required', write 'As required', not 'required as required' or 'required as necessary'.\n"
             "- Write clean prose only.\n"
             "- Do not write inline citations, placeholder citations, or '[citation needed]'.\n"
             "- Do not write 'chunk_id:' anywhere in the answer.\n"
