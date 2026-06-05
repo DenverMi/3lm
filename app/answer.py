@@ -3,6 +3,8 @@ import sys
 from typing import Dict, List, Any
 import re
 import time
+import json
+from pathlib import Path
 import ollama
 
 from app.config import RAG_LLM_MODEL, GENERAL_LLM_MODEL
@@ -212,6 +214,62 @@ def retrieval_is_weak(items: List[Dict[str, Any]]) -> bool:
     top = float(items[0].get("score", 0.0))
     return top < MIN_TOP_SCORE
 
+RETRIEVAL_KEYWORDS_DIR = Path(__file__).parent / "retrieval_keywords"
+RETRIEVAL_KEYWORD_CACHE: Dict[str, Dict[str, str]] = {}
+
+
+def load_retrieval_keywords(program: str | None) -> Dict[str, str]:
+    if not program:
+        return {}
+
+    program_key = program.lower().strip()
+
+    if program_key in RETRIEVAL_KEYWORD_CACHE:
+        return RETRIEVAL_KEYWORD_CACHE[program_key]
+
+    path = RETRIEVAL_KEYWORDS_DIR / f"{program_key}.json"
+
+    if not path.exists():
+        RETRIEVAL_KEYWORD_CACHE[program_key] = {}
+        return {}
+
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        keywords = data.get("keywords", {})
+        if not isinstance(keywords, dict):
+            keywords = {}
+
+    except Exception:
+        keywords = {}
+
+    RETRIEVAL_KEYWORD_CACHE[program_key] = keywords
+    return keywords
+
+
+def expand_retrieval_query_with_keywords(question: str, program: str | None) -> str:
+    keywords = load_retrieval_keywords(program)
+
+    if not keywords:
+        return question
+
+    matched_terms = []
+
+    question_lower = question.lower()
+
+    for trigger, expansion in keywords.items():
+        if trigger.lower() in question_lower:
+            matched_terms.append(str(expansion))
+
+    if not matched_terms:
+        return question
+
+    return (
+        question
+        + "\n\nRetrieval keywords: "
+        + " ".join(matched_terms)
+    )
 
 def load_system_prompt(language: str) -> str:
     return f"""
@@ -1236,6 +1294,15 @@ def answer_question(
     prompt_question = clean_question
     retrieval_question = clean_question
 
+    keyword_program = program
+    if keyword_program is None and looks_like_rag_query(clean_question):
+        keyword_program = "bluetooth"
+
+    retrieval_question = expand_retrieval_query_with_keywords(
+        retrieval_question,
+        keyword_program,
+    )
+
     if chat_history and looks_like_followup_question(clean_question):
         previous_user_messages = [
             message.get("content", "").strip()
@@ -1598,19 +1665,13 @@ def answer_question(
                 ]
             )
 
-        has_official_or_reference = any(
+        has_strong_official_or_reference = any(
             is_official_source(item)
+            and float(item.get("score", 0.0)) >= 5.0
             for item in selected
         )
 
-        if has_official_or_reference and not asks_for_practical_case:
-            selected_ids = {item["chunk_id"] for item in selected}
-
-            selected = [
-                item for item in selected
-                if (item["metadata"].get("source_type") or "").lower()
-                not in {"email_case", "email_thread_analysis", "email"}
-            ]
+        if has_strong_official_or_reference and not asks_for_practical_case:
 
             for item in items:
                 if len(selected) >= model_k:

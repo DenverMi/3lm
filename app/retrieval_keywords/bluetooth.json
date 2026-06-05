@@ -1,0 +1,32 @@
+{
+  "program": "bluetooth",
+  "keywords": {
+    "認証済みモジュール": "qualified module pre-qualified module",
+    "qualified module": "qualified module pre-qualified module",
+    "pre-qualified module": "qualified module pre-qualified module",
+    "モジュール": "module",
+    "新しい認証": "new qualification new declaration listing",
+    "認証": "qualification certification declaration listing",
+    "qualification": "qualification declaration listing",
+    "必要": "required need",
+    "要件": "requirement requirements",
+    "必要条件": "requirement requirements",
+    "必要書類": "required documentation documents",
+    "書類": "documents documentation",
+    "資料": "documents documentation materials",
+    "提出書類": "submitted documents documentation",
+    "申請": "application submit declaration",
+    "登録": "listing registration declaration",
+    "お客様": "customer client clients",
+    "顧客": "customer client clients",
+    "実務": "practical in practice",
+    "実際": "actual in practice",
+    "コンプライアンスフォルダー": "Compliance Folder",
+    "Compliance Folder": "Compliance Folder documentation Table 3.3",
+    "準備": "prepare documentation required",
+    "提出": "submit declaration qualification process",
+    "試験": "test testing",
+    "再試験": "retest testing",
+    "変更": "change modify modification"
+  }
+}
