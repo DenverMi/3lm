@@ -419,6 +419,7 @@ def extract_exact_lookup_phrases(query: str) -> List[str]:
     q = query.lower()
     phrases = []
 
+    # Existing structured lookup phrases.
     patterns = [
         r"\boption\s+\d+[a-z]?\b",
         r"\btable\s+\d+(?:\.\d+)*\b",
@@ -432,7 +433,27 @@ def extract_exact_lookup_phrases(query: str) -> List[str]:
             if phrase not in phrases:
                 phrases.append(phrase)
 
-    return phrases
+    # General meaningful adjacent phrases from the query.
+    stop_terms = {
+        "what", "which", "when", "where", "who", "why", "how",
+        "do", "does", "did", "we", "i", "you", "they",
+        "need", "needed", "prepare", "prepared", "include", "included",
+        "in", "on", "for", "to", "of", "the", "a", "an",
+        "is", "are", "be", "with", "and", "or",
+    }
+
+    tokens = [
+        token for token in tokenize(q)
+        if len(token) >= 3 and token not in stop_terms
+    ]
+
+    for size in range(4, 1, -1):
+        for i in range(0, len(tokens) - size + 1):
+            phrase = " ".join(tokens[i:i + size])
+            if phrase not in phrases:
+                phrases.append(phrase)
+
+    return phrases[:20]
 
 def extract_topic_heading_phrases(query: str) -> List[str]:
     q = query.lower()
@@ -440,8 +461,8 @@ def extract_topic_heading_phrases(query: str) -> List[str]:
     stop_terms = {
         "what", "which", "when", "where", "who", "why", "how",
         "do", "does", "did", "we", "i", "you", "they",
-        "need", "needed", "prepare", "prepared", "include", "included",
         "required", "requirement", "requirements",
+        "need", "needed", "prepare", "prepared", "include", "included",
         "in", "on", "for", "to", "of", "the", "a", "an",
         "is", "are", "be", "with", "and", "or",
     }
