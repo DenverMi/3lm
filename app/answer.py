@@ -531,6 +531,7 @@ def build_model_input(
             "- Do not say that Japanese translation is unavailable unless the user explicitly asks whether an official Japanese term exists.\n"
             "- Do not append 'Not clearly specified in retrieved internal evidence.' unless some required part of the question truly cannot be answered from the excerpts.\n"
             "- Answer strictly from the excerpts when possible.\n"
+            "- Preserve official requirement labels such as 'N/A', 'Required', 'Required if', and 'As required' exactly; do not rewrite 'As required' as 'required as required'.\n"
             "- Write clean prose only.\n"
             "- Do not write inline citations, placeholder citations, or '[citation needed]'.\n"
             "- Do not write 'chunk_id:' anywhere in the answer.\n"
@@ -611,7 +612,7 @@ def ask_llm(
         think=False,
         options={
             "temperature": 0.1,
-            "num_predict": 700,
+            "num_predict": 450,
             "num_ctx": 8192,
         },
     )
@@ -639,7 +640,7 @@ def separate_citations(answer: str, items: List[Dict[str, Any]]) -> str:
 
     # Remove model-inserted inline citation blocks that contain internal chunk IDs.
     answer = re.sub(
-        r"\s*\[[^\]]*bluetooth:[^\]]+\]",
+        r"\s*\[[^\]\n]*bluetooth:[^\]\n]*(?:\]|\n|$)",
         "",
         answer,
         flags=re.IGNORECASE,
@@ -1110,6 +1111,14 @@ def preserve_relevant_email_case(
 
     if has_email:
         return selected
+    
+    has_official_source = any(
+        is_official_source(item)
+        for item in selected
+    )
+
+    if has_official_source:
+        return selected
 
     for item in items:
         source_type = (item["metadata"].get("source_type") or "").lower()
@@ -1198,18 +1207,17 @@ def select_exact_label_items(items: List[Dict[str, Any]], limit: int = 5) -> Lis
         )
     )
 
-    # 4. Practical email/case example
-    add_first_matching(
-        lambda item: (item["metadata"].get("source_type") or "").lower()
-        in {"email_case", "email_thread_analysis", "email"}
-    )
-
-    # 5. Fill remaining by rank
+    # 5. Fill remaining by rank, but do not add email cases for exact-label answers.
     for item in items:
         if len(selected) >= limit:
             break
         if item["chunk_id"] in selected_ids:
             continue
+
+        source_type = (item["metadata"].get("source_type") or "").lower()
+        if source_type in {"email_case", "email_thread_analysis", "email"}:
+            continue
+
         selected.append(item)
         selected_ids.add(item["chunk_id"])
 
@@ -1349,12 +1357,13 @@ def answer_question(
             else:
                 selected = items[:WEAK_RETRIEVAL_FALLBACK_K]
 
-            selected = add_glossary_support_sources(
-                clean_question,
-                selected,
-                program=program,
-                max_added=2,
-            )
+            if is_definition_query(clean_question):
+                selected = add_glossary_support_sources(
+                    clean_question,
+                    selected,
+                    program=program,
+                    max_added=1,
+                )
 
             if debug:
                 print("\nSelected sources for model:")
@@ -1409,7 +1418,23 @@ def answer_question(
             "mode": mode,
         }
 
-    intent = "definition" if is_definition_query(clean_question) else "other"
+    comparison_query = any(
+        phrase in clean_question.lower()
+        for phrase in [
+            "difference between",
+            "compare",
+            "comparison",
+            "versus",
+            " vs ",
+            "different from",
+        ]
+    )
+
+    intent = (
+        "definition"
+        if is_definition_query(clean_question) and not comparison_query
+        else "other"
+    )
 
     if intent == "definition":
         has_exact_phrase_hits = any(
@@ -1460,9 +1485,27 @@ def answer_question(
         elif detail_mode == "deep":
             model_k = 5
         else:
-            model_k = max(top_k, 4)
+            model_k = top_k
 
         selected = items[:model_k]
+
+        if any(
+            (item["metadata"].get("doc_type") or "").lower() == "reference"
+            for item in selected
+        ):
+            selected_ids = {item["chunk_id"] for item in selected}
+
+            for item in items:
+                if item["chunk_id"] in selected_ids:
+                    continue
+
+                doc_type = (item["metadata"].get("doc_type") or "").lower()
+                if doc_type not in {"policies", "specs"}:
+                    continue
+
+                if supports_query_semantically(clean_question, item):
+                    selected[-1] = item
+                    break        
 
         has_email_case = any(
             (item["metadata"].get("source_type") or "").lower() == "email_case"
@@ -1500,12 +1543,72 @@ def answer_question(
             ),
         )
 
-    selected = add_glossary_support_sources(
-        clean_question,
-        selected,
-        program=program,
-        max_added=2,
-    )
+        has_practical_source = any(
+            (item["metadata"].get("doc_type") or "").lower() == "reference"
+            or (item["metadata"].get("source_type") or "").lower()
+            in {"email_case", "email_thread_analysis", "email"}
+            for item in selected
+        )
+
+        if has_practical_source:
+            selected = [
+                item for item in selected
+                if (
+                    (item["metadata"].get("doc_type") or "").lower()
+                    not in {"specs", "policies"}
+                )
+                or supports_query_semantically(clean_question, item)
+            ]
+
+        asks_for_practical_case = any(
+            phrase in clean_question.lower()
+                for phrase in [
+                    "example",
+                    "case",
+                    "customer",
+                    "practical",
+                    "in practice",
+                    "actual",
+                    "email",
+                ]
+            )
+
+        has_official_or_reference = any(
+            is_official_source(item)
+            for item in selected
+        )
+
+        if has_official_or_reference and not asks_for_practical_case:
+            selected_ids = {item["chunk_id"] for item in selected}
+
+            selected = [
+                item for item in selected
+                if (item["metadata"].get("source_type") or "").lower()
+                not in {"email_case", "email_thread_analysis", "email"}
+            ]
+
+            for item in items:
+                if len(selected) >= model_k:
+                    break
+                if item["chunk_id"] in selected_ids:
+                    continue
+
+                source_type = (item["metadata"].get("source_type") or "").lower()
+                if source_type in {"email_case", "email_thread_analysis", "email"}:
+                    continue
+
+                if not supports_query_semantically(clean_question, item):
+                    continue
+
+                selected.append(item)
+
+    if is_definition_query(clean_question):
+        selected = add_glossary_support_sources(
+            clean_question,
+            selected,
+            program=program,
+            max_added=1,
+        )
 
     selected = preserve_relevant_email_case(
         clean_question,
