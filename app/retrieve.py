@@ -133,6 +133,16 @@ def is_definition_query(query: str) -> bool:
     if re.search(r"\bmeaning\s+of\b", q):
         return True
 
+    japanese_definition_patterns = [
+        "とは",
+        "何ですか",
+        "なんですか",
+        "意味",
+    ]
+
+    if any(pattern in query for pattern in japanese_definition_patterns):
+        return True
+
     return False
 
 def is_process_query(query: str) -> bool:
@@ -152,7 +162,14 @@ def is_process_query(query: str) -> bool:
     return any(k in q for k in keywords)
 
 def extract_core_term(query: str) -> str:
-    q = query.lower().strip()
+    raw = query.strip()
+    q = raw.lower().strip()
+
+    # Japanese / mixed-language acronym definition queries:
+    # BluetoothでICSとは何ですか？ -> ICS
+    acronym_match = re.search(r"\b[A-Z][A-Z0-9/\-]{1,9}\b", raw)
+    if acronym_match and any(marker in raw for marker in ["とは", "何ですか", "なんですか", "意味"]):
+        return acronym_match.group(0)
 
     for prefix in ["what is ", "what are ", "define "]:
         if q.startswith(prefix):
@@ -483,7 +500,7 @@ def extract_topic_heading_phrases(query: str) -> List[str]:
     return phrases[:10]
 
 def extract_acronyms_for_glossary_lookup(text: str) -> List[str]:
-    candidates = re.findall(r"\b[A-Z][A-Z0-9]{1,9}\b", text or "")
+    candidates = re.findall(r"(?<![A-Za-z0-9])[A-Z][A-Z0-9]{1,9}(?![A-Za-z0-9])", text or "")
 
     skip = {
         "SIG",

@@ -195,6 +195,10 @@ def extract_answer_core_term(question: str) -> str:
             term = m.group(1)
             break
 
+    acronym_match = re.search(r"\b[A-Z][A-Z0-9/\-]{1,9}\b", q)
+    if acronym_match:
+        term = acronym_match.group(0)
+
     term = term.strip(" ?.")
     term = re.sub(r"^(a|an|the)\s+", "", term, flags=re.IGNORECASE)
 
@@ -748,6 +752,10 @@ def extract_exact_acronym_expansion(question: str, items: List[Dict[str, Any]]) 
             term = q[len(prefix):].strip(" ?")
             break
     term = term.strip(" ?")
+
+    acronym_match = re.search(r"\b[A-Z][A-Z0-9/\-]{1,9}\b", q)
+    if acronym_match:
+        term = acronym_match.group(0)
 
     if not re.fullmatch(r"[A-Za-z0-9/\-]{2,10}", term):
         return None
@@ -1439,8 +1447,6 @@ def answer_question(
             "mode": mode,
         }
 
-    t0 = time.perf_counter()
-
     if preloaded_items is None:
         print("\n🔍 Retrieving relevant evidence...")
         if detail_mode == "wide":
@@ -1451,7 +1457,6 @@ def answer_question(
             retrieve_k = max(top_k, 5)
 
         items = retrieve(retrieval_question, top_k=retrieve_k, program=program)
-        print(f"DEBUG timing: retrieve={time.perf_counter() - t0:.2f}s")
     else:
         items = preloaded_items
 
@@ -1659,7 +1664,28 @@ def answer_question(
                     if len(selected) >= model_k:
                         break
 
-                selected = selected[:model_k]        
+                if not comparison_query:
+                    selected = selected[:model_k]
+
+        if comparison_query:
+            selected_ids = {item["chunk_id"] for item in selected}
+
+            for item in items:
+                if len(selected) >= model_k + 1:
+                    break
+
+                if item["chunk_id"] in selected_ids:
+                    continue
+
+                doc_type = (item["metadata"].get("doc_type") or "").lower()
+                if doc_type not in {"policies", "reference"}:
+                    continue
+
+                if not supports_query_semantically(clean_question, item):
+                    continue
+
+                selected.append(item)
+                selected_ids.add(item["chunk_id"])                  
 
         has_email_case = any(
             (item["metadata"].get("source_type") or "").lower() == "email_case"
@@ -1826,6 +1852,7 @@ def parse_args(argv: List[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Production-grade local answer tool")
     parser.add_argument("--top-k", type=int, default=TOP_K_TO_MODEL, help="How many chunks to send to the model")
     parser.add_argument("--debug", action="store_true", help="Print retrieval diagnostics")
+    parser.add_argument("--program", choices=["bluetooth", "matter", "aliro"], default=None)
     parser.add_argument("question", nargs="+", help="Question to answer")
     return parser.parse_args(argv)
 
@@ -1838,7 +1865,16 @@ def main() -> None:
         print("Usage: python -m app.answer <your question>")
         sys.exit(1)
 
-    result = answer_question(question, top_k=args.top_k, debug=args.debug)
+    t0 = time.perf_counter()
+    result = answer_question(
+        question,
+        top_k=args.top_k,
+        debug=args.debug,
+        program=args.program,
+    )
+    elapsed = time.perf_counter() - t0
+
+    print(f"\n⏱ Total elapsed: {elapsed:.2f}s")
 
     print("=== ANSWER ===\n")
     print(result["answer"])
