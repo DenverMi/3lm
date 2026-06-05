@@ -693,7 +693,6 @@ def separate_citations(answer: str, items: List[Dict[str, Any]]) -> str:
         full_citation = f"[{item['chunk_id']} | {format_citation(meta)}]"
         citation_map[item["chunk_id"]] = full_citation
 
-    # normalize a few model-made citation variants into the full citation form
     for chunk_id, full_citation in citation_map.items():
         doc_name = chunk_id.split(":")[-1]
         answer = answer.replace(f"[{chunk_id}]", full_citation)
@@ -702,19 +701,21 @@ def separate_citations(answer: str, items: List[Dict[str, Any]]) -> str:
         answer = answer.replace(f"[chunk_id: {chunk_id}]", full_citation)
         answer = answer.replace(f"[chunk_id: {chunk_id} | {doc_name}]", full_citation)
 
-    # Remove model-inserted inline citation blocks that contain internal chunk IDs.
+    found = []
+
+    for full_citation in citation_map.values():
+        if full_citation in answer and full_citation not in found:
+            found.append(full_citation)
+
+    for full_citation in found:
+        answer = answer.replace(full_citation, "").strip()
+
     answer = re.sub(
         r"\s*\[[^\]\n]*bluetooth:[^\]\n]*(?:\]|\n|$)",
         "",
         answer,
         flags=re.IGNORECASE,
     )
-
-    found = []
-    for full_citation in citation_map.values():
-        if full_citation in answer and full_citation not in found:
-            found.append(full_citation)
-            answer = answer.replace(full_citation, "").strip()
 
     answer = re.sub(r"\[citation needed[^\]]*\]", "", answer, flags=re.IGNORECASE)
     answer = re.sub(r"\[source needed[^\]]*\]", "", answer, flags=re.IGNORECASE)
@@ -729,7 +730,17 @@ def separate_citations(answer: str, items: List[Dict[str, Any]]) -> str:
     answer = re.sub(r"(?m)^[\*\-\s]+$", "", answer).strip()
 
     if not found:
-        found = list(citation_map.values())
+        if len(items) <= 2:
+            fallback_items = items[:1]
+        else:
+            fallback_items = items[:3]
+
+        found = [
+            f"[{item['chunk_id']} | {format_citation(item['metadata'])}]"
+            for item in fallback_items
+        ]
+
+    found = found[:5]
 
     if found:
         answer += "\n\nCitations:\n" + "\n".join(f"- {c}" for c in found)
@@ -1244,6 +1255,81 @@ def supports_query_semantically(question: str, item: Dict[str, Any]) -> bool:
 
     return hits >= 2
 
+def is_advisory_decision_question(question: str) -> bool:
+    q = question.lower()
+    return any(
+        phrase in q
+        for phrase in [
+            "customer asks",
+            "do they still need",
+            "do we need",
+            "do i need",
+            "is it required",
+            "new qualification",
+            "need a new qualification",
+        ]
+    )
+
+
+def is_advisory_decision_source(item: Dict[str, Any]) -> bool:
+    text = (item.get("text") or "").lower()
+    meta = item.get("metadata", {})
+
+    doc_type = (meta.get("doc_type") or "").lower()
+    source_type = (meta.get("source_type") or "").lower()
+
+    if source_type not in {"email_case", "email_thread_analysis", "email"} and doc_type != "reference":
+        return False
+
+    decision_signals = [
+        "must complete",
+        "must be qualified",
+        "still need",
+        "still requires",
+        "need bluetooth sig qualification",
+        "requires its own",
+        "qualification listing",
+        "declaration id",
+        "member account",
+        "cannot qualify your products on your behalf",
+        "all bluetooth products must be qualified",
+    ]
+
+    return any(signal in text for signal in decision_signals)
+
+def supports_advisory_query_strictly(question: str, item: Dict[str, Any]) -> bool:
+    text = (item.get("text") or "").lower()
+    q = question.lower()
+
+    decision_terms = [
+        "qualification",
+        "declaration",
+        "listing",
+        "member",
+        "account",
+        "end product",
+        "final product",
+        "qualified product",
+        "qdidd",
+        "qdid",
+    ]
+
+    question_has_decision_intent = any(
+        term in q
+        for term in [
+            "customer asks",
+            "do they still need",
+            "do we need",
+            "new qualification",
+            "need a new qualification",
+        ]
+    )
+
+    if not question_has_decision_intent:
+        return supports_query_semantically(question, item)
+
+    return any(term in text for term in decision_terms)
+
 def select_exact_label_items(items: List[Dict[str, Any]], limit: int = 5) -> List[Dict[str, Any]]:
     selected: List[Dict[str, Any]] = []
     selected_ids = set()
@@ -1449,14 +1535,27 @@ def answer_question(
 
     if preloaded_items is None:
         print("\n🔍 Retrieving relevant evidence...")
+        
         if detail_mode == "wide":
             retrieve_k = 12
         elif detail_mode == "deep":
             retrieve_k = 8
+        elif any(
+            phrase in clean_question.lower()
+            for phrase in [
+                "customer asks",
+                "do they still need",
+                "do we need",
+                "do i need",
+                "is it required",
+                "new qualification",
+            ]
+        ):
+            retrieve_k = max(top_k, 10)
         else:
             retrieve_k = max(top_k, 5)
-
         items = retrieve(retrieval_question, top_k=retrieve_k, program=program)
+
     else:
         items = preloaded_items
 
@@ -1737,8 +1836,24 @@ def answer_question(
                     (item["metadata"].get("doc_type") or "").lower()
                     not in {"specs", "policies"}
                 )
-                or supports_query_semantically(clean_question, item)
+                or supports_advisory_query_strictly(clean_question, item)
             ]
+        
+        if is_advisory_decision_question(clean_question):
+            selected_ids = {item["chunk_id"] for item in selected}
+
+            for item in items:
+                if len(selected) >= model_k:
+                    break
+
+                if item["chunk_id"] in selected_ids:
+                    continue
+
+                if not is_advisory_decision_source(item):
+                    continue
+
+                selected.append(item)
+                selected_ids.add(item["chunk_id"])
 
         asks_for_practical_case = any(
             phrase in clean_question.lower()

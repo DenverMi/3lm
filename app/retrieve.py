@@ -1107,6 +1107,10 @@ def merge_and_rerank(
 
         term = extract_core_term(query).lower()
         text_lower = (item.get("text") or "").lower()
+        doc_type = (meta.get("doc_type") or "").lower()
+
+        if is_advisory_query(query) and doc_type == "specs":
+            bonus -= 8.0
 
         if intent == "definition" and term:
             term_pattern = rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])"
