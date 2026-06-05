@@ -1734,6 +1734,13 @@ def answer_question(
         )
 
         if has_strong_official_or_reference and not asks_for_practical_case:
+            selected_ids = {item["chunk_id"] for item in selected}
+
+            selected = [
+                item for item in selected
+                if (item["metadata"].get("source_type") or "").lower()
+                not in {"email_case", "email_thread_analysis", "email"}
+            ]
 
             for item in items:
                 if len(selected) >= model_k:
@@ -1750,20 +1757,32 @@ def answer_question(
 
                 selected.append(item)
 
-    if is_definition_query(clean_question):
-        selected = add_glossary_support_sources(
-            clean_question,
-            selected,
-            program=program,
-            max_added=1,
+        has_body_source = any(
+            (item["metadata"].get("chunk_kind") or "").lower() != "front_page"
+            for item in selected
         )
 
-    selected = preserve_relevant_email_case(
-        clean_question,
-        selected,
-        items,
-        limit=max(top_k, 5),
-    )
+        if has_body_source:
+            selected = [
+                item for item in selected
+                if (item["metadata"].get("chunk_kind") or "").lower() != "front_page"
+                or float(item.get("score", 0.0)) >= 10.0
+            ]
+
+        if is_definition_query(clean_question):
+            selected = add_glossary_support_sources(
+                clean_question,
+                selected,
+                program=program,
+                max_added=1,
+            )
+
+        selected = preserve_relevant_email_case(
+            clean_question,
+            selected,
+            items,
+            limit=max(top_k, 5),
+        )
 
     if debug:
         print("\nSelected sources for model:")
