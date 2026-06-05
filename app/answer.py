@@ -1396,11 +1396,18 @@ def answer_question(
         print("🧠 Building email-grounded prompt...")
         print("🤖 Generating answer with local model...")
 
-        email_prompt_question = (
-            "過去のemail/case事例に基づいて、公式ポリシーではなく"
-            "実務上の参考情報として答えてください。\n\n"
-            + clean_question
-        )
+        if resolve_language(clean_question) == "ja":
+            email_prefix = (
+                "過去のemail/case事例に基づいて、公式ポリシーではなく"
+                "実務上の参考情報として日本語で答えてください。\n\n"
+    )
+        else:
+            email_prefix = (
+                "Answer in English based on past email/case examples as practical reference only, "
+                "not as official policy.\n\n"
+            )
+
+        email_prompt_question = email_prefix + clean_question
 
         answer = separate_citations(
             ask_llm(
