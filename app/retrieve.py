@@ -392,9 +392,25 @@ def parse_domain_prefix(query: str) -> Tuple[Optional[str], str]:
 
     return None, query
 
+def is_comparison_query(query: str) -> bool:
+    q = query.lower()
+    return any(
+        phrase in q
+        for phrase in [
+            "difference between",
+            "compare",
+            "comparison",
+            "versus",
+            " vs ",
+            "different from",
+        ]
+    )
+
 def detect_intent(query: str) -> str:
     if is_process_query(query):
         return "process"
+    if is_comparison_query(query):
+        return "comparison"
     if is_definition_query(query):
         return "definition"
     return "general"
@@ -525,7 +541,7 @@ def search_glossary_acronyms(
         if not matched:
             continue
 
-        score = 16.0 + len(matched)
+        score = 24.0 + len(matched)
 
         if doc_type == "policies":
             score += 4.0
@@ -1083,8 +1099,26 @@ def merge_and_rerank(
         glossary_score = float(item.get("glossary_score") or 0.0)
         if intent == "definition":
             glossary_bonus = glossary_score * 0.9
+        elif intent == "comparison":
+            glossary_bonus = glossary_score * 0.8
         else:
             glossary_bonus = glossary_score * 0.5
+
+        query_acronyms = {
+            acronym.upper()
+            for acronym in extract_acronyms_for_glossary_lookup(query)
+        }
+        matched_glossary_acronyms = {
+            acronym.upper()
+            for acronym in item.get("glossary_acronyms", [])
+        }
+
+        if query_acronyms and matched_glossary_acronyms & query_acronyms:
+            glossary_bonus += 8.0
+
+            doc_name = (item["metadata"].get("doc_name") or "").lower()
+            if "glossary" in doc_name:
+                glossary_bonus += 6.0
 
         final_score = (
             rrf_score

@@ -1505,7 +1505,32 @@ def answer_question(
 
                 if supports_query_semantically(clean_question, item):
                     selected[-1] = item
-                    break        
+                    break
+
+        if comparison_query:
+            glossary_like = [
+                item for item in items
+                if (
+                    (item["metadata"].get("doc_type") or "").lower() == "reference"
+                    or "glossary" in (item["metadata"].get("doc_name") or "").lower()
+                )
+                and supports_query_semantically(clean_question, item)
+            ]
+
+            if glossary_like:
+                selected_ids = {item["chunk_id"] for item in selected}
+
+                for item in glossary_like:
+                    if item["chunk_id"] in selected_ids:
+                        continue
+
+                    selected.append(item)
+                    selected_ids.add(item["chunk_id"])
+
+                    if len(selected) >= model_k:
+                        break
+
+                selected = selected[:model_k]        
 
         has_email_case = any(
             (item["metadata"].get("source_type") or "").lower() == "email_case"
