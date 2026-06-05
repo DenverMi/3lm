@@ -48,6 +48,40 @@ def run_question(question: str) -> tuple[float, str]:
     return elapsed, output
 
 
+def guess_source_quality(output: str) -> str:
+    if "matter:" in output or "aliro:" in output:
+        return "FAIL - cross-program source"
+
+    citation_count = output.count("- [bluetooth:")
+
+    if citation_count == 0:
+        return "FAIL - no citations"
+    if citation_count <= 3:
+        return "Good"
+    if citation_count <= 5:
+        return "Noisy"
+
+    return "Too noisy"
+
+
+def guess_grade(output: str) -> str:
+    fail_markers = [
+        "do not contain",
+        "not enough information",
+        "provided documents do not contain",
+        "general knowledge",
+    ]
+
+    lowered = output.lower()
+
+    if any(marker in lowered for marker in fail_markers):
+        return "REVIEW"
+
+    if "matter:" in output or "aliro:" in output:
+        return "FAIL"
+
+    return "TODO"
+
 def main() -> None:
     raw_lines = ["# Bluetooth RAG Benchmark Raw Results", ""]
     board_lines = [
@@ -76,8 +110,11 @@ def main() -> None:
         )
 
         safe_question = question.replace("|", "\\|")
+        grade = guess_grade(output)
+        source_quality = guess_source_quality(output)
+
         board_lines.append(
-            f"| {index} | {safe_question} | {elapsed:.2f}s | TODO | TODO | TODO |"
+            f"| {index} | {safe_question} | {elapsed:.2f}s | {grade} | {source_quality} | TODO |"
         )
 
         RESULTS_PATH.write_text("\n".join(raw_lines), encoding="utf-8")
