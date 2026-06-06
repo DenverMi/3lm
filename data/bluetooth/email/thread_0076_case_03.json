@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0076",
+    "cases": [
+        {
+            "case_id": "thread_0076_case_03",
+            "iut_type": "",
+            "customer_question": "What is a TCW and when can it be used during Bluetooth SIG registration?",
+            "question_variants": [
+                "Meaning of TCW in Bluetooth SIG",
+                "TCW number shown instead of Yes/No",
+                "How do TCWs resolve registration issues?",
+                "Inter-Layer Dependencies TCW",
+                "When is a TCW required?"
+            ],
+            "actual_issue": "The customer encountered TCW identifiers in the registration system and needed to understand their purpose in the qualification workflow.",
+            "plain_english_explanation": "TCWs are Bluetooth SIG mechanisms related to unresolved inter-layer dependency conditions within the qualification system. They provide a controlled path for submission when a dependency issue is attributable to the SIG side and requires review.",
+            "consultant_answer": "The consultant explained that TCWs are associated with Inter-Layer Dependencies. When a dependency issue cannot be resolved through normal qualification processing and the issue is attributable to the SIG-side dependency framework, an applicable TCW may be entered to allow submission subject to review and approval.",
+            "decision_logic": "TCWs are exception-handling mechanisms used only for specific dependency situations recognized by the Bluetooth SIG qualification process.",
+            "final_recommendation": "Review the applicable Inter-Layer Dependencies guidance and use a TCW only when the qualification issue matches an approved TCW condition.",
+            "risk_if_done_wrong": "Misunderstanding TCWs can lead to incorrect submission planning, unresolved dependency issues, and delays in registration review.",
+            "bluetooth_tags": [
+                "TCW",
+                "qualification",
+                "Inter-Layer Dependencies",
+                "listing",
+                "declaration"
+            ],
+            "search_aliases": [
+                "TCW meaning",
+                "Inter-Layer Dependencies",
+                "TCW submission",
+                "qualification exception",
+                "dependency resolution",
+                "TCW approval",
+                "Bluetooth SIG TCW",
+                "registration dependency issue"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

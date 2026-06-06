@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0065",
+    "cases": [
+        {
+            "case_id": "thread_0065_case_02",
+            "iut_type": "blood pressure monitor",
+            "customer_question": "Will an Option 2b qualification using existing qualified Bluetooth components require additional testing, extra cost, or schedule impact?",
+            "question_variants": [
+                "Does Option 2b generate a test plan?",
+                "Will additional Bluetooth testing be required?",
+                "Is there a qualification delay risk with Option 2b?",
+                "Can existing qualified layers be reused without new tests?",
+                "Will this design change trigger extra qualification work?"
+            ],
+            "actual_issue": "The customer needed to know whether combining existing qualified Bluetooth design elements into a new qualification would trigger mandatory testing or qualification delays.",
+            "plain_english_explanation": "When products reuse previously qualified Bluetooth technology, the qualification system may or may not require additional testing. The customer wanted confirmation before proceeding because new testing can affect cost and schedules. The consultant verified the design in advance to determine the actual qualification impact.",
+            "consultant_answer": "The consultant created a trial qualification project using the proposed references and reviewed the resulting qualification behavior. The qualification tool generated no additional test plan for the proposed Option 2b configuration. Based on that verification, the consultant advised that there was no current expectation of additional testing, additional cost, or schedule delay related to the qualification structure.",
+            "decision_logic": "Qualification impact is determined by the actual qualification project outcome and generated test requirements. If the selected design combination produces no additional test plan, additional qualification testing is not required for that configuration.",
+            "final_recommendation": "Validate the intended design in Qualification Workspace before submission and proceed when the generated qualification project confirms that no additional test plan is required.",
+            "risk_if_done_wrong": "Assuming qualification eligibility without verifying the resulting test plan could lead to unexpected testing requirements, qualification rework, and schedule disruption.",
+            "bluetooth_tags": [
+                "qualification",
+                "Option 2b",
+                "test plan",
+                "reuse",
+                "listing",
+                "QDID"
+            ],
+            "search_aliases": [
+                "Option 2b testing required",
+                "no generated test plan",
+                "qualification impact check",
+                "reuse existing design",
+                "prequalification review",
+                "additional testing assessment",
+                "qualification schedule risk"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

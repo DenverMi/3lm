@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0075",
+    "cases": [
+        {
+            "case_id": "thread_0075_case_03",
+            "iut_type": "automotive device",
+            "customer_question": "If a referenced Bluetooth profile is customized, is additional qualification testing required and how should compatibility with the Host design be verified?",
+            "question_variants": [
+                "Do custom Bluetooth profiles require testing?",
+                "Can a modified Qualcomm profile be reused without testing?",
+                "How do I validate a custom profile against a Host QDID?",
+                "Need qualification testing for profile customization",
+                "How to check Invalid=0 before declaration"
+            ],
+            "actual_issue": "The project intended to build on existing qualified Bluetooth designs, but profile-level customization could introduce incompatibilities with the referenced Host qualification.",
+            "plain_english_explanation": "Reusing qualified Bluetooth designs does not automatically cover later profile modifications. Any customization can change qualification applicability and may affect whether the final design remains compatible with referenced host registrations. Compatibility should be checked before qualification submission.",
+            "consultant_answer": "If the reused profile is customized, qualification testing should be performed on the customized functionality. Afterward, the resulting design should be checked against the referenced Host qualification to ensure no qualification inconsistency exists and that the resulting combination remains valid.",
+            "decision_logic": "Qualification reuse depends on remaining within the scope of the referenced qualified design. Once profile behavior is modified, testing and compatibility verification are needed to confirm that the resulting combination still satisfies qualification rules.",
+            "final_recommendation": "Identify all profile customizations early, perform the required qualification testing on the modified functionality, and validate the resulting Host/Controller combination before proceeding with declaration.",
+            "risk_if_done_wrong": "Undetected incompatibilities may surface late in qualification, requiring additional testing, redesign of the qualification approach, or changes to the referenced design combination.",
+            "bluetooth_tags": [
+                "qualification",
+                "profile",
+                "host",
+                "reuse",
+                "testing",
+                "declaration"
+            ],
+            "search_aliases": [
+                "custom profile testing",
+                "Host QDID compatibility",
+                "Invalid equals zero",
+                "profile customization qualification",
+                "reuse with modifications",
+                "host controller validation",
+                "qualification simulation",
+                "customized profile"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

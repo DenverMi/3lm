@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0074",
+    "cases": [
+        {
+            "case_id": "thread_0074_case_02",
+            "iut_type": "",
+            "customer_question": "How should qualification testing interpret a DUT that reports a feature as unsupported even though the underlying chipset is capable of supporting it?",
+            "question_variants": [
+                "SoC supports feature but DUT reports unsupported",
+                "Can product-level disablement make a feature unsupported?",
+                "Should qualification follow chipset capability or DUT behavior?",
+                "DUT indicates feature not supported",
+                "How should EPC non-support be interpreted?"
+            ],
+            "actual_issue": "The DUT reported that Enhanced Power Control was unsupported even though a previous investigation found that the underlying chipset platform supported the feature. The feature had been disabled during product initialization.",
+            "plain_english_explanation": "A Bluetooth chipset may include a capability that is intentionally disabled in the finished product. During qualification testing, the tester interacts with the actual product behavior, not theoretical chipset capabilities. The question was whether the qualification report should follow the product response or the platform specification.",
+            "consultant_answer": "The consultant cited a previous case where the chipset vendor confirmed EPC support, but investigation showed that product firmware disabled the feature during initialization. For qualification purposes, the submitted DUT's observed behavior is authoritative. If the DUT reports that a feature is unsupported, the qualification report may treat the feature as unsupported regardless of latent chipset capability.",
+            "decision_logic": "Qualification testing evaluates the behavior of the submitted implementation. Product-level configuration and runtime behavior take precedence over underlying silicon capabilities when determining supported features for the qualification report.",
+            "final_recommendation": "Base qualification conclusions on the DUT's observed behavior, document any feature disablement when known, and report support status according to the actual implementation under test.",
+            "risk_if_done_wrong": "Assuming chipset capability automatically means product-level support can lead to incorrect feature declarations, unnecessary investigations, and confusion during qualification reviews.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "RF",
+                "implementation",
+                "test-report"
+            ],
+            "search_aliases": [
+                "DUT indicates not supported",
+                "chipset capability vs product behavior",
+                "feature disabled in firmware",
+                "Enhanced Power Control disabled",
+                "EPC non-support",
+                "product initialization disables feature",
+                "qualification based on DUT",
+                "actual implementation behavior"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

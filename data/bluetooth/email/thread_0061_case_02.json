@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0061",
+    "cases": [
+        {
+            "case_id": "thread_0061_case_02",
+            "iut_type": "controller",
+            "customer_question": "What should be done when a previously qualified Controller design is discovered to be missing a required RF PHY test case in the historical test report?",
+            "question_variants": [
+                "Can a missing RF PHY test be added as a delta test?",
+                "Should we update the qualification to reflect a newly executed RF PHY test?",
+                "Can we modify RF PHY ICS settings to incorporate missing evidence?",
+                "Does adding a missing RF PHY test trigger new qualification requirements?",
+                "Can a historical Controller qualification remain valid despite a missing RF PHY report item?"
+            ],
+            "actual_issue": "A legacy Controller qualification was found to be missing a required RF PHY test case in the historical report. The team considered executing the missing test as a supplemental activity and updating qualification records to reflect the result.",
+            "plain_english_explanation": "An old qualification report was missing one RF PHY test that should have been included. Although the test could be run later, adding it back into the qualification is not necessarily beneficial. Making qualification changes solely to insert the missing result can trigger new checks and create additional qualification risk.",
+            "consultant_answer": "A supplemental RF PHY test can technically be executed, but the result cannot simply be retroactively applied to the original qualification. For the planned update path, the existing qualified Controller design is already treated as having satisfied the qualification requirements. Intentionally modifying RF PHY ICS content to force inclusion of the missing test would generate RF PHY test requirements and activate additional inter-layer consistency validation. Depending on the capabilities exposed by the updated Host/Profile layers, this can create new qualification risks.",
+            "decision_logic": "The original Controller qualification was already accepted. Leaving the included Controller design unchanged preserves that status. Modifying RF PHY ICS selections converts the issue into a new qualification assessment path that can trigger additional testing and consistency checks.",
+            "final_recommendation": "Do not modify RF PHY ICS content solely to inject the missing historical test evidence. Reuse the existing approved Controller qualification unchanged unless there is an independent technical reason to reassess the Controller layer.",
+            "risk_if_done_wrong": "Additional RF PHY testing requirements may be generated, inter-layer consistency checks may be triggered, and new qualification mismatches may appear that were previously outside the scope of the update activity.",
+            "bluetooth_tags": [
+                "RF PHY",
+                "controller",
+                "ICS",
+                "test report",
+                "consistency check",
+                "qualification reuse",
+                "design update"
+            ],
+            "search_aliases": [
+                "missing RF PHY test",
+                "delta RF PHY testing",
+                "supplemental test evidence",
+                "ICS modification risk",
+                "RF PHY reassessment",
+                "legacy qualification gap",
+                "consistency check trigger",
+                "Controller qualification reuse"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

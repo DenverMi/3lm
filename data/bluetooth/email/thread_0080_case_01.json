@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0080",
+    "cases": [
+        {
+            "case_id": "thread_0080_case_01",
+            "iut_type": "",
+            "customer_question": "If a device uses Bluetooth advertising on 2426 MHz, is a separate Tx performance evaluation required for that advertising frequency, or is testing at the standard RF PHY frequencies sufficient?",
+            "question_variants": [
+                "Do advertising channels require separate RF PHY Tx testing?",
+                "Must 2426 MHz advertising be tested directly?",
+                "Is 2440 MHz testing sufficient for advertising-channel coverage?",
+                "How are Bluetooth advertising frequencies covered in RF PHY testing?",
+                "Which Tx test item applies to advertising-channel frequencies?"
+            ],
+            "actual_issue": "Understanding whether Bluetooth RF PHY transmitter qualification requires direct testing on every advertising frequency or whether specification-defined test frequencies provide sufficient coverage.",
+            "plain_english_explanation": "The customer wanted to know whether a Bluetooth advertising frequency needed its own dedicated transmitter test. The qualification rules use specified low, middle, and high test frequencies rather than requiring every operating frequency to be tested. Passing the required frequencies is considered representative coverage for frequencies between them.",
+            "consultant_answer": "The consultant explained that RF-PHY transmitter tests are performed at specification-defined frequencies such as 2402 MHz, 2440 MHz, and 2480 MHz (or the alternate set defined by the RF PHY test specification). Advertising uses 2402 MHz, 2426 MHz, and 2480 MHz, but successful testing at the required lower, middle, and upper frequencies is considered sufficient evidence of transmitter performance across the covered range, including 2426 MHz.",
+            "decision_logic": "Bluetooth RF PHY qualification follows the frequencies mandated by the RF PHY test specification. Qualification coverage is based on representative lower, middle, and upper channel testing rather than direct testing of every advertising frequency.",
+            "final_recommendation": "Use the RF PHY test frequencies defined by the applicable Bluetooth test specification and rely on the resulting frequency-range coverage rather than adding separate Tx tests for intermediate advertising frequencies.",
+            "risk_if_done_wrong": "Testing every advertising frequency unnecessarily could increase test effort. Misunderstanding the coverage model could also lead to incorrect assumptions about RF PHY qualification requirements.",
+            "bluetooth_tags": [
+                "RF",
+                "RF PHY",
+                "testing",
+                "Tx",
+                "advertising",
+                "LE"
+            ],
+            "search_aliases": [
+                "RF-PHY transmitter frequency coverage",
+                "advertising channel test frequency",
+                "2426 MHz testing",
+                "2402 2440 2480 MHz",
+                "RF PHY Tx evaluation",
+                "advertising frequency qualification",
+                "intermediate frequency coverage",
+                "TRM BV test frequency"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

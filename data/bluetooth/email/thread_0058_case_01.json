@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0058",
+    "cases": [
+        {
+            "case_id": "thread_0058_case_01",
+            "iut_type": "module",
+            "customer_question": "A product currently listed with one BLE module is being changed to a replacement BLE module. Does this require a new Bluetooth SIG registration, and are there restrictions on how many product models can be included in the registration?",
+            "question_variants": [
+                "Can I keep the existing Bluetooth registration if I replace the BLE module?",
+                "Does changing to a substitute BLE module require a new SIG qualification?",
+                "Can multiple product models be included when registering a product that uses a replacement BLE module?",
+                "What is the correct Bluetooth qualification path after an end-of-life BLE module replacement?",
+                "Do I need a new declaration when the Bluetooth module changes but the product family stays the same?"
+            ],
+            "actual_issue": "Determining the correct Bluetooth SIG qualification and listing approach when an existing qualified product is redesigned to use a different BLE module.",
+            "plain_english_explanation": "The Bluetooth-qualified part of the product changed because the BLE module was replaced. Even if the end product name remains the same, the Bluetooth qualification basis is different. The registration must therefore be handled as a new qualification activity rather than simply reusing the previous listing unchanged.",
+            "consultant_answer": "A BLE module replacement changes the qualified Bluetooth design being relied upon, so the product should be processed through a new Bluetooth SIG registration workflow. The initial registration requires creation of a new qualification submission and supporting compliance documentation. At least one model is registered in the initial process, and additional variants can be managed afterward through the product-listing process. Review-page validation, member-record verification, and compliance-folder preparation are part of completing the qualification package.",
+            "decision_logic": "The deciding factor is whether the Bluetooth implementation being qualified has changed. Replacing the BLE module changes the underlying qualified Bluetooth design, so the existing registration cannot simply be reused without a new qualification submission and associated listing activities.",
+            "final_recommendation": "Create a new Bluetooth SIG qualification submission for the product using the replacement BLE module, prepare the required compliance-folder evidence and qualification inputs, complete the initial registration, and then add any additional product variants through the appropriate listing process.",
+            "risk_if_done_wrong": "Treating the module replacement as an unchanged qualification can result in an incorrect Bluetooth SIG listing, qualification non-compliance, administrative rework, and delays while registration records and supporting documentation are corrected.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "module",
+                "BLE",
+                "design change",
+                "compliance folder",
+                "TCW"
+            ],
+            "search_aliases": [
+                "BLE module replacement",
+                "replacement module qualification",
+                "new SIG registration required",
+                "module change listing",
+                "Bluetooth design change",
+                "new qualification submission",
+                "product listing variant",
+                "compliance folder preparation",
+                "review page verification",
+                "TCW question"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

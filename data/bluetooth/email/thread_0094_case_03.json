@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0094",
+    "cases": [
+        {
+            "case_id": "thread_0094_case_03",
+            "iut_type": "BLE module-based product",
+            "customer_question": "What documentation is required for Bluetooth SIG product registration when qualifying a finished product that uses a BLE module?",
+            "question_variants": [
+                "What documents are needed for Bluetooth qualification?",
+                "Do I need module design files for registration?",
+                "Are product-level documents required for qualification?",
+                "What is required for the compliance folder?",
+                "Which drawings and manuals must be provided?"
+            ],
+            "actual_issue": "The customer initially assumed module-level engineering documents would be required, but Bluetooth qualification documentation requirements apply to the finished product.",
+            "plain_english_explanation": "Bluetooth qualification documentation focuses on the final product being registered rather than only the Bluetooth module itself. Product-level information is needed to demonstrate how Bluetooth is implemented in the final device and to support qualification records.",
+            "consultant_answer": "The consultant clarified that Bluetooth qualification requires product-level documentation, including the product user manual, product block diagram, product external drawing, antenna drawing, and antenna gain information. The required materials are not limited to module schematics, PCB layouts, or module component lists.",
+            "decision_logic": "Bluetooth product registration is based on the finished product and its implementation. Supporting documentation must describe the final product and its Bluetooth integration rather than only the module supplier's internal design data.",
+            "final_recommendation": "Prepare product-level qualification documentation, including user manuals, block diagrams, product drawings, and antenna information, as part of the qualification and compliance-folder process.",
+            "risk_if_done_wrong": "Providing only module-level documentation may leave qualification records incomplete and delay registration or compliance-folder preparation.",
+            "bluetooth_tags": [
+                "qualification",
+                "documentation",
+                "compliance folder",
+                "antenna",
+                "declaration"
+            ],
+            "search_aliases": [
+                "qualification documents",
+                "product manual requirement",
+                "antenna gain document",
+                "product block diagram",
+                "Bluetooth compliance folder",
+                "registration evidence",
+                "product drawing requirement",
+                "qualification documentation"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

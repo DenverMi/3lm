@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0079",
+    "cases": [
+        {
+            "case_id": "thread_0079_case_01",
+            "iut_type": "BLE product using a module and host stack",
+            "customer_question": "Because the Bluetooth qualification process changed on July 1, 2024 and the implementation uses a newer SDK rather than older SoftDevice implementations, is additional measurement or testing required?",
+            "question_variants": [
+                "Do the July 2024 Bluetooth SIG qualification changes require testing for this BLE product?",
+                "Is measurement required when using this BLE module and host stack?",
+                "Does switching from older SoftDevice implementations to a newer SDK create extra qualification tests?",
+                "Why is testing not included in the quotation?",
+                "Can this product proceed by registration support without measurement?"
+            ],
+            "actual_issue": "Determining whether the product qualification path requires new Bluetooth testing or can proceed without measurement based on the selected module, stack, and qualification approach.",
+            "plain_english_explanation": "The customer was concerned that a policy change might automatically trigger extra testing. The consultant confirmed that, for this implementation, testing and measurement were not required. The practical issue was to avoid adding unnecessary test work when the Bluetooth design basis did not require it.",
+            "consultant_answer": "The consultant answered that testing and measurement were not required for both concerns raised: the July 1, 2024 qualification-process change and the fact that the implementation used a newer SDK rather than older SoftDevice implementations used by other companies. The quotation therefore appropriately focused on registration support and compliance-folder creation rather than measurement services.",
+            "decision_logic": "The decision turns on whether the specific Bluetooth implementation and qualification route create additional test obligations. In this thread, the consultant concluded that the module/stack situation did not require measurement, so the qualification could proceed without adding test items.",
+            "final_recommendation": "Proceed with the registration-support path without adding measurement or test work, while continuing to prepare the required registration and compliance-folder materials.",
+            "risk_if_done_wrong": "If handled too conservatively, the customer could pay for unnecessary measurement and delay the registration. If handled too casually without confirming the implementation basis, the qualification route could be chosen incorrectly.",
+            "bluetooth_tags": [
+                "qualification",
+                "testing",
+                "module",
+                "host",
+                "LE",
+                "reuse",
+                "declaration",
+                "compliance folder"
+            ],
+            "search_aliases": [
+                "July 2024 qualification change",
+                "measurement not required",
+                "testing not required",
+                "BLE module reuse",
+                "new SDK no extra testing",
+                "registration support no testing",
+                "qualification without measurement",
+                "module and host stack"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

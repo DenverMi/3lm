@@ -1,0 +1,41 @@
+{
+    "source_thread": "thread_0056",
+    "cases": [
+        {
+            "case_id": "thread_0056_case_02",
+            "iut_type": "",
+            "customer_question": "What should be done with Bluetooth qualification compliance records after qualification is completed?",
+            "question_variants": [
+                "How long should the compliance folder be kept?",
+                "What documentation should be retained after qualification?",
+                "What is needed for a Bluetooth SIG audit?",
+                "Do I need to keep qualification records after product launch?",
+                "What evidence supports a completed qualification?"
+            ],
+            "actual_issue": "Retention of qualification compliance documentation for potential Bluetooth SIG audit activities after completion of qualification.",
+            "plain_english_explanation": "Completing qualification is not the final step. Companies must retain the qualification documentation so that it can be provided if a Bluetooth SIG audit occurs. The compliance package serves as evidence that the qualification process was completed.",
+            "consultant_answer": "The consultant instructs the customer to retain the compliance folder after product release and make it available if requested during a Bluetooth SIG audit. The compliance folder is presented as the official record supporting the completed qualification.",
+            "decision_logic": "Qualification records function as audit evidence. Retaining the compliance documentation ensures that the company can demonstrate qualification compliance if requested by Bluetooth SIG.",
+            "final_recommendation": "Store the compliance package and retain it as instructed so it can be provided during any future Bluetooth SIG audit or compliance review.",
+            "risk_if_done_wrong": "Failure to retain qualification evidence could make it difficult to respond to a Bluetooth SIG audit request and demonstrate compliance history.",
+            "bluetooth_tags": [
+                "qualification",
+                "audit",
+                "compliance",
+                "documentation",
+                "listing"
+            ],
+            "search_aliases": [
+                "compliance folder retention",
+                "Bluetooth SIG audit evidence",
+                "qualification records",
+                "audit documentation",
+                "post qualification records",
+                "compliance package storage"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0076",
+    "cases": [
+        {
+            "case_id": "thread_0076_case_04",
+            "iut_type": "",
+            "customer_question": "What documentation is typically required to create a Bluetooth qualification compliance folder for a product registration?",
+            "question_variants": [
+                "Compliance folder required documents",
+                "What files must be prepared for SIG registration?",
+                "Bluetooth compliance package contents",
+                "Required qualification documentation",
+                "Compliance folder preparation checklist"
+            ],
+            "actual_issue": "The customer needed to know which supporting documents must be collected and supplied for compliance-folder preparation associated with Bluetooth SIG registration.",
+            "plain_english_explanation": "Bluetooth registration projects often require a supporting compliance package that documents how the product implements Bluetooth technology. Several standard product documents are typically collected to support the registration record.",
+            "consultant_answer": "The consultant requested Bluetooth-related sections of the user manual, product block diagrams, product external drawings, and antenna documentation including radiation-gain information. These materials were identified as the required compliance-folder inputs for the registration project.",
+            "decision_logic": "Compliance documentation must provide sufficient evidence describing the product architecture, Bluetooth implementation, and antenna configuration used in the qualified design.",
+            "final_recommendation": "Collect Bluetooth user documentation, block diagrams, external drawings, and antenna performance documentation before registration completion so the compliance folder can be prepared without delay.",
+            "risk_if_done_wrong": "Missing compliance-folder documents can delay completion of the registration deliverables and supporting qualification records.",
+            "bluetooth_tags": [
+                "qualification",
+                "compliance folder",
+                "documentation",
+                "antenna",
+                "registration"
+            ],
+            "search_aliases": [
+                "compliance folder",
+                "required documents",
+                "Bluetooth manual",
+                "block diagram requirement",
+                "antenna gain report",
+                "qualification package",
+                "registration documentation",
+                "compliance evidence"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

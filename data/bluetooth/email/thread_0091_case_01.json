@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0091",
+    "cases": [
+        {
+            "case_id": "thread_0091_case_01",
+            "iut_type": "module",
+            "customer_question": "Does a product using the AzureWave AW-XM553 require Bluetooth RF and RF PHY qualification testing, or can it rely entirely on existing qualification reuse?",
+            "question_variants": [
+                "Is AW-XM553 treated as a prequalified module or a SoC for Bluetooth qualification?",
+                "Do RF and RF PHY tests need to be performed for an AW-XM553-based design?",
+                "Can I avoid RF testing by reusing existing Bluetooth qualifications?",
+                "What qualification scope applies when using AW-XM553?",
+                "Does a SoC-based implementation require RF PHY testing?"
+            ],
+            "actual_issue": "The qualification scope depends on whether the implementation is considered a reusable prequalified module solution or a SoC-based design. Review of the AW-XM553 datasheet led to the conclusion that the implementation should be treated as a SoC-based design requiring RF qualification testing.",
+            "plain_english_explanation": "Not all wireless modules qualify for simple qualification reuse. If the implementation is effectively based on a Bluetooth SoC rather than a fully reusable qualified module solution, Bluetooth radio testing may still be required. The qualification strategy must be based on the actual qualification status and architecture of the implementation.",
+            "consultant_answer": "After reviewing the AW-XM553 datasheet, the consultant determined that the implementation should be treated as a SoC-based design. Because of this classification, Bluetooth RF testing and RF PHY testing are required rather than relying solely on qualification reuse. The proposed qualification approach combines radio testing with a Multi-Design declaration strategy.",
+            "decision_logic": "Bluetooth qualification obligations are determined by the architecture and qualification status of the implementation. When the design is treated as a SoC implementation rather than a fully reusable qualified module solution, RF and RF PHY testing become required qualification elements.",
+            "final_recommendation": "Review the module architecture and qualification status carefully. If the implementation is determined to be SoC-based, plan for RF testing, RF PHY testing, and the appropriate qualification declaration process rather than assuming complete reuse eligibility.",
+            "risk_if_done_wrong": "Misclassifying a SoC-based implementation as fully reusable can result in omission of required RF and RF PHY testing, creating qualification compliance issues, declaration delays, and qualification rework.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF",
+                "RF PHY",
+                "module",
+                "SoC",
+                "Multi-Design"
+            ],
+            "search_aliases": [
+                "SoC qualification",
+                "module versus SoC",
+                "RF PHY required",
+                "AW-XM553 qualification",
+                "RF testing required",
+                "qualification reuse limitation",
+                "Bluetooth radio testing",
+                "Multi-Design declaration"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

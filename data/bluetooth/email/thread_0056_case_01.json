@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0056",
+    "cases": [
+        {
+            "case_id": "thread_0056_case_01",
+            "iut_type": "module",
+            "customer_question": "Can additional product variants using the same qualified Bluetooth module and host stack be added to an existing Product List without repeating the full qualification process?",
+            "question_variants": [
+                "Can I add a derivative product to an existing Product List?",
+                "Can multiple products use the same Bluetooth qualification?",
+                "How do I register a variant that uses the same module and host stack?",
+                "Can a deployment model be added after qualification is complete?",
+                "Is Product List expansion possible for products with the same Bluetooth design?"
+            ],
+            "actual_issue": "Post-qualification reuse of an existing Bluetooth qualification for additional product variants that use the same qualified module and host stack.",
+            "plain_english_explanation": "After a Bluetooth qualification is completed, companies often release additional models based on the same Bluetooth implementation. The question is whether those variants require a new qualification or can be associated with the existing qualification. The thread explains that products using the same module and host stack can be added to the existing Product List through a simplified process.",
+            "consultant_answer": "The consultant states that future product variants using the same module and host stack as the already registered product can be added from the existing Manage Submitted Products area and registered as additional products under the existing Product List. The process is described as a simple web-based operation and does not require a separate qualification effort for the same Bluetooth implementation.",
+            "decision_logic": "When the Bluetooth implementation remains the same and uses the same qualified module and host stack, additional product models can be associated with the existing registered Product List rather than treated as a new Bluetooth design.",
+            "final_recommendation": "For future product variants that use the same qualified module and host stack, use the existing Product List and follow the derivative-product registration procedure instead of initiating a new qualification project.",
+            "risk_if_done_wrong": "If qualifying or registering derivative products incorrectly, products may not be properly associated with the existing qualification record, potentially creating unnecessary administrative rework.",
+            "bluetooth_tags": [
+                "qualification",
+                "product list",
+                "module",
+                "host",
+                "reuse",
+                "listing"
+            ],
+            "search_aliases": [
+                "add product to Product List",
+                "derivative product registration",
+                "same module same host stack",
+                "additional product listing",
+                "Manage Submitted Products",
+                "Product List expansion",
+                "qualified design reuse"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

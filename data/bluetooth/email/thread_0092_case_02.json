@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0092",
+    "cases": [
+        {
+            "case_id": "thread_0092_case_02",
+            "iut_type": "module-based BLE product",
+            "customer_question": "Can Bluetooth SIG qualification registration proceed before the final production model name is known, and what documentation is required?",
+            "question_variants": [
+                "Can a development model name be used for registration?",
+                "Do we need the final commercial product name before declaration?",
+                "What documents are needed for Bluetooth SIG registration?",
+                "What is required for the compliance folder?",
+                "What is the qualification workflow after placing an order?"
+            ],
+            "actual_issue": "The customer needed guidance on qualification readiness, registration workflow, acceptable product naming, and compliance-folder documentation requirements.",
+            "plain_english_explanation": "Products are sometimes still under development when qualification planning begins. The customer wanted to know whether registration must wait for the final product name and what supporting documents would be needed. The discussion clarified both the registration process and the evidence required for compliance records.",
+            "consultant_answer": "The consultant confirmed that registration is not limited to the final market name and that a development-stage model designation can be used. The consultant described the registration workflow, including ordering, payment, SIG fee processing, registration completion, and compliance-folder creation. Required documentation includes a user or operation manual, product block diagram, external drawing, and antenna gain information. The compliance folder must be retained and made available if Bluetooth SIG performs an audit.",
+            "decision_logic": "Bluetooth qualification registration is based on identifying the product and maintaining supporting compliance evidence; it does not require the final commercial name. Compliance-folder documentation must demonstrate the product implementation and qualification basis and be retained for audit purposes.",
+            "final_recommendation": "Proceed with registration using the available development model identifier and prepare the required compliance-folder documentation before declaration completion.",
+            "risk_if_done_wrong": "Missing compliance documentation or inadequate qualification records could delay declaration completion and create difficulties if Bluetooth SIG requests audit evidence.",
+            "bluetooth_tags": [
+                "qualification",
+                "declaration",
+                "compliance folder",
+                "listing",
+                "audit",
+                "documentation"
+            ],
+            "search_aliases": [
+                "development model name",
+                "prototype product name",
+                "registration before launch",
+                "compliance folder requirements",
+                "qualification documents",
+                "operation manual requirement",
+                "block diagram requirement",
+                "Bluetooth audit records",
+                "declaration workflow"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

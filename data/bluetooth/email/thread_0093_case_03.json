@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0093",
+    "cases": [
+        {
+            "case_id": "thread_0093_case_03",
+            "iut_type": "beacon",
+            "customer_question": "What documentation must be collected after Bluetooth SIG registration to support compliance-folder requirements?",
+            "question_variants": [
+                "What is required in the compliance folder?",
+                "Which documents are needed after registration?",
+                "What evidence should be retained for a SIG audit?",
+                "Do I need manuals and block diagrams for qualification?",
+                "What product documents support qualification compliance?"
+            ],
+            "actual_issue": "The customer needed guidance on the product documentation required to complete and maintain Bluetooth qualification compliance records.",
+            "plain_english_explanation": "Bluetooth qualification does not end with registration. Supporting documents must be retained to demonstrate how the product was qualified and to support future audits. These records form the compliance folder associated with the qualification.",
+            "consultant_answer": "The consultant requested product documentation beyond the registration-generated records, including a Bluetooth-related user manual, a product block diagram, and an external product drawing. These materials were identified as required inputs for compliance-folder preparation after registration completion.",
+            "decision_logic": "Compliance evidence must demonstrate the product implementation and support the qualification declaration. Maintaining the required documentation ensures that qualification records can be substantiated if reviewed later.",
+            "final_recommendation": "Collect and archive the Bluetooth user documentation, product block diagram, and product external drawings as part of the compliance-folder package immediately after registration.",
+            "risk_if_done_wrong": "Missing compliance-folder evidence can create difficulties supporting qualification claims and responding to future Bluetooth SIG compliance reviews or audits.",
+            "bluetooth_tags": [
+                "qualification",
+                "compliance folder",
+                "documentation",
+                "audit",
+                "declaration"
+            ],
+            "search_aliases": [
+                "compliance folder contents",
+                "Bluetooth audit documents",
+                "qualification evidence",
+                "user manual requirement",
+                "block diagram requirement",
+                "product drawing requirement",
+                "post-registration documents",
+                "qualification record retention"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

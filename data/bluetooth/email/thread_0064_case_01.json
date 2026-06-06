@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0064",
+    "cases": [
+        {
+            "case_id": "thread_0064_case_01",
+            "iut_type": "toilet sensor",
+            "customer_question": "When rebranding and reselling an unchanged Bluetooth product acquired from another company, how should Bluetooth SIG listing be handled and when must the listing be completed?",
+            "question_variants": [
+                "Can we reuse the previous company's Bluetooth SIG qualification for an acquired product?",
+                "Do we need a new Bluetooth SIG registration after a business transfer?",
+                "When must Bluetooth SIG listing be completed before product launch?",
+                "Can an inherited Bluetooth product be listed under a new brand?",
+                "What is the qualification approach for a product acquisition with no design changes?"
+            ],
+            "actual_issue": "A company acquired an existing Bluetooth product and wanted to continue selling the same design under its own brand while relying on the predecessor's qualification assets and determining the correct Bluetooth SIG listing timing.",
+            "plain_english_explanation": "The product design did not change, but ownership and branding changed. The company needed to know whether it could reuse existing Bluetooth qualification assets and when the Bluetooth SIG listing had to be completed. The key concern was remaining compliant while avoiding unnecessary requalification work.",
+            "consultant_answer": "The consultant confirmed that the inherited qualification information and compliance documentation could be reused for the unchanged product. Bluetooth SIG listing must be completed before the product is publicly disclosed to third parties, not merely before sales begin. Public disclosure includes activities such as press releases, exhibitions, website publication, or distribution of marketing materials. Qualification fee payment must be completed before the registration operation is performed.",
+            "decision_logic": "An unchanged inherited design can continue using existing qualification assets, but Bluetooth SIG compliance requires the product to be listed before public disclosure. The trigger is public visibility of the Bluetooth product rather than the commercial sales date.",
+            "final_recommendation": "Reuse the inherited qualification assets and compliance documentation where applicable, complete qualification fee payment, and ensure Bluetooth SIG listing is completed before any public announcement, marketing activity, or product disclosure.",
+            "risk_if_done_wrong": "The product could be publicly disclosed before Bluetooth SIG listing is completed, creating a compliance issue and potentially delaying launch activities until registration is finalized.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "reuse",
+                "compliance folder",
+                "product transfer",
+                "declaration"
+            ],
+            "search_aliases": [
+                "acquired product qualification",
+                "rebranded Bluetooth product",
+                "business transfer listing",
+                "reuse existing qualification",
+                "public disclosure before listing",
+                "Bluetooth SIG listing timing",
+                "inherited compliance folder",
+                "unchanged design reuse"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

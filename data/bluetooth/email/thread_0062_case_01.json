@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0062",
+    "cases": [
+        {
+            "case_id": "thread_0062_case_01",
+            "iut_type": "",
+            "customer_question": "Can a Bluetooth Stack v5.4 host design be qualified by including it with a Bluetooth v5.2 lower-layer design when the combination generates Inter-Layer Dependency (IDL) errors?",
+            "question_variants": [
+                "Why do IDL errors appear when combining a v5.4 stack with a v5.2 controller design?",
+                "Can I include a v5.4 GAP design with a v5.2 LL QDID?",
+                "How do I resolve Consistency Check failures between host and lower layers?",
+                "Can a TCW be used to bypass IDL issues caused by version mismatch?",
+                "Which QDID should be referenced to avoid IDL generation?"
+            ],
+            "actual_issue": "A host stack qualified to Bluetooth v5.4 was being combined with a lower-layer design qualified to Bluetooth v5.2. Qualification Workspace generated multiple IDL (Inter-Layer Dependency) failures because newer GAP features expected by the v5.4 host were not represented in the v5.2 lower-layer ICS.",
+            "plain_english_explanation": "The higher-level Bluetooth software supports features introduced in newer Bluetooth specifications, while the lower-level design only declares support for an older feature set. During qualification consistency checks, the system sees required dependencies that are missing and flags them as IDL errors. The problem is a qualification-design mismatch rather than a simple paperwork issue.",
+            "consultant_answer": "The IDL failures are caused by the v5.4 GAP implementation supporting features added in Bluetooth v5.3 and v5.4, including Isochronous-related and advanced advertising capabilities. When combined with a v5.2-compliant lower-layer design, the required ICS items are absent and are evaluated as unsupported during Consistency Check processing. Although a TCW was previously considered, the underlying incompatibility between the newer host layer and older lower layer makes approval uncertain. A version-aligned v5.2 stack reference should be used instead because it eliminates the IDL condition.",
+            "decision_logic": "Bluetooth qualification consistency checking requires that inter-layer feature dependencies declared by upper layers are satisfied by the included lower-layer design. If the upper-layer design declares capabilities that do not exist in the lower-layer ICS, IDL failures occur and the design combination becomes unsuitable.",
+            "final_recommendation": "Use a Bluetooth Stack v5.2 design/QDID that is aligned with the v5.2 lower-layer design instead of combining a v5.4 host stack with a v5.2 lower layer. Resolve the version mismatch before qualification submission.",
+            "risk_if_done_wrong": "The qualification may fail consistency checking due to unresolved IDL errors. Time may be lost pursuing TCW requests that do not address the underlying dependency mismatch, resulting in rework and qualification delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "IDL",
+                "inter-layer-dependency",
+                "ICS",
+                "consistency-check",
+                "GAP",
+                "reuse"
+            ],
+            "search_aliases": [
+                "IDL error",
+                "Inter-Layer Dependency failure",
+                "Consistency Check failure",
+                "v5.4 host with v5.2 controller",
+                "QDID combination mismatch",
+                "ICS dependency mismatch",
+                "GAP feature dependency",
+                "Isochronous IDL",
+                "advanced advertising IDL",
+                "include design incompatibility"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

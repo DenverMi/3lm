@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0074",
+    "cases": [
+        {
+            "case_id": "thread_0074_case_01",
+            "iut_type": "",
+            "customer_question": "Does an RF qualification test need to be repeated when the tester configuration indicates support for a feature but the Test Plan ICS declares that feature as unsupported?",
+            "question_variants": [
+                "ICS and tester configuration do not match",
+                "Enhanced Power Control enabled in tester but disabled in ICS",
+                "Does an ICS mismatch invalidate RF test results?",
+                "Is retesting required for an RF ICS discrepancy?",
+                "Can RF results be accepted when tester settings differ from the Test Plan?"
+            ],
+            "actual_issue": "A reviewer found that Enhanced Power Control (EPC) was enabled in the RF tester configuration while the Test Plan ICS indicated EPC was not supported, raising concerns about test validity and retest requirements.",
+            "plain_english_explanation": "The product's declared Bluetooth capabilities did not match a tester setting used during RF testing. The concern was whether this mismatch could affect the results and require all testing to be repeated. The discussion focused on whether unsupported features influence unrelated RF measurements.",
+            "consultant_answer": "The consultant explained that RF testing executes test items associated with the tester configuration, and unsupported features simply generate a response indicating non-support. According to the consultant, this behavior does not affect the results of other RF test items. Although the ICS and tester settings were inconsistent, the discrepancy was not considered to have affected the completed RF measurements, so retesting was not required.",
+            "decision_logic": "The determining factor is whether the mismatch materially affects the executed RF test cases. If unsupported-feature handling does not alter the outcome of other RF measurements, the RF results remain valid despite the ICS-to-tester inconsistency.",
+            "final_recommendation": "Document the discrepancy, confirm that the unsupported feature does not influence other RF test cases, and proceed with the report without repeating the RF tests.",
+            "risk_if_done_wrong": "Treating every tester-versus-ICS discrepancy as a mandatory retest could create unnecessary schedule delays and additional qualification effort. Conversely, failing to evaluate the technical impact of a mismatch could lead to incorrect qualification conclusions.",
+            "bluetooth_tags": [
+                "RF",
+                "ICS",
+                "qualification",
+                "test-report",
+                "pre-test review"
+            ],
+            "search_aliases": [
+                "ICS mismatch RF test",
+                "Enhanced Power Control mismatch",
+                "tester configuration discrepancy",
+                "RF retest required",
+                "ICS versus test setup",
+                "EPC enabled in tester",
+                "RF report review",
+                "qualification test validity"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "source_thread": "thread_0053",
+    "cases": [
+        {
+            "case_id": "thread_0053_case_03",
+            "iut_type": "device",
+            "customer_question": "How should a qualification project be handled when some required RF PHY testing cannot be completed internally?",
+            "question_variants": [
+                "Can RF PHY test items be outsourced?",
+                "What if the laboratory cannot execute all required Bluetooth tests?",
+                "How should qualification continue when external testing is needed?",
+                "What happens if required test capability is unavailable internally?",
+                "Can another accredited test provider perform part of the qualification testing?"
+            ],
+            "actual_issue": "Required RF PHY qualification activities depended on testing outside the primary laboratory, creating schedule and completion-planning concerns.",
+            "plain_english_explanation": "Sometimes a qualification project cannot be completed entirely within one laboratory. If a required Bluetooth test capability is unavailable internally, the missing work must be performed through an appropriate external test provider while maintaining qualification compliance.",
+            "consultant_answer": "The qualification team recognized that completion depended on testing performed by another organization and coordinated schedules around that dependency. Qualification planning therefore included external test execution, shipment timing, and integration of those results into the overall project timeline. The focus was on ensuring required RF PHY evidence would still be produced through an appropriate testing path.",
+            "decision_logic": "Qualification requirements must be satisfied regardless of where testing occurs. When internal capability is insufficient for required test items, compliant external execution must be incorporated into the project plan.",
+            "final_recommendation": "Identify external test dependencies early, align schedules before committing completion dates, and ensure all required qualification evidence is collected from the appropriate test provider.",
+            "risk_if_done_wrong": "Failure to account for external testing dependencies can lead to inaccurate schedules, delayed qualification completion, incomplete qualification evidence, and customer expectation issues.",
+            "bluetooth_tags": [
+                "qualification",
+                "RF PHY",
+                "testing",
+                "test facility",
+                "project planning"
+            ],
+            "search_aliases": [
+                "external RF PHY testing",
+                "outsourced qualification testing",
+                "test facility dependency",
+                "missing test capability",
+                "qualification schedule risk",
+                "third party testing",
+                "RF PHY execution support"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

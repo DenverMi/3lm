@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0057",
+    "cases": [
+        {
+            "case_id": "thread_0057_case_02",
+            "iut_type": "BLE device",
+            "customer_question": "Can previously completed RF PHY testing be reused when a product receives a host-level firmware or SDK update and only minor hardware changes are introduced?",
+            "question_variants": [
+                "Must RF PHY testing be repeated after a firmware update?",
+                "Does a host software change affect RF PHY qualification testing?",
+                "Can existing RF PHY reports be reused?",
+                "Is RF PHY retesting required after changing SDK versions?",
+                "How much RF PHY testing is needed for a derivative model?"
+            ],
+            "actual_issue": "The customer wanted to know whether an existing product that had already passed RF PHY testing needed full RF PHY retesting after migration to a newer SDK and creation of a related new model.",
+            "plain_english_explanation": "RF PHY testing focuses on the radio and lower Bluetooth layers. Changes in higher-level application or host software do not automatically require repeating the entire RF PHY test campaign. If the radio implementation remains effectively the same, previously generated RF PHY evidence may be reusable.",
+            "consultant_answer": "The consultant explained that RF PHY testing operates at HCI and lower layers, so host-layer modifications do not by themselves require RF PHY retesting. The proposed qualification strategy was to establish a new qualified baseline using the updated SDK and then treat the lightly modified hardware variant as a derivative product. Under that approach, the existing RF PHY test report could be reused and only RF PHY two-item testing would be performed for the new model. An earlier internal assumption about full RF PHY testing was later corrected to RF PHY two-item testing.",
+            "decision_logic": "RF PHY qualification requirements are driven by the radio-facing implementation rather than host-level software changes. When the RF-relevant design remains compatible, existing RF PHY evidence can be leveraged and limited RF validation may be sufficient.",
+            "final_recommendation": "Evaluate changes at the RF and controller boundary. Reuse existing RF PHY evidence where the RF implementation remains applicable and perform only the RF PHY validation required for the new derivative qualification path.",
+            "risk_if_done_wrong": "Incorrectly assuming full RF PHY retesting is required can lead to unnecessary testing effort and qualification cost. Conversely, incorrectly reusing RF evidence without validating RF-impacting changes can create qualification compliance risk.",
+            "bluetooth_tags": [
+                "RF PHY",
+                "qualification",
+                "reuse",
+                "design change",
+                "controller",
+                "HCI",
+                "test strategy",
+                "derivative product"
+            ],
+            "search_aliases": [
+                "RF PHY retest required",
+                "host layer change RF PHY",
+                "firmware update RF PHY",
+                "reuse RF PHY report",
+                "RF PHY two item test",
+                "HCI below testing",
+                "derivative model RF validation",
+                "RF evidence reuse"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

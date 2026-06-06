@@ -1,0 +1,42 @@
+{
+    "source_thread": "thread_0076",
+    "cases": [
+        {
+            "case_id": "thread_0076_case_02",
+            "iut_type": "",
+            "customer_question": "How should multiple product models be handled when creating a new Bluetooth SIG Product Listing?",
+            "question_variants": [
+                "Can multiple models be entered during new registration?",
+                "Is only one model allowed in Product List?",
+                "How do I add derivative models?",
+                "Product List management for multiple models",
+                "Additional model registration after listing"
+            ],
+            "actual_issue": "The customer wanted to understand whether Bluetooth SIG rules limit a new registration to a single product model and how derivative models should be handled.",
+            "plain_english_explanation": "A new Bluetooth SIG registration requires at least one model to be entered into the Product List. However, the registration is not restricted to a single model forever. Additional compatible models can be added later through Product List maintenance.",
+            "consultant_answer": "The consultant explained that a new registration requires at least one Product List entry. Although multiple models are not strictly prohibited during registration, the recommended practice is to complete the initial registration with a primary model and then add additional models afterward using the Product List addition workflow.",
+            "decision_logic": "Initial registration and Product List maintenance are separate activities. Since Product List corrections can be cumbersome after submission, adding additional models after successful registration is often the safer process.",
+            "final_recommendation": "Complete the initial registration using a primary model and add additional derivative models through the Product List management process after registration completion.",
+            "risk_if_done_wrong": "Incorrect Product List entries may require later correction requests and create unnecessary registration administration effort.",
+            "bluetooth_tags": [
+                "listing",
+                "Product List",
+                "registration",
+                "declaration"
+            ],
+            "search_aliases": [
+                "Product List addition",
+                "multiple model listing",
+                "derivative model registration",
+                "single model requirement",
+                "Product List maintenance",
+                "additional product models",
+                "listing management",
+                "registration workflow"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

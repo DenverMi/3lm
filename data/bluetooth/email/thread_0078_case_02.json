@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0078",
+    "cases": [
+        {
+            "case_id": "thread_0078_case_02",
+            "iut_type": "module",
+            "customer_question": "Can a Windows 10 Host Subsystem qualification still be used for a new Bluetooth SIG registration after the move to Qualification Workspace?",
+            "question_variants": [
+                "Why can't I use a qualified Windows 10 host for a new registration?",
+                "Can HID 1.1 prevent qualification reuse?",
+                "Does Qualification Workspace allow removal of unused deprecated profiles?",
+                "Can a Windows 10 Host Subsystem containing HID 1.1 be reused?",
+                "Why is a previously qualified Windows host no longer usable for new declarations?"
+            ],
+            "actual_issue": "Previously qualified Windows 10 Host Subsystem records contained the deprecated HID 1.1 profile, making them unusable for new registrations in Qualification Workspace even when the product did not use that profile.",
+            "plain_english_explanation": "The Windows 10 Bluetooth qualification record contained an older Bluetooth profile that is no longer accepted for new registrations. Even though the product did not use that profile, the qualification system would not allow it to be removed during registration composition. As a result, the existing Windows 10 qualification could not be reused for a new product registration.",
+            "consultant_answer": "After the transition to Qualification Workspace, the consultant reviewed the available Windows 10 Host Subsystem qualifications and found that they all included the deprecated HID 1.1 profile. Attempts to exclude the unused profile through Layer Selection were unsuccessful. Because those Host Subsystem qualifications could not be used in a new registration, the Windows 10 qualification path was no longer viable, whereas the Windows 11 qualification path remained usable.",
+            "decision_logic": "The qualification record used as a dependency must itself be eligible for new registrations. If a Host Subsystem qualification contains a deprecated profile that cannot be removed through qualification composition, the qualification asset becomes unusable for new declarations regardless of whether the end product uses that profile.",
+            "final_recommendation": "Use a qualification path based on an eligible Windows 11 Host Subsystem qualification or another currently reusable qualification asset rather than relying on affected Windows 10 Host Subsystem records.",
+            "risk_if_done_wrong": "Proceeding with an ineligible Windows 10 qualification dependency can cause registration failure, qualification delays, and rework after planning and registration preparation have already been completed.",
+            "bluetooth_tags": [
+                "qualification",
+                "host",
+                "Windows",
+                "HID",
+                "reuse",
+                "declaration",
+                "listing",
+                "qualification workspace"
+            ],
+            "search_aliases": [
+                "HID 1.1 deprecated",
+                "Qualification Workspace",
+                "Windows 10 host subsystem",
+                "Windows 11 host subsystem",
+                "Layer Selection failure",
+                "host qualification reuse",
+                "obsolete profile",
+                "new registration blocked",
+                "Launch Studio migration",
+                "qualification dependency invalid"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0059",
+    "cases": [
+        {
+            "case_id": "thread_0059_case_01",
+            "iut_type": "beacon",
+            "customer_question": "Can this Bluetooth product be qualified through a registration-only process without new Bluetooth testing, and what steps are required to complete the Bluetooth SIG declaration?",
+            "question_variants": [
+                "Is Bluetooth testing required for this qualification?",
+                "Can we perform a no-test Bluetooth SIG registration?",
+                "What is the process for a declaration using existing qualified designs?",
+                "How long does a registration-only Bluetooth qualification take?",
+                "What information is needed before Bluetooth SIG registration can begin?"
+            ],
+            "actual_issue": "Determining and executing a Bluetooth SIG qualification path that reuses existing qualified Bluetooth components and therefore does not require new testing.",
+            "plain_english_explanation": "The product can use existing qualified Bluetooth technology instead of performing a new Bluetooth test campaign. In this situation, the work focuses on preparing qualification information, paying Bluetooth SIG fees, validating the design references, and completing the declaration process correctly. The key challenge is making sure the reused Bluetooth qualifications and registration details are accurate before submission.",
+            "consultant_answer": "The consultant determined that the product qualifies through a registration-only path with no testing required. Before registration can proceed, the customer must provide the registration information form, obtain the Bluetooth SIG invoice using the designated account, pay the qualification fee, and wait for issuance of the Receipt Number. After payment confirmation, the consultant performs validation, prepares the registration, advances it to the review stage, and requests customer verification before final submission.",
+            "decision_logic": "Because the qualification approach is based on reuse of existing qualified Bluetooth designs rather than creation of a new tested design, qualification is completed through declaration and registration activities instead of new Bluetooth testing. Registration can only proceed after the required qualification information and payment prerequisites are satisfied.",
+            "final_recommendation": "Validate eligibility for qualification reuse, complete the registration information package, obtain and pay the Bluetooth SIG invoice from the correct account, wait for Receipt Number issuance, review the registration details, and then finalize the declaration.",
+            "risk_if_done_wrong": "Using an incorrect registration path or failing to complete the required registration prerequisites can delay declaration processing and require correction of qualification records before registration can be completed.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "declaration",
+                "reuse",
+                "registration",
+                "SIG"
+            ],
+            "search_aliases": [
+                "registration only qualification",
+                "no test qualification",
+                "declaration without testing",
+                "qualification reuse",
+                "Bluetooth SIG registration",
+                "receipt number required",
+                "invoice payment process",
+                "listing preparation"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

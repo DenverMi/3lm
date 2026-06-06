@@ -1,0 +1,42 @@
+{
+    "source_thread": "thread_0087",
+    "cases": [
+        {
+            "case_id": "thread_0087_case_03",
+            "iut_type": "",
+            "customer_question": "What test-plan information should be provided when a customer performs Bluetooth testing using loaned reference equipment?",
+            "question_variants": [
+                "Customer self-testing package",
+                "Share test plan with customer",
+                "Remove internal report data",
+                "Customer-facing test plan",
+                "Reference equipment testing support"
+            ],
+            "actual_issue": "A decision was needed regarding whether an internal test plan containing report-specific information should be provided to a customer performing self-testing.",
+            "plain_english_explanation": "Internal test plans can contain information intended only for report preparation or internal workflows. When supporting customer-run testing, only the information necessary for executing the tests should be shared. Customer-facing documents should be simplified appropriately. ",
+            "consultant_answer": "The consultant determined that the original test plan contained report-related information that was unnecessary for customer self-testing. A customer-facing version with the unnecessary report information removed was prepared and designated for distribution instead of the original internal document. ",
+            "decision_logic": "Customer-provided testing documentation should contain only the information needed to execute the testing activity. Internal reporting content should be removed when it is not required for the customer's purpose. ",
+            "final_recommendation": "Create a customer-facing version of the test plan that excludes internal report-generation content and distribute only the information required to perform the testing. ",
+            "risk_if_done_wrong": "Customers may receive unnecessary internal information, increasing document-control complexity and creating confusion about which information is required for testing. ",
+            "bluetooth_tags": [
+                "test plan",
+                "customer testing",
+                "documentation",
+                "RF PHY",
+                "self-test"
+            ],
+            "search_aliases": [
+                "customer test plan",
+                "self-testing support",
+                "reference equipment loan",
+                "sanitized test plan",
+                "internal report information",
+                "customer-facing document",
+                "test plan distribution"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

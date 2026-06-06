@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0096",
+    "cases": [
+        {
+            "case_id": "thread_0096_case_01",
+            "iut_type": "automotive display",
+            "customer_question": "Can a product using a pre-qualified dual-mode Bluetooth module be qualified without IOPT testing if the shipped product only supports BLE and BR/EDR functionality is disabled?",
+            "question_variants": [
+                "Can we register the product as BLE-only when the module is dual mode?",
+                "Do BR/EDR profiles need to remain in the qualification listing?",
+                "Can I avoid IOPT testing by disabling Classic Bluetooth features?",
+                "Should A2DP, HFP, and AVRCP be removed from the qualification scope?",
+                "What qualification approach is appropriate for a dual-mode module used as a BLE-only product?"
+            ],
+            "actual_issue": "Determining whether BR/EDR layers and profiles inherited from a qualified dual-mode module must remain in the new product qualification, and whether their inclusion would trigger IOPT testing requirements.",
+            "plain_english_explanation": "The product uses a Bluetooth module that supports both Classic Bluetooth and BLE, but the final product only intends to use BLE. The qualification decision depends on whether the Classic Bluetooth functionality is truly implemented in the shipped product. Removing unused BR/EDR functionality from the qualification scope can reduce unnecessary qualification obligations.",
+            "consultant_answer": "If BR/EDR profiles are disabled through the SDK build configuration and are not implemented in the shipped product, the qualification registration can remove those BR/EDR profiles. In that case, IOPT testing associated with the BR/EDR functionality is not required. If BR/EDR functionality remains implemented and is only disabled during startup operation, dual-mode registration remains appropriate and BLE-only protocol testing is not required solely because of that runtime disable behavior.",
+            "decision_logic": "Qualification scope should match the actual implemented product functionality. Retaining BR/EDR profiles in the registered design causes additional qualification obligations, including IOPT testing, whereas removing profiles that are not implemented in the final product avoids those requirements.",
+            "final_recommendation": "Remove BR/EDR profiles from the qualification registration if they are excluded from the final firmware build and not implemented in the shipped product. Register only the functionality actually supported by the product.",
+            "risk_if_done_wrong": "Keeping unnecessary BR/EDR profiles in the registration can trigger avoidable IOPT testing, additional qualification effort, extra test samples, longer testing duration, and unnecessary qualification cost.",
+            "bluetooth_tags": [
+                "qualification",
+                "IOPT",
+                "BR/EDR",
+                "BLE",
+                "profile",
+                "module",
+                "registration",
+                "reuse"
+            ],
+            "search_aliases": [
+                "IOPT avoidance",
+                "BLE-only registration",
+                "dual mode module",
+                "disable BR/EDR profiles",
+                "A2DP removal",
+                "HFP removal",
+                "AVRCP removal",
+                "profile pruning",
+                "qualification scope reduction",
+                "IOPT not required"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

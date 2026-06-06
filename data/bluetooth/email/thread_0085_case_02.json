@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0085",
+    "cases": [
+        {
+            "case_id": "thread_0085_case_02",
+            "iut_type": "module-based wireless product",
+            "customer_question": "What does it mean when a customer says the Host Stack QDID/DN is 'none' or 'not used' during Bluetooth qualification planning?",
+            "question_variants": [
+                "Host Stack marked as none",
+                "No Host Stack QDID provided",
+                "Customer says Host Stack not used",
+                "Does the product have a Host layer?",
+                "How should missing Host Stack information be interpreted?"
+            ],
+            "actual_issue": "The customer's statement that the Host Stack was 'not used' was ambiguous and could mean either that no Host layer exists or that a Host implementation exists but is not qualified.",
+            "plain_english_explanation": "A statement such as 'none' can have different meanings in Bluetooth qualification. The product may truly not implement a Host layer, or it may contain Host software that has never been qualified. These two situations lead to different qualification paths and cannot be treated as equivalent.",
+            "consultant_answer": "The consultant rejected the ambiguous response and requested clarification. Specifically, the consultant asked whether the product lacked a Host implementation entirely or whether a Host implementation existed but had no qualified QDID/DN. The distinction was considered necessary before proceeding with qualification planning and estimation.",
+            "decision_logic": "Qualification eligibility and reuse analysis depend on the actual Bluetooth architecture. The absence of a Host layer and the presence of an unqualified Host layer are fundamentally different qualification conditions and must be distinguished before determining scope.",
+            "final_recommendation": "Obtain a definitive architectural answer identifying whether the Host layer is absent or present but unqualified, then determine the qualification approach based on that clarified state.",
+            "risk_if_done_wrong": "An incorrect qualification strategy may be selected, reuse opportunities may be missed, or required qualification work may be excluded from the project plan, causing delays and rework.",
+            "bluetooth_tags": [
+                "host",
+                "QDID",
+                "qualification",
+                "architecture",
+                "reuse",
+                "planning"
+            ],
+            "search_aliases": [
+                "Host Stack none",
+                "Host layer absent",
+                "unqualified Host Stack",
+                "missing QDID",
+                "Host architecture clarification",
+                "QDID unknown",
+                "Host implementation status",
+                "reuse determination",
+                "Host DN missing"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

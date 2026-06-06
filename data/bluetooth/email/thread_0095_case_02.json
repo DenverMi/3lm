@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0095",
+    "cases": [
+        {
+            "case_id": "thread_0095_case_02",
+            "iut_type": "sensor device",
+            "customer_question": "Why does the Bluetooth SIG Review page show ICS consistency warnings for an otherwise valid QDID combination, and can qualification still proceed?",
+            "question_variants": [
+                "ICS yellow warning icon on Review page",
+                "Consistency check warning with reused QDIDs",
+                "What does TCW mean for ICS warnings?",
+                "Can qualification proceed with ICS inconsistencies?",
+                "Why does Qualification Workspace show LL/GAP inconsistency warnings?"
+            ],
+            "actual_issue": "The selected LL and Host QDID combination triggers ICS consistency warnings because newer consistency checks reference LL ICS items that do not exist in the historical qualification records used by the legacy design.",
+            "plain_english_explanation": "The warning does not indicate that the Bluetooth implementation is necessarily broken. Instead, the qualification tool is comparing an older qualified design against newer consistency-check rules and finding references to fields that never existed in the older ICS structure. The issue is administrative and tooling-related rather than a functional Bluetooth defect.",
+            "consultant_answer": "The referenced LL and Host QDIDs were qualified years earlier under Bluetooth specification v5.1 and passed the consistency checks that existed at the time. Newer consistency-check logic evaluates LL-to-GAP dependencies and expects certain LL ICS entries that are absent from the legacy qualification record. These missing entries are effectively legacy-data inconsistencies rather than functional failures. Because the warnings are caused by non-existent legacy ICS items, qualification is permitted through application of a Test Case Waiver (TCW).",
+            "decision_logic": "If a consistency warning originates from legacy ICS structure differences or tool-generated inconsistency conditions rather than an actual implementation noncompliance, the qualification can proceed using the applicable TCW instead of requiring redesign or retesting.",
+            "final_recommendation": "Review the warning details, confirm that the inconsistency is caused by legacy ICS data rather than missing functionality, document the applicable TCW, and proceed with qualification using the approved QDID combination.",
+            "risk_if_done_wrong": "The team may incorrectly treat the warning as a functional Bluetooth failure, causing unnecessary qualification rework, redesign effort, investigation, or submission delays. Valid qualification paths may be abandoned unnecessarily.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "consistency check",
+                "TCW",
+                "QDID",
+                "review page",
+                "listing"
+            ],
+            "search_aliases": [
+                "ICS warning",
+                "yellow warning icon",
+                "consistency check failed",
+                "TCW applicable",
+                "legacy ICS mismatch",
+                "phantom inconsistency",
+                "LL GAP warning",
+                "review page warning",
+                "ICS conditional issue",
+                "qualification workspace inconsistency"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

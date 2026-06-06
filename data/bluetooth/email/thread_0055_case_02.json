@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0055",
+    "cases": [
+        {
+            "case_id": "thread_0055_case_02",
+            "iut_type": "module",
+            "customer_question": "Can Bluetooth layers contained within a referenced Component qualification be selectively removed or ignored when creating a new design based on that qualification?",
+            "question_variants": [
+                "Can unused RF PHY and LL layers be removed?",
+                "Can I reference a Component but only keep the host layers?",
+                "Can overlapping layers be excluded during design creation?",
+                "Can Qualification Workspace discard unnecessary controller layers?",
+                "Do I have to keep every layer from a referenced Component design?"
+            ],
+            "actual_issue": "A referenced Component qualification contains more Bluetooth layers than are needed in the resulting design. The issue is whether the qualification process permits removal of unnecessary layers during design construction.",
+            "plain_english_explanation": "Sometimes a qualified Bluetooth design contains more protocol layers than a new product actually uses. Reusing everything can create overlap or qualification complications. The question is whether the new design can keep only the needed portions of the referenced qualification.",
+            "consultant_answer": "The consultant explained that layers contained within a referenced Component design can be selectively included or excluded during creation of a new design. Unnecessary RF PHY and LL layers from the referenced Component do not need to remain if they are not required by the resulting design. This prevents unwanted duplication of lower protocol layers and allows the qualification structure to match the actual implementation.",
+            "decision_logic": "Qualification should reflect the layers actually implemented in the resulting design. If lower layers from a referenced design are not needed, they can be omitted so that the final design contains only the required Bluetooth functionality.",
+            "final_recommendation": "Review the referenced design layer-by-layer and remove unnecessary RF PHY, LL, or other overlapping layers so the resulting design accurately represents the implementation.",
+            "risk_if_done_wrong": "Keeping unnecessary layers can create overlap with other referenced designs, complicate qualification review, increase the likelihood of consistency-check issues, and potentially lead to additional testing requirements.",
+            "bluetooth_tags": [
+                "qualification",
+                "component",
+                "ICS",
+                "RF PHY",
+                "LL",
+                "layer selection",
+                "design creation"
+            ],
+            "search_aliases": [
+                "remove RF PHY layer",
+                "remove LL layer",
+                "component layer selection",
+                "ICS layer removal",
+                "subset of qualification",
+                "exclude overlapping layers",
+                "host-only design",
+                "design layer pruning"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

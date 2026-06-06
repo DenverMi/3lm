@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0079",
+    "cases": [
+        {
+            "case_id": "thread_0079_case_02",
+            "iut_type": "BLE product using a module and host stack",
+            "customer_question": "What documents are acceptable for the Bluetooth compliance folder after registration?",
+            "question_variants": [
+                "Can a draft user manual be used for the compliance folder?",
+                "Can the module block diagram be reused for the product block diagram?",
+                "Are photos with a ruler acceptable as the external dimension drawing?",
+                "Does the compliance folder need final production-level documents?",
+                "What materials are needed for a Bluetooth compliance folder?"
+            ],
+            "actual_issue": "Determining acceptable practical evidence for a Bluetooth compliance folder when final product documentation is not yet complete.",
+            "plain_english_explanation": "The compliance folder did not require polished final packaging-level documents at this stage. A draft or memo for the Bluetooth manual content was accepted, the module datasheet block diagram could be used, and scaled product photos could substitute for formal mechanical drawings. The goal was to create audit-ready evidence without blocking completion on unfinished document formatting.",
+            "consultant_answer": "The consultant requested three product-information items: the Bluetooth portion of the operating manual, the product block diagram, and the product external dimension drawing. The consultant stated that the manual could be a draft or memo, the block diagram could be taken from the module datasheet, and the exterior drawing could be replaced by photos showing the product with a scale from multiple views. After the customer supplied draft materials and photos, the consultant accepted them for compliance-folder creation.",
+            "decision_logic": "The compliance folder needs enough product evidence to support the Bluetooth qualification record, but the thread shows that practical substitutes are acceptable when they clearly document the Bluetooth content, block structure, and external dimensions.",
+            "final_recommendation": "Prepare the compliance folder using the available Bluetooth manual draft, module-based block diagram, and scaled multi-view product photos, then replace or update materials later if needed.",
+            "risk_if_done_wrong": "Waiting for fully finalized documents could delay completion unnecessarily. Providing no supporting evidence could leave the compliance folder incomplete for a future audit request.",
+            "bluetooth_tags": [
+                "compliance folder",
+                "qualification",
+                "module",
+                "documentation",
+                "audit",
+                "listing"
+            ],
+            "search_aliases": [
+                "compliance folder documents",
+                "draft user manual accepted",
+                "module block diagram",
+                "external dimension photos",
+                "scaled product photos",
+                "Bluetooth manual draft",
+                "audit evidence",
+                "product documentation"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

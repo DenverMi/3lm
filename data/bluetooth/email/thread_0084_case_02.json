@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0084",
+    "cases": [
+        {
+            "case_id": "thread_0084_case_02",
+            "iut_type": "",
+            "customer_question": "What documentation is needed for a Bluetooth compliance folder after qualification, and how should missing documents be handled?",
+            "question_variants": [
+                "Compliance folder requirements",
+                "What documents are needed after Bluetooth listing?",
+                "Antenna datasheet requirement",
+                "Incomplete compliance folder delivery",
+                "Compliance archive document collection"
+            ],
+            "actual_issue": "The customer needed guidance on the supporting documentation required for a compliance folder, including antenna documentation, and how to proceed when some required materials were not yet available.",
+            "plain_english_explanation": "After qualification, supporting technical documents are often collected into a compliance package. These documents help demonstrate the characteristics of the qualified product and preserve evidence for future reference. Sometimes not all documents are available immediately, requiring a controlled method for completing the package later.",
+            "consultant_answer": "The consultant identified the required materials as Bluetooth-related user documentation, block diagrams, external drawings, and an antenna datasheet including radiation gain characteristics. No Bluetooth-specific antenna template was provided because manufacturers commonly reuse datasheets prepared for regulatory certifications such as radio or FCC approvals. When some documents were unavailable, the consultant proposed delivering the compliance folder with placeholder files and allowing later replacement with the final documents.",
+            "decision_logic": "A compliance folder must contain sufficient supporting technical documentation, but temporary document gaps do not necessarily prevent structured delivery if a controlled placeholder and replacement process is used.",
+            "final_recommendation": "Collect available compliance documents, obtain an antenna datasheet with gain characteristics, deliver the compliance folder structure with placeholders where necessary, and replace placeholder files with final documents as they become available.",
+            "risk_if_done_wrong": "The compliance package may remain incomplete, making future record maintenance more difficult. Missing antenna or technical documentation can require additional follow-up effort and delay final completion of the compliance archive.",
+            "bluetooth_tags": [
+                "compliance folder",
+                "antenna",
+                "documentation",
+                "listing",
+                "post-qualification"
+            ],
+            "search_aliases": [
+                "antenna datasheet",
+                "radiation gain characteristics",
+                "compliance folder",
+                "Bluetooth documentation package",
+                "post-listing records",
+                "placeholder documents",
+                "technical archive",
+                "antenna certification data",
+                "compliance evidence"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0079",
+    "cases": [
+        {
+            "case_id": "thread_0079_case_05",
+            "iut_type": "BLE product",
+            "customer_question": "The review page shows a yellow warning mark on the ICS Form; can the registration still be finalized?",
+            "question_variants": [
+                "Can we submit with an ICS warning?",
+                "Does a yellow mark in Submission Requirements block registration?",
+                "Is a TCW enough to proceed with qualification submission?",
+                "Can registration be accepted when the ICS Form has a warning?",
+                "Should we finalize the review page despite the warning?"
+            ],
+            "actual_issue": "Determining whether a Qualification Workspace review-page warning on the ICS Form blocks submission when a Test Case Waiver has been applied.",
+            "plain_english_explanation": "A warning mark on the review page did not automatically stop the registration in this case. The consultant explained that a TCW had been applied, so the registration was in an acceptable state. The customer then confirmed the review content and instructed the consultant to finalize the registration.",
+            "consultant_answer": "The consultant noted that the ICS Form in Submission Requirements displayed a yellow caution mark, but explained that a TCW had been applied, so the registration was recognized as allowable. The consultant asked the customer to review the page and give confirmation before final submission. After the customer confirmed, the consultant performed the final registration operation.",
+            "decision_logic": "The deciding factor was not the visual warning alone, but whether the warning condition was covered by an applicable TCW. Because the TCW was in place, the consultant treated the submission as acceptable and proceeded after customer approval.",
+            "final_recommendation": "Confirm the review-page content with the customer, document that the ICS warning is covered by the TCW, and proceed with final submission once approval is received.",
+            "risk_if_done_wrong": "Stopping solely because of the warning could delay registration unnecessarily. Ignoring a warning without a valid TCW or explanation could lead to an invalid or unsupported submission.",
+            "bluetooth_tags": [
+                "ICS",
+                "TCW",
+                "qualification",
+                "listing",
+                "review page",
+                "submission"
+            ],
+            "search_aliases": [
+                "ICS yellow warning",
+                "TCW applied",
+                "Submission Requirements warning",
+                "review page warning",
+                "Test Case Waiver",
+                "registration accepted with warning",
+                "ICS caution mark",
+                "final submission"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

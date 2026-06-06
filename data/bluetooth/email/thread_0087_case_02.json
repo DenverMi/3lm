@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0087",
+    "cases": [
+        {
+            "case_id": "thread_0087_case_02",
+            "iut_type": "",
+            "customer_question": "How should Bluetooth RF-PHY report frequencies be handled when report templates contain outdated test-channel values after specification updates?",
+            "question_variants": [
+                "Wrong RF test frequencies in report",
+                "Bluetooth Core 6.0 frequency update",
+                "Template uses old RF channels",
+                "Report frequencies do not match logs",
+                "RF-PHY channel selection mismatch"
+            ],
+            "actual_issue": "The report contained RF test frequencies inherited from an outdated template, while the executed test logs reflected the frequencies required by updated Bluetooth test specifications associated with Core Specification 6.0. ",
+            "plain_english_explanation": "Bluetooth specifications and test specifications can change over time. If report templates are not updated, they may contain outdated frequency values even when testing was performed correctly. Reviewers must verify that report content matches both the logs and current requirements. ",
+            "consultant_answer": "A reviewer identified that the report listed 2406, 2440, and 2476 MHz while the logs showed 2402, 2440, and 2480 MHz. After investigation, the report was corrected and it was acknowledged that Bluetooth Core Specification 6.0 test-specification changes had altered the expected frequencies. The consultant instructed that outdated templates be updated to prevent future recurrence. ",
+            "decision_logic": "Current Bluetooth test-specification requirements take precedence over legacy report templates. Reported test frequencies must match both the executed logs and the applicable version of the test specification. ",
+            "final_recommendation": "Validate RF frequencies against the actual logs and current Bluetooth test specifications, correct any template-derived errors, and maintain report templates whenever specification revisions occur. ",
+            "risk_if_done_wrong": "Reports may contain technically incorrect RF test information, leading to documentation rework, review delays, and confusion regarding compliance with current Bluetooth test requirements. ",
+            "bluetooth_tags": [
+                "RF PHY",
+                "Core 6.0",
+                "test specification",
+                "frequency",
+                "template management",
+                "qualification"
+            ],
+            "search_aliases": [
+                "Core 6.0 frequency change",
+                "RF-PHY frequencies",
+                "2402 2440 2480 MHz",
+                "outdated template",
+                "test channel update",
+                "report frequency correction",
+                "Bluetooth TS update",
+                "RF log mismatch"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

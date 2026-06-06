@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0088",
+    "cases": [
+        {
+            "case_id": "thread_0088_case_01",
+            "iut_type": "Class 2 Bluetooth device",
+            "customer_question": "What qualification activities should be planned when a Bluetooth product requires RF testing, RF-PHY testing, declaration support, and compliance-folder creation under a Multi-Design qualification approach?",
+            "question_variants": [
+                "Bluetooth qualification project scope",
+                "What services are needed for Multi-Design qualification?",
+                "RF and RF-PHY testing plus declaration support",
+                "How should a Bluetooth certification project be structured?",
+                "What activities are included in Bluetooth qualification execution?"
+            ],
+            "actual_issue": "The project required coordinated planning of multiple Bluetooth qualification workstreams, including RF testing, mandatory RF-PHY testing, Bluetooth SIG declaration support using a Multi-Design approach, compliance-folder creation, and collection of prerequisite qualification information before execution. ",
+            "plain_english_explanation": "Bluetooth qualification projects often involve more than testing alone. In addition to RF and RF-PHY verification, teams may need declaration support, compliance documentation, questionnaires, and customer confirmation forms. Planning these activities together helps prevent delays during execution. ",
+            "consultant_answer": "The consultant defined the planned qualification scope as RF Full testing for a Class 2 device, RF-PHY testing for the mandatory 1M PHY, Multi-Design declaration support, and compliance-folder creation. The team confirmed that sample-modification instructions and qualification questionnaires had already been supplied and planned to issue a declaration-content confirmation form once the customer order was received. Qualification preparation activities were organized before formal execution to enable efficient project startup. ",
+            "decision_logic": "Bluetooth qualification execution depends on both technical testing and administrative qualification preparation. RF testing, RF-PHY testing, declaration planning, compliance documentation, and customer qualification inputs must all be coordinated before project execution begins. ",
+            "final_recommendation": "Before testing begins, define the complete qualification scope, distribute questionnaires and declaration-confirmation forms, prepare compliance-folder activities, and verify that RF test samples and supporting documentation are ready. ",
+            "risk_if_done_wrong": "Incomplete preparation can delay testing, declaration activities, or compliance documentation work and may require additional coordination after the project has already started. ",
+            "bluetooth_tags": [
+                "qualification",
+                "RF",
+                "RF PHY",
+                "Multi-Design",
+                "declaration",
+                "compliance folder",
+                "planning"
+            ],
+            "search_aliases": [
+                "Multi-Design qualification",
+                "RF Full test",
+                "mandatory 1M PHY",
+                "declaration support",
+                "compliance folder creation",
+                "qualification questionnaire",
+                "declaration confirmation form",
+                "Bluetooth certification scope"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

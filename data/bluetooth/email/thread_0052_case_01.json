@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0052",
+    "cases": [
+        {
+            "case_id": "thread_0052_case_01",
+            "iut_type": "audio speaker",
+            "customer_question": "Can RF/RF PHY testing be avoided when a product reuses previously qualified Bluetooth components and reproduces the qualified RF design without modification?",
+            "question_variants": [
+                "Can we leverage an existing QDID without RF retesting?",
+                "Is RF testing required if the RF trace design is unchanged?",
+                "Can a combined design use Option 2a without RF PHY testing?",
+                "Does identical antenna path design allow test reuse?",
+                "Can we qualify using existing subsystem QDIDs only?"
+            ],
+            "actual_issue": "Determining whether a product combining existing qualified Bluetooth designs qualifies as an unmodified design reuse that avoids additional RF/RF PHY testing.",
+            "plain_english_explanation": "The product reused previously qualified Bluetooth components and followed the same RF design approach as the reference implementation. The key question was whether Bluetooth qualification required new radio testing or whether the existing qualification evidence could be reused. The answer depended on whether the RF design remained equivalent to the qualified reference design and whether the registration model qualified as an unmodified combination of existing designs.",
+            "consultant_answer": "The final conclusion was that if the RF path from the Bluetooth device to the antenna connection preserves the same circuit design, component values, placement, layout, and board construction as the qualified reference implementation, the product can be registered as a combination of existing qualified designs using the applicable unmodified-design registration path. Under that condition, additional RF/RF PHY testing is not required. An earlier recommendation requiring RF testing was corrected after review of the qualification approach and Bluetooth SIG guidance.",
+            "decision_logic": "Qualification eligibility is determined by design equivalence and use of the unmodified design combination registration model rather than by reuse of regulatory certification evidence. If the referenced qualified designs are combined without modification and the RF implementation remains equivalent, additional RF testing is not triggered.",
+            "final_recommendation": "Document RF design equivalence to the qualified reference implementation and register the product as an unmodified combination of existing qualified designs rather than performing unnecessary RF/RF PHY testing.",
+            "risk_if_done_wrong": "Misclassifying the design as modified can trigger unnecessary RF/RF PHY testing, additional qualification work, additional registration requirements, and avoidable project cost and delay. The thread initially included a quoted RF test cost of ¥200,000 before the final determination that RF testing was not required.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "RF",
+                "RF PHY",
+                "reuse",
+                "design change",
+                "listing",
+                "module"
+            ],
+            "search_aliases": [
+                "RF test waiver",
+                "RF PHY retest not required",
+                "Option 2a reuse",
+                "combine existing designs",
+                "design equivalence",
+                "module leverage",
+                "unmodified design",
+                "QDID reuse",
+                "RF trace identical",
+                "antenna path unchanged"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

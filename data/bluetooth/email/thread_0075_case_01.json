@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0075",
+    "cases": [
+        {
+            "case_id": "thread_0075_case_01",
+            "iut_type": "module",
+            "customer_question": "Can a module with LE transmit power below Class 1 be qualified by referencing a Controller design that is registered as LE Class 1:YES?",
+            "question_variants": [
+                "Can I combine a Class 2 module with a Class 1 controller QDID?",
+                "LE Class 1 consistency issue in Controller Subsystem qualification",
+                "Why does RF PHY need Class 1:YES when the referenced controller is Class 1:YES?",
+                "Can a low-power LE module reuse a Class 1 controller design?",
+                "Bluetooth SIG inter-layer consistency error for LE Class 1"
+            ],
+            "actual_issue": "The planned qualification reused a controller design whose LL declaration included LE Class 1:YES. The new module could only be combined with that design if its RF PHY qualification evidence also satisfied the corresponding LE Class 1 requirements.",
+            "plain_english_explanation": "Bluetooth SIG qualification requires consistency between capabilities declared in referenced designs and the tested product. If the reused controller design claims LE Class 1 support, the RF PHY evidence used with it must also be consistent with Class 1 operation. A lower-power implementation cannot simply reuse a higher-power controller declaration without creating a qualification inconsistency.",
+            "consultant_answer": "The referenced controller registration contained LL capability declarations indicating LE Class 1:YES. Therefore, the RF PHY qualification associated with the new module must also correspond to Class 1 operation. If the module transmits below the LE Class 1 range, the referenced controller design cannot be used as-is. The customer must either select a controller design already registered with LE Class 1:NO or obtain an updated controller registration reflecting the correct capability.",
+            "decision_logic": "Bluetooth qualification combinations must remain consistent across referenced layers. A controller design declaring LE Class 1:YES cannot be combined with RF PHY evidence that represents a non-Class-1 implementation without creating an inter-layer consistency failure.",
+            "final_recommendation": "Verify the module's actual LE transmit-power classification before selecting reusable controller designs. If the module is not LE Class 1, use a controller registration with LE Class 1:NO or request an updated component qualification from the component owner.",
+            "risk_if_done_wrong": "The qualification combination may fail consistency validation and the registration process may not be completed. This can force redesign of the qualification strategy and create project delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "controller",
+                "RF PHY",
+                "LE",
+                "Class 1",
+                "QDID",
+                "consistency check"
+            ],
+            "search_aliases": [
+                "LE Class 1 mismatch",
+                "RF PHY Class 1 YES required",
+                "controller subsystem consistency",
+                "Class 1 controller reuse",
+                "QDID combination invalid",
+                "LE power class conflict",
+                "inter-layer consistency",
+                "LL Class 1 declaration"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

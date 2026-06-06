@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0078",
+    "cases": [
+        {
+            "case_id": "thread_0078_case_01",
+            "iut_type": "module",
+            "customer_question": "Can a product using a previously qualified Bluetooth controller module and a qualified Windows host stack be registered through a Declaration process without additional Bluetooth testing?",
+            "question_variants": [
+                "Can I qualify a product using a qualified controller module and Windows host without testing?",
+                "Is Declaration registration sufficient when reusing a qualified Bluetooth module?",
+                "Can an Intel AX210-based product use qualification reuse?",
+                "Do I only need a DID and registration support for a qualified module implementation?",
+                "Can a qualified Controller Subsystem be combined with a qualified Host Subsystem without new testing?"
+            ],
+            "actual_issue": "Determining whether an end product that reuses an already qualified Controller Subsystem and a qualified Host Subsystem can rely on qualification reuse and Declaration registration instead of performing new Bluetooth testing.",
+            "plain_english_explanation": "The product uses Bluetooth technology that was already qualified in a module and operating-system Bluetooth stack. The key question is whether the final product can reuse those existing qualifications instead of repeating Bluetooth testing. The answer depends on whether the referenced qualifications remain eligible for new registrations under current Bluetooth SIG rules.",
+            "consultant_answer": "A qualified controller module combined with an appropriate qualified Host Subsystem can normally be registered through a simplified Declaration path without additional Bluetooth testing. The consultant initially confirmed that the controller module and Windows host combination qualified for this approach because both qualification assets already existed. However, reuse eligibility must be verified against the current Bluetooth SIG qualification system before proceeding.",
+            "decision_logic": "Qualification reuse is allowed when the implementation is composed from eligible previously qualified building blocks. The determining factor is not only that the component qualifications exist, but also that the referenced qualification records remain usable for new registrations under current Bluetooth SIG qualification rules and tools.",
+            "final_recommendation": "Verify the exact Controller Subsystem and Host Subsystem qualification references in the current Bluetooth SIG qualification environment before committing to a Declaration-based registration strategy.",
+            "risk_if_done_wrong": "Assuming qualification reuse is automatically available because a module and host stack were previously qualified can lead to selecting an invalid registration path and require qualification rework after registration preparation has already begun.",
+            "bluetooth_tags": [
+                "qualification",
+                "declaration",
+                "reuse",
+                "controller",
+                "host",
+                "module",
+                "QDID",
+                "listing"
+            ],
+            "search_aliases": [
+                "Declaration registration",
+                "qualified controller subsystem",
+                "qualified host subsystem",
+                "module reuse",
+                "Windows host stack reuse",
+                "no Bluetooth testing",
+                "qualification reuse",
+                "existing QDID reuse",
+                "controller host combination",
+                "DID declaration path"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "source_thread": "thread_0090",
+    "cases": [
+        {
+            "case_id": "thread_0090_case_04",
+            "iut_type": "sensor device",
+            "customer_question": "How is the Bluetooth specification version determined when reusing existing qualified designs?",
+            "question_variants": [
+                "Can I declare Bluetooth 5.2 if the referenced design is 5.1?",
+                "Which Bluetooth version applies to my declaration?",
+                "Does marketing material determine qualification version?",
+                "How is specification version selected in a reused qualification?",
+                "Can qualification use a newer version than the referenced design?"
+            ],
+            "actual_issue": "The declared Bluetooth specification version is determined by the referenced qualified designs rather than marketing claims or desired target versions.",
+            "plain_english_explanation": "A product's qualification version is based on the qualification records it references. Even if product literature mentions a newer Bluetooth version, the qualification declaration follows the version associated with the referenced qualified designs.",
+            "consultant_answer": "The qualification specification version is derived from the qualification records being referenced. Once the reference design is selected, the applicable specification version is effectively determined by that qualification. Product documentation or promotional descriptions do not override the qualification record.",
+            "decision_logic": "Qualification declarations inherit specification coverage from the referenced qualified designs. The referenced qualification records are authoritative for version determination.",
+            "final_recommendation": "Determine the qualification references first and use the specification version associated with those qualified designs when preparing the declaration.",
+            "risk_if_done_wrong": "Declaring a specification version that is not supported by the referenced qualification records can create inconsistencies and delay qualification review.",
+            "bluetooth_tags": [
+                "qualification",
+                "specification version",
+                "QDID",
+                "reuse"
+            ],
+            "search_aliases": [
+                "Bluetooth version mismatch",
+                "specification version determination",
+                "qualification version selection",
+                "referenced QDID version",
+                "Bluetooth 5.1 qualification",
+                "Bluetooth 5.2 claim",
+                "qualification inheritance"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

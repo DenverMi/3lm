@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0084",
+    "cases": [
+        {
+            "case_id": "thread_0084_case_01",
+            "iut_type": "hands-free unit",
+            "customer_question": "What should be reviewed before final Bluetooth SIG submission to ensure the public listing accurately reflects the qualified product?",
+            "question_variants": [
+                "Review Bluetooth listing before submission",
+                "Check Review page before declaration",
+                "Verify Bluetooth version in listing",
+                "Validate product metadata before publication",
+                "Confirm qualification submission details"
+            ],
+            "actual_issue": "The qualification submission contained customer-visible metadata that required verification before final publication, including product naming and Bluetooth version information.",
+            "plain_english_explanation": "Before a Bluetooth SIG listing becomes public, all information shown in the qualification record should be reviewed carefully. Small mistakes such as an incorrect Bluetooth version or product description can become part of the published record. A final review helps ensure the listing matches the actual qualified product.",
+            "consultant_answer": "The consultant completed qualification workspace validation, corrected ICS-related issues, generated the Review page, and requested customer confirmation before submission. During review, an outdated Bluetooth v4.1 statement was identified and corrected to v5.2. Product naming and publication timing were also confirmed before the final submission was executed.",
+            "decision_logic": "Customer-visible qualification data must accurately reflect the final qualified product before submission. Any discrepancy discovered during review should be corrected before declaration and publication.",
+            "final_recommendation": "Perform a formal review of the Bluetooth SIG Review page, verify product identifiers and Bluetooth version claims, obtain customer approval, and only then complete the submission.",
+            "risk_if_done_wrong": "Incorrect product information may be published in the Bluetooth SIG listing and could require corrective action after submission. Metadata inconsistencies can also create confusion regarding the qualified product configuration.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "declaration",
+                "ICS",
+                "review page",
+                "Bluetooth version"
+            ],
+            "search_aliases": [
+                "Review page verification",
+                "Bluetooth listing review",
+                "submission validation",
+                "Bluetooth version mismatch",
+                "v4.1 to v5.2 correction",
+                "qualification metadata review",
+                "pre-submission check",
+                "declaration review"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

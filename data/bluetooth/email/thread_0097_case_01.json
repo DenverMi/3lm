@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0097",
+    "cases": [
+        {
+            "case_id": "thread_0097_case_01",
+            "iut_type": "BLE peripheral",
+            "customer_question": "What Bluetooth operation manual should be provided for the compliance folder when the product is a BLE peripheral controlled through a smartphone application and has no direct user operation?",
+            "question_variants": [
+                "What qualifies as a Bluetooth user manual for a BLE peripheral?",
+                "Can the mobile app manual be used as Bluetooth documentation?",
+                "What documentation is required for the Bluetooth section of the compliance folder?",
+                "How do we document Bluetooth operation for a device without a user interface?",
+                "Is an application guide acceptable instead of a device operation manual?"
+            ],
+            "actual_issue": "Determining what documentation satisfies the Bluetooth operation-manual requirement for compliance-folder creation when the qualified device functions as a smartphone-connected BLE peripheral with little or no direct user interaction.",
+            "plain_english_explanation": "Some Bluetooth devices do not have buttons, displays, or direct user controls. In those cases, users interact with the product through a smartphone application. The qualification documentation still needs to show how Bluetooth functionality is used, but the application documentation may provide that evidence.",
+            "consultant_answer": "For a smartphone-connected BLE peripheral that has no meaningful standalone user operation, a dedicated device operation manual is not required. Documentation for the companion application is acceptable, provided the registered Bluetooth device is identified and the documentation demonstrates how the Bluetooth-connected system is used. The application manual can therefore satisfy the Bluetooth operation-manual requirement for the compliance folder.",
+            "decision_logic": "The purpose of the operation-manual requirement is to document user interaction with the Bluetooth functionality. When Bluetooth operation occurs through a companion application rather than through controls on the peripheral itself, the application documentation becomes the appropriate evidence of Bluetooth usage.",
+            "final_recommendation": "Provide the companion smartphone application's user documentation or equivalent operational documentation that identifies the BLE peripheral and describes the Bluetooth-based interaction between the application and the device.",
+            "risk_if_done_wrong": "Submitting documentation that does not adequately describe Bluetooth operation may result in compliance-folder deficiencies, requests for additional documentation, and delays in qualification record completion.",
+            "bluetooth_tags": [
+                "qualification",
+                "compliance-folder",
+                "BLE",
+                "peripheral",
+                "documentation",
+                "listing",
+                "declaration"
+            ],
+            "search_aliases": [
+                "BLE peripheral manual",
+                "application manual accepted",
+                "Bluetooth operation manual",
+                "companion app documentation",
+                "compliance folder evidence",
+                "smartphone controlled device",
+                "no user interface device",
+                "Bluetooth user guide requirement"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

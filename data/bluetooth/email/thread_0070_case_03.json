@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0070",
+    "cases": [
+        {
+            "case_id": "thread_0070_case_03",
+            "iut_type": "controller",
+            "customer_question": "If a product references an existing qualified design, are profile tests still required or can qualification be limited to RF and RF PHY testing?",
+            "question_variants": [
+                "Can profile testing be waived?",
+                "Is RF testing alone sufficient?",
+                "What testing can be reused from the referenced design?",
+                "Do we need profile qualification when referencing an existing listing?",
+                "Can profile tests be exempted through qualification reuse?"
+            ],
+            "actual_issue": "The customer is unsure whether qualification reuse from a referenced design eliminates the need for profile testing.",
+            "plain_english_explanation": "Some qualification elements can be reused from an existing qualified design. If the referenced qualification already covers the relevant profile functionality, the new product may only need to address remaining qualification obligations such as RF and RF PHY testing.",
+            "consultant_answer": "Based on the referenced qualification, profile testing is exempt because the referenced registration already covers that portion of the qualification scope. The remaining requirement for the product is RF/RF PHY testing on the product implementation.",
+            "decision_logic": "Qualification reuse permits previously qualified functionality to be leveraged when it is covered by the referenced design. Only the qualification areas not already covered by the referenced listing require additional testing.",
+            "final_recommendation": "Confirm the qualification scope of the referenced design and document which profile functionality is already covered. Then focus testing activities on the remaining RF/RF PHY obligations.",
+            "risk_if_done_wrong": "Assuming all testing is waived could lead to missing RF/RF PHY requirements, while unnecessarily repeating profile testing could increase effort and qualification cost.",
+            "bluetooth_tags": [
+                "qualification",
+                "reuse",
+                "profile",
+                "RF",
+                "RF PHY",
+                "controller"
+            ],
+            "search_aliases": [
+                "profile test exemption",
+                "qualification reuse",
+                "profile testing waived",
+                "referenced design reuse",
+                "RF only qualification scope",
+                "existing QDID reuse",
+                "profile coverage reuse",
+                "controller based declaration"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

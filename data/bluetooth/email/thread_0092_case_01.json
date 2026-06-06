@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0092",
+    "cases": [
+        {
+            "case_id": "thread_0092_case_01",
+            "iut_type": "module-based BLE product",
+            "customer_question": "Can a product be registered as Bluetooth Class 1 when the referenced qualified BlueNRG-M2SA design is qualified as Class 2?",
+            "question_variants": [
+                "Can we declare Class 1 using a Class 2 reference design?",
+                "Does BlueNRG-M2SA support Class 1 qualification reuse?",
+                "Can transmit power class be changed during declaration?",
+                "Can a Single Design declaration upgrade Class 2 to Class 1?",
+                "Must the declared power class match the referenced QDID?"
+            ],
+            "actual_issue": "The requested Bluetooth power class did not match the power class of the referenced qualified design being reused for qualification.",
+            "plain_english_explanation": "The customer intended to register a product as Bluetooth Class 1, but the referenced qualified module was already qualified as Class 2. When reusing an existing Bluetooth qualification, important radio characteristics must remain consistent with the referenced design. A product cannot simply be declared with a higher power class if the underlying qualified design does not support it.",
+            "consultant_answer": "The referenced BlueNRG-M2SA qualification records were Class 2. The consultant noted that the underlying SoC likely did not contain a power amplifier and therefore could not be configured to achieve Class 1 operation. The product should therefore be registered using the same power-level classification as the referenced qualified design under the Single Design reuse approach.",
+            "decision_logic": "Qualification reuse requires consistency with the referenced qualified design. Because the referenced QDID and underlying hardware were qualified as Class 2, the declaration should inherit that classification rather than introduce a different power class.",
+            "final_recommendation": "Proceed with Single Design qualification reuse using the same Bluetooth power classification as the referenced BlueNRG-M2SA qualified design.",
+            "risk_if_done_wrong": "Declaring a power class that is inconsistent with the referenced qualification could create qualification inconsistencies and jeopardize acceptance of the registration approach.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "module",
+                "reuse",
+                "Single Design",
+                "declaration"
+            ],
+            "search_aliases": [
+                "Class 1 vs Class 2 mismatch",
+                "power class mismatch",
+                "BlueNRG-M2SA Class 2",
+                "QDID power level inheritance",
+                "Single Design reuse",
+                "reference design consistency",
+                "Bluetooth class declaration",
+                "qualification reuse limitation"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

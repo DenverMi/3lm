@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0081",
+    "cases": [
+        {
+            "case_id": "thread_0081_case_02",
+            "iut_type": "module",
+            "customer_question": "How should inherited profile ICS selections and profile testing requirements be handled when reusing an existing Host Stack qualification?",
+            "question_variants": [
+                "Do inherited profiles require new PTS testing?",
+                "How do I evaluate profile ICS differences?",
+                "Can I reuse profile qualifications from an included Host Stack?",
+                "Which profiles need additional evidence?",
+                "How should inherited HID profile capabilities be handled?"
+            ],
+            "actual_issue": "The reused Host Stack qualification contained inherited profile ICS selections that did not perfectly match the desired product functionality, creating uncertainty about which profiles could be inherited and which required additional testing or evidence.",
+            "plain_english_explanation": "A reused Bluetooth stack may already contain profile capabilities that become inherited in a new qualification. The challenge is deciding whether those inherited capabilities are acceptable as-is or whether new testing is needed to support the actual product feature set. The decision depends on the ICS content and profile coverage already present in the included qualification.",
+            "consultant_answer": "The consultant proposed reviewing the profile ICS content of the included Host Stack qualification and comparing it with the intended product behavior. Existing profile qualifications should be reused where the inherited ICS coverage is acceptable. Additional PTS testing and profile evidence should only be generated for profiles whose required functionality is not adequately covered by the inherited qualification. After scope review, HID11 was ultimately not required, reducing the need for additional profile evidence.",
+            "decision_logic": "Reuse inherited profile qualifications whenever the included design already provides acceptable ICS coverage. Generate new profile evidence only when required functionality is missing, mismatched, or intentionally changed relative to the inherited qualification.",
+            "final_recommendation": "Review inherited profile ICS selections, accept inherited profile functionality where appropriate, remove unnecessary profiles from scope, and perform additional PTS testing only for genuinely uncovered profile requirements.",
+            "risk_if_done_wrong": "Unnecessary profile testing may be performed for functionality already covered by inherited qualifications. Alternatively, a qualification package may be incomplete if required profile capabilities are assumed to be covered without verifying the inherited ICS selections.",
+            "bluetooth_tags": [
+                "qualification",
+                "profile",
+                "ICS",
+                "PTS",
+                "profile inheritance",
+                "HID",
+                "reuse"
+            ],
+            "search_aliases": [
+                "inherited profile ICS",
+                "profile qualification reuse",
+                "PTS scope reduction",
+                "ICS comparison",
+                "profile evidence reuse",
+                "HID11 qualification",
+                "included design profiles",
+                "Host Stack profile coverage",
+                "profile testing decision",
+                "ICS review"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

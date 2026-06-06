@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0101",
+    "cases": [
+        {
+            "case_id": "thread_0101_case_02",
+            "iut_type": "payment terminal",
+            "customer_question": "What should be done when a company previously qualified Bluetooth products but cannot find its Bluetooth SIG membership under its current company name?",
+            "question_variants": [
+                "Why can't I find my SIG membership?",
+                "Do I need a new Bluetooth SIG membership after a company name change?",
+                "Can an old member account still be used for qualification?",
+                "How do I handle qualification after a corporate name change?",
+                "Can registration proceed before updating the company name?"
+            ],
+            "actual_issue": "Determining whether an existing Bluetooth SIG membership remains valid after a company name change and whether qualification activities must wait for membership-record updates.",
+            "plain_english_explanation": "A company that qualified products in the past may have changed its corporate name. When searching the Bluetooth SIG member database, the old name may still be listed. This can create confusion about whether a new membership is required.",
+            "consultant_answer": "Investigation showed that the company already had an existing Bluetooth SIG Adopter membership under its former corporate name. The consultant advised proceeding with qualification using the existing member record rather than creating a new membership. Because qualification completion was time-sensitive, the company-name update was recommended as a separate follow-up activity after registration. The consultant also identified the Bluetooth SIG company-name-change process and required supporting documentation.",
+            "decision_logic": "Bluetooth SIG membership belongs to the member organization and may remain valid even if the company name changes. Existing membership records should be located and reused before creating a new membership, especially when qualification timelines are important.",
+            "final_recommendation": "Search for historical company names before creating a new Bluetooth SIG membership. If an existing membership is found, complete the qualification using that membership and process the company-name update afterward through the official Bluetooth SIG procedure.",
+            "risk_if_done_wrong": "Creating an unnecessary new membership or delaying qualification while processing a name change can introduce avoidable administrative effort and schedule delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "membership",
+                "listing",
+                "declaration",
+                "Adopter"
+            ],
+            "search_aliases": [
+                "company name change",
+                "SIG member lookup",
+                "existing adopter member",
+                "membership transfer",
+                "old company name",
+                "Bluetooth SIG Form 3100",
+                "member database mismatch",
+                "membership already exists"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

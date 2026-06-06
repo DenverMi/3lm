@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0055",
+    "cases": [
+        {
+            "case_id": "thread_0055_case_03",
+            "iut_type": "module",
+            "customer_question": "Can multiple products reuse the same qualified Bluetooth design, and can downstream customers reference that qualification in their own product registrations?",
+            "question_variants": [
+                "Can multiple products use the same DID or QDID?",
+                "Can customers reference my qualified design?",
+                "Can one qualified design support many products?",
+                "Can downstream products reuse our Bluetooth qualification?",
+                "Can the same Bluetooth design be listed in multiple products?"
+            ],
+            "actual_issue": "The thread discusses reuse of an existing qualified design across multiple products and reuse of that qualification by downstream customers.",
+            "plain_english_explanation": "A supplier wanted to know whether one Bluetooth qualification could support multiple products and whether customers using the supplier's solution could build their own product qualifications on top of it. This is a common qualification reuse scenario.",
+            "consultant_answer": "The discussion treats reuse of the qualified design as acceptable. Multiple products can be associated with the same underlying qualified design, and downstream customers can use the supplier's qualified design as a referenced design when completing qualification for their own products, provided they follow the applicable Bluetooth qualification process.",
+            "decision_logic": "Bluetooth qualification separates the reusable design from the final product registration. Once a reusable design is qualified and available for reference, other product qualifications may build on that design rather than repeating the original qualification work.",
+            "final_recommendation": "Publish and maintain the reusable qualified design information and provide the applicable design identifier to customers so they can reference it correctly during their own qualification process.",
+            "risk_if_done_wrong": "If customers reference the wrong design or misunderstand the reuse model, product registrations may require correction, rework, or additional qualification review before completion.",
+            "bluetooth_tags": [
+                "qualification",
+                "reuse",
+                "QDID",
+                "DID",
+                "design reference",
+                "product listing"
+            ],
+            "search_aliases": [
+                "customer reuse of QDID",
+                "multiple products same design",
+                "reuse qualified design",
+                "downstream qualification",
+                "design reference reuse",
+                "product list reuse",
+                "supplier qualification reuse"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -75,6 +75,42 @@
     or
     python -m app.extract_threads "archive/email_exports/"
 
+## How to create corrections and notes for the RAG to learn later:
+- Use this code + notes/corrections
+
+    /correction: "your corrections here"
+
+    /note: "your notes here"
+
+
+## How to export "notes" and "corrections" to md file for review
+- Execute this script in the bash:
+
+    python scripts/export_memory.py
+
+
+## How to approve notes and corrections and export them to each programs memory folder
+- Review each notes/corrections in the memory review folder
+- Change "Unreviewed" to "Approved"   
+- Execute this script in the bash:
+
+    python scripts/export_approved_memory.py
+
+## Benchmark questions:
+
+    - In Bluetooth, what do we need to prepare in the compliance folder?
+    - Customer asks: If they use a qualified Bluetooth module, do they still need a new qualification?
+    - @ Bluetooth qualified module new qualification
+    - In Bluetooth, what is TCW?
+    - In Bluetooth, what is the difference between ICS and IXIT?
+    - In Bluetooth, what is Option 2b?
+    - BluetoothのQualificationで、Compliance Folderには何を入れる必要がありますか？
+    - Bluetoothで認証済みモジュールを使う場合、新しい認証は必要ですか？
+
+- how to run the benchmark automated script:
+
+    python scripts/benchmark_rag.py
+
 ## When restarting a session, give this instruction:
 
     Before we start, let's set the ground rules:

@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0086",
+    "cases": [
+        {
+            "case_id": "thread_0086_case_01",
+            "iut_type": "",
+            "customer_question": "How should Bluetooth RF-PHY test reports be reviewed when a test has already passed but report data fields may contain incorrect values?",
+            "question_variants": [
+                "RF-PHY report review after pass result",
+                "Incorrect value in Bluetooth test report",
+                "N/A versus 0 in RF-PHY report",
+                "Quality check before report approval",
+                "Bluetooth test report data validation"
+            ],
+            "actual_issue": "A Bluetooth RF-PHY test report contained an incorrect field value despite the overall test result being reported as Pass. The reviewer identified that the Inband Image frequency entry should be recorded as 0 rather than N/A before approval. ",
+            "plain_english_explanation": "Passing Bluetooth testing is not sufficient by itself. The final report must also contain correct values in all applicable fields. Even small documentation errors can require revision before the report is approved and released. ",
+            "consultant_answer": "The consultant reviewed the RF-PHY report and found that the Inband Image frequency field was incorrectly recorded as N/A. The report was revised to change the value to 0, returned for verification, and then routed through the approval workflow. The focus was on report accuracy rather than test execution or test failure resolution. ",
+            "decision_logic": "Bluetooth qualification reports must accurately represent applicable measurements and results. Report approval requires validation of individual data fields, not merely confirmation that the overall outcome is Pass. ",
+            "final_recommendation": "Perform a detailed technical review of RF-PHY reports before approval, verify that all applicable fields contain correct values, correct documentation errors, and only then proceed with final approval. ",
+            "risk_if_done_wrong": "Incorrect data can remain in official qualification documentation, resulting in report revisions, approval delays, and additional document-control effort after review. ",
+            "bluetooth_tags": [
+                "RF PHY",
+                "test report",
+                "report review",
+                "qualification",
+                "documentation"
+            ],
+            "search_aliases": [
+                "Inband Image frequency",
+                "N/A to 0 correction",
+                "RF-PHY report review",
+                "Bluetooth report approval",
+                "test report validation",
+                "Pass report correction",
+                "documentation accuracy",
+                "RF-PHY quality review"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

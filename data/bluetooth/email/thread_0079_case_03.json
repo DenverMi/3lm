@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0079",
+    "cases": [
+        {
+            "case_id": "thread_0079_case_03",
+            "iut_type": "BLE product",
+            "customer_question": "Is the compliance folder uploaded or publicly disclosed, and how long must it be kept?",
+            "question_variants": [
+                "Will the compliance folder be public?",
+                "Do we upload compliance-folder contents to the SIG site?",
+                "Where should the compliance folder be stored?",
+                "How long should the Bluetooth compliance folder be retained?",
+                "What do we do with the compliance folder after registration is complete?"
+            ],
+            "actual_issue": "Clarifying compliance-folder custody, disclosure, audit use, and retention after Bluetooth qualification registration.",
+            "plain_english_explanation": "The compliance folder is not normally uploaded or made public. It is kept by the member and shown only if Bluetooth SIG requests it during an audit. In this thread, the consultant instructed the customer to retain it until one year after sales of the listed products end.",
+            "consultant_answer": "The consultant explained that the compliance folder is retained by the customer unless Bluetooth SIG requests it during an audit, so it is not uploaded to the SIG site and is not disclosed to third parties in the ordinary process. After the customer received the CD-R, the consultant stated that the certification procedure was complete if the folder was stored under the specified condition: keep it until one year after completion of sales for the products listed in the Product List and present it during a Bluetooth SIG audit if requested.",
+            "decision_logic": "The compliance folder is supporting evidence for the member’s qualification record, not ordinary public listing content. Its purpose is audit readiness, so the practical obligation is retention and presentation upon request rather than submission during normal registration.",
+            "final_recommendation": "Store the compliance folder securely until one year after sales of the registered Product List items are complete, and be prepared to present it if Bluetooth SIG audits the qualification.",
+            "risk_if_done_wrong": "Uploading or disclosing the folder unnecessarily could expose non-public product information. Failing to retain it could leave the member unable to respond properly if Bluetooth SIG requests audit evidence.",
+            "bluetooth_tags": [
+                "compliance folder",
+                "audit",
+                "qualification",
+                "listing",
+                "declaration",
+                "Product List"
+            ],
+            "search_aliases": [
+                "compliance folder not public",
+                "SIG audit folder",
+                "retain compliance folder",
+                "CD-R compliance folder",
+                "not uploaded to SIG",
+                "audit presentation",
+                "one year after sales end",
+                "Product List retention"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

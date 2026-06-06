@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0093",
+    "cases": [
+        {
+            "case_id": "thread_0093_case_01",
+            "iut_type": "beacon",
+            "customer_question": "How should a Bluetooth SIG qualification registration be completed when qualification reuse is used and no new testing is required?",
+            "question_variants": [
+                "Can SIG registration be completed without testing?",
+                "What is the process for declaration-only Bluetooth qualification?",
+                "What steps are required after qualification fee payment?",
+                "How is a qualification reuse registration finalized?",
+                "What review steps are required before submission?"
+            ],
+            "actual_issue": "The product qualification is performed through qualification reuse and declaration rather than new Bluetooth testing, requiring correct payment processing, qualification reference selection, review-page validation, and submission.",
+            "plain_english_explanation": "Some Bluetooth products can be qualified by reusing existing qualified designs instead of performing new testing. In these cases, the critical tasks are validating the qualification references, paying the SIG qualification fee, reviewing the registration details, and submitting the declaration correctly.",
+            "consultant_answer": "The consultant confirmed that the project qualified as a registration-only activity with no additional testing required. After SIG fee payment and receipt confirmation, the consultant validated the qualification content, prepared the registration, requested customer review of the Product Details and Design Details pages, and completed submission after customer approval. The registration then became visible in the customer account pending public release.",
+            "decision_logic": "When qualification reuse fully covers the implementation, qualification completion depends on administrative declaration accuracy rather than test execution. Correct qualification references, payment confirmation, and review-page approval are the key gating items before submission.",
+            "final_recommendation": "Validate all declaration details, obtain customer approval of the Review page, confirm SIG fee receipt processing, and submit the registration only after all qualification references have been verified.",
+            "risk_if_done_wrong": "Incorrect declaration data or unreviewed submission details can result in registration errors that may require correction or resubmission after qualification processing has begun.",
+            "bluetooth_tags": [
+                "qualification",
+                "declaration",
+                "listing",
+                "reuse",
+                "QDID",
+                "registration"
+            ],
+            "search_aliases": [
+                "declaration-only qualification",
+                "registration without testing",
+                "qualification reuse registration",
+                "Review page approval",
+                "SIG submission process",
+                "qualification fee receipt",
+                "listing submission",
+                "declaration workflow"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0052",
+    "cases": [
+        {
+            "case_id": "thread_0052_case_04",
+            "iut_type": "speaker",
+            "customer_question": "How should derivative products using the same qualified module and host stack be added after qualification is completed?",
+            "question_variants": [
+                "Can derivative models be added without new qualification?",
+                "How do I add products to an existing Product List?",
+                "Can variants reuse the same qualified design?",
+                "How are follow-on models registered?",
+                "Can additional products be declared under the same qualification?"
+            ],
+            "actual_issue": "The customer qualified a representative product and wanted guidance on registering additional models that use the same Bluetooth module and host stack implementation.",
+            "plain_english_explanation": "Many product families share the same Bluetooth design. Instead of repeating qualification work, additional products may be added using the already qualified design when the Bluetooth implementation remains unchanged. The thread explains how this reuse is managed after qualification.",
+            "consultant_answer": "The consultant explained that products using the same qualified module and host stack can be added as derivative products through the existing qualification management interface. The qualification already established for the shared design can be leveraged for these additional product listings without repeating the original qualification effort.",
+            "decision_logic": "The Bluetooth qualification is tied to the qualified design. When additional products use the same underlying Bluetooth implementation, they can be registered as derivative products rather than creating entirely new qualification projects.",
+            "final_recommendation": "Maintain the original qualified design and use the product-management workflow to add derivative products that share the same Bluetooth implementation.",
+            "risk_if_done_wrong": "Creating unnecessary new qualification projects for unchanged derivative products can increase administrative effort and complicate product portfolio management.",
+            "bluetooth_tags": [
+                "qualification",
+                "product listing",
+                "derivative product",
+                "design reuse",
+                "Product List"
+            ],
+            "search_aliases": [
+                "derivative product registration",
+                "add product to Product List",
+                "same module same stack",
+                "follow-on model",
+                "product family qualification",
+                "reuse qualified design",
+                "additional product listing",
+                "Manage Submitted Products"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0102",
+    "cases": [
+        {
+            "case_id": "thread_0102_case_02",
+            "iut_type": "module",
+            "customer_question": "Can multiple products using the same Bluetooth implementation be registered under the same qualification listing?",
+            "question_variants": [
+                "Can multiple products share one Bluetooth qualification?",
+                "Can I add product variants after qualification?",
+                "Can multiple devices be placed in the Product List?",
+                "Can derived products reuse the same listing?",
+                "Can customers reference the same qualified design?"
+            ],
+            "actual_issue": "The customer wanted to know whether multiple products using the same module, stack, and Bluetooth functionality could be covered through a single qualification and whether downstream products could reuse the resulting qualification.",
+            "plain_english_explanation": "Several products shared the same Bluetooth implementation. The customer wanted to avoid repeating qualification work for every product variant. The question was whether additional products could be attached to the qualified design after the main registration was completed.",
+            "consultant_answer": "The consultant clarified that products are not added directly to the subsystem qualification itself. Instead, after the qualification is completed, additional products with the same Bluetooth implementation can be added through the Product List mechanism. The resulting qualification can also be referenced by downstream products that use the qualified design.",
+            "decision_logic": "When multiple products share the same Bluetooth implementation and qualification basis, they can be represented as additional products associated with the completed qualification record rather than requiring separate qualification projects.",
+            "final_recommendation": "Complete the primary qualification first, then add qualifying product variants through the Product List process and allow downstream products to reference the resulting qualification where applicable.",
+            "risk_if_done_wrong": "Misunderstanding Product List usage can lead to unnecessary duplicate qualification projects, additional administrative effort, and redundant registrations.",
+            "bluetooth_tags": [
+                "qualification",
+                "Product List",
+                "listing",
+                "reuse",
+                "QDID",
+                "RN"
+            ],
+            "search_aliases": [
+                "add product",
+                "Product List reuse",
+                "multiple product variants",
+                "derived product registration",
+                "same Bluetooth implementation",
+                "reuse qualification",
+                "additional products",
+                "listing management",
+                "RN Product List",
+                "shared qualification"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

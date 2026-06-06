@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0099",
+    "cases": [
+        {
+            "case_id": "thread_0099_case_01",
+            "iut_type": "end product",
+            "customer_question": "Can additional products that use the same Bluetooth implementation be added later without paying for a new qualification?",
+            "question_variants": [
+                "Can similar products be added after initial qualification?",
+                "Is there a validity period for free derivative product registration?",
+                "Can future models be added to the existing Product List?",
+                "Do we need to list all future products during the initial registration?",
+                "Can products using the same module and Host stack reuse the qualification?"
+            ],
+            "actual_issue": "Determining eligibility and duration for adding derivative products to an existing Bluetooth qualification using the same Bluetooth implementation.",
+            "plain_english_explanation": "The customer wanted to know whether future products could reuse the same Bluetooth qualification instead of requiring a completely new registration. The discussion focused on products that share the same Bluetooth module and Host stack. The key concern was whether additional models must be declared immediately or can be added later.",
+            "consultant_answer": "The initial registration should include only one representative model. After qualification is completed, additional derivative products that use the same Bluetooth module and Host stack can be added through Product List expansion using the MyBlue qualification tools. Future models do not need to be listed during the initial registration. The ability to add derivative products remains available while the referenced Bluetooth qualification remains valid, and previously registered products may continue to be sold if not affected by future SIG rule changes.",
+            "decision_logic": "Qualification reuse is permitted when derivative products implement the same qualified Bluetooth architecture, specifically the same module and Host stack. Product List expansion is therefore used instead of creating a new qualification entry.",
+            "final_recommendation": "Qualify a representative model first, then use the Product List expansion process to add future derivative models that share the same Bluetooth implementation.",
+            "risk_if_done_wrong": "A company may perform unnecessary new qualifications, incur avoidable registration effort, or incorrectly assume future models must be included in the initial qualification submission.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "Product List",
+                "reuse",
+                "module",
+                "host",
+                "derivative product"
+            ],
+            "search_aliases": [
+                "free product list addition",
+                "derivative model registration",
+                "qualify more products",
+                "same module reuse",
+                "same host stack reuse",
+                "product list expansion",
+                "future model addition",
+                "representative model qualification"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

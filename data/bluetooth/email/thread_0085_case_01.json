@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0085",
+    "cases": [
+        {
+            "case_id": "thread_0085_case_01",
+            "iut_type": "module-based wireless product",
+            "customer_question": "What information is required before a Bluetooth qualification quotation can be prepared for a product using a wireless module and custom antenna?",
+            "question_variants": [
+                "What is missing from the Bluetooth quotation request?",
+                "What information is required for Bluetooth qualification scoping?",
+                "Can a Bluetooth qualification estimate be prepared without Host Stack information?",
+                "What inputs are needed before issuing a Bluetooth certification quote?",
+                "What must be collected during Bluetooth qualification planning?"
+            ],
+            "actual_issue": "The quotation request was incomplete because qualification-critical information was missing, specifically the Bluetooth SIG Declaration Fee handling method and Host Stack qualification details.",
+            "plain_english_explanation": "Before Bluetooth qualification work can be estimated, the consultant must understand both the administrative and technical qualification path. Important information such as who will pay the Bluetooth SIG declaration fee and what qualified Bluetooth software components are being used affects scope and cost. Without this information, the quotation may not reflect the actual qualification effort.",
+            "consultant_answer": "The consultant identified two mandatory items required for estimation: the Declaration Fee payment method and the Host Stack qualification information. The customer was asked to specify whether the Bluetooth SIG declaration fee would be paid directly or through a service provider and to provide the Host Stack QDID/DN and implemented profiles. The consultant treated these items as required inputs before a reliable qualification quotation could be prepared.",
+            "decision_logic": "Bluetooth qualification scope depends on both administrative declaration activities and the qualification status of the Bluetooth implementation. Missing Host Stack pedigree information prevents determination of reuse eligibility and qualification effort, while declaration-fee handling affects the project execution model.",
+            "final_recommendation": "Collect the declaration-fee payment preference and obtain the Host Stack QDID/DN plus implemented profile information before finalizing the Bluetooth qualification estimate.",
+            "risk_if_done_wrong": "The qualification quotation may be inaccurate, resulting in incorrect project scope, missed qualification activities, or later rework when the actual Bluetooth architecture is clarified.",
+            "bluetooth_tags": [
+                "qualification",
+                "planning",
+                "QDID",
+                "host",
+                "declaration",
+                "module",
+                "reuse"
+            ],
+            "search_aliases": [
+                "quotation prerequisites",
+                "Host Stack QDID required",
+                "Bluetooth estimate inputs",
+                "declaration fee handling",
+                "qualification scoping",
+                "DN required",
+                "Host Stack pedigree",
+                "qualification planning checklist"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0060",
+    "cases": [
+        {
+            "case_id": "thread_0060_case_02",
+            "iut_type": "sensor",
+            "customer_question": "Which model names must be included in the Bluetooth SIG Product List when a product family has multiple commercial product codes and can wildcard or series naming be used?",
+            "question_variants": [
+                "Do all model numbers need to be listed in the Product List?",
+                "Can I register only the Bluetooth unit model instead of all sales models?",
+                "Can Bluetooth SIG Product List use a series name?",
+                "Are wildcard model names allowed in Bluetooth registration?",
+                "How should Product List model names match the product label?"
+            ],
+            "actual_issue": "Determining the correct Bluetooth SIG Product List model naming strategy when multiple marketed product codes are associated with the same Bluetooth hardware.",
+            "plain_english_explanation": "A company may have one Bluetooth hardware unit but several commercial product codes created by packaging or accessory combinations. Bluetooth SIG registration must reflect how the product is actually identified in the marketplace and on the product label. The challenge is deciding which model names belong in the Product List.",
+            "consultant_answer": "The consultant explained that Product List entries must match the model identifiers shown on the actual product label or nameplate. If only one identifier appears on the product, only that model needs to be registered. If multiple product codes appear on the product, all relevant identifiers must be represented in the Product List. Wildcard, pattern-based, or series-style naming is not permitted because Product List names must correspond to actual marketed model names.",
+            "decision_logic": "Bluetooth SIG requires traceability between the declared Product List and the identifiers visible on the physical product. Product names in the registration cannot be generalized beyond what is actually displayed and marketed.",
+            "final_recommendation": "Review the product labeling and register the exact model identifiers that appear on the physical product. Do not use wildcard characters, range notation, or series-style naming in the Product List.",
+            "risk_if_done_wrong": "Using Product List names that do not match product labeling or using wildcard naming can result in inaccurate Bluetooth SIG registration records and may require correction or re-registration work.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "Product List",
+                "model name",
+                "declaration"
+            ],
+            "search_aliases": [
+                "Product List model name",
+                "wildcard model prohibited",
+                "series registration not allowed",
+                "label name matching",
+                "Product List compliance",
+                "multiple model listing",
+                "model identifier registration",
+                "Bluetooth product naming"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

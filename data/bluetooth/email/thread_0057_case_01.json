@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0057",
+    "cases": [
+        {
+            "case_id": "thread_0057_case_01",
+            "iut_type": "BLE device",
+            "customer_question": "Does changing a product from Nordic SoftDevice S332/S132 to nRF Connect SDK v2.8.0 or later require a new Bluetooth qualification, even if supported profiles remain unchanged?",
+            "question_variants": [
+                "Does SDK migration require requalification?",
+                "Can a SoftDevice-based product become a derivative of an nRF Connect SDK design?",
+                "Is a firmware-only SDK change covered by an existing QDID?",
+                "Does changing from S132/S332 to nRF Connect SDK require a new registration?",
+                "Can an existing qualification be reused after a Nordic SDK migration?"
+            ],
+            "actual_issue": "A Bluetooth-qualified product was originally based on a Nordic SoftDevice-derived qualified design, but the manufacturer planned to migrate to nRF Connect SDK. The question was whether the change could remain a derivative product or required a new qualification basis.",
+            "plain_english_explanation": "Even if the product looks the same to users and supports the same Bluetooth features, changing the underlying Bluetooth software platform can change the qualification basis. If the new SDK references different Bluetooth qualification artifacts and different ICS content, the existing qualification lineage may no longer apply. In that situation the product must be qualified against the new design basis.",
+            "consultant_answer": "The existing qualification referenced a Nordic SoftDevice-based qualified design. A product migrated to nRF Connect SDK v2.8.0 or later uses a different qualification basis with different Core specification and ICS content. Because of those differences, the migrated product is no longer considered a derivative of the previously qualified design and requires a new registration tied to the newer SDK lineage. However, if multiple future products are aligned to the same newly qualified SDK baseline, later models may be covered as derivatives of that new qualification rather than requiring separate new registrations.",
+            "decision_logic": "Qualification eligibility is determined by the qualified design being referenced, the Core specification basis, and the resulting ICS content. When those change sufficiently, the product is no longer a derivative of the original qualification and must be registered as a new design.",
+            "final_recommendation": "Create a new qualification based on the nRF Connect SDK design lineage. Where possible, align future products to the same SDK baseline so they can be handled as derivative products under the new qualification strategy.",
+            "risk_if_done_wrong": "Treating the migrated product as a derivative of the original SoftDevice-based qualification could result in an invalid qualification basis, registration rework, qualification delays, and the need to repeat the qualification process later.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "ICS",
+                "design change",
+                "reuse",
+                "derivative product",
+                "nRF Connect SDK",
+                "Nordic"
+            ],
+            "search_aliases": [
+                "SoftDevice to nRF Connect SDK",
+                "SDK migration qualification",
+                "S132 to nRF Connect",
+                "new registration required",
+                "QDID lineage change",
+                "ICS changed after SDK migration",
+                "derivative product invalid",
+                "Nordic SDK requalification"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

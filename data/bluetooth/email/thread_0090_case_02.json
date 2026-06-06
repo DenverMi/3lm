@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0090",
+    "cases": [
+        {
+            "case_id": "thread_0090_case_02",
+            "iut_type": "sensor device",
+            "customer_question": "Can Nordic SDK and Mesh SDK versions be freely mixed when reusing existing Bluetooth qualifications?",
+            "question_variants": [
+                "Does SDK version matter for qualification reuse?",
+                "Can I use a different nRF Connect SDK version than the qualified version?",
+                "How do I align SDK versions with QDIDs?",
+                "Can qualification references be used regardless of implementation version?",
+                "What happens if my implemented SDK version differs from the qualified design?"
+            ],
+            "actual_issue": "Qualification reuse depends on matching implemented SDK and software versions to available qualified designs.",
+            "plain_english_explanation": "Bluetooth qualification records are tied to specific software implementations. A product cannot simply reference any available qualification record if the implemented software version is different. The actual software used in the product must match the qualification references being claimed.",
+            "consultant_answer": "The ability to reference a qualified design depends on the SDK version implemented in the product. The implemented SDK version, Mesh subsystem version, and SoftDevice version must align with the versions represented by the referenced qualification records. Later in the thread, the customer identified qualification records corresponding to nRF Connect SDK v2.8.0 and was advised that those qualified records could be combined through a Multi-Design approach.",
+            "decision_logic": "Qualification reuse is version-dependent. The qualification declaration must correspond to the actual implemented software stack, not merely to available qualification records that appear similar.",
+            "final_recommendation": "Verify the exact implemented SDK, Mesh subsystem, and SoftDevice versions and select qualification references that explicitly correspond to those versions before preparing the declaration.",
+            "risk_if_done_wrong": "Using qualification references that do not match the implemented software stack can invalidate the qualification strategy and require qualification rework or additional review.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "SDK",
+                "nRF Connect SDK",
+                "SoftDevice",
+                "reuse"
+            ],
+            "search_aliases": [
+                "SDK version mismatch",
+                "nRF Connect SDK qualification",
+                "SoftDevice version alignment",
+                "qualification version dependency",
+                "SDK QDID mapping",
+                "qualified design version match",
+                "Nordic SDK qualification"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

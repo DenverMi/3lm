@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0077",
+    "cases": [
+        {
+            "case_id": "thread_0077_case_02",
+            "iut_type": "controller",
+            "customer_question": "Should a new Controller Subsystem-equivalent registration be created before the final product listing, or should RF/RF PHY evidence be used directly during end-product registration?",
+            "question_variants": [
+                "Is an intermediate Controller Subsystem registration worthwhile?",
+                "Should I create a Core Controller registration first?",
+                "Can I rely on a Controller Subsystem-equivalent registration under Qualification Workspace?",
+                "Will a subsystem registration guarantee successful end-product registration?",
+                "How should qualification architecture be structured after the July 2024 system changes?"
+            ],
+            "actual_issue": "The qualification strategy relies on creating an intermediate Controller Subsystem-equivalent registration, but Qualification Workspace now performs consistency checks across qualification layers, making the future usability of that intermediate registration uncertain.",
+            "plain_english_explanation": "A qualification step that previously seemed useful may no longer provide value under the newer Bluetooth SIG registration system. Even if an intermediate registration succeeds, it may later fail to combine correctly with host stacks and profiles when the final product is registered. The qualification path should therefore be chosen based on end-product success rather than intermediate milestones.",
+            "consultant_answer": "Under the post-July-2024 Qualification Workspace process, combinations involving controller, host, profile, and end-product layers are subject to consistency checking. An intermediate Controller Subsystem-equivalent registration can be created with zero invalid conditions, but there is no reliable way to predict whether a later host/profile combination will also pass. The consultant therefore recommended performing RF and RF PHY testing only, then using those reports directly during end-product registration together with the appropriate component qualifications. This approach also increases the likelihood of benefiting from existing waiver mechanisms associated with component-based qualification reuse.",
+            "decision_logic": "Qualification value should be evaluated at the final product registration stage. If an intermediate registration cannot be guaranteed to remain usable when combined with host and profile layers, it introduces risk without providing assured qualification benefit.",
+            "final_recommendation": "Avoid creating an intermediate Controller Subsystem-equivalent registration solely for reuse purposes. Perform RF and RF PHY qualification, then complete end-product registration directly using the test evidence together with compatible component qualifications and host/profile assets.",
+            "risk_if_done_wrong": "An intermediate registration may later prove unusable during end-product registration because of consistency-check failures. Qualification effort can be spent creating a registration that provides little practical value and may reduce flexibility compared with direct component-based qualification reuse.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "Qualification Workspace",
+                "consistency check",
+                "controller",
+                "host",
+                "profile",
+                "TCW"
+            ],
+            "search_aliases": [
+                "Controller Subsystem registration",
+                "Core Controller registration",
+                "Qualification Workspace consistency check",
+                "Launch Studio migration",
+                "end product listing strategy",
+                "component reuse path",
+                "host profile combination",
+                "registration architecture",
+                "TCW applicability",
+                "intermediate qualification risk"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

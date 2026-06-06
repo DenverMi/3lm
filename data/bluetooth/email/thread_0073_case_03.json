@@ -1,0 +1,42 @@
+{
+    "source_thread": "thread_0073",
+    "cases": [
+        {
+            "case_id": "thread_0073_case_03",
+            "iut_type": "keyboard",
+            "customer_question": "Can a multi-model Bluetooth keyboard family be qualified using a single representative test unit?",
+            "question_variants": [
+                "Do all keyboard variants require Bluetooth testing?",
+                "Can one model represent a product family?",
+                "Which model should be tested for qualification?",
+                "Is representative model qualification allowed?",
+                "Can a single Bluetooth test cover multiple variants?"
+            ],
+            "actual_issue": "A product family contained multiple keyboard variants, and the team needed to determine whether Bluetooth testing could be performed on a single representative model rather than every model.",
+            "plain_english_explanation": "When several product variants share the same Bluetooth implementation, qualification planning often focuses on selecting a representative model. The key procedural question is choosing and documenting the model that will represent the family during testing.",
+            "consultant_answer": "The discussion treated Bluetooth testing as being performed on one selected model from the product family, with the customer identifying the representative model. Qualification preparation and testing activities would then be based on that selected representative unit.",
+            "decision_logic": "When the Bluetooth implementation is treated as common across a family, qualification planning can be organized around a representative model that serves as the basis for testing and documentation.",
+            "final_recommendation": "Identify and document the representative model for the Bluetooth implementation before testing begins and use that model consistently throughout qualification activities.",
+            "risk_if_done_wrong": "Failure to define the representative model early can create confusion in test planning, documentation preparation, and qualification scope definition, resulting in avoidable delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "product-family",
+                "representative-model",
+                "planning"
+            ],
+            "search_aliases": [
+                "representative model",
+                "family qualification",
+                "multiple keyboard variants",
+                "single test unit",
+                "product family testing",
+                "model selection",
+                "qualification scope",
+                "shared Bluetooth design"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

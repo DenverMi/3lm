@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0069",
+    "cases": [
+        {
+            "case_id": "thread_0069_case_01",
+            "iut_type": "",
+            "customer_question": "How should a Bluetooth RF correlation test be performed between a company's internal RF test environment and a Bluetooth qualification laboratory, and what deliverables are needed beyond a standard qualification report?",
+            "question_variants": [
+                "How do we perform Bluetooth RF correlation testing with a BQTF?",
+                "Can the lab provide RF measurement data instead of only PASS/FAIL results?",
+                "What outputs are needed for Bluetooth RF test system correlation?",
+                "Can the same reference sample be used by both parties for RF comparison testing?",
+                "How should Bluetooth RF PHY correlation results be compared between organizations?"
+            ],
+            "actual_issue": "The customer needs to validate correlation between two Bluetooth RF test environments and requires detailed measurement evidence, not just qualification verdicts.",
+            "plain_english_explanation": "A standard Bluetooth qualification report mainly shows whether test cases passed or failed. For correlation testing, the goal is to compare how two different test systems measure the same Bluetooth device. That requires detailed RF measurement logs and use of the same reference sample so differences between test environments can be evaluated.",
+            "consultant_answer": "The correlation process should be performed using the same reference sample in both environments. The laboratory executes RF/RF PHY testing on the reference sample and provides the normal report together with RF test-system logs containing measured values. The reference sample can then be used by the requesting party for comparison testing. Prior experience indicated that providing RF logs in addition to the report was sufficient to support correlation analysis.",
+            "decision_logic": "Correlation testing evaluates agreement between test systems, not merely qualification compliance. Therefore measured RF data from a common test sample is required. PASS/FAIL results alone do not provide enough information to compare measurement behavior across environments.",
+            "final_recommendation": "Use a common reference sample, run RF/RF PHY testing in both environments, collect RF test-system logs with measured values, and compare the resulting measurements rather than relying solely on qualification verdicts.",
+            "risk_if_done_wrong": "If only qualification reports are exchanged, the parties may be unable to determine whether observed differences originate from the product or from the test environments. This can lead to incorrect conclusions about RF performance and additional troubleshooting effort.",
+            "bluetooth_tags": [
+                "RF",
+                "RF PHY",
+                "qualification",
+                "correlation testing",
+                "test report",
+                "test logs",
+                "reference sample",
+                "LE"
+            ],
+            "search_aliases": [
+                "RF correlation test",
+                "RF PHY correlation",
+                "Bluetooth test system correlation",
+                "reference sample correlation",
+                "RF log comparison",
+                "PASS FAIL not sufficient",
+                "measured value comparison",
+                "inter-lab correlation",
+                "RF test report plus logs",
+                "Bluetooth RF environment comparison"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

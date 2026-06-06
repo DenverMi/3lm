@@ -6,7 +6,7 @@ import ollama
 
 THREADS_DIR = Path("data/bluetooth/email_threads")
 OUT_DIR = Path("data/bluetooth/email_cases")
-MODEL = "qwen3:8b"
+MODEL = "qwen3.6:27b"
 
 
 def load_thread(path: Path) -> Dict[str, Any]:

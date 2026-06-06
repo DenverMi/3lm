@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0099",
+    "cases": [
+        {
+            "case_id": "thread_0099_case_02",
+            "iut_type": "end product",
+            "customer_question": "What documentation must be prepared and retained for Bluetooth SIG compliance under the updated qualification process?",
+            "question_variants": [
+                "What is required for the compliance folder?",
+                "Which product documents must be submitted after qualification?",
+                "What records must be retained for SIG audits?",
+                "Do all models require separate compliance documentation?",
+                "What changed under QPRDv3 compliance requirements?"
+            ],
+            "actual_issue": "Understanding compliance-folder creation, supporting documentation requirements, and retention obligations introduced under the updated qualification process.",
+            "plain_english_explanation": "The qualification process now requires a compliance folder containing evidence that the registered product matches the qualified design. The customer needed to know which documents are required and whether separate documents are needed for every model. The discussion also covered retention obligations and possible SIG audits.",
+            "consultant_answer": "Under the updated qualification rules, a compliance folder must be created and retained. Required supporting materials include Bluetooth-related operating instructions, a product block diagram, and an external-dimension drawing. If the initial registration contains only one representative model, documentation for that model is sufficient. The compliance folder must be retained and made available if requested during a Bluetooth SIG audit.",
+            "decision_logic": "Compliance-folder obligations are tied to the qualified products recorded in the Product List. Documentation scope follows the models included in the registration, and retention is required because SIG may request evidence that the qualified design matches the marketed product.",
+            "final_recommendation": "Prepare and retain a compliance folder containing qualification records and supporting product documentation, ensuring that documentation matches the models included in the Product List.",
+            "risk_if_done_wrong": "The organization may be unable to demonstrate compliance during a Bluetooth SIG audit or may lack evidence showing that shipped products match the qualified configuration.",
+            "bluetooth_tags": [
+                "qualification",
+                "compliance folder",
+                "audit",
+                "Product List",
+                "documentation",
+                "QPRD"
+            ],
+            "search_aliases": [
+                "compliance folder requirements",
+                "SIG audit documents",
+                "QPRDv3 documentation",
+                "block diagram requirement",
+                "Bluetooth manual requirement",
+                "external drawing requirement",
+                "compliance record retention",
+                "audit evidence"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

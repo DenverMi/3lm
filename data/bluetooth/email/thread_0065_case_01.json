@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0065",
+    "cases": [
+        {
+            "case_id": "thread_0065_case_01",
+            "iut_type": "blood pressure monitor",
+            "customer_question": "Can a Bluetooth SIG qualification be completed when the intended design references legacy Nordic subset QDIDs, and can the Nordic PHY layer be replaced with the PHY layer from the actual module supplier under the post-July 2024 qualification system?",
+            "question_variants": [
+                "Can old Nordic subset IDs still be referenced in the new qualification system?",
+                "How do I qualify a product that uses Nordic S112 but a different supplier PHY layer?",
+                "Can a module supplier PHY layer replace the PHY layer from an existing Nordic QDID?",
+                "How should legacy subset QDID references be handled after the QPRD v3 transition?",
+                "Is there a valid Option 2b design using Nordic host/link layers and another supplier's PHY layer?"
+            ],
+            "actual_issue": "The planned qualification design relied on legacy subset IDs that are no longer directly referenceable in the post-July 2024 Bluetooth qualification system, requiring an alternative design construction using valid existing qualified designs.",
+            "plain_english_explanation": "The product used a Bluetooth implementation based on Nordic software and a third-party module supplier. The originally proposed qualification references included legacy subset IDs that the new qualification system no longer accepts. The consultant had to find a currently valid qualification path that represented the same implementation without requiring redesign of the Bluetooth functionality.",
+            "consultant_answer": "The consultant determined that the legacy subset IDs could not be referenced under the current qualification process. A replacement approach was identified using an existing Nordic qualified design implementing the same S112 v7.2.0 stack. The Nordic host and link layers from that qualified design could be referenced while replacing the unnecessary Nordic PHY layer with the actual module supplier PHY layer. A trial project review confirmed that the design could be registered as an Option 2b design and no additional test plan was generated.",
+            "decision_logic": "Legacy subset IDs are not eligible references under the current qualification system. If an equivalent existing qualified design exists for the implemented Bluetooth stack, its valid host and link layers can be reused while selecting the PHY layer that matches the actual hardware implementation, provided the resulting design remains compliant and accepted by the qualification tool.",
+            "final_recommendation": "Replace unsupported legacy subset references with an equivalent currently valid qualified design implementing the same stack version, use the actual supplier PHY layer, validate the configuration in Qualification Workspace, and proceed with Option 2b registration.",
+            "risk_if_done_wrong": "Attempting to qualify using unsupported legacy subset references could result in an invalid qualification path, registration failure, rework of the design references, and delays in completing qualification.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "Option 2b",
+                "reuse",
+                "module",
+                "PHY",
+                "Host",
+                "Link Layer"
+            ],
+            "search_aliases": [
+                "legacy subset ID not allowed",
+                "subset QDID replacement",
+                "Option 2b no test plan",
+                "Nordic S112 qualification",
+                "replace PHY layer",
+                "mixed supplier design",
+                "new qualification system",
+                "QDID reuse strategy",
+                "host link PHY combination"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

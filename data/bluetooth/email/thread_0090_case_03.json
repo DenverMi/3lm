@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0090",
+    "cases": [
+        {
+            "case_id": "thread_0090_case_03",
+            "iut_type": "module-based device",
+            "customer_question": "Can Bluetooth modules listed under the same qualification listing be substituted without requiring a new Bluetooth qualification?",
+            "question_variants": [
+                "Can I swap modules under the same listing?",
+                "Does module replacement require requalification?",
+                "Can BM832 and related modules share qualification coverage?",
+                "Are modules in one listing considered the same design?",
+                "Can I change antenna variants without new Bluetooth qualification?"
+            ],
+            "actual_issue": "Determining whether module substitutions and antenna-variant changes are covered by an existing qualification listing.",
+            "plain_english_explanation": "Some module variants are grouped under a common qualification listing and are treated as the same design for Bluetooth qualification purposes. When this occurs, replacing one listed variant with another may not require a new qualification. The determination depends on the qualification listing structure, not solely on hardware similarity.",
+            "consultant_answer": "Modules grouped within the same qualification listing are treated as the same design under the current Bluetooth qualification process. The consultant confirmed that module variants contained within the same listing can be substituted and that certain antenna-integrated and external-antenna variants covered by the same design do not require a new Bluetooth qualification. A qualification record originally assumed to apply was later corrected, reinforcing the need to verify the actual referenced listing.",
+            "decision_logic": "Qualification reuse follows the qualification listing and referenced design coverage. If multiple module variants are included within the same qualified design, they may be covered without requiring a new qualification declaration.",
+            "final_recommendation": "Verify the exact qualification listing and qualified design coverage before approving a module substitution, and ensure the replacement module is included within the same qualified design scope.",
+            "risk_if_done_wrong": "Referencing the wrong qualification listing or assuming coverage without verification can result in an incorrect qualification declaration and qualification delays.",
+            "bluetooth_tags": [
+                "module",
+                "qualification",
+                "QDID",
+                "reuse",
+                "design change"
+            ],
+            "search_aliases": [
+                "module substitution",
+                "same listing reuse",
+                "qualified module replacement",
+                "antenna variant change",
+                "module swap qualification",
+                "same design coverage",
+                "QDID module coverage",
+                "listing-based reuse"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

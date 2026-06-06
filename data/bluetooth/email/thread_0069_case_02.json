@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0069",
+    "cases": [
+        {
+            "case_id": "thread_0069_case_02",
+            "iut_type": "",
+            "customer_question": "Should a Bluetooth RF correlation project use the customer's device or a laboratory reference sample, and can the reference sample be loaned after testing?",
+            "question_variants": [
+                "Can the lab's reference sample be used for correlation testing?",
+                "Do we need to submit our own DUT for RF correlation?",
+                "Can the reference board be loaned after testing?",
+                "What test article should be used for Bluetooth RF environment comparison?",
+                "How is sample handling managed during RF correlation work?"
+            ],
+            "actual_issue": "The engagement is a correlation study based on a laboratory reference sample rather than qualification testing of a customer product.",
+            "plain_english_explanation": "The purpose of the project is to compare test environments, not to qualify a specific customer device. Using the same known reference sample removes product variation and makes the comparison more meaningful. The reference sample can be tested by the laboratory and then provided to the customer for follow-on comparison work.",
+            "consultant_answer": "The laboratory confirmed that the reference sample would be available for loan after completion of its testing. Correlation testing is performed using the same sample at both organizations. The focus is consistency between test systems rather than evaluation of different products.",
+            "decision_logic": "When the objective is environment-to-environment correlation, a common reference device is the correct test article because it isolates test-system behavior from product-specific variation.",
+            "final_recommendation": "Define the project as a reference-sample correlation study, test the laboratory reference sample first, then transfer the same sample to the customer for equivalent testing and result comparison.",
+            "risk_if_done_wrong": "Using different devices or treating the project as a product-qualification activity can invalidate correlation results, create ambiguity about measurement differences, and introduce unnecessary testing and coordination work.",
+            "bluetooth_tags": [
+                "RF",
+                "RF PHY",
+                "reference sample",
+                "qualification",
+                "correlation testing",
+                "test environment"
+            ],
+            "search_aliases": [
+                "reference sample loan",
+                "common test sample",
+                "same DUT correlation",
+                "test article selection",
+                "lab reference board",
+                "RF comparison sample",
+                "environment correlation sample",
+                "Bluetooth reference device"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0070",
+    "cases": [
+        {
+            "case_id": "thread_0070_case_02",
+            "iut_type": "controller",
+            "customer_question": "How can required Bluetooth RF and RF PHY test cases be determined from the ICS declarations?",
+            "question_variants": [
+                "How do I build the RF test list from ICS items?",
+                "Where can I find required RF PHY test cases?",
+                "How are ICS functions mapped to qualification tests?",
+                "Can Bluetooth SIG specifications provide the test item list?",
+                "Which tests correspond to supported RF PHY features?"
+            ],
+            "actual_issue": "The customer wants to understand how to derive the mandatory qualification test set rather than relying only on a laboratory to select tests.",
+            "plain_english_explanation": "Bluetooth qualification test requirements are not selected arbitrarily. They are linked to the capabilities declared in the ICS. By matching supported ICS functions to the Test Case Mapping sections of the Bluetooth test specifications, the required tests can be identified systematically.",
+            "consultant_answer": "The RF Test Specification and RF PHY Test Specification should be reviewed. The Test Case Mapping sections identify which test cases correspond to each ICS item marked as supported. The resulting mapping produces the required test list, while the detailed test procedures are defined in the relevant specification chapters.",
+            "decision_logic": "Bluetooth qualification testing is feature-driven. Any ICS function declared as supported must have the corresponding mapped test cases satisfied according to the Bluetooth test specifications.",
+            "final_recommendation": "Use the RF and RF PHY Test Specifications, review the Test Case Mapping sections, identify all ICS items marked YES, and compile the associated required test cases before testing begins.",
+            "risk_if_done_wrong": "Missing the mapping process can result in omitted mandatory tests, incomplete qualification evidence, and additional qualification review cycles.",
+            "bluetooth_tags": [
+                "ICS",
+                "RF",
+                "RF PHY",
+                "qualification",
+                "test case mapping",
+                "test specification"
+            ],
+            "search_aliases": [
+                "Test Case Mapping",
+                "ICS YES items",
+                "RF PHY test mapping",
+                "RF specification mapping",
+                "qualification test selection",
+                "ICS supported functions",
+                "Bluetooth test case list",
+                "RF test specification"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

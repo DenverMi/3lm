@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0071",
+    "cases": [
+        {
+            "case_id": "thread_0071_case_01",
+            "iut_type": "",
+            "customer_question": "Why do MAP, PBAP, and SPP IOPT tests fail or return inconclusive results when the customer has passing PTS reports for the same profiles?",
+            "question_variants": [
+                "IOPT fails but customer PTS report passes",
+                "MAP PBAP SPP interoperability test mismatch",
+                "Are the failures caused by DUT behavior or ICS settings?",
+                "How should PTS profile failures be investigated when customer evidence shows PASS?",
+                "Can incorrect ICS configuration cause IOPT failures?"
+            ],
+            "actual_issue": "The initial IOPT failures were investigated as potential DUT defects, but later evidence showed the test environment used an ICS configuration that differed from the configuration used in the customer's passing reports. The root issue was test setup inconsistency rather than a confirmed Bluetooth implementation defect.",
+            "plain_english_explanation": "The device initially appeared to fail several Bluetooth profile tests. However, the customer provided reports showing the same tests passing. Comparing the configurations revealed that the test settings used by the test lab did not match the settings used in the customer's successful tests, so the failures had to be re-evaluated before blaming the device.",
+            "consultant_answer": "When customer-provided PTS reports show successful execution, the first step is to compare the complete ICS configuration used by both parties. The exported ICS generated from the reference project matched the customer's reports, while the failing lab execution used substantially different ICS settings. Re-testing with the customer-aligned ICS caused MAP and PBAP results to pass, demonstrating that configuration verification must occur before concluding that firmware defects exist.",
+            "decision_logic": "A valid root-cause analysis requires reproducing the same ICS configuration used in known-good test evidence. If the ICS differs, test outcomes are not directly comparable and DUT fault attribution is premature.",
+            "final_recommendation": "Verify and align the ICS used in PTS with the customer's validated configuration, rerun testing, and only investigate DUT firmware after configuration mismatches have been eliminated.",
+            "risk_if_done_wrong": "The device may be incorrectly blamed for failures, causing unnecessary firmware debugging, customer escalation, repeated testing, and qualification delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "PTS",
+                "ICS",
+                "IOPT",
+                "MAP",
+                "PBAP",
+                "SPP"
+            ],
+            "search_aliases": [
+                "ICS mismatch",
+                "PTS configuration mismatch",
+                "IOPT fail but customer pass",
+                "MAP PBAP SPP failure",
+                "export ICS verification",
+                "PTS report comparison",
+                "profile interoperability failure",
+                "customer pass report",
+                "ICS alignment",
+                "retest with correct ICS"
+            ],
+            "qualification_stage": "test failure",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0052",
+    "cases": [
+        {
+            "case_id": "thread_0052_case_02",
+            "iut_type": "audio speaker",
+            "customer_question": "How should a new qualification be handled when a referenced Host Subsystem contains HOGP-related hierarchy inconsistencies that now trigger additional mandatory profile dependencies?",
+            "question_variants": [
+                "Can we inherit an existing qualification hierarchy error?",
+                "Do we need DIS SCPP and SCPS testing for HOGP dependencies?",
+                "Can a product be registered with inherited consistency issues?",
+                "Should we fix the hierarchy mismatch or reuse it unchanged?",
+                "Can HOGP remain declared without new profile testing?"
+            ],
+            "actual_issue": "A referenced Host Subsystem contained HOGP declarations that, under newer qualification rules, required DIS, SCPP, and SCPS qualifications. The customer needed to choose between inheriting the existing inconsistency or performing additional profile testing.",
+            "plain_english_explanation": "An older qualified Bluetooth design no longer matched newer qualification dependency checks. The customer could either keep the inherited inconsistency and reuse the qualification as-is, or perform additional profile testing to make the qualification hierarchy fully consistent. The decision was primarily a tradeoff between qualification cleanliness and additional testing cost.",
+            "consultant_answer": "The consultant explained that combining the referenced Controller and Host Subsystems using the unmodified-design approach would inherit the existing hierarchy inconsistency while still allowing successful submission and maintaining qualification validity. Alternatively, DIS, SCPP, and SCPS PTS testing could be performed to remove the inconsistency. The consultant also clarified that HOGP could remain visible and usable when inheriting the existing hierarchy issue and that qualification validity was not restricted by doing so.",
+            "decision_logic": "The deciding factor is whether the new product reuses the referenced design unchanged. An unmodified combination may inherit existing hierarchy inconsistencies from referenced qualifications, whereas correcting the inconsistency requires additional profile qualification evidence. Qualification validity remains intact when the inconsistency is inherited through the approved reuse path.",
+            "final_recommendation": "If minimizing cost and qualification effort is the priority, reuse the referenced designs unchanged and inherit the hierarchy inconsistency. If a clean hierarchy is required for future qualification strategy, perform DIS, SCPP, and SCPS profile testing and register a corrected design.",
+            "risk_if_done_wrong": "Unnecessary profile testing can be performed when not required, while incorrect profile declarations or misunderstanding dependency rules can create qualification confusion and registration rework. The thread explicitly states that correcting the hierarchy through DIS, SCPP, and SCPS testing would add ¥300,000 in profile testing cost.",
+            "bluetooth_tags": [
+                "qualification",
+                "HOGP",
+                "DIS",
+                "SCPP",
+                "SCPS",
+                "PTS",
+                "consistency check",
+                "profile"
+            ],
+            "search_aliases": [
+                "HOGP dependency",
+                "DIS mandatory",
+                "SCPP mandatory",
+                "SCPS mandatory",
+                "hierarchy inconsistency",
+                "consistency error",
+                "inherit qualification error",
+                "PTS profile testing",
+                "host subsystem mismatch",
+                "HOGP qualification"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0099",
+    "cases": [
+        {
+            "case_id": "thread_0099_case_04",
+            "iut_type": "end product",
+            "customer_question": "Can a qualification proceed when the review page shows an ICS warning related to a waived test case?",
+            "question_variants": [
+                "Is an ICS warning acceptable?",
+                "Can registration proceed with a TCW?",
+                "Why is a yellow warning shown in the ICS form?",
+                "Does a TCW allow submission despite review warnings?",
+                "Will the qualification be accepted with a test case waiver?"
+            ],
+            "actual_issue": "Understanding whether a qualification submission remains valid when an ICS-related warning is present because a Test Case Waiver has been approved.",
+            "plain_english_explanation": "The customer noticed a warning indicator on the qualification review page and wanted to know whether submission could continue. The warning was linked to a waived test case rather than an unresolved qualification problem. The consultant clarified the difference.",
+            "consultant_answer": "The review page displayed a warning in the ICS section, but the relevant Test Case Waiver had already been applied and approved. Because the waiver covered the affected requirement, the qualification remained in a state that could be accepted and submitted. The customer was asked to review and approve the final registration contents before submission.",
+            "decision_logic": "A warning associated with an approved Test Case Waiver does not automatically invalidate a qualification submission. The determining factor is whether the waiver has been properly applied and accepted.",
+            "final_recommendation": "Verify that the Test Case Waiver is approved and properly linked to the submission, then proceed with final review and registration approval.",
+            "risk_if_done_wrong": "The team may unnecessarily delay qualification completion or incorrectly assume that the submission contains a blocking error when it is already eligible for acceptance.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "TCW",
+                "test waiver",
+                "listing"
+            ],
+            "search_aliases": [
+                "ICS warning",
+                "TCW approved",
+                "test case waiver",
+                "yellow warning review page",
+                "submission requirements warning",
+                "ICS form notice",
+                "waiver accepted",
+                "qualification review page"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

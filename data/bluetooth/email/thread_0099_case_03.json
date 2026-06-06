@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0099",
+    "cases": [
+        {
+            "case_id": "thread_0099_case_03",
+            "iut_type": "end product",
+            "customer_question": "Should this product be qualified as a Single Design or Multi-Design reference registration?",
+            "question_variants": [
+                "Is the registration Single Design or Multi-Design?",
+                "Why did the qualification quotation change?",
+                "Does the referenced design require Multi-Design registration?",
+                "Can a registration classification change after review?",
+                "How should the design type be determined in the new SIG system?"
+            ],
+            "actual_issue": "Correctly classifying the qualification design type when Bluetooth SIG registration-system behavior affects qualification architecture interpretation.",
+            "plain_english_explanation": "The qualification was initially expected to use one registration approach, but later review showed that a different design classification was required. The change occurred after the new SIG registration platform behavior became clearer. Correct classification affected the qualification approach and quotation.",
+            "consultant_answer": "The registration was initially assessed as Single Design because of behavior observed in the newly deployed SIG registration system. After the platform issue was resolved, the referenced architecture was re-evaluated and determined to require Multi-Design reference registration. The quotation and registration plan were updated to reflect the correct qualification path before execution.",
+            "decision_logic": "Qualification design classification must match the actual referenced architecture recognized by the current SIG qualification system. When platform behavior or interpretation changes, the qualification path must be corrected before registration proceeds.",
+            "final_recommendation": "Verify the final design classification against the current SIG registration platform before committing to pricing, qualification scope, or registration execution.",
+            "risk_if_done_wrong": "An incorrect qualification path could result in registration rework, qualification delays, incorrect quotations, or submission corrections before approval.",
+            "bluetooth_tags": [
+                "qualification",
+                "design change",
+                "Multi-Design",
+                "Single Design",
+                "listing",
+                "declaration"
+            ],
+            "search_aliases": [
+                "single design vs multi design",
+                "reference registration type",
+                "qualification classification",
+                "design type correction",
+                "multi design reference",
+                "registration architecture",
+                "qualification path selection",
+                "SIG portal behavior"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

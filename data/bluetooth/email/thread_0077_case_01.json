@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0077",
+    "cases": [
+        {
+            "case_id": "thread_0077_case_01",
+            "iut_type": "controller",
+            "customer_question": "Can a product be qualified using RF Class 2 / RF PHY non-Class 1 test evidence together with an existing controller component qualification, and then registered as a Controller Subsystem-equivalent design?",
+            "question_variants": [
+                "Can I combine RF PHY Class 2 results with an existing controller QDID?",
+                "Why does Qualification Workspace report an Invalid condition between RF PHY and LL ICS?",
+                "Can I reuse a controller component qualification with a non-Class 1 RF PHY implementation?",
+                "How do I resolve an RF PHY and LL ICS dependency mismatch?",
+                "Can I change inherited LL ICS settings to make registration pass?"
+            ],
+            "actual_issue": "The selected controller component qualification contains an LL ICS declaration that requires RF PHY Class 1 support, but the planned RF PHY qualification is not Class 1, creating an Inter-Layer Dependency consistency failure during registration.",
+            "plain_english_explanation": "The planned Bluetooth qualification reused an existing controller qualification while testing a new RF implementation. However, the reused controller qualification declares capabilities that require a higher RF PHY class than the new design intends to use. This creates a qualification inconsistency that prevents successful registration unless the RF PHY class or referenced controller qualification is changed.",
+            "consultant_answer": "Qualification Workspace validation identified that the referenced controller component qualification declares LL ICS 9/11 as supported. When RF PHY is supported but RF PHY Class 1 is not supported, this LL declaration becomes invalid. Although the LL declaration could theoretically be modified, doing so under the current qualification rules would trigger extensive additional LL and BB testing obligations. The practical solutions are either to qualify the RF PHY as Class 1 or select an alternative controller qualification whose LL ICS declarations are compatible with the intended RF PHY class.",
+            "decision_logic": "Referenced qualification assets must remain logically consistent with RF PHY capability declarations. If the selected controller qualification requires RF PHY Class 1 support, a non-Class 1 RF PHY implementation cannot be combined without violating consistency rules. Modifying inherited controller behavior changes qualification scope and triggers additional testing requirements.",
+            "final_recommendation": "Before testing, verify compatibility between RF PHY class declarations and all referenced controller QDIDs. Either qualify RF PHY as Class 1 to match the selected controller qualification or choose an alternative controller qualification with compatible LL ICS settings.",
+            "risk_if_done_wrong": "Registration may fail due to consistency validation errors. Attempting to resolve the issue by changing LL declarations can trigger extensive additional qualification testing, including LL and BB-related requirements, creating significant qualification effort and uncertainty.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "controller",
+                "RF PHY",
+                "ICS",
+                "LL",
+                "consistency check",
+                "reuse"
+            ],
+            "search_aliases": [
+                "RF PHY Class 1 mismatch",
+                "LL ICS 9/11 conflict",
+                "QDID combination invalid",
+                "Inter-Layer Dependency failure",
+                "controller qualification reuse",
+                "RF PHY consistency error",
+                "Qualification Workspace invalid",
+                "LL declaration mismatch",
+                "controller stack compatibility"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

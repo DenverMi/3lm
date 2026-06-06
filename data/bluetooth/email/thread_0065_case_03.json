@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0065",
+    "cases": [
+        {
+            "case_id": "thread_0065_case_03",
+            "iut_type": "medical device",
+            "customer_question": "Can additional products using the same Bluetooth module and same qualified Bluetooth design be added later without additional qualification fees?",
+            "question_variants": [
+                "Can I add another product with the same module for free?",
+                "Do derivative products require another qualification fee?",
+                "Can a pulse oximeter reuse the same Bluetooth design registration?",
+                "Can multiple products share one Bluetooth design?",
+                "Should the design name be generalized for future products?"
+            ],
+            "actual_issue": "The customer wanted to understand whether future products using the same Bluetooth implementation could reuse the qualified design and avoid additional qualification fees.",
+            "plain_english_explanation": "A company may release multiple products that use the same Bluetooth implementation. The key question is whether those products require a completely new qualification or can be added under the existing qualified design. The answer affects future qualification planning and product naming strategy.",
+            "consultant_answer": "The consultant explained that once the initial qualification is completed, other products implementing the same module and the same host stack can be added as derivative products in the product list without additional qualification fees. The consultant also recommended using a broader design name that can cover future related products rather than a single product-specific name.",
+            "decision_logic": "Products that share the same underlying qualified Bluetooth design can leverage that design for additional product listings when the Bluetooth implementation remains unchanged.",
+            "final_recommendation": "Create a reusable design definition with a broad design name and add future products that use the same Bluetooth module and host stack as derivative product listings.",
+            "risk_if_done_wrong": "Using a narrowly defined design strategy or unnecessarily creating new qualifications for products that use the same Bluetooth implementation can increase administrative effort and qualification complexity.",
+            "bluetooth_tags": [
+                "qualification",
+                "product listing",
+                "design reuse",
+                "module",
+                "host stack",
+                "derivative product"
+            ],
+            "search_aliases": [
+                "additional product listing",
+                "same module reuse",
+                "same QDID product",
+                "derivative product registration",
+                "free additional product",
+                "shared Bluetooth design",
+                "design name strategy",
+                "product list addition"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

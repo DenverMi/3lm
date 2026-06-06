@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0060",
+    "cases": [
+        {
+            "case_id": "thread_0060_case_01",
+            "iut_type": "sensor",
+            "customer_question": "A Bluetooth product is being transferred from one company to another and sold under a new brand with the same design. Can the existing Bluetooth qualification information and compliance documentation be reused for the new registration?",
+            "question_variants": [
+                "Can we inherit the previous company's Bluetooth SIG registration information?",
+                "How do we register a product acquired through a business transfer?",
+                "Can an unchanged Bluetooth product be re-registered under a new brand?",
+                "Can an existing compliance folder be reused after a product transfer?",
+                "What is the qualification approach for a rebranded Bluetooth product?"
+            ],
+            "actual_issue": "Determining how to perform Bluetooth SIG registration when ownership and branding change but the underlying Bluetooth product design remains unchanged.",
+            "plain_english_explanation": "The product was previously sold by another company and already had Bluetooth qualification records. The new owner wants to sell the same product under its own brand. The key question is how to create a compliant Bluetooth SIG registration while reusing existing qualification evidence and documentation.",
+            "consultant_answer": "The consultant confirmed that the proposed registration approach was acceptable and that the existing compliance-folder information could be reused. Registration should proceed using the inherited qualification information while creating the new registration for the current brand owner. Supporting documentation can be reused from the previous compliance folder where applicable, supplemented with current product documentation required for the compliance folder.",
+            "decision_logic": "The Bluetooth design itself has not changed, so the qualification effort focuses on establishing a compliant registration and documentation package for the new brand owner rather than creating new technical qualification evidence from scratch.",
+            "final_recommendation": "Reuse the existing qualification records and compliance-folder materials where valid, prepare the required registration documentation for the new company, and complete the Bluetooth SIG registration before product launch.",
+            "risk_if_done_wrong": "Failure to properly establish the new registration or maintain supporting compliance documentation could create qualification traceability problems and difficulties during a Bluetooth SIG audit.",
+            "bluetooth_tags": [
+                "qualification",
+                "listing",
+                "reuse",
+                "compliance folder",
+                "registration",
+                "design reuse"
+            ],
+            "search_aliases": [
+                "business transfer qualification",
+                "rebranded product registration",
+                "inherit Bluetooth qualification",
+                "reuse compliance folder",
+                "same design new company",
+                "ownership change registration",
+                "existing qualification reuse",
+                "brand transfer Bluetooth"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

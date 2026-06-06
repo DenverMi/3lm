@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0073",
+    "cases": [
+        {
+            "case_id": "thread_0073_case_02",
+            "iut_type": "keyboard",
+            "customer_question": "How should profile qualification testing be prepared when reusing a previously qualified HOGP design?",
+            "question_variants": [
+                "Can we reuse an old HOGP ICS?",
+                "What information is needed before PTS testing?",
+                "How do we identify qualification-impacting profile changes?",
+                "What should be compared against a previously qualified keyboard design?",
+                "What is required to create a PTS test plan?"
+            ],
+            "actual_issue": "The qualification team needed current HOGP ICS information and any differences from a previously qualified design to determine the correct qualification scope and generate a valid PTS test plan.",
+            "plain_english_explanation": "A previously qualified Bluetooth design cannot simply be assumed to remain valid for a new product version. The qualification team needs current feature declarations and any changes from the earlier design so that the correct tests can be selected. Missing ICS information can delay planning and testing.",
+            "consultant_answer": "The existing HOGP ICS from a previously registered product should be used as a baseline. Any changes or additions must be identified as explicit ICS differences so the qualification team can determine the applicable requirements and prepare the PTS test plan. Collection of HOGP-related ICS information is necessary before profile testing can proceed.",
+            "decision_logic": "Qualification scope and generated test requirements are driven by the declared ICS capabilities. Accurate identification of differences between the previous design and the current implementation is required to ensure the correct profile requirements and test cases are applied.",
+            "final_recommendation": "Obtain the current HOGP ICS, compare it against the previously qualified design, document all capability changes, and use the resulting ICS information to generate the PTS test plan.",
+            "risk_if_done_wrong": "Incorrect or incomplete ICS information can produce an incorrect test scope, missed requirements, qualification rework, and delays in test planning and execution.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "PTS",
+                "HOGP",
+                "profile",
+                "test-plan"
+            ],
+            "search_aliases": [
+                "HOGP ICS update",
+                "reuse previous qualification",
+                "ICS delta review",
+                "PTS test plan preparation",
+                "profile capability changes",
+                "existing design comparison",
+                "qualification planning",
+                "ICS driven testing"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

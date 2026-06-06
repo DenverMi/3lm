@@ -13,15 +13,16 @@ from app.config import (
 )
 
 def detect_chunk_kind(text: str) -> str:
-    t = text.lower()
+    stripped = text.strip()
 
-    # glossary / definitions sections
-    if re.search(r"^\s{0,3}(glossary|definitions)\b", text, re.IGNORECASE | re.MULTILINE):
+    # Section-level glossary/definitions headings.
+    # These are useful, but they are not the same as atomic definition chunks.
+    if re.search(
+        r"^\s{0,3}#{1,6}\s+(glossary|definitions)\b",
+        stripped,
+        re.IGNORECASE | re.MULTILINE,
+    ):
         return "glossary"
-
-    # inline definitions
-    if " is defined as " in t or " refers to " in t:
-        return "definition"
 
     return "body"
 
@@ -226,9 +227,7 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         if not text:
             continue
 
-        chunk_kind = detect_chunk_kind(text)
-        if chunk_kind == "body":
-            chunk_kind = "definition"
+        chunk_kind = "definition"
 
         chunk_id = f"{program}:{doc_type}:{doc_name}:t{p['page']:05d}"
 

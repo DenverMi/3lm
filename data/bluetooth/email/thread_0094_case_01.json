@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0094",
+    "cases": [
+        {
+            "case_id": "thread_0094_case_01",
+            "iut_type": "BLE module-based product",
+            "customer_question": "Can Bluetooth SIG testing be avoided when using a Silicon Labs BLE module with its qualified stack, integrated antenna, and only proprietary GATT functionality?",
+            "question_variants": [
+                "Is RF PHY testing required when using the module's built-in antenna?",
+                "Can protocol-layer testing be waived by referencing the Silicon Labs qualification?",
+                "Do proprietary GATT services require Bluetooth profile testing?",
+                "Can a Component(Tested) qualification be reused without additional testing?",
+                "What testing is required for a module-based BLE product using the original SDK?"
+            ],
+            "actual_issue": "Determining whether a BLE product can qualify through reuse of existing Silicon Labs qualified components without performing RF PHY, protocol, or profile testing.",
+            "plain_english_explanation": "The product uses a prequalified BLE module, retains the qualified SDK implementation, uses the integrated antenna, and implements only generic GATT and proprietary functionality. Under those conditions, most Bluetooth qualification testing can be avoided by correctly reusing existing qualification records. The key requirement is that the implementation remains consistent with the referenced qualified design.",
+            "consultant_answer": "RF PHY testing is not required when the integrated antenna configuration covered by the module qualification is used. LL, L2CAP, GAP, GATT, ATT, and SM layers can be covered through qualification reuse of the Silicon Labs Component(Tested) design when the same qualified SDK implementation is used. Because the product implements only generic GATT and proprietary functionality and does not implement Bluetooth SIG-adopted profiles, profile testing is not required.",
+            "decision_logic": "Qualification reuse is permitted when the product implementation matches the qualified module, antenna configuration, and software stack. Bluetooth SIG profile testing is only required when SIG-adopted profiles are implemented.",
+            "final_recommendation": "Use the qualified Silicon Labs component references, maintain the qualified SDK implementation, use the covered antenna configuration, and qualify through declaration rather than new testing.",
+            "risk_if_done_wrong": "Incorrectly assuming testing is required can create unnecessary qualification cost and effort. Conversely, claiming qualification reuse without matching the qualified module configuration or software implementation can invalidate the qualification approach.",
+            "bluetooth_tags": [
+                "qualification",
+                "module",
+                "reuse",
+                "RF PHY",
+                "GATT",
+                "profile",
+                "declaration"
+            ],
+            "search_aliases": [
+                "RF PHY exemption",
+                "integrated antenna reuse",
+                "Component Tested reuse",
+                "Silicon Labs qualification reuse",
+                "proprietary GATT only",
+                "profile testing not required",
+                "qualified SDK reuse",
+                "module-based declaration"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0072",
+    "cases": [
+        {
+            "case_id": "thread_0072_case_03",
+            "iut_type": "",
+            "customer_question": "Can discontinued Bluetooth products without available hardware be qualified or corrected without running new product testing?",
+            "question_variants": [
+                "Discontinued product qualification",
+                "No hardware available for testing",
+                "Legacy product registration",
+                "Can qualification proceed without test samples?",
+                "Host and Controller subsystem declaration reuse"
+            ],
+            "actual_issue": "The company needed to address qualification concerns for discontinued products whose hardware no longer existed. The discussion focused on whether registration could be completed without product-level testing.",
+            "plain_english_explanation": "Sometimes a product is no longer manufactured and test hardware is unavailable. In this situation, qualification strategy depends on what qualified Bluetooth building blocks are available. Reuse of qualified subsystems may allow declaration work without running new product tests.",
+            "consultant_answer": "The consultant explained that qualification obligations can still exist for discontinued products if they were publicly promoted or sold. A possible corrective strategy is to create a declaration using qualified Controller and Host Subsystems. When both building blocks are already qualified subsystems, product-level testing may be avoided as part of the declaration approach described in the thread.",
+            "decision_logic": "The availability of qualified subsystem building blocks can determine whether additional product testing is necessary for a declaration strategy.",
+            "final_recommendation": "Evaluate whether qualified Host and Controller Subsystems exist and use an appropriate declaration path based on those qualified building blocks rather than assuming new testing is automatically required.",
+            "risk_if_done_wrong": "The company may assume qualification cannot be completed because hardware is unavailable, causing unnecessary delays or missed compliance obligations.",
+            "bluetooth_tags": [
+                "qualification",
+                "host",
+                "controller",
+                "reuse",
+                "declaration",
+                "subsystem"
+            ],
+            "search_aliases": [
+                "discontinued product",
+                "no test hardware",
+                "legacy qualification",
+                "host subsystem",
+                "controller subsystem",
+                "test exemption",
+                "subsystem declaration",
+                "publicly marketed product",
+                "qualification correction",
+                "product no longer manufactured"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0054",
+    "cases": [
+        {
+            "case_id": "thread_0054_case_01",
+            "iut_type": "BLE device using nRF52 series SoC",
+            "customer_question": "Can products built with nRF Connect SDK v2.8.0 on nRF52-series SoCs be added as derived products under the same Bluetooth qualification without additional qualification fees?",
+            "question_variants": [
+                "Can multiple nRF52 products reuse the same qualification?",
+                "Does nRF Connect SDK v2.8.0 qualification cover other nRF52 SoCs?",
+                "Can I add derived models to the Product List without a new qualification?",
+                "Can both peripheral and host implementations reuse the same declaration?",
+                "Does changing the product model require a new qualification fee?"
+            ],
+            "actual_issue": "Determining the qualification reuse scope of Bluetooth SIG registrations based on Nordic nRF Connect SDK v2.8.0 qualification references and whether additional nRF52-based products can be covered through derived product registration.",
+            "plain_english_explanation": "The customer wanted to know how broadly a Bluetooth qualification based on nRF Connect SDK v2.8.0 could be reused. The key concern was whether additional products using different nRF52 chips, but built from the same qualified software foundation, could be sold without repeating the qualification process. The discussion clarified the conditions under which product-list expansion is allowed.",
+            "consultant_answer": "The referenced qualification assets cover BLE low-level functionality, GAP/GATT/SM functionality, and optionally Mesh functionality implemented using nRF Connect SDK v2.8.0. Products using nRF52-series SoCs and implementing object code created from the same nRF Connect SDK v2.8.0 qualification basis can be added to the Product List as derived models without additional registration fees. The reuse scope applies regardless of whether the nRF52 device is used in a peripheral role or host-related role, provided the implementation remains within the qualified software basis. Products built using other SDK lineages such as SoftDevice-based implementations are outside this qualification scope.",
+            "decision_logic": "Qualification reuse is driven by the qualified implementation lineage. Products remain eligible for reuse when they implement object code created from the same qualified nRF Connect SDK v2.8.0 basis and remain within the declared functionality scope. Different SDK qualification lineages are not automatically interchangeable.",
+            "final_recommendation": "Reuse the qualification only for products implementing object code generated from the qualified nRF Connect SDK v2.8.0 basis and register additional product models as derived products when required.",
+            "risk_if_done_wrong": "Using the qualification for products built from a different SDK qualification lineage could result in an incorrect Bluetooth declaration and qualification compliance issues.",
+            "bluetooth_tags": [
+                "qualification",
+                "declaration",
+                "QDID",
+                "nRF Connect SDK",
+                "nRF52",
+                "reuse",
+                "Product List",
+                "Mesh"
+            ],
+            "search_aliases": [
+                "nRF Connect SDK 2.8.0 reuse",
+                "derived product registration",
+                "Product List addition",
+                "nRF52 qualification reuse",
+                "same QDID lineage",
+                "BLE 5.3 declaration",
+                "Mesh qualification reuse",
+                "SDK lineage qualification"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

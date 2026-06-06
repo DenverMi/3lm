@@ -1,0 +1,41 @@
+{
+    "source_thread": "thread_0053",
+    "cases": [
+        {
+            "case_id": "thread_0053_case_02",
+            "iut_type": "device",
+            "customer_question": "What supply voltage and test configuration should be used for RF PHY qualification testing when external power is required?",
+            "question_variants": [
+                "What voltage should be applied during RF PHY testing?",
+                "How should the device be powered for RF PHY qualification tests?",
+                "Can the RF PHY test plan be updated after a configuration error is found?",
+                "What happens if the test plan contains the wrong power setting?",
+                "How do we correct RF PHY test conditions before execution?"
+            ],
+            "actual_issue": "The RF PHY test plan was created with an incorrect power configuration and later corrected from 2.2 V to 5.0 V before testing.",
+            "plain_english_explanation": "Bluetooth qualification testing depends on accurate device configuration. If the device power settings used in the test plan do not match the real hardware requirements, the test setup can become invalid. The configuration must be corrected before testing proceeds.",
+            "consultant_answer": "During test preparation, the qualification team identified that the planned supply voltage was incorrect and revised the RF PHY test plan to use the proper external supply configuration. The correction was incorporated into the updated test plan before execution. This demonstrates the importance of validating all device operating conditions during pre-test review.",
+            "decision_logic": "RF PHY test results are only meaningful when the test environment matches the actual device operating conditions. Any mismatch in power configuration must be corrected before execution.",
+            "final_recommendation": "Verify device operating voltage with the customer before finalizing the RF PHY test plan and update all test documentation when configuration corrections are identified.",
+            "risk_if_done_wrong": "Testing with the wrong supply voltage can invalidate results, require retesting, create schedule delays, and potentially affect hardware operation during qualification testing.",
+            "bluetooth_tags": [
+                "RF PHY",
+                "testing",
+                "test plan",
+                "qualification"
+            ],
+            "search_aliases": [
+                "RF PHY voltage mismatch",
+                "2.2V to 5.0V correction",
+                "external power supply testing",
+                "RF PHY power configuration",
+                "test plan revision",
+                "wrong test conditions",
+                "qualification setup error"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

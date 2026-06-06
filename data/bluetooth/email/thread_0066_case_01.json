@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0066",
+    "cases": [
+        {
+            "case_id": "thread_0066_case_01",
+            "iut_type": "",
+            "customer_question": "Why does QC.BluetoothLE_DirectMode.exe fail to place the DUT into DTM (Direct Test Mode), and how should the COM port connections be configured?",
+            "question_variants": [
+                "DTM mode enable error in QC.BluetoothLE_DirectMode.exe",
+                "Cannot enter Bluetooth LE Direct Test Mode",
+                "Which COM port should be assigned to the DUT and tester?",
+                "Direct Test Mode tool reports error after Enable",
+                "How should tester and DUT serial ports be connected for DTM?"
+            ],
+            "actual_issue": "Incorrect or incomplete serial-port connectivity and COM-port assignment during Bluetooth LE Direct Test Mode setup caused the DTM tool to fail when enabling communication with the DUT.",
+            "plain_english_explanation": "The test setup could not enter Direct Test Mode because the PC, tester, and DUT serial connections were not fully verified. The discussion focused on whether the DUT and tester were connected to different COM ports and whether the required USB-to-Serial connection existed so the PC could detect the virtual COM port. Without the correct wiring and port mapping, the DTM tool cannot communicate with the device.",
+            "consultant_answer": "The reported baud-rate changes and tool settings were not identified as the primary cause. The consultant focused on physical and logical serial connectivity. The DUT was reported as connected to COM3, but the tester connection status and COM-port mapping remained unclear. The consultant explained that the tester virtual COM port must be recognized by the external PC, which requires the USB-to-Serial connection to be present. The consultant also checked whether the DUT and tester were mistakenly assigned to the same COM port and requested confirmation of separate port assignments and connection screenshots. The final guidance was that replying to the customer with the DUT connection as COM3 was acceptable, while additionally verifying the tester-side virtual COM-port connection.",
+            "decision_logic": "DTM communication depends on the PC recognizing the tester's virtual COM port and on correct separation and assignment of DUT and tester serial interfaces. If the USB-to-Serial path is not connected or the COM-port mapping is incorrect, the DTM enable operation can fail regardless of application settings.",
+            "final_recommendation": "Verify that the tester's USB-to-Serial cable is connected to the external PC, confirm that the virtual COM port is visible in the operating system, ensure the DUT and tester use the correct and distinct COM-port assignments, connect the required serial crossover cable, and then retry DTM enablement.",
+            "risk_if_done_wrong": "The DUT cannot be placed into Direct Test Mode, RF or DTM-based testing cannot proceed, troubleshooting effort increases, and qualification testing may be delayed due to an unresolved test setup issue.",
+            "bluetooth_tags": [
+                "DTM",
+                "Direct Test Mode",
+                "COM port",
+                "test setup",
+                "serial connection",
+                "Bluetooth LE",
+                "tester"
+            ],
+            "search_aliases": [
+                "DTM enable error",
+                "QC.BluetoothLE_DirectMode.exe failure",
+                "COM3 DUT connection",
+                "virtual COM port not detected",
+                "USB serial connection missing",
+                "tester COM port issue",
+                "Direct Test Mode setup",
+                "DUT tester port mapping",
+                "QUTS connection problem"
+            ],
+            "qualification_stage": "testing",
+            "confidence": "medium",
+            "source_type": "email_case"
+        }
+    ]
+}

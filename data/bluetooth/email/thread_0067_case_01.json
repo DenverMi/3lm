@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0067",
+    "cases": [
+        {
+            "case_id": "thread_0067_case_01",
+            "iut_type": "",
+            "customer_question": "If a Bluetooth SIG qualified design shows Controller Subsystem v5.0 and Host Subsystem v5.1, what Bluetooth version may be claimed for the product?",
+            "question_variants": [
+                "Is this product Bluetooth 5.0 or 5.1?",
+                "How do I determine the Bluetooth version from a DN registration?",
+                "Which Bluetooth version should be stated in product specifications?",
+                "Controller is 5.0 and Host is 5.1; what version applies?",
+                "Can I advertise the product as Bluetooth 5.1?",
+                "How is Bluetooth version determined under the new SIG registration system?"
+            ],
+            "actual_issue": "Determining the correct Bluetooth specification version to declare for a qualified product when subsystem version information appears mixed and the registration page no longer directly displays a single Bluetooth version.",
+            "plain_english_explanation": "Under the newer Bluetooth SIG qualification system, the registration details page may not clearly show a single Bluetooth version for a product. Instead, the authoritative information must be checked through the ICS associated with the qualified design. The product version should be based on the qualification data shown in the ICS rather than assumptions based on subsystem labels alone.",
+            "consultant_answer": "The consultant explained that after the qualification system changes introduced on July 1, 2024, Bluetooth version information is no longer directly displayed on the registration details page. The correct method is to open and review the ICS. In the reviewed case, both the Controller Core and Host Core shown in the ICS were identified as Bluetooth 5.1. Therefore, it is acceptable to describe the qualified product as Bluetooth 5.1.",
+            "decision_logic": "The ICS is the authoritative qualification record for determining the Bluetooth specification version represented by a qualified design. When the ICS identifies both the Controller Core and Host Core as a given specification version, that version can be used for the product-level Bluetooth claim even if subsystem information elsewhere appears different.",
+            "final_recommendation": "Review the qualified design's ICS and use the Controller Core and Host Core specification information shown there as the basis for external Bluetooth version claims. If the ICS identifies the implementation as Bluetooth 5.1, the product may be documented as Bluetooth 5.1.",
+            "risk_if_done_wrong": "Relying on incomplete registration-page information instead of the ICS can lead to incorrect Bluetooth version claims in product documentation, specifications, marketing materials, or qualification-related communications.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "DN",
+                "controller",
+                "host",
+                "listing",
+                "specification version"
+            ],
+            "search_aliases": [
+                "Bluetooth version determination",
+                "ICS version check",
+                "DN version lookup",
+                "Controller 5.0 Host 5.1",
+                "Bluetooth 5.1 claim",
+                "SIG registration version",
+                "View ICS version",
+                "qualified design version",
+                "Bluetooth specification declaration"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

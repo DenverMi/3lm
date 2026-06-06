@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0064",
+    "cases": [
+        {
+            "case_id": "thread_0064_case_03",
+            "iut_type": "toilet sensor",
+            "customer_question": "Can a Bluetooth SIG receipt and qualification fee payment generated under one account be used to register a product under a different account?",
+            "question_variants": [
+                "Does the invoice account have to match the registration account?",
+                "Can I use a receipt number from another user account?",
+                "How do I change the account associated with a Bluetooth SIG payment?",
+                "Is a transfer request required for receipt ownership changes?",
+                "Can qualification registration proceed under a different user account?"
+            ],
+            "actual_issue": "The qualification fee invoice and receipt were generated under one Bluetooth SIG user account, while another account was initially considered for registration activities.",
+            "plain_english_explanation": "Bluetooth SIG tracks qualification payment records using the account that generated the invoice. If registration is performed using a different account, the payment record may not be available. Ownership must be transferred before the alternate account can use the receipt.",
+            "consultant_answer": "The consultant explained that the login account used for invoice generation and the account used during qualification registration must align because the receipt number is tied to the originating account. Registration could proceed immediately using the original account. If another user account was preferred, a valid account had to be established first and a Bluetooth SIG transfer request submitted to move the receipt number before registration.",
+            "decision_logic": "Receipt numbers are account-bound within the Bluetooth SIG system. Registration eligibility depends on the account that owns the payment record unless ownership is formally transferred.",
+            "final_recommendation": "Use the same Bluetooth SIG account that generated the invoice and receipt whenever possible. If a different account must be used, complete the account setup and receipt transfer process before starting registration.",
+            "risk_if_done_wrong": "Registration can be delayed because the receipt number may not be usable from the alternate account until a formal transfer process is completed.",
+            "bluetooth_tags": [
+                "listing",
+                "declaration",
+                "invoice",
+                "receipt",
+                "account management"
+            ],
+            "search_aliases": [
+                "receipt number transfer",
+                "invoice account mismatch",
+                "SIG account ownership",
+                "qualification fee receipt",
+                "registration account mismatch",
+                "transfer request required",
+                "receipt tied to account",
+                "Bluetooth SIG invoice account"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

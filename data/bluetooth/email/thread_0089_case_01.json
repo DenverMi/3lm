@@ -1,0 +1,48 @@
+{
+    "source_thread": "thread_0089",
+    "cases": [
+        {
+            "case_id": "thread_0089_case_01",
+            "iut_type": "",
+            "customer_question": "Can a product be registered as LE-only when the included QDID/DN uses a dual-mode Core Controller and Core Host design?",
+            "question_variants": [
+                "Can I change the ICS from dual-mode to LE-only during qualification?",
+                "How should an LE-only product be declared when the referenced design is dual-mode?",
+                "Why does the qualification workspace reject a single-mode ICS for a dual-mode included design?",
+                "Can BR/EDR be disabled in software while keeping a dual-mode qualification registration?",
+                "How do I handle LE-only products under the post-July-2024 qualification process?"
+            ],
+            "actual_issue": "A product intended to operate as LE-only reused included QDID/DN designs that were qualified as dual-mode Core Controller and Core Host implementations. Under the newer qualification process, changing the registration ICS to single-mode creates inter-layer consistency check failures.",
+            "plain_english_explanation": "The product only uses LE in practice, but the Bluetooth designs it reuses were originally qualified as dual-mode. The qualification system checks whether the registration matches the included designs. If the registration is changed to LE-only while the included designs remain dual-mode, the submission can fail consistency validation.",
+            "consultant_answer": "When included QDID/DN entries are dual-mode Core Controller/Core Host designs, the newer qualification workflow performs stricter inter-layer consistency checks. Changing the registration ICS to LE-only or BR/EDR-only causes the submission to fail consistency validation and prevents progression to submission. The correct approach is to keep the qualification registration as dual-mode while disabling BR/EDR functionality in the product software so the shipped product behaves as LE-only.",
+            "decision_logic": "Qualification consistency is determined by the characteristics of the included qualified designs. A registration ICS that conflicts with the transport capabilities declared by the included dual-mode designs fails the enhanced consistency checks introduced in the newer qualification process.",
+            "final_recommendation": "Keep the registration as dual-mode to remain consistent with the included QDID/DN designs, and implement LE-only behavior by disabling BR/EDR in software if required by the product.",
+            "risk_if_done_wrong": "Changing the registration to a single-mode ICS can cause consistency-check failures and prevent submission completion, resulting in qualification rework and registration delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "DN",
+                "ICS",
+                "LE",
+                "Classic",
+                "consistency check",
+                "reuse"
+            ],
+            "search_aliases": [
+                "dual-mode included design",
+                "LE-only product registration",
+                "ICS single-mode mismatch",
+                "QDID transport mismatch",
+                "consistency check failed",
+                "dual-mode Core Host",
+                "dual-mode Core Controller",
+                "BR/EDR disabled in software",
+                "include design conflict",
+                "submission blocked by ICS"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

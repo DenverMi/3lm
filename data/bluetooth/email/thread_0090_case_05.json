@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0090",
+    "cases": [
+        {
+            "case_id": "thread_0090_case_05",
+            "iut_type": "sensor device",
+            "customer_question": "What product changes require a new Bluetooth qualification and which changes can be covered by an existing qualification?",
+            "question_variants": [
+                "Does adding sensors require requalification?",
+                "Can I move the antenna without requalification?",
+                "Does changing data format require Bluetooth requalification?",
+                "When is a new Bluetooth qualification required after design changes?",
+                "Can future Mesh functionality be covered in advance?"
+            ],
+            "actual_issue": "Understanding which hardware and software modifications affect Bluetooth qualification scope and require additional qualification activity.",
+            "plain_english_explanation": "Not every product change requires a new Bluetooth qualification. Changes that do not alter Bluetooth functionality may remain covered by the existing qualification, while changes affecting qualified Bluetooth features or profiles may require additional qualification work.",
+            "consultant_answer": "Sensor additions, application data format changes, and certain antenna-placement changes do not require a new Bluetooth qualification when Bluetooth Core functionality and supported SIG-defined profiles remain unchanged. Module variants covered by the same qualified design may also be reused. Future Mesh functionality can be covered if the appropriate profile functionality is included in the qualification scope from the beginning. SDK changes require evaluation because qualification coverage depends on supported functionality and version alignment.",
+            "decision_logic": "The deciding factor is whether the Bluetooth functionality, supported profiles, or qualification-relevant implementation changes. Non-Bluetooth application changes alone generally do not trigger new qualification activity.",
+            "final_recommendation": "Evaluate each design change against the qualified Bluetooth functionality and referenced qualified designs before deciding whether requalification is required.",
+            "risk_if_done_wrong": "Unnecessarily requalifying unchanged Bluetooth functionality increases effort, while failing to qualify qualification-relevant changes can result in noncompliant declarations.",
+            "bluetooth_tags": [
+                "qualification",
+                "design change",
+                "module",
+                "Bluetooth Mesh",
+                "reuse"
+            ],
+            "search_aliases": [
+                "requalification trigger",
+                "design change impact",
+                "sensor addition qualification",
+                "antenna move qualification",
+                "data format change",
+                "future Mesh support",
+                "qualification scope change",
+                "Bluetooth change assessment"
+            ],
+            "qualification_stage": "post-launch change",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

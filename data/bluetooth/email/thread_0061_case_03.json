@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0061",
+    "cases": [
+        {
+            "case_id": "thread_0061_case_03",
+            "iut_type": "",
+            "customer_question": "How can a qualification update proceed when consistency-check errors appear after combining a new Host/Profile qualification with an existing Controller qualification?",
+            "question_variants": [
+                "Why does the consistency check fail after updating Host and Profile layers?",
+                "Can RF/RF PHY layer selection avoid consistency-check errors?",
+                "How do I resolve Host/Profile and Controller layer mismatches?",
+                "What should be removed when LE Audio related consistency errors appear?",
+                "How can TCWs be used during qualification consistency resolution?"
+            ],
+            "actual_issue": "Combining a newly qualified Host/Profile design with an existing Controller design produced consistency-check errors related to layer and feature dependencies. The qualification needed to be restructured to remove unsupported functionality and satisfy the Bluetooth SIG validation process.",
+            "plain_english_explanation": "When Bluetooth layers from different qualifications are combined, the Bluetooth SIG tools verify that the declared features match each other. New Host/Profile functionality can expose requirements that the existing Controller path does not satisfy. The solution is to create a compatible subset design and remove unsupported layers or features rather than forcing incompatible combinations.",
+            "consultant_answer": "The consultant provided a procedure that removes specific layers and feature selections, including LE Audio related protocol/profile selections, performs a new consistency check, and then proceeds using the applicable waiver process for the remaining expected findings. The approach relies on creating a compatible subset of the included designs instead of modifying the unchanged Controller qualification. This avoids unnecessary exposure to additional qualification conflicts while allowing the update registration to proceed.",
+            "decision_logic": "Consistency validation is driven by the declared ICS capabilities and layer relationships. Removing unsupported layers and features creates a design that accurately reflects the implemented functionality and satisfies consistency requirements more safely than forcing incompatible feature combinations.",
+            "final_recommendation": "Create a subset design that excludes unsupported layers and feature selections, rerun the consistency check, and use the approved waiver process only for the remaining expected findings identified during review.",
+            "risk_if_done_wrong": "The qualification may fail consistency validation, additional testing requirements may be generated, or incompatible feature declarations may remain in the design hierarchy, resulting in qualification delays and rework.",
+            "bluetooth_tags": [
+                "consistency check",
+                "ICS",
+                "subset design",
+                "TCW",
+                "host",
+                "profile",
+                "qualification",
+                "layer selection"
+            ],
+            "search_aliases": [
+                "consistency check failure",
+                "subset design needed",
+                "layer mismatch",
+                "Host Profile Controller conflict",
+                "LE Audio dependency",
+                "remove unsupported features",
+                "ICS consistency resolution",
+                "TCW qualification path"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

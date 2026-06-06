@@ -1,0 +1,84 @@
+{
+    "source_thread": "thread_0092",
+    "cases": [
+        {
+            "case_id": "thread_0092_case_02",
+            "iut_type": "module-based BLE product",
+            "customer_question": "Can Bluetooth SIG qualification registration proceed before the final production model name is known, and what documentation is required?",
+            "question_variants": [
+                "Can a development model name be used for registration?",
+                "Do we need the final commercial product name before declaration?",
+                "What documents are needed for Bluetooth SIG registration?",
+                "What is required for the compliance folder?",
+                "What is the qualification workflow after placing an order?"
+            ],
+            "actual_issue": "The customer needed guidance on qualification readiness, registration workflow, acceptable product naming, and compliance-folder documentation requirements.",
+            "plain_english_explanation": "Products are sometimes still under development when qualification planning begins. The customer wanted to know whether registration must wait for the final product name and what supporting documents would be needed. The discussion clarified both the registration process and the evidence required for compliance records.",
+            "consultant_answer": "The consultant confirmed that registration is not limited to the final market name and that a development-stage model designation can be used. The consultant described the registration workflow, including ordering, payment, SIG fee processing, registration completion, and compliance-folder creation. Required documentation includes a user or operation manual, product block diagram, external drawing, and antenna gain information. The compliance folder must be retained and made available if Bluetooth SIG performs an audit.",
+            "decision_logic": "Bluetooth qualification registration is based on identifying the product and maintaining supporting compliance evidence; it does not require the final commercial name. Compliance-folder documentation must demonstrate the product implementation and qualification basis and be retained for audit purposes.",
+            "final_recommendation": "Proceed with registration using the available development model identifier and prepare the required compliance-folder documentation before declaration completion.",
+            "risk_if_done_wrong": "Missing compliance documentation or inadequate qualification records could delay declaration completion and create difficulties if Bluetooth SIG requests audit evidence.",
+            "bluetooth_tags": [
+                "qualification",
+                "declaration",
+                "compliance folder",
+                "listing",
+                "audit",
+                "documentation"
+            ],
+            "search_aliases": [
+                "development model name",
+                "prototype product name",
+                "registration before launch",
+                "compliance folder requirements",
+                "qualification documents",
+                "operation manual requirement",
+                "block diagram requirement",
+                "Bluetooth audit records",
+                "declaration workflow"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        },
+        {
+            "case_id": "thread_0092_case_03",
+            "iut_type": "module-based BLE product",
+            "customer_question": "Can module documentation be used to satisfy antenna documentation requirements when the product uses an integrated antenna module?",
+            "question_variants": [
+                "Can module antenna data be used for qualification records?",
+                "Do we need separate antenna documentation for an integrated module?",
+                "Can FCC antenna information be reused?",
+                "What antenna documents are required for the compliance folder?",
+                "Is module datasheet antenna gain information acceptable?"
+            ],
+            "actual_issue": "The customer's BLE module contained an onboard ceramic chip antenna, and the customer needed suitable antenna documentation for qualification records.",
+            "plain_english_explanation": "When a product uses a pre-integrated Bluetooth module, the antenna is often already part of that module. The customer wanted to know whether existing module documentation could satisfy the antenna documentation requirement instead of creating new antenna data. The consultant confirmed that available module antenna data could be used.",
+            "consultant_answer": "The consultant explained that the requested antenna documentation requirement concerns antenna gain characteristics and supporting antenna information. Although the provided link could not be accessed, the consultant located antenna data in a BlueNRG-M2SA datasheet and indicated that this antenna information could be used for the compliance documentation package.",
+            "decision_logic": "For a module containing an integrated antenna, existing module documentation that contains the necessary antenna characteristics can satisfy compliance-folder evidence requirements when appropriate antenna data is available.",
+            "final_recommendation": "Use available BlueNRG-M2SA antenna documentation containing antenna characteristics and include it in the compliance-folder package.",
+            "risk_if_done_wrong": "Failure to provide adequate antenna documentation could delay completion of the compliance-folder package and qualification documentation process.",
+            "bluetooth_tags": [
+                "qualification",
+                "module",
+                "antenna",
+                "compliance folder",
+                "documentation",
+                "BLE"
+            ],
+            "search_aliases": [
+                "integrated antenna module",
+                "BlueNRG-M2SA antenna data",
+                "antenna gain documentation",
+                "module datasheet antenna",
+                "ceramic chip antenna",
+                "compliance folder antenna",
+                "FCC antenna information",
+                "antenna characteristic data"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}
