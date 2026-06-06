@@ -8,7 +8,14 @@ from pathlib import Path
 import ollama
 
 from app.config import RAG_LLM_MODEL, GENERAL_LLM_MODEL
-from app.retrieve import retrieve, format_citation, is_definition_query, extract_acronyms_for_glossary_lookup
+
+from app.retrieve import (
+    retrieve,
+    format_citation,
+    is_definition_query,
+    is_advisory_query,
+    extract_acronyms_for_glossary_lookup,
+)
 
 ANSWER_VARIANT_CHUNKS = None
 # Retrieval / context limits
@@ -458,6 +465,7 @@ def build_model_input(
         "- For exact-label questions such as Option, Table, Section, or Clause questions, use the highest-ranked exact heading match as the primary answer, and use nearby subsection chunks only as supporting details.\n"
         "- If official policy/spec excerpts are present, use them as the primary source for definitions, requirements, and rules.\n"
         "- Use FAQ/reference excerpts to clarify or summarize the official source.\n"
+        "- For advisory decision questions, first identify the main decision being asked and lead with that decision: Yes, No, or It depends. Do not answer a secondary condition first. If the main decision is whether a final product still needs Bluetooth qualification/listing when using a qualified module, lead with Yes, then explain that testing scope may depend on product changes. If the user asks in Japanese, start with はい, いいえ, or 場合によります as appropriate.\n"
         "- Use email/case excerpts as practical examples or implementation context, not as the main authority when official sources are available.\n"
         "- If retrieved sources disagree, say so clearly and prefer official policy/spec text for requirements.\n"
         "- Keep official table requirements separate from practical examples. Do not place email-derived items under an official table row label unless the official excerpt explicitly says those items belong to that row.\n"
@@ -1384,6 +1392,129 @@ def select_exact_label_items(items: List[Dict[str, Any]], limit: int = 5) -> Lis
 
     return selected[:limit]
 
+def source_authority_rank(item: Dict[str, Any]) -> int:
+    meta = item.get("metadata", {})
+    doc_type = (meta.get("doc_type") or "").lower()
+    doc_name = (meta.get("doc_name") or "").lower()
+    source_type = (meta.get("source_type") or "").lower()
+
+    if doc_type == "policies":
+        chunk_kind = (meta.get("chunk_kind") or "").lower()
+
+        # Policy body chunks outrank everything.
+        # Policy front pages/abstracts are weaker than direct FAQ/body evidence.
+        if chunk_kind == "front_page":
+            return 2
+
+        return 0
+
+    if doc_type == "reference" and "official faq" in doc_name:
+        return 1
+
+    if doc_type == "reference":
+        return 2
+
+    if source_type in {"email_case", "email_thread_analysis", "email"}:
+        return 3
+
+    if doc_type == "specs":
+        return 4
+
+    return 5
+
+def item_supports_answer(question: str, item: Dict[str, Any]) -> bool:
+    text = (item.get("text") or "").lower()
+    meta = item.get("metadata", {})
+    doc_name = (meta.get("doc_name") or "").lower()
+
+    # Reject weak generic FAQ/link pages.
+    weak_page_markers = [
+        "links to helpful information",
+        "helpful information",
+    ]
+
+    if "official faq" in doc_name and any(marker in text for marker in weak_page_markers):
+        return False
+
+    # Direct official answer for product qualification responsibility.
+    # This protects Japanese advisory questions where lexical matching is weak.
+    if "official faq" in doc_name:
+        if (
+            "all bluetooth" in text
+            and "products must be qualified" in text
+            and "cannot qualify your products on your behalf" in text
+        ):
+            return True
+
+    return supports_query_semantically(question, item)
+
+def apply_source_hierarchy(
+    question: str,
+    selected: List[Dict[str, Any]],
+    items: List[Dict[str, Any]],
+    limit: int,
+) -> List[Dict[str, Any]]:
+    candidates = [
+        item for item in items
+        if item_supports_answer(question, item)
+    ]
+
+    if not candidates:
+        return selected[:limit]
+
+    candidates = sorted(
+        candidates,
+        key=lambda item: (
+            source_authority_rank(item),
+            -float(item.get("score", 0.0)),
+        ),
+    )
+
+    output = []
+    seen = set()
+
+    for item in candidates:
+        if item["chunk_id"] in seen:
+            continue
+
+        output.append(item)
+        seen.add(item["chunk_id"])
+
+        if len(output) >= limit:
+            break
+
+    # For advisory questions, keep the official source as anchor,
+    # then add practical support from top retrieved case/reference sources.
+    if is_advisory_query(question) and len(output) < limit:
+        for item in items:
+            if len(output) >= limit:
+                break
+
+            if item["chunk_id"] in seen:
+                continue
+
+            meta = item.get("metadata", {})
+            doc_name = (meta.get("doc_name") or "").lower()
+            source_type = (meta.get("source_type") or "").lower()
+            doc_type = (meta.get("doc_type") or "").lower()
+
+            if "official faq" in doc_name and item["chunk_id"] not in seen:
+                continue
+
+            text = (item.get("text") or "").lower()
+
+            if is_advisory_query(question):
+                wants_module = "モジュール" in question or "module" in question.lower()
+
+                if wants_module and "module" not in text:
+                    continue
+
+            if source_type in {"email_case", "email_thread_analysis", "email"} or doc_type == "reference":
+                output.append(item)
+                seen.add(item["chunk_id"])
+
+    return output[:limit]
+
 def answer_question(
     question: str,
     top_k: int = TOP_K_TO_MODEL,
@@ -1401,10 +1532,11 @@ def answer_question(
     if keyword_program is None and looks_like_rag_query(clean_question):
         keyword_program = "bluetooth"
 
-    retrieval_question = expand_retrieval_query_with_keywords(
-        retrieval_question,
-        keyword_program,
-    )
+    if not is_advisory_query(clean_question):
+        retrieval_question = expand_retrieval_query_with_keywords(
+            retrieval_question,
+            keyword_program,
+        )
 
     if chat_history and looks_like_followup_question(clean_question):
         previous_user_messages = [
@@ -1540,17 +1672,7 @@ def answer_question(
             retrieve_k = 12
         elif detail_mode == "deep":
             retrieve_k = 8
-        elif any(
-            phrase in clean_question.lower()
-            for phrase in [
-                "customer asks",
-                "do they still need",
-                "do we need",
-                "do i need",
-                "is it required",
-                "new qualification",
-            ]
-        ):
+        elif is_advisory_query(clean_question):
             retrieve_k = max(top_k, 10)
         else:
             retrieve_k = max(top_k, 5)
@@ -1924,6 +2046,14 @@ def answer_question(
             items,
             limit=max(top_k, 5),
         )
+
+        if is_advisory_query(clean_question):
+            selected = apply_source_hierarchy(
+                clean_question,
+                selected,
+                items,
+                limit=max(model_k, top_k),
+            )
 
     if debug:
         print("\nSelected sources for model:")

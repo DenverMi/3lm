@@ -430,6 +430,8 @@ def detect_intent(query: str) -> str:
         return "comparison"
     if is_definition_query(query):
         return "definition"
+    if is_advisory_query(query):
+        return "advisory"
     return "general"
 
 def extract_exact_lookup_phrases(query: str) -> List[str]:
@@ -793,28 +795,68 @@ def format_citation(meta: Dict[str, Any]) -> str:
 
     return f"{doc_name} (unpaginated)"
 
+def expand_advisory_query(query: str) -> str:
+    if not is_advisory_query(query):
+        return query
+
+    expansion_terms = [
+        "qualification",
+        "qualified product",
+        "qualified module",
+        "Bluetooth module",
+        "new qualification",
+        "member account",
+        "supplier cannot qualify",
+        "complete the Bluetooth Qualification Process",
+        "product listing",
+        "declaration",
+    ]
+
+    return query + " " + " ".join(expansion_terms)
+
 def is_advisory_query(query: str) -> bool:
     q = query.lower()
-    signals = [
-        "can we",
-        "can i",
-        "should we",
-        "should i",
-        "do we need",
-        "is it required",
-        "is it allowed",
-        "what if",
-        "if we",
-        "customer asks",
-        "do i need",
-        "required",
-        "sufficient",
-        "enough",
+
+    definition_markers = [
+        "what is",
+        "what are",
+        "とは",
+        "って何",
+        "とは何",
+        "何ですか",
     ]
-    return any(s in q for s in signals)
+
+    if any(marker in q for marker in definition_markers):
+        return False
+
+    advisory_markers = [
+        "customer asks",
+        "past case",
+        "past cases",
+        "do they",
+        "do we",
+        "do i",
+        "does this",
+        "does it",
+        "should",
+        "still need",
+        "required",
+        "need a new",
+        "need to",
+
+        "必要ですか",
+        "必要でしょうか",
+        "必要になりますか",
+        "必要か",
+        "要りますか",
+    ]
+
+    return any(marker in q for marker in advisory_markers)
 
 def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
     bonus = 0.0
+    doc_type = (meta.get("doc_type") or "").lower()
+    doc_name = (meta.get("doc_name") or "").lower()
 
     page_start = meta.get("page_start")
     chunk_kind = (meta.get("chunk_kind") or "").lower()
@@ -828,9 +870,6 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
 
     priority = meta.get("priority", 0) or 0
     bonus += float(priority) * PRIORITY_MULTIPLIER
-
-    doc_type = (meta.get("doc_type") or "").lower()
-    doc_name = (meta.get("doc_name") or "").lower()
 
     if intent == "definition":
         term = extract_core_term(query)
@@ -896,8 +935,11 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
         if "guide" in doc_name or "manual" in doc_name:
             bonus += 0.7
 
-    elif is_advisory_query(query):
+    elif intent == "advisory":
         source_type = (meta.get("source_type") or "").lower()
+
+        if doc_type == "reference" and "official faq" in doc_name:
+            bonus += 3.0
 
         if source_type == "email_case":
             bonus += 2.5
@@ -1109,7 +1151,7 @@ def merge_and_rerank(
         text_lower = (item.get("text") or "").lower()
         doc_type = (meta.get("doc_type") or "").lower()
 
-        if is_advisory_query(query) and doc_type == "specs":
+        if intent == "advisory" and doc_type == "specs":
             bonus -= 8.0
 
         if intent == "definition" and term:
@@ -1320,10 +1362,16 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = No
     if program:
         domain_filter = program.lower()
 
+    retrieval_query = expand_advisory_query(clean_query)
+
     bm25, chunks = get_chunks_for_bm25()
 
     bm25_results = search_bm25(clean_query, chunks, bm25, top_k=BM25_RETRIEVAL_K)
     semantic_results = search_semantic(clean_query, chunks, top_k=SEMANTIC_RETRIEVAL_K)
+
+    if retrieval_query != clean_query:
+        bm25_results += search_bm25(retrieval_query, chunks, bm25, top_k=BM25_RETRIEVAL_K)
+        semantic_results += search_semantic(retrieval_query, chunks, top_k=SEMANTIC_RETRIEVAL_K)
 
     if domain_filter:
         bm25_results = [
@@ -1341,23 +1389,11 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = No
     else:
         filtered_chunks = chunks
 
-    exact_results = search_exact_phrases(
-        clean_query,
-        filtered_chunks,
-        top_k=10,
-    )
+    exact_results = search_exact_phrases(retrieval_query, filtered_chunks, top_k=10)
 
-    topic_heading_results = search_topic_headings(
-        clean_query,
-        filtered_chunks,
-        top_k=10,
-    )
+    topic_heading_results = search_topic_headings(retrieval_query, filtered_chunks, top_k=10)
 
-    glossary_results = search_glossary_acronyms(
-        clean_query,
-        filtered_chunks,
-        top_k=10,
-    )
+    glossary_results = search_glossary_acronyms(retrieval_query, filtered_chunks, top_k=10)
 
     # Force an email-case lane for advisory/process questions
     email_chunks = [
@@ -1366,9 +1402,9 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = No
     ]
 
     email_results = []
-    if email_chunks:
+    if email_chunks and detect_intent(clean_query) in {"advisory", "process"}:
         email_bm25 = build_bm25(email_chunks)
-        email_results = search_bm25(clean_query, email_chunks, email_bm25, top_k=10)
+        email_results = search_bm25(retrieval_query, email_chunks, email_bm25, top_k=10)
 
     combined_bm25 = exact_results + topic_heading_results + glossary_results + bm25_results + email_results
 
@@ -1409,6 +1445,7 @@ def format_context(items: List[Dict[str, Any]], max_chars: Optional[int] = None)
 def parse_args(argv: List[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Hybrid retrieval debug tool")
     parser.add_argument("--top-k", type=int, default=DEFAULT_TOP_K)
+    parser.add_argument("--program", choices=["bluetooth", "matter", "aliro"], default=None)
     parser.add_argument("query", nargs="+", help="Query text")
     return parser.parse_args(argv)
 
@@ -1421,8 +1458,10 @@ def main() -> None:
         sys.exit(1)
 
     domain_filter, clean_query = parse_domain_prefix(query)
+    if args.program:
+        domain_filter = args.program
 
-    results = retrieve(query, top_k=args.top_k)
+    results = retrieve(query, top_k=args.top_k, program=args.program)
 
     print(f"\nQuery: {query}")
     print(f"Intent: {detect_intent(clean_query)}")
