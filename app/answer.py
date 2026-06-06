@@ -13,8 +13,8 @@ from app.retrieve import retrieve, format_citation, is_definition_query, extract
 ANSWER_VARIANT_CHUNKS = None
 # Retrieval / context limits
 TOP_K_TO_MODEL = 3
-MAX_CONTEXT_CHARS = 6000
-MAX_SNIPPET_CHARS = 1400
+MAX_CONTEXT_CHARS = 4500
+MAX_SNIPPET_CHARS = 1000
 
 # Weak retrieval guardrails
 MIN_TOP_SCORE = 1.20
