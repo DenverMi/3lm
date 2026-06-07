@@ -1,5 +1,6 @@
 import subprocess
 import time
+import re
 from pathlib import Path
 
 QUESTIONS = [
@@ -20,6 +21,31 @@ QUESTIONS = [
 RESULTS_PATH = Path("benchmark_results.md")
 SCOREBOARD_PATH = Path("benchmark_scoreboard.md")
 
+TIMING_FIELDS = [
+    "total_duration",
+    "load_duration",
+    "prompt_eval_duration",
+    "eval_duration",
+]
+
+def ns_to_seconds(value: str) -> float:
+    try:
+        return int(value) / 1_000_000_000
+    except Exception:
+        return 0.0
+
+
+def extract_ollama_timings(output: str) -> dict[str, float]:
+    timings = {field: 0.0 for field in TIMING_FIELDS}
+
+    for field in TIMING_FIELDS:
+        match = re.search(rf"(?<![A-Za-z_]){field}=(\d+)", output)
+        if not match:
+            continue
+
+        timings[field] = ns_to_seconds(match.group(1))
+
+    return timings
 
 def run_question(question: str) -> tuple[float, str]:
     command = [
@@ -87,20 +113,25 @@ def main() -> None:
     board_lines = [
         "# Bluetooth RAG Benchmark Scoreboard",
         "",
-        "| # | Question | Time | Grade | Source quality | Notes |",
-        "|---:|---|---:|---|---|---|",
+        "| # | Question | Time | Ollama | Load | Prompt eval | Token eval | Grade | Source quality | Notes |",
+        "|---:|---|---:|---:|---:|---:|---:|---|---|---|",
     ]
 
     for index, question in enumerate(QUESTIONS, start=1):
         print(f"[{index}/{len(QUESTIONS)}] {question}")
 
         elapsed, output = run_question(question)
+        timings = extract_ollama_timings(output)
 
         raw_lines.extend(
             [
                 f"## {index}. {question}",
                 "",
                 f"- Elapsed: {elapsed:.2f}s",
+                f"- Ollama total: {timings['total_duration']:.2f}s",
+                f"- Ollama load: {timings['load_duration']:.2f}s",
+                f"- Prompt eval: {timings['prompt_eval_duration']:.2f}s",
+                f"- Token eval: {timings['eval_duration']:.2f}s",
                 "",
                 "```text",
                 output,
@@ -114,7 +145,12 @@ def main() -> None:
         source_quality = guess_source_quality(output)
 
         board_lines.append(
-            f"| {index} | {safe_question} | {elapsed:.2f}s | {grade} | {source_quality} | TODO |"
+            f"| {index} | {safe_question} | {elapsed:.2f}s | "
+            f"{timings['total_duration']:.2f}s | "
+            f"{timings['load_duration']:.2f}s | "
+            f"{timings['prompt_eval_duration']:.2f}s | "
+            f"{timings['eval_duration']:.2f}s | "
+            f"{grade} | {source_quality} | TODO |"
         )
 
         RESULTS_PATH.write_text("\n".join(raw_lines), encoding="utf-8")
