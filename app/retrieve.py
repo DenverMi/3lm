@@ -1356,6 +1356,59 @@ def find_exact_acronym_definition_chunks(
 
     return hits
 
+def retrieve_email_cases(query: str, top_k: int = 30, program: Optional[str] = None) -> List[Dict[str, Any]]:
+    domain_filter, clean_query = parse_domain_prefix(query)
+
+    if program:
+        domain_filter = program.lower()
+
+    bm25, chunks = get_chunks_for_bm25()
+
+    if domain_filter:
+        filtered_chunks = [
+            c for c in chunks
+            if (c.get("program") or "").lower() == domain_filter
+        ]
+    else:
+        filtered_chunks = chunks
+
+    email_chunks = [
+        c for c in filtered_chunks
+        if (c.get("source_type") in {"email_case", "email_thread_analysis", "email"})
+        or (c.get("doc_type") == "email")
+    ]
+
+    if not email_chunks:
+        return []
+
+    email_bm25 = build_bm25(email_chunks)
+    results = search_bm25(clean_query, email_chunks, email_bm25, top_k=top_k)
+
+    selected = []
+    seen_ids = set()
+    seen_signatures = set()
+
+    for item in results:
+        chunk_id = item["chunk_id"]
+
+        if chunk_id in seen_ids:
+            continue
+
+        signature = text_signature(item.get("text") or "")
+        if signature in seen_signatures:
+            continue
+
+        item["score"] = float(item.get("bm25_score") or 0.0)
+
+        selected.append(item)
+        seen_ids.add(chunk_id)
+        seen_signatures.add(signature)
+
+        if len(selected) >= top_k:
+            break
+
+    return selected
+
 def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = None) -> List[Dict[str, Any]]:
     domain_filter, clean_query = parse_domain_prefix(query)
 

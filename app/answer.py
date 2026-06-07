@@ -11,6 +11,7 @@ from app.config import RAG_LLM_MODEL, GENERAL_LLM_MODEL
 
 from app.retrieve import (
     retrieve,
+    retrieve_email_cases,
     format_citation,
     is_definition_query,
     is_advisory_query,
@@ -684,7 +685,7 @@ def ask_llm(
         think=False,
         options={
             "temperature": 0.1,
-            "num_predict": 450,
+            "num_predict": 900,
             "num_ctx": 8192,
         },
     )
@@ -1672,8 +1673,45 @@ def answer_question(
         print("\n📧 Email/case-only mode...")
         print("\n🔍 Retrieving relevant email/case evidence...")
 
-        retrieve_k = 30
-        items = retrieve(retrieval_question, top_k=retrieve_k, program=program)
+        retrieve_k = 100
+
+        email_queries = [
+            retrieval_question,
+            clean_question,
+        ]
+
+        # Add a broader version by removing the "past cases" framing.
+        broad_question = re.sub(
+            r"\b(in )?past (bluetooth )?cases\b[:,]?\s*",
+            "",
+            clean_question,
+            flags=re.IGNORECASE,
+        ).strip()
+
+        if broad_question and broad_question not in email_queries:
+            email_queries.append(broad_question)
+
+        # Add existing query variants if available.
+        try:
+            from app.retrieve import build_query_variants, get_chunks_for_bm25
+            _, chunks_for_variants = get_chunks_for_bm25()
+            for variant in build_query_variants(clean_question, chunks_for_variants):
+                if variant not in email_queries:
+                    email_queries.append(variant)
+        except Exception:
+            pass
+
+        merged_items = []
+        seen_ids = set()
+
+        for q in email_queries:
+            for item in retrieve_email_cases(q, top_k=retrieve_k, program=program):
+                if item["chunk_id"] in seen_ids:
+                    continue
+                seen_ids.add(item["chunk_id"])
+                merged_items.append(item)
+
+        items = merged_items
         email_items = filter_email_sources(items)
 
         if not email_items:
@@ -1684,20 +1722,66 @@ def answer_question(
                 "mode": mode,
             }
 
-        selected = email_items[:top_k]
+        email_case_k = max(top_k, 10)
+        selected = email_items[:email_case_k]
+        if debug:
+            print("\nSelected sources for model:")
+            for item in selected:
+                meta = item["metadata"]
+                print(
+                    f"- score={item['score']:.4f}  "
+                    f"{format_citation(meta)}  "
+                    f"id={item['chunk_id']}  "
+                    f"priority={meta.get('priority', 0)}  "
+                    f"kind={meta.get('chunk_kind')}"
+                )
 
         print("🧠 Building email-grounded prompt...")
         print("🤖 Generating answer with local model...")
 
+        case_count = len(selected)
+        case_source_list = "\n".join(
+            f"{idx}. {format_citation(item['metadata'])} | {item['chunk_id']}"
+            for idx, item in enumerate(selected, start=1)
+        )
+
         if resolve_language(clean_question) == "ja":
             email_prefix = (
+                "email/case参照モードです。\n"
                 "過去のemail/case事例に基づいて、公式ポリシーではなく"
-                "実務上の参考情報として日本語で答えてください。\n\n"
-    )
+                "実務上の参考情報として日本語で答えてください。\n"
+                f"{case_count}件のcandidate case sourceが提供されています。\n"
+                "ユーザーの質問に明確に関連するcaseだけを要約してください。\n"
+                "関連が弱いcaseについて、無理に教訓を作らないでください。\n"
+                "同じcaseを別表現で繰り返さないでください。\n"
+                "関連するcaseごとに、簡潔な番号付き箇条書きを1つ作成してください。\n"
+                "出力数は最大で提供されたcase source数までにしてください。\n"
+                "完全なselected source listは別途表示されます。\n"
+                "各箇条書きは、case topic + 実務上の教訓として簡潔にまとめてください。\n"
+                "各番号付き箇条書きの末尾には、必ずそのcaseのcitationを同じ箇条書き内に入れてください。citationを最後にまとめるだけにしないでください。\n"
+                "citationで裏付けできない箇条書きは出力しないでください。\n"
+                "長い前置きや結論は不要です。\n"
+                "次のsource orderを使ってください:\n"
+                f"{case_source_list}\n\n"
+            )
+            
         else:
             email_prefix = (
+                "You are in email/case-reference mode.\n"
                 "Answer in English based on past email/case examples as practical reference only, "
-                "not as official policy.\n\n"
+                "not as official policy.\n"
+                f"You have been given {case_count} candidate case sources.\n"
+                "Summarize only the cases that are clearly relevant to the user's question.\n"
+                "Do not invent a lesson for weakly related cases.\n"
+                "Do not repeat the same case under different wording.\n"
+                "Use one concise numbered bullet per relevant case, up to the provided case count.\n"
+                "The full selected source list will be shown separately.\n"
+                "Keep each bullet concise: case topic + practical lesson.\n"
+                "Each numbered bullet MUST end with its source citation in the same bullet. Do not put citations only at the end.\n"
+                "If a bullet cannot be supported by a citation, do not include that bullet.\n"
+                "Do not add a long introduction or conclusion.\n"
+                "Use this exact source order:\n"
+                f"{case_source_list}\n\n"
             )
 
         email_prompt_question = email_prefix + clean_question
@@ -1712,11 +1796,22 @@ def answer_question(
             selected,
         )
 
+        cited_ids = {
+            item["chunk_id"]
+            for item in selected
+            if item["chunk_id"] in answer
+        }
+
+        cited_items = [
+            item for item in selected
+            if item["chunk_id"] in cited_ids
+        ]
+
         print("✅ Done.\n")
 
         return {
             "answer": answer,
-            "items": selected,
+            "items": cited_items,
             "weak_retrieval": False,
             "mode": mode,
         }    
