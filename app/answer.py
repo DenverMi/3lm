@@ -1632,6 +1632,14 @@ def format_email_case_card(item: Dict[str, Any]) -> str:
         f"text: {text[:1200]}"
     )
 
+def filter_items_to_cited(answer: str, selected: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    cited_items = [
+        item for item in selected
+        if item["chunk_id"] in answer
+    ]
+
+    return cited_items if cited_items else selected
+
 def answer_question(
     question: str,
     top_k: int = TOP_K_TO_MODEL,
@@ -2316,7 +2324,7 @@ def answer_question(
 
     return {
         "answer": answer,
-        "items": selected,
+        "items": filter_items_to_cited(answer, selected),
         "weak_retrieval": False,
         "mode": mode,
     }
