@@ -1583,6 +1583,55 @@ def apply_source_hierarchy(
 
     return output[:limit]
 
+def format_email_case_card(item: Dict[str, Any]) -> str:
+    import json
+
+    meta = item["metadata"]
+    citation = format_citation(meta)
+    text = item.get("text") or ""
+
+    try:
+        data = json.loads(text)
+        cases = data.get("cases") or []
+
+        if cases:
+            case = cases[0]
+            parts = [
+                f"citation: {citation}",
+                f"case_id: {case.get('case_id', item['chunk_id'])}",
+                f"iut_type: {case.get('iut_type', '')}",
+                f"customer_question: {case.get('customer_question', '')}",
+                f"actual_issue: {case.get('actual_issue', '')}",
+                f"consultant_answer: {case.get('consultant_answer', '')}",
+                f"decision_logic: {case.get('decision_logic', '')}",
+                f"final_recommendation: {case.get('final_recommendation', '')}",
+                f"risk_if_done_wrong: {case.get('risk_if_done_wrong', '')}",
+                f"tags: {', '.join(case.get('bluetooth_tags', []))}",
+            ]
+            return "\n".join(part for part in parts if not part.endswith(": "))
+
+        analysis = data.get("case_analysis") or {}
+        if analysis:
+            parts = [
+                f"citation: {citation}",
+            f"case_id: {item['chunk_id']}",
+            f"thread_summary: {analysis.get('thread_summary', '')}",
+            f"key_technical_discussion: {analysis.get('key_technical_discussion', '')}",
+            f"key_decision_logic: {analysis.get('key_decision_logic', '')}",
+            f"risk_if_done_wrong: {analysis.get('risk_if_done_wrong', '')}",
+            f"consulting_takeaway: {analysis.get('consulting_takeaway', '')}",
+        ]
+        return "\n".join(part for part in parts if not part.endswith(": "))
+
+    except Exception:
+        pass
+
+    return (
+        f"citation: {citation}\n"
+        f"case_id: {item['chunk_id']}\n"
+        f"text: {text[:1200]}"
+    )
+
 def answer_question(
     question: str,
     top_k: int = TOP_K_TO_MODEL,
@@ -1786,10 +1835,17 @@ def answer_question(
 
         email_prompt_question = email_prefix + clean_question
 
+        case_card_items = []
+
+        for item in selected:
+            card_item = dict(item)
+            card_item["text"] = format_email_case_card(item)
+            case_card_items.append(card_item)
+
         answer = separate_citations(
             ask_llm(
                 email_prompt_question,
-                selected,
+                case_card_items,
                 weak_retrieval=False,
                 detail_mode=detail_mode,
             ),
