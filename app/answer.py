@@ -1197,14 +1197,30 @@ def preserve_relevant_email_case(
     items: List[Dict[str, Any]],
     limit: int,
 ) -> List[Dict[str, Any]]:
-    has_email = any(
-        (item["metadata"].get("source_type") or "").lower()
-        in {"email_case", "email_thread_analysis", "email"}
+
+    email_count = sum(
+        1
         for item in selected
+        if (item["metadata"].get("source_type") or "").lower()
+        in {"email_case", "email_thread_analysis", "email"}
     )
 
-    if has_email:
+    if email_count >= 2:
         return selected
+    
+    official_or_reference_count = sum(
+        1
+        for item in selected
+        if is_official_source(item)
+    )
+
+    has_only_official_sources = official_or_reference_count == len(selected)
+
+    has_retrieved_email_candidate = any(
+        (item["metadata"].get("source_type") or "").lower()
+        in {"email_case", "email_thread_analysis", "email"}
+        for item in items
+    )
     
     has_official_source = any(
         is_official_source(item)
@@ -1212,7 +1228,21 @@ def preserve_relevant_email_case(
     )
 
     if has_official_source:
-        return selected
+        selected_text = "\n".join(item.get("text") or "" for item in selected)
+
+        official_supports = supports_query_semantically(
+            question,
+            {"text": selected_text, "metadata": {}},
+        )
+
+        has_email_candidate = any(
+            (item["metadata"].get("source_type") or "").lower()
+            in {"email_case", "email_thread_analysis", "email"}
+            for item in items
+        )
+
+        if official_supports and not has_email_candidate:
+            return selected
 
     for item in items:
         source_type = (item["metadata"].get("source_type") or "").lower()
@@ -1220,20 +1250,36 @@ def preserve_relevant_email_case(
         if source_type not in {"email_case", "email_thread_analysis", "email"}:
             continue
 
+        if item["chunk_id"] in {x["chunk_id"] for x in selected}:
+            continue
+
         if not supports_query_semantically(question, item):
             continue
 
-        if len(selected) >= limit:
-            # Replace the lowest-priority non-policy source first.
-            for idx in range(len(selected) - 1, -1, -1):
-                doc_type = (selected[idx]["metadata"].get("doc_type") or "").lower()
-                if doc_type not in {"policies", "specs"}:
-                    selected[idx] = item
-                    return selected
+        # Prefer replacing weak front-page/abstract sources instead of appending.
+        # Appending can push the email evidence beyond the context budget.
+        replaced = False
 
-            selected[-1] = item
-        else:
-            selected.append(item)
+        for idx in range(len(selected) - 1, -1, -1):
+            chunk_kind = (selected[idx]["metadata"].get("chunk_kind") or "").lower()
+            existing_source_type = (selected[idx]["metadata"].get("source_type") or "").lower()
+
+            existing_doc_type = (selected[idx]["metadata"].get("doc_type") or "").lower()
+
+            if (
+                chunk_kind == "front_page"
+                and existing_source_type not in {"email_case", "email_thread_analysis", "email"}
+                and existing_doc_type not in {"reference", "specs"}
+            ):
+                selected[idx] = item
+                replaced = True
+                break
+
+        if replaced:
+            email_count += 1
+            if email_count >= 2:
+                return selected
+            continue
 
         return selected
 
@@ -1436,16 +1482,6 @@ def item_supports_answer(question: str, item: Dict[str, Any]) -> bool:
     if "official faq" in doc_name and any(marker in text for marker in weak_page_markers):
         return False
 
-    # Direct official answer for product qualification responsibility.
-    # This protects Japanese advisory questions where lexical matching is weak.
-    if "official faq" in doc_name:
-        if (
-            "all bluetooth" in text
-            and "products must be qualified" in text
-            and "cannot qualify your products on your behalf" in text
-        ):
-            return True
-
     return supports_query_semantically(question, item)
 
 def apply_source_hierarchy(
@@ -1460,7 +1496,38 @@ def apply_source_hierarchy(
     ]
 
     if not candidates:
-        return selected[:limit]
+        # Fallback for non-English / weak lexical matching:
+        # keep retrieval order, but do not return weak generic Official FAQ/link pages.
+        fallback = []
+        seen = set()
+
+        for item in items:
+            if item["chunk_id"] in seen:
+                continue
+
+            if not item_supports_answer(question, item):
+                meta = item.get("metadata", {})
+                doc_name = (meta.get("doc_name") or "").lower()
+                text = (item.get("text") or "").lower()
+
+                is_weak_official_faq = (
+                    "official faq" in doc_name
+                    and (
+                        "links to helpful information" in text
+                        or "helpful information" in text
+                    )
+                )
+
+                if is_weak_official_faq:
+                    continue
+
+            fallback.append(item)
+            seen.add(item["chunk_id"])
+
+            if len(fallback) >= limit:
+                break
+
+        return fallback[:limit] if fallback else selected[:limit]
 
     candidates = sorted(
         candidates,
@@ -1996,7 +2063,17 @@ def answer_question(
             for item in selected
         )
 
-        if has_strong_official_or_reference and not asks_for_practical_case:
+        has_retrieved_email_candidate = any(
+            (item["metadata"].get("source_type") or "").lower()
+            in {"email_case", "email_thread_analysis", "email"}
+            for item in items
+        )
+
+        if (
+            has_strong_official_or_reference
+            and not asks_for_practical_case
+            and not has_retrieved_email_candidate
+        ):
             selected_ids = {item["chunk_id"] for item in selected}
 
             selected = [
@@ -2040,13 +2117,6 @@ def answer_question(
                 max_added=1,
             )
 
-        selected = preserve_relevant_email_case(
-            clean_question,
-            selected,
-            items,
-            limit=max(top_k, 5),
-        )
-
         if is_advisory_query(clean_question):
             selected = apply_source_hierarchy(
                 clean_question,
@@ -2054,6 +2124,13 @@ def answer_question(
                 items,
                 limit=max(model_k, top_k),
             )
+
+        selected = preserve_relevant_email_case(
+            clean_question,
+            selected,
+            items,
+            limit=max(top_k, 5),
+        )
 
     if debug:
         print("\nSelected sources for model:")
