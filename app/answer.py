@@ -2303,6 +2303,31 @@ def answer_question(
                 f"kind={meta.get('chunk_kind')}"
             )
 
+    if (
+        is_definition_query(clean_question)
+        and "difference between" not in clean_question.lower()
+        and "違い" not in clean_question
+    ):
+        definition_items = [
+            item for item in selected
+            if (item["metadata"].get("doc_name") or "").lower() == "glossary.md"
+            or (item["metadata"].get("chunk_kind") or "").lower() == "definition"
+        ]
+
+        if definition_items:
+            selected = definition_items[:3]
+    
+    if debug and is_definition_query(clean_question):
+        print("\nSelected sources after definition fast path:")
+        for item in selected:
+            meta = item["metadata"]
+            print(
+                f"- score={item['score']:.4f}  "
+                f"{format_citation(meta)}  "
+                f"id={item['chunk_id']}  "
+                f"priority={meta.get('priority', 0)}  "
+                f"kind={meta.get('chunk_kind')}"
+            )
 
     t1 = time.perf_counter()
 
