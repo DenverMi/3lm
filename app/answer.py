@@ -23,6 +23,7 @@ ANSWER_VARIANT_CHUNKS = None
 TOP_K_TO_MODEL = 3
 MAX_CONTEXT_CHARS = 4500
 MAX_SNIPPET_CHARS = 1000
+EMAIL_CASES_TO_MODEL = 6
 
 # Weak retrieval guardrails
 MIN_TOP_SCORE = 1.20
@@ -1583,6 +1584,12 @@ def apply_source_hierarchy(
 
     return output[:limit]
 
+def short_field(value: Any, limit: int = 280) -> str:
+    text = str(value or "").strip()
+    if len(text) <= limit:
+        return text
+    return text[:limit].rstrip() + "..."
+
 def format_email_case_card(item: Dict[str, Any]) -> str:
     import json
 
@@ -1599,14 +1606,10 @@ def format_email_case_card(item: Dict[str, Any]) -> str:
             parts = [
                 f"citation: {citation}",
                 f"case_id: {case.get('case_id', item['chunk_id'])}",
-                f"iut_type: {case.get('iut_type', '')}",
-                f"customer_question: {case.get('customer_question', '')}",
-                f"actual_issue: {case.get('actual_issue', '')}",
-                f"consultant_answer: {case.get('consultant_answer', '')}",
-                f"decision_logic: {case.get('decision_logic', '')}",
-                f"final_recommendation: {case.get('final_recommendation', '')}",
-                f"risk_if_done_wrong: {case.get('risk_if_done_wrong', '')}",
-                f"tags: {', '.join(case.get('bluetooth_tags', []))}",
+                f"customer_question: {short_field(case.get('customer_question'), 240)}",
+                f"decision_logic: {short_field(case.get('decision_logic'), 280)}",
+                f"final_recommendation: {short_field(case.get('final_recommendation'), 280)}",
+                f"risk_if_done_wrong: {short_field(case.get('risk_if_done_wrong'), 220)}",
             ]
             return "\n".join(part for part in parts if not part.endswith(": "))
 
@@ -1614,14 +1617,12 @@ def format_email_case_card(item: Dict[str, Any]) -> str:
         if analysis:
             parts = [
                 f"citation: {citation}",
-            f"case_id: {item['chunk_id']}",
-            f"thread_summary: {analysis.get('thread_summary', '')}",
-            f"key_technical_discussion: {analysis.get('key_technical_discussion', '')}",
-            f"key_decision_logic: {analysis.get('key_decision_logic', '')}",
-            f"risk_if_done_wrong: {analysis.get('risk_if_done_wrong', '')}",
-            f"consulting_takeaway: {analysis.get('consulting_takeaway', '')}",
-        ]
-        return "\n".join(part for part in parts if not part.endswith(": "))
+                f"case_id: {item['chunk_id']}",
+                f"key_decision_logic: {short_field(analysis.get('key_decision_logic'), 320)}",
+                f"consulting_takeaway: {short_field(analysis.get('consulting_takeaway'), 280)}",
+                f"risk_if_done_wrong: {short_field(analysis.get('risk_if_done_wrong'), 220)}",
+            ]
+            return "\n".join(part for part in parts if not part.endswith(": "))
 
     except Exception:
         pass
@@ -1779,7 +1780,7 @@ def answer_question(
                 "mode": mode,
             }
 
-        email_case_k = max(top_k, 10)
+        email_case_k = EMAIL_CASES_TO_MODEL
         selected = email_items[:email_case_k]
         if debug:
             print("\nSelected sources for model:")
@@ -1809,13 +1810,15 @@ def answer_question(
                 "実務上の参考情報として日本語で答えてください。\n"
                 f"{case_count}件のcandidate case sourceが提供されています。\n"
                 "ユーザーの質問に明確に関連するcaseだけを要約してください。\n"
+                "質問に直接関係する場合は、許可された事例と許可されなかった事例の両方を含めてください。\n"
                 "関連が弱いcaseについて、無理に教訓を作らないでください。\n"
                 "同じcaseを別表現で繰り返さないでください。\n"
                 "関連するcaseごとに、簡潔な番号付き箇条書きを1つ作成してください。\n"
                 "出力数は最大で提供されたcase source数までにしてください。\n"
                 "完全なselected source listは別途表示されます。\n"
                 "各箇条書きは、case topic + 実務上の教訓として簡潔にまとめてください。\n"
-                "各番号付き箇条書きの末尾には、必ずそのcaseのcitationを同じ箇条書き内に入れてください。citationを最後にまとめるだけにしないでください。\n"
+                "各番号付き箇条書きの末尾には、source orderに表示された完全なcitationを必ず入れてください。bluetooth:email:... のidを含める必要があります。\n"
+                "ファイル名だけでcitationしないでください。\n"
                 "citationで裏付けできない箇条書きは出力しないでください。\n"
                 "長い前置きや結論は不要です。\n"
                 "次のsource orderを使ってください:\n"
@@ -1829,12 +1832,14 @@ def answer_question(
                 "not as official policy.\n"
                 f"You have been given {case_count} candidate case sources.\n"
                 "Summarize only the cases that are clearly relevant to the user's question.\n"
+                "Include both positive and negative examples when they directly address the question, for example cases where the requested action was allowed and cases where it was not allowed.\n"
                 "Do not invent a lesson for weakly related cases.\n"
                 "Do not repeat the same case under different wording.\n"
                 "Use one concise numbered bullet per relevant case, up to the provided case count.\n"
                 "The full selected source list will be shown separately.\n"
                 "Keep each bullet concise: case topic + practical lesson.\n"
-                "Each numbered bullet MUST end with its source citation in the same bullet. Do not put citations only at the end.\n"
+                "Each bullet must include the full source citation exactly as shown in the source order, including the bluetooth:email:... id.\n"
+                "Do not cite using only the filename.\n"                
                 "If a bullet cannot be supported by a citation, do not include that bullet.\n"
                 "Do not add a long introduction or conclusion.\n"
                 "Use this exact source order:\n"
