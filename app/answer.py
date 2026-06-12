@@ -1177,21 +1177,26 @@ def build_definition_answer(
 
     return separate_citations(body, items)
 
+def is_email_source(item: Dict[str, Any]) -> bool:
+    return (item["metadata"].get("source_type") or "").lower() in {
+        "email_case",
+        "email_thread_analysis",
+        "email",
+    }
+
 def is_official_source(item: Dict[str, Any]) -> bool:
     meta = item["metadata"]
     doc_type = (meta.get("doc_type") or "").lower()
-    source_type = (meta.get("source_type") or "").lower()
     return (
         doc_type in {"policies", "specs", "reference"}
-        and source_type not in {"email_case", "email_thread_analysis", "email"}
+        and not is_email_source(item)
     )
 
 def filter_email_sources(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    return [
-        item for item in items
-        if (item["metadata"].get("source_type") or "").lower()
-        in {"email_case", "email_thread_analysis", "email"}
-    ]
+    return [item for item in items if is_email_source(item)]
+
+def filter_email_sources(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return [item for item in items if is_email_source(item)]
 
 def preserve_relevant_email_case(
     question: str,
@@ -1636,7 +1641,7 @@ def format_email_case_card(item: Dict[str, Any]) -> str:
 def filter_items_to_cited(answer: str, selected: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     cited_items = [
         item for item in selected
-        if item["chunk_id"] in answer
+        if re.search(rf"\[{re.escape(item['chunk_id'])}(\s|\||\])", answer)
     ]
 
     return cited_items if cited_items else selected
@@ -1868,7 +1873,7 @@ def answer_question(
         cited_ids = {
             item["chunk_id"]
             for item in selected
-            if item["chunk_id"] in answer
+            if re.search(rf"\[{re.escape(item['chunk_id'])}(\s|\||\])", answer)
         }
 
         cited_items = [
