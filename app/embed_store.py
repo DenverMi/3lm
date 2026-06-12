@@ -47,13 +47,17 @@ def main():
     client = chromadb.PersistentClient(path=str(CHROMA_PATH))
     collection = client.get_or_create_collection(COLLECTION_NAME)
 
-    for chunk in tqdm(chunks, desc="Embedding chunks"):
-        embedding = model.encode(chunk["text"]).tolist()
+    batch_size = 64
+
+    for start in tqdm(range(0, len(chunks), batch_size), desc="Embedding chunks"):
+        batch = chunks[start:start + batch_size]
+        texts = [chunk["text"] for chunk in batch]
+        embeddings = model.encode(texts).tolist()
 
         collection.add(
-            ids=[chunk["chunk_id"]],
-            documents=[chunk["text"]],
-            embeddings=[embedding],
+            ids=[chunk["chunk_id"] for chunk in batch],
+            documents=texts,
+            embeddings=embeddings,
             metadatas=[{
                 "program": chunk["program"],
                 "domain": chunk.get("domain", chunk["program"]),
@@ -64,7 +68,7 @@ def main():
                 "priority": chunk.get("priority", 0),
                 "page_start": chunk["page_start"],
                 "page_end": chunk["page_end"],
-            }]
+            } for chunk in batch],
         )
 
     print(f"✅ Stored {len(chunks)} chunks in ChromaDB at {CHROMA_PATH}")

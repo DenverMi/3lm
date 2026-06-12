@@ -739,15 +739,10 @@ def separate_citations(answer: str, items: List[Dict[str, Any]]) -> str:
     answer = re.sub(r"\n*Citations:\s*(?:-|\n-\s*)*", "", answer, flags=re.IGNORECASE).strip()
     answer = re.sub(r"(?m)^[\*\-\s]+$", "", answer).strip()
 
-    if not found:
-        if len(items) <= 2:
-            fallback_items = items[:1]
-        else:
-            fallback_items = items[:3]
-
+    if not found and items:
+        item = items[0]
         found = [
             f"[{item['chunk_id']} | {format_citation(item['metadata'])}]"
-            for item in fallback_items
         ]
 
     found = found[:5]
@@ -1191,9 +1186,6 @@ def is_official_source(item: Dict[str, Any]) -> bool:
         doc_type in {"policies", "specs", "reference"}
         and not is_email_source(item)
     )
-
-def filter_email_sources(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    return [item for item in items if is_email_source(item)]
 
 def filter_email_sources(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return [item for item in items if is_email_source(item)]
