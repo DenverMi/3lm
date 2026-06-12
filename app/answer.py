@@ -387,7 +387,7 @@ def add_glossary_support_sources(
             if doc_type not in {"policies", "specs", "reference"}:
                 continue
 
-            if source_type in {"email_case", "email_thread_analysis", "email"}:
+            if is_email_source(hit):
                 continue
 
             if acronym.lower() not in text_lower:
@@ -551,7 +551,7 @@ def build_model_input(
         text = (item.get("text") or "").strip()
         source_type = (meta.get("source_type") or "").lower()
 
-        if source_type in {"email_case", "email_thread_analysis", "email"}:
+        if is_email_source(item):
             text = compact_email_case_text(text).strip()
         
         remaining = MAX_CONTEXT_CHARS - total_chars
@@ -637,7 +637,7 @@ def format_context_for_simple_retry(items: List[Dict[str, Any]], max_chars: int 
         text = (item.get("text") or "").strip()
         source_type = (meta.get("source_type") or "").lower()
 
-        if source_type in {"email_case", "email_thread_analysis", "email"}:
+        if is_email_source(item):
             text = compact_email_case_text(text).strip()
 
         block = (
@@ -1208,8 +1208,7 @@ def preserve_relevant_email_case(
     email_count = sum(
         1
         for item in selected
-        if (item["metadata"].get("source_type") or "").lower()
-        in {"email_case", "email_thread_analysis", "email"}
+        if is_email_source(item)
     )
 
     if email_count >= 2:
@@ -1254,7 +1253,7 @@ def preserve_relevant_email_case(
     for item in items:
         source_type = (item["metadata"].get("source_type") or "").lower()
 
-        if source_type not in {"email_case", "email_thread_analysis", "email"}:
+        if not is_email_source(item):
             continue
 
         if item["chunk_id"] in {x["chunk_id"] for x in selected}:
@@ -1275,7 +1274,7 @@ def preserve_relevant_email_case(
 
             if (
                 chunk_kind == "front_page"
-                and existing_source_type not in {"email_case", "email_thread_analysis", "email"}
+                and not is_email_source(selected[idx])
                 and existing_doc_type not in {"reference", "specs"}
             ):
                 selected[idx] = item
@@ -1339,7 +1338,7 @@ def is_advisory_decision_source(item: Dict[str, Any]) -> bool:
     doc_type = (meta.get("doc_type") or "").lower()
     source_type = (meta.get("source_type") or "").lower()
 
-    if source_type not in {"email_case", "email_thread_analysis", "email"} and doc_type != "reference":
+    if not is_email_source(item) and doc_type != "reference":
         return False
 
     decision_signals = [
@@ -1437,7 +1436,7 @@ def select_exact_label_items(items: List[Dict[str, Any]], limit: int = 5) -> Lis
             continue
 
         source_type = (item["metadata"].get("source_type") or "").lower()
-        if source_type in {"email_case", "email_thread_analysis", "email"}:
+        if is_email_source(item):
             continue
 
         selected.append(item)
@@ -1467,7 +1466,7 @@ def source_authority_rank(item: Dict[str, Any]) -> int:
     if doc_type == "reference":
         return 2
 
-    if source_type in {"email_case", "email_thread_analysis", "email"}:
+    if is_email_source(item):
         return 3
 
     if doc_type == "specs":
@@ -1583,7 +1582,7 @@ def apply_source_hierarchy(
                 if wants_module and "module" not in text:
                     continue
 
-            if source_type in {"email_case", "email_thread_analysis", "email"} or doc_type == "reference":
+            if is_email_source(item) or doc_type == "reference":
                 output.append(item)
                 seen.add(item["chunk_id"])
 
