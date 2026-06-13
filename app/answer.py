@@ -2309,13 +2309,31 @@ def answer_question(
         and "difference between" not in clean_question.lower()
         and "違い" not in clean_question
     ):
+        term_matches = re.findall(r"[A-Z]{2,10}", clean_question.upper())
+        term_matches = [t for t in term_matches if t not in {"BLUETOOTH", "SIG"}]
+        term = term_matches[-1] if term_matches else None
+
         definition_items = [
-            item for item in selected
-            if (item["metadata"].get("doc_name") or "").lower() == "glossary.md"
-            or (item["metadata"].get("chunk_kind") or "").lower() == "definition"
+            item for item in items
+            if (
+                term
+                and term.lower() in (item.get("text") or "").lower()
+                and (
+                    (item["metadata"].get("doc_name") or "").lower() == "glossary.md"
+                    or (item["metadata"].get("chunk_kind") or "").lower()
+                    in {"definition", "glossary"}
+                )
+            )
         ]
 
         if definition_items:
+            definition_items = sorted(
+                definition_items,
+                key=lambda item: (
+                    1 if (item["metadata"].get("chunk_kind") or "").lower() == "front_page" else 0,
+                    -float(item.get("score", 0.0)),
+                ),
+            )
             selected = definition_items[:3]
     
     if debug and is_definition_query(clean_question):

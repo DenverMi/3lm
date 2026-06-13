@@ -18,6 +18,13 @@ def normalize_text(text: str) -> str:
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
 
+def normalize_markdown_text(text: str) -> str:
+    text = text.replace("\\(", "(").replace("\\)", ")")
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    text = text.replace("\xa0", " ")
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
 
 def extract_pdf(path: Path):
     reader = PdfReader(path)
@@ -41,7 +48,12 @@ def extract_markdown(path: Path):
     pages = []
 
     # 1. Extract heading-based sections
-    text = normalize_text(raw)
+    doc_type = path.parent.name
+    
+    if doc_type in {"reference", "policies"}:
+        text = normalize_markdown_text(raw)
+    else:
+        text = normalize_text(raw)
     if text:
         sections = re.split(r"\n(?=#{1,6}\s+)", text)
 

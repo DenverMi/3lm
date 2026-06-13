@@ -13,15 +13,9 @@ from app.config import (
 )
 
 def detect_chunk_kind(text: str) -> str:
-    stripped = text.strip()
+    head = text[:500].lower()
 
-    # Section-level glossary/definitions headings.
-    # These are useful, but they are not the same as atomic definition chunks.
-    if re.search(
-        r"^\s{0,3}#{1,6}\s+(glossary|definitions)\b",
-        stripped,
-        re.IGNORECASE | re.MULTILINE,
-    ):
+    if "glossary" in head or "definitions" in head:
         return "glossary"
 
     return "body"
@@ -117,15 +111,21 @@ def split_reference_sections(text: str) -> List[str]:
 
     return sections
 
-
 def page_range_for_span(page_spans, start_char: int, end_char: int) -> tuple:
-    pages_in_chunk = [
-        page_no for (page_no, s, e) in page_spans
-        if not (e <= start_char or s >= end_char)
-    ]
-    if not pages_in_chunk:
-        return None, None
-    return min(pages_in_chunk), max(pages_in_chunk)
+    first_page = None
+    last_page = None
+
+    for page_no, s, e in page_spans:
+        if e <= start_char:
+            continue
+        if s >= end_char:
+            break
+
+        if first_page is None:
+            first_page = page_no
+        last_page = page_no
+
+    return first_page, last_page
 
 def infer_source_type(doc_type: str, doc_name: str) -> str:
     if doc_type != "email":
@@ -158,6 +158,9 @@ def make_front_page_chunks(doc_pages: List[Dict[str, Any]], first_n_pages: int =
         if not text:
             continue
 
+        if len(text) > MAX_CHARS:
+            continue
+
         chunk_kind = "front_page"
         chunk_id = f"{program}:{doc_type}:{doc_name}:p{p['page']:05d}"
 
@@ -176,6 +179,20 @@ def make_front_page_chunks(doc_pages: List[Dict[str, Any]], first_n_pages: int =
 
     return chunks
 
+def adjust_cut_to_natural_boundary(
+    text: str,
+    pos: int,
+    max_chars: int,
+    min_chars: int = 200,
+) -> int:
+    lower = max(pos - 500, 0)
+
+    for sep in ("\n#", "\n\n", "\n", ". ", "。", "? ", "! "):
+        idx = text.rfind(sep, lower, pos)
+        if idx != -1:
+            return idx + len(sep)
+
+    return pos
 
 def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
@@ -288,7 +305,14 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     # Default sliding-window chunking for specs/reports/etc.
     start_char = 0
     while start_char < len(full_text):
-        end_char = min(start_char + MAX_CHARS, len(full_text))
+        raw_end_char = min(start_char + MAX_CHARS, len(full_text))
+        end_char = adjust_cut_to_natural_boundary(full_text, raw_end_char, MAX_CHARS)
+
+        # Safety guard: do not allow natural-boundary adjustment to create tiny chunks.
+        # If the adjusted cut would not move far enough past the overlap, use the raw cut.
+        if end_char <= start_char + OVERLAP_CHARS + 200:
+            end_char = raw_end_char
+
         chunk_text = full_text[start_char:end_char].strip()
 
         if not chunk_text:
@@ -334,6 +358,7 @@ def main() -> None:
     all_chunks: List[Dict[str, Any]] = []
 
     for (program, doc_type, doc_name), doc_pages in grouped.items():
+
         front_chunks = make_front_page_chunks(doc_pages)
         body_chunks = make_body_chunks(doc_pages)
         doc_chunks = front_chunks + body_chunks
