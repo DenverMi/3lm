@@ -1,0 +1,47 @@
+{
+    "source_thread": "thread_0104",
+    "cases": [
+        {
+            "case_id": "thread_0104_case_01",
+            "iut_type": "module",
+            "customer_question": "Can a product that replaces an EOL Bluetooth module with a successor module reuse the successor module's existing qualified design and avoid profile testing?",
+            "question_variants": [
+                "Can we reuse the module's existing DID/DN for qualification?",
+                "Does changing to a successor Bluetooth module require profile testing?",
+                "Can a new module with a different chipset use Single Design qualification?",
+                "Is Bluetooth SIG requalification required after a module replacement?",
+                "Can existing profile coverage be reused from the replacement module?"
+            ],
+            "actual_issue": "A product is migrating from an obsolete Bluetooth module to a successor module with a different chipset and needs to determine whether Bluetooth profile testing must be repeated or whether qualification can be based on the successor module's existing qualified design.",
+            "plain_english_explanation": "Replacing a Bluetooth module does not automatically mean all Bluetooth testing must be repeated. If the replacement module already supports all Bluetooth profiles used by the product and has an existing qualified design, profile testing may not be required. The remaining qualification work depends on how the module is integrated into the product.",
+            "consultant_answer": "The successor module's qualified design was reviewed against the product's supported profiles. Because the replacement module already included all profiles used by the existing product, profile testing was determined to be unnecessary. Qualification could proceed using a design-reuse approach based on the successor module's existing qualification, subject to evaluation of RF requirements and completion of the registration process.",
+            "decision_logic": "When the replacement module's qualified design fully covers the Bluetooth profile functionality used by the product, profile qualification evidence can be reused. The determining factor is profile coverage equivalence rather than the fact that the chipset changed.",
+            "final_recommendation": "Verify that the replacement module's qualified design covers all Bluetooth profiles implemented by the product and proceed with qualification using the existing qualified design rather than repeating profile testing.",
+            "risk_if_done_wrong": "Failure to verify profile coverage may result in unnecessary profile testing, added qualification effort, increased cost, and schedule delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "module",
+                "QDID",
+                "DN",
+                "profile",
+                "reuse",
+                "Single Design"
+            ],
+            "search_aliases": [
+                "module replacement qualification",
+                "successor module reuse",
+                "QDID reuse",
+                "DN reuse",
+                "profile test not required",
+                "Single Design qualification",
+                "EOL module replacement",
+                "qualified design reuse",
+                "module migration",
+                "profile coverage check"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

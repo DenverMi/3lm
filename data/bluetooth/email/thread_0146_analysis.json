@@ -1,0 +1,12 @@
+{
+  "source_thread": "thread_0146",
+  "case_analysis": {
+    "thread_summary": "Internal IT thread — Windows 7 PC boot failure at Allion Japan test lab. No Bluetooth SIG certification content. Sakai advised Mochizuki on MBR repair, repair install, and clean install options. No knowledge base value.",
+    "all_questions_found": [],
+    "key_technical_discussion": "Windows 7 end-of-life boot troubleshooting. Not relevant to Bluetooth certification.",
+    "key_decision_logic": "N/A",
+    "risk_if_done_wrong": "N/A",
+    "consulting_mistake": "N/A",
+    "consulting_takeaway": "No Bluetooth certification content. Thread should be excluded from the knowledge base."
+  }
+}

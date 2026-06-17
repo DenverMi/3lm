@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0132",
+  "case_id": "thread_0132_case_01",
+  "source_type": "email_case",
+  "iut_type": "consumer electronics",
+  "customer_question": "Our new product is an OS version upgrade of a model we certified 3 years ago. The wireless module and RF specifications are unchanged. Can we reuse the existing RF/RF PHY test report from the prior registration for the new listing?",
+  "question_variants": [
+    "Can a prior RF PHY test report be carried over to a new registration if RF specs haven't changed?",
+    "Does an OS version upgrade require new RF testing?",
+    "Is RF test report reuse valid when only firmware/software changes between registrations?"
+  ],
+  "actual_issue": "A customer ([COMPANY] Sony) sought a new Bluetooth SIG listing for an FY26 TV model as an OS version upgrade of a 3-year-old registration. The wireless module and RF specifications were unchanged. They asked whether the existing RF/RFPHY test report from the prior registration could be reused. The consultant confirmed yes - if the wireless module and RF specifications are genuinely unchanged, the prior RF/RFPHY test report can be carried over to the new listing. However, the consultant also found ICS differences between the old registered QDID and the new registration's referenced Controller Subsystem QDID (specifically Power Class 1 ICS items LL 9/15 and RF 1/1 differed), which required addressing separately (see case_02). The key principle: RF test report reuse is valid when RF hardware/module specs are unchanged, but ICS consistency between the new registration's referenced QDIDs must still be verified.",
+  "plain_english_explanation": "When a product is updated with only software or OS changes (no hardware or RF module changes), the underlying radio hardware hasn't changed - so the RF performance test results from the prior certification remain valid. Bluetooth SIG allows reuse of prior RF test reports in a new listing when the RF subsystem is identical. However, this only addresses the RF test documentation; the new listing must also correctly reference the right QDIDs and ensure ICS consistency across all referenced specifications. The consultant confirmed test report reuse was valid but separately flagged ICS differences between the old QDID and the new one, requiring careful QDID selection for the new registration.",
+  "consultant_answer": "はい、無線モジュールやRF仕様の変更がなければ、[ID]の際に作成したRF/RFPHYのテストレポートは流用可能です。(Yes, if there are no changes to the wireless module or RF specifications, the RF/RFPHY test report from the prior registration can be reused.)",
+  "decision_logic": "When a customer proposes a new listing for a product with unchanged RF hardware/module: (1) Confirm RF report reuse is valid if RF specs are genuinely unchanged. (2) Separately verify ICS consistency between the new registration's referenced QDIDs and the existing registration - ICS differences can create complications even when RF hardware is unchanged. (3) Suggest the Multi-Design reference registration path (proxy registration + Compliance Folder only, no new testing) if ICS differences can be resolved through QDID/Subset selection.",
+  "final_recommendation": "Confirm RF test report reuse eligibility when RF hardware/module is unchanged. Always cross-check ICS items between the old QDID and the new referenced Controller Subsystem QDID for any differences that could require additional testing or ICS changes. Recommend the test-exempt listing path (Multi-Design reference, no new RF/profile test) where possible.",
+  "risk_if_done_wrong": "Proceeding with a new listing without checking ICS consistency between old and new QDIDs could result in inter-layer inconsistencies that block the registration, require unexpected testing, or force an impractical ~300-item LL test plan. Conversely, incorrectly claiming RF report reuse when RF specs have changed would result in invalid certification.",
+  "bluetooth_tags": ["qualification", "listing", "RF PHY", "test report reuse", "OS version upgrade", "ICS", "Multi-Design", "QDID"],
+  "search_aliases": [
+    "OS version upgrade new listing RF test report reuse",
+    "RF PHY test report carry over unchanged wireless module",
+    "software update no RF change Bluetooth re-listing",
+    "prior test report reuse Multi-Design reference",
+    "OS upgrade Bluetooth SIG new QDID listing"
+  ],
+  "qualification_stage": "post-launch change",
+  "confidence": "high"
+}

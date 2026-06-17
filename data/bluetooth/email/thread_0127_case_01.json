@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0127",
+  "case_id": "thread_0127_case_01",
+  "source_type": "email_case",
+  "iut_type": "sensor",
+  "customer_question": "We acquired a 'toilet sensor' product line (and its business) from another company (NECPF), and want to continue selling the same product under our own brand using NECPF's existing Bluetooth SIG registration information as-is. Can you handle our SIG registration based on NECPF's prior registration, and here is NECPF's Compliance Folder ID for reference?",
+  "question_variants": [
+    "Can we reuse a previous brand owner's SIG registration info when we take over their product line via business transfer?",
+    "What information do you need from us to start a proxy registration for an acquired product line?",
+    "Is our quote request form and proxy registration confirmation form filled out correctly?"
+  ],
+  "actual_issue": "Paramount Bed (パラマウントベッド) acquired the 'toilet sensor' product business from NEC Platforms (NECPF), which had previously used Allion for its Bluetooth SIG registration. The customer requested that Allion carry over NECPF's existing SIG registration information to register the same product under Paramount Bed's own brand, and provided NECPF's prior Compliance Folder ID (DID) as reference, noting NECPF had also used Allion for its registration. The customer submitted a quote request form and proxy registration confirmation form. The consultant acknowledged the carryover request and reviewed the submitted forms, confirming the registration content had no issues, then proceeded to quote and plan the registration.",
+  "plain_english_explanation": "When a company acquires a product line (and the associated business) from another company that previously had the product Bluetooth SIG-registered (often through the same consulting firm), the new owner can ask the consultant to base the new registration on the prior owner's existing registration details - referencing the prior registration's Compliance Folder ID as a starting point - so the new registration under the new brand can proceed efficiently using already-known product information, rather than starting from scratch. The consultant reviews the customer's quote request and proxy registration confirmation forms against this carried-over information to confirm there are no discrepancies before proceeding with the new registration and quote.",
+  "consultant_answer": "SIG登録に関するご連絡ありがとうございます。NECPF社のコンプライアンスフォルダのID（DID）について承知しました。見積依頼書、代行登録内容確認書を拝見しました。登録内容に関しては問題ございません。 (Thank you for your inquiry about SIG registration. We acknowledge NECPF's Compliance Folder ID (DID). We've reviewed the quote request form and proxy registration confirmation form - there are no issues with the registration content.)",
+  "decision_logic": "When a customer requests SIG registration for a product line acquired via business transfer from a prior brand owner, and the prior owner's registration was handled by the same consultant, accept the prior registration's Compliance Folder ID/DID as a reference point for the new registration. Review the customer's quote request form and proxy registration confirmation form for the new brand's registration and confirm no discrepancies before proceeding.",
+  "final_recommendation": "For business-transfer acquisitions of an already-SIG-registered product line, request the prior owner's Compliance Folder ID/DID as a reference, and proceed with a new proxy registration under the new brand based on the customer's completed quote request and proxy registration confirmation forms, after confirming consistency with the prior registration details.",
+  "risk_if_done_wrong": "If the prior owner's registration details aren't properly referenced or reconciled with the new registration, there is a risk of inconsistent product information between the old and new SIG registrations, or duplicate/conflicting registrations for what is effectively the same product under a different brand.",
+  "bluetooth_tags": ["qualification", "listing", "business transfer", "registration", "Compliance Folder", "DID", "proxy registration", "branding"],
+  "search_aliases": [
+    "SIG registration business transfer acquired product line",
+    "carry over prior owner SIG registration info",
+    "Compliance Folder ID reference new brand registration",
+    "proxy registration confirmation form review",
+    "NECPF toilet sensor registration handover"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "medium"
+}

@@ -1,0 +1,21 @@
+{
+  "source_thread": "thread_0144",
+  "case_id": "thread_0144_case_05",
+  "source_type": "email_case",
+  "iut_type": "IoT/commercial device",
+  "customer_question": "In SIG Launchstudio's Submission Requirements, there is a yellow warning icon (⚠) next to 'Design Details.' What does it mean and does it block Submission?",
+  "question_variants": [
+    "Does the Submission Requirements yellow warning block Submission?",
+    "What does the ⚠ icon next to Design Details mean in Launchstudio?"
+  ],
+  "actual_issue": "The yellow warning (⚠) icon next to 'Design Details' in the Submission Requirements section of SIG Launchstudio is an advisory notification — it indicates that the Host layer is not included in the current registration. It is NOT a blocking error. The registration can proceed to Submission without resolving this warning.",
+  "plain_english_explanation": "In SIG Launchstudio's Submission Requirements page, a yellow ⚠ icon means 'advisory' — not 'error.' This specific warning about Design Details simply tells the registrant that the Host layer is not included in the registration. This may be intentional (e.g., a Core-Controller design intentionally omits the Host). The warning does not prevent Submission — it is informational only. A red error icon would block Submission; a yellow warning does not.",
+  "consultant_answer": "The ⚠ icon next to Design Details = advisory that Host layer is not included. NOT a blocking error. Registration can proceed to Submission.",
+  "decision_logic": "1. Yellow ⚠ in Submission Requirements = advisory/notification only.\n2. It specifically indicates Host layer is not included.\n3. This may be intentional (Core-Controller design, etc.).\n4. Does not block Submission — proceed.",
+  "final_recommendation": "Inform customers that yellow warnings in Submission Requirements are informational and do not block Submission. Only red error icons require resolution before submitting.",
+  "risk_if_done_wrong": "Customers or consultants who treat the yellow ⚠ as a blocking error will delay Submission unnecessarily while trying to 'fix' something that does not need fixing.",
+  "bluetooth_tags": ["Submission-Requirements", "yellow-warning", "Design-Details", "Host-layer", "advisory", "SIG-Launchstudio"],
+  "search_aliases": ["Submission Requirements yellow warning Design Details", "⚠ icon Launchstudio Submission", "Host layer not included warning", "yellow warning blocks submission", "advisory warning SIG Launchstudio"],
+  "qualification_stage": "pre-submission",
+  "confidence": "high"
+}

@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0144",
+  "case_id": "thread_0144_case_03",
+  "source_type": "email_case",
+  "iut_type": "IoT/commercial device",
+  "customer_question": "We are using an nRF53 (Nordic) SoC with Zephyr OS. There is a Nordic Controller Subsystem QDID and a Linux Foundation Zephyr OS Host Subsystem QDID. What registration path should we use, and does it differ if we implement SIG standard profiles?",
+  "question_variants": [
+    "nRF53 + Zephyr OS registration path: Declaration or Design?",
+    "If we implement SIG standard Bluetooth profiles, do we need a new PTS test?",
+    "Can we use existing Nordic + Linux Foundation QDIDs without any testing?"
+  ],
+  "actual_issue": "For an nRF53 + Zephyr OS product, two pre-existing QDIDs are available: Nordic Semiconductor's Controller Subsystem QDID and the Linux Foundation's Zephyr OS Host Subsystem QDID. The registration path depends on whether SIG standard profiles are implemented: (A) No SIG standard profiles → Declaration (now 'Design' under QPRDv3.0) registration referencing both QDIDs, test-exempt; (B) SIG standard profiles implemented (e.g., GAP, GATT, HFP, A2DP, etc.) → new Profile Subsystem Design registration is required, PTS test must be conducted for the profile(s), then combined with both Subsystem QDIDs.",
+  "plain_english_explanation": "nRF53 with Zephyr OS is a popular combo for which SIG QDIDs already exist from both the SoC vendor (Nordic) and the OS vendor (Linux Foundation). If the product does not implement any SIG standard Bluetooth profiles (e.g., it only uses proprietary BLE data transfer), the set maker can simply reference both existing QDIDs in a new Design registration — no testing is required. However, if the product implements SIG standard profiles (which have their own specification and ICS), those profiles need to be tested with PTS and registered separately as a Profile Subsystem, then combined with the existing Controller and Host QDIDs.",
+  "consultant_answer": "nRF53 + Zephyr OS: (A) No SIG standard profiles → Design registration referencing Nordic Controller Sub QDID + Linux Foundation Host Sub QDID, test-exempt. (B) SIG standard profiles implemented → new Profile Subsystem Design registration (PTS test required) combined with both Subsystem QDIDs.",
+  "decision_logic": "1. Confirm SoC: nRF53 → Nordic Controller Subsystem QDID exists.\n2. Confirm OS: Zephyr → Linux Foundation Host Subsystem QDID exists.\n3. Check if SIG standard profiles are implemented:\n   - No profiles → Design registration referencing both QDIDs, no test.\n   - SIG profiles → Profile Subsystem new Design (PTS test) + both existing QDIDs.",
+  "final_recommendation": "At project intake, explicitly ask whether the product implements any SIG standard Bluetooth profiles. The answer determines whether testing is required or whether the project is test-exempt.",
+  "risk_if_done_wrong": "Starting a test-exempt Design registration for a product that actually implements SIG profiles creates an incomplete certification. Conversely, advising PTS testing when no SIG profiles are implemented wastes time and budget.",
+  "bluetooth_tags": ["nRF53", "Nordic", "Zephyr-OS", "Linux-Foundation", "Controller-Subsystem", "Host-Subsystem", "Profile-Subsystem", "test-exempt", "SIG-profiles", "PTS-test"],
+  "search_aliases": ["nRF53 Zephyr OS registration path", "Nordic Controller QDID Linux Foundation Host QDID", "Zephyr no SIG profiles test exempt", "nRF53 SIG profile PTS test required", "Declaration Design nRF53 Zephyr"],
+  "qualification_stage": "pre-registration / strategy selection",
+  "confidence": "high"
+}

@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0142",
+  "case_analysis": {
+    "thread_summary": "AlpsAlpine 27BRD module registration compliance folder delivery thread. Two key issues: (1) Profile version mismatches found — HFP 1.7.2 should be 1.8 (consultant input error, corrected before Submission); HID 1.1.1 upgraded to 1.1.2 per TCRL pkg101 (same test items, longer certification life); (2) Customer asked about adding expansion/derivative models — confirmed free via 'Manage Submitted Products' for identical module QDID + Host Stack.",
+    "all_questions_found": [
+      "HFP version shows 1.7.2 but should be 1.8 — can this be corrected before Submission?",
+      "HID was tested at v1.1.1 but TCRL now shows v1.1.2 — should we update?",
+      "Can we add derivative product models to the existing certification for free?"
+    ],
+    "key_technical_discussion": "Profile version mismatches fall into two categories: (A) input errors correctable before Submission; (B) TCRL version upgrades where test items are identical — registration should be updated to the newer version. Derivative product expansion via 'Manage Submitted Products' is free when module QDID + Host Stack are identical.",
+    "key_decision_logic": "For version mismatches: determine if input error or TCRL upgrade, then either correct (error) or verify test item parity before upgrading (TCRL). For derived models: confirm identical Bluetooth configuration → direct to Manage Submitted Products.",
+    "risk_if_done_wrong": "Submitting with wrong profile versions causes SIG review delays. Paying a new Qualification Fee for a derivative product that qualifies for free addition wastes customer budget.",
+    "consulting_mistake": "Not cross-checking all profile versions against the PTS report before Submission, or not informing the customer of the free Manage Submitted Products path for derivative models.",
+    "consulting_takeaway": "Always do a final profile version audit against the PTS test report before Submission. Actively inform customers with multiple product models about the Manage Submitted Products free expansion path."
+  }
+}

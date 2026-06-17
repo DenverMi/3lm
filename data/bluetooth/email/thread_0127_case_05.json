@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0127",
+  "case_id": "thread_0127_case_05",
+  "source_type": "email_case",
+  "iut_type": "sensor",
+  "customer_question": "Now that the registration is complete, what do we need to do with the Compliance Folder you're sending us, and what if we release additional models using the same module and host stack later?",
+  "question_variants": [
+    "How will the Compliance Folder be delivered after registration is finalized?",
+    "How long do we need to retain the Compliance Folder, and when would we need to show it?",
+    "Do future derivative models using the same module/host stack need a separate registration?"
+  ],
+  "actual_issue": "After completing the proxy registration for the rebranded 'toilet sensor' product (referencing the prior NECPF registration), the consultant shipped the Compliance Folder (CD-R) to the customer via Japan Post Click Post (tracking number provided) and explained: the Compliance Folder must be retained for 1 year after sales of the registered Product List products end, and presented only if SIG requests an audit (likened to a vehicle inspection certificate / 'shaken'), while reassuring the customer that none of the consultant's previously-supported customers have ever been audited. The consultant also informed the customer that future derivative models using the same module and host stack as this registration can be added to this registration's Product List for free via a simple web operation from the 'Manage Submitted Products' list on My Page, referencing the attached derivative product registration procedure document.",
+  "plain_english_explanation": "Once a Bluetooth SIG proxy registration is finalized, the consultant compiles and physically ships the Compliance Folder (on CD-R, via trackable mail) to the customer. The customer must keep this Compliance Folder for one year after they stop selling the registered product(s), and would only need to show it to Bluetooth SIG if SIG specifically requests an audit - which the consultant notes is rare in their experience (similar to how a car's vehicle inspection certificate must be kept but is rarely demanded outside of routine checks). Separately, if the customer later releases new product variants ('derivative models') that reuse the exact same Bluetooth module and host software stack as this registration, they don't need to go through a full new registration - they can simply add the new model to this registration's existing Product List for free, using a self-service web operation ('Manage Submitted Products' on My Page), following a provided step-by-step procedure document.",
+  "consultant_answer": "本日コンプライアンスフォルダ(CD-R)を日本郵便クリックポスト便で送付させていただきました。追跡番号：[ID]。コンプライアンスフォルダは登録中のProduct List記載製品の発売完了後1年間保管して、Bluetooth SIGの監査の際に提示してください。(自動車の車検証のような存在です。)しかしこれまで当社が登録サポートした顧客の監査実績はありませんのでご安心ください。今後今回の登録と同じモジュールとホストスタックを搭載した展開モデルは、今回の登録でMy Pageに作成されたManage Submitted Products一覧から簡単なWeb操作で今回登録のProduct Listに追加(無料)できます。その際は添付の派生製品の追加Product登録手順書をご参照ください。 (Today we shipped the Compliance Folder (CD-R) via Japan Post Click Post, tracking number [ID]. Please retain the Compliance Folder for 1 year after sales of the Product List products in this registration are discontinued, and present it if Bluetooth SIG requests an audit (it's like a vehicle inspection certificate). However, please be assured none of our previously-supported customers have ever been audited. Going forward, derivative models using the same module and host stack as this registration can be added (for free) to this registration's Product List via a simple web operation from the Manage Submitted Products list on My Page - please refer to the attached derivative product registration procedure document.)",
+  "decision_logic": "After finalizing a proxy registration, ship the compiled Compliance Folder to the customer via trackable mail (e.g., CD-R via Click Post with tracking number), with retention (1 year post-discontinuation) and audit-presentation instructions. Proactively inform the customer that future derivative models sharing the same module/host stack can be added to the existing Product List for free via 'Manage Submitted Products' on My Page, rather than requiring a new full registration.",
+  "final_recommendation": "Deliver the Compliance Folder via trackable mail with clear retention (1 year post-discontinuation) and audit-presentation instructions, and proactively provide the derivative-product registration procedure for future models using the same module/host stack, so the customer avoids unnecessary full re-registration costs.",
+  "risk_if_done_wrong": "If the customer doesn't receive, retain, or understand the Compliance Folder requirements, they could be unprepared for a future SIG audit. If not informed about free derivative-model registration via Manage Submitted Products, the customer might unnecessarily pay for and undergo a full new registration for future models reusing the same module/host stack.",
+  "bluetooth_tags": ["qualification", "compliance folder", "declaration", "retention", "audit", "derivative product", "listing", "Manage Submitted Products"],
+  "search_aliases": [
+    "Compliance Folder CD-R shipment Click Post tracking",
+    "Compliance Folder retention one year audit",
+    "Bluetooth SIG audit shaken analogy",
+    "Manage Submitted Products free derivative model",
+    "derivative product registration procedure same module host stack"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "medium"
+}

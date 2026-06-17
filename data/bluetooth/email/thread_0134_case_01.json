@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0134",
+  "case_id": "thread_0134_case_01",
+  "source_type": "email_case",
+  "iut_type": "HID device",
+  "customer_question": "Can we get Bluetooth SIG certification without performing the HOGP profile test? Is HOGP testing required for our keyboard product?",
+  "question_variants": [
+    "Is HOGP profile testing mandatory for a Bluetooth HID keyboard?",
+    "What kind of Bluetooth certification do we get if we skip the HOGP profile test?",
+    "Can we do End Product registration without any profile test?"
+  ],
+  "actual_issue": "A customer ([COMPANY] Topre) developing a Bluetooth HID keyboard asked whether they could skip the HOGP (HID Over GATT Profile) test and still get Bluetooth SIG certification. The consultant clarified: yes, it is technically possible to complete an End Product registration without HOGP testing, but the resulting certification only covers the minimum Core layers required for End Product registration - it is valid only as a 'profile-less product' certification. For a product that actually implements HOGP (like a Bluetooth keyboard), this type of registration does not certify the product as a Bluetooth HOGP device. The Bluetooth logo and certification would not cover the HID keyboard functionality. Since the product is a keyboard with HOGP implementation, HOGP testing is necessary to obtain a Bluetooth certification that covers the keyboard's actual functionality.",
+  "plain_english_explanation": "Bluetooth SIG certification is not binary - the scope of what is 'certified' depends on what profiles and layers are included in the registration and tested. It is possible to create a minimal End Product registration covering only the Core layers, without any profile testing. However, this only certifies that the product has a Bluetooth radio - it does not certify that the product's HID keyboard function over Bluetooth is conformant. For a keyboard product where the core Bluetooth functionality is the HID keyboard feature (via HOGP), the registration is only meaningful if HOGP is included and tested. Skipping HOGP testing leaves the product with a technically valid but practically incomplete Bluetooth certification.",
+  "consultant_answer": "最小限End product登録に必要なCore階層が揃っていれば登録は可能です。しかしHOGPが実装された製品を対象とした「認証」とはみなされません。あくまでもその内容での登録はプロファイルなし製品だけ有効な「認証」です。(If the minimum Core layers required for End Product registration are in place, registration is possible. However, this will not be considered a 'certification' covering a product with HOGP implementation. The registration in that form is a 'certification' valid only for profile-less products.)",
+  "decision_logic": "When a customer asks if they can skip profile testing: (1) Confirm that minimal End Product registration without profile testing is technically possible; (2) Clarify that the resulting certification only covers the Core radio layers - it is a 'profile-less product' certification; (3) For any product that actually implements Bluetooth profiles (HID keyboard = HOGP, headphone = A2DP/AVRCP, etc.), the profile must be tested and included for the certification to be meaningful; (4) Ask the customer whether they need the profile to be covered by the certification before deciding to skip profile testing.",
+  "final_recommendation": "For products with actual Bluetooth profile implementation (keyboards, mice, headsets, etc.), always include the relevant profile test in the registration scope. Explain to the customer that skipping the profile test reduces the certification to 'profile-less product' status, which does not cover the product's primary Bluetooth function.",
+  "risk_if_done_wrong": "If a customer ships a Bluetooth HID keyboard with only a 'profile-less product' Core certification, the certification technically does not cover the keyboard's HOGP implementation. This could expose the product to compliance challenges if SIG audits and finds the certified scope doesn't match the product's actual Bluetooth functionality.",
+  "bluetooth_tags": ["qualification", "HOGP", "HID", "profile test", "End Product", "certification scope", "profile-less"],
+  "search_aliases": [
+    "HOGP profile test required Bluetooth keyboard certification",
+    "skip profile test End Product registration profile-less",
+    "Bluetooth certification scope without profile test",
+    "HOGP HID keyboard mandatory profile test",
+    "End Product registration minimum Core no profile test meaning"
+  ],
+  "qualification_stage": "initial certification",
+  "confidence": "high"
+}

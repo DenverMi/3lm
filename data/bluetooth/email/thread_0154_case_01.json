@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0154",
+  "case_id": "thread_0154_case_01",
+  "source_type": "internal_consulting",
+  "iut_type": "End Product — A2DP / AVRCP profile",
+  "customer_question": "A2DP/SRC/SUS/[ID] (Category B) appears in the test plan but was not tested because the customer changed the ICS mid-project to remove the relevant capability. The test plan was not updated. How should this be handled?",
+  "question_variants": [
+    "Customer changed ICS and removed a test case from scope, but the test plan was not updated — what do we do?",
+    "A test case is in the plan but was not executed due to ICS change — is the report still valid?",
+    "How do we handle a test plan that is out of sync with the ICS after the customer makes changes?"
+  ],
+  "actual_issue": "During the Sony Corporation profile test project, the customer changed their ICS mid-project to remove support for A2DP/SRC/SUS/[ID] (Category B). As a result, this test case was no longer applicable and was not executed. However, the test plan was not updated to reflect the ICS change — the test case still appeared in the plan without a result, creating a gap that triggered a review flag.",
+  "plain_english_explanation": "If a customer changes their ICS during a project (e.g., removes a feature), any test cases tied to that ICS item must be removed from the test plan as well. A test plan with a listed case that has no result and no exclusion note is a gap that fails review. The test plan must always be updated when ICS changes remove test cases.",
+  "consultant_answer": "Update the test plan to reflect the ICS change. Remove (or mark as excluded with reason) the A2DP/SRC/SUS/[ID] case. Replace the report with the updated test plan version. The test itself does not need to be re-run; the plan is the document that needs correction.",
+  "decision_logic": "The test plan is a live document that must stay synchronized with the ICS throughout the project. When a customer changes the ICS to remove a capability, the corresponding test cases must be removed from or excluded in the test plan before the report is finalized. Unresolved gaps (cases in plan with no result) are flagged in review.",
+  "final_recommendation": "When a customer requests an ICS change mid-project, always update the test plan at the same time. Make this a process step — ICS change → test plan update → confirm scope with customer → update report.",
+  "risk_if_done_wrong": "A test plan out of sync with the ICS will fail report review. The resulting delay requires updating the test plan, reissuing the report, and going through review again — adding unnecessary time to the project.",
+  "bluetooth_tags": ["A2DP", "test plan", "ICS change", "Category B", "test case exclusion", "report review"],
+  "search_aliases": ["test plan not updated after ICS change", "ICS change test case removal", "A2DP test plan gap", "customer ICS change mid-project"],
+  "qualification_stage": "Test Execution / Report Review",
+  "confidence": "high"
+}

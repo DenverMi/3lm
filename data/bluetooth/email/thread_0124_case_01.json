@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0124",
+  "case_id": "thread_0124_case_01",
+  "source_type": "internal_consulting",
+  "iut_type": "",
+  "customer_question": "(Internal) When reviewing this RF test report for [COMPANY], is it complete and correct as submitted?",
+  "question_variants": [
+    "Does an RF test report need a Min Power test row for TRM/CA if ICS 1/4 Power Control is YES?",
+    "What should be checked when reusing a past RF report as a template for a new one?",
+    "Is the packet-type naming in the RF report table consistent with the log files?"
+  ],
+  "actual_issue": "An internal RF test report (ALPS Alpine, project [ID], Test Result: PASS) was submitted for review. The reviewer (Sakai) first corrected inconsistent packet-type abbreviations in the report table to match the log files (DH1, 2-DH1, 3-DH1, DH3, DH5, 2-DH5, 3-DH5). A second reviewer (Tanaka) then identified that the TRM/CA/[ID] test item was tested at both Max Power and Min Power, but the report table only included a Max Power row; he requested a Min Power row be added. Sakai confirmed the cause: when ICS 1/4 Power Control is answered YES, the TRM/CA/[ID] test item requires an additional Min Power measurement, and this was missed because the report was created by overwriting a past report template without re-checking the ICS 1/4 Power Control answer. Sakai issued a corrected report and instructed the team to check the ICS 1/4 Power Control:YES/NO setting whenever reusing a past RF report as a template going forward.",
+  "plain_english_explanation": "RF test reports are often created by copying and editing a previous report as a template. This is risky because some test requirements depend on the device's ICS (Implementation Conformance Statement) answers, which can differ between projects. Specifically, if a device's ICS answer for '1/4 Power Control' is YES, the TRM/CA (transmit power / power control) test item must include an additional measurement at Min Power, not just Max Power - so the report table needs both a Max Power row and a Min Power row for that test item. If a report is copied from a past project that didn't have Power Control, or the reviewer doesn't re-check this setting, the Min Power row can be missed, producing an incomplete report that needs correction after review. Separately, packet-type naming conventions in report tables (e.g., DH1 vs 2-DH1 vs 3-DH1) should match the naming used in the raw test log files for consistency.",
+  "consultant_answer": "後夷さん、RF試験では、ICS 1/4 Power Control:YESの場合はTRM/CA/[ID]にMin Powerでの試験が追加されます。修正レポートを添付します（私も失念してチェックミスしました）。今後RFレポートを過去のものをテンプレートにして上書きする際にICS 1/4 Power Control:YESの有無まで確認して使ってください。 (Ushiroebisu-san, for RF testing, if ICS 1/4 Power Control is YES, a Min Power test is added for TRM/CA/[ID]. Attached is the corrected report - I also missed this in my check, sorry. Going forward, when overwriting a past report as a template, please also check whether ICS 1/4 Power Control is YES.)",
+  "decision_logic": "When preparing or reviewing an RF test report, check the device's ICS answer for '1/4 Power Control'. If YES, the TRM/CA (transmit power) test item must include both a Max Power row and a Min Power row in the report table. If a past report is reused as a template, explicitly re-verify the ICS 1/4 Power Control answer for the new project, since this requirement is easy to miss when copying from a project with a different ICS setting. Also verify that packet-type labels in the report table match the abbreviations used in the underlying log files.",
+  "final_recommendation": "Before finalizing an RF test report, confirm the ICS 1/4 Power Control answer; if YES, ensure TRM/CA includes a Min Power row in addition to Max Power, and treat this check as mandatory whenever a past report is reused as a template for a new project.",
+  "risk_if_done_wrong": "An RF test report missing the required Min Power measurement row for TRM/CA when ICS 1/4 Power Control is YES is incomplete and would need to be corrected after internal or customer review, causing rework and potential delay to the registration/test report delivery timeline.",
+  "bluetooth_tags": ["RF", "RF test", "TRM/CA", "ICS", "Power Control", "test report", "report review"],
+  "search_aliases": [
+    "ICS 1/4 Power Control YES Min Power test requirement",
+    "TRM/CA Min Power row RF report",
+    "RF test report template reuse checklist",
+    "packet type abbreviation consistency RF report",
+    "RF report review correction Max Power Min Power"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "medium"
+}

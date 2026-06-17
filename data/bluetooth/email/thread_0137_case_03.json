@@ -1,0 +1,21 @@
+{
+  "source_thread": "thread_0137",
+  "case_id": "thread_0137_case_03",
+  "source_type": "email_case",
+  "iut_type": "IoT/embedded",
+  "customer_question": "How do we verify that our SIG Launchstudio account is set up correctly and linked to our company?",
+  "question_variants": [
+    "Where do I find my account information on SIG Launchstudio?",
+    "How do I confirm which company my SIG account belongs to?"
+  ],
+  "actual_issue": "Customers sometimes need to verify their SIG account status and company association. The procedure is: navigate to launchstudio.bluetooth.com, click the 'My blue' icon (person/circle icon) in the top right corner, then select 'My account.' This shows the account details and company association.",
+  "plain_english_explanation": "On SIG Launchstudio, account verification is done through the 'My blue' user icon at the top-right of the screen. Clicking it reveals a dropdown that includes 'My account,' which shows the account details, company membership, and role. This is a basic but frequently needed navigational step for customers who are unfamiliar with the Launchstudio interface.",
+  "consultant_answer": "Go to launchstudio.bluetooth.com → click the 'My blue' icon (top right) → select 'My account' to verify account details and company association.",
+  "decision_logic": "1. Navigate to launchstudio.bluetooth.com.\n2. Look for the 'My blue' user icon in the top-right corner.\n3. Click it → select 'My account.'\n4. Review displayed account details and company association.",
+  "final_recommendation": "When a customer reports account issues or asks how to check their SIG account, direct them to the 'My blue' icon → 'My account' path on launchstudio.bluetooth.com.",
+  "risk_if_done_wrong": "If a customer cannot find their account or is linked to the wrong company, they will not be able to create or manage Qualification Workspaces — blocking all registration activity.",
+  "bluetooth_tags": ["SIG-Launchstudio", "account-verification", "My-blue-icon", "company-membership"],
+  "search_aliases": ["SIG Launchstudio account verification", "My blue icon account", "how to check SIG account company", "launchstudio.bluetooth.com account"],
+  "qualification_stage": "pre-registration / account setup",
+  "confidence": "high"
+}

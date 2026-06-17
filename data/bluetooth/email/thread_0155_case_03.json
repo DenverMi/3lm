@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0155",
+  "case_id": "thread_0155_case_03",
+  "source_type": "email_case",
+  "iut_type": "End Product — BLE (Nordic SoftDevice v6.1.1)",
+  "customer_question": "For the Compliance Folder antenna data sheet requirement, can we use a page from the BLE module's spec sheet instead of a separate standalone antenna data sheet? What exactly is required?",
+  "question_variants": [
+    "Is a module spec sheet page acceptable as the antenna data sheet for the Compliance Folder?",
+    "What must the antenna data sheet contain for SIG Compliance Folder submission?",
+    "Can the antenna data sheet be a subsection of the module datasheet?"
+  ],
+  "actual_issue": "Customer IDEAL Co. asked whether the antenna data sheet required for the SIG Compliance Folder (Step 3) could be satisfied by using the relevant page(s) from the BLE module's specification sheet, rather than a separate dedicated antenna data sheet document.",
+  "plain_english_explanation": "The SIG Compliance Folder requires an antenna data sheet to document the radiation characteristics of the antenna used in the product. This does not need to be a separate standalone document — a relevant page from the BLE module's specification sheet is acceptable, as long as that page includes a radiation gain characteristics diagram (radiation pattern or gain figure). The key requirement is the presence of radiation gain data, not the document format.",
+  "consultant_answer": "A page from the BLE module's specification sheet is acceptable as the antenna data sheet for the Compliance Folder, provided it includes a radiation gain characteristics diagram (放射利得特性図). Format does not matter — the radiation gain data is what is required.",
+  "decision_logic": "The SIG Compliance Folder antenna data sheet requirement is substantive (radiation gain data must be present), not formal (it does not need to be a standalone document). A module spec sheet page that contains the radiation gain characteristics satisfies the requirement.",
+  "final_recommendation": "Instruct customers to locate the page in their module spec sheet that shows the antenna radiation gain pattern and submit that page as the antenna data sheet. If the spec sheet does not contain radiation gain data, a separate antenna measurement report is needed.",
+  "risk_if_done_wrong": "Submitting an antenna data sheet page that does not include radiation gain characteristics will result in Compliance Folder rejection and require resubmission with the correct documentation.",
+  "bluetooth_tags": ["Compliance Folder", "antenna data sheet", "radiation gain", "BLE module", "QPRDv3.0", "registration"],
+  "search_aliases": ["antenna data sheet Compliance Folder", "module spec sheet antenna SIG", "radiation gain characteristics required", "antenna page from datasheet"],
+  "qualification_stage": "Compliance Folder Preparation",
+  "confidence": "high"
+}

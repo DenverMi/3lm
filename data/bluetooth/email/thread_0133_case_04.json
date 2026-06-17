@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0133",
+  "case_id": "thread_0133_case_04",
+  "source_type": "email_case",
+  "iut_type": "automotive",
+  "customer_question": "If we register our product as Core-Complete referencing a Qualcomm DN (without a separate Core-Controller DN), and Qualcomm later updates their Core-Complete DN, would we need to redo the RF/RF PHY tests? Would creating a Core-Controller DN now protect us from future re-testing?",
+  "question_variants": [
+    "Does creating a Core-Controller DN protect against future RF re-testing when the Host/Core-Complete DN updates?",
+    "What happens to our RF certification if the Qualcomm DN we referenced gets updated?",
+    "Is it worth getting a separate Core-Controller DN to future-proof the RF registration?"
+  ],
+  "actual_issue": "A customer ([COMPANY] Alps Alpine) planning to register a Volvo automotive unit as a Core-Complete (formerly End Product) registration asked: if they use Qualcomm's RF-less Core-Complete DN + product-level RF test evidence, and Qualcomm later updates their Core-Complete DN, would the RF tests need to be redone? The consultant confirmed: yes, if the Qualcomm Core-Complete DN is updated, the product would need to re-register referencing the new DN - and without a product-owned Core-Controller DN, the RF evidence (test reports) would need to be re-run and re-uploaded. However, if the customer now creates their own Core-Controller DN (which includes the product's RF evidence), then in future re-registrations they can include their own Core-Controller DN regardless of Qualcomm's updates, avoiding RF re-testing. The cost for this approach: 2x SIG Qualification Fee (one for Core-Controller DN, one for Core-Complete DN), but the same service fee applies as for a single registration.",
+  "plain_english_explanation": "In Bluetooth SIG certification, a product can be registered either as a Core-Complete (the full product registration) or split into a Core-Controller (covering the radio/controller layer, including RF evidence) plus a Core-Complete (covering the host/profile layer) that references the Core-Controller. If a customer registers only as Core-Complete and references a chip vendor's (Qualcomm's) Host+X2Core DN without owning a Core-Controller DN, then when the chip vendor updates their DN, the customer must re-register their Core-Complete referencing the new DN - and since there is no owned Core-Controller DN, the RF test evidence is re-evaluated and potentially needs to be re-run. By creating their own Core-Controller DN first (using the product's RF test evidence), the customer owns that DN. Future updates to Qualcomm's Host DN can then be handled by creating a new Core-Complete that includes the customer's existing Core-Controller DN, skipping RF re-testing entirely. The trade-off: 2x SIG Qualification Fee, but the same service cost.",
+  "consultant_answer": "申請者が2件分のQualification Feeを払っていただければ、Core-complete（旧End Product）登録の試験及び見積費用と同額で(1) Core-Controller登録とそのDNを参照した(2)Core-complete登録に対応します。はい、Core-ControllerのDNを取得のために1件の登録費用が発生しますが、将来的にQ社登録が更新されても御社名義のDNをIncludeすることで再試験は回避できます。(If the applicant pays 2x Qualification Fees, we can handle (1) a Core-Controller registration and (2) a Core-Complete registration referencing that Core-Controller DN, for the same service fee as a single Core-Complete registration. Yes, obtaining a Core-Controller DN requires one additional registration fee, but future Qualcomm DN updates can be handled by including your own DN, avoiding re-testing.)",
+  "decision_logic": "When a product uses a SoC-based design with a chip vendor Host DN and is considering a Core-Complete-only registration: (1) Assess whether the chip vendor is likely to update their Host/Core-Complete DN in the near future (e.g., annual Android updates from Qualcomm). (2) If yes, recommend creating a product-owned Core-Controller DN now at the cost of an additional SIG Qualification Fee, protecting against future RF re-testing. (3) Quote two options: (a) Core-Complete only (lower immediate cost, RF re-test risk in future) and (b) Core-Controller + Core-Complete (higher immediate cost, future-proof against RF re-test). (4) Service fee is the same for both options; only the SIG Qualification Fee differs.",
+  "final_recommendation": "For products in ecosystems where chip vendor DNs update frequently (e.g., Qualcomm Android updates), proactively offer the Core-Controller + Core-Complete registration path as a future-proofing option. Clearly communicate the trade-off: 2x SIG Qualification Fee now vs. potential RF re-testing cost in the future. For automotive products with long product lifecycles and frequent platform software updates, the Core-Controller DN approach is often the more cost-effective long-term strategy.",
+  "risk_if_done_wrong": "Registering as Core-Complete-only when the chip vendor's DN updates regularly means repeated RF re-testing with each major update - potentially costly over a product's multi-year lifetime. Conversely, paying for Core-Controller DN when the chip vendor's DN is stable wastes the additional Qualification Fee.",
+  "bluetooth_tags": ["qualification", "Core-Controller", "Core-Complete", "DN", "QDID", "future-proofing", "RF PHY", "re-testing", "Qualcomm", "Qualification Fee"],
+  "search_aliases": [
+    "Core-Controller DN future-proof RF re-testing chip vendor update",
+    "Core-Complete Core-Controller split registration strategy",
+    "Qualcomm DN update RF re-test avoidance Core-Controller",
+    "2x Qualification Fee Core-Controller Core-Complete same service fee",
+    "product-owned DN chip vendor update re-registration"
+  ],
+  "qualification_stage": "initial certification",
+  "confidence": "high"
+}

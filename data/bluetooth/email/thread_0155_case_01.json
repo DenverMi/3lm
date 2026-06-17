@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0155",
+  "case_id": "thread_0155_case_01",
+  "source_type": "email_case",
+  "iut_type": "End Product — BLE (Nordic SoftDevice v6.1.1)",
+  "customer_question": "Our product comes with an optional plastic cover (resin cover, not related to Bluetooth). Do we need to include this accessory in the Bluetooth SIG registration?",
+  "question_variants": [
+    "Do non-Bluetooth accessories need to be registered with the SIG?",
+    "Does an optional plastic case/cover need to be included in Bluetooth certification?",
+    "Which optional accessories must be included in a Bluetooth SIG registration?"
+  ],
+  "actual_issue": "Customer IDEAL Co. asked whether a plastic/resin cover that ships as an optional accessory with their Bluetooth product needed to be included in the SIG registration. The cover has no Bluetooth function.",
+  "plain_english_explanation": "Only items that contain or affect Bluetooth functionality need to be included in the SIG registration. Optional accessories that have no relationship to Bluetooth (such as a plastic cover, carrying case, or other passive accessories) do not need to be registered.",
+  "consultant_answer": "Optional accessories like a plastic/resin cover that have no Bluetooth function do not need to be included in the SIG registration. Only the Bluetooth-enabled product itself (and any components that implement Bluetooth) are registered.",
+  "decision_logic": "SIG registration scope = Bluetooth-capable products and components only. Non-Bluetooth accessories, packaging, and passive attachments are outside the registration scope. The SIG certification applies to the Bluetooth implementation, not the physical package it ships with.",
+  "final_recommendation": "Exclude non-Bluetooth optional accessories from the registration scope. If any accessory contains Bluetooth hardware (e.g., a Bluetooth-enabled charging case), include it. Passive accessories with no Bluetooth function are always excluded.",
+  "risk_if_done_wrong": "Incorrectly including non-Bluetooth accessories adds unnecessary products to the registration and may create confusion about what is being certified. Excluding a Bluetooth-capable accessory would mean it is used without valid certification.",
+  "bluetooth_tags": ["registration scope", "optional accessories", "non-Bluetooth accessories", "End Product"],
+  "search_aliases": ["optional accessory SIG registration", "plastic cover certification needed", "non-Bluetooth accessory exclude", "registration scope accessories"],
+  "qualification_stage": "Scoping / Registration",
+  "confidence": "high"
+}

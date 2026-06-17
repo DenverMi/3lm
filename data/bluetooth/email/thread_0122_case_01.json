@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0122",
+  "case_id": "thread_0122_case_01",
+  "source_type": "internal_consulting",
+  "iut_type": "",
+  "customer_question": "(Internal) Before sending the EUT-to-test-lab UART connection procedure document to the overseas test lab (ABTS) for this RF PHY test, is there anything we should check or change?",
+  "question_variants": [
+    "Should we reuse the same test setup documentation across different test labs/teams?",
+    "What should we double-check before handing off test procedure documents to a different lab?",
+    "Is the reference tooling documentation from a previous test still needed for this lab?"
+  ],
+  "actual_issue": "For an RF PHY test request for [COMPANY] (project [ID]) to be run at an overseas test lab (ABTS), the consultant noticed that the UART connection procedure document originally prepared for the customer/another team ('EUT-PC UART connection method') risked repeating a mistake that had occurred previously with another team ('AJ'). The consultant prepared a revised, ABTS-specific version of the document ('EUT-ABTS UART connection method') and instructed that it be substituted before being sent to the lab, and also flagged that a previously-included reference document (Nordic DTM test tool operation guide) was not needed for ABTS.",
+  "plain_english_explanation": "When the same RF PHY test project involves coordination across multiple internal teams or different test labs, test setup documentation (e.g., UART connection procedures, reference tool guides) that was prepared for one team/lab may not be directly reusable for another - it can contain instructions or assumptions that previously caused errors, or reference tools/materials that aren't relevant to the new lab's setup. Before forwarding such documents to a new lab, they should be reviewed and adapted (e.g., creating a lab-specific version of the connection procedure, and removing reference materials that don't apply) to avoid repeating prior mistakes and reduce confusion at the new lab.",
+  "consultant_answer": "The document originally meant for the customer ('EUT-PC UART connection method') could repeat a mistake previously made with team AJ, so please use the attached revised version ('EUT-ABTS UART connection method') instead and have it substituted for ABTS. Also let them know the Nordic DTM test tool operation guide is not needed at ABTS.",
+  "decision_logic": "Before forwarding test setup documentation to a different internal team or external test lab for the same project, review the document for lab-specific assumptions or known prior issues (e.g., connection procedures that previously caused errors with another team), prepare an adapted version if needed, and remove any reference materials that are not applicable to the new lab's test setup.",
+  "final_recommendation": "When coordinating an RF PHY (or similar) test across multiple labs/teams for the same project, proactively review and adapt test setup documentation per-lab rather than reusing a single document set, to avoid repeating previously-encountered execution mistakes.",
+  "risk_if_done_wrong": "Sending an unmodified document that previously caused connection/setup errors with another team could lead to the same mistake recurring at the new lab, wasting test time and potentially delaying the test schedule and the overall registration timeline.",
+  "bluetooth_tags": ["RF PHY", "test coordination", "documentation", "qualification"],
+  "search_aliases": [
+    "test lab documentation handoff lessons learned",
+    "UART connection procedure lab-specific revision",
+    "avoid repeating prior test setup mistake",
+    "RF PHY test request multi-lab coordination",
+    "remove unused reference materials for test lab"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "low"
+}

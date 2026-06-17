@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0110",
+  "case_id": "thread_0110_case_02",
+  "source_type": "email_case",
+  "iut_type": "cooking appliance",
+  "customer_question": "We're planning to register an additional product model linked to existing registration D063816, but an orange warning appears saying additional registrations using this DID won't be possible after 2025/2/1. What's the expected impact, and is there a way to avoid it?",
+  "question_variants": [
+    "What does the warning about a Design ID becoming unusable for additional registrations after a certain date mean?",
+    "Why is our existing registration showing a deprecated-profile warning when adding a new model?",
+    "Will our existing certified registration be invalidated due to an included deprecated profile?",
+    "Is there a way to keep adding models under an existing DID that includes a soon-to-be-discontinued profile?",
+    "What happens to products already registered under a DID that becomes Withdrawal?"
+  ],
+  "actual_issue": "The customer's existing registration (DID D063816) includes GLS (Glucose Service) 1.0, a profile being deprecated as of 2025/2/1. Although GLS 1.0 is unnecessary for D063816's actual product (a cooking appliance), it was not removed at the time of original registration by the BQTF that handled it. As a result, attempting an additional model registration under D063816 triggers a warning that, after 2025/2/1, this DID can no longer be used for additional registrations, and the entire D063816 registration will become invalid (Withdrawal) on that date.",
+  "plain_english_explanation": "A Bluetooth registration can include multiple 'profiles' (types of supported features). One profile included in this customer's existing registration - Glucose Service 1.0 - is being phased out by the SIG starting 2025/2/1, even though the customer's actual product (a cooking appliance) never used that feature. Because this unnecessary profile wasn't removed when the registration was originally filed, the entire existing registration will stop being valid on 2025/2/1, and no more products can be added to it after that date. The only way to keep adding new products under SIG certification is to register them under the Product List before 2025/1/31 - those products, once registered in time, can keep being sold even after the cutoff.",
+  "consultant_answer": "D063816 includes GLS (Glucose Service) 1.0, which becomes a deprecated profile on 2025/2/1. This is why the additional model registration operation displays the warning notice. Although GLS 1.0 is not needed for D063816's cooking appliance product, the BQTF that the customer used to register D063816 did not remove it at the time of registration, and as a result the entire D063816 registration will become invalid (Withdrawal) on 2025/2/1. There is no way to avoid this via additional registration to the existing D063816. However, additional registration to the Product List remains possible until 2025/1/31, and any models registered by that date can continue to be sold even after the cutoff.",
+  "decision_logic": "If an existing registration (DID) includes a profile that the SIG is deprecating on a future date, and that profile was not removed at original registration (even if unused by the actual product), the entire registration becomes invalid (Withdrawal) on the deprecation date - blocking any further additional registrations under that DID from that date onward. The only mitigation is to complete any needed additional registrations under the Product List before the deprecation date; products registered before that date remain sellable afterward.",
+  "final_recommendation": "Complete any planned additional model registrations under the Product List before 2025/1/31, since D063816 will become invalid (Withdrawal) on 2025/2/1 due to the included (unused) GLS 1.0 profile being deprecated, and there is no way to fix this via additional registration to the existing DID.",
+  "risk_if_done_wrong": "If additional registrations are attempted under D063816 after 2025/2/1, they will not be possible because the entire registration becomes invalid (Withdrawal) on that date. Models not registered before 2025/1/31 would be left without a valid registration path under this DID.",
+  "bluetooth_tags": ["qualification", "listing", "declaration", "design change"],
+  "search_aliases": [
+    "GLS 1.0 deprecated profile withdrawal",
+    "DID becomes invalid Withdrawal date",
+    "deprecated profile not removed at registration",
+    "additional registration blocked after deprecation date",
+    "BQTF did not remove unused profile",
+    "Product List registration deadline before Withdrawal",
+    "existing DID registration expiration"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

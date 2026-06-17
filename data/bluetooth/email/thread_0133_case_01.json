@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0133",
+  "case_id": "thread_0133_case_01",
+  "source_type": "email_case",
+  "iut_type": "automotive",
+  "customer_question": "We want to register our product as Power Class 2 (non-Class 1), but the Qualcomm DN we are including has LL ICS 9/11 (LE Power Class 1) = YES. Does this cause a Power Class inconsistency problem, and how do we fix it?",
+  "question_variants": [
+    "How do we register a product as Power Class 2 when the included DN has Power Class 1 = YES?",
+    "Can we change LL ICS 9/11 to NO to fix the Power Class inconsistency, and what does that trigger?",
+    "What is the process for requesting a Subset from a chip vendor to fix Power Class ICS items?"
+  ],
+  "actual_issue": "A customer ([COMPANY] Alps Alpine) wanted to register a Volvo automotive unit (UXC) as Power Class 2 (non-Class 1). The Qualcomm Host DN being included had LL ICS 9/11 (LE Power Class 1) = YES. Changing LL 9/11 to NO to fix the inconsistency would trigger the full LL Test Plan (all LL test items as a Test Plan), making the path impractical. Additionally, the specific Qualcomm DN (Q366226) unusually also contained RF PHY layer with RF 1/15 (Power Class 1) = YES, so the Subset request needed to cover three ICS items: LL 9/11:NO, RF 1/15:NO, and RF 1/1:NO. The solution: the purchase contract holder (Volvo or Alps Alpine) must formally request Qualcomm to create a Subset of the DN with those three ICS items changed to NO. Subset creation by SIG is free. Later in the thread, a new Component DN was issued by Qualcomm that already had LL 9/11:NO and no RF/RF PHY layers at all, resolving the issue without needing to request a Subset.",
+  "plain_english_explanation": "When including a chip vendor's (e.g., Qualcomm's) QDID in a product registration, the product's Power Class must match the included DN's Power Class ICS items. If the included DN says Power Class 1 = YES but the product is Power Class 2 (non-Class 1), there is an inconsistency. The instinctive fix - changing the ICS item to NO - triggers an avalanche of LL test requirements (~hundreds of items). The correct solution is to request the chip vendor create a Subset of the DN with the Power Class ICS items already set to NO. A Subset is a derivative version of the parent QDID with a restricted ICS profile; creating one costs nothing (no SIG payment). The Subset request must go through the formal purchase contract holder. When a Qualcomm DN also includes RF PHY layers (less common), the Subset request must cover all affected ICS items across all layers: LL ICS 9/11 (LE Power Class 1), RF 1/15 (Power Class 1), and RF 1/1 (Power Class 1).",
+  "consultant_answer": "はい、Q366226をIncludeし、RF PHYはSoCを製品基板に直実装のために必要な試験を実施するのでRF PHY 1/15:NOへの変更は問題ありませんが、併せて必要なLL 9/11：NOへ変更するとLL ICSに紐付いた全試験項目がTest Planとして出力されます。そこで購入契約者(V社あるいは御社)からQ社へ「Q366226のRF PHY 1/15:NOおよびLL ICS 9/11:NOのSubsetを作成（SIGへの支払は無料）して欲しい」と要求してください。なお再確認したところQ366226はQ社にしては珍しくRF PHYを含んだ登録でした。SubsetではLLだけではなくRF 1/15 Power Class 1:YES→NOも併せてご依頼ください。(Yes, if LL 9/11 is changed to NO, all LL-linked test items are output as a Test Plan. Request the purchase contract holder (Volvo or your company) to ask Qualcomm to create a Subset of Q366226 with RF PHY 1/15:NO and LL ICS 9/11:NO (no SIG payment for Subset creation). Also note Q366226 unusually also includes RF PHY layer; include RF 1/15: YES→NO in the Subset request.)",
+  "decision_logic": "When a product's target Power Class conflicts with the Power Class ICS items in an included chip vendor DN: (1) Do NOT change LL ICS 9/11 directly (triggers full LL Test Plan). (2) Request the chip vendor to create a Subset of the DN with LL 9/11:NO (and RF 1/15:NO, RF 1/1:NO if the DN also includes RF/RF PHY layers). (3) Verify whether the included DN unusually contains RF PHY layers - most Qualcomm DNs don't, but some do. (4) The Subset request must come from the purchase contract holder. Alternatively, check if the chip vendor has issued a newer DN that already has Power Class 1 = NO.",
+  "final_recommendation": "Before proceeding with any registration where the included DN has Power Class 1 = YES but the product targets Power Class 2: (1) Identify all Power Class ICS items across all layers (LL, RF, RF PHY) in the included DN; (2) Request the full Subset (all three items) from the chip vendor via the purchase contract holder; (3) Confirm the Subset resolves all inter-layer inconsistencies by testing in a preliminary Workspace Project before committing. Check if a newer DN has already resolved the issue before requesting a Subset.",
+  "risk_if_done_wrong": "Attempting to change LL ICS 9/11 directly (instead of using a Subset) triggers the full LL Test Plan, resulting in hundreds of unexpected test items and major cost/timeline overrun. Missing the RF PHY layer ICS items in the Subset request (when the DN includes RF PHY) leaves remaining inconsistency that could block the registration.",
+  "bluetooth_tags": ["qualification", "Power Class", "ICS", "Subset", "LL", "RF PHY", "Qualcomm", "inter-layer inconsistency", "QDID"],
+  "search_aliases": [
+    "Power Class 2 included DN Power Class 1 YES ICS conflict",
+    "LL ICS 9/11 Power Class 1 Subset request vendor",
+    "Qualcomm DN Subset Power Class mismatch fix",
+    "Subset request chip vendor Power Class ICS items",
+    "LL 9/11 NO triggers LL test plan how to avoid"
+  ],
+  "qualification_stage": "initial certification",
+  "confidence": "high"
+}

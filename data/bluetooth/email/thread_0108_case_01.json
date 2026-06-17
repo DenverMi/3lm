@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0108",
+    "cases": [
+        {
+            "case_id": "thread_0108_case_01",
+            "iut_type": "head unit",
+            "customer_question": "How should a new qualification be structured when combining existing Host/Profile and Controller referenced designs that create inter-layer dependency inconsistencies?",
+            "question_variants": [
+                "How do I handle ILD consistency check failures after removing profiles from a referenced design?",
+                "Can I modify referenced ICS selections to resolve inter-layer dependency errors?",
+                "How should Option 2a design combinations be qualified when included QDIDs conflict?",
+                "Can a TCW be used instead of changing referenced Core ICS?",
+                "How do I avoid retesting caused by ICS changes in a combined design?"
+            ],
+            "actual_issue": "A new design combination created from existing qualified designs generates Inter-Layer Dependency (ILD) consistency-check failures after profile-layer changes. Modifying referenced Core-layer ICS would trigger additional qualification obligations under the newer qualification rules.",
+            "plain_english_explanation": "The product is being qualified by reusing existing Bluetooth designs. When some unwanted profiles are removed, the qualification tools report dependency mismatches between layers. The key question is whether to change the reused Bluetooth design data or use the qualification process to formally waive the inconsistency.",
+            "consultant_answer": "The consultant advises against modifying the referenced Core-layer ICS because under the post-July-2024 qualification process, changes to referenced ICS can require test reports for the affected modified layers. Instead, the inter-layer dependency inconsistencies should be handled through the dedicated 'ICS Form Inconsistencies for Inter-Layer Dependencies' TCW path when the referenced Core Host and Core Controller configurations remain unchanged. The reused Core-layer ICS should remain intact, while supported profile layers may still be included using valid profile-test evidence.",
+            "decision_logic": "If the Core Host and Core Controller referenced designs are not being changed, resolving ILD inconsistencies through the dedicated TCW path avoids converting the reused Core layers into modified layers that would require additional qualification evidence.",
+            "final_recommendation": "Keep the referenced Core-layer ICS unchanged, use the applicable ILD inconsistency TCW process, complete consistency review, and attach profile-layer evidence only for implemented and tested profiles.",
+            "risk_if_done_wrong": "Modifying referenced ICS unnecessarily can trigger full test-report obligations for the modified layers, creating avoidable testing effort, qualification rework, and submission delays.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "ILD",
+                "TCW",
+                "QDID",
+                "reuse",
+                "consistency check"
+            ],
+            "search_aliases": [
+                "ICS Form Inconsistencies for Inter-Layer Dependencies",
+                "ILD consistency check failure",
+                "Core ICS modification",
+                "referenced QDID reuse",
+                "TCW for Core invalids",
+                "Option 2a design combination",
+                "inter-layer dependency mismatch",
+                "avoid retesting from ICS changes"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

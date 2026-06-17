@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0145",
+  "case_analysis": {
+    "thread_summary": "Alinco Qualcomm-based module registration. The product is Class 1 (high power). Setting RF ICS item 1/1 = Supported triggers an unresolvable Invalid because the Check Rule mandates LMP 31/1 (Power Control), which the QDID does not support. Solution: set RF 1/1 = NO (Class 2 in RF layer) and RF PHY 1/15 = YES (PHY Class 1) — this accurately represents Class 1 capability without triggering the LMP dependency. RF/RF PHY test must be conducted at Class 1 settings.",
+    "all_questions_found": [
+      "Why does setting RF ICS 1/1 = Supported (Class 1) cause a Consistency Check Invalid?",
+      "How do we register a Class 1 module without triggering the LMP 31/1 Mandatory dependency?",
+      "What is the correct ICS combination for Class 1 output power in a module registration?"
+    ],
+    "key_technical_discussion": "SIG Check Rule: 'If RF(1/1) Supported then LMP(31/1) Mandatory.' LMP 31/1 = LMP Power Control. If the QDID used does not include LMP 31/1, setting RF 1/1 = Supported creates an unresolvable Invalid. The correct approach for Class 1 modules: RF 1/1 = NO (avoids LMP dependency) + RF PHY 1/15 = YES (PHY Class 1 = expresses Class 1 output at the PHY layer, no LMP dependency). RF/RF PHY test conducted at Class 1 power settings to match the RF PHY 1/15 ICS entry.",
+    "key_decision_logic": "Check QDID for LMP 31/1 support before setting RF 1/1 = Supported. If LMP 31/1 not supported → use RF 1/1 = NO + RF PHY 1/15 = YES. Confirm test settings match RF PHY ICS (Class 1 test for RF PHY 1/15 = YES).",
+    "risk_if_done_wrong": "Setting RF 1/1 = Supported when LMP 31/1 is unavailable blocks the registration with an unresolvable Invalid. Setting RF 1/1 = NO without RF PHY 1/15 = YES produces an inaccurate ICS that understates the product's power class.",
+    "consulting_mistake": "Setting RF 1/1 = Supported for Class 1 modules without first checking whether the QDID supports LMP 31/1. The RF vs. RF PHY distinction for power class representation is non-obvious and commonly misunderstood.",
+    "consulting_takeaway": "For any Class 1 module: standard ICS pattern is RF 1/1 = NO + RF PHY 1/15 = YES. Confirm this pattern at ICS setup and align the RF test plan to Class 1 (PHY Class 1) settings before testing begins."
+  }
+}

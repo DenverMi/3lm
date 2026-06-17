@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0112",
+  "case_id": "thread_0112_case_04",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "What is the Compliance Folder we received on CD-R for, and how long do we need to keep it?",
+  "question_variants": [
+    "What documents are included in the Compliance Folder?",
+    "How long must the Compliance Folder be retained after product launch?",
+    "Why is a Compliance Folder required for SIG certification?",
+    "What happens if SIG requests the Compliance Folder during an audit and we don't have it?"
+  ],
+  "actual_issue": "The customer received a CD-R containing the Compliance Folder by tracked mail after registration completion, and asked about its purpose and the required retention period.",
+  "plain_english_explanation": "The Compliance Folder is a set of supporting documents that prove how the product meets Bluetooth SIG requirements - it typically includes the portion of the operation manual describing Bluetooth functionality, a block diagram, an outline/dimension drawing of the product, and antenna data including the radiation gain pattern. SIG can request this folder at any time during an audit, so the manufacturer must keep it on file for at least 1 year after the product stops being sold (end of sales).",
+  "consultant_answer": "The Compliance Folder contains the Bluetooth-related portion of the operation manual, a block diagram, an outline/dimension drawing, and antenna data (including the radiation gain pattern). It serves as supporting documentation that SIG may request during an audit to verify compliance, so the customer must retain it for at least 1 year after the product's end of sales.",
+  "decision_logic": "The Compliance Folder (operation manual Bluetooth section, block diagram, outline/dimension drawing, antenna data with radiation gain pattern) must be retained by the manufacturer for a minimum of 1 year after the product's sales end date, in case SIG requests it for an audit.",
+  "final_recommendation": "Store the Compliance Folder (received via CD-R or equivalent) safely and retain it for at least 1 year after the product is discontinued from sale, in case of an SIG audit request.",
+  "risk_if_done_wrong": "If the Compliance Folder is discarded or lost before the 1-year post-sales retention period ends, the manufacturer would be unable to respond to an SIG audit request, potentially jeopardizing the product's certification status.",
+  "bluetooth_tags": ["qualification", "declaration", "test report"],
+  "search_aliases": [
+    "Compliance Folder contents",
+    "Compliance Folder retention period",
+    "1 year after end of sales document retention",
+    "SIG audit compliance folder request",
+    "block diagram antenna radiation pattern operation manual",
+    "CD-R compliance folder delivery"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

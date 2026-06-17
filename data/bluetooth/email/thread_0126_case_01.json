@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0126",
+  "case_id": "thread_0126_case_01",
+  "source_type": "internal_consulting",
+  "iut_type": "camera",
+  "customer_question": "(Internal/lab coordination) Based on the measured RF output power results, should this digital camera's RF test report classify the device as LE Power Class 1, Power Class 2, or 'non-Class 1', and what test plan/ICS edits does that require?",
+  "question_variants": [
+    "Is a digital camera's Bluetooth module typically designed as LE Power Class 1?",
+    "Is 'Power Class 2' a defined category in the current ICS / Test Specification, or only in the Core Specification?",
+    "If a device isn't Power Class 1, how should the RF report and ICS/test plan classify it?"
+  ],
+  "actual_issue": "During an RF 2-item test for a Ricoh Imaging DSC (digital still camera), the test lab (Leo Chou, ABTS/HQ) measured the DUT's output power (Low/Mid/High P_average around -2.82 to -3.84 dBm, PPK-PAVG 0.08-0.11) and observed this did not match an LE Power Class 1 device, noting digital cameras are typically designed as non-Power-Class-1 to save power, and asked the customer (via Mochizuki) to confirm. The customer initially revised the test plan's ICS to mark the device as 'Class 2' and asked the report be made as Class 2. The lab then pointed out that 'Power Class 2' is not a defined category in the current ICS or Test Specification (only in the Core Specification) - the LE ICS only defines 'Power Class 1: support or not support', and per the updated TCRL, classic RF output power testing also only defines a Power Class 1 level - so the report should be made as 'non-Class 1' rather than 'Class 2', and asked for confirmation. A separate, unrelated correction was also made: the report's Model Name field had a typo carried over from the test plan, which was corrected and the updated report issued with no other issues found.",
+  "plain_english_explanation": "When an RF test lab measures a device's actual transmit output power and it doesn't match the power levels expected for LE Power Class 1, this is a signal worth flagging to the customer - some device categories (like digital cameras) are commonly designed at lower power to save battery, so they are 'not Power Class 1'. However, 'Power Class 2' as a label is only meaningful in the Bluetooth Core Specification's power class definitions; the ICS (Implementation Conformance Statement) questionnaire used for qualification testing, and the current Test Specification/TCRL, only ask a binary 'Power Class 1: yes/no' question for LE, and similarly only define a Power Class 1 level for classic RF output power testing. So even if a device is colloquially 'Class 2' by Core Spec power levels, the correct way to record this on the ICS and in the RF test report is as 'non-Power-Class-1' (Power Class 1 = No), not as an explicit 'Class 2' designation, because 'Class 2' isn't a recognized answer option in the ICS/Test Spec framework being used for the report.",
+  "consultant_answer": "But in LE [ID] test without the power class 2 feature is defined, it is only power class 1 support or not support, and according to updated TCRL [ID], it is only power class 1 level for classic RF output power test, too. Please confirm it. / As you mentioned, RF PHY class 2 isn't defined in the latest ICS nor Test Specification but only in Core Specification. I send a Test Plan changed ICS image to latest one defined in [ID]. Please make RF PHY Report as non-Class 1.",
+  "decision_logic": "When a measured RF output power result suggests a device is not LE Power Class 1, do not simply relabel the ICS/report as 'Power Class 2' - check whether 'Power Class 2' is a defined answer option in the current ICS and Test Specification/TCRL for the relevant test item (it generally is not; only Power Class 1 yes/no is defined for LE and for classic RF output power testing). If not defined, record the device as 'non-Power-Class-1' ('Power Class 1: No') on the ICS and in the report, rather than as 'Class 2'.",
+  "final_recommendation": "For devices whose measured output power doesn't match LE Power Class 1 (e.g., digital cameras designed for low power consumption), classify the device on the ICS and in the RF test report as 'non-Power-Class-1' (Power Class 1: No), since 'Power Class 2' is a Core Specification power-level concept, not a defined ICS/Test Specification/TCRL answer option for the relevant RF test items.",
+  "risk_if_done_wrong": "Labeling a device's ICS/RF report as 'Power Class 2' when that is not a defined category in the current ICS/Test Specification/TCRL could produce an inconsistent or non-conformant report and ICS, potentially requiring correction before the report can be accepted for the qualification submission.",
+  "bluetooth_tags": ["RF", "RF PHY", "LE Power Class", "ICS", "TCRL", "Power Control", "test report", "RF 2-item test"],
+  "search_aliases": [
+    "LE Power Class 1 vs Power Class 2 ICS",
+    "digital camera Bluetooth output power non-Class 1",
+    "RF PHY report non-Class 1 designation",
+    "TCRL classic RF output power Power Class 1 only",
+    "ICS Power Class 1 support not support LE"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "medium"
+}

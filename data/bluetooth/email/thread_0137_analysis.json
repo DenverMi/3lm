@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0137",
+  "case_analysis": {
+    "thread_summary": "NEC Platforms / Google Fluoride Host Stack registration attempt. All known Fluoride versions (1.3–1.6) have a GAP-GATT ICS inconsistency (GAP 25/4 or 35/4 Mandatory when GATT 7/7 Supported) that blocks Design Number registration under QPRDv3.0. GAP/GATT are Host-layer issues — changing the Controller QDID does not help. The customer also needed guidance on SIG Launchstudio account verification.",
+    "all_questions_found": [
+      "Which Google Fluoride version is safe for Bluetooth certification?",
+      "Can the GAP-GATT Consistency Check error be fixed by switching the Controller or module QDID?",
+      "How do we verify our SIG Launchstudio account and company association?"
+    ],
+    "key_technical_discussion": "Google Fluoride 1.3/1.4/1.5/1.6 all share the same internal ICS defect: GAP mandatory items are set in a way that conflicts with GATT 7/7 being Supported. Post-July 2024 QPRDv3.0 Consistency Check enforces this rule strictly and blocks DN registration. GAP and GATT are both Host-layer (not Controller-layer) items — no amount of Controller QDID changes will resolve a Host-layer ICS inconsistency. The only solution is to use a compliant Host Stack (BlueZ or a future fixed Fluoride version).",
+    "key_decision_logic": "1. Identify Fluoride as the Host Stack → flag immediately for GAP-GATT inconsistency risk. 2. GAP/GATT error → Host Stack problem → must change Host Stack. 3. Controller/module QDID is irrelevant to this error.",
+    "risk_if_done_wrong": "Proceeding with Fluoride wastes test and registration fees and blocks product launch. Advising a module change instead of Host Stack change wastes engineering resources.",
+    "consulting_mistake": "Not flagging the Fluoride GAP-GATT issue at project intake, or suggesting Controller-side fixes for a Host-layer problem.",
+    "consulting_takeaway": "Any project using Google Fluoride must be flagged at intake for the known GAP-GATT Consistency Check blocker. Escalate immediately to inform the customer that DN registration is blocked until they switch Host Stack or SIG verifies a fixed Fluoride release."
+  }
+}

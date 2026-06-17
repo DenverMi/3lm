@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0117",
+  "case_id": "thread_0117_case_01",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "We're developing a device using an already-qualified CC2640R2F module. What testing is required for Bluetooth SIG certification of our product?",
+  "question_variants": [
+    "Does our product need RF PHY testing if it uses a pre-qualified Bluetooth module?",
+    "Is profile testing required if our device doesn't implement any SIG-defined profiles?",
+    "What test exemptions apply when using a module with a built-in (chip) antenna?"
+  ],
+  "actual_issue": "The customer is developing a device incorporating a CC2640R2F Bluetooth module (already separately qualified) and requested a quote and test scope determination for their own Bluetooth SIG certification.",
+  "plain_english_explanation": "Before quoting, the consultant checked the CC2640R2F module's datasheet and confirmed it has an integrated (built-in) antenna. Because the antenna is built into the already-qualified module (not a separate/external antenna design the end product manufacturer controls), RF PHY testing is not required for the end product. Additionally, if the end product does not implement any Bluetooth SIG-established profiles (e.g., A2DP, HID, etc. - only using the core radio/module functionality), then Profile testing is also not required.",
+  "consultant_answer": "We confirmed via the datasheet that the CC2640R2F module has a built-in antenna, so RF PHY testing is not required. If you are not implementing any SIG-established profiles, Profile testing is also not required. Based on these conditions, our quote is: registration support (Single Design reference) ¥150,000, plus Compliance Folder creation ¥150,000 (in addition, the applicant remits the $11,040 registration fee to SIG directly).",
+  "decision_logic": "When a product uses a pre-qualified module, check the module's datasheet to confirm whether its antenna is integrated/built-in - if so, RF PHY testing for the end product can be exempted. Separately, check whether the end product implements any SIG-established profiles - if none are implemented, Profile testing is also not required. Combine both exemptions when quoting registration scope (e.g., Single Design reference support plus Compliance Folder creation).",
+  "final_recommendation": "For products using a pre-qualified module with a confirmed built-in antenna and no implemented SIG profiles, quote registration support without RF PHY or Profile testing - just registration support (appropriate reference type) and Compliance Folder creation, plus the SIG registration fee.",
+  "risk_if_done_wrong": "Incorrectly assuming RF PHY exemption without verifying the module's antenna is truly built-in (vs. requiring an external antenna design subject to RF testing) could result in an invalid registration. Conversely, requiring unnecessary RF PHY or Profile testing for a device that qualifies for these exemptions would needlessly increase cost and timeline for the customer.",
+  "bluetooth_tags": ["RF PHY", "profile test", "qualification", "module", "antenna", "test exemption", "listing"],
+  "search_aliases": [
+    "CC2640R2F module built-in antenna RF PHY exemption",
+    "module datasheet confirms integrated antenna no RF PHY test",
+    "no SIG profile implemented profile test not required",
+    "pre-qualified module test scope determination",
+    "Single Design reference registration quote"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "medium"
+}

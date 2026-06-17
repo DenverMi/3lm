@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0110",
+  "case_id": "thread_0110_case_01",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "After selecting 'Complete the Submission' to finalize an additional model registration, does this mean we can no longer make any corrections or changes to that registration?",
+  "question_variants": [
+    "Is 'Complete the Submission' truly irreversible for an additional model registration?",
+    "How can we fix or change a model's registration details after submission has been completed?",
+    "What's the process to correct an additional model registration after it has been finalized?",
+    "Can we delete and re-register an additional model if we made a mistake after Complete the Submission?"
+  ],
+  "actual_issue": "The customer was about to finalize (Complete the Submission) an additional model registration and wanted to confirm whether, once completed, any subsequent corrections to that model's registration content would be impossible.",
+  "plain_english_explanation": "Once you click 'Complete the Submission' for an additional product model registration, you can't directly edit that model's details afterward. But there's a workaround: as long as the model hasn't reached its official Publish Date, you can ask SIG to delete that additional registration. Once SIG deletes it, you can submit a brand-new additional registration with the corrected information - effectively achieving the same result as an edit, just through delete-and-re-register rather than direct editing.",
+  "consultant_answer": "After selecting 'Complete the Submission' and executing the Submission, the registration content of the added model cannot be modified or changed directly. However, as long as it is before that model's Publish Date, you can request deletion of the additional registration itself; once SIG carries out the deletion, you can perform a new additional model registration with the correct content, which effectively allows you to change the registration content. Refer to the latter half of the provided [URL] for the specific deletion request procedure.",
+  "decision_logic": "Direct in-place editing of an added model's registration is not possible once 'Complete the Submission' has been executed. The only path to correcting the registration is: (1) confirm the model's Publish Date has not yet passed, (2) request SIG to delete the additional registration, (3) after SIG executes the deletion, submit a new additional model registration with the corrected content.",
+  "final_recommendation": "If a correction is needed for an additional model registration after 'Complete the Submission', and the model's Publish Date hasn't passed yet, request deletion of that additional registration from SIG, then resubmit a new additional model registration with the corrected details.",
+  "risk_if_done_wrong": "If the customer assumes corrections are possible after 'Complete the Submission' without going through the delete-and-re-register process, or if they wait until after the Publish Date to attempt a correction, the registration content could remain incorrect with no available remedy via this method.",
+  "bluetooth_tags": ["listing", "declaration", "qualification"],
+  "search_aliases": [
+    "Complete the Submission irreversible",
+    "additional model registration correction",
+    "delete additional registration before Publish Date",
+    "edit registration after submission SIG",
+    "re-register model with corrected content",
+    "Publish Date deletion request SIG"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

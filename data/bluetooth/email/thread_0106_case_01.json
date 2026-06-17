@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0106",
+    "cases": [
+        {
+            "case_id": "thread_0106_case_01",
+            "iut_type": "nRF53-based Zephyr product",
+            "customer_question": "Can a product using Zephyr on an nRF53 device qualify by reusing existing Zephyr Controller and Host Subsystem qualifications, and when is additional qualification required?",
+            "question_variants": [
+                "Can Zephyr OS products use existing Zephyr QDIDs for qualification?",
+                "Can I declare against Zephyr Controller and Host Subsystems?",
+                "Do I need new testing if my product uses Zephyr and no SIG profile?",
+                "How do I qualify an nRF53 product running Zephyr OS?",
+                "When is a Profile Subsystem required with Zephyr-based products?"
+            ],
+            "actual_issue": "Determining whether a Zephyr-based Bluetooth implementation can reuse existing qualified Controller and Host Subsystems through declaration or whether additional Profile Subsystem qualification evidence is required.",
+            "plain_english_explanation": "A product can often reuse existing Bluetooth-qualified software building blocks instead of creating a new qualification. The key question is whether the product stays within the scope of those qualified components and whether it implements any Bluetooth SIG-defined profiles. Profile functionality can create additional qualification obligations.",
+            "consultant_answer": "Existing Zephyr Controller Subsystem and Zephyr Host Subsystem qualifications can be referenced for products using Zephyr on nRF53 devices. If the implementation uses only proprietary functionality or does not implement SIG-defined profiles, declaration using the existing subsystem qualifications is possible. If SIG-defined profiles are implemented, a Profile Subsystem qualification supported by appropriate profile test evidence must be added and combined with the subsystem references.",
+            "decision_logic": "Qualification reuse is allowed when the product implementation remains within the scope of the qualified Zephyr Controller and Host Subsystems. Implementation of SIG-defined profiles introduces additional qualification scope requiring profile-level qualification evidence.",
+            "final_recommendation": "Verify whether any SIG-defined profiles are implemented. If not, pursue declaration using the existing qualified Zephyr Controller and Host Subsystems. If profiles are implemented, create the required Profile Subsystem qualification and combine it with the subsystem references.",
+            "risk_if_done_wrong": "Using declaration-only qualification when SIG-defined profiles are implemented can result in an incomplete or invalid qualification approach. Missing required profile qualification evidence may create registration and compliance issues.",
+            "bluetooth_tags": [
+                "qualification",
+                "declaration",
+                "QDID",
+                "controller",
+                "host",
+                "profile",
+                "Zephyr",
+                "reuse"
+            ],
+            "search_aliases": [
+                "Zephyr Controller Subsystem",
+                "Zephyr Host Subsystem",
+                "nRF53 qualification",
+                "declaration registration",
+                "profile subsystem required",
+                "reuse existing QDID",
+                "SIG profile qualification",
+                "Zephyr Bluetooth certification"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

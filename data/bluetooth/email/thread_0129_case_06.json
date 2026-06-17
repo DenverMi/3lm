@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0129",
+  "case_id": "thread_0129_case_06",
+  "source_type": "email_case",
+  "iut_type": "consumer electronics",
+  "customer_question": "We don't recall ever submitting a Compliance Folder before. Is this a new requirement? What documents are needed, and is a wireless module block diagram acceptable instead of a full TV block diagram? Also, does the Compliance Folder need to be submitted before the SIG Submission?",
+  "question_variants": [
+    "Is the Compliance Folder a new requirement from July 2024?",
+    "For a TV product, can we use the wireless module block diagram instead of the full TV block diagram?",
+    "When does the Compliance Folder need to be submitted — before or after SIG registration?"
+  ],
+  "actual_issue": "During the Sony FY26 TV qualification final review, the consultant requested that the customer prepare Compliance Folder documents including: (1) product operation manual (Bluetooth section only), (2) block diagram, (3) outline drawing, (4) antenna data sheet with radiation gain characteristics. The customer was surprised by this requirement, having no memory of it from prior registrations. The consultant clarified: Compliance Folder was required for Design registrations even in the Launch Studio (PRD v2.3) era, but since July 2024 it became mandatory for ALL registration types. For a complex product like a TV, the block diagram of the wireless module is acceptable (full TV block diagram would be too complex). The outline drawing should be the product's own drawing (preferred, though wireless module outline may also be acceptable). These documents are not required before SIG Submission — they should be prepared as soon as possible after registration completion.",
+  "plain_english_explanation": "The Bluetooth SIG's Compliance Folder is a physical/digital folder that companies must maintain to document that a registered product genuinely conforms to Bluetooth specs. Before July 2024, this was only required for Design registrations. After July 1, 2024 (the new registration system), ALL registrations (End Product, Design, etc.) require a Compliance Folder. The four key documents are: the operation manual (BT section), block diagram, outline drawing, and antenna data sheet (with radiation gain chart). For TVs, a full system block diagram would be overwhelming — the SIG accepts the wireless module's block diagram as a substitute. Unlike test evidence, the Compliance Folder does not need to be ready before SIG Submission — it should be assembled promptly after registration.",
+  "consultant_answer": "⇒Launch Studio（PRD v2.3）の時代でもDesign登録にはコンプライアンスフォルダ作成および保管義務がありました。2024年7月以降の新制度では全登録にコンプライアンスフォルダ作成・保管が義務になりました。[外形図・ブロック図について] ⇒外形図は製品が望ましいですが、ブロック図はTV全体ではあまりにも複雑過ぎますので無線モジュールのもので結構です。[タイミング] ⇒いいえ、登録後可能な限り速やかにというレベルです。(The Compliance Folder has always been required for Design registrations, even in the Launch Studio PRD v2.3 era. Under the new system from July 2024, the Compliance Folder is required for all registration types. The product outline drawing is preferred, but for block diagrams the TV as a whole would be too complex — the wireless module block diagram is acceptable. Timing: it is not needed before SIG Submission — prepare it as soon as possible after registration.)",
+  "decision_logic": "Compliance Folder requirements post-July 2024: (1) Required for ALL registration types (not just Design); (2) Mandatory documents: operation manual (BT section only), block diagram, outline drawing, antenna data sheet with radiation gain characteristics; (3) For complex products (TV, server, etc.): wireless module block diagram is acceptable for the block diagram; product outline drawing is preferred over module drawing; (4) Timing: does NOT need to be submitted before SIG Submission — assemble after registration is complete; (5) Customers who previously registered under the old system may be unfamiliar with this requirement — proactively inform them.",
+  "final_recommendation": "At the start of any Bluetooth certification project (especially for customers who last registered pre-July 2024), proactively notify them that a Compliance Folder is now mandatory for all registration types. List the four required documents upfront so they can begin preparing them in parallel with testing. For TV/complex product customers, clarify that the wireless module block diagram is acceptable — this significantly reduces the burden.",
+  "risk_if_done_wrong": "Failing to inform the customer about the Compliance Folder requirement until the registration is ready to submit can create delays if documents are difficult to locate. For customers who delegated registration to a lab in the past (and never assembled a Compliance Folder themselves), this may require significant effort to gather historical documents.",
+  "bluetooth_tags": ["compliance", "Compliance Folder", "registration", "post-2024", "documentation", "block diagram", "antenna data sheet", "operation manual"],
+  "search_aliases": [
+    "Compliance Folder mandatory post July 2024 all registrations",
+    "Compliance Folder TV wireless module block diagram acceptable",
+    "コンプライアンスフォルダ 2024年7月 全登録 必須",
+    "Compliance Folder timing before after SIG submission",
+    "Compliance Folder documents operation manual block diagram outline antenna"
+  ],
+  "qualification_stage": "registration",
+  "confidence": "high"
+}

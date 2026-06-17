@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0155",
+  "case_id": "thread_0155_case_02",
+  "source_type": "email_case",
+  "iut_type": "End Product — BLE (Nordic SoftDevice v6.1.1)",
+  "customer_question": "If we ask Allion to handle the USD wire transfer to SIG on our behalf, when is the exchange rate (FX rate) determined? Also, can Company B pay the SIG Declaration Fee on behalf of Company A (the registrant)?",
+  "question_variants": [
+    "When is the USD to JPY exchange rate fixed for SIG payment proxy?",
+    "Can a third party company pay the SIG Declaration Fee?",
+    "If Company A registers and Company B pays, who gets the Qualification Number?"
+  ],
+  "actual_issue": "IDEAL Co. asked two questions about SIG Declaration Fee payment: (1) when the FX rate is fixed when Allion handles the USD wire transfer; (2) whether a different company (Company B) could pay the SIG fee on behalf of the registering company (Company A), and what the impact on the Qualification Number would be.",
+  "plain_english_explanation": "On FX rate: when Allion processes the USD payment proxy, the exchange rate applied is the TTS (Telegraphic Transfer Selling) rate at the end of the month before the formal written quote is issued. On third-party payment: it is acceptable for Company B to make the USD wire transfer on behalf of Company A, but Company A must log in to SIG Launchstudio with their own account and download the Invoice file, then send that Invoice to Company B. Company B wires the payment using that Invoice. The Qualification Number is always issued to the registrant company (Company A) — it cannot be transferred to Company B.",
+  "consultant_answer": "FX rate: TTS rate at the end of the month before formal quote issuance. Third-party payment: acceptable — Company A (registrant) must download the SIG Invoice using their own account, then provide it to Company B who makes the payment. The Qualification Number is issued to Company A regardless of who pays. QNs are non-transferable between member companies.",
+  "decision_logic": "SIG Qualification Numbers are tied to the registrant member company, not to the payer. Any SIG member can pay the fee, but the QN always goes to the account that obtained the Invoice. Invoice acquisition requires logging in with the registrant company's SIG account. FX rate for proxy payment is set at month-end TTS before quote to provide predictability.",
+  "final_recommendation": "When handling third-party payment for SIG fees: (1) instruct the registrant company to log in with their SIG account and download the Invoice; (2) confirm the Invoice will be sent to the paying company; (3) confirm the paying company will wire USD to SIG using that Invoice reference. Document that the QN goes to the registrant, not the payer.",
+  "risk_if_done_wrong": "If the wrong company (Company B) logs in and obtains the Invoice under their account, the Qualification Number will be issued to Company B — not the intended registrant (Company A). This cannot be reversed, and Company A will not receive their QN. This is a critical, irreversible error.",
+  "bluetooth_tags": ["Declaration Fee", "Qualification Number", "SIG Invoice", "FX rate", "TTS rate", "wire transfer", "third-party payment", "member company"],
+  "search_aliases": ["SIG payment exchange rate", "TTS rate SIG fee", "third party pay SIG Declaration Fee", "QN non-transferable", "SIG Invoice registrant account"],
+  "qualification_stage": "Payment / Registration",
+  "confidence": "high"
+}

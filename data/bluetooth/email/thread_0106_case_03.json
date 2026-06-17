@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0106",
+    "cases": [
+        {
+            "case_id": "thread_0106_case_03",
+            "iut_type": "",
+            "customer_question": "Do yellow Design Details warnings on the Bluetooth SIG Review Page prevent successful submission when the registration does not include a Host layer?",
+            "question_variants": [
+                "Yellow warning on Review Page",
+                "Design Details warning during submission",
+                "Host layer missing warning",
+                "Can I submit with yellow caution icon?",
+                "Review Page warning before declaration"
+            ],
+            "actual_issue": "Review Page warnings were generated because the registration did not include a Host layer, creating concern about whether submission could proceed.",
+            "plain_english_explanation": "Not every warning on the Bluetooth SIG registration system indicates a failure. Some warnings simply inform the user about characteristics of the design. The important distinction is whether the warning blocks qualification or is only informational.",
+            "consultant_answer": "The yellow warning in Design Details was attributed to the absence of a Host layer in the registration structure. The consultant confirmed that the warning was informational and that submission could proceed successfully. The registrations were accepted and SDoCs were subsequently obtained.",
+            "decision_logic": "Review Page warnings must be evaluated based on their underlying meaning. Informational warnings that do not represent rule violations do not prevent declaration submission or registration completion.",
+            "final_recommendation": "Review the warning details rather than assuming all warnings are blocking errors. If the warning is only related to the absence of a Host layer and submission requirements are otherwise satisfied, proceed with submission.",
+            "risk_if_done_wrong": "Treating informational warnings as qualification failures can create unnecessary investigation, approval delays, and registration schedule impacts.",
+            "bluetooth_tags": [
+                "listing",
+                "declaration",
+                "review page",
+                "submission",
+                "host",
+                "warning"
+            ],
+            "search_aliases": [
+                "yellow warning icon",
+                "Design Details warning",
+                "Review Page caution",
+                "Host layer warning",
+                "submission allowed",
+                "registration review warning",
+                "non-blocking warning"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

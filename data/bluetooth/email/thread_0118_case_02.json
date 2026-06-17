@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0118",
+  "case_id": "thread_0118_case_02",
+  "source_type": "email_case",
+  "iut_type": "audio",
+  "customer_question": "Our in-vehicle audio product implements A2DP (with HFP and LE Audio planned later) using a BT stack that is already Component-certified, running on a general-purpose microcontroller. Do we need to run Profile testing for these profiles?",
+  "question_variants": [
+    "Is Profile testing required if our implemented profiles are covered by the BT stack's Component certification?",
+    "What does Q309493 (Blue SDK Profiles) cover, and does it exempt us from Profile testing?",
+    "Do A2DP/HFP/LE Audio profiles need separate Profile testing if the underlying stack is already certified?"
+  ],
+  "actual_issue": "The customer's in-vehicle audio product implements A2DP (with HFP and LE Audio planned for the future) on top of a Bluetooth stack that is already separately Component-certified (running as middleware on a general-purpose, non-certified microcontroller). The consultant assessed whether Profile testing would be required for these profiles.",
+  "plain_english_explanation": "Profile testing for a given Bluetooth profile can be exempted if that profile is already covered at the ICS (Implementation Conformance Statement) level by a relevant Component certification - in this case, Q309493 (Blue SDK Profiles). If the profiles the end product implements (e.g., A2DP, and later HFP/LE Audio) fall within the set of profiles already covered by that Component certification's ICS, the end product does not need to separately run Profile testing for those profiles.",
+  "consultant_answer": "Profile testing is exempted for profiles that are covered at the ICS level by Q309493 (Blue SDK Profiles), provided the profiles you implement fall within that coverage. Based on this premise, our quote includes RF 2-item testing but no separate Profile testing.",
+  "decision_logic": "When a product implements Bluetooth profiles via a stack that already holds Component certification (e.g., Q309493 Blue SDK Profiles), check whether the specific profiles the end product implements (A2DP, HFP, LE Audio, etc.) are covered at the ICS level by that Component certification. If covered, Profile testing for those profiles can be exempted from the end-product test scope.",
+  "final_recommendation": "For end products using a Component-certified Bluetooth stack (e.g., Q309493 Blue SDK Profiles), exempt Profile testing for any implemented profiles that fall within that certification's ICS coverage; verify coverage for any newly-added profiles (e.g., LE Audio added later) before assuming continued exemption.",
+  "risk_if_done_wrong": "Assuming all current and future profiles (including ones added later, like LE Audio) are automatically covered by the stack's existing Component certification without re-checking ICS coverage could result in missing required Profile testing for new profiles, risking an incomplete or invalid certification when those features are added.",
+  "bluetooth_tags": ["profile test", "qualification", "component", "ICS", "Blue SDK Profiles", "A2DP", "HFP", "LE Audio", "test exemption"],
+  "search_aliases": [
+    "Q309493 Blue SDK Profiles ICS coverage",
+    "profile test exemption component certified stack",
+    "A2DP HFP LE Audio profile test requirement",
+    "ICS level profile coverage certification",
+    "BT stack component certification profile testing"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "medium"
+}

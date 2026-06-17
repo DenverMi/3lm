@@ -1,6 +1,6 @@
-Read the attached JSON file and extract reusable Bluetooth consulting knowledge from it.
+Read the attached MD file and extract reusable Bluetooth consulting knowledge from it.
 
-The attached file contains one email thread in JSON format. Use the file itself as the only source of truth.
+The attached file contains one email thread in MD format. Use the file itself as the only source of truth.
 
 Important:
 - One thread may contain one or more distinct Bluetooth consulting cases.
@@ -55,7 +55,7 @@ Return this exact schema:
 
 Field rules:
 - source_thread:
-  Read the value directly from the attached JSON file's "thread_id" field.
+  Read the value directly from the attached MD file's "thread_id" field.
   Copy it exactly as-is.
   Do not infer it from the filename.
   Do not change it.

@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0109",
+  "case_id": "thread_0109_case_03",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "A stack vendor quoted 3 months for certification when porting their generic host stack to Linux - is that reasonable, and would using BlueZ instead take less time?",
+  "question_variants": [
+    "Is a 3-month lead time normal for porting a third-party Bluetooth host stack to Linux?",
+    "Would using BlueZ instead of a vendor's proprietary stack be faster for certification?",
+    "What's the difference in timeline between porting a generic stack vs using an already-certified BlueZ-based stack?",
+    "If a stack is already certified under another QDID, do we still need to re-test after porting it?",
+    "How should we evaluate competing stack vendor quotes for SIG certification timelines?"
+  ],
+  "actual_issue": "A stack vendor (offering a proprietary, non-BlueZ embedded stack) quoted about 3 months for 'certification', which the customer suspected included their own porting/development time. The customer wanted to know whether using BlueZ instead would avoid this 3-month timeline, and how to interpret/compare vendor quotes.",
+  "plain_english_explanation": "When a stack vendor quotes '3 months for certification,' that quote often actually covers the time to port their software to your platform, not the certification testing itself. If you instead use an open-source BlueZ stack that has already been tuned to pass certification, and there's an existing certified registration (QDID) for that exact stack configuration, porting it to your Linux platform and re-verifying basic operation can take as little as about 2 weeks, with no further certification testing needed because the underlying stack registration already covers it.",
+  "consultant_answer": "The vendor's 3-month figure most likely reflects the time needed to port their general-purpose host stack to the customer's Linux platform, not certification testing itself. By contrast, an Open Source BlueZ stack that has already been refined to pass certification could be integrated and basic-operation-verified in as little as about 2 weeks. Moreover, there is an existing certified registration (QDID:149875) for a BlueZ-based Host Subsystem stack (BR/EDR: L2CAP, GAP, SDP, [ID], SPP); because this stack configuration is already certified, no further certification testing is required after porting it. The customer should re-approach the vendor specifically asking for 'a BlueZ-based, already-certified stack (BR/EDR: L2CAP, GAP, SDP, [ID], SPP)'. Separately, the consultant's own company offers a SIG-certification proxy service using BlueZ: if the customer's host layer is the 5 layers (L2CAP, GAP, SDP, [ID], SPP) per the quote request, running PTS testing on just the minimum required items, fixing any failing items, and obtaining the PTS report in about 3 months would be a reasonable timeline for that path - worth comparing on cost. The customer should continue searching in parallel for other vendors offering a BlueZ-based, pre-certified, brushed-up stack.",
+  "decision_logic": "Distinguish between (a) porting time for a generic, not-yet-certified host stack to a new platform (can take months and still requires certification testing afterward), and (b) using a stack that is already certified under an existing QDID in the exact required configuration, where porting plus basic verification is much faster (~2 weeks) and re-certification testing is exempted because the registration already exists. A vendor's lead-time quote should be interrogated to determine which scenario it represents.",
+  "final_recommendation": "Ask the stack vendor explicitly for a BlueZ-based host stack that is already certified (covering BR/EDR: L2CAP, GAP, SDP, [ID], SPP) under an existing QDID, rather than a generic stack requiring full porting and re-certification. In parallel, obtain a cost comparison for the consultant's own BlueZ SIG-certification proxy service (~3 months, minimum-item PTS testing plus fixes).",
+  "risk_if_done_wrong": "Choosing a generic, non-certified stack could mean the vendor's 3-month estimate is just porting time, with full certification testing (PTS, fixes) still required afterward - extending the overall schedule well beyond 3 months and adding unbudgeted certification costs.",
+  "bluetooth_tags": ["qualification", "QDID", "host", "PTS", "reuse", "Classic", "design change"],
+  "search_aliases": [
+    "stack vendor 3 month quote",
+    "porting time vs certification time",
+    "BlueZ already certified stack reuse",
+    "QDID exemption after porting",
+    "PTS minimum item testing",
+    "SIG certification proxy service BlueZ",
+    "generic stack vs BlueZ certified stack",
+    "Bluelet stack porting timeline"
+  ],
+  "qualification_stage": "planning",
+  "confidence": "medium"
+}

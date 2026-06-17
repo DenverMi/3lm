@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0112",
+  "case_id": "thread_0112_case_01",
+  "source_type": "email_case",
+  "iut_type": "module",
+  "customer_question": "Does our Bluetooth module require RF/RF PHY testing for SIG certification?",
+  "question_variants": [
+    "Is RF or RF PHY testing required when using a Bluetooth module with a built-in antenna or antenna connector?",
+    "Can we skip RF/RF PHY testing based on the module's datasheet?",
+    "What datasheet information exempts a module from RF/RF PHY testing during SIG certification?"
+  ],
+  "actual_issue": "The customer planned to use a Bluetooth module on their own board and wanted to know whether RF/RF PHY testing would be required as part of the SIG certification process for their product.",
+  "plain_english_explanation": "Some certified Bluetooth modules already include their own antenna, or have a connector for an antenna that was part of the module's own certification testing. If the module's datasheet explicitly states this (built-in antenna, or antenna connector), then no additional RF/RF PHY radio testing is needed when that module is used in a new product - the module's existing certification already covers the RF performance.",
+  "consultant_answer": "Because the module's datasheet explicitly states it has either a built-in antenna or an antenna connector, RF/RF PHY testing is not required for the Bluetooth SIG certification of the customer's product.",
+  "decision_logic": "If a Bluetooth module's datasheet explicitly documents a built-in antenna or an antenna connector (as opposed to an antenna pattern routed through the host product's own PCB), the module's existing RF certification covers the product, and no separate RF/RF PHY test is required.",
+  "final_recommendation": "Check the module's datasheet for an explicit statement of a built-in antenna or antenna connector; if present, no RF/RF PHY test needs to be planned or budgeted for the SIG certification.",
+  "risk_if_done_wrong": "Assuming RF/RF PHY testing is required when the module's datasheet already documents a built-in antenna or antenna connector would lead to unnecessary test planning and cost; conversely, missing this check for a module without such documentation (e.g., one requiring a PCB-routed antenna) could mean a needed RF test is overlooked.",
+  "bluetooth_tags": ["RF", "RF PHY", "module", "qualification"],
+  "search_aliases": [
+    "built-in antenna RF PHY exemption",
+    "antenna connector module no RF test",
+    "datasheet exempts RF PHY testing",
+    "module datasheet antenna statement",
+    "RF test not required certified module"
+  ],
+  "qualification_stage": "pre-test review",
+  "confidence": "high"
+}

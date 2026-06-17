@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0130",
+  "case_id": "thread_0130_case_06",
+  "source_type": "email_case",
+  "iut_type": "sensor",
+  "customer_question": "Our product mounts a BLE SoC (IC chip) directly on the PCB - not a pre-certified module. Does this change what kind of Bluetooth certification we need, and how much does it cost?",
+  "question_variants": [
+    "Is RF PHY testing required when using a BLE SoC directly on the PCB instead of a pre-certified module?",
+    "What type of Bluetooth registration is needed for a product with a directly-mounted BLE chip vs. a module?",
+    "How much more does certification cost for a SoC-based design vs. a pre-certified module design?"
+  ],
+  "actual_issue": "A customer designing a product with a BLE SoC ([COMPANY] chip identified as '[ID]') mounted directly on the PCB (along with associated peripheral components including antenna) asked whether this changed the certification requirements compared to using a pre-certified module. The consultant confirmed: when a BLE SoC (IC) is mounted directly on a PCB (i.e., not using a pre-certified module), the product must undergo RF PHY testing at the product level AND perform a design registration ('デザイン登録') - a more complex registration path than the simpler 'End Product registration referencing a module Component QDID' path. The cost breakdown for the SoC-based path quoted at the time was: RF PHY test (required + 2M + Coded, 27 items) ¥750,000; BQE verification and certification support ¥280,000; Compliance Folder creation ¥120,000; USD remittance proxy fee ¥100,000; Declaration Fee (then $9,600, converted at TTS rate) ¥1,321,728 - total approx. ¥2,571,728 - compared to the lower-cost path that would have applied with a pre-certified module.",
+  "plain_english_explanation": "There are two broad paths to Bluetooth SIG product certification depending on whether the product uses a pre-certified Bluetooth module or has a BLE SoC (chip) soldered directly on the PCB. With a pre-certified module, the module already has its own Component QDID covering RF PHY, so the host product can typically reference that QDID and skip RF PHY testing, resulting in a simpler, lower-cost 'End Product registration' path. With a directly-mounted SoC (IC) and its supporting components (including the antenna circuit), no pre-certified Component QDID exists for the entire RF front-end - so the product must perform its own RF PHY test suite (covering all required test cases at the chosen data rates) and undergo 'design registration' (a more involved registration type that covers the full radio design). This path requires substantially more testing work (27 test items vs. potentially none for a module-based design) and correspondingly higher total cost.",
+  "consultant_answer": "SoC(IC)を基板に直実装する製品では、製品でRF PHY試験実施とデザイン登録が必要です。この場合の見積は以下のとおりです。合計¥2,571,728（昨日の見積より、＋¥1,050,000）内訳：RF PHY試験(必須+2M+Coded 27項目)・・¥750,000、BQE検証および認証サポート・・¥280,000、コンプライアンスフォルダ作成費・・¥120,000、ドル送金代行手数料・・¥100,000、Declaration Fee($9,600)・・¥1,321,728（6月末TTSレート使用の場合）。SoC(IC)実装の場合には認証済モジュールを実装する場合に比べ、試験を行って手順が少し複雑なデザイン登録の対象となります。 (Products that directly mount a SoC (IC) on the PCB must perform RF PHY testing at the product level and undergo design registration. The quote in this case is total ¥2,571,728 (¥1,050,000 more than yesterday's estimate): RF PHY test (required + 2M + Coded, 27 items) ¥750,000; BQE verification and certification support ¥280,000; Compliance Folder ¥120,000; USD remittance proxy ¥100,000; Declaration Fee ($9,600) ¥1,321,728 at end-of-June TTS rate. Compared to using a pre-certified module, a SoC IC implementation requires testing and the somewhat more complex design registration procedure.)",
+  "decision_logic": "When quoting or planning Bluetooth certification for a new product, first determine whether the BLE Bluetooth radio is implemented via (a) a pre-certified module (Component QDID exists) or (b) a directly-mounted SoC/IC. For (b), the product must undergo product-level RF PHY testing (full test suite including 2M and Coded PHY where supported) and design registration, which is more expensive and complex than the module-based path. Quote accordingly with full test costs included.",
+  "final_recommendation": "When a customer uses a directly-mounted BLE SoC (not a pre-certified module), confirm the design registration + product-level RF PHY test requirement, and quote with the full test suite cost (¥750,000 for required+2M+Coded 27 items at the time of this thread), plus BQE/certification support, Compliance Folder, remittance proxy, and Declaration Fee.",
+  "risk_if_done_wrong": "Quoting a SoC-based design as if it were a module-based design (without the RF PHY test cost) would significantly underquote the project. Proceeding without product-level RF PHY testing for a SoC-based design would leave the product without a valid RF certification, potentially blocking the Bluetooth logo certification.",
+  "bluetooth_tags": ["RF PHY", "SoC", "module", "design registration", "Component", "QDID", "qualification", "BQE", "test"],
+  "search_aliases": [
+    "SoC directly mounted PCB RF PHY test required",
+    "BLE chip not module design registration",
+    "SoC vs module Bluetooth certification cost difference",
+    "RF PHY test 27 items required 2M Coded",
+    "design registration BQE verification SoC IC"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
+}

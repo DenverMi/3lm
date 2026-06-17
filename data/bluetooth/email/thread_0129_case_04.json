@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0129",
+  "case_id": "thread_0129_case_04",
+  "source_type": "email_case",
+  "iut_type": "consumer electronics",
+  "customer_question": "For the Qualification Workspace registration with QDID Include (199247 + Q346069 + Q333791), which QDID do we assign to each layer? What are the correct settings for Option and TCRL Package version?",
+  "question_variants": [
+    "How do we assign QDIDs to layers when Including multiple QDIDs in a Qualification Workspace project?",
+    "Which QDID (prior product QDID vs. newer DN QDIDs) should be referenced for Profile layers vs. Host layers vs. Controller layers?",
+    "For profile test exemption via QDID Include, what are the correct Option and TCRL Package settings?"
+  ],
+  "actual_issue": "Sony's FY26 TV Bluetooth registration included three QDIDs: QDID 199247 (FY23 prior product), Q346069 (Host DN), and Q333791 (Controller DN). The customer needed to know the correct layer-to-QDID assignment in the Qualification Workspace to inherit A2DP/AVRCP profiles from the prior product (avoiding full re-test) while using the current DNs for Host and Controller. The consultant confirmed: Profile layers → 199247 (inherit A2DP v1.4, AVRCP v1.6.2 from prior product via ICS-level inheritance), Host layers → Q346069, Controller and below → Q333791. Option 2b, TCRL Package version: pkg100. For RF/RF_PHY layer specifically: assign to Q333791 (Controller DN), not 199247, because RF test reports are being reused from the Controller DN.",
+  "plain_english_explanation": "When a Qualification Workspace project Includes multiple QDIDs (prior product + current host DN + current controller DN), each layer must be assigned to the appropriate source QDID. The goal of Including the prior product QDID (199247) for Profile layers is to inherit the A2DP/AVRCP ICS at the profile level, which means the SIG system treats those profiles as already tested — minimizing the test burden to only the profile version change (A2DP 1.4, AVRCP 1.6.2). The Host and Controller layers should use the current DNs because they reflect the actual chips. RF/RF_PHY is assigned to the Controller DN specifically because the RF test reports are being reused from the Controller DN.",
+  "consultant_answer": "⇒RF/RF_PHYはQ333791を選択し、他の階層はQ333791を選択してください。[Context: Profile関連はすべてQDID 199247を選ぶ（その後A2DPとAVRCPはバージョンをICS修正画面で修正する）、Host関連はQ346069を選ぶ、Controller以下はすべてQ333791を選ぶ — ご提案の通りの設定にできます。Option 2b、TCRL Package version: TCRK pkg100 でよい。] (Select Q333791 for RF/RF_PHY and Q333791 for all other [Controller] layers. Profile layers → 199247 [then modify A2DP/AVRCP version in ICS edit screen], Host layers → Q346069, Controller and below → Q333791. Option 2b, TCRL Package: pkg100 are correct.)",
+  "decision_logic": "For Qualification Workspace QDID Include layer assignment: (1) Profile layers → assign to the prior product QDID (to inherit profile ICS, enabling profile test minimization); (2) Host layers → assign to the current Host DN QDID; (3) Controller and below (including RF/RF_PHY) → assign to the current Controller DN QDID; (4) After layer assignment, use the ICS edit screen to update profile versions (e.g., A2DP 1.4 → current, AVRCP 1.6.2 → current) — this triggers only the version-delta test items; (5) Option 2b is the correct registration option; (6) TCRL Package version: pkg100.",
+  "final_recommendation": "When setting up a Qualification Workspace project with multiple QDID Includes for profile test minimization: document the exact layer-to-QDID mapping in the registration plan. Assign Profile layers to the prior product QDID for ICS inheritance; Host and Controller layers to the current DNs. After the Include setup, adjust profile ICS versions to trigger only necessary test items. Confirm RF/RF_PHY layer is on the Controller DN to align with reused RF test reports.",
+  "risk_if_done_wrong": "Assigning Profile layers to the wrong QDID (e.g., the current Host DN instead of the prior product QDID) would break the ICS inheritance and generate full profile test requirements instead of just the version-delta items. Assigning RF/RF_PHY to the wrong QDID could cause a mismatch between the layer assignment and the actual RF test report origin, potentially triggering inconsistency errors.",
+  "bluetooth_tags": ["qualification", "Qualification Workspace", "QDID Include", "ICS inheritance", "A2DP", "AVRCP", "layer selection", "profile test exemption", "Option 2b", "TCRL"],
+  "search_aliases": [
+    "Qualification Workspace QDID Include layer assignment profile Host Controller",
+    "QDID Include layer selection profile inheritance A2DP AVRCP prior product",
+    "Option 2b TCRL pkg100 Qualification Workspace",
+    "RF RF_PHY layer assignment Controller DN QDID",
+    "複数QDID Include 階層割り当て Profile Host Controller"
+  ],
+  "qualification_stage": "registration",
+  "confidence": "high"
+}

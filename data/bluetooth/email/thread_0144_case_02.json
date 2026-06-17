@@ -1,0 +1,21 @@
+{
+  "source_thread": "thread_0144",
+  "case_id": "thread_0144_case_02",
+  "source_type": "email_case",
+  "iut_type": "IoT/commercial device",
+  "customer_question": "Our product runs Zephyr OS v2.6.0, but the available Zephyr OS Host Subsystem QDID was registered with v2.3.0. Can our product use the older QDID?",
+  "question_variants": [
+    "Can we reference an older Zephyr QDID if our product runs a newer version?",
+    "Does using a newer Zephyr OS version than the QDID require a new registration?"
+  ],
+  "actual_issue": "A product running Zephyr OS v2.6.0 wants to reference an existing Host Subsystem QDID that was registered for Zephyr OS v2.3.0. This is acceptable only if the product's actual Bluetooth features are fully within the ICS scope of the v2.3.0 QDID. The customer must check the Zephyr OS Revision History to identify which Bluetooth features were added in versions after v2.3.0, and confirm that their product does not use any of those features.",
+  "plain_english_explanation": "A QDID represents a specific set of Bluetooth features (ICS). If a newer software version adds Bluetooth features that go beyond the ICS documented in the older QDID, those new features are not covered. However, if the product's actual Bluetooth usage stays within what the older QDID covers — meaning the newer version only added non-Bluetooth features or the customer simply doesn't use the new BT features — then referencing the older QDID is fine. The key check: look at the Zephyr OS Revision History, identify any BT-related additions since v2.3.0, and verify the product doesn't use them.",
+  "consultant_answer": "Referencing the v2.3.0 QDID for a product running v2.6.0 is acceptable if the product's Bluetooth features are within the v2.3.0 ICS scope. Check Zephyr OS Revision History for BT feature additions in v2.4.0–v2.6.0 and confirm the product does not use them.",
+  "decision_logic": "1. Identify the available QDID version (v2.3.0) and the product's actual OS version (v2.6.0).\n2. Review Zephyr OS Revision History for Bluetooth feature additions in v2.3.0 → v2.6.0.\n3. Compare product's actual BT features against the v2.3.0 QDID ICS scope.\n4. If product's BT features are within v2.3.0 scope → older QDID is acceptable.\n5. If product uses BT features added after v2.3.0 → new QDID registration required.",
+  "final_recommendation": "For any product using a newer software version than the available QDID, always perform a Revision History delta check before confirming the older QDID is sufficient. Document the check result.",
+  "risk_if_done_wrong": "Referencing an older QDID when the product uses BT features not covered by that QDID constitutes an inaccurate certification that could be flagged in a SIG audit.",
+  "bluetooth_tags": ["Zephyr-OS", "QDID-version-compatibility", "ICS-scope", "Host-Subsystem", "Revision-History", "older-QDID"],
+  "search_aliases": ["Zephyr OS newer version older QDID", "QDID version compatibility product", "can product use older QDID", "Zephyr revision history BT features", "ICS scope older QDID newer software"],
+  "qualification_stage": "pre-registration / QDID selection",
+  "confidence": "high"
+}

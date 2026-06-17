@@ -1,0 +1,21 @@
+{
+  "source_thread": "thread_0136",
+  "case_id": "thread_0136_case_04",
+  "source_type": "email_case",
+  "iut_type": "wearable",
+  "customer_question": "The product only uses BLE 1M PHY. What is the scope of the required RF PHY test? Can we expand the ICS to include 2M PHY later via Combine unmodified Designs?",
+  "question_variants": [
+    "BLE-only product that only uses 1M PHY — does the RF PHY test need to cover 2M and Coded PHY?",
+    "We want to add 2M PHY support later. Can Combine unmodified Designs help us add that?"
+  ],
+  "actual_issue": "The RF PHY test scope must match the product's actual implemented Bluetooth PHY modes. A BLE-only product that only uses 1M PHY needs only the 1M PHY test (not 2M or Coded PHY). Additionally, 'Combine unmodified Designs' cannot be used to add ICS items (such as 2M PHY) to an existing registration — ICS must remain exactly as-is. To add 2M PHY later, a new Design registration would be required.",
+  "plain_english_explanation": "RF PHY test is scoped to what the product actually uses. If a product uses only BLE 1M PHY, the RF PHY test covers only 1M PHY test cases. Testing 2M or Coded PHY is neither required nor appropriate. Separately, Combine unmodified Designs means 'use as-is with no changes' — you cannot add ICS items to expand the product's capability scope through that mechanism. To cover 2M PHY in the future, a new Design registration is needed.",
+  "consultant_answer": "RF PHY test scope for a 1M-only BLE product = 1M PHY test only. Combine unmodified Designs cannot add 2M PHY ICS items — ICS cannot be changed. A new Design registration is required to add 2M PHY scope in the future.",
+  "decision_logic": "1. RF PHY test scope = actual PHY modes used by the product (1M only → 1M test only).\n2. Combine unmodified Designs = ICS frozen, no additions possible.\n3. Adding PHY scope later requires a new Design registration, not a modification of existing designs via Combine.",
+  "final_recommendation": "Test only the PHY modes the product implements. If the customer may want 2M PHY in the future, consider registering a broader scope now rather than relying on Combine unmodified Designs to add it later (which is not possible).",
+  "risk_if_done_wrong": "Testing an unused PHY mode wastes test time and money. Assuming Combine unmodified Designs can expand ICS later leads to scope mismatches when the product is actually released with 2M PHY enabled.",
+  "bluetooth_tags": ["RF-PHY-test", "BLE-1M-PHY", "2M-PHY", "Coded-PHY", "ICS", "Combine-unmodified-Designs", "PHY-scope"],
+  "search_aliases": ["RF PHY test scope BLE 1M only", "BLE product PHY test what to test", "Combine unmodified Designs add ICS items", "2M PHY scope add later registration"],
+  "qualification_stage": "pre-registration / testing",
+  "confidence": "high"
+}

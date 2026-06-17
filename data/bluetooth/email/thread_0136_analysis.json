@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0136",
+  "case_analysis": {
+    "thread_summary": "Hosiden wearable smartwatch registration with a SoC registered as Controller Subsystem + custom Host Stack. Four issues surfaced: (1) Controller Subsystem + incompatible Host Stack causes GAP-LL inter-layer Consistency Check failure — Combine unmodified Designs is a fallback; (2) Core-Controller DN strategy (module vendor registers Core-Controller DN, set maker includes 'use unchanged') avoids the inconsistency; (3) Q30 QDID prefix is QPRDv3.0 format and legally equivalent to old QDIDs; Combine unmodified Designs only auto-assigns DN when ≥2 QDIDs; (4) RF PHY test scope for BLE 1M-only product = 1M test only; Combine unmodified Designs cannot expand ICS.",
+    "all_questions_found": [
+      "Can a Controller Subsystem QDID be combined with our custom Host Stack for Core Complete registration?",
+      "How does the Core-Controller DN strategy work to avoid GAP-LL inconsistency?",
+      "What does Q30 QDID prefix mean, and when does Combine unmodified Designs produce a DN?",
+      "What is the RF PHY test scope for a BLE 1M-only product? Can Combine unmodified Designs expand ICS to add 2M PHY later?"
+    ],
+    "key_technical_discussion": "Post-July 2024 QPRDv3.0 Consistency Check enforces inter-layer validation. Controller Subsystem + Host Stack with conflicting GAP/LL ICS → Invalid. Core-Controller DN strategy bypasses this by having the module vendor lock the controller portion with 'use unchanged.' Q30 is simply the new QDID format number — identical legal status to old QDIDs. Combine unmodified Designs: ≥2 QDIDs → Q30 DN auto-assigned; 1 QDID → no DN. RF PHY test scope = product's actual implemented PHY modes only.",
+    "key_decision_logic": "1. Verify QDID registration type before planning a registration strategy. 2. If Controller-only QDID + Host Stack → use Core-Controller DN strategy or Combine unmodified Designs. 3. RF PHY test = scope to actual PHY modes. 4. Combine unmodified Designs cannot add ICS — new Design required to expand scope.",
+    "risk_if_done_wrong": "Attempting incompatible Host+Controller combination generates unresolvable Consistency Check errors. Misunderstanding Combine unmodified Designs as allowing ICS expansion leads to scope mismatches at product release.",
+    "consulting_mistake": "Assuming any QDID can be freely combined with any Host Stack without verifying the ICS inter-layer compatibility under QPRDv3.0 Consistency Check rules.",
+    "consulting_takeaway": "For any wearable or set product using a third-party SoC QDID: check whether it is Controller Subsystem only or Core-Complete before advising a registration strategy. The Core-Controller DN strategy through the module vendor is the safest path to a real Core Complete DN."
+  }
+}

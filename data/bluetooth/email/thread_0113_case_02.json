@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0113",
+  "case_id": "thread_0113_case_02",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "Internal note: after logging into the account listed in the registration confirmation document, it appears the SIG Qualification Fee has not yet been paid - what should be done before sending the updated quote?",
+  "question_variants": [
+    "What should be checked regarding Qualification Fee payment status before reissuing a quote?",
+    "How is the SIG Qualification Fee paid (USD remittance) when it hasn't been completed yet?",
+    "What documentation should accompany an updated quote if the Qualification Fee hasn't been paid?"
+  ],
+  "actual_issue": "While preparing to reissue an updated quote for an urgent ODM Product Listing, the Allion consultant logged into the account specified in the registration confirmation document and found that the SIG Qualification Fee had not yet been paid for that account.",
+  "plain_english_explanation": "Before a company can register products with the Bluetooth SIG, it generally needs to pay a 'Qualification Fee' (a membership-related fee) to SIG, typically via a USD bank transfer. If this fee has not yet been paid under the account being used for registration, the customer needs to be informed and given the remittance procedure so they can complete the payment in parallel with the registration process, avoiding delays.",
+  "consultant_answer": "Since the Qualification Fee has not yet been paid under the account specified in the registration confirmation document, please also send the attached USD remittance procedure document together with the updated quote, and ask the customer to proceed with the payment to SIG.",
+  "decision_logic": "Before or when sending an updated registration quote, check whether the SIG Qualification Fee has been paid under the account specified for registration; if it has not, include the USD remittance procedure instructions so the customer can complete payment to SIG without delaying the registration.",
+  "final_recommendation": "Log into the account specified in the registration confirmation document to verify Qualification Fee payment status; if unpaid, attach the USD remittance procedure document when sending the updated quote.",
+  "risk_if_done_wrong": "If an unpaid Qualification Fee is not flagged and addressed alongside the quote, the registration process could be delayed once SIG requires payment confirmation, jeopardizing the customer's urgent Product Listing timeline.",
+  "bluetooth_tags": ["qualification", "listing", "membership fee", "pre-sales"],
+  "search_aliases": [
+    "SIG Qualification Fee not paid",
+    "USD remittance procedure to SIG",
+    "membership fee unpaid registration account",
+    "Qualification Fee check before quote",
+    "account login Qualification Fee status"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "medium"
+}

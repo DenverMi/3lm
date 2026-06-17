@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0115",
+  "case_id": "thread_0115_case_04",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "When AVRCP/CT/MCN/CB fails because cover-art-related fragmentation doesn't occur, should we ask the BQTF how to run the test, or is there a PTS setting that resolves it?",
+  "question_variants": [
+    "What PTS configuration setting addresses cover art folder requirements for AVRCP testing?",
+    "Should we ask the BQTF a general question about how to perform a test?",
+    "What is TSPX_no_cover_art_folder used for?"
+  ],
+  "actual_issue": "While trying to resolve a failing AVRCP/CT/MCN/CB cover-art-related test case, the team considered asking the BQTF a general question about how to perform the test. A senior consultant pushed back, stating this would be an inappropriate ('embarrassing') question to ask a BQTF, and instead pointed to the PTS configuration parameter TSPX_no_cover_art_folder as the relevant setting to address.",
+  "plain_english_explanation": "Before escalating a basic 'how do I run this test' question to the BQTF (the official Bluetooth test facility), the team should first check whether the issue can be resolved by correctly configuring PTS's own test parameters (PIXIT/PICS values). In this case, the PTS parameter TSPX_no_cover_art_folder defines a path to a folder in the virtual file system containing media elements with no cover art, which is specifically used by cover-art-related test cases - configuring this correctly is the proper way to address the AVRCP cover art test issue, rather than asking the BQTF a generic procedural question.",
+  "consultant_answer": "Don't ask the BQTF an embarrassing question about general test execution methods. Instead, configure the PTS parameter TSPX_no_cover_art_folder - a path to a virtual file system folder containing media elements with no cover art, used only by cover art test cases - accordingly.",
+  "decision_logic": "Before escalating a test execution question to the BQTF, first check whether the issue is addressable via PTS's own configuration parameters (e.g., TSPX_no_cover_art_folder for cover-art-related AVRCP test cases); only escalate to the BQTF for issues that genuinely cannot be resolved through PTS/PIXIT configuration.",
+  "final_recommendation": "For AVRCP cover-art-related test issues, verify and correctly set the TSPX_no_cover_art_folder PTS parameter before considering any escalation to the BQTF.",
+  "risk_if_done_wrong": "Asking the BQTF basic procedural questions that could be answered by correctly configuring PTS parameters wastes the BQTF's time, could harm the working relationship/reputation with the BQTF, and delays resolution of an issue that is solvable internally.",
+  "bluetooth_tags": ["PTS", "PIXIT", "AVRCP", "cover art", "BQTF", "profile test"],
+  "search_aliases": [
+    "TSPX_no_cover_art_folder PTS parameter",
+    "AVRCP cover art folder configuration",
+    "PTS PIXIT setting before BQTF question",
+    "cover art test case virtual file system folder",
+    "BQTF escalation avoidance PTS config"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "high"
+}

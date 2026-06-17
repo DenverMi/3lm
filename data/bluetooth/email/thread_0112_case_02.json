@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0112",
+  "case_id": "thread_0112_case_02",
+  "source_type": "email_case",
+  "iut_type": "module",
+  "customer_question": "Why is the registration support cost higher this time compared to before, and is it true that our Bluetooth module is not registered as a SIG 'Component'?",
+  "question_variants": [
+    "Why does referencing our module's QDID require a Multi-Design reference and higher fee?",
+    "Is our Bluetooth module registered as a Component in SIG, or as separate Host/Controller Subsystem QDIDs?",
+    "What changed in the registration rules since July 2024 that increases the support fee for multi-QDID references?",
+    "Why does Single Design reference cost less than Multi-Design reference?"
+  ],
+  "actual_issue": "The customer questioned why the registration support quote (Multi-Design reference fee + compliance folder fee) was higher than a previous quote, having been told by the module manufacturer (via a Declaration IF reference) that the module was registered as a SIG 'Component', while SIG's own listing didn't appear to show it that way.",
+  "plain_english_explanation": "Some Bluetooth modules are certified as a single 'Component' that a product can reference with one registration. This module, however, is certified as a combination of two separate registrations - a Host Subsystem QDID and a Controller Subsystem QDID - not as a single Component. A product using this module must therefore reference both QDIDs ('Multi-Design' reference) instead of one ('Single Design'). Since July 2024, new SIG rules added stricter consistency checks between Controller and Host registration levels, so referencing multiple QDIDs requires extra verification work (such as ICS adjustments), which is why the support fee for Multi-Design reference is higher than for Single Design reference.",
+  "consultant_answer": "Yes, the customer's understanding is correct - this module's QDID is a combination registration of a Host Subsystem QDID and a Controller Subsystem QDID, not a single Component registration. Therefore, the product using this module cannot reference a single Component or End Product registration; it must reference both the Host Subsystem QDID and the Controller Subsystem QDID (2 references = Multi-Design reference). Under the new registration system effective July 1, 2024, the consistency check between Controller and Host hierarchy levels was strengthened, so referencing multiple QDID/DNs requires additional verification work (such as ICS modifications), and the support fee is therefore set at a lower rate for Single Design reference and a higher rate for Multi-Design reference.",
+  "decision_logic": "Whether a registration support fee is quoted at the 'Single Design' or 'Multi-Design' reference rate depends on whether the Bluetooth module being used is certified as a single Component/End Product (Single Design, lower fee) or as a combination of separate Host Subsystem and Controller Subsystem QDIDs (Multi-Design, higher fee). Since the July 2024 rule change strengthening Controller-Host consistency checks, Multi-Design references require additional verification work, justifying the higher fee.",
+  "final_recommendation": "Before quoting, check SIG's listing for the module's QDID to determine whether it is registered as a single Component/End Product (Single Design reference) or as separate Host Subsystem + Controller Subsystem QDIDs (Multi-Design reference), and quote accordingly.",
+  "risk_if_done_wrong": "If a module is incorrectly assumed to be a single Component registration when it is actually a Host+Controller combination, the registration would be quoted/planned at the lower Single Design rate but would actually require the additional Multi-Design verification work (e.g., ICS modifications) mandated by the July 2024 consistency check rules.",
+  "bluetooth_tags": ["qualification", "QDID", "host", "controller", "module", "ICS", "design change", "listing"],
+  "search_aliases": [
+    "Multi-Design vs Single Design reference fee",
+    "Host Subsystem Controller Subsystem combination QDID",
+    "module not registered as Component",
+    "July 2024 consistency check rule change",
+    "ICS modification multi QDID reference",
+    "registration support fee increase reason"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
+}

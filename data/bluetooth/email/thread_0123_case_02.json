@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0123",
+  "case_id": "thread_0123_case_02",
+  "source_type": "email_case",
+  "iut_type": "speaker",
+  "customer_question": "After we sent you the Compliance Folder product materials (Bluetooth section of the operation manual, block diagram, outline drawings, and antenna radiation-gain data), what happens with them, and how long do we need to keep what you send back?",
+  "question_variants": [
+    "How will the Compliance Folder materials be delivered to us?",
+    "How long must we retain the Compliance Folder CD-R?",
+    "If we release additional models using the same module and host stack later, do we need a new registration?"
+  ],
+  "actual_issue": "After the registration was finalized, the customer provided the requested Compliance Folder materials (Bluetooth section of the operation manual, product block diagram, product outline drawings, and antenna data including radiation gain pattern for the speaker's 2.4 GHz inverted-F antenna). The consultant compiled these along with registration-process documents onto a CD-R and shipped it to the customer via Japan Post Click Post (with tracking number), along with retention instructions and information about registering future derivative models.",
+  "plain_english_explanation": "The Compliance Folder - compiled from both registration-process documents and customer-provided materials (operation manual's Bluetooth section, block diagram, outline drawings, antenna radiation-gain data) - is physically delivered to the customer on a CD-R via trackable mail. The customer must retain it for one year after sales of the registered Product List model(s) are discontinued, and present it only if Bluetooth SIG issues an audit request (compared to a car's vehicle inspection certificate - 'shaken'). The consultant notes that none of their previously-supported customers have ever actually been audited, to reassure the customer this is a low-likelihood event. Separately, for any future derivative models that reuse the same Bluetooth module and host stack as this registration, the customer can add them to this registration's Product List for free via a simple web operation in 'Manage Submitted Products' on My Page, following the provided derivative-product registration procedure document.",
+  "consultant_answer": "Thank you for the Compliance Folder product materials. We've shipped the Compliance Folder (CD-R) to you today via Japan Post Click Post, tracking number [ID]. Please retain it for one year after sales of the Product List models in this registration are discontinued, and present it if Bluetooth SIG requests an audit (it's like a car's vehicle inspection certificate). However, please be assured that none of our previously-supported customers have ever had an audit. Also, for any future derivative models using the same module and host stack as this registration, you can register them to this Product List for free via a simple web operation from the 'Manage Submitted Products' list on My Page - please refer to the attached derivative product registration procedure document.",
+  "decision_logic": "After registration finalization and receipt of customer-supplied Compliance Folder materials (operation manual Bluetooth section, block diagram, outline drawings, antenna radiation-gain data), compile and ship the Compliance Folder (e.g., on CD-R via trackable mail) to the customer, with instructions to retain it for one year past discontinuation of sales of the registered models and present it only upon an SIG audit request. Proactively inform the customer about free derivative-model registration via 'Manage Submitted Products' for future models sharing the same module/host stack.",
+  "final_recommendation": "Deliver the compiled Compliance Folder to the customer via trackable mail with clear retention (1 year post-discontinuation) and audit-presentation instructions, and proactively share the free derivative-product registration procedure for future models using the same module/host stack.",
+  "risk_if_done_wrong": "If the customer doesn't receive or retain the Compliance Folder material, they could be unable to respond to a future SIG audit. If the customer isn't informed about free derivative-model registration, they might unnecessarily pay for and undergo full re-registration for future models that reuse the same module and host stack.",
+  "bluetooth_tags": ["qualification", "compliance folder", "declaration", "retention", "audit", "derivative product", "listing", "antenna"],
+  "search_aliases": [
+    "Compliance Folder CD-R shipment tracking",
+    "Compliance Folder retention after discontinuation of sales",
+    "Bluetooth SIG audit compliance folder car inspection analogy",
+    "Manage Submitted Products free derivative model registration",
+    "antenna radiation gain pattern compliance folder document"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "medium"
+}

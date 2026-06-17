@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0113",
+  "case_id": "thread_0113_case_01",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "Our new ODM product is nearing mass production and needs urgent SIG Product Listing - given that its configuration matches already-registered products from other companies, can RF and RF PHY testing be exempted from the quote?",
+  "question_variants": [
+    "Can RF/RF PHY testing be exempted for an ODM product sharing the same configuration as already SIG-registered products?",
+    "How does referencing existing registrations of products with an identical configuration affect required testing?",
+    "What should be confirmed before reissuing a quote that excludes RF/RF PHY testing?"
+  ],
+  "actual_issue": "The customer (an ODM technology center) had a new product nearing mass production and needed urgent SIG Product Listing. The product shares the same configuration as several other companies' already-registered products. After re-quoting based on the updated quote request form content, RF and RF PHY testing were determined to be exempted, and the quote needed to be reissued accordingly.",
+  "plain_english_explanation": "When a new product (especially an ODM model) has the same hardware/RF configuration as products that have already been registered and tested with the Bluetooth SIG, the RF and RF PHY radio tests may not need to be repeated for the new product - the existing test results for the same configuration can cover it, which reduces both registration cost and timeline.",
+  "consultant_answer": "Based on the contents of the updated quote request form, RF and RF PHY testing are exempted for this product. Please reissue the quote reflecting this exemption.",
+  "decision_logic": "If a product's configuration matches that of already-registered products (as confirmed via the quote request form details), RF and RF PHY testing can be exempted from the registration quote.",
+  "final_recommendation": "Confirm the quote request form details against existing registrations with the same configuration; if they match, reissue the quote excluding RF/RF PHY testing.",
+  "risk_if_done_wrong": "Including unnecessary RF/RF PHY testing in the quote when the product's configuration matches existing registrations would inflate cost and delay an urgent Product Listing; conversely, omitting it when the configuration actually differs could result in a missing required test.",
+  "bluetooth_tags": ["RF", "RF PHY", "qualification", "listing", "ODM"],
+  "search_aliases": [
+    "ODM product same configuration RF PHY exemption",
+    "existing registration reference reduces testing",
+    "ODM Product Listing urgent",
+    "quote request form RF PHY exemption determination",
+    "reissue quote excluding RF testing"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "medium"
+}

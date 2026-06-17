@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0109",
+  "case_id": "thread_0109_case_06",
+  "source_type": "email_case",
+  "iut_type": "module",
+  "customer_question": "What value should we use for 'cable loss' in the RF test parameters when our antenna and cable are an integrated unit with no separate loss spec, and will the lab need to open the product casing to access the board/antenna?",
+  "question_variants": [
+    "Is 'cable loss' the loss of our integrated antenna cable?",
+    "What cable loss value should we use if the datasheet doesn't list one for an integrated antenna+cable?",
+    "Will RF testing require disassembling the product to access the PCB or antenna terminal?",
+    "Do we need to provide disassembly instructions for the test lab?",
+    "What's a typical default cable loss value for RF test reporting?"
+  ],
+  "actual_issue": "The customer's antenna (an integrated antenna+cable unit recommended by the module maker's application note) has no separate cable loss specification, and the customer initially thought 'cable loss' referred to this antenna's own cable. The customer also asked whether RF testing would require accessing the product's internal board/antenna terminals, in which case disassembly instructions (screws, latches) would be needed.",
+  "plain_english_explanation": "'Cable loss' in the RF test parameters isn't about the antenna's own cable - it's about a separate, short SMA test cable that the lab adds temporarily to connect the product's RF signal point to their test equipment, which typically loses about 0.6dB. If the antenna's datasheet doesn't list a cable-loss figure (because it's an integrated unit), you can simply use the standard ~0.6dB default. Also, for this kind of test, the lab doesn't need to open up the product or access the internal board or antenna connector - it's done using a software DUT mode, so no disassembly instructions are needed.",
+  "consultant_answer": "Antenna gain should be entered as 3.0dBi (the antenna's spec). Cable loss, however, is not about the antenna's integrated cable - it refers to the insertion loss (dB) of a separate uFL-SMA (or similar) conversion cable that is added for the test, connecting the test sample's RF signal pattern to the RF tester. This is typically about 0.6dB. The customer should check the documentation for that specific test/conversion cable; if that information is unavailable (e.g., because the antenna and cable are an integrated unit with no separate spec), use 0.6dB as the value. Separately, the test lab does not access the product's internal board or antenna terminals during RF testing; testing is done via the product's software DUT mode without modification, so no disassembly/casing-opening instructions are needed.",
+  "decision_logic": "Cable loss for RF test reporting refers specifically to the loss of the temporary test/conversion cable connecting the DUT to the RF tester - not to any cable that is part of the product's own antenna assembly. If this temporary cable's loss is unknown or unavailable, a standard default of ~0.6dB may be used. Separately, whether disassembly instructions are needed depends on whether the test requires physical access to internal board/antenna connections; if the test is performed via a software DUT mode, no such access or instructions are required.",
+  "final_recommendation": "Enter antenna gain as 3.0dBi (per the antenna's datasheet). For cable loss, check the specific test/conversion cable's documentation; if unavailable, use the default 0.6dB. Do not prepare disassembly instructions, since the RF test is performed via software DUT mode without accessing the internal board or antenna terminals.",
+  "risk_if_done_wrong": "Using the integrated antenna+cable's (unspecified) loss instead of the test/conversion cable's loss would misstate the RF test parameters in the report. Unnecessarily preparing disassembly instructions would create extra, unneeded work.",
+  "bluetooth_tags": ["RF", "RF PHY", "test report", "module", "qualification"],
+  "search_aliases": [
+    "cable loss definition RF test",
+    "antenna gain dBi RF test parameter",
+    "uFL-SMA conversion cable loss",
+    "0.6dB default cable loss",
+    "integrated antenna cable no spec",
+    "RF test no disassembly needed",
+    "DUT mode software no board access",
+    "test cable insertion loss RF report"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "medium"
+}

@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0133",
+  "case_id": "thread_0133_case_02",
+  "source_type": "email_case",
+  "iut_type": "automotive",
+  "customer_question": "How is the RF PHY test scope determined for our product - is it determined by the included Qualcomm DN, or by our product's application? For automotive, do we need Coded PHY and 2M PHY, or is 1M only sufficient?",
+  "question_variants": [
+    "Does the included DN determine which RF PHY test items we must test?",
+    "For an automotive infotainment unit, is 2M PHY testing required?",
+    "Is Coded PHY testing required for in-vehicle connectivity products?"
+  ],
+  "actual_issue": "A customer ([COMPANY] Alps Alpine) developing an automotive Volvo UXC (in-vehicle connectivity unit) asked how to determine the RF PHY test scope for their product, and whether to include LE 2M PHY testing. The consultant clarified: (1) RF PHY test scope is determined by the product's embedded application capabilities, NOT by the content of the included chip vendor DN. (2) For automotive in-vehicle products: Coded PHY (long-range, lower apparent speed) is not needed (no automotive use case); Stable Modulation Index variants are also unnecessary. (3) 2M PHY is likely needed because it auto-negotiates when the peer device supports it. (4) If the product only implements Qualcomm's standard profile set (Q370647 Android V Auto Core Host covers classic BT profiles only, no GATT/LE profiles), 2M is not strictly mandatory. If a custom BLE profile with 128-bit UUID is added, 1M + 2M testing is required. The consultant also mentioned the option of certifying 2M prophylactically in case future Host updates add BLE profiles. Final customer decision: all RF PHY optional features not needed → 1M mandatory test only.",
+  "plain_english_explanation": "The range of RF PHY test items is not dictated by what the chip vendor's DN covers - it is dictated by what radio features the product's application actually uses or enables. For an automotive in-vehicle connectivity module: Coded PHY exists to extend range by slowing the data rate, which is irrelevant inside a vehicle; Stable Modulation Index is a specialist feature not typically needed. 2M PHY is negotiated automatically with peer devices that support it, so if the product could ever connect to a modern phone (which all support 2M), testing 2M is advisable. However, if the product's profile stack is purely classic Bluetooth (following Qualcomm's Android V Auto profile set, which has no GATT/LE profiles), 2M is technically not required - it becomes required only if a custom BLE service is added. The safest approach from a future-proofing standpoint is to test 2M now; the cost-saving approach is to test only 1M if no LE profile is planned.",
+  "consultant_answer": "IncludeするDNの内容でRF PHYの試験範囲が決まるのではなく、製品組込アプリがどこまでサポートしているかにより決定します。車載器では見かけ上の伝搬速度を下げて遠くへ伝達させるCodedは不要かつStable xxxは不要かと思います。2Mbpsは対向相手がサポートしていると自動でネゴシエートされますので使う可能性が高いです。したがって必須1Mと2Mの試験実施でよろしいかと思います。最終判断は製品アプリの開発担当部門へご確認ください。(RF PHY test scope is determined not by the content of the included DN but by how much the product's embedded application supports. For automotive units, Coded PHY (which lowers apparent propagation speed for longer range) is unnecessary, and Stable xxx is unnecessary. 2M is auto-negotiated if the peer supports it, so there is a high probability of it being used. Therefore, mandatory 1M and 2M testing would be appropriate. Please confirm the final judgment with the product application development team.)",
+  "decision_logic": "When determining RF PHY test scope: (1) Do not look at the included chip vendor DN - the DN does not determine the product's test scope. (2) Ask the customer's product application development team what RF PHY features the product enables. (3) For automotive products: Coded PHY = not needed; Stable Modulation Index = not needed; 2M PHY = needed if the product could ever operate LE or connect to modern phones. (4) If the product uses only classic Bluetooth profiles (no LE GATT service), 2M is technically optional but recommended for future-proofing. (5) If a custom BLE profile (128-bit UUID) is used, 1M + 2M are both mandatory.",
+  "final_recommendation": "Always ask the customer's application development team to confirm the actual RF PHY feature support, rather than inferring from the included DN. For automotive units with classic BT only: 1M mandatory + 2M recommended. If the customer opts out of 2M for now, document that it would be required if a BLE profile is added in the future.",
+  "risk_if_done_wrong": "Including 2M in the test scope when the product will never use it wastes test cost (¥300,000 additional). Omitting 2M when the product does use it (e.g., through future BLE profile addition) could mean selling a product with an untested radio mode, requiring retroactive certification.",
+  "bluetooth_tags": ["RF PHY", "Coded PHY", "2M PHY", "LE", "automotive", "test scope", "GATT", "BLE profile", "qualification"],
+  "search_aliases": [
+    "RF PHY test scope determined by product app not included DN",
+    "automotive Coded PHY not needed in-vehicle",
+    "2M PHY test required LE GATT BLE profile",
+    "Qualcomm DN RF PHY test range determination",
+    "128-bit UUID custom BLE profile 1M 2M both required"
+  ],
+  "qualification_stage": "initial certification",
+  "confidence": "high"
+}

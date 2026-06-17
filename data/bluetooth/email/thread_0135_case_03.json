@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0135",
+  "case_id": "thread_0135_case_03",
+  "source_type": "email_case",
+  "iut_type": "industrial/commercial device",
+  "customer_question": "The module has an integrated antenna. Is the RF/RF PHY test exempt? Also, a yellow warning for TCW ES-25636 appeared in the Consistency Check — what does that mean?",
+  "question_variants": [
+    "Is a module with an antenna connector exempt from RF testing?",
+    "TCW ES-25636 yellow warning appeared in my provisional project — does this block registration?",
+    "How long does SIG take to resolve a TCW ES-25636 warning?"
+  ],
+  "actual_issue": "Modules with an integrated antenna or an antenna connector are exempt from RF/RF PHY testing, provided this is explicitly stated in the datasheet. Separately, TCW ES-25636 is a yellow Consistency Check warning caused by a SIG-side Check Rule issue — it is not an error caused by the registrant and does not block registration. SIG reviews and approves it internally within 1–5 business days.",
+  "plain_english_explanation": "RF/RF PHY testing exemption applies when the module's datasheet explicitly states that an antenna is integrated or that an antenna connector is provided. In that case, the module has already managed the RF output and no further RF testing is required from the set maker. TCW ES-25636 is a different matter — it is a yellow warning that appears because of a known issue in SIG's own Check Rule implementation, not because of any error by the registrant. Submitting the registration causes SIG to automatically queue a review, which they resolve in 1–5 business days without any action required from the registrant.",
+  "consultant_answer": "If the datasheet explicitly states 'integrated antenna' or 'antenna connector,' the RF/RF PHY test is exempt. TCW ES-25636 is a SIG-side Check Rule issue — it is a yellow warning, not a blocking error, and SIG will approve it within 1–5 business days after Submission.",
+  "decision_logic": "RF/RF PHY test exemption: check the module datasheet for explicit statement of integrated antenna or antenna connector → if present, exemption applies.\nTCW ES-25636: this warning originates from a SIG Check Rule bug (not a registrant error). Proceed with Submission; SIG will review and approve within 1–5 business days automatically.",
+  "final_recommendation": "When quoting RF testing, check the module datasheet for antenna configuration. If exempt, remove RF test fees from the quote. For TCW ES-25636, inform the customer that SIG will resolve it in 1–5 business days — no action needed on their part.",
+  "risk_if_done_wrong": "Quoting RF testing when the module is exempt wastes time and money. Misidentifying TCW ES-25636 as a blocking error causes unnecessary project delays and misinformation to the customer.",
+  "bluetooth_tags": ["RF-PHY-test", "RF-test-exemption", "antenna", "TCW-ES-25636", "Consistency-Check", "yellow-warning", "SIG-approval"],
+  "search_aliases": ["integrated antenna RF test exempt", "antenna connector RF PHY exemption", "TCW ES-25636 what is it", "Consistency Check yellow warning SIG", "1-5 business days SIG approval"],
+  "qualification_stage": "pre-registration",
+  "confidence": "high"
+}

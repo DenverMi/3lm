@@ -48,29 +48,31 @@ Rules:
 19. Keep wording concise, dense, and reusable.
 20. Do not infer thread structure, outcomes, or case boundaries from snippets, previews, or partial retrieval context. Analyze the complete thread before extracting cases.
 
+Output each case into the following file pattern:
+/output/cases/
+  <source_thread>_case_01.json
+  <source_thread>_case_02.json
+  <source_thread>_case_03.json
+
 Return this exact schema:
 
 {
   "source_thread": "",
-  "cases": [
-    {
-      "case_id": "",
-      "iut_type": "",
-      "customer_question": "",
-      "question_variants": [],
-      "actual_issue": "",
-      "plain_english_explanation": "",
-      "consultant_answer": "",
-      "decision_logic": "",
-      "final_recommendation": "",
-      "risk_if_done_wrong": "",
-      "bluetooth_tags": [],
-      "search_aliases": [],
-      "qualification_stage": "",
-      "confidence": "",
-      "source_type": "email_case"
-    }
-  ]
+  "case_id": "",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "",
+  "question_variants": [],
+  "actual_issue": "",
+  "plain_english_explanation": "",
+  "consultant_answer": "",
+  "decision_logic": "",
+  "final_recommendation": "",
+  "risk_if_done_wrong": "",
+  "bluetooth_tags": [],
+  "search_aliases": [],
+  "qualification_stage": "",
+  "confidence": ""
 }
 
 Field rules:
@@ -219,4 +221,4 @@ Quality standard:
   4. grounded answer generation
   5. plain-English explanation to non-experts
 
-Process the attached file now.
+Process the next file now:

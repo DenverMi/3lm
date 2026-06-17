@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0145",
+  "case_id": "thread_0145_case_01",
+  "source_type": "email_case",
+  "iut_type": "module",
+  "customer_question": "We are registering a module using a Qualcomm chipset that supports Class 1 (high power, long range) Bluetooth. When we set RF ICS item 1/1 to 'Supported' (Class 1), we get an 'Invalid' Consistency Check error. How do we resolve this?",
+  "question_variants": [
+    "Why does setting RF 1/1 = Supported cause a Consistency Check Invalid?",
+    "How do I register a Class 1 Bluetooth module without triggering ICS inconsistency?",
+    "What is the difference between RF Class 1 and RF PHY Class 1 in ICS?"
+  ],
+  "actual_issue": "SIG Check Rule: 'If RF(1/1) is Supported, then LMP(31/1) is Mandatory.' Setting RF ICS item 1/1 = Supported (Class 1 power output) requires LMP item 31/1 (LMP Power Control) to be Mandatory. If the included QDID's LL layer does not support LMP Power Control (31/1), the Consistency Check produces an Invalid error that cannot be cleared. The solution: set RF 1/1 = NO (Class 2 in RF layer) AND set RF PHY 1/15 = YES (PHY Class 1 = Class 1 power output at the RF PHY layer). This combination clears all Invalid errors while still accurately representing Class 1 power output capability through the RF PHY layer. RF/RF PHY testing should be conducted at Class 1 settings (PHY Class 1).",
+  "plain_english_explanation": "The Bluetooth ICS has two places where output power class can be expressed: the RF layer (item 1/1) and the RF PHY layer (item 1/15). Setting RF 1/1 = Supported (Class 1) triggers a mandatory dependency on LMP Power Control (31/1). If the underlying QDID does not support that LMP item, you get an Invalid error. The workaround is to express Class 1 capability through the RF PHY layer instead: set RF 1/1 = NO (which relaxes the LMP dependency) and set RF PHY 1/15 = YES (PHY Class 1). This correctly expresses that the module is capable of Class 1 power output via the RF PHY item, without triggering the problematic LMP 31/1 dependency. Actual RF testing should still be done at Class 1 power levels to match the RF PHY ICS setting.",
+  "consultant_answer": "Do not set RF 1/1 = Supported (this triggers LMP 31/1 Mandatory dependency). Instead: set RF 1/1 = NO (Class 2 in RF layer) AND RF PHY 1/15 = YES (PHY Class 1). This clears all Invalid errors while correctly representing Class 1 output through the RF PHY layer. RF/RF PHY test should be conducted at Class 1 (PHY Class 1) settings.",
+  "decision_logic": "1. Check Rule: RF(1/1) Supported → LMP(31/1) Mandatory.\n2. If included QDID does not support LMP 31/1 → Invalid when RF 1/1 = Supported.\n3. Solution: RF 1/1 = NO + RF PHY 1/15 = YES.\n4. RF PHY 1/15 = YES correctly represents Class 1 power output at the PHY layer.\n5. No LMP 31/1 dependency is triggered by RF PHY 1/15.\n6. RF/RF PHY test at Class 1 (PHY Class 1) settings.",
+  "final_recommendation": "For any Class 1 module registration: never set RF 1/1 = Supported unless the QDID explicitly supports LMP 31/1. Use RF 1/1 = NO + RF PHY 1/15 = YES as the standard approach for Class 1 power representation. Confirm this combination with the customer's test plan before testing begins.",
+  "risk_if_done_wrong": "Setting RF 1/1 = Supported when LMP 31/1 is not in the QDID creates an unresolvable Invalid error that blocks registration entirely. Setting RF 1/1 = NO without setting RF PHY 1/15 = YES fails to represent Class 1 capability at all, which is an inaccurate registration.",
+  "bluetooth_tags": ["RF-ICS", "Class-1", "LMP-31/1", "RF-PHY", "Consistency-Check", "Invalid", "ICS-Check-Rule", "Qualcomm", "module"],
+  "search_aliases": ["RF 1/1 Supported LMP 31/1 Mandatory Invalid", "Class 1 Bluetooth ICS inconsistency", "RF PHY 1/15 Class 1 power", "RF 1/1 NO RF PHY 1/15 YES", "Qualcomm module Class 1 Consistency Check error", "how to register Class 1 module without Invalid"],
+  "qualification_stage": "design registration / ICS setup",
+  "confidence": "high"
+}

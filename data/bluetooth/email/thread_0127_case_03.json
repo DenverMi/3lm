@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0127",
+  "case_id": "thread_0127_case_03",
+  "source_type": "email_case",
+  "iut_type": "sensor",
+  "customer_question": "Our product is sold under 9 different catalog/order codes (each combining the Bluetooth-equipped unit with a different mounting bracket), but internally the Bluetooth unit itself is identified by a single manufacturing code. For the SIG registration documents, should we list all 9 catalog codes, or just the 1 internal Bluetooth-unit code? Could we also do a 'series registration' to cover future model variants with a wildcard?",
+  "question_variants": [
+    "Which model name/product code should appear in the Product List - the marketed SKU or the internal Bluetooth module code?",
+    "Does the SIG Product List model name need to match the physical product's nameplate?",
+    "Can we register a product 'series' with a wildcard to cover future variants?"
+  ],
+  "actual_issue": "The customer's product is sold under 9 catalog/order codes (e.g., 'NH-2#' style codes), each representing a combination of the Bluetooth-equipped unit plus a specific mounting bracket ('金具'), while internally the Bluetooth unit alone is identified by a single manufacturing code. The customer asked whether the SIG registration documents (and Product List) should list all 9 catalog codes or just the 1 internal unit code, and separately asked whether a 'series registration' using a wildcard could cover future product variants without re-registration. The consultant explained that the Product List model name must match whatever is shown on the physical product's nameplate: if only the single internal unit code appears on the nameplate, only that one code is registered; but if the 9 catalog codes are also shown (or co-displayed) on the nameplate, all 9 must be registered in the Product List. The consultant also stated that SIG rules require an exact match between the physical product's nameplate marking and the Product List model name, and that wildcard-based 'series' registrations are prohibited.",
+  "plain_english_explanation": "The SIG Product List's 'model name' field isn't a free choice - it must exactly match what is physically printed on the product's nameplate/label as sold to end customers. If a product is sold under multiple SKU/catalog codes that represent different bundled configurations (e.g., a sensor unit plus different mounting brackets), and those SKU codes appear on the product's nameplate (in addition to or instead of an internal-only code), then each of those nameplate-visible codes must be separately registered in the Product List. Conversely, if only one internal code is shown on the nameplate, only that one code needs registration - even if the company internally tracks 9 different sales configurations. Also, SIG does not allow 'series' or wildcard-style registrations (e.g., 'NH-2#' to cover NH-21, NH-22, etc.) - every distinct nameplate model name that will be sold must be explicitly and individually registered.",
+  "consultant_answer": "現物の銘板に「[ID]」が表示されていればそれだけをSIG認証のProduct Listへ登録します。もし「[ID]」等の製品コードが表示あるいは併記されていればProduct Listにも9種類登録する必要があります。SIGの規定により、販売されている現物の銘板などの表示とSIG登録中のProduct Listのモデル名との一致が求められ、いわゆるワイルドカードを使ったシリーズ表示は禁止されています。 (If only '[ID]' appears on the physical product's nameplate, only that one code is registered in the SIG Product List. If the '[ID]'-style product codes are also displayed or co-displayed on the nameplate, all 9 of those need to be registered in the Product List as well. Per SIG rules, the nameplate marking on the actual sold product must exactly match the Product List model name, and so-called wildcard-based series listings are prohibited.)",
+  "decision_logic": "To determine which model name(s) to register in the SIG Product List, check what is physically printed on the product's nameplate/label as sold: register exactly those model name(s), no more and no fewer. If multiple SKU codes (representing different bundled configurations) appear on the nameplate, register all of them individually. Do not attempt to use wildcard or 'series' notations to cover multiple variants with one registration entry - each distinct nameplate model name requires its own Product List entry.",
+  "final_recommendation": "Register in the SIG Product List exactly the model name(s) that physically appear on the product's nameplate as sold - if multiple catalog/SKU codes are shown on the nameplate, register each one individually; if only a single internal code is shown, register only that. Do not use wildcard/series-style entries, as SIG prohibits them and requires an exact nameplate-to-Product-List match.",
+  "risk_if_done_wrong": "Registering a model name that doesn't exactly match the nameplate on the sold product (e.g., registering only the internal code when multiple SKU codes are also shown on the nameplate, or attempting a wildcard 'series' entry) could result in a Product List that doesn't cover the actual products being sold, leaving some sold configurations unregistered/non-compliant with SIG requirements.",
+  "bluetooth_tags": ["qualification", "listing", "Product List", "model name", "nameplate", "series registration", "wildcard", "SKU"],
+  "search_aliases": [
+    "Product List model name must match nameplate",
+    "multiple SKU codes single Bluetooth unit registration",
+    "SIG series registration wildcard prohibited",
+    "nameplate marking Product List exact match",
+    "register all catalog codes vs internal code"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
+}

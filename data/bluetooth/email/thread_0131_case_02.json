@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0131",
+  "case_id": "thread_0131_case_02",
+  "source_type": "email_case",
+  "iut_type": "unknown",
+  "customer_question": "What is the Compliance Folder (コンプライアンスフォルダ) in Bluetooth SIG certification? Why is it needed and how is it delivered?",
+  "question_variants": [
+    "What documents go into the Bluetooth Compliance Folder?",
+    "When is the Compliance Folder required to be submitted?",
+    "Do we need to keep the Compliance Folder after shipment?"
+  ],
+  "actual_issue": "A customer ([COMPANY] Shibutani) received a quote that included a Compliance Folder creation fee and needed an explanation of what the Compliance Folder is, why it is required, and how it is provided. The consultant explained that the Compliance Folder is a compilation of technical documents and certifications proving that a Bluetooth-equipped product meets certification standards. It may be requested during a market audit, and Bluetooth SIG policy requires it to be retained even after shipment. The certification service provider collects the required information, creates the Compliance Folder, and delivers it on CD-R.",
+  "plain_english_explanation": "The Compliance Folder is a mandatory record-keeping requirement under Bluetooth SIG's certification policy. It contains the technical documentation proving that a product legitimately carries the Bluetooth logo - things like test reports, design documentation, and certification records. It is not submitted upfront to SIG, but must be maintained by the manufacturer and made available if SIG audits the product in the market. SIG policy requires the folder to be kept even after a product is discontinued. In practice, the certification service provider assembles the relevant technical information into a Compliance Folder document set and delivers it to the customer on CD-R as part of the certification service.",
+  "consultant_answer": "Bluetooth SIG のコンプライアンスフォルダ（Compliance Folder）とは、Bluetooth搭載製品が認証基準を満たしていることを証明する、技術ドキュメントや認定証をまとめた記録ファイルです。市場監査（オーディット）の場合に提出が求められる可能性があり、出荷後も保管が必要とBluetooth SIGのポリシーで定められています。当社で情報を集めてコンプライアンスフォルダを作成し、CD-Rにコピーをして納品いたします。(The Bluetooth SIG Compliance Folder is a record file compiling technical documents and certifications that prove a Bluetooth-equipped product meets certification standards. It may be required for submission in the event of a market audit, and Bluetooth SIG policy stipulates that it must be retained even after shipment. We collect the information, create the Compliance Folder, and deliver it copied to a CD-R.)",
+  "decision_logic": "When a customer asks about the Compliance Folder line item in a quote: explain that it is a Bluetooth SIG-required record-keeping file (not a submission to SIG), containing technical documents and certifications proving compliance. It is needed in case of a SIG market audit and must be retained post-shipment. The certification service provider creates and delivers it (typically on CD-R).",
+  "final_recommendation": "Always explain the Compliance Folder proactively when it appears as a line item in a quote, since customers often don't know what it is. Key points: (1) It's mandatory for market audit readiness; (2) SIG policy requires post-shipment retention; (3) The service provider assembles and delivers it.",
+  "risk_if_done_wrong": "If a customer is not informed about the Compliance Folder or fails to retain it, they would be unprepared if SIG conducts a market audit, potentially putting their Bluetooth certification at risk.",
+  "bluetooth_tags": ["Compliance Folder", "audit", "documentation", "certification", "retention", "CD-R"],
+  "search_aliases": [
+    "Compliance Folder what is it Bluetooth SIG",
+    "コンプライアンスフォルダ 説明 市場監査",
+    "Compliance Folder audit retention post-shipment",
+    "CD-R Compliance Folder delivery",
+    "Bluetooth SIG market audit Compliance Folder requirement"
+  ],
+  "qualification_stage": "initial certification",
+  "confidence": "high"
+}

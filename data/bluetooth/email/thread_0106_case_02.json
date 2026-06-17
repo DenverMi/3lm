@@ -1,0 +1,46 @@
+{
+    "source_thread": "thread_0106",
+    "cases": [
+        {
+            "case_id": "thread_0106_case_02",
+            "iut_type": "nRF53-based Zephyr product",
+            "customer_question": "Can a qualification be created by combining an RF PHY qualification with Zephyr Controller and Host Subsystem references when consistency checks show GAP ICS issues?",
+            "question_variants": [
+                "RF PHY plus Zephyr subsystem qualification issue",
+                "GAP ICS inconsistency after QDID combination",
+                "Can I modify ICS to pass registration checks?",
+                "Why does the combination fail current check rules?",
+                "Does correcting GAP ICS trigger testing?"
+            ],
+            "actual_issue": "A qualification composition using an RF PHY qualification together with Zephyr Controller and Host Subsystem references creates GAP ICS consistency-check failures under current qualification rules.",
+            "plain_english_explanation": "The selected qualification building blocks appeared compatible at first, but the exact combination triggered consistency-check errors. Fixing those errors is not just an administrative change because it can create new testing obligations. This turns a simple reuse case into a qualification-risk issue.",
+            "consultant_answer": "When the RF PHY qualification was combined with the Zephyr Controller and Host Subsystem references, current check rules identified GAP ICS inconsistencies. Although the GAP ICS could technically be corrected, modifying that layer causes qualification requirements to apply to the modified functionality. The consultant explained that protocol testing of the affected GAP functionality would then be required, which is difficult for parties that do not own and control the stack implementation. An alternative combination using the existing Zephyr subsystem references avoided the invalid checks but would not accurately reflect the intended RF PHY qualification.",
+            "decision_logic": "Changing qualification data at a layer affected by consistency-rule failures converts the issue from qualification reuse into a modified design requiring additional qualification obligations. The ability to reuse existing qualifications depends on preserving the qualified design scope without introducing modified functionality.",
+            "final_recommendation": "Validate the exact QDID composition in a project workspace before committing to a qualification path. Avoid qualification structures that require ICS corrections unless the organization can support the resulting protocol-testing obligations.",
+            "risk_if_done_wrong": "Incorrect qualification composition can trigger unexpected protocol-testing requirements, qualification rework, registration delays, or reliance on a qualification structure that does not accurately represent the intended design.",
+            "bluetooth_tags": [
+                "qualification",
+                "ICS",
+                "GAP",
+                "consistency check",
+                "QDID",
+                "RF PHY",
+                "controller",
+                "host"
+            ],
+            "search_aliases": [
+                "ICS inconsistency",
+                "GAP invalid check",
+                "RF PHY substitution",
+                "QDID combination failure",
+                "consistency rule error",
+                "GAP protocol testing",
+                "Host Subsystem invalid",
+                "qualification composition review"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

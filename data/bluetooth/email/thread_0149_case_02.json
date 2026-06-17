@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0149",
+  "case_id": "thread_0149_case_02",
+  "source_type": "email_case",
+  "iut_type": "End Product",
+  "customer_question": "When should we register with the SIG? Our product is planned to launch in September. Can we register before the product is commercially available?",
+  "question_variants": [
+    "How far in advance can we register a Bluetooth product with SIG?",
+    "Can we pre-register before product launch?",
+    "What is the recommended timing for Bluetooth SIG registration relative to product launch?"
+  ],
+  "actual_issue": "Customer asked about timing for SIG registration relative to their planned September product launch. They wanted to know if they could register in advance and how far ahead was allowable.",
+  "plain_english_explanation": "SIG allows companies to set a future 'Submission Date' up to 90 days ahead of when they actually register. This means the listed date can be up to 3 months in the future. The recommendation is to complete registration about 3 months before the product's planned launch date, so that if the SIG introduces new Consistency Check rules after registration, the submission predates those rules and is not retroactively affected.",
+  "consultant_answer": "You can set the Submission Date up to 90 days in the future when creating a registration. For a September launch, we recommend completing the registration around June. This gives a 3-month buffer to handle any SIG rule changes and ensures the registration is finalized before the launch date.",
+  "decision_logic": "The 90-day advance window protects customers from being caught by new SIG qualification rules introduced after their registration date. Registering ~3 months before launch minimizes exposure to mid-process rule changes.",
+  "final_recommendation": "Register approximately 3 months before the planned product launch date. Use the 90-day advance Submission Date feature to set the date forward if needed.",
+  "risk_if_done_wrong": "Waiting until the last minute before launch risks encountering new SIG Consistency Check rules that require rework. New rules only apply to registrations created after the rule effective date, so early registration avoids this risk.",
+  "bluetooth_tags": ["registration timing", "Submission Date", "90-day advance", "SIG qualification", "product launch"],
+  "search_aliases": ["advance registration SIG", "register before launch", "SIG 90 days advance", "registration timing product launch"],
+  "qualification_stage": "Registration Planning",
+  "confidence": "high"
+}

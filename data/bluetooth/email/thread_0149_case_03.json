@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0149",
+  "case_id": "thread_0149_case_03",
+  "source_type": "email_case",
+  "iut_type": "N/A — SIG account management",
+  "customer_question": "We want to change the email address on our SIG member account. Is it possible to update the email address on an existing account?",
+  "question_variants": [
+    "How do I change my SIG account email address?",
+    "Can we update the registered email on a SIG member account?",
+    "We changed company email domains — how do we update the SIG account?"
+  ],
+  "actual_issue": "Customer ATAGO Co. wanted to change the email address associated with their existing SIG member account. SIG does not allow email modification on an existing account.",
+  "plain_english_explanation": "The SIG system does not support changing the email address on an existing member account. Instead, the customer must register a new account with the new email address (under the same member company). Both the old and the new accounts can be used to access and work on the same projects.",
+  "consultant_answer": "SIG does not permit email address modification on an existing account. The solution is to create a new SIG account using the new email address within the same member company. Both accounts can coexist and be used simultaneously on the same qualification projects.",
+  "decision_logic": "SIG member accounts are tied to a specific email address and cannot be edited. Adding a new account under the same company membership is the supported path. The SIG system allows multiple accounts per member company, and all accounts can access the same project workspace.",
+  "final_recommendation": "If a customer needs to change their SIG account email, instruct them to register a new account using the new email address. Their old and new accounts will both work, and they can transfer ongoing project responsibilities to the new account.",
+  "risk_if_done_wrong": "Attempting to modify the email on an existing account is not possible and wastes time. If the old account is the Registrant on existing QDIDs/QNs, those Qualification Numbers remain tied to the registrant company (not a specific account) and are still accessible.",
+  "bluetooth_tags": ["SIG account", "email change", "member account", "Qualification Workspace", "account management"],
+  "search_aliases": ["change SIG account email", "SIG email update", "new SIG account same company", "SIG account cannot change email"],
+  "qualification_stage": "Account Management",
+  "confidence": "high"
+}

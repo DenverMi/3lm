@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0152",
+  "case_id": "thread_0152_case_02",
+  "source_type": "email_case",
+  "iut_type": "End Product — product with modified antenna pattern vs. certified module",
+  "customer_question": "Our product uses a certified Bluetooth module but has a different antenna design (custom PCB antenna instead of the module's built-in antenna). How many RF test items are required in this case?",
+  "question_variants": [
+    "How many RF tests are needed when the antenna is different from the certified module?",
+    "Is a full 26-item RF test required for a product with a custom antenna pattern?",
+    "What RF tests apply when only the antenna pattern is different from the module certification?"
+  ],
+  "actual_issue": "Sharp's product uses a Bluetooth module that is already SIG-certified. However, the product has a different antenna design from the module (custom PCB antenna vs. the module's original antenna). Because the antenna pattern is different (modified), an antenna design verification RF test is required. But the scope of this test is limited — it is not the full 26-item Classic Bluetooth RF test.",
+  "plain_english_explanation": "When a certified Bluetooth module is used in a product with a different antenna design, the SIG requires RF testing to verify that the antenna modification did not degrade performance. However, because the underlying RF circuitry (module) is already certified, only 2 RF test items are needed: Receiver Sensitivity and Transmitter Output Power. These two items confirm the antenna's radiation characteristics are within acceptable bounds. The full 26-item test is not required because the module's other RF parameters were already validated in its original certification.",
+  "consultant_answer": "For a product with a modified antenna pattern (different from the certified module's antenna), the RF test scope is 2 items: Rx Sensitivity and Tx Output Power. This is an antenna design verification test, not a full qualification RF test. The 2-item scope is applied at the point of the new antenna design.",
+  "decision_logic": "The SIG RF test scope for end products with modified antenna designs is limited to antenna-pattern verification items only (Rx sensitivity + Tx output power). The full 26-item test applies to first-time RF qualification of a Bluetooth design; for end products incorporating already-certified modules with only an antenna change, the abbreviated 2-item scope is standard.",
+  "final_recommendation": "When a customer changes only the antenna from a pre-certified module's design, quote 2 RF test items (Rx Sensitivity + Tx Output Power) rather than the full 26-item test. Confirm that no other RF-relevant hardware (PA, filter, balun) has changed.",
+  "risk_if_done_wrong": "Quoting the full 26-item test when only 2 are required over-charges the customer and wastes lab capacity. Conversely, applying the 2-item scope when more than the antenna was changed (e.g., RF front-end modifications) would under-test the product and create a compliance gap.",
+  "bluetooth_tags": ["RF test", "antenna", "modified antenna pattern", "2 items", "Rx sensitivity", "Tx output power", "End Product", "module"],
+  "search_aliases": ["RF test antenna different from module", "2 item RF test modified antenna", "antenna design verification RF test", "abbreviated RF test scope"],
+  "qualification_stage": "Test Scoping / RF Testing",
+  "confidence": "high"
+}

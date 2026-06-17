@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0118",
+  "case_id": "thread_0118_case_01",
+  "source_type": "email_case",
+  "iut_type": "audio",
+  "customer_question": "Our in-vehicle 1DIN audio product uses a Bluetooth HCI module whose antenna signal is routed out via wire to a pattern antenna on our product's PCB (for the domestic+overseas variant with an external antenna). What testing is required for this antenna configuration?",
+  "question_variants": [
+    "Do we need RF testing if our product uses a PCB pattern antenna fed from the Bluetooth module via a wire?",
+    "What RF test items are needed to validate a custom PCB antenna design connected to an already-certified module?",
+    "What do we need to prepare for RF testing of our antenna design?"
+  ],
+  "actual_issue": "Based on the customer's quote request form, their in-vehicle audio product takes the antenna signal out from an already Component-certified Bluetooth HCI module via a wire and connects it to a pattern antenna designed on the product's own PCB (used for the domestic+overseas destination variant with an external antenna). The consultant determined what testing this configuration requires.",
+  "plain_english_explanation": "Even when the Bluetooth module itself is already Component-certified (including its reference antenna), if the end product routes the module's antenna signal out to a different, custom-designed antenna (here, a PCB pattern antenna), the validity of that custom antenna design must be confirmed via RF testing. Specifically, RF 2-item testing (transmit power and receive sensitivity) is performed by connecting a coaxial cable with an SMA connector near the antenna feed point on the product's PCB pattern antenna, to verify the design is correct. The customer needs to prepare an RF-test-modified DUT (with the SMA connector point accessible) and a document describing the procedure for putting the DUT into test mode.",
+  "consultant_answer": "Because the antenna signal is taken out from the module via a wire and connected to a pattern antenna on your product's board, RF 2-item testing (transmit power, receive sensitivity) is required to confirm the validity of the PCB antenna pattern design. This is done by connecting an SMA-connector coaxial cable near the antenna feed point. Please refer to the attached document and prepare an RF-test-modified DUT along with a test-mode entry procedure document. Quote: RF 2-item test ¥200,000, registration support (Multi-Design reference) ¥250,000, Compliance Folder creation ¥150,000, plus the applicant's direct $11,040 SIG registration fee remittance.",
+  "decision_logic": "If a product reuses an already-certified module's radio but routes the antenna signal out to a custom (e.g., PCB pattern) antenna design rather than using the module's own certified antenna as-is, RF 2-item testing (transmit power, receive sensitivity) is required to validate that custom antenna design, regardless of the module's existing Component certification. The customer must prepare an RF-test-modified DUT (accessible SMA connector near the antenna feed point) and a test-mode entry procedure document.",
+  "final_recommendation": "For products that route a certified module's antenna signal to a custom PCB pattern antenna (e.g., for variants requiring an external antenna), include RF 2-item testing (transmit power, receive sensitivity via SMA coax near the antenna feed point) in the test scope and request an RF-test-modified DUT plus test-mode procedure documentation from the customer.",
+  "risk_if_done_wrong": "Assuming the module's existing Component certification covers a custom PCB antenna design would be incorrect and could result in an invalid registration for variants using that antenna; the actual RF performance of the custom antenna pattern would remain unverified, risking field issues or registration rejection.",
+  "bluetooth_tags": ["RF", "RF test", "antenna", "qualification", "component", "Multi-Design", "PCB antenna"],
+  "search_aliases": [
+    "PCB pattern antenna RF 2-item test requirement",
+    "module antenna wire to custom antenna RF testing",
+    "SMA connector antenna feed point RF test",
+    "RF test modified DUT test mode procedure",
+    "transmit power receive sensitivity test custom antenna"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "medium"
+}

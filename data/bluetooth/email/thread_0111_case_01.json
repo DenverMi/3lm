@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0111",
+  "case_id": "thread_0111_case_01",
+  "source_type": "email_case",
+  "iut_type": "adapter",
+  "customer_question": "On the SIG registration Review Page, does the product name need to be entered using half-width (single-byte) characters, even if it was originally typed with full-width characters?",
+  "question_variants": [
+    "Why was our product name changed from a full-width form to a half-width form on the Review Page?",
+    "Does the registration form require ASCII/half-width characters for the product name field?",
+    "Is a full-width digit or full-width space in the product name acceptable for SIG registration?",
+    "What formatting corrections are needed before confirming the Review Page registration?"
+  ],
+  "actual_issue": "The product name submitted for the SIG registration Review Page contained full-width (2-byte) characters - a full-width digit instead of a half-width digit, and a full-width space instead of a half-width space - which are not acceptable for the registration's product name field and needed correction before the customer could confirm the registration.",
+  "plain_english_explanation": "When typing in Japanese, it's easy to accidentally use 'full-width' versions of numbers, letters, and spaces (common in Japanese word processing) instead of the standard 'half-width' (regular ASCII) versions. The Bluetooth SIG registration form requires the product name to be entered using standard half-width characters only. Before the registration can be finalized, any full-width characters in the product name need to be replaced with their half-width equivalents.",
+  "consultant_answer": "The consultant identified that the submitted product name contained a full-width digit in place of a half-width digit, and a full-width (2-byte) space in place of a half-width space, both of which need to be entered using single-byte alphanumeric code on the registration confirmation form. The consultant corrected the product name to use the half-width digit and half-width space and resubmitted the Review Page for the customer's confirmation. The customer confirmed there was only one product type to register and approved the corrected entry.",
+  "decision_logic": "Product name fields on the SIG registration Review Page must use half-width (single-byte) ASCII characters. If the source text was typed via a Japanese input method, any full-width digits, letters, or spaces embedded in the product name must be identified and converted to their half-width equivalents before the registration is confirmed.",
+  "final_recommendation": "Before confirming a Review Page registration, check the product name field for full-width (zenkaku) characters - especially digits and spaces that may have been introduced via Japanese IME input - and convert them to half-width (hankaku) equivalents.",
+  "risk_if_done_wrong": "If the registration were confirmed with full-width characters left in the product name, the listed product name could be recorded incorrectly (e.g., with non-standard characters), requiring a correction and re-confirmation of the Review Page after the fact.",
+  "bluetooth_tags": ["listing", "declaration", "qualification"],
+  "search_aliases": [
+    "Review Page product name correction",
+    "full-width vs half-width characters registration",
+    "zenkaku hankaku product name SIG",
+    "single-byte alphanumeric registration form",
+    "product name formatting SIG listing",
+    "registration confirmation character format"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

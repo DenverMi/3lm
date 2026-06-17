@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0108",
+    "cases": [
+        {
+            "case_id": "thread_0108_case_02",
+            "iut_type": "head unit",
+            "customer_question": "Can supported profile layers be added to a reused design combination using product-specific PTS test evidence?",
+            "question_variants": [
+                "Can profile QDID content be extended with local PTS reports?",
+                "Can implemented profiles be included when using referenced designs?",
+                "What evidence is needed to add supported profiles to a combined design?",
+                "Can profile qualification be based on product PTS testing?",
+                "How should supported profiles be reflected in qualification scope?"
+            ],
+            "actual_issue": "The qualification submission combines existing designs but must accurately represent the profiles actually implemented in the product and supported by test evidence.",
+            "plain_english_explanation": "A reused Bluetooth design does not automatically prove every profile used by the final product. The qualification records must match the real product implementation. Only profiles that are actually implemented and validated should be included.",
+            "consultant_answer": "The consultant explains that supported profiles may be added to the included layers when backed by PTS test reports generated from the actual product. The supported profile list should reflect implemented functionality and corresponding qualification evidence rather than assumptions inherited from referenced designs.",
+            "decision_logic": "Profile-layer qualification scope is driven by actual implementation and available evidence. Profiles supported by the product and verified through PTS testing can be included; unsupported or unverified profiles should not remain in scope.",
+            "final_recommendation": "Review the implemented profile list, retain only supported profiles, and use product-generated PTS reports as evidence for each included profile layer.",
+            "risk_if_done_wrong": "Including unsupported or unverified profiles can create unnecessary testing obligations, qualification inconsistencies, and evidence gaps during submission review.",
+            "bluetooth_tags": [
+                "qualification",
+                "profile",
+                "PTS",
+                "evidence",
+                "ICS",
+                "IOPT"
+            ],
+            "search_aliases": [
+                "profile test evidence",
+                "PTS report for profile qualification",
+                "supported profile list",
+                "profile layer inclusion",
+                "implemented profile verification",
+                "qualification scope alignment",
+                "profile evidence reuse"
+            ],
+            "qualification_stage": "pre-test review",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

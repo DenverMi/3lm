@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0117",
+  "case_id": "thread_0117_case_02",
+  "source_type": "internal_consulting",
+  "iut_type": "",
+  "customer_question": "(Internal) Before quoting this new customer's Bluetooth SIG registration, is there anything else we need to check beyond the test scope?",
+  "question_variants": [
+    "Does the applicant need to be a Bluetooth SIG member before we can register their product?",
+    "How do we check whether a prospective customer already has SIG membership?",
+    "What additional prerequisite must be completed before proceeding with product registration?"
+  ],
+  "actual_issue": "While preparing a quote for a new customer's Bluetooth SIG product registration, the consultant searched the SIG member registry for the customer's company name and found no matching membership record.",
+  "plain_english_explanation": "Before a company's product can be registered with Bluetooth SIG, the company itself must be a registered SIG member. The consultant checks this by searching the SIG member database for the applicant's company name. If no matching membership is found, SIG membership registration must be completed first, as a prerequisite step before the product registration process can proceed.",
+  "consultant_answer": "Searching the member registry for [COMPANY] returns no results, so membership registration is required before we can proceed with the product registration.",
+  "decision_logic": "Before quoting or proceeding with a new customer's product registration, search the Bluetooth SIG member registry for the applicant company's name. If no membership record is found, membership registration must be completed first and factored into the project timeline/quote before product registration can begin.",
+  "final_recommendation": "For new customers, always verify SIG membership status via the member registry early in the engagement; if absent, include membership registration as a prerequisite step ahead of product registration.",
+  "risk_if_done_wrong": "Proceeding with product registration steps for a company without confirmed SIG membership could stall the registration process partway through, causing delays once the missing membership is discovered, and potentially affecting the customer's planned product launch timeline.",
+  "bluetooth_tags": ["qualification", "membership", "listing", "pre-sales"],
+  "search_aliases": [
+    "Bluetooth SIG membership registration prerequisite",
+    "member registry search company not found",
+    "new customer SIG membership check",
+    "membership required before product registration",
+    "SIG member search before quote"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "medium"
+}

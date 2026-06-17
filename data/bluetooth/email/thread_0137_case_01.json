@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0137",
+  "case_id": "thread_0137_case_01",
+  "source_type": "email_case",
+  "iut_type": "IoT/embedded",
+  "customer_question": "We are using Google Fluoride (Android Bluetooth stack). Which version should we use to avoid Consistency Check errors during Design Number registration?",
+  "question_variants": [
+    "Is Google Fluoride 1.5 safe to use for Bluetooth certification?",
+    "Why does Fluoride 1.6 fail the GAP-GATT Consistency Check?",
+    "Are there any Fluoride versions that pass the SIG inter-layer check?"
+  ],
+  "actual_issue": "All currently known versions of Google Fluoride (1.3, 1.4, 1.5, 1.6) have an internal GAP-GATT ICS inconsistency: GAP items 25/4 or 35/4 are declared Mandatory when GATT item 7/7 is Supported — which violates the SIG Check Rule. Under the post-July 2024 QPRDv3.0 Consistency Check enforcement, this inconsistency is detected and blocks Design Number registration. There is no known fixed version of Fluoride as of this thread. The only alternatives are to switch to BlueZ or wait for Fluoride to release a corrected version.",
+  "plain_english_explanation": "Google Fluoride's ICS has a built-in conflict: it declares certain GAP mandatory items (25/4 or 35/4) at the same time as GATT 7/7 is supported, which violates SIG's own Check Rule for those ICS items. Older SIG systems would let this pass, but post-July 2024 QPRDv3.0 blocks it. This affects all known Fluoride versions (1.3 through 1.6). Customers using Fluoride cannot obtain a Design Number until either Fluoride is fixed or they switch to a compliant Host Stack such as BlueZ.",
+  "consultant_answer": "All Fluoride versions 1.3–1.6 have the same GAP-GATT ICS inconsistency and ALL will block DN registration under QPRDv3.0. Recommend switching to BlueZ or another compliant Host Stack. There is no safe Fluoride version currently available.",
+  "decision_logic": "1. Identify the Host Stack as Google Fluoride.\n2. Any Fluoride version 1.3–1.6 → GAP(25/4 or 35/4) Mandatory while GATT(7/7) Supported → Consistency Check Invalid.\n3. Cannot be resolved by changing module QDID or SoC.\n4. Must switch Host Stack (BlueZ recommended) or wait for SIG-verified fixed Fluoride version.",
+  "final_recommendation": "Do not proceed with Fluoride if Design Number registration is required under QPRDv3.0. Advise the customer to use BlueZ or another compliant Host Stack. Document this limitation clearly at project intake.",
+  "risk_if_done_wrong": "Starting a registration project with Fluoride and discovering the GAP-GATT block mid-project wastes test and registration fees, and delays product launch until the Host Stack is changed.",
+  "bluetooth_tags": ["Google-Fluoride", "GAP-GATT-inconsistency", "Consistency-Check", "Host-Stack", "QPRDv3.0", "Design-Number-blocked", "BlueZ"],
+  "search_aliases": ["Google Fluoride Consistency Check error", "Fluoride 1.3 1.4 1.5 1.6 GAP GATT inconsistency", "Fluoride DN registration blocked", "GAP 25/4 35/4 GATT 7/7 invalid", "Fluoride switch BlueZ"],
+  "qualification_stage": "design registration",
+  "confidence": "high"
+}

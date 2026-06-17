@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0147",
+  "case_id": "thread_0147_case_03",
+  "source_type": "internal_consulting",
+  "iut_type": "End Product (Bluetooth module-based)",
+  "customer_question": "What documents does the customer need to prepare for the SIG Compliance Folder when registering an End Product?",
+  "question_variants": [
+    "What goes into the Compliance Folder for an End Product registration?",
+    "What documents are required for Compliance Folder — End Product using a certified module?",
+    "Which customer documents are needed for the SIG qualification package?"
+  ],
+  "actual_issue": "The SIG Compliance Folder is mandatory for all new registrations under QPRDv3.0 (post-July 2024). For an End Product built on a certified Bluetooth module, the required documents were not clearly enumerated for the customer.",
+  "plain_english_explanation": "When registering an End Product, the customer must assemble a Compliance Folder containing specific technical documents about the product itself (not the underlying module). The folder proves the product is implemented correctly and supports the regulatory submission.",
+  "consultant_answer": "The Compliance Folder for an End Product registration must include: (1) the product operation manual covering the Bluetooth-related sections; (2) a block diagram showing the Bluetooth architecture within the product; (3) an outline drawing (exterior dimensions/shape of the product); and (4) an antenna data sheet that includes radiation gain characteristics.",
+  "decision_logic": "QPRDv3.0 mandates the Compliance Folder for all new registrations. For End Products that incorporate a pre-certified module, the folder focuses on product-level evidence (not component-level). SIG reviewers use these documents to verify the integration of Bluetooth within the final product.",
+  "final_recommendation": "Collect operation manual (Bluetooth section), block diagram, outline drawing, and antenna data sheet with radiation gain data before starting the registration process. Missing any of these documents will delay approval.",
+  "risk_if_done_wrong": "Incomplete Compliance Folder will cause SIG review rejection and require resubmission, adding 1-2 weeks to the qualification timeline.",
+  "bluetooth_tags": ["Compliance Folder", "QPRDv3.0", "End Product", "registration", "antenna data sheet", "block diagram", "operation manual"],
+  "search_aliases": ["Compliance Folder required documents", "End Product qualification documents", "SIG qualification package contents", "antenna data sheet radiation gain"],
+  "qualification_stage": "Compliance Folder Preparation / Registration",
+  "confidence": "high"
+}

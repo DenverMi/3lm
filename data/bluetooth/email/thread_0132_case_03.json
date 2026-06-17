@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0132",
+  "case_id": "thread_0132_case_03",
+  "source_type": "email_case",
+  "iut_type": "consumer electronics",
+  "customer_question": "We are planning a new Bluetooth SIG registration for a remote control. Are there new test requirements we should be aware of, and is there a way to avoid them?",
+  "question_variants": [
+    "What are IOPT tests and when do they become mandatory?",
+    "Can we avoid new QPRDv4 test requirements by registering before the effective date?",
+    "Does the publication date setting affect whether new test requirements apply?"
+  ],
+  "actual_issue": "A customer ([COMPANY] Sony) requested a quote for a Bluetooth SIG registration for a remote control (BLE HID profile: BAS, DIS, HIDS, HOGP). The initial quote assumed full testing was needed: RF PHY (1M, 2M) ¥700,000 + Profile test ¥400,000 + proxy registration ¥250,000 + Compliance Folder ¥150,000 = ¥1,500,000. The consultant identified a critical deadline: QPRDv4 takes effect November 10, 2025, adding new IOPT (Interoperability Test) requirements. However, if the SIG server registration is completed by November 9, 2025, ALL RF/RFPHY and profile tests are fully exempt (because the publication date can now be set up to 180 days in advance, allowing the product to be registered before the new requirements take effect even if its public launch is later). This reduces the quote to ¥400,000 (proxy registration + Compliance Folder only). Registering after November 10 would require IOPT profile tests (¥200,000) but still no RF PHY tests (since the wireless module and RF are unchanged), for a total of ¥600,000.",
+  "plain_english_explanation": "Bluetooth SIG periodically updates its test requirements through new versions of the QPRD (Qualification Process Reference Document). When a new QPRD version takes effect, new test requirements apply to all registrations submitted after that date. By registering before the effective date, a product locks in the older (less demanding) test requirements. In this case, QPRDv4 took effect November 10, 2025, adding IOPT interoperability tests. A product registered by November 9 is completely exempt from those tests. Additionally, since SIG now allows setting the publication date up to 180 days in the future, a product can be formally registered (and thus locked into the current test requirements) before its launch date, providing scheduling flexibility. This makes 'register now, launch later' a valid cost-saving strategy when a QPRD deadline is approaching.",
+  "consultant_answer": "公開日が180日先まで指定可能になったこともあり、サーバーへの登録を11月9日までに行えば、RF/RF PHYおよびプロファイル試験全てが免除されます。その場合の見積は以下の内容となります。代行登録サポート(Multi-Design参照) ￥250,000 + コンプライアンスフォルダ作成費 ￥150,000（他に申請者からSIGへ登録費のドル送金）。11月10以降の登録ではプロファイル試験(IOPT) ￥200,000が追加となります。(Since the publication date can now be set up to 180 days in advance, if server registration is completed by November 9, all RF/RFPHY and profile tests are exempt. The quote in that case: Proxy registration support (Multi-Design reference) ¥250,000 + Compliance Folder ¥150,000 (plus SIG Declaration Fee in USD from the applicant). For registration after November 10, Profile test (IOPT) ¥200,000 is added.)",
+  "decision_logic": "When quoting a new Bluetooth registration, check whether a new QPRD version with additional test requirements is imminent. If an effective date is approaching: (1) Calculate the cost savings of completing registration before vs. after the deadline; (2) Leverage the 180-day future publication date feature to allow registration to be filed before the QPRD deadline even if the product launch is later; (3) Present two quotes (pre-deadline and post-deadline) so the customer can make an informed timing decision. The cost difference can be substantial (¥700,000+ in RF PHY + profile test savings in this case).",
+  "final_recommendation": "Proactively check for upcoming QPRD effective dates when quoting registrations. If a new version takes effect soon, present the pre-deadline registration path as a cost-saving option, and remind the customer that the 180-day advance publication date feature allows them to file now without committing to a specific launch date.",
+  "risk_if_done_wrong": "Failing to flag an upcoming QPRD deadline to the customer could result in them missing the test-exemption window and incurring avoidable test costs (in this case, ¥700,000 in RF PHY + ¥400,000 in profile tests that were entirely avoidable). Conversely, rushing registration before a deadline without proper preparation could result in a defective registration.",
+  "bluetooth_tags": ["qualification", "QPRDv4", "IOPT", "test exemption", "registration deadline", "publication date", "profile test", "cost optimization"],
+  "search_aliases": [
+    "QPRDv4 IOPT test requirement effective date deadline",
+    "register before QPRD deadline test exemption strategy",
+    "180-day publication date advance setting SIG",
+    "IOPT interoperability test QPRDv4 November 2025",
+    "avoid new test requirements register before QPRD effective date"
+  ],
+  "qualification_stage": "initial certification",
+  "confidence": "high"
+}

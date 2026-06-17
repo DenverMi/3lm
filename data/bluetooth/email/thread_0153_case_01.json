@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0153",
+  "case_id": "thread_0153_case_01",
+  "source_type": "internal_consulting",
+  "iut_type": "End Product — DIS profile",
+  "customer_question": "The PTS tool version in the test log is 8.10.2.3 (4 digits), but our test report shows 8.10.2 (3 digits). Is this acceptable, or do we need to update the report to show the 4-digit version?",
+  "question_variants": [
+    "Can we omit the 4th sub-version digit from PTS version in the report?",
+    "Is a 3-digit PTS version (X.Y.Z) acceptable in a Bluetooth test report?",
+    "The log shows 4-digit PTS version but report shows 3-digit — is this a problem?"
+  ],
+  "actual_issue": "The PTS log file showed version 8.10.2.3 (X.Y.Z.W format) but the Allion report template and the report entry used 8.10.2 (X.Y.Z format, 3 digits). The question was whether this discrepancy would cause a review rejection.",
+  "plain_english_explanation": "SIG's release management convention uses a 3-digit version format (X.Y.Z) for PTS versions. The 4th minor sub-version digit (W in X.Y.Z.W) is an internal PTS build number that SIG does not require in qualification reports. Omitting the 4th digit in the report (showing X.Y.Z instead of X.Y.Z.W) is acceptable and consistent with Allion's standard reporting practice.",
+  "consultant_answer": "A 3-digit PTS version (X.Y.Z) is acceptable in the test report. The 4th sub-version (W) can be omitted. SIG's own release management uses the 3-digit format, and Allion has consistently used this format without issue. No report correction is needed.",
+  "decision_logic": "SIG release management officially designates PTS versions with 3 digits (X.Y.Z). The 4th digit is a build-level sub-version not required in reports. Allion's Bluetooth report template uses 3-digit format by design, and this has not caused any SIG review issues historically.",
+  "final_recommendation": "Use 3-digit PTS version format (X.Y.Z) in all reports. The 4th sub-version digit can be omitted. This is standard practice and matches SIG's release conventions.",
+  "risk_if_done_wrong": "None — 3-digit format is explicitly acceptable. Including the 4th digit is also fine but is not required.",
+  "bluetooth_tags": ["PTS version", "test report", "3-digit format", "X.Y.Z", "DIS", "report review"],
+  "search_aliases": ["PTS version 3 digit 4 digit", "PTS tool version report format", "X.Y.Z.W omit W", "PTS version discrepancy report"],
+  "qualification_stage": "Test Report Review",
+  "confidence": "high"
+}

@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0146",
+  "case_id": "thread_0146_case_01",
+  "source_type": "internal_consulting",
+  "iut_type": "N/A",
+  "customer_question": "N/A — internal IT support thread unrelated to Bluetooth certification.",
+  "question_variants": [],
+  "actual_issue": "Internal thread: Allion Japan test lab PC (Windows 7) would not boot. Sakai provided Windows boot recovery advice to Mochizuki. Not related to Bluetooth certification.",
+  "plain_english_explanation": "This thread has no Bluetooth SIG certification content. It is an internal IT troubleshooting exchange about a Windows 7 PC boot failure at the test lab.",
+  "consultant_answer": "N/A — IT support advice only.",
+  "decision_logic": "N/A",
+  "final_recommendation": "No knowledge base value. Skip.",
+  "risk_if_done_wrong": "N/A",
+  "bluetooth_tags": [],
+  "search_aliases": [],
+  "qualification_stage": "N/A",
+  "confidence": "low"
+}

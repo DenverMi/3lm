@@ -1,0 +1,21 @@
+{
+  "source_thread": "thread_0142",
+  "case_id": "thread_0142_case_01",
+  "source_type": "email_case",
+  "iut_type": "module",
+  "customer_question": "We noticed a mismatch between the Profile versions in the PTS test report and what is entered in the Qualification Workspace. Specifically, HFP is shown as 1.7.2 but it should be 1.8, and HID was tested at v1.1.1 but the current TCRL lists v1.1.2. Can these be corrected?",
+  "question_variants": [
+    "HFP profile version in registration does not match test report — can it be corrected before Submission?",
+    "TCRL package updated the HID version from 1.1.1 to 1.1.2 after testing — should we upgrade the registration version?"
+  ],
+  "actual_issue": "Two profile version discrepancies were found: (A) HFP is entered as 1.7.2 in the Qualification Workspace but the correct version is 1.8 — this was a consultant input error and must be corrected before Submission; (B) HID was tested at v1.1.1 per the TCRL version at test time, but the current TCRL (pkg101) has upgraded HID to v1.1.2. Since the test items between v1.1.1 and v1.1.2 are identical (no new test cases added), the registration can be updated to v1.1.2 to reflect the current TCRL version and extend product certification life.",
+  "plain_english_explanation": "Two different situations: (A) HFP 1.7.2 vs 1.8 — the consultant made a typo/input error and entered the wrong profile version. This is a straightforward correction that must be fixed before the registration is submitted to SIG. (B) HID 1.1.1 vs 1.1.2 — the test was conducted when the TCRL only had v1.1.1. Later, TCRL pkg101 released v1.1.2 with the same test items. Since the test cases are identical, the registration can and should be updated to v1.1.2 to reflect the newer, longer-lived version — this is standard practice when a TCRL upgrade only changes the version number without adding new test requirements.",
+  "consultant_answer": "(A) HFP 1.7.2 → 1.8: consultant input error, corrected before Submission. (B) HID 1.1.1 → 1.1.2: TCRL pkg101 upgrade, test items identical, registration updated to v1.1.2. Both corrections confirmed with AlpsAlpine and applied before Submission.",
+  "decision_logic": "1. For input errors (wrong version entered): correct immediately before Submission.\n2. For TCRL version upgrades: check if new version's test items are identical to the version used during testing. If yes → update registration to newer version for longer certification life.\n3. If test items differ → cannot upgrade without re-testing.",
+  "final_recommendation": "When reviewing a registration before Submission, cross-check all Profile versions in the Qualification Workspace against the PTS test report. If a TCRL upgrade has occurred, verify test item parity before deciding to upgrade the version in the registration.",
+  "risk_if_done_wrong": "Submitting with wrong HFP version (1.7.2 instead of 1.8) may cause SIG to reject or question the registration. Not upgrading HID to v1.1.2 when the test items are identical misses an opportunity for a longer-lived certification.",
+  "bluetooth_tags": ["profile-version-mismatch", "TCRL", "HFP", "HID", "input-error", "version-upgrade", "Submission", "qualification-workspace"],
+  "search_aliases": ["profile version mismatch PTS report registration", "HFP version wrong corrected before submission", "TCRL pkg101 HID 1.1.1 to 1.1.2", "TCRL upgrade same test items version bump", "correct profile version before submission"],
+  "qualification_stage": "pre-submission review",
+  "confidence": "high"
+}

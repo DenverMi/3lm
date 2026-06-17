@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0116",
+  "case_id": "thread_0116_case_03",
+  "source_type": "email_case",
+  "iut_type": "keyboard",
+  "customer_question": "For a Bluetooth-certified keyboard, if we make a small change like adding a new key code (e.g., adding a Mute key to a Multimedia key ReportDescriptor that already has Vol Up/Down registered), is re-application for Bluetooth certification required?",
+  "question_variants": [
+    "Does adding a new key (e.g., Mute) to an already-certified BT keyboard's HID report require re-certification?",
+    "If our ReportDescriptor already covers multimedia keys and we add one more key code, do we need to re-apply to SIG?",
+    "What's the process if a minor keycode addition results in a new model name for an already-registered keyboard?"
+  ],
+  "actual_issue": "The customer has a Bluetooth-certified keyboard product (from a prior registration, referred to as 'RC1') whose Multimedia key ReportDescriptor already registers Vol Up/Down keys. They want to add a Mute key and asked whether this kind of minor key-code addition requires re-application for Bluetooth certification.",
+  "plain_english_explanation": "A Bluetooth qualification registration for a HID device does not restrict or enumerate the specific set of key codes/types the device can send. Therefore, adding a new key code (like Mute) to an already-registered keyboard's report descriptor does not by itself require re-applying for Bluetooth certification. However, if this kind of change results in a newly-issued model name/number for the product, that new model needs to be added to the existing registration's Product List via the 'Qualify Additional Products' function - this is a lightweight additional registration, not a full re-application.",
+  "consultant_answer": "The current registration does not contain information limiting the types of keys included, so a change adding a key code does not require re-application. If the key-code addition results in a newly-issued model name, please use the [Qualify Additional Products] button on the Product List page (via the link provided) to perform the additional registration.",
+  "decision_logic": "For a certified HID device, check whether a proposed change is purely a key-code/firmware addition (no new model name) - if so, no re-application is needed since registrations don't enumerate specific key types. If the change results in a new model name/number being issued for the product, register that new model name under the existing registration via 'Qualify Additional Products' rather than filing a fresh full registration.",
+  "final_recommendation": "Adding key codes to an already-certified keyboard's report descriptor does not require re-application for Bluetooth certification. If the change produces a new model name, add that model to the existing registration's Product List using 'Qualify Additional Products'.",
+  "risk_if_done_wrong": "Unnecessarily re-applying for full Bluetooth certification for a minor key-code addition would waste time and registration fees. Conversely, shipping a new model name without registering it via 'Qualify Additional Products' could leave that model uncovered by the existing Bluetooth qualification.",
+  "bluetooth_tags": ["qualification", "HID", "keyboard", "ReportDescriptor", "Qualify Additional Products", "listing", "design change"],
+  "search_aliases": [
+    "add key code certified Bluetooth keyboard re-application",
+    "Qualify Additional Products new model name",
+    "HID ReportDescriptor change Bluetooth certification",
+    "Mute key addition keyboard registration",
+    "minor firmware change keyboard re-certify"
+  ],
+  "qualification_stage": "post-launch change",
+  "confidence": "high"
+}

@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0143",
+  "case_analysis": {
+    "thread_summary": "AlpsAlpine 27BRD module — Review page re-confirmation before Submission after corrections (HFP version and model name updates from thread_0142). Key confirmations: (1) after any correction, re-capture and re-send the Review page for customer approval; (2) model names with trailing periods (e.g., '19AVNJ.') are acceptable in SIG Launchstudio.",
+    "all_questions_found": [
+      "How do we re-confirm the Review page after corrections were made?",
+      "Is a model name with a trailing period acceptable for SIG registration?"
+    ],
+    "key_technical_discussion": "Standard pre-submission workflow: after any Qualification Workspace correction, the Review page must be re-captured and re-sent to the customer for explicit re-confirmation. Trailing periods in model names are SIG-acceptable.",
+    "key_decision_logic": "Corrections made → re-capture Review page → send to customer → await explicit OK → submit. Model name punctuation: trailing periods are acceptable, no change required.",
+    "risk_if_done_wrong": "Submitting after corrections without re-confirming the Review page risks submitting content the customer has not approved in its corrected form.",
+    "consulting_mistake": "Submitting to SIG based on the original approval when corrections have since been made to the registration content.",
+    "consulting_takeaway": "Treat every correction as resetting the approval clock — always re-confirm the Review page after any change, even minor ones, before Submission."
+  }
+}

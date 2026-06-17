@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0122",
+  "case_analysis": {
+    "thread_summary": "This is an internal Allion exchange (March 11-24, 2026) tracking an RF PHY test request for [COMPANY] (project [ID]) being executed at an overseas test lab (ABTS). [PERSON]/Mochizuki requests Leo Chou to arrange a test slot and ships the DUT; [PERSON]/Sakai flags that the customer-facing UART connection procedure document risks repeating a prior mistake made with another team ('AJ') and provides an ABTS-specific revised version, also noting a Nordic DTM tool reference document isn't needed at ABTS. The test (2M LE) completes, Sakai reviews the test report and finds no issues, and - having already obtained the proxy registration confirmation form from the customer - the team proceeds to begin proxy registration work.",
+    "all_questions_found": [
+      "Before sending test setup documentation to the overseas test lab (ABTS), should it be reviewed/adapted to avoid repeating a previously-encountered issue, and is all the originally-prepared reference material still needed?",
+      "(Internal, implicit) Has the proxy registration confirmation form been obtained from the customer, and can proxy registration work begin?"
+    ],
+    "key_technical_discussion": "An RF PHY (2M LE) test was arranged at an overseas lab (ABTS) for [COMPANY]'s project. Before the test, the consultant identified that the standard UART connection procedure document (originally for the customer/another team, 'AJ') could cause the same mistake to recur at ABTS, so a revised, lab-specific version was substituted, and an unnecessary reference document (Nordic DTM tool operation guide) was excluded for ABTS. After the test completed successfully and the report was reviewed without issues, the team confirmed the proxy registration confirmation form had already been obtained from the customer and began the proxy registration process.",
+    "key_decision_logic": "Test documentation handoffs across teams/labs were treated as requiring per-lab review rather than blanket reuse, based on a known prior issue with another team. Progression to proxy registration was gated on both successful test report review and prior receipt of the proxy registration confirmation form from the customer.",
+    "risk_if_done_wrong": "Reusing unmodified test setup documentation across labs could repeat prior connection/setup mistakes, delaying testing. Starting proxy registration work without having obtained the customer's proxy registration confirmation form would be premature and could require rework once the form's details are received.",
+    "consulting_mistake": "",
+    "consulting_takeaway": "When coordinating the same test project across multiple labs or teams, review and adapt test setup documentation per-lab to avoid repeating previously-encountered execution issues, and remove materials not relevant to the specific lab. Before starting proxy registration work, confirm the customer's proxy registration confirmation form has already been received."
+  }
+}

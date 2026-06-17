@@ -1,0 +1,21 @@
+{
+  "source_thread": "thread_0136",
+  "case_id": "thread_0136_case_03",
+  "source_type": "email_case",
+  "iut_type": "wearable",
+  "customer_question": "What does the 'Q30' prefix on a QDID mean? Is it less official than an older-format QDID number?",
+  "question_variants": [
+    "Are Q30-prefix QDIDs the same as old QDIDs legally?",
+    "When does Combine unmodified Designs produce a Design Number?"
+  ],
+  "actual_issue": "The Q30 prefix is the QDID format introduced by QPRDv3.0 (post-July 2024). It has exactly the same legal standing as pre-QPRDv3.0 numeric QDIDs. Additionally: when 'Combine unmodified Designs' is used, a Design Number (with Q30 prefix) is auto-assigned only if 2 or more QDIDs are combined. If only 1 QDID is referenced, no Design Number is assigned — the entry shows 'Details' instead.",
+  "plain_english_explanation": "The Q30 prefix just means the QDID was issued under the QPRDv3.0 system. Customers who see it for the first time sometimes worry it is a lesser or temporary ID — it is not. It is the current standard format and has the same legal weight as any older numeric QDID. Separately, when combining existing QDIDs via 'Combine unmodified Designs,' the system will auto-assign a Q30-format Design Number only if there are 2 or more QDIDs in the combination.",
+  "consultant_answer": "Q30 prefix = QPRDv3.0 format QDID. Same legal force as older QDIDs. 'Combine unmodified Designs' auto-assigns a Q30 Design Number only when ≥2 QDIDs are combined; 1 QDID → no DN (shows 'Details').",
+  "decision_logic": "1. Q30 prefix: new format since QPRDv3.0 — legally equivalent to old QDIDs.\n2. Combine unmodified Designs: ≥2 QDIDs → Q30 DN auto-assigned; 1 QDID → no DN (entry shows 'Details').",
+  "final_recommendation": "Reassure customers that Q30 QDIDs are fully valid. When using Combine unmodified Designs, plan to have ≥2 QDIDs if a Design Number is needed for product listing or product identification purposes.",
+  "risk_if_done_wrong": "If a customer needs a Design Number (e.g., to list their product in the SIG member directory) and only has 1 QDID to combine, Combine unmodified Designs will not produce one — they need a different approach.",
+  "bluetooth_tags": ["Q30-QDID", "QPRDv3.0", "Combine-unmodified-Designs", "Design-Number", "QDID-format"],
+  "search_aliases": ["Q30 QDID prefix meaning", "QPRDv3.0 QDID format", "Combine unmodified Designs design number", "when is DN assigned combine designs", "1 QDID no DN 2 QDIDs DN"],
+  "qualification_stage": "design registration",
+  "confidence": "high"
+}

@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0138",
+  "case_analysis": {
+    "thread_summary": "Toyo Gas Meter, a first-time Bluetooth certification customer, asked for a comprehensive overview of what the certification process entails. The consultant provided a structured FAQ-style response covering: registration scope (fee + registration work); Compliance Folder requirement and retention; Bluetooth logo usage; certification validity until Core Spec Withdrawal (BT 5.0 = Feb 1, 2032); and no recurring costs.",
+    "all_questions_found": [
+      "Is paying the SIG Qualification Fee alone sufficient for certification?",
+      "What is the Compliance Folder and how long must we keep it?",
+      "How do we use the Bluetooth logo after certification?",
+      "How long does Bluetooth certification remain valid?",
+      "Are there recurring fees after initial registration?"
+    ],
+    "key_technical_discussion": "Bluetooth certification requires both paying the SIG Qualification Fee and completing Qualification Workspace registration (proxy registration work). The Compliance Folder is a mandatory archive of technical documents that must be kept for 1 year post-product discontinuation. Certification validity is tied to the Core Spec version's active status — BT 5.0 remains valid until its Withdrawal date of February 1, 2032, and already-listed products can continue to be sold after that date. No annual or renewal fees apply after initial registration.",
+    "key_decision_logic": "First-time customers need a clear onboarding walkthrough. None of the technical complexity of Consistency Check, ICS editing, or QDID structure is relevant here — the focus is on process understanding, obligations, and cost expectations.",
+    "risk_if_done_wrong": "Failing to explain the Compliance Folder requirement and retention period exposes the customer to SIG audit failure. Failing to explain the Spec Withdrawal concept causes customers to incorrectly believe their certification expires at an arbitrary date.",
+    "consulting_mistake": "Assuming the customer understands the certification process without providing an explicit onboarding FAQ. First-time customers often confuse 'paying the SIG fee' with completing the entire certification process.",
+    "consulting_takeaway": "Always provide a first-time customer onboarding checklist at project kickoff. The five key points — registration work, Compliance Folder retention, logo usage, Spec Withdrawal validity, no recurring fees — should be documented and acknowledged by the customer before the project begins."
+  }
+}

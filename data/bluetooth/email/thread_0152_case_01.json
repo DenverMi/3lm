@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0152",
+  "case_id": "thread_0152_case_01",
+  "source_type": "email_case",
+  "iut_type": "End Product — USB PD product with Bluetooth module",
+  "customer_question": "Our product uses USB Power Delivery (USB PD) and the voltage changes from 5V to 9V after USB PD negotiation. How should we prepare the RF test sample so the test lab can monitor the DC input voltage during testing?",
+  "question_variants": [
+    "How do we set up voltage monitoring for a USB PD product during Bluetooth RF testing?",
+    "Can we substitute a fixed DC power supply for the AC adapter during RF test for a USB PD product?",
+    "What relay board or measurement leads do we need to send with a USB PD product for RF testing?"
+  ],
+  "actual_issue": "The customer's product uses USB PD — the device negotiates the supply voltage from 5V (initial) to 9V (operating) through USB PD protocol. The RF test lab needs to measure DC input voltage during the test, but cannot use a fixed 9V DC supply because the USB PD negotiation circuit requires an actual USB PD-capable AC adapter to perform the voltage step-up. The solution is to send the product's AC adapter and add a relay board (breakout board) with measurement leads pulled out from the VBUS and GND lines.",
+  "plain_english_explanation": "USB PD products cannot be powered by a simple DC bench supply during RF testing because the product's circuitry uses the USB PD protocol handshake to request the higher voltage. If you give it a fixed 9V DC supply, it may not operate correctly. The standard solution is: send the AC adapter that comes with the product, and attach a small relay/breakout board between the adapter and the product with GND (black) and VBUS (red) measurement wires about 10cm long pulled out. The test lab uses these leads to monitor the actual DC voltage during the RF test.",
+  "consultant_answer": "Send the product's AC adapter to the test lab. Prepare a relay board (voltage measurement breakout board) inserted between the AC adapter output and the product's power input. Pull out GND (black) and VBUS (red) measurement leads of approximately 10cm from the board. The test lab will use these leads to monitor DC voltage during the RF test. A fixed DC supply cannot substitute for the AC adapter in USB PD products.",
+  "decision_logic": "USB PD voltage negotiation requires the actual USB PD charger to supply the voltage transition. Fixed DC supplies bypass this negotiation and may result in incorrect operating voltage or product malfunction during RF testing. The relay board + measurement leads solution preserves the authentic power path while enabling voltage monitoring.",
+  "final_recommendation": "For all USB PD products, include the AC adapter as part of the RF test sample package and prepare a relay board with GND/VBUS measurement leads. Confirm this with the customer before sample shipment.",
+  "risk_if_done_wrong": "If the customer sends only the product without the AC adapter, or substitutes a fixed DC supply, the test lab cannot properly power the device during RF testing. This causes test delays, requires sample return/re-shipment, and may produce invalid RF test results.",
+  "bluetooth_tags": ["USB PD", "RF test", "sample preparation", "voltage monitoring", "relay board", "AC adapter", "VBUS"],
+  "search_aliases": ["USB PD RF test sample preparation", "relay board voltage measurement RF test", "USB Power Delivery test AC adapter", "DC input USB PD substitute"],
+  "qualification_stage": "Test Sample Preparation / RF Testing",
+  "confidence": "high"
+}

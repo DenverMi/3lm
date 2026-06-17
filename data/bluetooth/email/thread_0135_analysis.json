@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0135",
+  "case_analysis": {
+    "thread_summary": "Teraoka Seiko / Espressif module BLE-only registration. Three issues surfaced: (1) the module vendor self-described as 'Component' but SIG registration shows Host + Controller Subsystem → Multi-Design (¥250K) applies; (2) RFQ stated BR/EDR/BLE but module is BLE-only — scope must be corrected; (3) module has integrated antenna → RF/RF PHY test exempt; TCW ES-25636 yellow warning is SIG-caused and self-resolves in 1–5 business days.",
+    "all_questions_found": [
+      "Is this module Single Design or Multi-Design reference?",
+      "The RFQ says BR/EDR/BLE but the module is BLE-only — which scope should be registered?",
+      "Is the RF/RF PHY test required for a module with an integrated antenna?",
+      "A TCW ES-25636 yellow warning appeared — what does it mean and is it a blocker?"
+    ],
+    "key_technical_discussion": "Module QDID structure must be verified in SIG Launchstudio — vendor labels are unreliable. A Host + Controller Subsystem split requires Multi-Design reference. BLE-only modules must not include BR/EDR ICS items. RF/RF PHY test is exempt when the datasheet states integrated antenna or antenna connector. TCW ES-25636 is a known SIG Check Rule defect that generates a yellow warning; SIG resolves it internally after Submission in 1–5 business days.",
+    "key_decision_logic": "1. Search QDID in Launchstudio to determine Single or Multi-Design. 2. Match registration scope to actual module features (BLE-only). 3. Check datasheet for antenna configuration to determine RF test exemption. 4. Treat TCW ES-25636 as a non-blocking SIG-side warning.",
+    "risk_if_done_wrong": "Misquoting Multi-Design as Single-Design causes ¥100K underquote. Wrong scope (BR/EDR for BLE-only) causes ICS errors requiring a project restart. Missing RF test exemption inflates costs unnecessarily.",
+    "consulting_mistake": "Quoting Single Design without verifying QDID structure in Launchstudio, or failing to confirm the module's actual Bluetooth feature set from the datasheet before building the provisional project.",
+    "consulting_takeaway": "Always verify the QDID registration structure in SIG Launchstudio (not from vendor literature) before quoting. Confirm Bluetooth mode and antenna configuration from the datasheet at intake."
+  }
+}

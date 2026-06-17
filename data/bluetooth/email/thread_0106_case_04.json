@@ -1,0 +1,43 @@
+{
+    "source_thread": "thread_0106",
+    "cases": [
+        {
+            "case_id": "thread_0106_case_04",
+            "iut_type": "Zephyr-based product",
+            "customer_question": "Can a newer Zephyr version be qualified using an older qualified Zephyr Controller Subsystem reference?",
+            "question_variants": [
+                "Zephyr version mismatch qualification",
+                "Can newer Zephyr reuse older QDID?",
+                "Controller Subsystem version applicability",
+                "Qualification across Zephyr releases",
+                "ICS scope versus software version"
+            ],
+            "actual_issue": "The product used a Zephyr version newer than the version identified in the referenced qualified Controller Subsystem, raising concerns about qualification reuse eligibility.",
+            "plain_english_explanation": "Software versions often change after a qualification is completed. The key qualification question is not the version number itself but whether the Bluetooth functionality used by the product stays within the capabilities that were originally qualified.",
+            "consultant_answer": "The consultant advised reviewing the revision history between the qualified Zephyr version and the deployed version. If Bluetooth functionality added in later releases does not expand beyond the qualified ICS feature scope used by the product, the newer software version can still be qualified by referencing the earlier qualified Controller Subsystem.",
+            "decision_logic": "Qualification reuse depends on Bluetooth feature scope rather than version labels alone. If the implemented Bluetooth functionality remains within the qualified ICS capabilities, reuse remains acceptable.",
+            "final_recommendation": "Compare Bluetooth-related changes between versions and verify that the product only uses functionality already covered by the qualified ICS scope before reusing the existing qualification reference.",
+            "risk_if_done_wrong": "Assuming version compatibility without validating Bluetooth feature scope can result in qualification claims that exceed the capabilities covered by the referenced qualification.",
+            "bluetooth_tags": [
+                "qualification",
+                "Zephyr",
+                "ICS",
+                "controller",
+                "QDID",
+                "reuse"
+            ],
+            "search_aliases": [
+                "Zephyr version upgrade",
+                "ICS scope check",
+                "qualified version reuse",
+                "Bluetooth feature scope",
+                "Controller Subsystem version",
+                "revision history review",
+                "newer Zephyr qualification"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

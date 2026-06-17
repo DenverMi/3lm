@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0152",
+  "case_analysis": {
+    "thread_summary": "Sharp USB PD product RF test thread (1629 lines). Two key technical findings: (1) USB PD products require the AC adapter to be sent with the test sample; a relay board with GND and VBUS measurement leads (~10cm) must be prepared between the adapter and product for voltage monitoring — a fixed DC supply cannot substitute because USB PD negotiation requires the actual charger; (2) for products using a certified module but with a different antenna pattern, only 2 RF test items are required (Rx Sensitivity + Tx Output Power) — not the full 26 items, because this is an antenna design verification, not a full RF qualification.",
+    "all_questions_found": [
+      "How do we prepare voltage monitoring leads for a USB PD product for RF testing?",
+      "How many RF test items are required when only the antenna design is different from the certified module?"
+    ],
+    "key_technical_discussion": "Two independent rules: (1) USB PD requires physical protocol negotiation — only the real AC adapter can supply the correct voltage sequence, so a relay board is needed for voltage monitoring. (2) RF test scope is determined by what changed from the prior certification: if only the antenna changed from a certified module, only 2 antenna verification items (Rx + Tx) are needed.",
+    "key_decision_logic": "USB PD → must send AC adapter + relay board. Modified antenna (only) → 2-item RF test scope. These are scoping rules determined by the hardware change profile between the certified module and the end product.",
+    "risk_if_done_wrong": "Sending a fixed DC supply for a USB PD product causes invalid test setup and test delays. Applying full 26-item scope for antenna-only change over-charges the customer.",
+    "consulting_mistake": "No mistakes identified. Both rules were correctly applied during scoping.",
+    "consulting_takeaway": "Add USB PD to the pre-project sample preparation checklist: confirm power supply type, and if USB PD, request relay board with measurement leads. Always ask 'what hardware changed vs. the certified module?' to determine RF test scope (2 items for antenna-only change, 26 items for full RF qualification)."
+  }
+}

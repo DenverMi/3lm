@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0144",
+  "case_id": "thread_0144_case_01",
+  "source_type": "email_case",
+  "iut_type": "IoT/commercial device",
+  "customer_question": "What actually changed in the SIG Qualification process in July 2024 (QPRDv3.0)? Did test requirements or fees change?",
+  "question_variants": [
+    "Did the July 2024 QPRDv3.0 update change test requirements?",
+    "Did SIG change the Qualification Fee in July 2024?",
+    "What is new in QPRDv3.0 vs. the old QPRD system?"
+  ],
+  "actual_issue": "Customers confuse the July 2024 QPRDv3.0 update with changes to test requirements or Qualification Fees. In fact: (1) No test requirements changed; (2) SIG Qualification Fees were unchanged. What did change: (A) the 'Component' category was merged into 'Subsystem' (and the 3-year Subsystem expiry was removed); (B) 'Declaration' registration was merged into 'Design' registration (and the Compliance Folder became mandatory for all registrations); (C) the Consistency Check was significantly strengthened with new inter-layer validation rules (ICS Consistency Check now detects conflicts between layers, blocking registration if found). Separately, Allion's internal pricing for Multi-Design support (¥250K vs. ¥150K Single Design) was set in August 2024, not July, which caused some customer confusion about whether fees changed.",
+  "plain_english_explanation": "QPRDv3.0 in July 2024 was a structural overhaul of SIG's qualification system, not a change to what tests you need to pass or what you pay SIG. The three main changes were: old 'Component' QDIDs become 'Subsystem' QDIDs (no more 3-year expiry); old 'Declaration' registrations become 'Design' registrations (Compliance Folder now always required); and the SIG Consistency Check now actively enforces inter-layer ICS rules that were not previously enforced. The last change is the most impactful — it blocks registrations that would have passed before July 2024.",
+  "consultant_answer": "QPRDv3.0 (July 2024): NO change to test requirements or SIG Qualification Fees. Changes: (1) Component → Subsystem (no 3-year expiry); (2) Declaration → Design (Compliance Folder mandatory for all); (3) Consistency Check strengthened with inter-layer ICS validation. Allion's Multi-Design pricing (¥250K) was set in August 2024 — unrelated to SIG's July update.",
+  "decision_logic": "1. QPRDv3.0 does NOT change SIG test requirements or Qualification Fees.\n2. Structural changes: Component→Subsystem, Declaration→Design, Compliance Folder mandatory for all.\n3. Consistency Check: new inter-layer validation — this is the biggest operational impact.\n4. Allion pricing changes are separate from SIG rule changes — communicate clearly to avoid customer confusion.",
+  "final_recommendation": "When customers ask about QPRDv3.0 changes, lead with 'tests and SIG fees unchanged' to address the most common concern, then explain the three structural changes. Separately communicate any internal pricing changes with their own effective date.",
+  "risk_if_done_wrong": "Customers who misunderstand QPRDv3.0 as requiring new tests may delay projects unnecessarily, or may not realize the Consistency Check now blocks registrations that previously would have passed.",
+  "bluetooth_tags": ["QPRDv3.0", "July-2024-update", "Component-to-Subsystem", "Declaration-to-Design", "Compliance-Folder", "Consistency-Check", "SIG-fee-unchanged", "test-requirements-unchanged"],
+  "search_aliases": ["QPRDv3.0 what changed", "July 2024 SIG qualification update", "Component Subsystem merge QPRDv3", "Declaration Design merge SIG", "Consistency Check new rules 2024", "SIG fee unchanged July 2024"],
+  "qualification_stage": "pre-registration / process understanding",
+  "confidence": "high"
+}

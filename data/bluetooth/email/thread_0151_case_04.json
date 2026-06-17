@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0151",
+  "case_id": "thread_0151_case_04",
+  "source_type": "email_case",
+  "iut_type": "End Product — BR/EDR+BLE using Combine Unmodified Design",
+  "customer_question": "How many RF test items are required? Is the RF test scope different for a BR/EDR-only product vs a BR/EDR/LE product? Does using Combine Unmodified Design exempt us from the profile test?",
+  "question_variants": [
+    "Does registering as BR/EDR/LE mean we need more RF test items than BR/EDR-only?",
+    "Is the RF Classic test always 26 items?",
+    "Does Combine Unmodified Design eliminate the profile test requirement?"
+  ],
+  "actual_issue": "Customer needed clarification on: (1) whether RF (Classic Bluetooth) test item count changes based on whether BLE is included; (2) whether Combine Unmodified Design exempts the project from profile PTS testing.",
+  "plain_english_explanation": "The Classic Bluetooth RF test always consists of 26 fixed items regardless of whether BLE is part of the qualification — the 26 items are all BR/EDR radio parameters. Combine Unmodified Design is exempt from profile PTS testing because the design reuses an existing certified design without modification — the profile tests were already passed as part of the original certification.",
+  "consultant_answer": "Classic RF test is always 26 items regardless of BLE inclusion. Combine Unmodified Design is exempt from profile PTS testing. Estimated lead times for this project: RF test ~3 days, RF PHY test ~1-15 days (if needed), registration ~3 days after RF test completion.",
+  "decision_logic": "The 26-item Classic RF test set is fixed by SIG test specifications and does not change based on BLE scope. Profile test exemption under Combine Unmodified Design is explicit SIG policy — when no modifications are made to the pre-certified design, no re-testing is required.",
+  "final_recommendation": "Always quote Classic RF as 26 items. When using Combine Unmodified Design, inform customers that PTS profile test is not required — this significantly reduces cost and timeline compared to a fresh registration.",
+  "risk_if_done_wrong": "Incorrectly quoting fewer than 26 RF items would produce an underpowered test scope. Failing to apply the Combine Unmodified Design profile test exemption would over-scope and over-charge the customer.",
+  "bluetooth_tags": ["RF test", "26 items", "Combine Unmodified Design", "profile test exemption", "Classic Bluetooth", "BR/EDR", "lead time"],
+  "search_aliases": ["RF test how many items", "26 RF test items always", "Combine Unmodified Design profile exempt", "BR/EDR RF test scope BLE"],
+  "qualification_stage": "Test Scoping / RF Testing / Registration",
+  "confidence": "high"
+}

@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0127",
+  "case_id": "thread_0127_case_02",
+  "source_type": "email_case",
+  "iut_type": "sensor",
+  "customer_question": "We plan to start selling this product under our own brand on April 1. By when do we need to complete registration, and by when do we need to send the registration fee? Our quote request form tentatively lists February 28 as the registration date.",
+  "question_variants": [
+    "What is the deadline for completing SIG registration relative to our product launch date?",
+    "When does the Qualification Fee need to be remitted relative to the registration date?",
+    "What counts as 'public disclosure' that triggers the registration deadline?"
+  ],
+  "actual_issue": "The customer planned to start selling a rebranded product (toilet sensor) on April 1 and asked when registration and fee remittance needed to be completed, noting their quote request form provisionally listed February 28 as a placeholder registration date. The consultant explained that SIG's actual requirement is that registration (and publication) must occur by the date the product's existence (with Bluetooth) is first disclosed to any third party - not simply the sales start date - and listed examples of disclosure events (press releases, preview/showroom events, website announcements, distribution of dealer pamphlets). The consultant also specified that the Qualification Fee USD remittance from the customer's partner bank must be completed by the day before the registration operation is performed, and provided a Qualification Fee procedure document.",
+  "plain_english_explanation": "The Bluetooth SIG registration deadline isn't simply 'before you start selling the product' - it's 'before the product's existence (as a Bluetooth-equipped device) is disclosed to any third party in any form'. This includes earlier events than the sales launch itself: press releases, preview/showroom events, website announcements, or even sending product pamphlets to dealers/distributors. So if any of these happen before the planned sales date, the registration (and its publication) must be completed by that earlier date instead. Separately, because the registration fee (Qualification Fee) must be paid in USD and SIG needs to confirm receipt before the registration can be finalized, the customer's USD wire transfer from their partner bank must be completed at least one day before the actual registration operation is performed - otherwise the registration can't proceed on schedule.",
+  "consultant_answer": "第三者に御社製Bluetooth搭載ベッドの存在が公表される日までに登録するというのがSIG要求です。販売日以前にプレスリリース、内覧会、ウェブサイトでの発表、販売店へのパンフレット送付などがあれば、その日までの登録・公開が必要です。登録操作の前日までにQualification Feeのドル送金を御社提携銀行から実施してください。Qualification Feeの手順書を添付しますのでご参照ください。 (SIG's requirement is to register by the date your Bluetooth-equipped product's existence is disclosed to any third party. If there will be a press release, preview event, website announcement, or dealer pamphlet distribution before the sales date, registration and publication must be completed by that date. Please complete the Qualification Fee USD remittance from your partner bank by the day before the registration operation. Please refer to the attached Qualification Fee procedure document.)",
+  "decision_logic": "Determine the SIG registration deadline based on the earliest planned third-party disclosure event for the Bluetooth-equipped product (press release, preview event, website announcement, dealer pamphlet distribution, or sales launch - whichever comes first), not just the sales launch date. Require the customer to complete the Qualification Fee USD remittance from their partner bank at least one business day before the registration operation, since SIG confirmation of fee receipt gates the registration step.",
+  "final_recommendation": "Set the registration target date based on the earliest planned public/third-party disclosure of the Bluetooth-equipped product (which may be earlier than the sales launch date), and instruct the customer to complete the Qualification Fee USD remittance at least one day before that registration operation, following the provided Qualification Fee procedure document.",
+  "risk_if_done_wrong": "If registration is scheduled only against the sales launch date while an earlier disclosure event (press release, preview event, pamphlet distribution) occurs first, the product could be publicly associated with Bluetooth before SIG registration/publication, violating SIG requirements. If the Qualification Fee remittance isn't completed before the registration operation, the registration cannot be finalized on schedule, risking a missed launch date.",
+  "bluetooth_tags": ["qualification", "listing", "registration timeline", "publication date", "Qualification Fee", "USD remittance", "declaration", "proxy registration"],
+  "search_aliases": [
+    "SIG registration deadline public disclosure date",
+    "Qualification Fee remittance timing before registration",
+    "press release preview event registration deadline",
+    "registration date vs sales launch date SIG",
+    "dealer pamphlet distribution SIG disclosure"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
+}

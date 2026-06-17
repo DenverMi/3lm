@@ -1,0 +1,21 @@
+{
+  "source_thread": "thread_0135",
+  "case_id": "thread_0135_case_01",
+  "source_type": "email_case",
+  "iut_type": "industrial/commercial device",
+  "customer_question": "The module vendor says it is a 'Component,' but on the SIG website it appears as two separate entries: a Host Subsystem and a Controller Subsystem. Which fee applies — Single Design (¥150K) or Multi-Design (¥250K)?",
+  "question_variants": [
+    "How do I check whether a module QDID is a Component or a Subsystem?",
+    "If the module is split into two QDIDs, does that mean Multi-Design reference applies?"
+  ],
+  "actual_issue": "A module vendor may call their product a 'Component' in marketing materials, but in SIG Launchstudio the registration is split into a Host Subsystem QDID and a Controller Subsystem QDID. This split configuration requires Multi-Design reference (two Design Numbers), which costs ¥250K — not Single Design reference at ¥150K.",
+  "plain_english_explanation": "Even if a module vendor labels their product a 'Component,' what matters is how it is actually registered in the SIG database. If the QDID is split into Host Subsystem + Controller Subsystem, you must reference two Design Numbers (Multi-Design), which costs ¥100K more than referencing a single DN. Always verify the actual SIG registration structure — do not rely on the vendor's own product naming.",
+  "consultant_answer": "Checked the QDID in SIG Launchstudio: the module is registered as Host Subsystem + Controller Subsystem (two QDIDs). Therefore Multi-Design reference applies at ¥250K, not Single Design at ¥150K.",
+  "decision_logic": "1. Search the module QDID in SIG Launchstudio.\n2. Check the registration category: single QDID → Single Design reference (¥150K); Host Subsystem + Controller Subsystem split → Multi-Design reference (¥250K).\n3. Never rely on the vendor's self-declared category — use the actual SIG record.",
+  "final_recommendation": "Always search the module QDID in SIG Launchstudio and confirm the registration category before preparing a quote. A module marketed as 'Component' may still be a split Host/Controller Subsystem in SIG.",
+  "risk_if_done_wrong": "Quoting Single Design when Multi-Design is required results in a ¥100K underquote, causing customer disputes and internal losses.",
+  "bluetooth_tags": ["Multi-Design", "Single-Design", "Host-Subsystem", "Controller-Subsystem", "QDID", "Design-Number", "quoting"],
+  "search_aliases": ["module Component vs Subsystem", "Host Controller two QDIDs", "Multi-Design Single-Design fee difference", "¥250K ¥150K which applies"],
+  "qualification_stage": "pre-registration / quoting",
+  "confidence": "high"
+}

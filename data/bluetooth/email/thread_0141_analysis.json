@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0141",
+  "case_analysis": {
+    "thread_summary": "Ito-en (beverage company) inquired about Bluetooth certification for a consumer device. On checking the SIG Member Directory, the company was not found — meaning they are not yet a SIG member. SIG membership is a prerequisite for certification. The consultant must direct the customer to register as a SIG Adopter or Associate Member before any certification work can proceed.",
+    "all_questions_found": [
+      "Our company is not in the SIG Member Directory — can we still proceed with Bluetooth certification?"
+    ],
+    "key_technical_discussion": "SIG membership is a hard prerequisite for Bluetooth qualification. Without membership, no Qualification Workspace or QDID can be associated with the company. The minimum membership tier for certification is Adopter Member.",
+    "key_decision_logic": "Check SIG Member Directory at intake. Not found → membership required first. Certification process cannot start until membership is confirmed.",
+    "risk_if_done_wrong": "Starting work before membership is established wastes both consultant and customer time, as no registration can be completed without a valid SIG member account.",
+    "consulting_mistake": "Proceeding with project scoping or quoting without first verifying the customer's SIG membership status.",
+    "consulting_takeaway": "SIG Member Directory check must be step 1 of every new customer intake. If the customer is not found, pause all other steps and direct them to register as a SIG member before proceeding."
+  }
+}

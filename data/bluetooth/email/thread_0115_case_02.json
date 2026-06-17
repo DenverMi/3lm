@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0115",
+  "case_id": "thread_0115_case_02",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "Why does the AVRCP/CT/MCN/CB test case keep resulting in FAIL, and how do we fix it?",
+  "question_variants": [
+    "AVRCP CT MCN CB test fails - what's causing the failure?",
+    "How do we trigger metadata fragmentation in AVRCP metadata/cover-art test cases?",
+    "What music file is needed to pass AVRCP/CT/MCN/CB?"
+  ],
+  "actual_issue": "During Profile testing, the AVRCP/CT/MCN/CB/[ID] test case resulted in FAIL when executed following the customer-provided procedure document.",
+  "plain_english_explanation": "Some AVRCP metadata test cases only trigger the relevant behavior (fragmentation of metadata responses) when the music file used during testing has metadata (e.g., album art, tags) of 512KB or larger. If the test music file's metadata is smaller than that, the fragmentation never occurs and the test case cannot pass. The tester needs to use a music file specifically prepared with metadata exceeding 512KB.",
+  "consultant_answer": "AVRCP/CT/MCN/CB/[ID]C fails because fragmentation does not occur unless the test is run with a music file containing 512KB or more of metadata. Please use the attached music file for this test.",
+  "decision_logic": "If an AVRCP metadata-related test case (e.g., AVRCP/CT/MCN/CB) fails, check whether the test music file's metadata size exceeds 512KB - fragmentation (and thus the behavior under test) only occurs above this threshold; use a music file specifically prepared with sufficiently large metadata.",
+  "final_recommendation": "For AVRCP/CT/MCN/CB-type metadata test failures, re-run the test using a music file with metadata of 512KB or more to trigger Fragment behavior, rather than the customer's default test file.",
+  "risk_if_done_wrong": "Continuing to test with a music file whose metadata is below 512KB would cause repeated FAIL results on this test case regardless of the device's actual implementation, wasting test cycles and potentially leading to an incorrect conclusion that the device fails this requirement.",
+  "bluetooth_tags": ["AVRCP", "profile test", "metadata", "fragment", "qualification"],
+  "search_aliases": [
+    "AVRCP CT MCN CB fail metadata fragment",
+    "512KB metadata test file AVRCP",
+    "AVRCP fragmentation test requirement",
+    "music file metadata size test failure",
+    "AVRCP cover art metadata fragmentation"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "high"
+}

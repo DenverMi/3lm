@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0109",
+  "case_id": "thread_0109_case_04",
+  "source_type": "email_case",
+  "iut_type": "module",
+  "customer_question": "What exactly are the '2 items' in the 'RF 2-item test', and is this the same as the '2-item RF PHY test'? What equipment and information do we need to provide?",
+  "question_variants": [
+    "Is the 'RF 2 items' test the same as 'RF PHY test (2 items)'?",
+    "Which test setup ('1. RF test' vs '2. RF PHY test') applies to our antenna-pattern verification?",
+    "Do we need a UART-RS232 conversion cable if we're not doing the RF PHY test?",
+    "Which sections of the questionnaire do we need to fill out for an RF-test-only submission?",
+    "What is the scope of the 2-item RF test mentioned in the modification memo?"
+  ],
+  "actual_issue": "The customer's modification memo referenced both '1. RF test' and '2. RF PHY test' sections, each potentially involving multiple items, and the customer was unsure whether the previously-agreed 'RF 2-item test' (for antenna pattern validation) corresponded to '1. RF test' or '2. RF PHY test', what equipment (e.g., UART-RS232 cable) would be needed, and which questionnaire sections to complete.",
+  "plain_english_explanation": "The Bluetooth RF test specification defines 26 possible RF tests in total. For this product, only 2 of those items - receive sensitivity and transmit power - need to be re-measured at the point affected by the newly added antenna pattern, to confirm the new PCB design doesn't hurt RF performance. This falls under the '1. RF test' category, not the separate '2. RF PHY test' category, so the RF PHY-specific equipment (like a UART-RS232 cable) isn't needed, and the questionnaire sections specific to RF PHY testing can be skipped.",
+  "consultant_answer": "Of the 26 RF test items defined in the RF test specification, the 2 items relevant here are receive sensitivity and transmit power, measured at the point affected by the antenna pattern added on the customer's product, in order to verify the design validity of that added pattern. This falls under '1. RF test' (specifically the '1. RF test test setup' configuration/jigs), not under '2. RF PHY test'. The customer's planned sample preparation method - shipping a sample pre-set up with a built-in DUT-mode entry program - is ideal for the lab and presents no issues. Because '2. RF PHY test' (2 items) is not being performed, the UART-RS232 conversion cable (or equivalent) is not required, and no special test-environment preparation related to RF PHY is needed. For the '5. Information needed before testing' questionnaire, the customer should fill in all sections except those marked '** RF PHY Testing only'.",
+  "decision_logic": "When a modification memo lists both '1. RF test' and '2. RF PHY test' as possible categories, the actual scope of a given engagement (e.g., a 2-item antenna-pattern verification test) must be matched to the correct category, because each category has different equipment requirements (e.g., UART-RS232 cable only for RF PHY) and different questionnaire sections to complete.",
+  "final_recommendation": "Confirm that the antenna-pattern verification ('RF 2-item test' = receive sensitivity + transmit power) falls under '1. RF test', skip RF-PHY-specific equipment (UART-RS232 cable) and questionnaire sections marked '** RF PHY Testing only', and proceed with the device's built-in DUT-mode entry program for sample setup.",
+  "risk_if_done_wrong": "Misclassifying the test scope (e.g., assuming RF PHY testing is required) could lead to unnecessary equipment preparation (UART-RS232 cable, RF PHY test environment) and unnecessary or missing questionnaire fields, causing confusion in Test Plan creation.",
+  "bluetooth_tags": ["RF", "RF PHY", "test report", "IXIT", "TCW", "qualification"],
+  "search_aliases": [
+    "RF test vs RF PHY test difference",
+    "2 item RF test scope",
+    "26 RF test items specification",
+    "UART-RS232 cable not needed",
+    "DUT mode entry program sample",
+    "questionnaire RF PHY testing only section",
+    "antenna pattern receive sensitivity transmit power",
+    "RF test setup vs RF PHY test setup"
+  ],
+  "qualification_stage": "pre-test review",
+  "confidence": "high"
+}

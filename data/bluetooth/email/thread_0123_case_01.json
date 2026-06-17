@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0123",
+  "case_id": "thread_0123_case_01",
+  "source_type": "email_case",
+  "iut_type": "speaker",
+  "customer_question": "Before you finalize our Bluetooth SIG product registration, can we review what will be submitted? And once it's finalized, can we view the registration details ourselves before the public release date?",
+  "question_variants": [
+    "Can we check the registration content before it's confirmed/finalized?",
+    "How do we verify a proxy registration is correct before it goes live?",
+    "Can our account holders see the registration on My Page before it's published?"
+  ],
+  "actual_issue": "After receiving the customer's signed proxy registration confirmation form, the consultant proceeded with a Powered Speaker logo certification registration referencing two component QDIDs, advancing the registration up to (but not including) the final confirmation step. The consultant captured a screenshot of the review page at that point and sent it to the customer for a final check before instructing the consultant to finalize ('confirm') the registration.",
+  "plain_english_explanation": "When Allion performs a proxy Bluetooth SIG registration on a customer's behalf, the standard practice is: advance the registration to the final review/confirmation page (referencing the relevant component QDIDs), capture a screenshot of that review page, and send it to the customer for verification before actually clicking the final confirmation button. This gives the customer a chance to catch any errors before the registration becomes final. Once the customer approves and the consultant performs the final confirmation, anyone holding a login to the customer's SIG account ('My Page') can view the full registration details via a provided URL - even before the product's official public release date.",
+  "consultant_answer": "Thank you for sending the proxy registration confirmation form. We've proceeded with the Powered Speaker logo certification registration referencing QDID:[ID] and QDID:[ID], and captured a screenshot of the review page just before final confirmation. Please review the attached review page content on your end as well; if there are no issues, please instruct us to proceed with final confirmation. [After finalization:] We've now performed the final confirmation. Anyone with a login to your company's account can view the registration details at the following URL, even before the public release date.",
+  "decision_logic": "Before performing the final confirmation step of a proxy Bluetooth SIG registration, advance to the review page, capture its content, and have the customer verify it. Only perform final confirmation after explicit customer sign-off. After finalization, share the My Page URL so the customer's account holders can independently verify the registration, noting that this is viewable pre-publication.",
+  "final_recommendation": "For proxy registrations, always obtain customer sign-off on the review page screenshot before final confirmation, and after confirming, point the customer to the My Page URL for independent verification (available even before public release).",
+  "risk_if_done_wrong": "Finalizing a proxy registration without customer review could result in errors (e.g., wrong QDID references, product details) going live without the customer's knowledge, requiring a more cumbersome correction process after the fact.",
+  "bluetooth_tags": ["qualification", "listing", "registration", "review page", "proxy registration", "My Page", "declaration"],
+  "search_aliases": [
+    "SIG registration review page customer confirmation",
+    "proxy registration final confirmation sign-off",
+    "My Page registration details pre-publication",
+    "review page screenshot before finalize registration",
+    "QDID referenced logo certification registration review"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

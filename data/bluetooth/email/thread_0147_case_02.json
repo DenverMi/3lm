@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0147",
+  "case_id": "thread_0147_case_02",
+  "source_type": "internal_consulting",
+  "iut_type": "N/A — SIG account management",
+  "customer_question": "How do we log in to the SIG Bluetooth Launchstudio / Qualification Workspace? The login field used to ask for a username but now it asks for an email address.",
+  "question_variants": [
+    "SIG Launchstudio login page changed — username no longer works",
+    "Where do I enter my credentials on the new SIG portal?",
+    "SIG portal login changed from username to email address"
+  ],
+  "actual_issue": "The SIG Launchstudio portal updated its authentication flow: the login credential field changed from 'User Name' to 'Email Address'. Users who previously entered their SIG account username were confused by the new UI.",
+  "plain_english_explanation": "SIG changed the Launchstudio login from a username field to an email address field. You now log in with the email address registered to your SIG member account, not a separate username.",
+  "consultant_answer": "Log in with the email address associated with the SIG member account rather than a username. The field label changed but the underlying account is the same.",
+  "decision_logic": "SIG periodically updates the Qualification Workspace / Launchstudio UI. This change only affected the label and input format of the login credential — the account itself is unchanged. Email is now the primary identifier.",
+  "final_recommendation": "When helping customers log in to SIG Launchstudio, confirm they are entering their registered SIG account email address, not a legacy username.",
+  "risk_if_done_wrong": "Customers may be unable to log in or may reset credentials unnecessarily, delaying project start.",
+  "bluetooth_tags": ["SIG Launchstudio", "Qualification Workspace", "SIG account", "login", "email address"],
+  "search_aliases": ["SIG login changed", "Launchstudio email address login", "SIG username to email"],
+  "qualification_stage": "Account / Portal Access",
+  "confidence": "high"
+}

@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0111",
+  "case_id": "thread_0111_case_02",
+  "source_type": "email_case",
+  "iut_type": "adapter",
+  "customer_question": "For the compliance folder, the antenna radiation pattern diagram is unavailable - can TELEC certification documents be used as a substitute?",
+  "question_variants": [
+    "What documents are required for the Bluetooth compliance folder?",
+    "Can TELEC certification data substitute for a missing antenna radiation pattern diagram?",
+    "Is TELEC test documentation acceptable in place of the antenna datasheet's radiation pattern chart?",
+    "What if we cannot obtain the antenna manufacturer's radiation pattern diagram for the compliance folder?"
+  ],
+  "actual_issue": "After registration confirmation, the consultant requested several documents to create the compliance folder, including an antenna datasheet with a radiation gain pattern chart. The customer's antenna (a pattern/F-type antenna with 2.08dBi gain, noted as a negative gain relative to dipole reference) had no available radiation pattern diagram from the manufacturer, and the customer asked whether existing TELEC certification documentation could be substituted for this missing item.",
+  "plain_english_explanation": "To finish building the compliance documentation for a Bluetooth product, the consultant needs several supporting documents, including the antenna's radiation pattern chart. If that specific chart isn't available from the antenna's datasheet, documentation from the product's TELEC certification (a Japanese radio certification) covering the same antenna can be used instead.",
+  "consultant_answer": "The consultant requested four items for the compliance folder: (1) the operation manual (Bluetooth section), (2) the product block diagram, (3) the product outline/external drawing, and (4) the antenna datasheet including its radiation gain pattern chart. The customer provided the other documents but could not obtain the antenna radiation pattern diagram, noting their antenna is a pattern (F-type) antenna with a gain of 2.08dBi (expressed as a negative gain relative to a dipole reference). The consultant confirmed that substituting the TELEC certification documentation (covering the same antenna) for the missing radiation pattern diagram is acceptable, and that the compliance folder would be created and sent once complete.",
+  "decision_logic": "The compliance folder requires an antenna radiation pattern diagram as part of the antenna datasheet. If the antenna manufacturer's datasheet does not include this diagram, documentation from an existing TELEC certification for the same antenna/product can be substituted, since it covers equivalent radiation characteristic information.",
+  "final_recommendation": "If the antenna radiation pattern diagram is unavailable from the antenna datasheet, provide the relevant TELEC certification documentation for the same antenna as a substitute for the compliance folder.",
+  "risk_if_done_wrong": "Without a substitute for the missing antenna radiation pattern diagram, compliance folder creation could stall while the customer searches for documentation that may not be obtainable from the antenna manufacturer.",
+  "bluetooth_tags": ["qualification", "declaration", "test report"],
+  "search_aliases": [
+    "antenna radiation pattern diagram missing",
+    "TELEC certification substitute documentation",
+    "compliance folder required documents",
+    "antenna datasheet radiation gain pattern",
+    "F-type pattern antenna dBi gain",
+    "TELEC data antenna radiation pattern substitute"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "medium"
+}

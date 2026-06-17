@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0116",
+  "case_id": "thread_0116_case_01",
+  "source_type": "email_case",
+  "iut_type": "keyboard",
+  "customer_question": "For our already-registered device, the Bluetooth module manufacturer is changing (from [COMPANY] to [COMPANY]) but the QDID stays the same (97470). Does this require any kind of registration change procedure with Bluetooth SIG?",
+  "question_variants": [
+    "Does a Bluetooth module supplier change require an SIG registration update if the QDID doesn't change?",
+    "Do we need to file a change procedure when our module's manufacturer changes but the referenced QDID is unchanged?",
+    "Is any action needed on our SIG listing when our module vendor switches but the module's QDID stays the same?"
+  ],
+  "actual_issue": "The customer's product references a Bluetooth module QDID (97470) for its qualification. The module's manufacturer changed from one company to another, but the QDID itself did not change. The customer asked whether this requires an SIG registration change procedure for their own product listing.",
+  "plain_english_explanation": "When a module's manufacturer changes but the module keeps the same QDID, the Listing Owner information for that QDID is updated by the module maker(s) themselves, and the QDID's Product List comes to include both companies' module model names. Because the customer's product registration simply references that QDID, and the QDID's Product List already covers both module variants, no change procedure is required on the customer's side.",
+  "consultant_answer": "In this case, the Listing Owner of the referenced module QDID (97470) changes from [COMPANY] to [COMPANY] as well, and the Product List under that QDID will include both companies' module model names. Since your registration references that QDID, no procedure is required on your side.",
+  "decision_logic": "If a component (e.g., module) referenced by a product's registration changes manufacturer but keeps the same QDID, check whether the QDID's Product List has been updated to include the new manufacturer's model name. If so, products referencing that QDID require no registration change procedure, since the Listing Owner and Product List updates are handled at the QDID level.",
+  "final_recommendation": "When a referenced component's manufacturer changes without a QDID change, confirm the QDID's Product List includes the new manufacturer's model name; if so, no registration change procedure is needed for products referencing that QDID.",
+  "risk_if_done_wrong": "Unnecessarily filing a registration change (or re-registration) when none is required would waste time and registration fees. Conversely, assuming no action is needed without confirming the QDID's Product List has actually been updated to include the new manufacturer's model could leave the registration referencing an outdated/incorrect component listing.",
+  "bluetooth_tags": ["qualification", "listing", "QDID", "module change", "Product List", "Listing Owner"],
+  "search_aliases": [
+    "Bluetooth module manufacturer change same QDID",
+    "QDID Listing Owner change procedure",
+    "Product List module model name update",
+    "no registration change needed component supplier switch",
+    "module vendor change SIG registration impact"
+  ],
+  "qualification_stage": "post-launch change",
+  "confidence": "high"
+}

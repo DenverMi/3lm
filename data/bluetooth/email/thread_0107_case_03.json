@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0107",
+    "cases": [
+        {
+            "case_id": "thread_0107_case_03",
+            "iut_type": "HCI module",
+            "customer_question": "How can an HCI-style Bluetooth module be qualified when the module itself is not already qualified?",
+            "question_variants": [
+                "Qualification path for HCI module",
+                "Core-Controller registration approach",
+                "Can an HCI module reuse a controller qualification?",
+                "How do I qualify an unqualified controller module?",
+                "HCI module with RF testing"
+            ],
+            "actual_issue": "After confirming that the module was not qualified, the consultant evaluated whether the module could be treated as a typical HCI/Core-Controller design and qualified using a controller qualification reference plus RF testing.",
+            "plain_english_explanation": "Many Bluetooth modules act mainly as controllers and rely on an external host. In those cases, qualification may be simplified because only the controller portion is reused while the module's radio implementation is validated separately.",
+            "consultant_answer": "The consultant clarified that if the module is a typical HCI/Core-Controller implementation, a controller qualification reference can be included and the module can be qualified through RF and RF PHY testing together with the registration activities. This qualification path avoids the need to qualify a complete host implementation within the module itself.",
+            "decision_logic": "An HCI module can leverage an existing controller qualification when the architecture aligns with a Core-Controller model. The remaining qualification scope focuses on demonstrating radio compliance for the module implementation.",
+            "final_recommendation": "Confirm that the module architecture is truly HCI/Core-Controller based and then pursue qualification using the controller reference together with the required RF and RF PHY qualification activities.",
+            "risk_if_done_wrong": "Misclassifying the module architecture could result in selecting the wrong qualification path, omitting required qualification scope, or underestimating the work needed for registration.",
+            "bluetooth_tags": [
+                "qualification",
+                "HCI",
+                "controller",
+                "Core-Controller",
+                "RF",
+                "RF PHY",
+                "module"
+            ],
+            "search_aliases": [
+                "HCI module qualification",
+                "Core-Controller registration",
+                "controller-only module",
+                "RF PHY testing",
+                "controller reference include",
+                "HCI architecture",
+                "module certification path"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0154",
+  "case_id": "thread_0154_case_02",
+  "source_type": "internal_consulting",
+  "iut_type": "End Product — AVRCP profile",
+  "customer_question": "The PTS version shown in the AVRCP report is different from the version in the test log. Also, the test log has TSPC_ALL set to True. Is the TSPC_ALL=True setting acceptable, and does the PTS version mismatch need to be corrected?",
+  "question_variants": [
+    "Is TSPC_ALL=True in PTS test logs acceptable for SIG review?",
+    "PTS version mismatch between report and log — is this a problem?",
+    "What is the correct way to handle TSPC_ALL True in test logs?",
+    "Do we need to regenerate PTS logs with TSPC_ALL set to False?"
+  ],
+  "actual_issue": "The AVRCP PTS test log had TSPC_ALL set to True (meaning all ICS items were set to Supported regardless of the actual product ICS). Additionally, the PTS version number in the report (11.5.0.5) differed from the test log (11.10.2.3). Tanaka suggested regenerating the log with TSPC_ALL=False; Sakai confirmed that TSPC_ALL=True is acceptable and the current state is fine to submit.",
+  "plain_english_explanation": "When TSPC_ALL is set to True in PTS, the tool treats all TSPC (profile specification compliance) items as supported — effectively running the broadest possible test. SIG permits this because it is a conservative (over-inclusive) test approach. You do not need to regenerate the log with TSPC_ALL=False. For PTS version discrepancy between report and log: as long as the version is recorded consistently (either format is fine), this is also acceptable.",
+  "consultant_answer": "TSPC_ALL=True is acceptable per SIG policy. No need to regenerate the test log with TSPC_ALL=False. The current log and report can be submitted as-is for review. For future projects, note this as the preferred approach to avoid unnecessary regeneration work.",
+  "decision_logic": "SIG explicitly allows TSPC_ALL=True. The alternative approach (set the relevant ICS item to False in PTS and regenerate the log) is unnecessary extra work. The PTS version discrepancy between log and report is also acceptable given the 3-digit vs 4-digit convention (see thread_0153).",
+  "final_recommendation": "Accept TSPC_ALL=True in PTS logs without regeneration. Document this in the report QC checklist to prevent future confusion when engineers flag it as a potential issue.",
+  "risk_if_done_wrong": "Unnecessarily regenerating PTS logs wastes engineer time. There is no compliance risk with TSPC_ALL=True — the test coverage is broader than required, not narrower.",
+  "bluetooth_tags": ["TSPC_ALL", "PTS", "test log", "AVRCP", "report review", "ICS"],
+  "search_aliases": ["TSPC_ALL True acceptable", "PTS TSPC_ALL setting", "regenerate PTS log", "AVRCP PTS TSPC_ALL"],
+  "qualification_stage": "Test Report Review",
+  "confidence": "high"
+}

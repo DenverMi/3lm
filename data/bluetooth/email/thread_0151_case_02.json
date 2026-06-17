@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0151",
+  "case_id": "thread_0151_case_02",
+  "source_type": "email_case",
+  "iut_type": "End Product — BR/EDR-only product using BR/EDR/LE QDID",
+  "customer_question": "Our product only uses BR/EDR (Classic Bluetooth). The Realtek QDID we want to use covers both BR/EDR and BLE. Can we selectively remove the BLE layers (LL, etc.) from the design to register it as BR/EDR-only?",
+  "question_variants": [
+    "Can we delete BLE layers from a BR/EDR/LE QDID to create a BR/EDR-only design?",
+    "Our product does not use BLE. Do we still need to register as BR/EDR/LE?",
+    "Is it possible to remove LE Controller (LL) from an existing BR/EDR/LE QDID?"
+  ],
+  "actual_issue": "The customer wants to register a BR/EDR-only product but the only available certified component QDID covers BR/EDR+BLE. Post-July 2024 (QPRDv3.0), selectively deleting BLE-specific layers (like LL — Link Layer) from a combined BR/EDR/LE QDID is not possible without triggering a Core test, because upper layers like GAP and L2CAP are shared by both BR/EDR and BLE and depend on both LMP (BR/EDR) and LL (BLE) lower layers being present.",
+  "plain_english_explanation": "Under QPRDv3.0, you cannot simply remove the BLE portion from a BR/EDR/LE certified QDID. GAP and L2CAP are shared upper layers that the SIG treats as requiring both the BR/EDR lower layer (LMP) and the BLE lower layer (LL) to be present. Removing LL without those shared layers following would require a full Core test. The industry standard solution is to register the product as BR/EDR/LE even though BLE is not implemented in the firmware — there are 10+ precedents of this approach.",
+  "consultant_answer": "Register the product as BR/EDR/LE using the available QDID. Do not attempt to remove BLE layers — this cannot be done post-July 2024 without a prohibitively expensive Core test. The product firmware does not need to implement BLE; the qualification covers the hardware/stack capability. There are over 10 existing industry precedents for this approach.",
+  "decision_logic": "Post-QPRDv3.0: GAP and L2CAP are shared upper layers for both BR/EDR and BLE. They require LMP (BR/EDR lower layer) AND LL (BLE lower layer) to be present in the design. Deleting LL breaks this dependency and forces a Core test. Industry practice: register as BR/EDR/LE, do not implement BLE in firmware.",
+  "final_recommendation": "Always register as BR/EDR/LE when the component QDID covers both modes, even if the product only uses BR/EDR. Confirm with the customer that BLE will not be advertised or enabled in firmware. Document the 'BLE not implemented in firmware' decision.",
+  "risk_if_done_wrong": "Attempting to delete BLE layers from the design will either cause Consistency Check failure or require a full Core test (extremely expensive, 6+ months). Registering correctly as BR/EDR/LE with the existing QDID is the only practical path.",
+  "bluetooth_tags": ["BR/EDR", "BLE", "LL", "LMP", "GAP", "L2CAP", "QPRDv3.0", "layer deletion", "Core test", "Combine Unmodified Design"],
+  "search_aliases": ["BR/EDR only product register as BREDRLE", "cannot delete BLE layers QPRD", "remove BLE from qualification", "BR/EDR product BLE QDID post July 2024"],
+  "qualification_stage": "Design Creation / Scoping",
+  "confidence": "high"
+}

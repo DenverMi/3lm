@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0151",
+  "case_analysis": {
+    "thread_summary": "Soar / NTT Sonority + Realtek project thread (1828 lines). Customer brought a BR/EDR-only product with a Realtek QDID that covers BR/EDR/LE. Thread covers four key technical issues: (1) the Realtek ICS has existing inconsistencies — resolved via Combine Unmodified Design (inherits QDID as-is, no new Consistency Check, no profile test); (2) post-QPRDv3.0 (July 2024), BR/EDR-only products using a BR/EDR/LE QDID cannot delete BLE layers without a Core test — must register as BR/EDR/LE and not implement BLE in firmware; (3) BLE RF PHY test is only required if the product actually emits BLE radio signals; (4) Classic Bluetooth RF test is always 26 items regardless of BLE scope, and Combine Unmodified Design is exempt from profile PTS testing. Lead times: RF 3 days, RF PHY 1-15 days, registration 3 days.",
+    "all_questions_found": [
+      "How do we handle ICS inconsistencies in the Realtek QDID?",
+      "Can we register our BR/EDR-only product by deleting BLE layers from the BR/EDR/LE QDID?",
+      "Is BLE RF PHY testing required if BLE is not implemented in firmware?",
+      "How many RF test items are required? Does Combine Unmodified Design exempt profile testing?"
+    ],
+    "key_technical_discussion": "Three independent QPRDv3.0 rules intersect in this thread: (a) ICS inconsistencies → Combine Unmodified Design is the solution; (b) shared upper layers (GAP, L2CAP) prevent BR/EDR-only carve-out from a BR/EDR/LE QDID; (c) RF PHY test is emission-based, not registration-scope-based. These are commonly confused separately and especially when they all apply to the same project.",
+    "key_decision_logic": "Combine Unmodified Design resolves ICS inconsistency while also granting profile test exemption. BR/EDR-only firmware intent does not allow layer deletion from a BR/EDR/LE QDID. RF PHY test is only triggered by actual BLE emission. RF Classic test is always 26 items.",
+    "risk_if_done_wrong": "Attempting to delete BLE layers from a BR/EDR/LE QDID triggers a Core test requirement — prohibitively expensive. Importing an inconsistent ICS into a Standard Design causes Consistency Check failure. Running unnecessary RF PHY testing wastes cost; skipping it when BLE is emitted creates compliance risk.",
+    "consulting_mistake": "No mistakes by Sakai in this thread. The key insight was recognizing early that Combine Unmodified Design was the appropriate method given the ICS inconsistencies, rather than attempting to clean up the ICS.",
+    "consulting_takeaway": "When a customer's component QDID has ICS inconsistencies, Combine Unmodified Design is almost always the correct approach. Always check upfront: (1) does the ICS have Invalids? (2) does the product actually emit BLE? These two questions determine whether additional tests are needed."
+  }
+}

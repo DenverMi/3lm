@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0132",
+  "case_id": "thread_0132_case_04",
+  "source_type": "email_case",
+  "iut_type": "consumer electronics",
+  "customer_question": "Our quote request form states Bluetooth Core Specification v5.4. Will the registration use v5.4?",
+  "question_variants": [
+    "What Core Specification version will our product be registered under?",
+    "Does the Core Spec version in the RFQ form determine the registration's Core Spec version?",
+    "How is the Core Specification version determined for a new registration?"
+  ],
+  "actual_issue": "A customer ([COMPANY] Sony) listed Bluetooth Core Specification v5.4 in their quote request form. The consultant noted that the actual Core Specification version in the registration would be v5.2 (from the referenced QDID D049426), not v5.4 as written in the RFQ. The Core Specification version in a Bluetooth SIG registration is determined by the referenced source QDID(s), not by what the customer specifies in the RFQ or expects based on their product design. If the referenced QDID covers only v5.2, the resulting registration will show v5.2 even if the product's hardware/firmware technically supports v5.4 features.",
+  "plain_english_explanation": "In Bluetooth SIG registration, the Core Specification version that appears in the final registration is not freely chosen by the applicant - it is determined by the Core Spec version covered by the QDIDs being referenced/included in the registration. If the highest Core Spec version among the referenced QDIDs is v5.2, the registration will reflect v5.2, regardless of what the customer's product supports or what they wrote in their quote request. This is a common point of confusion: customers often assume they can specify any Core Spec version, but the version is constrained by the QDIDs in the registration's reference chain.",
+  "consultant_answer": "Core仕様バージョンは参照先のより低いD049426のコア仕様v5.2となります。見積依頼書記載のv5.4ではありませんのでご了承ください。(The Core Specification version will be v5.2, which is the lower version from the referenced D049426. Please note it will not be v5.4 as written in the quote request form.)",
+  "decision_logic": "When reviewing a customer's quote request form, check the Core Specification version they listed against the Core Spec version(s) of the QDIDs that will be referenced in the registration. If the referenced QDIDs carry a lower Core Spec version than what the customer specified, inform the customer upfront that the registration will reflect the lower version. Do not allow a mismatch to proceed unaddressed, as it affects the certified product record.",
+  "final_recommendation": "Always verify the Core Specification version that will result from the planned QDID references before finalizing the quote, and explicitly inform the customer if the resulting version differs from what they specified in the RFQ. This avoids customer surprise when the registration certificate or SIG database entry shows a different Core Spec version than expected.",
+  "risk_if_done_wrong": "If the customer is not informed of the Core Spec version discrepancy upfront, they may be surprised to find their registration shows v5.2 instead of v5.4, potentially requiring an explanation to their own customers or downstream partners about why the certified Core Spec version is lower than the hardware specification.",
+  "bluetooth_tags": ["qualification", "Core Specification", "QDID", "version", "registration", "RFQ"],
+  "search_aliases": [
+    "Core Specification version registration QDID reference",
+    "Core Spec version determined by referenced QDID not RFQ",
+    "Bluetooth Core Spec v5.2 v5.4 registration version mismatch",
+    "customer specified Core Spec version vs actual registration version",
+    "QDID Core Specification version constraint registration"
+  ],
+  "qualification_stage": "initial certification",
+  "confidence": "high"
+}

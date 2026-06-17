@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0116",
+  "case_id": "thread_0116_case_05",
+  "source_type": "email_case",
+  "iut_type": "keyboard",
+  "customer_question": "Besides the documents we get during the registration process itself, what else do we need to prepare for the Compliance Folder, and for how long do we need to keep it?",
+  "question_variants": [
+    "What documents are required for our Compliance Folder?",
+    "How long must we retain the Compliance Folder after the product is registered?",
+    "When do we need to have the Compliance Folder documents ready by?"
+  ],
+  "actual_issue": "During the registration process for the customer's product, the consultant proactively explained what additional documents (beyond those generated during registration) are needed for the Compliance Folder, and the retention/submission requirements for that folder.",
+  "plain_english_explanation": "In addition to the documents produced as part of the registration process, the customer needs to separately prepare: the Bluetooth-related section of the product's operation manual, a block diagram of the product, and an outline (dimensional) drawing of the product. These form part of the Compliance Folder, which must be retained until one year after sales of the registered model(s) on the Product List have ended, and submitted if SIG sends an audit notice - the consultant compared this to a car's vehicle inspection certificate ('shaken'), something you keep on hand but don't need to show unless asked. These documents are not required to complete the registration itself, but should be prepared by around the time registration is completed.",
+  "consultant_answer": "Besides the documents obtained during the registration process for the Compliance Folder, you also need to prepare: (1) the operation manual's Bluetooth section, (2) a block diagram of the product, and (3) an outline drawing of the product. The Compliance Folder must be kept until one year after sales of the Product List models have ended, and submitted only if SIG issues an audit notice - it's like a car's vehicle inspection certificate (shaken). These aren't required for the registration itself, so please have them ready by around the time registration is completed.",
+  "decision_logic": "When guiding a customer through registration, proactively inform them of the additional Compliance Folder documents required (operation manual Bluetooth section, block diagram, outline drawing) separate from registration-generated documents, the retention period (1 year post-sales-end of Product List models), and that submission is only needed upon an SIG audit request - framing it as standing-by documentation rather than a registration blocker.",
+  "final_recommendation": "Inform customers early that Compliance Folder documents (Bluetooth-section operation manual, block diagram, outline drawing) are needed by around registration completion time, must be retained for 1 year after the relevant models' sales end, and are only submitted if SIG requests an audit.",
+  "risk_if_done_wrong": "If the customer is not informed of Compliance Folder requirements, they may fail to prepare or retain the required documents, and could be unable to respond to an SIG audit request - potentially jeopardizing their qualification status for the affected models.",
+  "bluetooth_tags": ["qualification", "declaration", "compliance folder", "retention", "audit", "listing"],
+  "search_aliases": [
+    "Compliance Folder required documents",
+    "Compliance Folder retention period one year",
+    "Bluetooth SIG audit notice compliance folder",
+    "operation manual block diagram outline drawing registration",
+    "compliance folder car inspection certificate analogy"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

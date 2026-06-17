@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0129",
+  "case_id": "thread_0129_case_05",
+  "source_type": "email_case",
+  "iut_type": "consumer electronics",
+  "customer_question": "The AVRCP PTS report we submitted has AVRCP Version 1.5 in the ICS, but our target version is 1.6.2. How do we fix this?",
+  "question_variants": [
+    "PTS report shows AVRCP Version 1.5 but our ICS target is 1.6.2 — what do we need to do?",
+    "AVRCP version mismatch between ICS target and PTS report version — how to correct?",
+    "Do we need to re-run the AVRCP test to fix the ICS version in the report, or can we regenerate without re-testing?"
+  ],
+  "actual_issue": "During Sony FY26 TV qualification, the consultant discovered that the submitted AVRCP PTS report showed AVRCP Version 1.5 in the ICS field, but the registration target was AVRCP 1.6.2. This was a configuration error in PTS — the tester had not updated the ICS version setting in PTS before running the test. The fix is to change the AVRCP Version in the PTS ICS setting to 1.6.2 and then use Generate Report to regenerate the report file. The actual test does not need to be re-run; only the report XML file needs to be regenerated. The consultant confirmed that only the 'Report_' XML file needs to be updated, not the raw test log.",
+  "plain_english_explanation": "When running AVRCP tests in PTS, the ICS (Implementation Conformance Statement) configuration inside PTS must match the target version declared in the Qualification Workspace. If you set AVRCP Version to 1.5 in PTS's ICS but your product is targeting AVRCP 1.6.2, the generated report will contain 1.5 — which will be rejected as a version mismatch. The fix is: (1) open the saved PTS project, (2) change the AVRCP Version in the ICS to 1.6.2, (3) use Generate Report to produce a new Report_AVRCP_... XML file. The actual test execution does not need to be repeated — only the report file needs to be regenerated with the corrected ICS version.",
+  "consultant_answer": "★1項目実施のAVRCPレポートのICSでAVRCP Versionが1.5となっています。PTSのICSを以下のようにVersion 1.6.2に変更してGenerate RepoertしたレポートファイルのPTSの再送をお願いします。[補足] Reportから始まる.xmlレポートファイルのみの更新で結構です。したがって再試験でのlog取得は不要です。(The AVRCP report for the 1-item test shows AVRCP Version 1.5 in the ICS. Please change the PTS ICS Version to 1.6.2 and use Generate Report to produce a new report file, then resend it. Only the Report-prefixed .xml file needs to be updated — re-running the test to get new logs is not necessary.)",
+  "decision_logic": "When AVRCP ICS version in the PTS report doesn't match the target: (1) Do NOT re-run the test; (2) Open the PTS project, change AVRCP Version in the ICS settings to the target version (e.g., 1.6.2); (3) Use Generate Report to produce a new Report_AVRCP_ XML file; (4) Submit the new Report XML; (5) The raw test log does not need to be updated — only the Report file.",
+  "final_recommendation": "Before running AVRCP (or any profile) tests in PTS, confirm the ICS version setting matches the target registration version. Check this in the PTS ICS screen before generating any reports. This prevents the need to regenerate after the fact, though regeneration (without re-testing) is always possible if the version is wrong.",
+  "risk_if_done_wrong": "Submitting a PTS report with an incorrect ICS version will be flagged during SIG evidence review, requiring regeneration and resubmission. If this is discovered very close to the registration deadline, it could cause a delay.",
+  "bluetooth_tags": ["profile test", "PTS", "AVRCP", "ICS", "version mismatch", "Generate Report", "evidence", "1.6.2"],
+  "search_aliases": [
+    "AVRCP PTS report ICS version mismatch 1.5 vs 1.6.2",
+    "PTS ICS version wrong regenerate Report file without retest",
+    "AVRCP version mismatch PTS report fix Generate Report",
+    "PTSレポート AVRCPバージョン 1.5 1.6.2 不一致 修正",
+    "PTS ICS version correction no retest required Generate Report"
+  ],
+  "qualification_stage": "profile testing",
+  "confidence": "high"
+}

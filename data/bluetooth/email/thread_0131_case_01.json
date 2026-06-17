@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0131",
+  "case_id": "thread_0131_case_01",
+  "source_type": "email_case",
+  "iut_type": "unknown",
+  "customer_question": "Can we send the SIG payment (Declaration Fee) to Bluetooth SIG right away, without waiting for your company's simplified test results?",
+  "question_variants": [
+    "Is SIG payment allowed before test results are complete?",
+    "Does SIG payment have to wait until after testing is done?",
+    "Can we initiate SIG payment immediately while testing is still pending?"
+  ],
+  "actual_issue": "A customer ([COMPANY] Shibutani) asked whether the Bluetooth SIG payment (Declaration Fee) could be submitted before the certification service provider's 'simplified test' (簡易試験) was completed. The internal consultant (Sakai) clarified that for this particular registration, all tests are fully exempt - so there is no simplified test to wait for, and payment can proceed immediately. More broadly, the case illustrates that SIG payment (the Declaration Fee) is a separate process from testing, and where tests are not required, there is no test dependency on the payment timeline.",
+  "plain_english_explanation": "The customer was concerned that they had to wait for test results before paying the SIG Declaration Fee. The consultant confirmed two things: (1) For this registration, all tests are entirely exempt - there is no 'simplified test' required; and (2) SIG payment does not depend on test completion - they can proceed immediately. This is a common point of confusion: customers sometimes assume testing must be finished before SIG fees are paid, but in practice the SIG payment (Declaration Fee) can be made as soon as the registration is ready to proceed, and test-exempt registrations have no test dependency at all.",
+  "consultant_answer": "今回の登録内容では、すべての試験は免除されますので簡易試験もありません。(For this registration, all tests are exempt, so there is no simplified test either. [Implied: SIG payment can proceed immediately without waiting for any test.)",
+  "decision_logic": "When a customer asks whether SIG payment (Declaration Fee) must wait for test results: (1) Check whether the registration requires any testing. If tests are fully exempt (e.g., test-exempt derivative with pre-certified module, unchanged FW and BLE-antenna path), inform the customer there is no test to wait for and payment can proceed immediately. (2) Even for registrations that do require testing, SIG payment and testing are separate process tracks - clarify the order of operations based on the specific registration type.",
+  "final_recommendation": "Confirm the test requirement status first. If tests are fully exempt, tell the customer explicitly so they don't incorrectly assume a 'simplified test' is pending. Payment can proceed without any test dependency in test-exempt registrations.",
+  "risk_if_done_wrong": "If the customer incorrectly believes they must wait for test results before paying, they may unnecessarily delay the SIG registration process. Conversely, if testing were required but payment were made before test results were obtained (and a test issue arose), registration timing could be disrupted.",
+  "bluetooth_tags": ["qualification", "Declaration Fee", "SIG payment", "test exemption", "derivative product", "process timeline"],
+  "search_aliases": [
+    "SIG payment before test results timing",
+    "Declaration Fee when to pay SIG",
+    "simplified test exemption derivative registration",
+    "can we send SIG payment without waiting for test",
+    "test exempt registration payment timing"
+  ],
+  "qualification_stage": "initial certification",
+  "confidence": "high"
+}

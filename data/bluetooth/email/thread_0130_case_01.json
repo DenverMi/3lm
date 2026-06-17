@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0130",
+  "case_id": "thread_0130_case_01",
+  "source_type": "email_case",
+  "iut_type": "sensor",
+  "customer_question": "The SIG website UI has changed since we received our derivative product registration procedure manual - we can no longer find 'My Listings' and the screens no longer match the manual. Is there a new manual, and how do we navigate to our existing registered products?",
+  "question_variants": [
+    "Where can we find our existing SIG product registrations in the new site?",
+    "What happened to the 'My Listings' menu in the Bluetooth SIG registration portal?",
+    "How do we add a derivative model in the new Qualification Workspace?"
+  ],
+  "actual_issue": "The Bluetooth SIG replaced the legacy 'Launch Studio' registration portal with a new portal called 'Qualification Workspace' effective July 1, 2024. The derivative model additional registration procedure document previously provided to this customer (and others) no longer matches the website UI - the customer could not find 'My Listings' because the site structure and menu names changed significantly. The consultant sent an updated procedure document for Qualification Workspace. In a follow-up, the consultant also explained how to navigate to the list of existing registered products: after logging in at the SIG URL, click the [My Blue] icon in the top-left to open a menu, then click 'Qualification Workspace' at the top of that menu; on the opened page, click [Manage Submitted Products] and check the 'Show only Qualified Products where I am the Product Contact' checkbox to display the list of the user's existing registered products.",
+  "plain_english_explanation": "In July 2024 Bluetooth SIG replaced its registration website ('Launch Studio') with an entirely new portal ('Qualification Workspace'). Any procedure documents or manuals for tasks like adding derivative models to an existing Product List that were written before July 2024 no longer match the new UI - menus have been renamed, navigation paths have changed, and features like 'My Listings' no longer exist by that name. To view existing product registrations in the new portal: log in → click the 'My Blue' icon (top-left) → select 'Qualification Workspace' from the menu → click 'Manage Submitted Products' → check 'Show only Qualified Products where I am the Product Contact' to see the list, then click a QDID to view its Product List. Consultants should proactively update and replace all old procedure documents with Qualification-Workspace-compatible versions when customers encounter UI mismatches.",
+  "consultant_answer": "2024年7月1日から従来のLauch StudioからQualification Workspaceと呼ばれる新登録サイトに更新されました。それに伴って派生モデルの追加登録手順も大幅に変更されました。Qualification Workspace対応の派生モデル追加登録手順書を添付しますのでこちらを参照してください。/ [URL]でログイン後、左上の[My Blue]アイコンをクリックして開くメニューの一番上のQualification Workspaceをクリックしてください。開いたページ上方の[Manage Submitted Products]をクリックして「Show only Qualified Products where I am the Product Contact」の左の□にチェックを入れて米原様の既存登録一覧を表示させ、該当するQDIDをクリックして詳細ページを開き、Product Listを確認してください。 (From July 1, 2024, the previous Launch Studio was replaced with a new registration site called Qualification Workspace. The derivative model addition registration procedure also changed significantly as a result. Please refer to the attached Qualification Workspace-compatible derivative model addition procedure. / After logging in at [URL], click the [My Blue] icon in the top-left to open a menu, and click 'Qualification Workspace' at the top. On the opened page, click [Manage Submitted Products] and check the 'Show only Qualified Products where I am the Product Contact' checkbox to display your list of existing registrations; click the relevant QDID to open the detail page and check the Product List.)",
+  "decision_logic": "When a customer reports that the SIG website UI no longer matches a previously-provided procedure document, check whether the Launch Studio → Qualification Workspace migration (effective July 2024) is the cause. If so, immediately provide the updated Qualification Workspace procedure document and explain the new navigation path for accessing existing product registrations (My Blue icon → Qualification Workspace → Manage Submitted Products → filter checkbox).",
+  "final_recommendation": "Send customers updated Qualification Workspace procedure documents whenever they report UI mismatches against prior manuals, and explain the new navigation path: Login → [My Blue] icon → Qualification Workspace → Manage Submitted Products → 'Show only Qualified Products where I am the Product Contact' checkbox → QDID link.",
+  "risk_if_done_wrong": "If a customer uses an outdated procedure document with the new Qualification Workspace, they will be unable to complete derivative model registration or find their existing registrations, potentially delaying product launches or leaving models unregistered.",
+  "bluetooth_tags": ["qualification", "listing", "Qualification Workspace", "Launch Studio", "derivative product", "Product List", "Manage Submitted Products", "UI change"],
+  "search_aliases": [
+    "Qualification Workspace navigation registered products list",
+    "Launch Studio replaced Qualification Workspace July 2024",
+    "My Listings renamed Manage Submitted Products",
+    "derivative model addition procedure updated SIG site",
+    "My Blue icon Qualification Workspace login navigation"
+  ],
+  "qualification_stage": "post-launch change",
+  "confidence": "high"
+}

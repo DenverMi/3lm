@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0111",
+  "case_analysis": {
+    "thread_summary": "This short thread covers two post-registration steps for a Bluetooth product ('U2KIT Car Entertainment Adaptor') handled by an Allion consultant ([PERSON]) for a customer ([COMPANY], contact [PERSON]) during early April 2025. First, the consultant corrects a character-formatting issue in the product name on the SIG registration Review Page before the customer confirms it. Second, after registration is confirmed, the consultant requests supporting documents for the compliance folder, and the customer asks whether TELEC certification documentation can substitute for a missing antenna radiation pattern diagram, which the consultant confirms is acceptable.",
+    "all_questions_found": [
+      "Is the corrected registration content on the Review Page (with the corrected product name) correct and ready for confirmation?",
+      "Should the product name on the Review Page use half-width (1-byte) characters instead of full-width characters such as a full-width digit and full-width space?",
+      "What product documentation is required for compliance folder creation and delivery?",
+      "Can TELEC certification documentation be used as a substitute when the antenna radiation pattern diagram is unavailable from the antenna datasheet?"
+    ],
+    "key_technical_discussion": "The discussion covers two topics: (1) a character-encoding correction on the SIG registration Review Page, where the product name contained full-width digits and a full-width space that needed to be converted to half-width before final confirmation; and (2) the compliance folder requirements after registration, which call for an operation manual (Bluetooth section), block diagram, outline drawing, and antenna datasheet with radiation pattern chart - with the customer's pattern (F-type) antenna (2.08dBi gain, negative relative to dipole) lacking a radiation pattern diagram, resolved by substituting TELEC certification documentation.",
+    "key_decision_logic": "Registration form fields require half-width (single-byte ASCII) text, so any full-width characters introduced via Japanese input must be corrected before confirmation. For compliance folder documentation, if a required item (antenna radiation pattern diagram) is unavailable from the component manufacturer, equivalent documentation from an existing certification covering the same antenna (TELEC) can be substituted.",
+    "risk_if_done_wrong": "Confirming the Review Page with full-width characters left in the product name would register the product with incorrectly formatted text, requiring a later correction and re-confirmation. Stalling on the missing antenna radiation pattern diagram without considering a TELEC substitute could delay compliance folder completion and delivery.",
+    "consulting_mistake": "",
+    "consulting_takeaway": "Always check registration text fields (especially product names) for full-width characters introduced via Japanese IME input and convert them to half-width before confirmation. When a required compliance document (e.g., antenna radiation pattern diagram) is unavailable from the component's own datasheet, check whether existing certification documentation (e.g., TELEC) for the same component can serve as an acceptable substitute."
+  }
+}

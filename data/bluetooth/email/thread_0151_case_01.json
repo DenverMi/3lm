@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0151",
+  "case_id": "thread_0151_case_01",
+  "source_type": "email_case",
+  "iut_type": "End Product — BR/EDR+BLE using Combine Unmodified Design",
+  "customer_question": "The ICS file provided by Realtek has inconsistencies. If we submit this ICS as-is, will the SIG Consistency Check reject the design? What should we do?",
+  "question_variants": [
+    "ICS has inconsistencies — can we still register?",
+    "How do we handle an ICS with existing Invalids when creating a new design?",
+    "What is the Combine Unmodified Design method and when does it apply?"
+  ],
+  "actual_issue": "The customer's Realtek Bluetooth component had an ICS file containing existing inconsistencies (Invalid entries). If these are imported into a new Standard Design, the SIG Consistency Check will flag them and the registration will be rejected. However, by using 'Combine Unmodified Designs' (Use This Design Without Modifications), the existing QDID's ICS is inherited as-is including its Invalids, and no new Consistency Check is run on the inherited layers.",
+  "plain_english_explanation": "When a certified Bluetooth component's ICS has existing inconsistencies, you cannot just copy the ICS into a new design — the Consistency Check will reject it. Instead, use 'Combine Unmodified Designs': you reference the existing QDID directly without modification, and the SIG accepts the pre-certified design as-is, inconsistencies included, because the certification was already granted when those inconsistencies were accepted.",
+  "consultant_answer": "Use the 'Combine Unmodified Designs' (Use This Design Without Modifications) method to include the Realtek QDID in the customer's design. This approach inherits the existing QDID's ICS including any Invalids and is exempt from a new Consistency Check on the inherited layers. If SIG cannot accept the existing Invalids even under this method, a Core test (extremely expensive) would be required — but the Combine Unmodified approach is the standard solution.",
+  "decision_logic": "Combine Unmodified Design = inherit the existing QDID without modification → existing Invalids pass through → no new Consistency Check on inherited layers → profile test is also exempt. This is the standard mechanism for incorporating components with pre-certified but imperfect ICS files.",
+  "final_recommendation": "When a component QDID's ICS contains inconsistencies and no clean version is available, use Combine Unmodified Design as the default approach. Document this decision and advise the customer that the Invalids will appear in the qualification record but are accepted under this method.",
+  "risk_if_done_wrong": "Creating a Standard Design with an inconsistent ICS will cause Consistency Check failures that block registration. The only alternatives to Combine Unmodified Design are: (1) clean up the ICS (may not be possible for third-party components); (2) run a full Core test (extremely expensive, months of work).",
+  "bluetooth_tags": ["Combine Unmodified Design", "ICS inconsistency", "Invalid", "Consistency Check", "QDID", "QPRDv3.0"],
+  "search_aliases": ["ICS inconsistency how to register", "Combine Unmodified Design ICS Invalids", "Use This Design Without Modifications", "ICS Invalid Consistency Check bypass"],
+  "qualification_stage": "Design Creation / Consistency Check",
+  "confidence": "high"
+}

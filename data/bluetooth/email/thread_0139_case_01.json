@@ -1,0 +1,21 @@
+{
+  "source_thread": "thread_0139",
+  "case_id": "thread_0139_case_01",
+  "source_type": "email_case",
+  "iut_type": "module",
+  "customer_question": "The RF PHY test passed. What are the next steps for completing the Bluetooth module registration, and what documents are required for the Compliance Folder?",
+  "question_variants": [
+    "What do I need to submit after the RF PHY test passes?",
+    "What documents must be in a module's Compliance Folder?"
+  ],
+  "actual_issue": "After the RF PHY test passes, the customer needs guidance on the registration flow and the specific Compliance Folder contents required for a module. The registration flow is: (1) customer fills in the proxy registration form and returns it; (2) consultant prepares registration content and sends a Review page screenshot for customer confirmation; (3) customer confirms and instructs Submission; (4) consultant submits to SIG; (5) SIG approves in approximately 1–2 business days. The Compliance Folder for a module must contain: (1) module spec sheet, (2) module block diagram, (3) module outline drawing, and (4) antenna data sheet (which must include radiation gain characteristics).",
+  "plain_english_explanation": "Once the RF PHY test is done, the actual registration work begins. The process is: the consultant prepares the Qualification Workspace registration based on a form the customer fills out, sends them a screenshot of the Review page for approval, and after the customer says OK, submits it to SIG. SIG typically approves within 1–2 business days. For the Compliance Folder, a module requires four specific documents: (1) a spec sheet of the module, (2) a block diagram showing the module's internal components, (3) an outline drawing of the module's physical dimensions, and (4) the antenna data sheet — crucially, this must include radiation gain characteristics (not just frequency specs).",
+  "consultant_answer": "Post-RF PHY test flow: (1) fill in proxy registration form → (2) consultant prepares registration + Review page → (3) customer confirms → (4) consultant submits → (5) SIG approves in 1–2 business days. Module Compliance Folder must include: ① module spec sheet, ② module block diagram, ③ module outline drawing, ④ antenna data sheet with radiation gain characteristics.",
+  "decision_logic": "1. Confirm RF PHY test report is available and acceptable.\n2. Send proxy registration form to customer.\n3. Prepare Qualification Workspace registration content.\n4. Generate Review page → send to customer for confirmation.\n5. On customer approval, submit to SIG.\n6. Compliance Folder: verify all 4 module documents are present, especially that the antenna data sheet includes radiation gain.",
+  "final_recommendation": "After RF PHY test pass, immediately initiate the proxy registration form process. At Compliance Folder preparation, specifically request the antenna data sheet with radiation gain characteristics — this is the most commonly missing item in module Compliance Folders.",
+  "risk_if_done_wrong": "Submitting without a proper Compliance Folder or missing the radiation gain characteristics from the antenna data sheet exposes the customer to SIG audit failure and potential certification revocation.",
+  "bluetooth_tags": ["RF-PHY-test", "module", "Compliance-Folder", "antenna-data-sheet", "radiation-gain", "proxy-registration", "Review-page", "SIG-submission"],
+  "search_aliases": ["module compliance folder contents", "antenna data sheet radiation gain", "post RF PHY test next steps", "proxy registration review page flow", "module block diagram outline drawing spec sheet"],
+  "qualification_stage": "post-test / registration",
+  "confidence": "high"
+}

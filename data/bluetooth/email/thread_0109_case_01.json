@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0109",
+  "case_id": "thread_0109_case_01",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "Can we use another company's already-certified Host Subsystem QD-ID (e.g., a BlueZ-based registration) when registering our own product?",
+  "question_variants": [
+    "Can we list our product against a QDID that belongs to another company's certified Host Subsystem?",
+    "Is it OK to reference a competitor's BlueZ Host Subsystem QDID for our new SIG listing?",
+    "Can we register our product using a third-party's certified component QDID without their permission?",
+    "What happens if we register using a Host Subsystem QD-ID we don't own?",
+    "Is referencing an unrelated company's certified BlueZ stack QDID for our listing technically allowed but risky?"
+  ],
+  "actual_issue": "The customer wanted to register their product (Host Subsystem = BlueZ) by referencing the QD-ID of another company's already-certified BlueZ Host Subsystem, without any business relationship with that company or its stack provider.",
+  "plain_english_explanation": "Bluetooth SIG listings link a product to certified building-block components (like a Host Subsystem) via their QD-ID numbers. If you point your new product's listing at someone else's certified component without permission, your listing will show up whenever that QD-ID is searched. If the actual owner of that certified component notices, they can ask the SIG to remove your listing - even though the initial registration goes through. So while it's technically possible to file the paperwork, it creates a real risk of having your certification pulled later.",
+  "consultant_answer": "Filing a new registration under your own company name that references a BlueZ Host Subsystem QD-ID certified and owned by an unrelated third party (whether self-tested or via a stack vendor's certification) is technically possible to submit, but afterward, anyone searching that QD-ID will also see your company's listing. If the Listing Owner of that QD-ID notices, they can request the SIG to cancel your registration. So although the form-level registration may succeed, there is a real subsequent risk of de-registration, and this is not recommended.",
+  "decision_logic": "A product registration that references a component QD-ID (e.g., Host Subsystem) is only safe long-term if your company has a legitimate right to reference that QD-ID - either because you own it, or because you obtained it properly (e.g., purchased a certified stack from its vendor/distributor, who permits referencing their QD-ID). Referencing an unrelated party's QD-ID without permission creates a visibility link that the QD-ID owner can use to get your registration cancelled.",
+  "final_recommendation": "Do not reference a third party's certified Host Subsystem QD-ID without their permission. Instead, purchase a BlueZ-based (or other) Host Subsystem stack from a licensed stack vendor/distributor, who will permit you to legitimately reference their certified QD-ID in your registration.",
+  "risk_if_done_wrong": "The initial registration may go through, but if the actual owner/Listing Owner of the referenced QD-ID discovers the unauthorized reference, they can request the SIG to cancel the registration, resulting in lost certification and the need to redo the registration correctly.",
+  "bluetooth_tags": ["qualification", "listing", "QDID", "Host Subsystem", "BlueZ", "declaration", "reuse"],
+  "search_aliases": [
+    "QDID reuse without permission",
+    "borrow another company's QDID",
+    "Host Subsystem QD-ID reference risk",
+    "listing cancellation risk QDID",
+    "unauthorized QDID reference",
+    "Listing Owner cancellation request",
+    "BlueZ stack vendor QDID purchase",
+    "third-party certified component reference"
+  ],
+  "qualification_stage": "planning",
+  "confidence": "high"
+}

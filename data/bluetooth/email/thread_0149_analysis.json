@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0149",
+  "case_analysis": {
+    "thread_summary": "ATAGO Co. quoting thread (214 lines). Three distinct customer questions: (1) whether their GATT-based profile requires PTS testing (answered: depends on UUID type — 16-bit → test required; 128-bit → no test); (2) optimal registration timing for a September launch (answered: register ~3 months early, can set Submission Date up to 90 days in the future); (3) whether they can change the SIG account email (answered: not possible — must register new account; both accounts can coexist). Thread also confirmed ATAGO is a SIG Adopter member and has an existing valid End Product registration (D041005, BT v5.0).",
+    "all_questions_found": [
+      "Does a GATT Base Profile require SIG PTS testing?",
+      "How far in advance can we register and when is the right time relative to product launch?",
+      "Can we change the email address on an existing SIG member account?"
+    ],
+    "key_technical_discussion": "UUID type determines profile test requirement: SIG-assigned 16-bit UUID → PTS test required; proprietary 128-bit UUID → no test. This is the definitive scoping rule for profile test inclusion.",
+    "key_decision_logic": "Three independent rules: (1) 16-bit vs 128-bit UUID determines test scope; (2) 90-day advance registration window protects against new SIG rules; (3) SIG email is immutable — new account is the only option.",
+    "risk_if_done_wrong": "Misclassifying a 16-bit UUID profile as proprietary would result in an under-tested product. Waiting too long before launch risks being caught by new Consistency Check rules. Failing to create a new account for email changes leaves customers unable to use their preferred email.",
+    "consulting_mistake": "No mistakes identified. Sakai provided clear, correct answers to all three questions.",
+    "consulting_takeaway": "Always ask customers for the UUID value (or type) of any profile they list on an RFQ — this single data point determines whether PTS testing is required. For registration timing, proactively recommend the 3-month-before-launch rule even if the customer does not ask."
+  }
+}

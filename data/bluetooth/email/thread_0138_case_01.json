@@ -1,0 +1,24 @@
+{
+  "source_thread": "thread_0138",
+  "case_id": "thread_0138_case_01",
+  "source_type": "email_case",
+  "iut_type": "IoT/industrial device",
+  "customer_question": "We are a first-time Bluetooth certification customer (gas meter product). What exactly do we need to do and deliver? What does the Bluetooth logo usage look like, and how long does the certification remain valid?",
+  "question_variants": [
+    "Is paying the SIG fee sufficient to complete Bluetooth certification?",
+    "What is the Compliance Folder and why do we need to keep it?",
+    "How do we use the Bluetooth logo after certification?",
+    "When does Bluetooth certification expire?",
+    "Are there recurring fees after the initial registration?"
+  ],
+  "actual_issue": "A first-time customer needs a comprehensive walkthrough of the Bluetooth certification process. Key points: (1) Paying the SIG Qualification Fee alone is NOT sufficient — Qualification Workspace registration work is also required (this is covered by the consultant's 'proxy registration support'); (2) A Compliance Folder (physical or digital archive of technical documents) must be prepared and retained for 1 year after product discontinuation for SIG audit purposes; (3) Bluetooth logo usage requires using SIG-provided brand guide files and following usage restrictions; (4) Certification validity lasts until the underlying Core Spec version is officially Withdrawn (Bluetooth 5.0 Withdrawal date = February 1, 2032) — products already in the SIG Product List can continue to be sold after Withdrawal; (5) There are no ongoing or recurring costs after registration.",
+  "plain_english_explanation": "Bluetooth certification is more than just paying a fee. The customer must also complete registration work in SIG's Qualification Workspace system. The consultant handles this on behalf of the customer ('proxy registration'). After approval, the customer must keep a Compliance Folder — a collection of technical documentation (spec sheet, block diagram, etc.) — for at least 1 year after the product is discontinued, in case SIG requests an audit. The Bluetooth logo can be used according to SIG's brand guidelines. The certification stays valid until SIG officially retires the Core Spec version used — for Bluetooth 5.0, that is February 1, 2032. Products already registered can still be sold after that date. There are no annual fees or renewal fees.",
+  "consultant_answer": "(1) Paying the SIG fee + proxy registration work is required — fee alone is not enough. (2) Compliance Folder must be prepared and kept for 1 year post-product discontinuation. (3) Bluetooth logo: use SIG brand guide files and follow usage rules. (4) Certification valid until Core Spec Withdrawal (BT 5.0 = Feb 1, 2032); products already listed can still sell after Withdrawal. (5) No ongoing costs after registration.",
+  "decision_logic": "1. Confirm proxy registration scope covers Qualification Workspace work, not just fee payment.\n2. Explain Compliance Folder requirement and retention period.\n3. Direct customer to SIG brand guide for logo files.\n4. Provide Spec Withdrawal date for their Core Spec version.\n5. Confirm no recurring fees.",
+  "final_recommendation": "For first-time customers, provide a structured onboarding explanation covering all five points above before starting the project. Document and confirm their understanding of the Compliance Folder retention obligation.",
+  "risk_if_done_wrong": "If the customer believes the fee alone is sufficient and no registration work is needed, the certification will never be completed. If the Compliance Folder is not prepared or retained, the customer may fail a SIG audit and have their certification revoked.",
+  "bluetooth_tags": ["first-time-customer", "Compliance-Folder", "SIG-Qualification-Fee", "Bluetooth-logo", "Spec-Withdrawal", "certification-validity", "proxy-registration", "no-recurring-fees"],
+  "search_aliases": ["first time Bluetooth certification what to do", "Compliance Folder what is it", "Bluetooth logo usage rules", "Bluetooth 5.0 withdrawal date February 2032", "SIG fee proxy registration work", "Bluetooth certification expires when", "recurring fees after registration"],
+  "qualification_stage": "pre-registration / customer onboarding",
+  "confidence": "high"
+}

@@ -1,0 +1,29 @@
+{
+  "source_thread": "thread_0112",
+  "case_id": "thread_0112_case_05",
+  "source_type": "email_case",
+  "iut_type": "",
+  "customer_question": "We plan to release derivative products that reuse the same Bluetooth module and host stack as our already-certified product. Do these need a new paid registration, or can they be added for free?",
+  "question_variants": [
+    "Can derivative products using the same certified module and software stack be registered without additional cost?",
+    "How do we add a new model to an existing SIG registration via My Page?",
+    "What is 'Manage Submitted Products' used for?",
+    "Does reusing the same Bluetooth module and host stack across products qualify for free additional registration?"
+  ],
+  "actual_issue": "The customer planned to release multiple derivative products that share the same Bluetooth module and host (software) stack as the product just registered, and wanted to know whether each derivative would require a new paid registration process.",
+  "plain_english_explanation": "When a new product uses the exact same Bluetooth module and host software stack as an already-certified product, it can typically be registered as an additional model under the existing registration at no extra cost, using the 'Manage Submitted Products' feature on SIG's My Page. This avoids repeating the full paid registration/testing process for each derivative product.",
+  "consultant_answer": "Yes - as long as the derivative products use the same Bluetooth module and the same host (software) stack as the already-registered product, they can be added as additional models under the existing registration free of charge, via 'Manage Submitted Products' on My Page.",
+  "decision_logic": "A derivative product can be registered for free as an additional model under an existing SIG registration if it uses the same Bluetooth module and the same host stack as the already-certified product; this is done via the 'Manage Submitted Products' feature on My Page rather than a new paid registration.",
+  "final_recommendation": "For derivative products that reuse the same Bluetooth module and host stack as an already-certified product, register them as additional models via 'Manage Submitted Products' on My Page at no additional cost, rather than starting a new registration.",
+  "risk_if_done_wrong": "If a derivative product is mistakenly treated as requiring a brand-new paid registration despite reusing the same module and host stack, the customer would incur unnecessary cost and effort; conversely, registering a product with a genuinely different module or host stack as a free additional model (when it actually requires its own registration) could result in an invalid or non-compliant registration.",
+  "bluetooth_tags": ["listing", "declaration", "design change", "reuse"],
+  "search_aliases": [
+    "free derivative product registration",
+    "Manage Submitted Products additional model",
+    "same module same host stack reuse registration",
+    "My Page additional model registration no cost",
+    "derivative product SIG registration"
+  ],
+  "qualification_stage": "post-launch change",
+  "confidence": "high"
+}

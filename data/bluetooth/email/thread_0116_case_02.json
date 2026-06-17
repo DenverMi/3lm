@@ -1,0 +1,28 @@
+{
+  "source_thread": "thread_0116",
+  "case_id": "thread_0116_case_02",
+  "source_type": "email_case",
+  "iut_type": "keyboard",
+  "customer_question": "We have a device registered under Bluetooth Core Specification 4.2, but the QDIDs it references (97470 and another [ID]) are actually Core Specification 5.0. With no hardware or software changes, can we change this existing 4.2 registration to 5.0, and would new testing be required?",
+  "question_variants": [
+    "Can an existing 4.2 registration be upgraded to 5.0 in place without new testing?",
+    "Our referenced module QDIDs are spec 5.0 but our product registration says 4.2 - can we just change the spec field?",
+    "What does it cost and require to move a 4.2-registered device to a 5.0 registration if hardware/software are unchanged?"
+  ],
+  "actual_issue": "The customer discovered that an existing product registration (DID [ID]) was filed as Bluetooth Core Specification '4.2', even though the referenced component QDIDs (97470 and another [ID]) are both Core Specification '5.0'. The customer asked whether the existing 4.2 registration could be changed/upgraded to 5.0 without new testing, since the hardware and software are unchanged.",
+  "plain_english_explanation": "Once a product registration is filed under a particular Core Specification version (here, 4.2), Bluetooth SIG's operational rules do not allow changing that existing registration's spec version in place - even if the referenced component QDIDs are actually a newer spec version (5.0) and the product itself hasn't changed. The only path to a 5.0 registration is to file a brand-new registration referencing the same component QDIDs, but at spec 5.0. Because the existing test reports remain valid (no hardware/software change), no new testing is required - only the new registration paperwork and the associated registration fee.",
+  "consultant_answer": "Converting the existing 4.2 registration to 5.0 in place is not possible under SIG's registration operational rules, since once a spec-version change was made at registration time, that registration is treated as 4.2. New testing is not required, but you must file a brand-new registration under the same referenced QDIDs at spec 5.0, paying the normal registration fee ($11,040, plus approximately ¥400,000 for our registration support and Compliance Folder creation if you'd like us to handle the proxy registration, or ¥400,000 + tax if you remit the SIG registration fee directly).",
+  "decision_logic": "If a product's registration spec version (e.g., 4.2) does not match the spec version of its referenced component QDIDs (e.g., 5.0), do not attempt to edit the spec version on the existing registration - SIG rules do not permit in-place spec version changes. Instead, file a new registration referencing the same component QDIDs at the desired (higher) spec version. If hardware/software are unchanged, existing test reports can be reused, so only the new registration fee applies (no new testing cost).",
+  "final_recommendation": "To move from a 4.2 registration to 5.0 with unchanged hardware/software: file a brand-new registration referencing the same component QDIDs at spec 5.0, reusing existing test reports (no new testing needed), and budget for the standard registration fee ($11,040) plus registration support/Compliance Folder costs (~¥400,000) if using proxy registration support, or ~¥400,000 + tax if the customer remits the SIG fee directly.",
+  "risk_if_done_wrong": "Attempting to edit an existing 4.2 registration's spec version to 5.0 is not permitted and would not succeed under SIG's operational rules. Assuming a simple in-place edit is possible could cause delays and confusion; failing to budget for the new registration fee (treating it as a free 'spec correction') could cause cost surprises for the customer.",
+  "bluetooth_tags": ["qualification", "listing", "core specification version", "DID", "QDID", "registration fee", "re-registration"],
+  "search_aliases": [
+    "Bluetooth registration 4.2 to 5.0 conversion",
+    "cannot change registration spec version in place",
+    "new registration same QDID higher spec version",
+    "reuse existing test report for new registration",
+    "4.2 registration upgrade to 5.0 fee"
+  ],
+  "qualification_stage": "post-launch change",
+  "confidence": "high"
+}

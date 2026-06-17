@@ -1,0 +1,45 @@
+{
+    "source_thread": "thread_0107",
+    "cases": [
+        {
+            "case_id": "thread_0107_case_02",
+            "iut_type": "audio module",
+            "customer_question": "What qualification risks exist when a Bluetooth module uses an unqualified host stack or open-source Bluetooth stack implementation?",
+            "question_variants": [
+                "Can I use BlueZ without an existing qualification?",
+                "What happens if the Host Subsystem is not qualified?",
+                "Do open-source Bluetooth stacks require protocol testing?",
+                "How important is the Host Subsystem QDID?",
+                "Can host-stack qualification be reused?"
+            ],
+            "actual_issue": "The qualification path depends on whether the host stack and supported profiles are already covered by qualified Host Subsystem references or require new protocol qualification work.",
+            "plain_english_explanation": "Bluetooth qualification is not limited to the radio. The host software and supported profiles may also need qualification coverage. If those layers are not already qualified, the qualification effort can increase significantly.",
+            "consultant_answer": "The consultant requested Host Subsystem qualification references and asked whether the listed profiles were already covered by the host implementation. If an unqualified open-source host stack such as BlueZ is used without existing qualification coverage, substantial protocol-testing obligations may apply. The consultant recommended obtaining qualification evidence from the party responsible for the stack implementation whenever possible.",
+            "decision_logic": "Qualification coverage must exist for both controller and host functionality. When host functionality is not covered by an existing qualified Host Subsystem, protocol qualification obligations can be triggered for the implemented Bluetooth features and profiles.",
+            "final_recommendation": "Identify the Host Subsystem qualification references and verify whether the implemented profiles are already covered. If qualification evidence does not exist, coordinate with the stack provider or module manufacturer before defining the qualification plan.",
+            "risk_if_done_wrong": "Failure to verify host-stack qualification status can lead to unexpected protocol-testing requirements, increased qualification effort, schedule impact, and major project replanning.",
+            "bluetooth_tags": [
+                "qualification",
+                "host",
+                "Host Subsystem",
+                "profile",
+                "protocol testing",
+                "BlueZ",
+                "reuse"
+            ],
+            "search_aliases": [
+                "BlueZ qualification",
+                "Host Subsystem QDID",
+                "unqualified host stack",
+                "protocol testing required",
+                "profile qualification",
+                "host stack reuse",
+                "open source Bluetooth stack",
+                "host qualification coverage"
+            ],
+            "qualification_stage": "planning",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}

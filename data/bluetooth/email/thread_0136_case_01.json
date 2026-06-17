@@ -1,0 +1,21 @@
+{
+  "source_thread": "thread_0136",
+  "case_id": "thread_0136_case_01",
+  "source_type": "email_case",
+  "iut_type": "wearable",
+  "customer_question": "The SoC is registered as a Controller Subsystem QDID. Can we combine it with our custom Host Stack to register a Core Complete design?",
+  "question_variants": [
+    "If we use a controller-only QDID with an incompatible Host Stack, will it pass the Consistency Check?",
+    "What happens when a Controller Subsystem QDID and Host Stack have GAP-LL inter-layer ICS inconsistencies?"
+  ],
+  "actual_issue": "The SoC's QDID is registered as a Controller Subsystem. When a custom or incompatible Host Stack is combined with it, the GAP-LL inter-layer Consistency Check (enforced post-July 2024 QPRDv3.0) will detect inconsistencies between the GAP layer (in the Host) and the LL layer (in the Controller). This blocks Design Number registration. A fallback is 'Combine unmodified Designs' (旧Declaration登録相当), which requires no test, no ICS editing, and no new QDID — but also yields no Design Number unless ≥2 QDIDs are combined.",
+  "plain_english_explanation": "A Controller Subsystem QDID only covers the hardware controller (LL). If the set maker's Host Stack has GAP ICS settings that conflict with the LL ICS of that Controller QDID, the SIG Consistency Check will block the Design Number registration. Post-July 2024, this check is strictly enforced. The safest fallback is to use 'Combine unmodified Designs' — simply reference the existing QDIDs as-is, with no ICS editing or testing. However this method only produces a Design Number if 2 or more QDIDs are combined.",
+  "consultant_answer": "Combining a Controller Subsystem QDID with an incompatible Host Stack will trigger a GAP-LL Consistency Check failure and block DN registration. Recommend using 'Combine unmodified Designs' as a fallback, or restructuring via the Core-Controller DN strategy (see Case 02).",
+  "decision_logic": "1. Identify whether the SoC QDID is Controller Subsystem only or Core-Complete.\n2. If Controller Subsystem only + custom Host Stack → Consistency Check will fail (GAP vs. LL inter-layer).\n3. Fallback A: Combine unmodified Designs (no test, no ICS change, no DN unless ≥2 QDIDs).\n4. Fallback B: Core-Controller DN strategy (module vendor registers Core-Controller, set maker uses 'use unchanged' Include).",
+  "final_recommendation": "Do not attempt to combine a Controller Subsystem QDID with an incompatible Host Stack for Design Number registration under the new QPRDv3.0 Consistency Check rules. Use 'Combine unmodified Designs' or the Core-Controller DN strategy instead.",
+  "risk_if_done_wrong": "Attempting an incompatible Host+Controller combination will result in Consistency Check Invalid errors that cannot be cleared without changing the Host Stack or SoC QDID, stalling the registration entirely.",
+  "bluetooth_tags": ["Controller-Subsystem", "Host-Subsystem", "GAP-LL-inconsistency", "Consistency-Check", "Combine-unmodified-Designs", "Design-Number", "QPRDv3.0"],
+  "search_aliases": ["controller QDID incompatible host stack", "GAP LL inter-layer consistency error", "Combine unmodified Designs no test", "Host Controller QDID post-July 2024 check"],
+  "qualification_stage": "design registration",
+  "confidence": "high"
+}

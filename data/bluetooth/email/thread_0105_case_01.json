@@ -1,0 +1,44 @@
+{
+    "source_thread": "thread_0105",
+    "cases": [
+        {
+            "case_id": "thread_0105_case_01",
+            "iut_type": "end product",
+            "customer_question": "How should a Bluetooth SIG product registration be completed when an included QDID causes consistency check issues before submission?",
+            "question_variants": [
+                "Consistency check failed during qualification workspace registration",
+                "How do we resolve inconsistencies before Bluetooth SIG submission?",
+                "Can an included QDID be used if the registration shows consistency check errors?",
+                "What should be done before approving the Review Page and submitting?",
+                "How are ICS inconsistencies handled during declaration?"
+            ],
+            "actual_issue": "A new product registration based on an included existing qualified design encountered Bluetooth SIG Consistency Check inconsistencies that had to be resolved before final submission.",
+            "plain_english_explanation": "The product reused an existing qualified Bluetooth design, but the qualification workspace detected configuration mismatches. Before the product could be submitted, the qualification data had to be adjusted so the registration became internally consistent. The customer then needed to review and approve the final registration data before submission.",
+            "consultant_answer": "The consultant included the existing qualified End Product/QDID in the registration, corrected the Consistency Check mismatches by modifying the ICS selections, and advanced the registration to the pre-submission Review Page. The customer was asked to verify the Review Page contents and authorize final submission only after the inconsistencies had been resolved.",
+            "decision_logic": "A Bluetooth SIG submission must pass the Consistency Check before final submission. When inconsistencies are identified, the qualification data and ICS selections must be corrected so the resulting design and included qualified references are internally consistent.",
+            "final_recommendation": "Resolve all Consistency Check issues through appropriate ICS updates, verify the Review Page contents with the customer, and submit only after the registration data is confirmed to be correct.",
+            "risk_if_done_wrong": "Submitting with unresolved inconsistencies can lead to qualification submission problems, rejection, correction cycles, and qualification delays requiring rework before acceptance.",
+            "bluetooth_tags": [
+                "qualification",
+                "QDID",
+                "ICS",
+                "consistency check",
+                "listing",
+                "reuse"
+            ],
+            "search_aliases": [
+                "consistency check failed",
+                "ICS inconsistency",
+                "QDID include",
+                "qualification workspace error",
+                "review page approval",
+                "submission preparation",
+                "ICS correction",
+                "included design mismatch"
+            ],
+            "qualification_stage": "listing / declaration",
+            "confidence": "high",
+            "source_type": "email_case"
+        }
+    ]
+}
