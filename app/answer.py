@@ -2031,7 +2031,16 @@ def answer_question(
             if not is_email_source(item)
         ]
 
+    if clean_question.lower().strip().startswith(("how ", "how do ", "how does ")):
+        non_glossary_items = [
+            item for item in items
+            if "glossary" not in (item.get("metadata", {}).get("doc_name") or "").lower()
+        ]
+        if non_glossary_items:
+            items = non_glossary_items
+
     exact_acronym_items = []
+    
     grounded_expansion = None
     if is_definition_query(clean_question):
         grounded_expansion = extract_exact_acronym_expansion(clean_question, items)

@@ -1,0 +1,38 @@
+{
+    "program": "matter",
+    "routing_keywords": {
+        "matter": "Matter smart home standard",
+        "ディスカバリー": "discovery commissionable discovery operational discovery device discovery commissioning before commissioning after commissioning DNS-SD mDNS",
+        "機器発見": "discovery device discovery commissionable discovery operational discovery DNS-SD",
+        "コミッショニング": "commissioning commissionable device commissioning window",
+        "アテステーション": "attestation device attestation product attestation PAA PAI DAC CD",
+        "paa": "Product Attestation Authority PAA",
+        "pai": "Product Attestation Intermediate PAI",
+        "dac": "Device Attestation Certificate DAC",
+        "dcl": "Distributed Compliance Ledger DCL",
+        "ファブリック": "fabric Matter fabric",
+        "cd": "Certification Declaration CD",
+        "クラスター": "cluster clusters",
+        "エンドポイント": "endpoint endpoints",
+        "データモデル": "data model cluster endpoint attribute command event",
+        "pics": "PICS Protocol Implementation Conformance Statement",
+        "pixit": "PIXIT Protocol Implementation eXtra Information for Testing",
+        "テストハーネス": "Test Harness test harness"
+    },
+    "keywords": {
+        "discovery": "discovery device discovery commissionable discovery operational discovery commissioning before commissioning after commissioning DNS-SD mDNS",
+        "discover": "discovery device discovery commissionable discovery operational discovery DNS-SD mDNS",
+        "発見": "discovery device discovery commissionable discovery operational discovery DNS-SD mDNS",
+        "ディスカバリー": "discovery commissionable discovery operational discovery device discovery commissioning before commissioning after commissioning DNS-SD mDNS"
+    },
+    "expansion_keywords": {
+        "発見": "discovery device discovery",
+        "証明": "attestation certificate product attestation",
+        "属性": "attribute attributes",
+        "コマンド": "command commands",
+        "イベント": "event events",
+        "認証": "certification certified product certification application",
+        "申請": "application submission certification",
+        "仕様": "specification specification release"
+    }
+}
