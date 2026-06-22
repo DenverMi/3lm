@@ -147,6 +147,13 @@ def is_definition_query(query: str) -> bool:
 
 def is_process_query(query: str) -> bool:
     q = query.lower()
+
+    if q.startswith(("how do ", "how does ", "how can ", "how should ")):
+        return True
+
+    if "how " in q and " work" in q:
+        return True
+
     keywords = [
         "process",
         "how to",
@@ -893,6 +900,25 @@ def is_advisory_query(query: str) -> bool:
 
     return any(marker in q for marker in advisory_markers)
 
+def get_effective_meta(item: Dict[str, Any]) -> Dict[str, Any]:
+    meta = dict(item.get("metadata") or {})
+    chunk_id = item.get("chunk_id") or item.get("id") or ""
+
+    parts = chunk_id.split(":")
+    if len(parts) >= 4:
+        meta.setdefault("program", parts[0])
+        meta.setdefault("doc_type", parts[1])
+        meta.setdefault("doc_name", parts[2])
+
+    if len(parts) >= 5:
+        chunk_part = parts[3]
+        if chunk_part.startswith("p"):
+            meta.setdefault("chunk_kind", "front_page")
+        elif chunk_part.startswith("c"):
+            meta.setdefault("chunk_kind", "body")
+
+    return meta
+
 def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
     bonus = 0.0
     doc_type = (meta.get("doc_type") or "").lower()
@@ -950,6 +976,9 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
     elif intent == "process":
         source_type = (meta.get("source_type") or "").lower()
         chunk_kind = (meta.get("chunk_kind") or "").lower()
+
+        if chunk_kind in {"definition", "glossary"}:
+            bonus -= 1.0
 
         if source_type == "email_case":
             bonus += 3.5
@@ -1225,7 +1254,8 @@ def merge_and_rerank(
 
     reranked: List[Dict[str, Any]] = []
     for item in merged.values():
-        meta = item["metadata"]
+        meta = get_effective_meta(item)
+        item["metadata"] = meta
 
         rrf_score = reciprocal_rank(item.get("bm25_rank")) + reciprocal_rank(item.get("semantic_rank"))
         bonus = metadata_bonus(meta, intent, query)
@@ -1267,9 +1297,9 @@ def merge_and_rerank(
         if intent == "definition":
             glossary_bonus = glossary_score * 0.9
         elif intent == "comparison":
-            glossary_bonus = glossary_score * 0.8
+            glossary_bonus = glossary_score * 0.4
         else:
-            glossary_bonus = glossary_score * 0.5
+            glossary_bonus = glossary_score * 0.1
 
         query_acronyms = {
             acronym.upper()
@@ -1280,12 +1310,31 @@ def merge_and_rerank(
             for acronym in item.get("glossary_acronyms", [])
         }
 
-        if query_acronyms and matched_glossary_acronyms & query_acronyms:
-            glossary_bonus += 8.0
+        text_acronyms = {
+            acronym.upper()
+            for acronym in re.findall(r"\b[A-Z][A-Z0-9/\-]{1,9}\b", item.get("text") or "")
+        }
 
-            doc_name = (item["metadata"].get("doc_name") or "").lower()
-            if "glossary" in doc_name:
-                glossary_bonus += 6.0
+        if intent == "comparison" and query_acronyms:
+            matched_count = len((matched_glossary_acronyms | text_acronyms) & query_acronyms)
+
+            if matched_count == 0:
+                bonus -= 30.0
+            elif matched_count == 1:
+                bonus += 8.0
+            else:
+                bonus += 20.0
+
+            if "revision history" in text_lower or "acknowledgments" in text_lower:
+                bonus -= 20.0
+
+        if query_acronyms and matched_glossary_acronyms & query_acronyms:
+            if intent == "definition":
+                glossary_bonus += 8.0
+
+                doc_name = (item["metadata"].get("doc_name") or "").lower()
+                if "glossary" in doc_name:
+                    glossary_bonus += 6.0
 
         if intent == "requirements":
             requirement_signals = [
