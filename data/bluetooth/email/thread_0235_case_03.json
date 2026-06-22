@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0235",
+  "case_id": "thread_0235_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Atago, contact Jun Osuga)",
+  "customer_question": "Looking at the overall registration workflow we understand (customer provides account access, Invoice information for Qualification Fee payment in our name, and the implementing module's QDID plus first-model info; Allion performs the USD wire transfer proxy, enters data into the Qualification Workspace site, works to resolve Consistency Check inconsistencies down to zero or within SIG-allowed TCW limits, and proceeds to Submission) — which specific part of that workflow did you (Sakai) personally handle, versus what our company handled?",
+  "question_variants": [
+    "Can you break down exactly which steps were performed by Allion versus by us?",
+    "Please confirm the division of responsibilities across the registration workflow we just summarized."
+  ],
+  "actual_issue": "The customer wanted an explicit confirmation of the division of labor across the full registration workflow they had pieced together themselves, to clearly understand what they were paying for and what they were responsible for providing.",
+  "plain_english_explanation": "Allion confirmed the customer's own workflow summary was accurate and marked which parts each party performed: the customer's responsibilities were providing account credentials, obtaining the Qualification Fee invoice under their own company name, and supplying the implementing module's QDID along with the first model's name, launch timing, and product overview. Allion's responsibilities were performing the USD wire transfer on the customer's behalf, entering the required information into the Qualification Workspace registration site, working to resolve Consistency Check inconsistencies (aiming for zero, but falling back on SIG-permitted Test Case Waiver allowances when zero wasn't reached), and progressing the registration to Submission.",
+  "consultant_answer": "Your summary of the workflow is accurate. On your side: providing account holder access, obtaining the Qualification Fee invoice in your company's name, and supplying the implementing module's QDID plus the first model's name, launch timing, and product overview. On our side: performing the USD wire transfer proxy, entering the registration information into the Qualification Workspace site, working the Consistency Check toward zero inconsistencies (using SIG-permitted Test Case Waiver allowances where zero couldn't be reached), and progressing to Submission.",
+  "decision_logic": "Customer-side responsibilities are limited to account/credential provision and core product identification data; lab-side responsibilities cover the technical registration execution, including financial proxy handling and Consistency Check resolution.",
+  "final_recommendation": "When a customer constructs their own understanding of a service workflow and asks for a division-of-labor confirmation, validate or correct each piece explicitly rather than giving a general summary, since this builds trust and sets clear expectations for future engagements.",
+  "risk_if_done_wrong": "An unclear or incomplete confirmation could leave the customer unsure of what they're responsible for in future derivative-model registrations, risking missed account-credential or product-info handoffs on their end.",
+  "bluetooth_tags": [
+    "registration workflow division of labor",
+    "Qualification Workspace",
+    "Consistency Check TCW resolution",
+    "USD wire transfer proxy",
+    "Atago"
+  ],
+  "search_aliases": [
+    "what does Allion do vs customer in registration",
+    "Consistency Check Test Case Waiver",
+    "Qualification Workspace registration steps",
+    "division of responsibilities SIG registration"
+  ],
+  "qualification_stage": "Post-registration review",
+  "confidence": "high"
+}

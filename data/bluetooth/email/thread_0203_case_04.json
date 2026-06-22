@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0203",
+  "case_id": "thread_0203_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth module under IOPT profile test (Alps Alpine UXC), DUT Android-based test app",
+  "customer_question": "We cannot get adb to recognize the DUT in order to install BlueSPP.apk. We have tried the 'DEBUG MD' USB cable but get 'no devices/emulator found'. Which of the DUT's USB cables should be used, and is there a setting we are missing?",
+  "question_variants": [
+    "adb install of BlueSPP.apk fails with 'no devices/emulator found' — what is wrong?",
+    "Which of the DUT's multiple USB cables (DEBUG SAIL / DEBUG HKP / DEBUG MD) should be connected for adb to work?",
+    "Does Developer Mode need to be enabled on the DUT before adb install will work?"
+  ],
+  "actual_issue": "During IOPT test setup for Alps Alpine's UXC module, the lab needed to install BlueSPP.apk on the DUT via adb (per IOPTTestguide.pdf) but repeatedly got 'no devices/emulator found' / 'adb: connect error for write' errors. The DUT shipped with multiple labeled USB cables (DEBUG SAIL, DEBUG HKP, DEBUG MD), and the lab tried connecting via 'DEBUG MD' on Alps Alpine's instruction, which did not work. Alps Alpine also asked whether Developer Mode was enabled and had the lab run 'adb shell settings put global development_settings_enabled 1' before retrying — this still failed. Alps Alpine then clarified that a 4th, unlabeled cable (distinct from the three DEBUG-prefixed cables) functions as the DUT's USB function port and is required for adb communication. Once the lab located and used the cable labeled 'USB-A 2.0', adb install succeeded and SPP profile testing could proceed (though the SPP test itself still failed afterward — see case_03).",
+  "plain_english_explanation": "Many DUT boards expose several USB connectors for different purposes — debug/JTAG-style ports (here labeled DEBUG SAIL, DEBUG HKP, DEBUG MD) versus the actual USB device/function port that the chipset uses to present itself to a host PC as an Android adb-debuggable device. adb (Android Debug Bridge) only works over the USB function port, not the debug/diagnostic cables, even though it may seem reasonable to try the cable the customer initially pointed to. Additionally, Developer Mode must be enabled on the DUT (via adb shell settings put global development_settings_enabled 1) for adb install to succeed, but this setting alone does not help if the wrong physical cable is connected — the PC must first be able to see the device at all ('adb devices' must list it). The resolution required both: (1) enabling Developer Mode, and (2) physically connecting to the correct (4th, non-debug-labeled, 'USB-A 2.0') cable.",
+  "consultant_answer": "Do not use the DEBUG SAIL / DEBUG HKP / DEBUG MD cables for adb — these are diagnostic/debug interfaces, not the DUT's USB function port. Use the separate cable that is not labeled with a DEBUG prefix (in this case, labeled 'USB-A 2.0') — this is the one that exposes the DUT as an adb-recognizable device. Before attempting adb install, confirm Developer Mode is enabled by running: adb shell settings put global development_settings_enabled 1, then verify the device appears via 'adb devices' before attempting 'adb install BlueSPP.apk'.",
+  "decision_logic": "When a DUT exposes multiple USB cables, the labeled debug/diagnostic cables (DEBUG SAIL/HKP/MD in this case) are not necessarily the adb-capable USB function port. If 'adb devices' shows no attached devices after enabling Developer Mode, the issue is very likely the physical cable/port — try any remaining unlabeled or differently-labeled cable, which often corresponds to the actual USB function/OTG port used for adb and app installation.",
+  "final_recommendation": "When customer-supplied connection instructions for adb-based app installation do not work, do not keep retrying software-side commands — first verify with the customer exactly how many physical USB cables the DUT has and which one is the actual USB device/function port (as opposed to debug/diagnostic ports). Confirm 'adb devices' lists the DUT before proceeding to 'adb install'.",
+  "risk_if_done_wrong": "Repeatedly attempting adb commands over the wrong physical USB cable wastes significant test time and can be mistaken for a DUT firmware defect when it is actually a simple cabling/port selection issue, delaying IOPT test setup and the overall certification schedule.",
+  "bluetooth_tags": [
+    "IOPT",
+    "adb",
+    "BlueSPP.apk",
+    "USB function cable",
+    "Developer Mode",
+    "DUT connection",
+    "UXC",
+    "Alps Alpine"
+  ],
+  "search_aliases": [
+    "adb no devices emulator found",
+    "BlueSPP.apk install fails",
+    "DUT USB function cable adb",
+    "Developer Mode adb install",
+    "adb devices not recognized DUT"
+  ],
+  "qualification_stage": "IOPT testing / test environment setup",
+  "confidence": "high"
+}

@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0051",
+  "thread_analysis": {
+    "thread_summary": "This thread (Sony, contact Yoichi Miyagawa, internal Allion routing via Itsuo Sakai and Masaya Iida) is a duplicate/alternate capture of the same underlying email exchange already fully extracted as thread_0036 (the FY26 Sony BRAVIA TV Bluetooth SIG certification engagement). The visible content -- the OS-version-only re-listing RF/RF PHY discrepancy and Subset-switching resolution, the QPRDv4 IOPT mandatory-testing rollout with its November 2025 cutover, and the profile ICS inheritance test-avoidance strategy -- matches thread_0036's messages 1-2 verbatim.",
+    "all_questions_found": [
+      "(Duplicate content, not re-cased) All substantive technical content in this thread duplicates thread_0036_case_01 (RF/RF PHY discrepancy in OS-version-only re-listing, resolved via SoC Subset switching), thread_0036_case_02 (profile version mismatch and ICS inheritance test-avoidance strategy), and thread_0036_case_03 (QPRDv4 IOPT mandatory testing rollout and November 2025 cutover deadline strategy) -- see those case files in thread_0036 for full extraction."
+    ],
+    "key_technical_discussion": "No new content beyond thread_0036; see that thread's analysis and case files for the full technical discussion.",
+    "key_decision_logic": "See thread_0036_case_01, thread_0036_case_02, and thread_0036_case_03.",
+    "risk_if_done_wrong": "See thread_0036's corresponding case files.",
+    "consulting_mistake": "None identified; this is a duplicate capture of an already-documented exchange.",
+    "consulting_takeaway": "This thread is a duplicate/alternate export of thread_0036's email chain (same Sony FY26 TV project, same Q325703/Q333791/Q346069/D062233 QDID references, same IOPT test list and November 9/10, 2025 deadline). No additional extraction was performed here to avoid duplicating case content already captured under thread_0036."
+  }
+}

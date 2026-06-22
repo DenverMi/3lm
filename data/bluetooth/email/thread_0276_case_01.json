@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0276",
+  "case_id": "thread_0276_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE beacon (Persol AVC Technology, on behalf of an end customer), Kaga FEI BLE module + Nordic nRFConnect SDK",
+  "customer_question": "(1) We're developing a BLE beacon using a Kaga FEI BLE module and Nordic nRFConnect SDK, with a private GATT service plus the standard Battery Level service — what's the certification cost estimate? (2) The Declaration Fee is currently $11,040 but rises to $12,000 in March 2026; our prototype won't be ready until around May 2026 (mass production in October 2026) — if we purchase the Declaration Fee before March 2026, can we still use it after that date, and can you quote accordingly?",
+  "question_variants": [
+    "What's the certification cost for this specific module/SDK/profile combination?",
+    "Can we lock in the current Declaration Fee rate before the March 2026 increase even though our prototype isn't ready until after that date?"
+  ],
+  "actual_issue": "The customer (a development contractor acting on behalf of an end customer) needed both a cost estimate for a specific BLE beacon configuration and clarity on whether they could avoid an upcoming Declaration Fee price increase given their actual prototype/mass-production timeline fell after the increase date.",
+  "plain_english_explanation": "Since the implemented module (Kaga FEI's BLE module) and SDK (Nordic's nRFConnect SDK) already have antenna-built-in module certification, RF PHY testing is exempt. Profile testing for the implemented Battery Level Service is also exempt if the nRFConnect SDK's own registered QDID already includes BAS; the private GATT service, being proprietary, isn't subject to testing at all. The estimated cost therefore centers on registration support, Compliance Folder creation, wire transfer proxy fees, and the Qualification Fee itself, with the profile test line item only applying if BAS isn't already covered by the SDK's registration. Regarding the fee timing: the Qualification Fee remains valid for one year from the date of payment, so paying at the current $11,040 rate before the end of February 2026 would lock in that rate and remain usable well past the March 2026 price increase, comfortably covering the customer's actual May 2026 prototype timeline.",
+  "consultant_answer": "Since your module (Kaga FEI) and SDK (Nordic nRFConnect) already have antenna-built-in module certification, RF PHY testing is exempt. Profile testing for your Battery Level Service implementation is also exempt if the nRFConnect SDK's registered QDID already includes BAS — your private GATT service, being proprietary, isn't tested at all. Our estimate covers registration support, Compliance Folder creation, wire transfer proxy fees, and the Qualification Fee, with the profile test line item only applying if BAS isn't already covered. On fee timing: the Qualification Fee stays valid for one year from payment date, so paying at the current $11,040 rate before the end of February 2026 will lock that rate in well past the March 2026 increase, comfortably covering your actual May 2026 prototype timeline.",
+  "decision_logic": "Test exemption for this configuration follows the standard layered logic (antenna-built-in module exempts RF PHY; SDK's own registered profile coverage exempts profile testing for matching standard profiles; proprietary profiles are never tested), and Qualification Fee rate-locking is governed by a one-year validity window from the actual payment date, regardless of how far in the future the customer's actual product timeline falls, as long as that timeline is within the one-year window.",
+  "final_recommendation": "When a customer asks about locking in a fee rate ahead of an announced price increase, confirm the fee's actual validity window from payment date and verify it comfortably covers their stated product timeline, rather than assuming the increase date itself is the relevant cutoff.",
+  "risk_if_done_wrong": "Without confirming the one-year validity window, a customer might assume they'd need to pay at the new, higher rate despite paying early, or might mistakenly believe an early payment doesn't actually protect against the increase for their later timeline.",
+  "bluetooth_tags": [
+    "BLE beacon module SDK test exemption",
+    "BAS profile exemption via SDK registration",
+    "Qualification Fee rate lock one year validity",
+    "Declaration Fee price increase March 2026",
+    "Persol AVC Technology",
+    "Kaga FEI module"
+  ],
+  "search_aliases": [
+    "can I lock in Qualification Fee before price increase",
+    "Declaration Fee one year validity",
+    "BAS profile exemption nRFConnect SDK",
+    "Kaga FEI BLE module certification cost"
+  ],
+  "qualification_stage": "Pre-quotation scoping",
+  "confidence": "high"
+}

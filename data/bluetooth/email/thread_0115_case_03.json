@@ -2,6 +2,7 @@
   "source_thread": "thread_0115",
   "case_id": "thread_0115_case_03",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "",
   "customer_question": "Several OPP profile test cases failed and the cause isn't clear from our test logs - how should we proceed?",
   "question_variants": [
@@ -15,7 +16,13 @@
   "decision_logic": "When Profile test case failures can't be resolved through the standard test procedure and the root cause appears related to how the test sample (DUT) needs to be operated, send the relevant PTS log report and execution logs (e.g., TeraTerm) to the customer/manufacturer and request operational guidance for those specific test cases.",
   "final_recommendation": "For unresolved OPP (or similar) profile test failures, escalate to the customer with the PTS report and execution logs attached, requesting guidance on correct test sample operation for the failing test cases.",
   "risk_if_done_wrong": "Repeatedly re-running failing test cases without manufacturer input on correct DUT operation could waste testing time without resolving the failures, and could result in test cases remaining incorrectly marked FAIL in the final report due to operator error rather than an actual device defect.",
-  "bluetooth_tags": ["OPP", "profile test", "PTS", "qualification", "test failure"],
+  "bluetooth_tags": [
+    "OPP",
+    "profile test",
+    "PTS",
+    "qualification",
+    "test failure"
+  ],
   "search_aliases": [
     "OPP profile test fail escalate customer",
     "PTS report TeraTerm log customer inquiry",

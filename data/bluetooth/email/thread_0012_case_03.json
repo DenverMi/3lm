@@ -1,47 +1,37 @@
 {
-    "source_thread": "thread_0012",
-    "cases": [
-        {
-            "case_id": "thread_0012_case_03",
-            "iut_type": "module",
-            "customer_question": "How should RF PHY testing be controlled for a Qualcomm-based Bluetooth device using BlueTest3 and BlueSuite?",
-            "question_variants": [
-                "How do we execute RF PHY testing with BlueTest3?",
-                "What DUT control method is required for RF PHY tests?",
-                "Should the device remain connected during RF PHY testing?",
-                "Does RF PHY testing use HCI or 2-Wire control?",
-                "What documentation is needed for BlueSuite test operation?"
-            ],
-            "actual_issue": "The test laboratory lacked sufficient operational information to place the Qualcomm-based DUT into RF PHY test mode and execute RF PHY qualification testing correctly.",
-            "plain_english_explanation": "The customer provided the BlueSuite installer but not enough instructions to actually operate the test setup. The lab needed to know how the DUT enters test mode, how the serial connection is wired, which control protocol is used, and how BlueTest3 should be operated during RF PHY testing.",
-            "consultant_answer": "The consultant identified that the provided software package alone was insufficient for RF PHY qualification testing because operational guidance was missing. The lab requested BlueSuite and TRBI200 user guides along with details covering DUT connection state, serial routing, baud rate, and whether control commands use HCI or 2-Wire transport. The consultant emphasized that the testing setup and DUT control method must be fully understood before RF PHY testing begins.",
-            "decision_logic": "RF PHY qualification testing requires deterministic DUT control and repeatable test-mode entry. Without complete setup documentation, the laboratory cannot guarantee correct PHY configuration, command transport, or RF test execution.",
-            "final_recommendation": "Obtain complete operational documentation for BlueSuite, BlueTest3, and associated test hardware before scheduling RF PHY testing. Confirm DUT mode entry procedure, serial interface routing, baud rate, and command transport method with the design supplier.",
-            "risk_if_done_wrong": "Incorrect DUT control or serial configuration can produce invalid RF PHY results, failed tests, wasted lab time, and repeated qualification runs.",
-            "bluetooth_tags": [
-                "RF PHY",
-                "testing",
-                "BlueTest3",
-                "BlueSuite",
-                "HCI",
-                "2-Wire",
-                "Qualcomm",
-                "test setup"
-            ],
-            "search_aliases": [
-                "BlueTest3 RF PHY",
-                "BlueSuite user guide",
-                "RF PHY DUT mode",
-                "HCI vs 2-Wire",
-                "Qualcomm RF test control",
-                "serial control for RF PHY",
-                "TRBI200 guide",
-                "RF PHY setup",
-                "BlueTest3 operation"
-            ],
-            "qualification_stage": "testing",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0012",
+  "case_id": "thread_0012_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alinco XE1177), RF PHY test sample dropping connection mid-test, diagnosed as firmware power-save mode rather than hardware power instability",
+  "customer_question": "We've never seen power-loss issues on our end with this sample. Is the 'unstable power' you're describing actually a hardware problem like a loose connection, or does it mean testing simply can't continue with the current sample? We don't have a replacement on hand right now. (Later, after multiple firmware updates aimed at fixing this:) Can you make it so we can measure continuously, since whether the board's LED keeps blinking or goes dark determines whether the test can proceed?",
+  "question_variants": [
+    "Is the power instability random/hardware-related, or could it be a firmware power-save feature kicking in?",
+    "How can we verify whether a new firmware build has actually fixed the unresponsive-during-test behavior before sending it to be re-tested?",
+    "Why does a long-duration RF PHY test item fail partway through even though shorter test items pass fine?"
+  ],
+  "actual_issue": "The RF test sample repeatedly lost connection to the test system partway through long-duration RF PHY test items, which the lab's account manager initially described to the customer as 'unstable power,' prompting the customer to ask whether this was a hardware defect (e.g., a loose contact) requiring a replacement sample. Closer log analysis revealed the dropouts were not randomly timed (as a genuine hardware power fault would be), but instead occurred consistently after a certain elapsed time following power-on -- pointing to a firmware power-save feature (e.g., entering a Sniff-like low-power mode, or an auto-power-off after a period without key/button activity) interrupting the DUT mid-test rather than a hardware fault. This required multiple rounds of firmware revisions from the customer's outsourced firmware developer before being durably resolved, including a visible-LED-based heuristic developed mid-saga to let the lab quickly assess whether a given firmware build would survive a long test without needing to run the full test to find out, and ultimately escalating to an in-person on-site debugging visit after several firmware revisions still failed to fully eliminate the dropout (the thread ends with this on-site visit itself unresolved, requiring a follow-up visit).",
+  "plain_english_explanation": "The key diagnostic insight was that genuine hardware power instability would cause connection drops at random, unpredictable times, but the actual logs -- gathered by repeatedly pausing and re-entering DUT mode to retry failed items -- showed dropouts occurring consistently after a similar elapsed duration each time, with some long-duration test items requiring tens of minutes of continuous DUT mode before a Pass could be achieved at all. This pattern is the signature of a software/firmware power-management feature (a Sniff-style power-save mode, or an automatic power-off triggered by a period of no key/button input) rather than a hardware-level power fault. Once the customer's firmware vendor produced a 'non-sleep' firmware build (flashed via the BlueSuite-bundled NvsApp tool), initial results showed improvement (several previously-ERROR items now PASS) but some items still failed, requiring at least two more firmware revision rounds. During this process, the lab discovered an easy non-invasive heuristic: the DUT board's status LED kept blinking continuously as long as the device remained in its active (non-power-saving) state, and going dark coincided exactly with the test system losing response -- meaning the customer could verify a new firmware build's fix effectiveness simply by watching whether the LED stayed blinking for about 60 minutes after power-on, without needing to run the full formal test suite first. Despite several firmware iterations, the issue was not fully resolved by the time of the thread's last visible message, requiring the firmware developer (an outsourced vendor, Omnibit) to visit the lab in person to debug live, with that initial on-site attempt itself unsuccessful and a follow-up visit scheduled.",
+  "consultant_answer": "Based on the pass/fail logs, this isn't random hardware power instability -- a genuine hardware fault would drop connection at unpredictable times, but your sample's dropouts consistently occur after a similar elapsed duration each time, which points to a firmware power-save feature (like a Sniff-mode equivalent or an auto-power-off after inactivity) interrupting the DUT mid-test. Please ask your firmware vendor to check for and disable any such power-management feature. As a quick way to verify whether a new firmware build has actually fixed this without running the full test suite: watch the board's status LED after power-on -- if it keeps blinking continuously for about 60 minutes, the fix is likely working; if it goes dark, the test will likely fail at that point.",
+  "decision_logic": "When a test sample drops connection mid-test, distinguish genuine hardware power instability (random timing) from firmware power-management interference (consistent timing relative to power-on or last activity) by examining whether repeated retry logs show dropouts clustering around a consistent elapsed duration rather than occurring randomly; a visible, low-effort proxy indicator (like a status LED's blink-vs-dark state) can let a firmware fix be provisionally verified before committing to a full, time-consuming formal retest.",
+  "final_recommendation": "When a customer reports unexplained mid-test disconnections and asks whether it's a hardware defect requiring a replacement sample, first check whether retry logs show a consistent versus random timing pattern before recommending a hardware swap, since a consistent-timing pattern strongly suggests a firmware power-management feature is the actual cause -- and look for any low-effort observable proxy (like a status LED) that can help verify firmware fix attempts faster than a full retest cycle.",
+  "risk_if_done_wrong": "Treating firmware-power-save-induced test dropouts as a hardware defect could lead to unnecessary replacement sample requests and shipping delays, when the actual fix required firmware changes the customer's own outsourced developer needed to make -- and without the LED heuristic, each firmware revision attempt would have required a full, lengthy retest cycle just to discover whether the fix had worked.",
+  "bluetooth_tags": [
+    "DUT power instability misdiagnosis",
+    "firmware power save mode interferes with RF test",
+    "Sniff mode auto power off during test",
+    "LED blink heuristic firmware fix verification",
+    "on-site firmware debugging escalation",
+    "Alinco XE1177",
+    "Omnibit firmware vendor"
+  ],
+  "search_aliases": [
+    "RF test sample loses connection mid test",
+    "is power instability hardware or firmware power save",
+    "how to verify firmware fix without full retest",
+    "Sniff mode interrupting Bluetooth RF PHY test",
+    "DUT auto power off during long test item"
+  ],
+  "qualification_stage": "RF PHY test execution troubleshooting",
+  "confidence": "high"
 }

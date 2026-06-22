@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0235",
+  "thread_analysis": {
+    "thread_summary": "Atago Co., Ltd. (Development Department, contact Jun Osuga) completes Bluetooth SIG registration with Allion (Itsuo Sakai, Masaya Iida). Following Submission confirmation, the customer raised three distinct follow-up questions in a single email — a registration-page access/login troubleshooting issue, a documentation storage responsibility and timing question, and a request to confirm the division of labor across the registration workflow — before the thread concludes with the provisional Compliance Folder CD-R shipment notification and standard retention/derivative-model-addition explanation.",
+    "all_questions_found": [
+      "Why does the registration URL return HTTP 404 when logged in under either of our two accounts? (see thread_0235_case_01)",
+      "Where should product spec documents be stored, and are they only needed by the time of an eventual audit? (see thread_0235_case_02)",
+      "Which specific parts of the registration workflow did Allion handle versus our company? (see thread_0235_case_03)"
+    ],
+    "key_technical_discussion": "Three independent threads of inquiry: (1) URL access requires an actively authenticated session, not just an attempted login — confirmed via a visible account indicator; (2) documentation storage responsibility belongs to the Listing Owner and should begin promptly after registration rather than being deferred to an eventual audit notice, with the one-year-post-sale-end retention period being the only SIG-fixed deadline; (3) the registration workflow cleanly divides into customer-provided inputs (account access, Qualification Fee invoice, QDID, first-model info) versus Allion-executed technical/financial steps (wire transfer proxy, Qualification Workspace data entry, Consistency Check resolution via TCW where needed, Submission).",
+    "key_decision_logic": "Each of the three questions resolves to a clear ownership or state-verification principle: login state (not URL correctness) determines 404 errors; the Listing Owner (not the registration agent) owns documentation storage duty starting promptly post-registration; and the customer/agent split of registration labor follows a consistent input-provider vs. technical-executor pattern.",
+    "risk_if_done_wrong": "See individual case files thread_0235_case_01 through thread_0235_case_03 for the specific risks of each question.",
+    "consulting_mistake": "None identified — Sakai gave clear, specific confirmations for all three distinct questions raised in a single customer email rather than a single vague combined response.",
+    "consulting_takeaway": "When a customer raises multiple distinct questions in one email (access troubleshooting, documentation responsibility, and service scope confirmation), address each with its own clear, specific answer rather than blending them into one general reply, since they involve different governing principles (technical state, legal/contractual ownership, and service-scope division)."
+  }
+}

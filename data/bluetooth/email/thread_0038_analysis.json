@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0038",
+  "thread_analysis": {
+    "thread_summary": "Purgatio Corporation (contact Yoshihiko Muroyama), a new inquiry received via the website contact form, reached out to Allion (Itsuo Sakai, Masaya Iida) in March 2026 after receiving a direct compliance warning email from Bluetooth SIG for never having registered their humidifying air purifier's Bluetooth functionality, which uses an Espressif ESP32-C3-WROOM-02 module. The thread covers both the substantive response (an already-qualified module enabling a fast, no-retest proxy registration) and an internal membership-verification pitfall.",
+    "all_questions_found": [
+      "How to resolve a direct Bluetooth SIG non-compliance warning, given an already-qualified module, and what's the cost/timeline? (see thread_0038_case_01)",
+      "How to verify a customer's existing SIG Adopter membership by company name search, after an initial search returned an unrelated company? (see thread_0038_case_02)"
+    ],
+    "key_technical_discussion": "Case_01 demonstrates the fast resolution path available when a non-compliant customer's module turns out to already be SIG-qualified (no retesting, proxy registration only). Case_02 is a smaller but generalizable lesson about not accepting an unverified directory search hit as confirmation of an existing membership.",
+    "key_decision_logic": "See thread_0038_case_01 and case_02.",
+    "risk_if_done_wrong": "See individual case files; case_01's risk centers on unnecessary delay or cost if the module's existing qualification were overlooked, and case_02's risk centers on incorrect assumptions from an unverified directory match.",
+    "consulting_mistake": "The initial company-name directory search for the customer's existing Adopter membership returned a false-positive match ('Dyaco International Inc'), an unrelated company, which was caught and corrected before being relied upon.",
+    "consulting_takeaway": "When a customer reports having received a direct Bluetooth SIG compliance warning, prioritize checking module qualification status to offer the fastest resolution path, and treat directory search results for membership verification as needing direct confirmation rather than acceptance at face value."
+  }
+}

@@ -1,44 +1,31 @@
 {
-    "source_thread": "thread_0060",
-    "cases": [
-        {
-            "case_id": "thread_0060_case_01",
-            "iut_type": "sensor",
-            "customer_question": "A Bluetooth product is being transferred from one company to another and sold under a new brand with the same design. Can the existing Bluetooth qualification information and compliance documentation be reused for the new registration?",
-            "question_variants": [
-                "Can we inherit the previous company's Bluetooth SIG registration information?",
-                "How do we register a product acquired through a business transfer?",
-                "Can an unchanged Bluetooth product be re-registered under a new brand?",
-                "Can an existing compliance folder be reused after a product transfer?",
-                "What is the qualification approach for a rebranded Bluetooth product?"
-            ],
-            "actual_issue": "Determining how to perform Bluetooth SIG registration when ownership and branding change but the underlying Bluetooth product design remains unchanged.",
-            "plain_english_explanation": "The product was previously sold by another company and already had Bluetooth qualification records. The new owner wants to sell the same product under its own brand. The key question is how to create a compliant Bluetooth SIG registration while reusing existing qualification evidence and documentation.",
-            "consultant_answer": "The consultant confirmed that the proposed registration approach was acceptable and that the existing compliance-folder information could be reused. Registration should proceed using the inherited qualification information while creating the new registration for the current brand owner. Supporting documentation can be reused from the previous compliance folder where applicable, supplemented with current product documentation required for the compliance folder.",
-            "decision_logic": "The Bluetooth design itself has not changed, so the qualification effort focuses on establishing a compliant registration and documentation package for the new brand owner rather than creating new technical qualification evidence from scratch.",
-            "final_recommendation": "Reuse the existing qualification records and compliance-folder materials where valid, prepare the required registration documentation for the new company, and complete the Bluetooth SIG registration before product launch.",
-            "risk_if_done_wrong": "Failure to properly establish the new registration or maintain supporting compliance documentation could create qualification traceability problems and difficulties during a Bluetooth SIG audit.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "reuse",
-                "compliance folder",
-                "registration",
-                "design reuse"
-            ],
-            "search_aliases": [
-                "business transfer qualification",
-                "rebranded product registration",
-                "inherit Bluetooth qualification",
-                "reuse compliance folder",
-                "same design new company",
-                "ownership change registration",
-                "existing qualification reuse",
-                "brand transfer Bluetooth"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0060",
+  "case_id": "thread_0060_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Business/product-line acquisition scenario -- whether an acquiring company can inherit the previous owner's existing SIG registration, or must complete an entirely new registration",
+  "customer_question": "We acquired this product line (a toilet sensor) from NEC Platforms, who already had it SIG-registered, and we'll sell the identical-spec product under our own brand. Can we simply carry over NEC Platforms' existing SIG registration information for our own registration?",
+  "question_variants": [
+    "Can a predecessor company's Compliance Folder materials be reused for the acquiring company's own Compliance Folder?",
+    "Does acquiring a business unit transfer the underlying SIG registration along with it?"
+  ],
+  "actual_issue": "The customer acquired a product line (including the underlying business) from another company (NEC Platforms) that already held a Bluetooth SIG registration for the identical-spec product, and wanted to know whether this existing registration could simply be carried over for their own use under their new brand, rather than completing an entirely separate registration process.",
+  "plain_english_explanation": "A business/product-line acquisition does not transfer the predecessor company's existing SIG registration to the acquiring company -- since Bluetooth SIG registration validity is tied to the specific selling company's identity (the name on the nameplate), the acquiring company must complete an entirely new registration under its own name and account, following the standard process (quote request, registration confirmation document, Qualification Fee payment, etc.), even though the underlying product specification is unchanged. However, the predecessor company's existing Compliance Folder documentation (operation manual, block diagram, outline drawing) can be reused as substitutes for the acquiring company's new Compliance Folder materials, since the underlying product hasn't changed -- this saves the acquiring company from having to recreate documentation from scratch, even though the registration itself must be newly filed.",
+  "consultant_answer": "Acquiring the product line doesn't transfer NEC Platforms' existing SIG registration to you -- you'll need to complete a new registration under your own company's name, following the standard process (quote, registration confirmation document, Qualification Fee payment). That said, NEC Platforms' existing Compliance Folder materials (operation manual, block diagram, outline drawing) can be reused as substitutes for your new Compliance Folder, since the underlying product specification hasn't changed.",
+  "decision_logic": "When a customer acquires a product line (and its associated business) from another company that already holds a SIG registration for that product, treat it as requiring an entirely new registration under the acquiring company's own name -- registration validity does not transfer with a business/product-line acquisition -- but allow reuse of the predecessor's existing Compliance Folder documentation as substitutes for the new filing, since the underlying product specification remains unchanged.",
+  "final_recommendation": "When a customer describes a business or product-line acquisition scenario involving an already-registered product, proactively clarify that a new registration under their own name is required regardless of the acquisition, while offering the predecessor's Compliance Folder materials as a practical shortcut for the new filing's documentation requirements.",
+  "risk_if_done_wrong": "A customer who assumes an acquired product line's existing SIG registration automatically transfers to them could continue selling under the predecessor's registration without realizing their own company isn't actually the registered/certified entity, risking a registration mismatch with the product's actual nameplate identity.",
+  "bluetooth_tags": [
+    "business acquisition product line registration transfer",
+    "predecessor company Compliance Folder reuse",
+    "registration tied to selling company not transferable via acquisition",
+    "Paramount Bed NEC Platforms"
+  ],
+  "search_aliases": [
+    "does acquiring a product transfer its SIG registration",
+    "can we reuse predecessor company Compliance Folder",
+    "business acquisition Bluetooth SIG registration requirements"
+  ],
+  "qualification_stage": "Pre-registration scoping for acquired product line",
+  "confidence": "high"
 }

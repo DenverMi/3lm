@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0025",
+  "case_id": "thread_0025_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "RF/Bluetooth test equipment identity used by the certification lab -- InterLab RF Test Solution vs. a standalone Rohde & Schwarz tester",
+  "customer_question": "Could you tell us the manufacturer name and model number of the BT tester you use? We use a Rohde & Schwarz unit ourselves.",
+  "question_variants": [
+    "Is the lab's RF PHY test equipment the same as a standalone Rohde & Schwarz tester we could use ourselves?",
+    "Would our own in-house R&S tester give the same pass/fail results as the lab's certified test system?"
+  ],
+  "actual_issue": "The customer, who uses a Rohde & Schwarz tester in-house, asked what equipment the lab uses for SIG-certified RF/RF PHY testing, likely to gauge whether their own equipment could replicate or cross-check the lab's results.",
+  "plain_english_explanation": "The lab's SIG-recognized RF test system is 'InterLab RF Test Solution,' which does incorporate a Rohde & Schwarz CMW270 as its signaling unit -- so there is a hardware connection to the same vendor the customer uses. However, pass/fail determination is not governed by the R&S unit's own native judgment; it is governed by a separate management application running on a control unit (a Windows-based PC) that has been built to strictly conform to the official Bluetooth RF/RF PHY test specification. This distinction matters because the standalone R&S tester, used on its own without this additional management layer, has some test behaviors that differ from the official test specification's requirements.",
+  "consultant_answer": "Our SIG-certified RF test system is InterLab RF Test Solution, which does use a Rohde & Schwarz CMW270 as its signaling unit -- so there's a hardware connection to your equipment. However, pass/fail judgment isn't determined by the R&S unit alone; it's governed by a separate management application on our control PC that strictly follows the official RF/RF PHY test specification, since the standalone R&S tester's own native test behavior differs in some respects from that specification.",
+  "decision_logic": "When a customer asks what test equipment a lab uses in order to gauge whether their own in-house equipment could replicate the lab's certified results, clarify that SIG-recognized RF/RF PHY pass/fail judgment typically depends on a specification-compliant management layer beyond the raw tester hardware -- so even owning the same underlying tester model does not guarantee equivalent, certifiable results without that additional layer.",
+  "final_recommendation": "When asked about in-house test equipment identity, proactively explain both the hardware (which may overlap with what the customer already owns) and the separate specification-compliance layer that actually governs pass/fail judgment, to set accurate expectations about whether the customer's own equipment could replicate certifiable results.",
+  "risk_if_done_wrong": "A customer who assumes owning the same brand of RF tester as the lab guarantees equivalent results might rely on in-house pre-testing that doesn't actually match the official test specification's pass/fail behavior, leading to surprises when formal certification testing is performed.",
+  "bluetooth_tags": [
+    "InterLab RF Test Solution",
+    "Rohde Schwarz CMW270 signaling unit",
+    "RF PHY pass fail specification compliant management application",
+    "Hosiden wristband wearable"
+  ],
+  "search_aliases": [
+    "what RF tester does Bluetooth SIG lab use",
+    "InterLab RF Test Solution CMW270",
+    "can in-house R&S tester replicate SIG certification results"
+  ],
+  "qualification_stage": "Pre-test equipment and methodology clarification",
+  "confidence": "medium"
+}

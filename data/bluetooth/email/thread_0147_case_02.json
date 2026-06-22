@@ -1,7 +1,8 @@
 {
   "source_thread": "thread_0147",
   "case_id": "thread_0147_case_02",
-  "source_type": "internal_consulting",
+  "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "N/A — SIG account management",
   "customer_question": "How do we log in to the SIG Bluetooth Launchstudio / Qualification Workspace? The login field used to ask for a username but now it asks for an email address.",
   "question_variants": [
@@ -15,8 +16,18 @@
   "decision_logic": "SIG periodically updates the Qualification Workspace / Launchstudio UI. This change only affected the label and input format of the login credential — the account itself is unchanged. Email is now the primary identifier.",
   "final_recommendation": "When helping customers log in to SIG Launchstudio, confirm they are entering their registered SIG account email address, not a legacy username.",
   "risk_if_done_wrong": "Customers may be unable to log in or may reset credentials unnecessarily, delaying project start.",
-  "bluetooth_tags": ["SIG Launchstudio", "Qualification Workspace", "SIG account", "login", "email address"],
-  "search_aliases": ["SIG login changed", "Launchstudio email address login", "SIG username to email"],
+  "bluetooth_tags": [
+    "SIG Launchstudio",
+    "Qualification Workspace",
+    "SIG account",
+    "login",
+    "email address"
+  ],
+  "search_aliases": [
+    "SIG login changed",
+    "Launchstudio email address login",
+    "SIG username to email"
+  ],
   "qualification_stage": "Account / Portal Access",
   "confidence": "high"
 }

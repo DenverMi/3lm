@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0250",
+  "case_id": "thread_0250_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (NEC Platforms Communications Terminal) Including existing Controller and Host Subsystem registrations plus new profile definitions",
+  "customer_question": "When we Include our existing Controller Subsystem and Host Subsystem registrations and then add new profile definitions on top, this is producing Core-layer Invalid errors even though we haven't changed anything about the referenced Controller or Host registrations themselves. Is there a way to register despite this?",
+  "question_variants": [
+    "How do we avoid Core-layer Invalid errors caused purely by adding profile definitions, without modifying the referenced subsystems?",
+    "Is there a recognized waiver for this specific kind of Invalid?"
+  ],
+  "actual_issue": "The customer's registration approach (Including their existing Controller and Host Subsystem registrations, then layering new profile definitions, referred to as X2Core, on top) was triggering Core-layer Consistency Check Invalid errors, even though the underlying referenced Controller and Host registrations themselves were left completely unmodified.",
+  "plain_english_explanation": "Bluetooth SIG's Help & Support page documents several specific Test Case Waiver (TCW) codes for known categories of Consistency Check exceptions, under the 'ICS Form Inconsistencies for Inter-Layer Dependencies' topic. One of these, identified as applicable here, is specifically designed for exactly this scenario: a registration that Includes an existing Controller Subsystem registration and an existing Host Subsystem registration without modification, while adding new profile definitions (X2Core) on top — the TCW exists specifically to waive the resulting Core-layer Invalid in this situation, since the inconsistency arises purely from the new profile addition's requirements interacting with the core layers, not from any actual change to the referenced subsystems themselves. Applying for this TCW does add some registration delay, since TCW applications require SIG administrator review and confirmation (or rejection notice to the Listing Owner) before registration can proceed, typically adding 2 to 5 business days.",
+  "consultant_answer": "There's a specific Test Case Waiver (TCW) documented on SIG's Help & Support page, under 'ICS Form Inconsistencies for Inter-Layer Dependencies,' designed exactly for this situation — Including an unmodified existing Controller Subsystem and Host Subsystem registration while adding new profile definitions (X2Core) on top. It waives the resulting Core-layer Invalid since it comes from the new profile addition's requirements, not from any actual change to your referenced subsystems. We'll apply for this TCW and proceed with the necessary profile test reports on your behalf — note that TCW applications require SIG administrator review before registration can proceed, typically adding 2 to 5 business days.",
+  "decision_logic": "Core-layer Invalid errors that arise purely from adding new profile definitions on top of unmodified, already-registered Controller/Host subsystems are a recognized, named exception category with its own specific TCW code, rather than a defect requiring the referenced subsystems to be changed.",
+  "final_recommendation": "When a registration produces Core-layer Invalid errors purely from adding new profile definitions to otherwise-unmodified existing subsystem registrations, check SIG's published TCW catalog for a matching named exception before assuming the referenced subsystems themselves need to change, and factor in the added SIG review delay when planning the registration timeline.",
+  "risk_if_done_wrong": "Without identifying the applicable TCW, the customer might mistakenly believe their existing Controller/Host registrations need modification (which they don't actually need), or might attempt to force through an Invalid registration that would simply be rejected.",
+  "bluetooth_tags": [
+    "Test Case Waiver Core layer Invalid",
+    "X2Core profile addition",
+    "ICS Form Inconsistencies for Inter-Layer Dependencies",
+    "TCW SIG administrator review delay",
+    "NEC Platforms"
+  ],
+  "search_aliases": [
+    "TCW for Core invalid X2Core only modification",
+    "Include unmodified Controller Host registration add profile",
+    "Bluetooth SIG Test Case Waiver catalog",
+    "Core layer Invalid waiver"
+  ],
+  "qualification_stage": "Registration execution",
+  "confidence": "high"
+}

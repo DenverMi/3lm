@@ -1,0 +1,35 @@
+{
+  "source_thread": "thread_0006",
+  "case_id": "thread_0006_case_08",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging camera), AutomationExplorer pre-test tool capabilities and limitations for DTM verification",
+  "customer_question": "Three questions about the AutomationExplorer pre-test confirmation tool: (1) In Serial-Two-Wire mode, is it sufficient if Reset/LE Reset/LE Transmitter Test/LE Receiver Test/LE TestEnd all execute successfully (per the attached diagram)? (2) AutomationExplorer doesn't let us specify a PHY -- is the check fixed to 1M mode (with LE Transmitter/Receiver Test corresponding to V1)? (3) Our camera's current firmware has Length_Of_Test_Data fixed at 0x25 and Packet_Payload fixed at 0x00 -- would it be a problem if we can't make these two parameters changeable (we could make them changeable if needed)?",
+  "question_variants": [
+    "Does passing AutomationExplorer's basic command checks guarantee the formal RF PHY test will also Pass?",
+    "Why doesn't AutomationExplorer support newer PHY modes like 2M or Coded?",
+    "Are fixed (non-configurable) DTM test parameter values acceptable for formal testing?"
+  ],
+  "actual_issue": "The customer's engineering team needed to understand exactly what AutomationExplorer's pre-test confirmation actually verifies and what its limitations were, specifically around PHY mode coverage and whether their camera firmware's fixed (hard-coded) DTM parameter values would be acceptable for the formal RF PHY test, before committing engineering effort to making those parameters configurable.",
+  "plain_english_explanation": "AutomationExplorer is a PC application used only to confirm that a test sample's basic responses to the Core Specification's defined RF PHY DTM test commands and RF DUT test commands are correct -- it is a pre-test sanity check, not the formal test itself. The necessary condition for being ready to connect to the actual certification test system is that, with the connection set to Serial-Two-Wire, the Reset/LE Reset/LE Transmitter Test/LE Receiver Test/LE TestEnd commands all show green; whether the sample then actually Passes the formal test still requires running it, though in the lab's experience samples that clear this pre-check have consistently gone on to test successfully. AutomationExplorer itself has a hard limitation: it was distributed back when the Core Specification was at version 4.2, before a v5.0-compatible update was ever released, and distribution of the tool ended at that point -- so it can only confirm responsiveness in 1M PHY mode (with its LE Transmitter Test and LE Receiver Test commands corresponding to the V1 command variants), and cannot be used to pre-check 2M or Coded PHY modes even though the formal test covers those. On the fixed-parameter question: it was confirmed that testing is possible with Length_Of_Test_Data fixed at 0x25 and Packet_Payload fixed at 0x00 -- the camera's firmware did not need to be modified to make these parameters configurable.",
+  "consultant_answer": "AutomationExplorer just confirms your sample's basic responses to the Core Spec's defined RF PHY DTM and RF DUT test commands -- it's a pre-test sanity check, not the formal test. The necessary condition is getting Reset/LE Reset/LE Transmitter Test/LE Receiver Test/LE TestEnd to all show green in Serial-Two-Wire mode; actual Pass/Fail still requires the real test, though in our experience samples that clear this have gone on to test fine. On PHY coverage: AutomationExplorer was distributed back in the Core Spec v4.2 era, before any v5.0 update was released, and distribution ended there -- so it's limited to confirming 1M mode only (LE Transmitter/Receiver Test correspond to the V1 variants); it can't pre-check 2M or Coded modes. On your fixed parameters: testing is possible with Length_Of_Test_Data fixed at 0x25 and Packet_Payload fixed at 0x00 -- you don't need to make these changeable.",
+  "decision_logic": "When a customer asks whether a pre-test diagnostic tool's results guarantee formal test success, distinguish clearly between what the tool actually verifies (basic command responsiveness) and the formal test itself (full conformance), while also being upfront about the tool's own version-locked limitations (e.g., a tool last updated under an older Core Specification version may not cover newer PHY modes the formal test does cover) so the customer doesn't over-rely on it for modes it can't check.",
+  "final_recommendation": "When introducing a pre-test diagnostic tool to a new customer, proactively disclose its scope limitations (such as PHY modes it cannot check due to being version-locked to an older Core Specification release) alongside explaining what it does verify, and confirm specific firmware parameter constraints (like fixed DTM test parameters) directly rather than requiring the customer to guess whether engineering changes are needed.",
+  "risk_if_done_wrong": "A customer relying on AutomationExplorer to validate 2M or Coded PHY readiness would get a false sense of confidence, since the tool simply cannot check those modes at all -- any actual problem in those modes would only surface during the costly formal test.",
+  "bluetooth_tags": [
+    "AutomationExplorer scope and limitations",
+    "DTM pre-test tool 1M mode only",
+    "Core Spec v4.2 tool version lock",
+    "Serial Two-Wire DUT mode required commands",
+    "fixed DTM test parameters acceptable",
+    "Ricoh Imaging"
+  ],
+  "search_aliases": [
+    "AutomationExplorer only supports 1M PHY",
+    "does AutomationExplorer pass guarantee formal test pass",
+    "Serial Two-Wire Reset LE Reset LE TestEnd required",
+    "fixed Length_Of_Test_Data Packet_Payload DTM parameters acceptable"
+  ],
+  "qualification_stage": "RF PHY test preparation / tool capability clarification",
+  "confidence": "high"
+}

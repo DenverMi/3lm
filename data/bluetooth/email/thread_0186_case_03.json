@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0186",
+  "case_id": "thread_0186_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Panasonic wireless lighting controller (nRF52 SoftDevice S140/S113)",
+  "customer_question": "For RF PHY testing of an nRF52 SoftDevice product, our understanding is that we need firmware that can run Direct Test Mode in the production implementation state. Is that correct, and how is DTM implemented?",
+  "question_variants": [
+    "How do we implement DTM for nRF52 SoftDevice RF PHY testing?",
+    "Does the production firmware need to support Direct Test Mode for Bluetooth RF certification?",
+    "What modification is needed to the nRF52 application firmware to enable RF PHY testing?"
+  ],
+  "actual_issue": "The customer is preparing an nRF52-based product using SoftDevice (S140) for Bluetooth and asked how to implement Direct Test Mode (DTM) for RF PHY certification testing. They understood that the product's actual firmware needs to include DTM capability, not a separate test-only firmware. This is an nRF52-specific implementation question.",
+  "plain_english_explanation": "For SoC-based products like nRF52, the RF PHY certification test communicates with the device through Direct Test Mode (DTM), which operates at the RF PHY / LL / HCI layer — below the SoftDevice stack. The product firmware must be modified to include a 'Direct Test Mode app' that allows the Allion certification tester to send RF PHY test commands to the device. Nordic Semiconductor provides guidance and sample code for this modification. Allion provides a modification guide ('RF PHY試験サンプル改造メモ.pdf') showing how to add the DTM app to the existing SoftDevice-based firmware. The DTM layer bypasses the application logic and SoftDevice Host layer and operates exclusively at the RF/LL/HCI level.",
+  "consultant_answer": "Yes, the product firmware (in production implementation state) must support DTM. For nRF52 SoftDevice products: the firmware must be modified to include the 'Direct Test Mode app,' which enables the RF PHY certification tester to communicate with the device. DTM operates at the RF PHY/LL/HCI layer (below SoftDevice), so it does not interfere with the SoftDevice or application logic. Allion provides a modification guide (RF PHY試験サンプル改造メモ.pdf) detailing the required changes. The firmware with DTM enabled is used for RF PHY testing; it does not need to be the shipping firmware.",
+  "decision_logic": "SoC RF PHY testing requires DTM in the firmware. For nRF52 + SoftDevice: add DTM app to application firmware per Nordic/Allion modification guide. DTM operates at RF/LL/HCI, below the SoftDevice Host — this is nRF52-specific architecture. After RF PHY testing, the production firmware (without DTM test mode active) is used for shipping.",
+  "final_recommendation": "At project start, inform nRF52 SoftDevice customers that their development team must implement DTM before RF PHY testing can be scheduled. Provide Allion's modification guide proactively to avoid schedule delays from firmware preparation.",
+  "risk_if_done_wrong": "Without DTM implemented in the firmware, the RF PHY tester cannot communicate with the device and RF PHY testing cannot proceed. This causes schedule delays while the customer's development team implements DTM.",
+  "bluetooth_tags": [
+    "DTM",
+    "Direct Test Mode",
+    "nRF52",
+    "SoftDevice",
+    "S140",
+    "RF PHY",
+    "firmware modification",
+    "Nordic Semiconductor",
+    "BQTF"
+  ],
+  "search_aliases": [
+    "DTM nRF52 SoftDevice implementation",
+    "Direct Test Mode RF PHY nRF52",
+    "how to implement DTM nRF52 certification",
+    "RF PHY test firmware modification SoftDevice",
+    "nRF52 S140 DTM app addition"
+  ],
+  "qualification_stage": "implementation",
+  "confidence": "high"
+}

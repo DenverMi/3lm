@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0211",
+  "case_id": "thread_0211_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (BLE+USB dual-mode keyboard, Topre Corporation)",
+  "customer_question": "Why does this quote require testing BAS, DIS, and HIDS profiles in addition to HOGP, when our 2021 registration of a similar keyboard model didn't require any of these?",
+  "question_variants": [
+    "Why has the required test scope for an HID keyboard expanded since our last registration?",
+    "Is this new BAS/DIS/HIDS requirement a checking-rule oversight being fixed, or an intentional new rule?"
+  ],
+  "actual_issue": "The customer compared the new quote (requiring HOGP, BAS, DIS, and HIDS profile testing) to their 2021 registration of a similar keyboard, which only required HOGP, and wanted to understand why the scope had expanded.",
+  "plain_english_explanation": "Since the new registration system took effect on July 1, 2024 last year, SIG's consistency-check rules were revised with strengthened cross-layer inconsistency detection, resulting in a cascading ('imozuru-style') increase in required test items. While the HOGP specification itself hasn't changed, products declaring HOGP HID-Device role now must also support the minimum required items of BAS, DIS, and HIDS — a requirement that wasn't enforced (likely a gap in the older checking rules) at the time of the customer's 2021 Key Board registration.",
+  "consultant_answer": "This isn't a quoting error — since the new registration system began on July 1, 2024, SIG's checking rules were revised with stronger cross-layer inconsistency detection, and HOGP HID-Device role registrations now cascade into requiring the minimum items of BAS, DIS, and HIDS as well. The HOGP spec itself is unchanged; this requirement simply wasn't enforced under the older checking rules in place when your 2021 registration was done.",
+  "decision_logic": "Test scope requirements are determined by the currently active SIG checking rules at the time of registration, not by precedent from a prior registration under older rules — rule changes can expand required test scope even for functionally similar products.",
+  "final_recommendation": "When a returning customer questions an expanded test scope compared to a past registration, proactively explain the July 2024 checking-rule change and its cascading effect on profile role requirements, rather than letting them assume an error or arbitrary new cost.",
+  "risk_if_done_wrong": "Failing to explain the rule change could lead a customer to believe the quote is an error or unjustified increase, damaging trust and delaying their decision to proceed.",
+  "bluetooth_tags": [
+    "BAS DIS HIDS mandatory",
+    "cascading ICS requirement",
+    "July 2024 checking rule change",
+    "HOGP HID Device role",
+    "Topre keyboard"
+  ],
+  "search_aliases": [
+    "why does HOGP now require BAS DIS HIDS",
+    "new SIG checking rule 2024",
+    "test scope increased since last registration"
+  ],
+  "qualification_stage": "Pre-testing / quotation",
+  "confidence": "high"
+}

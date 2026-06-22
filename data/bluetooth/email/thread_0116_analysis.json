@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0116",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This is a long, repeatedly-quoted email reply chain (May 2024 - March 2025) between [COMPANY] (a keyboard manufacturer) and Allion, covering both WHQL logo certification and Bluetooth SIG certification for a pair of BLE+USB keyboards (JP and US layout models). The bulk of the thread is sales/logistics for the WHQL testing (quotes, sample shipping, USB testing, password issues, invoicing). Embedded within the later messages are several distinct Bluetooth SIG registration questions: whether a module manufacturer change under an unchanged QDID needs a registration update, whether an existing 4.2 registration can be converted to 5.0 without new testing, whether adding key codes to an already-certified keyboard requires re-application, what the SIG fee-arrival/DID email means and whether a March completion deadline is feasible, what additional Compliance Folder documents and retention rules apply, and - because the product is sold under another company's ([COMPANY]'s) brand - whose name the SIG registration login credentials should be under.",
     "all_questions_found": [
       "Does a Bluetooth module manufacturer change (same QDID, e.g. 97470) require a registration change procedure for the referencing product?",

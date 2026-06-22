@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0085",
+  "thread_analysis": {
+    "thread_summary": "[COMPANY] (sales) and [COMPANY] (Bluetooth Qualification Consultant) work with [COMPANY] through scheduling, NDA, and quote-request logistics for combined Bluetooth and Wi-Fi 6E certification consulting. The one substantive technical exchange concerns the customer's Bluetooth quote-request form: after the customer chose to have the consultant act as USD wire-transfer agent for the Declaration Fee, they wrote 'none' for the Host Stack QDID/DN field, prompting the consultant to ask for clarification on what 'none' actually means, since it could indicate either no Host layer implementation at all or an unregistered Host layer implementation -- two scenarios with very different scoping implications for the quote.",
+    "all_questions_found": [
+      "Should the Declaration Fee be wired directly from the applicant to Bluetooth SIG, or should the consultant be requested to act as USD wire-transfer agent, and if the latter, what would that service cost?",
+      "What is the Host Stack's QDID/DN, and what profiles are implemented, with 'none' to be written for any unimplemented item?",
+      "When the customer writes 'none' for the Host Stack QDID/DN field, does that mean the product does not implement a Host layer at all, or that it implements a Host layer but has no QDID/DN because that layer hasn't been certified yet?"
+    ],
+    "key_technical_discussion": "The thread surfaces an important quote-scoping ambiguity: a customer answering 'none' to a Host Stack QDID/DN request on a Bluetooth quote-request form could mean either that the product has no Host layer implementation at all (e.g., a Controller/RF-only product) or that it does implement a Host layer but using an unregistered or proprietary stack with no existing QDID/DN -- the latter would still require its own Host-layer/profile testing and evidence, substantially changing the scope and cost of the quote compared to the former.",
+    "key_decision_logic": "A blank or 'none' answer to a Host Stack QDID/DN field on a quote-request form cannot be taken at face value for quoting purposes, since it is genuinely ambiguous between 'no Host layer exists in this product' and 'a Host layer exists but isn't yet registered or doesn't have a QDID/DN' -- these scenarios require very different test and registration scope, so the ambiguity must be resolved with the customer before a quote can be finalized.",
+    "risk_if_done_wrong": "Quoting a registration on the assumption that 'none' meant no Host layer implementation, when the product actually implements an unregistered Host layer, would understate the actual scope of testing and registration work needed, and could surface as a costly scope gap later in the engagement.",
+    "consulting_mistake": "",
+    "consulting_takeaway": "When a customer answers 'none' or leaves blank a quote-request field asking for an existing QDID/DN for a given subsystem (such as the Host Stack), always clarify whether that means the subsystem isn't implemented at all, or whether it's implemented but simply not yet registered -- these two answers lead to very different test and registration scope, and the ambiguity should be resolved before finalizing a quote."
+  }
+}

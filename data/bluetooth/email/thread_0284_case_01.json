@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0284",
+  "case_id": "thread_0284_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Products (Key System smart jump rope and smart band), products not implementing an already-certified SoC",
+  "customer_question": "For our smart jump rope product, we're not using an already SIG-certified Bluetooth chip (no existing QDID). What test scope and registration approach does this require?",
+  "question_variants": [
+    "Why would we need to test protocol layers like Link Layer, GAP, and GATT at the product level?",
+    "Can these middle protocol layers be tested using our actual product, or do we need something else?"
+  ],
+  "actual_issue": "The customer's first product (a smart jump rope) was being built without any pre-certified Bluetooth chip/SoC, raising the question of what additional certification testing burden this choice would create compared to using an already-certified component.",
+  "plain_english_explanation": "Bluetooth certification testing splits into layers: the lowest layer (RF PHY) and the highest layers (profiles like DIS, BAS) can be tested directly against the actual product implementation. However, the middle protocol layers — Link Layer, L2CAP, GAP, GATT, ATT, and SM — cannot be meaningfully tested against a product implementation alone; they require the product to implement an already SIG-registered SoC and Host Stack, whose existing registration covers those middle-layer test requirements. If the product doesn't implement any already-registered SoC/Host Stack combination, the manufacturer must run and report actual tests for those middle layers themselves and upload the results at registration time — a substantial undertaking. The practical recommendation is to implement an already-certified SoC plus Host Stack combination specifically to avoid this middle-layer testing burden.",
+  "consultant_answer": "RF PHY and profile-layer (e.g., DIS, BAS) testing can be done directly against your actual product. But the middle protocol layers — Link Layer, L2CAP, GAP, GATT, ATT, and SM — can't be meaningfully tested at the product level alone; they require your product to implement an already SIG-registered SoC and Host Stack, whose existing registration covers those middle layers. Since your jump rope doesn't use any already-certified chip, you'd need to run and report those middle-layer tests yourselves at registration time — a substantial undertaking. We'd recommend implementing an already-certified SoC and Host Stack combination instead to avoid this.",
+  "decision_logic": "Middle protocol layer testing (LL, L2CAP, GAP, GATT, ATT, SM) is structurally dependent on referencing an already-registered SoC/Host Stack combination, since these layers can't be validly tested against a product implementation in isolation — choosing an uncertified chip shifts this substantial testing burden onto the manufacturer.",
+  "final_recommendation": "When a customer proposes building a product without an already-certified Bluetooth chip, proactively explain the middle-layer testing burden this creates and recommend an already-certified SoC/Host Stack combination as the practical alternative, rather than letting them discover this requirement only once registration is attempted.",
+  "risk_if_done_wrong": "A customer proceeding with an uncertified chip without understanding the middle-layer testing requirement could face unexpected, substantial additional testing cost and complexity discovered only late in the certification process.",
+  "bluetooth_tags": [
+    "uncertified chip middle layer testing burden",
+    "Link Layer L2CAP GAP GATT ATT SM testing requirement",
+    "already certified SoC Host Stack recommendation",
+    "Key System smart jump rope"
+  ],
+  "search_aliases": [
+    "do I need to test GAP GATT layers myself",
+    "why use already certified SoC for Bluetooth certification",
+    "middle protocol layer test requirement uncertified chip"
+  ],
+  "qualification_stage": "Pre-quotation scoping",
+  "confidence": "high"
+}

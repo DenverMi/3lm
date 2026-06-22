@@ -1,47 +1,41 @@
 {
-    "source_thread": "thread_0013",
-    "cases": [
-        {
-            "case_id": "thread_0013_case_06",
-            "iut_type": "lighting device",
-            "customer_question": "How should overlapping RF PHY and controller evidence from existing qualified designs be reused when creating a new qualification containing DIS?",
-            "question_variants": [
-                "Can existing RF PHY evidence be reused?",
-                "What happens when Component and Core-Controller overlap?",
-                "How do we qualify DIS using existing RF and HCI layers?",
-                "Can we combine existing designs with new DIS testing?",
-                "Which tests are still required when lower layers overlap?"
-            ],
-            "actual_issue": "The customer had existing Component and Core-Controller qualified designs with overlapping RF PHY, LL, and HCI layers and needed to determine what additional evidence was required for a new qualification including DIS.",
-            "plain_english_explanation": "The existing Bluetooth-qualified designs already covered some lower Bluetooth layers such as RF PHY and HCI. Because those parts overlapped, the customer did not need to fully retest everything from scratch. However, RF PHY evidence and new DIS profile PTS evidence still had to be included appropriately in the new qualification submission.",
-            "consultant_answer": "The consultant identified that the Component and Core-Controller registrations overlapped in RF PHY, Link Layer, and HCI functionality. The recommended qualification flow was to combine either existing design with the DIS-related submission while supplying RF PHY test reports for 1M, 2M, and Coded PHY along with DIS PTS test reports as qualification evidence for the new registration.",
-            "decision_logic": "Existing qualified designs may be reused when Bluetooth layers overlap, but the resulting qualification must still contain sufficient evidence for all included layers and profiles. New or combined designs require complete supporting evidence for the declared functionality.",
-            "final_recommendation": "Reuse the overlapping qualified lower-layer evidence and submit updated RF PHY reports plus DIS PTS reports as evidence for the new qualification.",
-            "risk_if_done_wrong": "Improper reuse mapping or missing evidence can result in incomplete qualification submissions, consistency review issues, or requests for additional testing.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "HCI",
-                "LL",
-                "DIS",
-                "PTS",
-                "reuse",
-                "controller",
-                "test report"
-            ],
-            "search_aliases": [
-                "overlapping layers",
-                "Component and Core-Controller",
-                "RF PHY reuse",
-                "DIS evidence",
-                "combined design qualification",
-                "lower layer reuse",
-                "PTS evidence reuse",
-                "controller overlap"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "medium",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0013",
+  "case_id": "thread_0013_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Koizumi Lighting BM043 lamp), RF PHY DTM test sample not responding to LE Reset command",
+  "customer_question": "Our RF PHY test sample isn't communicating correctly -- it passes some commands like LE Transmitter Test, but fails on LE RESET. We've sent multiple replacement DUT samples (including swapping connectors) and the same failure persists across all of them. What could be causing this, and how should we phrase the question to our wireless module manufacturer?",
+  "question_variants": [
+    "Could a bad antenna lead extraction or a firmware bug be causing the LE Reset failure?",
+    "Is there a way to pre-verify that a DTM-mode test sample will respond correctly before sending it in for formal RF PHY testing?",
+    "Why does the test system's initial 'LE Reset' command get no response from our sample across three different samples?"
+  ],
+  "actual_issue": "Across three different test sample submissions (including connector swaps and a freshly re-submitted unit), the RF PHY test consistently failed at the very first command in the test sequence ('LE Reset'), preventing any further test commands from executing, and the customer needed to understand the likely root cause categories to investigate with their module manufacturer.",
+  "plain_english_explanation": "The Core Specification's Direct Test Mode (DTM) defines two physical test interfaces (per Figure 1.1): in this case, the customer's QUESTIONAIRS-declared configuration specified the '2-Wire, 115200bps' interface, which the test system was configured to match. Because the 'LE Reset' command operates over the serial connection (not the RF/antenna path), failure to respond to it is unrelated to any antenna-side issue -- ruling out the customer's own hypothesis about bad antenna lead extraction. For a '2-Wire'-interface chipset, the physical signal path runs from RF PHY and LL up through a Host stack and a Test Application, out through a serial port to the test system -- meaning a non-response to 'LE Reset' could stem from any layer in that chain. The four most likely root causes to investigate were: (1) the Test Application not starting up correctly after power-on, (2) the Test Application not actually supporting the 'LE Reset' command, (3) the test interface actually being HCI-format rather than the declared 2-Wire format, or (4) the baud rate not actually being 115200bps as declared.\n\nAs an intermediate diagnostic step during this saga, the lab engineer reported inconsistent Success/ERROR results when manually running Automation Explorer's individual Command Definitions in Two-Wire mode (the same Reset/LE Reset/LE Transmitter/LE Receiver/LE TestEnd sequence would sometimes pass and sometimes fail, not reproducibly). The consultant identified a likely cause for this specific inconsistency: when testing in 1M mode (the only mode this lab configuration could exercise), the command set includes 'v2/v3' suffixed variants of Reset/LE Reset that are specifically used for AoA/AoD-related features (introduced in Core Specification 5.1) -- and some SoCs respond abnormally to an unsupported/undefined command, meaning that issuing a v2/v3 variant to a SoC that doesn't implement AoA/AoD could cause it to stop behaving correctly for subsequent commands in the same sequence, producing exactly this kind of inconsistent, order-dependent Success/ERROR pattern. The recommended next step was to retry while explicitly skipping the v2/v3 command variants; if the inconsistency persisted even with that precaution, the next step was to swap the UART connector and antenna wiring onto the separate profile-test DUT and retest, and if results still matched, escalate to the customer via the account manager while proceeding with profile (DIS) testing in parallel rather than blocking on the unresolved RF PHY issue.\n\nTo help the customer pre-verify DTM responsiveness before formal testing (and to give their module manufacturer a self-service diagnostic tool), the consultant also provided a PC application from the test system manufacturer ('Automation Explorer') along with a setup procedure, allowing DTM-mode command responsiveness to be checked independently ahead of submitting a sample for formal RF PHY testing. After several rounds of unsuccessful samples, the manufacturer eventually supplied a working replacement test unit; running Automation Explorer against it confirmed LE Reset, LE Transmitter v1, LE Receiver v1, and LE End all returned Success, and the subsequent formal measurement run passed entirely -- confirming the root cause had been a defective or improperly configured Test Application/firmware on the earlier samples, not any lab-side setup, wiring, or AoA/AoD command-variant issue.",
+  "consultant_answer": "Since 'LE Reset' operates over the serial connection rather than the RF/antenna path, an antenna lead extraction issue can be ruled out as the cause. For your declared '2-Wire, 115200bps' DTM interface, the signal path runs from RF PHY/LL up through a Host stack and Test Application to the serial port, so a non-response could come from: (1) the Test Application not starting correctly after power-on, (2) the Test Application not supporting the LE Reset command, (3) the actual interface being HCI rather than 2-Wire, or (4) the baud rate not actually being 115200bps. Please pass these four possibilities to your module manufacturer. To help pre-verify before sending another sample, I'm also providing a PC tool ('Automation Explorer') and setup procedure that lets you or the manufacturer check DTM responsiveness independently ahead of formal testing.",
+  "decision_logic": "When a DTM test sample fails at the very first serial-interface command ('LE Reset') across multiple physical sample units, the issue should be isolated to the serial/Test-Application/firmware chain rather than the RF/antenna path, since 'LE Reset' itself doesn't traverse the antenna; a structured checklist (Test Application startup, command support, interface format mismatch, baud rate mismatch) narrows the investigation for the module manufacturer, and providing a pre-verification tool (Automation Explorer) lets responsiveness be confirmed before consuming further formal test cycles.",
+  "final_recommendation": "When a DTM test sample fails to respond to the initial 'LE Reset' command across repeated sample submissions, immediately clarify to the customer that this rules out antenna-side causes, hand over the specific structured checklist of likely serial/firmware causes to relay to their module manufacturer, and offer a pre-verification tool so future replacement samples can be checked for DTM responsiveness before being shipped for formal (and costly) RF PHY testing.",
+  "risk_if_done_wrong": "Without isolating the failure to the serial/firmware chain, the customer might have continued investigating and modifying the antenna/RF path unnecessarily, or kept shipping replacement samples with the same underlying firmware defect, wasting multiple rounds of shipping and lab time before reaching the actual root cause.",
+  "bluetooth_tags": [
+    "DTM LE Reset command no response",
+    "Direct Test Mode 2-Wire interface troubleshooting",
+    "RF PHY test sample non-responsive",
+    "Automation Explorer pre-verification tool",
+    "Test Application firmware defect",
+    "AoA AoD v2 v3 command variant unsupported",
+    "inconsistent Success ERROR Two-Wire command sequence",
+    "Koizumi Lighting",
+    "BM043 module"
+  ],
+  "search_aliases": [
+    "LE Reset command fails RF PHY test",
+    "DTM 2-Wire test sample not responding",
+    "how to pre-verify DTM mode before RF PHY test",
+    "Automation Explorer tool RF PHY DTM",
+    "Test Application not responding to LE Reset",
+    "Reset v2 v3 command AoA AoD unsupported SoC",
+    "inconsistent Two-Wire command results not reproducible"
+  ],
+  "qualification_stage": "RF PHY test execution troubleshooting",
+  "confidence": "high"
 }

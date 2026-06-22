@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0155",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "IDEAL Co. BLE product registration thread (2343 lines, 6 messages). Customer uses Nordic SoftDevice v6.1.1. Three key technical/administrative questions answered: (1) optional non-Bluetooth accessories (plastic cover) are excluded from SIG registration scope; (2) third-party payment of SIG Declaration Fee is acceptable, but the SIG Invoice must be obtained by the registrant company using their own account — QN is non-transferable; (3) FX rate for proxy payment is the TTS rate at end of the month before formal quote issuance; (4) antenna data sheet for Compliance Folder can be a page from the BLE module spec sheet if it contains a radiation gain characteristics diagram. Thread also documents the full registration flow: Step 1 (order + payment), Step 2 (Allion registers, 1-3 business days), Step 3 (Compliance Folder with 4 documents). Note: customer was warned that the SIG Invoice must be obtained under the registrant's SIG account — a critical instruction to prevent QN being issued to the wrong company.",
     "all_questions_found": [
       "Does an optional non-Bluetooth plastic cover need to be included in the SIG registration?",

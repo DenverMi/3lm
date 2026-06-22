@@ -1,46 +1,31 @@
 {
-    "source_thread": "thread_0035",
-    "cases": [
-        {
-            "case_id": "thread_0035_case_04",
-            "iut_type": "module-based end product",
-            "customer_question": "Can future derivative products be omitted from the initial registration and added later separately?",
-            "question_variants": [
-                "Do future products need to be listed during the first registration?",
-                "Can additional devices be added after qualification completion?",
-                "Is it acceptable to register only one product initially?",
-                "Can derivative models be added later for free?",
-                "Must all planned models be included in the first Product List?"
-            ],
-            "actual_issue": "The customer wanted confirmation that only one representative product needed to be included in the initial registration and that future derivative models could be added later.",
-            "plain_english_explanation": "The customer was worried that all future products might need to be included immediately during the first qualification. The consultant clarified that only one product needed to be registered initially and that later derivative products could be added separately afterward.",
-            "consultant_answer": "The consultant confirmed that the initial registration only needed to include one product model. Additional derivative products did not need to be identified in advance and could later be added separately through a simple web-based Product List addition workflow after the original qualification was complete. A derivative product registration procedure document would later be provided to support these additions.",
-            "decision_logic": "The Bluetooth qualification process allows later Product List additions when the later products use the same qualified Bluetooth design as the initial registered product.",
-            "final_recommendation": "Register a representative product first, complete qualification, then add future derivative models later through the Product List management workflow instead of overloading the initial submission.",
-            "risk_if_done_wrong": "Including unnecessary future models during the first submission may increase documentation workload and complicate the compliance folder unnecessarily. Incorrectly assuming future additions are impossible may also trigger avoidable requalification work.",
-            "bluetooth_tags": [
-                "qualification",
-                "Product List",
-                "reuse",
-                "listing",
-                "module",
-                "derivative product"
-            ],
-            "search_aliases": [
-                "future model registration",
-                "add products later",
-                "initial representative model",
-                "Product List expansion",
-                "derivative product workflow",
-                "free additional registration",
-                "qualify more products",
-                "single model first",
-                "later model addition",
-                "Manage Submitted Products"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0035",
+  "case_id": "thread_0035_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Distinguishing the different name/identity fields in derivative-model addition registration documents -- Username, Name (signature), and Listing Owner",
+  "customer_question": "Which name should I enter in the 'Listing Owner' field of the derivative-model addition document -- is it just my own name (Hirotaka Kotake)? Also, there are two types of registered names in this form -- which one is needed here?",
+  "question_variants": [
+    "Does 'Listing Owner' refer to the company name, the account holder's name, or something else?",
+    "Should the signature field use my login Username (nickname) or my real Name?"
+  ],
+  "actual_issue": "While filling out the derivative-model addition registration document, the customer encountered multiple distinct-looking name/identity fields (Username, a signature 'Name' field, and 'Listing Owner') and was unsure which value belonged in which field.",
+  "plain_english_explanation": "These registration documents distinguish between three different identity concepts that can easily be confused: (1) Username is purely a login-account identifier and can be any nickname the account holder chose when registering the account -- it has no requirement to be a real name; (2) the document's signature field requires the person's actual real Name, not their Username/nickname; (3) Listing Owner refers specifically to the account registration name of whoever is logged in when reaching the relevant registration screen -- so if the customer's own account (registered under 'Hirotaka Kotake') was used to reach that screen, 'Hirotaka Kotake' is the correct value to enter as the Listing Owner.",
+  "consultant_answer": "Listing Owner refers to the account registration name of whoever logged in to reach this screen -- since you logged in under your own account, 'Hirotaka Kotake' is correct there. Separately, Username is just a login-account nickname and can be anything; please use your actual Name in the document's signature field, not the Username.",
+  "decision_logic": "When a registration or addition document contains multiple distinct name-like fields, clarify each field's specific meaning explicitly -- Username is an arbitrary login nickname, the signature field requires the person's actual legal name, and Listing Owner is whichever account's registration name was used to log in and reach that particular screen -- rather than assuming the customer will infer the correct mapping.",
+  "final_recommendation": "When sending a registration document with multiple name-like fields to a customer for completion, proactively annotate or explain what each field expects (login nickname vs. real name vs. logged-in account's registration name) to avoid back-and-forth clarification questions.",
+  "risk_if_done_wrong": "Entering the wrong value in a given name field (e.g., a login nickname in the signature field, or the wrong account's name as Listing Owner) could create inconsistencies in the registration record that might need later correction.",
+  "bluetooth_tags": [
+    "Listing Owner field meaning",
+    "Username vs Name vs Listing Owner",
+    "derivative model addition registration document",
+    "Secom"
+  ],
+  "search_aliases": [
+    "what is Listing Owner field Bluetooth SIG registration",
+    "Username vs real name registration document",
+    "which name goes in signature field SIG form"
+  ],
+  "qualification_stage": "Derivative-model addition registration document completion",
+  "confidence": "medium"
 }

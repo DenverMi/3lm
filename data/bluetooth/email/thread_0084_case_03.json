@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0084",
+  "case_id": "thread_0084_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "explosion-proof handsfree unit",
+  "customer_question": "We won't have all the compliance folder documents ready by our preparation deadline -- can the folder be delivered now in an incomplete state, with the missing parts added later?",
+  "question_variants": [
+    "Can we get a partial compliance folder now and add the rest later?",
+    "How would an incomplete compliance folder actually get completed afterward?",
+    "Do we need a whole new delivery once our missing documents are ready?"
+  ],
+  "actual_issue": "The customer would not have all the required compliance folder documents ready by their preparation deadline, and wanted to know whether the compliance folder could still be delivered with what was available, with the remaining documents added once they became available, without requiring an entirely new delivery later.",
+  "plain_english_explanation": "Sometimes not every document needed for the compliance package is ready by the deadline. Rather than waiting indefinitely or doing two separate full deliveries, the package can be built so that the parts that aren't ready yet are represented by placeholder files, with the actual delivery medium set up so the customer can simply swap in the real documents themselves once they're ready, finishing the package without needing anything new sent to them.",
+  "consultant_answer": "The customer proposed receiving an incomplete compliance folder now (for documents ready by their deadline) and managing the addition of the rest on their own once available. The consultant's actual process: whatever documents are ready by the deadline will be compiled together with placeholder (provisional) PDF files standing in for documents not yet ready, all delivered on a CD-R in a Windows 10/11-standard appendable (multi-session writable) format. The CD-R's root-directory Index.pdf contains clickable links pointing to the placeholder files; once the customer's real documents are ready, the customer can overwrite the placeholder files directly within the CD-R's Data folder with the finished materials, completing the compliance folder without requiring a new delivery from the consultant.",
+  "decision_logic": "When some compliance folder documents will not be ready by a delivery deadline, deliver the folder anyway using an appendable storage medium with placeholder files for the missing items, linked from an index document, so the customer can complete the folder themselves later by overwriting the placeholder files in place, rather than withholding delivery or requiring a second full delivery once everything is ready.",
+  "final_recommendation": "When a customer cannot provide all compliance folder documents by the agreed deadline, deliver the folder on an appendable (multi-session writable) CD-R with placeholder files for the missing items and a clickable Index.pdf, so the customer can complete the folder themselves by overwriting the placeholder files once their finished documents are ready.",
+  "risk_if_done_wrong": "Withholding the compliance folder entirely until every document is ready could create unnecessary delay, while delivering an incomplete folder without a clear, structured way to complete it later risks the folder never actually being finished or requiring a costly second delivery.",
+  "bluetooth_tags": ["compliance folder", "CD-R", "placeholder documents", "Index.pdf", "listing"],
+  "search_aliases": ["incomplete compliance folder delivery placeholder files", "appendable multi-session CD-R compliance folder", "overwrite placeholder file complete compliance folder", "Index.pdf clickable links provisional documents"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

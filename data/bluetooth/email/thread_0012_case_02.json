@@ -1,47 +1,32 @@
 {
-    "source_thread": "thread_0012",
-    "cases": [
-        {
-            "case_id": "thread_0012_case_02",
-            "iut_type": "module",
-            "customer_question": "Which PTS IOPT test cases and ICS documents are required for qualification of the combined Bluetooth design?",
-            "question_variants": [
-                "What IOPT tests are mandatory?",
-                "Which PTS reports must be submitted?",
-                "What ICS files are needed for BAS and HFP?",
-                "How do we prepare required interoperability testing?",
-                "Which PTS test items are required for Option 2 qualification?"
-            ],
-            "actual_issue": "The qualification project required interoperability testing and supporting ICS/PTS evidence for BAS, HFP, and SPP layers under the new Bluetooth SIG qualification process.",
-            "plain_english_explanation": "The product reused and combined existing Bluetooth designs, so additional interoperability testing was required. The consultant needed the correct ICS files and had to identify the exact mandatory PTS test cases needed for submission. Without the correct PTS evidence, the qualification package would be incomplete.",
-            "consultant_answer": "The consultant explained that RF and RF PHY ICS selections would later be cross-checked against the submitted PTS reports. The customer was instructed to obtain HFP and BAS ICS documents from the design supplier and provide them before PTS report review. The consultant also pre-identified the required IOPT PTS test cases so the testing party could execute all required coverage without omissions.",
-            "decision_logic": "Bluetooth SIG qualification under QPRDv3 requires interoperability testing based on the selected ICS features and included X2Core layers. PTS reports and ICS selections must remain consistent with the generated test plan and declared capabilities.",
-            "final_recommendation": "Collect supplier ICS files for all enabled profiles before testing. Generate the test plan early, identify all mandatory IOPT test cases, and ensure the PTS operator executes every required case and provides complete reports before submission.",
-            "risk_if_done_wrong": "Missing ICS information or incomplete PTS coverage can cause qualification review failures, missing evidence findings, retesting, and delayed product listing.",
-            "bluetooth_tags": [
-                "qualification",
-                "PTS",
-                "IOPT",
-                "ICS",
-                "HFP",
-                "BAS",
-                "SPP",
-                "test report"
-            ],
-            "search_aliases": [
-                "IOPT mandatory tests",
-                "PTS report requirements",
-                "BAS ICS needed",
-                "HFP ICS required",
-                "PTS interoperability testing",
-                "IOPT test plan",
-                "SPP IOPT",
-                "Qualification Workspace IOPT",
-                "missing PTS evidence"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0012",
+  "case_id": "thread_0012_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alinco XE1177, Qualcomm chipset), RF PHY Direct Test Mode software requirement",
+  "customer_question": "The RF PHY test requires Direct Test Mode measurement, but it seems we need software that's only available to Qualcomm chipset license holders -- can you provide 'QDART (version 4811 or later)'?",
+  "question_variants": [
+    "Why does RF PHY DTM testing need a separate license-restricted tool beyond BlueTest3?",
+    "Is the specific QDART version needed guaranteed to be among the files the module manufacturer provides?"
+  ],
+  "actual_issue": "Beyond the general-purpose BlueTest3 tool, RF PHY testing in Direct Test Mode required an additional Qualcomm-licensed tool (QDART) that only chipset licensees -- not the lab or the OEM customer directly -- could normally obtain, requiring the customer to source it through their module/chipset supply chain.",
+  "plain_english_explanation": "Direct Test Mode measurement for RF PHY testing on this Qualcomm-chipset-based product required QDART, a software tool restricted to Qualcomm chipset licensees, version 4811 or later specifically. Since the lab itself was not a Qualcomm chipset licensee, the customer needed to source this tool through their own supply chain (in this case, relayed through the customer's internal contact who downloaded what they believed to be the latest version, while noting that QDART itself bundles multiple software components and it wasn't certain that the obtained version actually corresponded to the requested '4811 or later' threshold).",
+  "consultant_answer": "RF PHY testing in Direct Test Mode needs QDART (version 4811 or later), which is restricted to Qualcomm chipset licensees -- since we aren't licensees ourselves, please source this through your module/chipset supply chain and send it to us.",
+  "decision_logic": "When a chipset's RF PHY Direct Test Mode testing requires a chipset-vendor-licensed software tool beyond the general-purpose test tool already in use, identify the specific required tool and version early, and route the request through the customer's own supply chain (module/chipset vendor) rather than assuming the lab can obtain license-restricted tools directly.",
+  "final_recommendation": "When scoping RF PHY testing for a chipset with known vendor-licensed DTM tooling requirements (e.g., Qualcomm's QDART), flag the specific tool and minimum version requirement to the customer as early as possible in the test-prep phase, since sourcing a license-restricted tool through the customer's supply chain can introduce delay if not anticipated.",
+  "risk_if_done_wrong": "Discovering the QDART licensing requirement only after testing has already begun could introduce avoidable delay while the customer sources the tool through their module/chipset vendor relationship.",
+  "bluetooth_tags": [
+    "QDART Qualcomm licensed tool",
+    "Direct Test Mode software requirement",
+    "chipset vendor licensed tooling",
+    "Alinco XE1177",
+    "Qualcomm chipset RF PHY DTM"
+  ],
+  "search_aliases": [
+    "QDART software requirement RF PHY test",
+    "Qualcomm chipset license only DTM tool",
+    "Direct Test Mode software Qualcomm"
+  ],
+  "qualification_stage": "RF PHY test preparation",
+  "confidence": "medium"
 }

@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0015",
+  "thread_analysis": {
+    "thread_summary": "Allied Telesis K.K. (contact Masayuki Ogawa, Software Development Dept.) consults Allion (Masaya Iida, with technical answers drafted by Itsuo Sakai) about Bluetooth SIG certification for a GEN2 device, spanning an initial cost/timeline quote, a dispute over a conflicting 'not certifiable' assessment from another certification body, and a QDID combination correction to avoid an AoA/AoD capability mismatch via a matching Subset DN.",
+    "all_questions_found": [
+      "(Administrative) What's the cost and timeline estimate for full RF-PHY testing and registration?",
+      "Is another certification body's 'not certifiable' assessment of a previously-suggested QDID combination correct? (see thread_0015_case_01)",
+      "Can a specific Link Layer/Host QDID be registered with the customer's RF PHY QDID, and if not, what's the alternative? (see thread_0015_case_02)"
+    ],
+    "key_technical_discussion": "This thread illustrates that the mere presence of a cross-layer Consistency Check inconsistency doesn't automatically disqualify registration (registrability depends on specific conditions tied to how the reference QDID was originally registered), and that capability mismatches (like AoA/AoD support) between Link Layer/Host and RF PHY components can often be resolved by referencing a narrower-capability Subset DN under the same base registration rather than abandoning the registration attempt.",
+    "key_decision_logic": "See thread_0015_case_01 and thread_0015_case_02.",
+    "risk_if_done_wrong": "See thread_0015_case_01 and thread_0015_case_02.",
+    "consulting_mistake": "None identified — Allion correctly distinguished the technical fact (an inconsistency exists) from the broader conclusion (registration is blocked), pushing back constructively on another certification body's incomplete assessment.",
+    "consulting_takeaway": "When a customer raises a conflicting registrability assessment from another certification body, or proposes a QDID combination with a capability mismatch, independently verify the specific registration mechanics (inherited-inconsistency conditions, available Subset DNs) rather than accepting a blanket conclusion or giving up on the registration attempt."
+  }
+}

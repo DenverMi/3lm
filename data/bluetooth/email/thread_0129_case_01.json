@@ -2,6 +2,7 @@
   "source_thread": "thread_0129",
   "case_id": "thread_0129_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "consumer electronics",
   "customer_question": "One AVRCP test item passes on an older PTS version (ETS 11.5.0.5) but fails on the newer version. Can we submit a split report — old PTS version for that one item and new PTS version for all others — as SIG qualification evidence?",
   "question_variants": [
@@ -11,11 +12,21 @@
   ],
   "actual_issue": "During Sony FY26 TV AVRCP profile testing, one test item (AVRCP/TG/MCN/CB) passed on an older PTS version (ETS 11.5.0.5) but failed on the newer version. The chip vendor confirmed this is a PTS tool issue (regression in the newer tool), not a product defect. The customer asked whether they can submit two separate PTS report files — one from the old ETS version for the failing item, and one from the new ETS version for all other items — as valid SIG qualification evidence.",
   "plain_english_explanation": "PTS (Profile Tuning Suite) is the Bluetooth SIG's test tool and gets updated periodically. Sometimes a new PTS version introduces regressions — a test item that previously passed now fails, not because the product changed but because the tool changed. In these cases, the SIG allows you to test that specific item on the older PTS version and submit the older version's report file alongside the newer version's report file. Both files together constitute valid evidence. You do NOT need to force all items to pass on the latest PTS version.",
-  "consultant_answer": "⇒はい、試験対象プロファイルが最新のPTSバージョンでPassしない場合に一部試験項目を異なるPTSバージョンで実施してPTSレポートが複数ファイルになってもエビデンスとして有効で問題ございません。(Yes, when a profile under test does not pass on the latest PTS version, it is valid to test some items on a different PTS version and submit multiple PTS report files as evidence. This is not a problem.)",
+  "consultant_answer": "Yes, when a profile under test does not pass on the latest PTS version, it is valid to test some items on a different PTS version and submit multiple PTS report files as evidence. This is not a problem.",
   "decision_logic": "When a PTS version regression causes a test item to fail: (1) Confirm the item passes on an older PTS version; (2) Test the failing item on the older PTS version and obtain a separate report file; (3) Submit both report files (one per PTS version) as split evidence; (4) The SIG accepts split reports across multiple PTS versions as valid evidence for the same qualification.",
   "final_recommendation": "When a new PTS version breaks a previously passing item and the chip vendor confirms it is a tool regression, test that specific item on the older PTS version and submit the resulting Report XML as a separate file. Both files (old version for the regression item, new version for all others) together are valid SIG evidence. Document the PTS version for each file to avoid confusion during review.",
   "risk_if_done_wrong": "If a consultant mistakenly insists all items must pass on the latest PTS version, it may be impossible to pass the qualification without waiting for a future PTS tool fix, potentially missing the registration deadline. Alternatively, if the customer submits raw log files (TestReport_ format) instead of generated report files, the evidence will be rejected.",
-  "bluetooth_tags": ["profile test", "PTS", "AVRCP", "A2DP", "evidence", "report", "ETS version", "split report", "tool regression"],
+  "bluetooth_tags": [
+    "profile test",
+    "PTS",
+    "AVRCP",
+    "A2DP",
+    "evidence",
+    "report",
+    "ETS version",
+    "split report",
+    "tool regression"
+  ],
   "search_aliases": [
     "PTS version regression AVRCP test item fails new version passes old version",
     "split PTS report two ETS versions valid SIG evidence",

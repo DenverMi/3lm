@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0166",
+  "case_id": "thread_0166_case_09",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Smart TV with Bluetooth (Sony)",
+  "customer_question": "After Submission we realized we made a mistake - we failed to remove an unnecessary Traditional Profile in Layer Selection. We were planning to submit a Product Qualification Correction Request Form to SIG Support to fix it - is there another way?",
+  "question_variants": [
+    "How do we fix a registration mistake discovered after Submission, without going through the formal SIG correction request process?",
+    "We left an unwanted profile in our registration's Layer Selection - can we remove it without a Correction Request Form?",
+    "Is there a faster, free way to correct a post-Submission registration error involving an extra profile?"
+  ],
+  "actual_issue": "After completing Submission, the customer noticed they had failed to deselect an unneeded Traditional Profile during Layer Selection, leaving it in the finalized registration. Their planned fix was to file a formal Product Qualification Correction Request Form with SIG Support. The consultant suggested a faster, simpler alternative: performing a free Subsetting operation to create a new Subset DN with the unneeded Traditional Profile removed, rather than going through the formal correction request process.",
+  "plain_english_explanation": "If a mistake is discovered in a registration after it has already been submitted and finalized - such as an extra profile that should have been excluded - the formal route is to file a Product Qualification Correction Request Form with Bluetooth SIG Support, which can be slow and involves manual review. A quicker, no-cost alternative that achieves the same practical outcome is to perform a 'Subsetting' operation: this creates a new Subset Design Number (DN) derived from the original registration, with the unwanted profile or layer removed. Subsetting is free and is a self-service operation in the SIG registration portal, making it the more efficient choice when the issue can be resolved by simply excluding something from the original design rather than correcting factual data within it.",
+  "consultant_answer": "As a quick and simple way to handle this, we recommend performing a Subsetting operation (free of charge) to create a Subset DN with the unneeded Traditional Profile removed, rather than filing a Product Qualification Correction Request Form with SIG Support.",
+  "decision_logic": "When a post-Submission registration error involves an item that should simply be excluded (e.g., an extra profile left in Layer Selection), check whether a free Subsetting operation can resolve it by creating a new Subset DN without that item, before resorting to the formal SIG Product Qualification Correction Request Form process. Reserve the formal correction request for errors that cannot be resolved by subsetting (e.g., factual data corrections within the existing registration).",
+  "final_recommendation": "When a customer discovers a post-Submission mistake involving an extra or unwanted profile/layer in their registration, first evaluate whether a free Subsetting operation can correct it by excluding that item in a new Subset DN, since this is faster and has no cost compared to the formal SIG correction request process.",
+  "risk_if_done_wrong": "Defaulting to the formal Product Qualification Correction Request Form for an issue that Subsetting could resolve wastes time waiting on SIG Support's manual review process when a free, immediate self-service fix was available.",
+  "bluetooth_tags": [
+    "Subsetting",
+    "Subset DN",
+    "post-Submission correction",
+    "Layer Selection",
+    "Traditional Profile",
+    "Product Qualification Correction Request Form",
+    "registration error"
+  ],
+  "search_aliases": [
+    "post-Submission registration mistake fix",
+    "remove unneeded profile after Submission",
+    "free Subsetting operation correction",
+    "Product Qualification Correction Request Form alternative",
+    "Layer Selection mistake unwanted Traditional Profile"
+  ],
+  "qualification_stage": "post-launch change",
+  "confidence": "high"
+}

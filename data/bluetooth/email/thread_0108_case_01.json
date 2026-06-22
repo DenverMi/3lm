@@ -1,45 +1,23 @@
 {
-    "source_thread": "thread_0108",
-    "cases": [
-        {
-            "case_id": "thread_0108_case_01",
-            "iut_type": "head unit",
-            "customer_question": "How should a new qualification be structured when combining existing Host/Profile and Controller referenced designs that create inter-layer dependency inconsistencies?",
-            "question_variants": [
-                "How do I handle ILD consistency check failures after removing profiles from a referenced design?",
-                "Can I modify referenced ICS selections to resolve inter-layer dependency errors?",
-                "How should Option 2a design combinations be qualified when included QDIDs conflict?",
-                "Can a TCW be used instead of changing referenced Core ICS?",
-                "How do I avoid retesting caused by ICS changes in a combined design?"
-            ],
-            "actual_issue": "A new design combination created from existing qualified designs generates Inter-Layer Dependency (ILD) consistency-check failures after profile-layer changes. Modifying referenced Core-layer ICS would trigger additional qualification obligations under the newer qualification rules.",
-            "plain_english_explanation": "The product is being qualified by reusing existing Bluetooth designs. When some unwanted profiles are removed, the qualification tools report dependency mismatches between layers. The key question is whether to change the reused Bluetooth design data or use the qualification process to formally waive the inconsistency.",
-            "consultant_answer": "The consultant advises against modifying the referenced Core-layer ICS because under the post-July-2024 qualification process, changes to referenced ICS can require test reports for the affected modified layers. Instead, the inter-layer dependency inconsistencies should be handled through the dedicated 'ICS Form Inconsistencies for Inter-Layer Dependencies' TCW path when the referenced Core Host and Core Controller configurations remain unchanged. The reused Core-layer ICS should remain intact, while supported profile layers may still be included using valid profile-test evidence.",
-            "decision_logic": "If the Core Host and Core Controller referenced designs are not being changed, resolving ILD inconsistencies through the dedicated TCW path avoids converting the reused Core layers into modified layers that would require additional qualification evidence.",
-            "final_recommendation": "Keep the referenced Core-layer ICS unchanged, use the applicable ILD inconsistency TCW process, complete consistency review, and attach profile-layer evidence only for implemented and tested profiles.",
-            "risk_if_done_wrong": "Modifying referenced ICS unnecessarily can trigger full test-report obligations for the modified layers, creating avoidable testing effort, qualification rework, and submission delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "ICS",
-                "ILD",
-                "TCW",
-                "QDID",
-                "reuse",
-                "consistency check"
-            ],
-            "search_aliases": [
-                "ICS Form Inconsistencies for Inter-Layer Dependencies",
-                "ILD consistency check failure",
-                "Core ICS modification",
-                "referenced QDID reuse",
-                "TCW for Core invalids",
-                "Option 2a design combination",
-                "inter-layer dependency mismatch",
-                "avoid retesting from ICS changes"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0108",
+  "case_id": "thread_0108_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "infotainment unit",
+  "customer_question": "Besides incorporating the certification test tool, does our product software need any behavior-restricting modification for profile testing? Specifically, can AVRCP be tested when our product always connects it together with A2DP rather than advertising it independently?",
+  "question_variants": [
+    "Will PTS be able to test a profile our product never independently advertises?",
+    "Do we need special test-only firmware for AVRCP if it's bundled with A2DP?",
+    "How can we check beforehand whether a profile will be testable?"
+  ],
+  "actual_issue": "The customer's automotive infotainment product implemented AVRCP so that it always connects together with A2DP, advertising only A2DP at Inquiry time rather than independently advertising AVRCP, raising the question of whether PTS could still test AVRCP as required, and whether any product software modification was needed for testing beyond the standard certification tool.",
+  "plain_english_explanation": "Before a Bluetooth test tool can test a specific feature of a device, that feature needs to show up on its own in the device's list of advertised capabilities when another device looks for it. Some car infotainment products are built so that one feature (like music-playback controls) always tags along automatically with another (like audio streaming) instead of being separately announced -- which works fine for real-world use, but means the test tool can't isolate and test that tagging-along feature on its own. In that situation, a special test-only version of the software that lets the feature be found and connected independently is needed, and it's worth checking for this kind of issue ahead of time using an ordinary phone's Bluetooth app, rather than discovering it mid-test.",
+  "consultant_answer": "In principle, profile testing is performed using the product's own embedded software as-is, with no modification needed beyond the standard certification test tool. However, past experience shows that a profile not announced in the device's SDP record at the initial Inquiry cannot be tested. For example, in car infotainment products where AVRCP is always used together with A2DP, with the implementation advertising only A2DP at Inquiry (and AVRCP connecting alongside it automatically), PTS cannot test AVRCP as a standalone connection, since AVRCP isn't independently inquirable -- in such cases, test-only modified software allowing AVRCP to be independently inquired and connected has had to be provided in the past. Since the test lab cannot know this in advance without actually running PTS, the customer should pre-check beforehand by using a smartphone's Bluetooth app to display the target device's list of supported profiles, confirming whether every profile intended for testing actually appears as independently visible.",
+  "decision_logic": "A profile that is not independently advertised in a product's SDP record at Inquiry time -- because the implementation bundles its connection with another profile's -- cannot be tested by PTS as a standalone item unless test-only modified software is provided that makes it independently inquirable and connectable; this should be verified before submission via a smartphone Bluetooth app rather than discovered only once PTS testing begins.",
+  "final_recommendation": "Before submitting a product for profile testing, especially for automotive or similarly bundled-implementation products, have the customer check via a smartphone Bluetooth app whether every profile intended for testing is independently visible in the device's advertised SDP record; if a profile is bundled with another and not independently advertised, arrange for test-only modified software that makes it independently testable.",
+  "risk_if_done_wrong": "Submitting a product for profile testing without this pre-check risks discovering only during PTS testing that a bundled profile cannot be tested as a standalone item, requiring last-minute modified test software and delaying the test schedule.",
+  "bluetooth_tags": ["PTS", "SDP record", "Inquiry", "AVRCP", "A2DP", "profile testing", "automotive"],
+  "search_aliases": ["AVRCP bundled with A2DP not independently testable", "SDP record Inquiry visibility profile testing", "test-only modified software independent Inquiry", "smartphone Bluetooth app pre-check supported profiles"],
+  "qualification_stage": "pre-test review",
+  "confidence": "high"
 }

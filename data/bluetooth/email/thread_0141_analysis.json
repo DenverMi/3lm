@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0141",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "Ito-en (beverage company) inquired about Bluetooth certification for a consumer device. On checking the SIG Member Directory, the company was not found — meaning they are not yet a SIG member. SIG membership is a prerequisite for certification. The consultant must direct the customer to register as a SIG Adopter or Associate Member before any certification work can proceed.",
     "all_questions_found": [
       "Our company is not in the SIG Member Directory — can we still proceed with Bluetooth certification?"

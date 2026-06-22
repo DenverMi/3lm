@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0176",
+  "case_id": "thread_0176_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "IoT device using Espressif module (Teraoka Seiko)",
+  "customer_question": "The module we are using has separate QDIDs for the Host subsystem and the Controller subsystem — it is not a single Component QDID. Do we need to reference both QDIDs separately in the product registration?",
+  "question_variants": [
+    "Our module has a Host QDID and a Controller QDID separately. Is this Multi-Design registration?",
+    "The Espressif module we use has two QDIDs — one for Host and one for Controller. How do we register our product?",
+    "Our module's QDID is split into Host and Controller. Does this make our registration more expensive?"
+  ],
+  "actual_issue": "Teraoka Seiko is using an Espressif module that does not have a single Component QDID — instead, it has separate Host Subsystem QDID and Controller Subsystem QDID. They need to understand whether this requires a Multi-Design registration and how it affects cost.",
+  "plain_english_explanation": "Some modules are qualified as a single integrated component (one QDID covers Host + Controller together). Other modules have been qualified with separate Host and Controller QDIDs. When a module has separate Host and Controller QDIDs, a product registration that uses that module must reference both QDIDs separately — this is a Multi-Design registration. Multi-Design registration (¥250,000) costs more than Single-Design (¥150,000) because it requires more complex ICS cross-layer verification across the Host and Controller layers.",
+  "consultant_answer": "Yes, if the module has separate Host Subsystem QDID and Controller Subsystem QDID, you must reference both in your product registration. This constitutes a Multi-Design registration at ¥250,000. The SIG portal performs cross-layer ICS consistency checking between the Host and Controller layers, and any inconsistencies found must be resolved or covered by a TCW.",
+  "decision_logic": "The SIG registration structure mirrors the qualification structure of the components used. A module with two separate QDIDs (Host and Controller) requires both to be referenced in the product registration. Multi-Design is determined by the number of QDIDs referenced, not by the number of physical chips. One module with two QDIDs = Multi-Design.",
+  "final_recommendation": "At the quoting stage, always check the SIG qualification database to determine whether the target module has a single Component QDID or separate Host and Controller QDIDs. If separate, quote Multi-Design (¥250,000). Do not assume a single physical module equals Single-Design registration.",
+  "risk_if_done_wrong": "Quoting Single-Design for a module with separate Host/Controller QDIDs would underquote the job and lead to a cost correction after the order is placed. More importantly, attempting to register with only one of the two QDIDs would result in an incomplete registration that SIG would reject.",
+  "bluetooth_tags": [
+    "Multi-Design",
+    "Single-Design",
+    "Host Subsystem QDID",
+    "Controller Subsystem QDID",
+    "module QDID",
+    "Espressif",
+    "product registration",
+    "QPRDv3"
+  ],
+  "search_aliases": [
+    "module two QDIDs Multi-Design",
+    "Host Controller QDID separate module",
+    "Espressif module Multi-Design registration",
+    "module not single Component QDID",
+    "Host Subsystem Controller Subsystem separate registration"
+  ],
+  "qualification_stage": "Pre-registration / qualification scoping",
+  "confidence": "high"
+}

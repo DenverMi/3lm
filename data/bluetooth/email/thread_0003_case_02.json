@@ -1,42 +1,31 @@
 {
-    "source_thread": "thread_0003",
-    "cases": [
-        {
-            "case_id": "thread_0003_case_02",
-            "iut_type": "module",
-            "customer_question": "Can I convert a dual-mode Bluetooth module into a BLE-only qualification without additional testing?",
-            "question_variants": [
-                "Can I change dual mode QDID to BLE only without tests?",
-                "Is it possible to register a dual-mode module as BLE only?",
-                "Do I need testing to convert BR/EDR+LE to LE-only?",
-                "Can I disable BR/EDR and claim LE-only qualification?",
-                "Does QPRD allow editing transport modes without testing?"
-            ],
-            "actual_issue": "Restrictions in QPRD preventing conversion of dual-mode designs to single-mode without additional testing due to stricter host-controller consistency checks.",
-            "plain_english_explanation": "A Bluetooth module that supports both Classic and LE cannot simply be declared as LE-only during certification. Even if you disable Classic features in software, the official certification still considers the original capabilities unless extra testing is done.",
-            "consultant_answer": "Under the post-2024 qualification rules, host and controller layers must be consistent. A dual-mode controller cannot be re-declared as LE-only without additional testing. However, if BR/EDR is disabled at runtime via firmware but still present in the implementation, the product can remain registered as dual-mode without requiring additional protocol testing such as L2CAP/GAP for LE-only conversion.",
-            "decision_logic": "Transport mode (LE vs BR/EDR vs dual) must match across layers; changing declared mode requires new testing unless the original design is preserved.",
-            "final_recommendation": "Keep the qualification as dual-mode and disable BR/EDR in firmware for product behavior, unless you are prepared to perform additional protocol testing for LE-only registration.",
-            "risk_if_done_wrong": "Attempting to declare LE-only without proper testing may cause qualification rejection due to layer inconsistency or missing required test evidence.",
-            "bluetooth_tags": [
-                "dual mode",
-                "LE",
-                "BR/EDR",
-                "QDID",
-                "ICS",
-                "consistency check"
-            ],
-            "search_aliases": [
-                "dual mode to LE only",
-                "QDID transport change",
-                "BLE only conversion rules",
-                "host controller mismatch",
-                "transport consistency Bluetooth",
-                "disable BR EDR qualification"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0003",
+  "case_id": "thread_0003_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Panasonic Automotive Systems development board), informal pre-formal-request test mode verification",
+  "customer_question": "Our Bluetooth module can now enter test mode on our development board. Before we submit our formal certification request later this year, can you verify test mode operation for us now — without issuing an official test report — so we can confirm everything works ahead of the formal engagement?",
+  "question_variants": [
+    "Can Allion confirm test mode functionality informally, separate from the formal certification testing later?",
+    "Does a preliminary test-mode check require the same full test scope as the eventual formal request?"
+  ],
+  "actual_issue": "The customer wanted an early, informal confirmation that their development board could correctly enter the Bluetooth module's test mode, well ahead of their planned formal certification request months later, to catch any test-mode-entry issues early without committing to the full cost or formality of an official report.",
+  "plain_english_explanation": "Allion can provide an informal test-mode verification service ahead of a customer's planned formal certification request, confirming that the DUT correctly enters test mode and that mandatory functions behave correctly, without producing an official test report — this lets the customer validate their test-mode-entry mechanism early and address any issues well before the formal engagement, reducing risk to their planned schedule. Since this preliminary check only needs to confirm test-mode entry and basic mandatory-function behavior (not the complete certification-grade test suite), the scope can be substantially smaller than the eventual formal test, with a correspondingly lower cost.",
+  "consultant_answer": "Yes, we can provide this kind of informal test-mode verification ahead of your formal request — confirming your DUT correctly enters test mode and that mandatory functions behave correctly, without producing an official report. Since this is just confirming test-mode entry and basic mandatory-function behavior rather than the full certification-grade test suite, the scope (and cost) can be substantially smaller than your eventual formal test.",
+  "decision_logic": "An informal, report-free preliminary test-mode verification service is a distinct, smaller-scoped offering from the formal certification test, valuable for customers wanting to de-risk their test-mode-entry mechanism well ahead of a planned formal engagement.",
+  "final_recommendation": "When a customer wants early confirmation of test-mode functionality ahead of a planned formal certification request, offer a scoped-down, report-free preliminary verification service rather than requiring them to either wait for the full formal engagement or pay for the complete test suite prematurely.",
+  "risk_if_done_wrong": "Requiring the customer to either wait until the formal engagement or pay for the full certification-grade test suite for an early test-mode check could delay catching a fundamental test-mode-entry problem until much later in the project, when it would be more costly and time-consuming to fix.",
+  "bluetooth_tags": [
+    "informal test mode verification before formal request",
+    "report free preliminary check",
+    "early test mode entry risk reduction",
+    "Panasonic Automotive Systems"
+  ],
+  "search_aliases": [
+    "can we get test mode verified before formal certification request",
+    "informal preliminary test check no report",
+    "early risk reduction test mode entry"
+  ],
+  "qualification_stage": "Pre-engagement preliminary verification",
+  "confidence": "high"
 }

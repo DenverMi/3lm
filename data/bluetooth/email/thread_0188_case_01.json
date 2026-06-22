@@ -1,0 +1,40 @@
+{
+  "source_thread": "thread_0188",
+  "case_id": "thread_0188_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE product using Fanstel module (Nordic-based, integrated antenna)",
+  "customer_question": "What is the rough cost and timeline for Bluetooth SIG certification when using an integrated-antenna, pre-certified BLE module (Fanstel BM805 or BM832, Nordic-based)?",
+  "question_variants": [
+    "Certified BLE module with integrated antenna: what tests are required and what is the cost?",
+    "If the module already has a QDID, what certification steps remain for the end product?",
+    "Pre-certified module, no SIG profiles — what is the minimum registration cost?"
+  ],
+  "actual_issue": "Pyke Crystal is evaluating Bluetooth SIG certification for their first Bluetooth product. They plan to use a Fanstel module (Nordic-based, integrated antenna) and are not sure what tests and costs are required given the module is already SIG-certified.",
+  "plain_english_explanation": "When using a pre-certified BLE module that has an integrated antenna, both RF PHY testing and all core layer testing (LL, L2CAP, GAP, GATT, ATT, SM) are exempt — the module's QDID already covers all of these. If the product implements no SIG-standardized profiles (only custom/proprietary GATT services), no profile testing is required either. The only remaining costs are the registration service fee and the SIG Qualification Fee. If SIG-standardized profiles are added, each profile costs approximately ¥100,000 for PTS testing.",
+  "consultant_answer": "Both Fanstel BM805 and BM832 modules are certified with integrated antennas. Therefore: (1) RF PHY testing is exempt; (2) Core layer testing is exempt. If the product implements no SIG-standardized profiles (or only proprietary GATT), no profile test is required. Pricing without profile testing: Single Design registration ¥150,000 + Compliance Folder ¥150,000 + SIG Qualification Fee $11,040. Registration takes 3 business days (after SIG fee receipt). If SIG profiles are added later, each profile test costs approximately ¥100,000.",
+  "decision_logic": "Integrated-antenna certified module → RF PHY exempt + core layers exempt. No SIG profiles → no profile test. Single-Design reference (one QDID) → ¥150,000 registration. Timeline: 3 business days from SIG fee receipt (not from order), with ~3 weeks for SIG wire transfer.",
+  "final_recommendation": "Use the certified Fanstel module with integrated antenna to minimize testing requirements. Choose between Single Design (one QDID) at ¥150,000 or Multi-Design (multiple QDIDs) at ¥250,000 depending on whether the Host and Controller are registered separately. If no SIG profiles are implemented, no profile testing is needed.",
+  "risk_if_done_wrong": "Using an external antenna or modifying the antenna configuration would invalidate the integrated-antenna exemption and require RF PHY testing.",
+  "bluetooth_tags": [
+    "certified module",
+    "integrated antenna",
+    "RF PHY exempt",
+    "Single Design",
+    "Nordic",
+    "Fanstel",
+    "BM805",
+    "BM832",
+    "no profile test",
+    "QDID"
+  ],
+  "search_aliases": [
+    "certified module BLE registration cost",
+    "integrated antenna RF PHY exempt",
+    "Fanstel module SIG certification",
+    "Nordic module end product registration",
+    "no profile test proprietary GATT"
+  ],
+  "qualification_stage": "Pre-registration / Scoping",
+  "confidence": "high"
+}

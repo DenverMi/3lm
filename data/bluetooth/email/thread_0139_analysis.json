@@ -1,11 +1,11 @@
 {
   "source_thread": "thread_0139",
-  "case_id": "thread_0139_case_01",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "Toytec module registration post-RF PHY test pass. The customer needed the step-by-step proxy registration flow and confirmation of the Compliance Folder contents required for a module. Key deliverable clarification: the antenna data sheet must include radiation gain characteristics.",
     "all_questions_found": [
       "What are the next steps after the RF PHY test passes for a module registration?",
-      "What documents are required in a module's Compliance Folder?"
+      "What documents are required in a module's Compliance Folder?",
+      "Does the registration become publicly visible immediately upon confirmation, or can a future display/publication start date be specified?"
     ],
     "key_technical_discussion": "After RF PHY test pass, the registration flow is a 5-step proxy registration process. The Compliance Folder for a module must contain 4 specific documents, with the antenna data sheet (including radiation gain characteristics) being the most frequently overlooked item.",
     "key_decision_logic": "Confirm all 4 Compliance Folder documents are present before Submission. Flag radiation gain requirement explicitly when requesting antenna data sheet from customer.",

@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0136",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "Hosiden wearable smartwatch registration with a SoC registered as Controller Subsystem + custom Host Stack. Four issues surfaced: (1) Controller Subsystem + incompatible Host Stack causes GAP-LL inter-layer Consistency Check failure — Combine unmodified Designs is a fallback; (2) Core-Controller DN strategy (module vendor registers Core-Controller DN, set maker includes 'use unchanged') avoids the inconsistency; (3) Q30 QDID prefix is QPRDv3.0 format and legally equivalent to old QDIDs; Combine unmodified Designs only auto-assigns DN when ≥2 QDIDs; (4) RF PHY test scope for BLE 1M-only product = 1M test only; Combine unmodified Designs cannot expand ICS.",
     "all_questions_found": [
       "Can a Controller Subsystem QDID be combined with our custom Host Stack for Core Complete registration?",

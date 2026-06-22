@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0021",
+  "case_id": "thread_0021_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Finding antenna technical data for a radio-law-certified module when the official government certification site doesn't publish it (MRA case)",
+  "customer_question": "I checked Japan's MIC (Ministry of Internal Affairs and Communications) database and found the certification record, but there's no antenna report included -- can you provide any antenna information (report, manufacturer/model number, photo, anything) for this module?",
+  "question_variants": [
+    "Why doesn't the government certification database include the antenna technical details for this specific module?",
+    "Is there any way to obtain the antenna manufacturer and model number directly?"
+  ],
+  "actual_issue": "The customer needed antenna technical information (gain, manufacturer, model) for their chosen module's existing Japan radio-law construction-design certification, but found that the publicly accessible government database entry for this module didn't include that information at all.",
+  "plain_english_explanation": "Japan's public radio-law certification database ('technical standards conformity certification equipment search') only publishes summary 'construction design certification details' compiled by the certifying body -- for modules certified via an MRA (Mutual Recognition Agreement) pathway specifically, the actual application documents, including antenna datasheets, remain held privately by the certifying body and the original applicant, and are never published on the government site. Furthermore, the antenna manufacturer name, model number, and datasheet itself are confidential information held by the certifying body, which will not disclose them even if a third party requests it directly. The only way to obtain antenna manufacturer/model information is to ask either the module's purchase source (distributor) or the chipset vendor itself (in this case, Espressif Systems) directly. As a partial substitute, the chipset vendor's own separately-published certificate document (distinct from the government database) can sometimes include at least a summary antenna performance figure -- in this case, a maximum gain figure of 2.33dBi at 2.4GHz was available from Espressif's own published certificate, even though the antenna manufacturer/model itself remained unavailable.",
+  "consultant_answer": "Japan's public radio-law database only shows summary certification details -- for MRA-certified modules specifically, the actual antenna datasheet and application documents stay private between the certifying body and the original applicant, and are never published. The antenna manufacturer name and model number are confidential and won't be disclosed even on direct request -- the only way to get that is to ask your module's purchase source or Espressif Systems directly. As a partial substitute, Espressif's own separately-published certificate document does show a summary antenna gain figure (2.33dBi max at 2.4GHz), even though the specific antenna manufacturer/model remains unavailable through that channel.",
+  "decision_logic": "When a module's radio-law certification was obtained via the MRA pathway, expect the public government database to omit antenna datasheets and detailed application documents (these remain confidential to the certifying body and applicant) -- direct the customer to the module's purchase source or chipset vendor for antenna manufacturer/model details, and check whether the vendor's own separately-published certificate document includes at least a summary gain figure as a partial substitute.",
+  "final_recommendation": "When a customer cannot find antenna technical details in a module's public radio-law certification record, explain that MRA-certified modules' detailed application documents are confidential by design, and direct them to the module vendor or purchase source directly, while checking whether the vendor's own published certificate includes at least a summary antenna gain figure as a partial substitute.",
+  "risk_if_done_wrong": "Without explaining why the antenna details aren't published for this certification type, the customer might assume the information has been lost or that the consultant is unable to help, when in fact a direct vendor inquiry remains a viable path to at least partial information.",
+  "bluetooth_tags": [
+    "MRA certified module antenna datasheet confidential",
+    "Japan radio law database missing antenna report",
+    "ask module vendor directly for antenna info",
+    "Espressif published certificate antenna gain figure",
+    "JUST.WILL"
+  ],
+  "search_aliases": [
+    "why is antenna report missing from radio law certification",
+    "MRA certification antenna datasheet confidential",
+    "where to find antenna gain for certified module",
+    "Espressif certificate antenna gain 2.33dBi"
+  ],
+  "qualification_stage": "Compliance Folder document gathering",
+  "confidence": "medium"
+}

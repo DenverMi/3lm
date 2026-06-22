@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0037",
+  "thread_analysis": {
+    "thread_summary": "IDEAL Corporation (contact Satoru Sanada, development department), a new customer, engages Allion (Masaya Iida, Itsuo Sakai) for Bluetooth SIG registration of a Nordic-chipset-based device (using an already-qualified module, no testing required), spanning July through August 2025. The thread covers pre-registration scoping questions (accessory scope, wire transfer exchange rate timing, antenna datasheet substitutes), a detailed explanation of the Invoice/Qualification Number account-binding rule and its valid cross-company payment workaround, registration finalization, and a post-registration explanation of why the detail page showed a different (parent) SoftDevice QDID than the customer specified.",
+    "all_questions_found": [
+      "Does an optional, Bluetooth-unrelated accessory need to be included in the registration? (see thread_0037_case_01)",
+      "When is the exchange rate fixed for a delegated USD wire transfer, and what are the pros/cons of delegation? (see thread_0037_case_02)",
+      "Does it matter whose account is used to obtain the SIG fee Invoice versus which company actually sends the payment? (see thread_0037_case_03)",
+      "Why does the registration detail page show a different SoftDevice version (S140) than what was specified (S132)? (see thread_0037_case_04)",
+      "(Administrative, not separately cased) Antenna datasheet excerpt acceptance from the BLE module's own specification sheet (consistent with the pattern already documented in thread_0021 and thread_0030), Review page confirmation, Compliance Folder document submission in Japanese, and standard scheduling/billing logistics."
+    ],
+    "key_technical_discussion": "The thread's most valuable technical content is case_03's clear articulation of the Invoice/Qualification Number account-binding rule and its valid workaround -- a rule that is easy to get wrong (assuming the paying company must obtain the Invoice) but has a clean decoupling (Invoice account vs. payment source) that avoids unnecessary friction. Case_04 documents a customer-visible consequence of the post-2024 Subset ID reference restriction (already established in thread_0030) from a fresh angle: what the customer actually sees on the registration detail page and how to explain it proactively.",
+    "key_decision_logic": "See thread_0037_case_01 through thread_0037_case_04 for case-specific decision logic; the throughline is precisely scoping what is and isn't included in registration (accessories, fee payment responsibility, reference QDID substitution) and explaining structural quirks proactively rather than leaving customers to notice and question them.",
+    "risk_if_done_wrong": "See individual case files; case_03 carries the highest risk, since an Invoice obtained under the wrong company's account becomes permanently unusable and unrefundable after one year.",
+    "consulting_mistake": "The consultant did not proactively explain the Subset-ID-to-parent-QDID substitution (case_04) during the Review page confirmation step, requiring the customer to notice the discrepancy themselves and ask about it afterward -- acknowledged directly in the response.",
+    "consulting_takeaway": "Proactively explain structural registration-system quirks (Subset ID substitution, Invoice account binding, exchange rate timing) at the point they first become relevant, rather than waiting for the customer to notice an unexpected detail and ask -- this is the second documented instance of the post-2024 Subset ID restriction (after thread_0030), reinforcing it as a recurring, generalizable pattern worth flagging early in any registration involving a legacy Subset ID reference."
+  }
+}

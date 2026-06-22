@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0238",
+  "case_id": "thread_0238_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product using Silicon Labs BLE module (GO Corporation IoT device)",
+  "customer_question": "Roughly how long does it take from placing the order to completing certification registration, when the order includes USD wire transfer proxy support?",
+  "question_variants": [
+    "What's the expected lead time from order to registration when wire transfer is handled by Allion?",
+    "Can registration realistically complete within about a month of ordering?"
+  ],
+  "actual_issue": "The customer needed a concrete timeline estimate from order placement to registration completion, including the wire-transfer proxy step, to plan internal scheduling and a target acceptance/check-in (検収) date.",
+  "plain_english_explanation": "When the engagement includes USD wire transfer proxy support, the customer should plan for roughly one month from order to registration completion. The breakdown is: about 3 weeks from Allion's own wire transfer to the funds actually arriving at Bluetooth SIG, after which the customer forwards SIG's confirmation email to Allion, who then completes the registration proxy work within 1 to 3 business days, completing the SIG certification itself. Allion then prepares the Compliance Folder (requiring the operation manual's Bluetooth section, product block diagram, product outline drawing, and antenna documentation including the radiation gain characteristic chart), which itself takes another 1 to 3 business days once all required documents are in hand, delivered on CD-R for the customer's final acceptance/check-in.",
+  "consultant_answer": "Please plan for roughly one month total when wire transfer proxy is included: about 3 weeks for our wire transfer to reach Bluetooth SIG, then 1 to 3 business days for us to complete registration once you forward SIG's confirmation email to us — that completes your SIG certification. After that, we prepare the Compliance Folder (needing your operation manual's Bluetooth section, product block diagram, outline drawing, and antenna documentation with gain characteristic chart), which takes another 1 to 3 business days once we have everything, delivered to you on CD-R for final acceptance.",
+  "decision_logic": "Total registration timeline should be broken into its distinct sequential stages (wire transfer transit time, registration proxy processing, Compliance Folder preparation) each with its own estimate, rather than given as a single vague overall figure, since the customer-controlled document submission timing directly affects the final stage.",
+  "final_recommendation": "When customers ask for an end-to-end timeline estimate that includes a wire transfer proxy step, break the answer into its sequential components (transfer transit time, registration processing, Compliance Folder preparation) so the customer understands which parts are externally fixed versus dependent on their own document readiness.",
+  "risk_if_done_wrong": "Giving only a single vague 'about a month' estimate without breaking down the stages could leave the customer unable to identify which part of the timeline they can influence (e.g., submitting documents earlier) versus which part is fixed (SIG wire transfer transit time).",
+  "bluetooth_tags": [
+    "order to registration timeline",
+    "USD wire transfer transit time",
+    "registration proxy processing time",
+    "Compliance Folder preparation time",
+    "GO Corporation"
+  ],
+  "search_aliases": [
+    "how long from order to Bluetooth registration",
+    "wire transfer proxy timeline SIG",
+    "Compliance Folder preparation time estimate"
+  ],
+  "qualification_stage": "Post-order / pre-registration",
+  "confidence": "high"
+}

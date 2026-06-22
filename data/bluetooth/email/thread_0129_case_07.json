@@ -2,6 +2,7 @@
   "source_thread": "thread_0129",
   "case_id": "thread_0129_case_07",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "consumer electronics",
   "customer_question": "If we set 'Allow Others to Include' to No in the Qualification Workspace, does this mean only our own company members can Include this QDID, while other companies cannot?",
   "question_variants": [
@@ -11,11 +12,18 @@
   ],
   "actual_issue": "During the Sony FY26 TV Qualification Workspace final review, the customer asked about the 'Allow Others to Include' setting. The customer wanted to understand whether setting it to 'No' would restrict Includes from outside companies only, while still allowing Sony's own group members to Include the QDID. The consultant confirmed: Yes — setting 'Allow Others to Include' to No means external (other company) registration projects cannot Include this QDID, but Sony's own company members can still Include it in their registrations.",
   "plain_english_explanation": "In the Qualification Workspace, when you complete a registration (QDID), there is an 'Allow Others to Include' setting. When set to Yes, any company can Include your QDID in their own registration to inherit the certified layers. When set to No, the QDID's Include access is restricted to members within your own company (same SIG member account). External companies cannot Include it. This is useful when you don't want competitors to leverage your certification work, while still enabling internal reuse across product lines.",
-  "consultant_answer": "⇒はい、他社が登録する際にIncludeできなくなります。(Yes, when set to No, other companies will not be able to Include this QDID in their registrations.)",
+  "consultant_answer": "Yes, when set to No, other companies will not be able to Include this QDID in their registrations.",
   "decision_logic": "'Allow Others to Include' in Qualification Workspace: (1) No = external companies cannot Include this QDID; (2) Yes = any company (including external) can Include this QDID; (3) The customer's own company members can always Include regardless of this setting; (4) This setting only affects visibility/access for external companies; (5) Recommend discussing with the customer whether they want to restrict external Include access, especially for proprietary chip or module designs.",
   "final_recommendation": "When guiding a customer through the final Qualification Workspace review, discuss the 'Allow Others to Include' setting explicitly. Most customers default to No for proprietary product QDIDs (End Products). For component or module QDIDs that customers want to make available to other manufacturers (e.g., a module vendor), the setting should be Yes.",
   "risk_if_done_wrong": "Setting 'Allow Others to Include' to No when the customer intended it to be available for downstream supply chain partners (e.g., a module vendor whose customers need to Include the QDID) would break those companies' ability to reference the QDID. Conversely, leaving it as Yes when the customer wants to restrict external access exposes the QDID to competitor use.",
-  "bluetooth_tags": ["qualification", "Qualification Workspace", "QDID", "Include", "access control", "registration settings"],
+  "bluetooth_tags": [
+    "qualification",
+    "Qualification Workspace",
+    "QDID",
+    "Include",
+    "access control",
+    "registration settings"
+  ],
   "search_aliases": [
     "Allow Others to Include No Qualification Workspace external company restrict",
     "QDID Include access setting external company restriction",

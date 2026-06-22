@@ -1,45 +1,34 @@
 {
-    "source_thread": "thread_0013",
-    "cases": [
-        {
-            "case_id": "thread_0013_case_01",
-            "iut_type": "lighting device",
-            "customer_question": "Can multiple lighting product variants using the same Bluetooth module be added as derivative products under one Bluetooth SIG qualification?",
-            "question_variants": [
-                "Can we register one model first and add the remaining variants later?",
-                "Are additional product variants free if they use the same module?",
-                "Can chip antenna and external antenna versions share one qualification?",
-                "Can multiple lamp models reuse the same Bluetooth registration?",
-                "Do different form factors using the same Bluetooth design require separate qualification?"
-            ],
-            "actual_issue": "Determining whether multiple product variants using the same Bluetooth-qualified module and unchanged Bluetooth implementation can reuse a single qualification and be added as derivative products without additional qualification fees.",
-            "plain_english_explanation": "The customer had many lighting product variants that all used the same Bluetooth module and software implementation. They wanted to know whether every model needed a separate Bluetooth qualification. The consultant clarified that products using the same Bluetooth design can be added as additional product listings without repeating the full qualification process or paying extra registration fees.",
-            "consultant_answer": "The consultant explained that when the Bluetooth module type and Bluetooth-compliant implementation remain the same, multiple end-product variants can be registered as derivative or additional products under the same qualification. Differences such as chip antenna versus external antenna implementation do not require separate qualification if the module type is unchanged and the Bluetooth implementation is identical. Additional product registrations can therefore be added without extra qualification fees.",
-            "decision_logic": "Bluetooth qualification reuse is allowed when the Bluetooth-compliant portion of the design is unchanged. Cosmetic, mechanical, or product-family differences do not create a new Bluetooth design if the module and implemented Bluetooth features remain identical.",
-            "final_recommendation": "Register one representative product first, then add the remaining variants as additional products under the same qualified Bluetooth design.",
-            "risk_if_done_wrong": "Treating each variant as a separate qualification could lead to unnecessary testing, duplicate qualification effort, and unnecessary SIG fees. Incorrectly reusing a qualification when the Bluetooth implementation actually changed could create compliance exposure.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "module",
-                "reuse",
-                "design reuse",
-                "product listing",
-                "DIS"
-            ],
-            "search_aliases": [
-                "additional product registration",
-                "derivative product listing",
-                "same module reuse",
-                "chip antenna external antenna",
-                "free additional registration",
-                "same Bluetooth design",
-                "product family qualification",
-                "module-based qualification reuse"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0013",
+  "case_id": "thread_0013_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Registrant account access, Bluetooth SIG website login (Koizumi Lighting)",
+  "customer_question": "When I go to the website to handle the Bluetooth SIG registration Invoice billing, in addition to my old account and password, it now asks for a 6-digit code. My registered email address appears to be from my previous employer, so I don't know what passcode would have been generated or sent. How should I resolve this?",
+  "question_variants": [
+    "Why is the SIG account suddenly asking for an extra 6-digit verification code?",
+    "Can someone else request account recovery on my behalf if I can no longer access the registered email?"
+  ],
+  "actual_issue": "The customer's Bluetooth SIG account was registered under an email address from a previous employer that they no longer had access to, and the account had become locked pending a periodic email verification step, blocking them from accessing Invoice billing on the registration site.",
+  "plain_english_explanation": "Bluetooth SIG periodically sends verification emails containing a Verify URL to the email address on file for an account, to confirm it is still active (this occurred broadly around March of that year). Accounts that don't complete this verification get temporarily locked; attempting to log into a locked account triggers a 6-digit Verify Code to be sent to the registered email address, which must be entered to unlock the login. If the customer could still receive mail at the old employer's address, entering that 6-digit code would unlock it. However, since they could not receive mail there, account recovery cannot be performed by anyone other than the actual owner of that email address — there is no workaround for a third party to recover it on the account holder's behalf. The only path forward in that situation is to register a brand new SIG account under the customer's own currently-accessible email address.",
+  "consultant_answer": "Bluetooth SIG periodically re-verifies accounts by emailing a Verify URL to the address on file (this happened around March); unverified accounts get locked, and logging into a locked account triggers a 6-digit Verify Code sent to that same registered email. If you can still receive mail at your old employer's address, entering that code unlocks the account. Since you can't, there's no way for anyone else to recover the account on your behalf — you'll need to register a new SIG account under an email address you currently control.",
+  "decision_logic": "Bluetooth SIG account recovery for a locked account is strictly tied to access to the originally registered email address; if that address is no longer accessible (e.g., a former employer's email), no third party — including the registrant's own consulting/BQTF support contact — can perform recovery on the account holder's behalf, making a fresh account registration the only viable path forward.",
+  "final_recommendation": "When a customer reports being locked out of a SIG account due to an inaccessible registered email, immediately explain the periodic verification mechanism and clarify that recovery is only possible via that exact email address, so the customer doesn't waste time pursuing a recovery path that isn't available — and proactively suggest creating a new account right away if the old email is confirmed unreachable.",
+  "risk_if_done_wrong": "A customer who doesn't understand the verification email mechanism might assume the consulting company can recover or bypass the lock on their behalf, leading to wasted time waiting on a request that nobody can fulfill, before eventually being told a fresh account is the only option.",
+  "bluetooth_tags": [
+    "SIG account locked",
+    "email verification code",
+    "former employer email inaccessible",
+    "account recovery not possible by third party",
+    "new account registration required",
+    "Koizumi Lighting"
+  ],
+  "search_aliases": [
+    "Bluetooth SIG account locked 6 digit code",
+    "can't access old email for SIG verification",
+    "SIG account recovery former employer email",
+    "create new Bluetooth SIG account"
+  ],
+  "qualification_stage": "Registration site account access",
+  "confidence": "high"
 }

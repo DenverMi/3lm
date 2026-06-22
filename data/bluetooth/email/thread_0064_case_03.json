@@ -1,43 +1,23 @@
 {
-    "source_thread": "thread_0064",
-    "cases": [
-        {
-            "case_id": "thread_0064_case_03",
-            "iut_type": "toilet sensor",
-            "customer_question": "Can a Bluetooth SIG receipt and qualification fee payment generated under one account be used to register a product under a different account?",
-            "question_variants": [
-                "Does the invoice account have to match the registration account?",
-                "Can I use a receipt number from another user account?",
-                "How do I change the account associated with a Bluetooth SIG payment?",
-                "Is a transfer request required for receipt ownership changes?",
-                "Can qualification registration proceed under a different user account?"
-            ],
-            "actual_issue": "The qualification fee invoice and receipt were generated under one Bluetooth SIG user account, while another account was initially considered for registration activities.",
-            "plain_english_explanation": "Bluetooth SIG tracks qualification payment records using the account that generated the invoice. If registration is performed using a different account, the payment record may not be available. Ownership must be transferred before the alternate account can use the receipt.",
-            "consultant_answer": "The consultant explained that the login account used for invoice generation and the account used during qualification registration must align because the receipt number is tied to the originating account. Registration could proceed immediately using the original account. If another user account was preferred, a valid account had to be established first and a Bluetooth SIG transfer request submitted to move the receipt number before registration.",
-            "decision_logic": "Receipt numbers are account-bound within the Bluetooth SIG system. Registration eligibility depends on the account that owns the payment record unless ownership is formally transferred.",
-            "final_recommendation": "Use the same Bluetooth SIG account that generated the invoice and receipt whenever possible. If a different account must be used, complete the account setup and receipt transfer process before starting registration.",
-            "risk_if_done_wrong": "Registration can be delayed because the receipt number may not be usable from the alternate account until a formal transfer process is completed.",
-            "bluetooth_tags": [
-                "listing",
-                "declaration",
-                "invoice",
-                "receipt",
-                "account management"
-            ],
-            "search_aliases": [
-                "receipt number transfer",
-                "invoice account mismatch",
-                "SIG account ownership",
-                "qualification fee receipt",
-                "registration account mismatch",
-                "transfer request required",
-                "receipt tied to account",
-                "Bluetooth SIG invoice account"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0064",
+  "case_id": "thread_0064_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "What product documentation do we need to prepare for the compliance folder once this registration is finalized?",
+  "question_variants": [
+    "What materials should we gather for the compliance package after registration?",
+    "Besides the SIG registration documents, what do you need from us for the compliance folder?",
+    "What product information is required to build the CD-R/CR-R compliance package?"
+  ],
+  "actual_issue": "Ahead of finalizing the registration, the customer needed to know what product-specific documentation to prepare so the consultant could assemble the post-registration compliance folder.",
+  "plain_english_explanation": "After a Bluetooth registration is filed, the consultant builds a compliance package combining the official SIG paperwork with a few pieces of documentation about the actual product. The customer needs to supply these specific materials so the package can be put together once registration is complete.",
+  "consultant_answer": "In addition to the SIG documents generated during the registration process itself, the consultant requested the following product information be prepared and submitted to build the compliance folder: (1) the operation manual (Bluetooth-related section), (2) the product's block diagram, (3) the product's outline/dimensional drawing, and (4) the antenna datasheet, including its radiation gain pattern.",
+  "decision_logic": "The compliance folder for a finalized registration requires both the registration-process-generated SIG documentation and a fixed set of customer-supplied product materials (operation manual Bluetooth section, block diagram, outline drawing, antenna datasheet with radiation gain pattern); requesting these ahead of Submission avoids delaying compliance-folder delivery after registration completes.",
+  "final_recommendation": "Prepare and submit the operation manual's Bluetooth section, the product block diagram, the product outline drawing, and the antenna datasheet (including radiation gain pattern) so the compliance folder can be assembled once registration Submission is finalized.",
+  "risk_if_done_wrong": "Failing to prepare the required product documentation in advance would delay assembly and delivery of the post-registration compliance folder.",
+  "bluetooth_tags": ["listing", "declaration", "compliance folder", "antenna datasheet"],
+  "search_aliases": ["compliance folder documents checklist", "antenna datasheet radiation gain pattern requirement", "product block diagram outline drawing registration", "operation manual Bluetooth section compliance folder"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

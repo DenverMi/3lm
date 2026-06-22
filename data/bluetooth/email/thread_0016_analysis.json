@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0016",
+  "thread_analysis": {
+    "thread_summary": "An internal Allion thread (Yu Hong, Denver Mishima, Itsuo Sakai, Toshitaka Mochizuki, Kenichi Ushiroebisu) coordinating RF PHY testing for an Alinco XE1177 DUT, covering USB cable/PC connection troubleshooting (similar to patterns documented in other Alinco threads) and a Class 1 vs. Class 2 Output Power shortfall investigation centered on the BlueTest3 tester's default internal configuration setting.",
+    "all_questions_found": [
+      "Could the test tool's default output power configuration be masking the product's true Class 1 capability? (see thread_0016_case_01)"
+    ],
+    "key_technical_discussion": "The USB cable/PC connection troubleshooting (changing cables, preferring Windows 10 PCs) mirrors patterns already documented in other Alinco-related threads; the new contribution here is investigating whether the tester's default 'Int=50' configuration, rather than a genuine hardware limitation, explains a Class 2-level (rather than Class 1) Output Power test result.",
+    "key_decision_logic": "See thread_0016_case_01.",
+    "risk_if_done_wrong": "See thread_0016_case_01.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "When a Power Class test result falls short of the target class, check the test tool's default configuration against the product's actual firmware setting before concluding a hardware-level limitation exists."
+  }
+}

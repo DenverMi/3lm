@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0176",
+  "thread_analysis": {
+    "thread_summary": "Teraoka Seiko thread for an IoT device using an Espressif module with separate Host Subsystem QDID and Controller Subsystem QDID (not a single Component QDID). Two main cases: (1) module with separate Host/Controller QDIDs requires Multi-Design registration (¥250,000), not Single-Design; (2) TCW yellow warning on the ICS Form after entering the waiver is normal — SIG approves within 1-5 US business days. The thread also documents the end-to-end registration process for this product.",
+    "all_questions_found": [
+      "Our module has separate Host and Controller QDIDs. Does this mean we need Multi-Design registration?",
+      "The Review Page ICS Form shows a yellow warning after TCW entry. Will this block approval? How long does SIG take to approve?"
+    ],
+    "key_technical_discussion": "The key determination at quoting: check the SIG qualification database to see whether the target module has a single Component QDID or separate Host/Controller QDIDs. Separate QDIDs = Multi-Design = ¥250,000. The yellow TCW indicator is the normal review state for waived inconsistencies and does not block approval. SIG's manual review window is 1-5 US business days.",
+    "key_decision_logic": "QDID structure determines registration type: one QDID = Single-Design; two or more QDIDs = Multi-Design. TCW = accepted known inconsistency = yellow indicator = approved by SIG after manual review, not a rejection trigger.",
+    "risk_if_done_wrong": "Quoting Single-Design for a module with two separate QDIDs underprices the job. Failing to enter all TCW numbers before submission causes rejection. Resubmitting during the SIG review window resets the review clock.",
+    "consulting_mistake": "None identified. Consultant correctly identified the Multi-Design requirement and explained the TCW yellow indicator behavior.",
+    "consulting_takeaway": "Always verify the QDID count of the target module before issuing a quote. One physical module can require Multi-Design registration if it has been qualified with separate Host and Controller QDIDs. This is increasingly common with modern BLE/Bluetooth module products."
+  }
+}

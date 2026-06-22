@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0259",
+  "case_id": "thread_0259_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging), confidential product launch timing and registration public-visibility control",
+  "customer_question": "What exactly does 'desired certification date' mean in this process? Also, our product's release date needs to stay confidential — is there a way to keep the Bluetooth registration from becoming publicly visible before our planned announcement?",
+  "question_variants": [
+    "What internal milestone does 'desired certification date' actually refer to?",
+    "Can we control when the registration becomes publicly visible to protect our confidential launch date?"
+  ],
+  "actual_issue": "The customer didn't understand what 'desired certification date' was actually asking about in the context of their own internal product development approval process, and separately had a strict confidentiality requirement around their unreleased product's launch date that needed to be reconciled with the public nature of SIG registration.",
+  "plain_english_explanation": "'Desired certification date' refers to the date by which the customer needs Bluetooth SIG certification to be formally completed, typically driven by an internal product-development approval milestone (most companies have staged internal review/approval gates, one of which requires legal and Bluetooth certification to be in place before it can proceed) — so the relevant date is whatever falls before that gate in the customer's own internal schedule. Separately, when registering the first model to be listed in the Product List, the registration site allows specifying a public release date up to 90 days in the future; setting this to the actual planned announcement or press release date keeps the registration page from becoming publicly visible on the SIG site until that specified date, protecting the confidentiality of an unreleased product's launch timing.",
+  "consultant_answer": "'Desired certification date' refers to the date you need Bluetooth SIG certification formally completed by — usually tied to an internal product-development approval gate that requires legal and Bluetooth certification to already be in place, so it's whatever date falls before that gate in your own schedule. For your confidentiality concern: when registering your first listed model, you can specify a public release date up to 90 days in the future — setting this to your actual planned announcement or press release date will keep the registration page from appearing publicly on the SIG site until then.",
+  "decision_logic": "Certification timeline planning should be anchored to the customer's own internal approval-gate schedule rather than treated as an abstract registration deadline, and confidentiality concerns about an unreleased product's registration visibility can be addressed via the registration site's built-in 90-day-ahead public release date mechanism rather than requiring any special confidentiality arrangement.",
+  "final_recommendation": "When a customer is confused about what a 'desired certification date' question is really asking, reframe it around their own internal product-approval milestones; when a customer raises confidentiality concerns about registration visibility, proactively explain the registration site's built-in public release date control rather than treating it as an unsolvable conflict with SIG's public registration database.",
+  "risk_if_done_wrong": "Without clarifying what 'desired certification date' means, a customer might provide an arbitrary or poorly-calibrated date that doesn't actually reflect their real internal deadline; without explaining the public release date control, a customer with a confidential launch could mistakenly believe SIG registration would prematurely reveal their product before its planned announcement.",
+  "bluetooth_tags": [
+    "desired certification date meaning",
+    "internal approval gate timeline",
+    "public release date 90 days confidentiality",
+    "Product List visibility control",
+    "Ricoh Imaging"
+  ],
+  "search_aliases": [
+    "what does desired certification date mean",
+    "how to keep Bluetooth registration confidential before launch",
+    "90 day public release date Product List",
+    "unreleased product registration visibility"
+  ],
+  "qualification_stage": "Pre-quotation / launch timing planning",
+  "confidence": "high"
+}

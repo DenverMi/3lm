@@ -1,41 +1,33 @@
 {
-    "source_thread": "thread_0013",
-    "cases": [
-        {
-            "case_id": "thread_0013_case_05",
-            "iut_type": "lighting device",
-            "customer_question": "What should be done if a Bluetooth SIG account verification code is sent to an inaccessible former company email address?",
-            "question_variants": [
-                "Bluetooth SIG verification code sent to old email",
-                "Cannot access SIG login verification email",
-                "How to recover locked Bluetooth SIG account",
-                "Can another user recover our SIG account?",
-                "What if the registered SIG email belongs to a former employer?"
-            ],
-            "actual_issue": "The customer could not complete Bluetooth SIG account verification because the registered email address belonged to a previous employer and could no longer receive the verification code.",
-            "plain_english_explanation": "Bluetooth SIG periodically verifies user accounts by sending a code to the registered email address. If the old email account is inaccessible, the user cannot unlock the account. Another person cannot recover the account on their behalf.",
-            "consultant_answer": "The consultant explained that Bluetooth SIG periodically locks accounts pending verification and sends a six-digit verification code to the registered email address. If the user cannot access the former employer email account, another person cannot restore the account. The correct approach is to create a new Bluetooth SIG user account using a currently accessible company email address.",
-            "decision_logic": "Bluetooth SIG account ownership and verification are tied to the registered email account, and account recovery cannot bypass ownership verification.",
-            "final_recommendation": "Create a new Bluetooth SIG account using a valid current company email address and use the new account for qualification activities.",
-            "risk_if_done_wrong": "Failure to restore or replace the account can block invoice payment, qualification submission, and access to qualification workspace activities.",
-            "bluetooth_tags": [
-                "SIG account",
-                "listing",
-                "qualification workspace",
-                "account verification"
-            ],
-            "search_aliases": [
-                "Bluetooth SIG login locked",
-                "verification code old email",
-                "SIG account recovery",
-                "cannot access registered email",
-                "Bluetooth SIG MFA issue",
-                "qualification workspace login",
-                "verification code problem"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0013",
+  "case_id": "thread_0013_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Koizumi Lighting BM043 lamp), profile PTS test sample modification scope and lab wiring setup",
+  "customer_question": "We've prepared the test samples as shown in the photos -- both the profile-test sample and the RF PHY-test sample enter advertising mode when Vcc is applied. Is this an acceptable state? Also, our internal test engineer asks: the sample has Vcc, GND, Rx, and Tx leads exposed -- how should these be connected to the InterLab system's USB port?",
+  "question_variants": [
+    "Does exposing UART TX/RX leads on an otherwise-unmodified profile test sample count as a disqualifying modification?",
+    "What equipment is needed to connect a DUT's exposed Vcc/GND/Rx/Tx leads to the lab's USB-based test system?"
+  ],
+  "actual_issue": "The customer needed confirmation that their prepared test samples (with Vcc/GND/Rx/Tx leads exposed for lab connection purposes) were acceptable without counting as a disqualifying hardware modification, and the lab's own engineer needed practical guidance on the physical equipment required to connect those leads to the InterLab test system.",
+  "plain_english_explanation": "For the RF PHY test sample, the photographed modifications were exactly what's needed for that test, so testing proceeds once it's confirmed the sample responds correctly to test commands when connected to the tester. For the profile (PTS) test sample, the requirement is more lenient: an unmodified-state sample only needs lead wires (VCC, GND) so external power can be supplied from a regulated bench power supply -- having UART TX/RX leads additionally exposed does not disqualify the sample, since as long as the product still functions normally as a product when VCC/GND power is applied externally, PTS testing can proceed on it. Separately, on the practical lab setup side, connecting a DUT's exposed Vcc/GND/Rx/Tx leads to the InterLab system's USB port requires a USB-to-UART converter, specifically one supporting switchable 3.3V/5V logic levels (since using a fixed 5V-only converter risked mismatching the DUT's logic voltage). The exact wiring is a cross connection plus shared ground: the converter's RXD goes to the DUT's TXD, the converter's TXD goes to the DUT's RXD, and GND connects to GND directly; power is supplied separately via a regulated bench supply at the voltage specified in the Test Plan (3.3V in this case) connected across the DUT's VCC and GND leads.\n\nEarlier in the same engagement, before any modified samples were shipped, the lab also clarified the complete photo-based readiness checklist needed to confirm any test sample (before shipment) is properly prepared: for a profile (DIS) test sample, since it's often impossible to tell from a photo alone whether a sample is meant for profile or RF PHY testing, the customer should also provide a brief usage note (how to power on, how to set Advertising mode) alongside the photo. For an RF PHY test sample specifically, the photo must clearly show three things: (1) the serial or USB wiring needed to connect to the tester, (2) the antenna line's SMA-connector conversion coaxial cable extraction, and (3) the power supply modification (for battery-powered products, the battery removed and a +/GND lead wire extracted in its place) -- if any of these three are not visible in the submitted photo, the lab cannot confirm the sample is properly prepared for shipment.",
+  "consultant_answer": "Your RF PHY test sample's modifications are exactly what's needed -- testing proceeds once we confirm it responds correctly to test commands. For the profile test sample, having UART TX/RX leads exposed doesn't disqualify it from being an unmodified sample -- all that's strictly required is VCC/GND leads for external power, and since your sample still functions normally as a product with VCC/GND power applied, PTS testing can proceed on it as-is. For connecting the leads to our InterLab system, you'll need a USB-to-UART converter that supports switchable 3.3V/5V logic levels.",
+  "decision_logic": "A profile test sample's 'unmodified' status for PTS testing purposes is judged by whether the product still functions normally as a product when powered, not by whether convenience leads (like exposed UART TX/RX for lab connection) have been added -- additional exposed leads beyond the minimum VCC/GND requirement do not by themselves disqualify a sample from unmodified status as long as normal product function is preserved.",
+  "final_recommendation": "When confirming profile test sample acceptability, clarify that the unmodified-status bar is normal product function with external VCC/GND power applied, not the absence of any convenience wiring -- this avoids customers over-engineering minimal-modification samples out of unnecessary caution.",
+  "risk_if_done_wrong": "A customer might assume any visible wire modification (like exposed UART leads) disqualifies a sample from being treated as unmodified for PTS testing, leading to unnecessary extra sample preparation effort or delayed shipment.",
+  "bluetooth_tags": [
+    "profile PTS test unmodified sample definition",
+    "VCC GND lead minimum requirement",
+    "USB-UART converter 3.3V 5V switchable",
+    "InterLab test system connection",
+    "Koizumi Lighting"
+  ],
+  "search_aliases": [
+    "does exposed UART lead disqualify unmodified PTS sample",
+    "minimum wiring for profile test sample",
+    "USB to UART converter for Bluetooth test connection",
+    "InterLab system DUT connection"
+  ],
+  "qualification_stage": "Test sample preparation / lab setup",
+  "confidence": "medium"
 }

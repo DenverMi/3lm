@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0092",
+  "case_id": "thread_0092_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Our module uses an on-board antenna, and we pointed you to the module vendor's FCC documentation for antenna data, but does that link actually work for you?",
+  "question_variants": [
+    "Can the module vendor's FCC filing be used as our antenna datasheet?",
+    "What should we do if the antenna documentation link doesn't load correctly?",
+    "Where else can antenna data for our on-board module antenna be found?"
+  ],
+  "actual_issue": "The customer's product used a BLE module (BlueNRG-M2SA) with an on-board ceramic chip antenna and no external antenna, and pointed to the module vendor's FCC certification technical documentation as the source for antenna data, but the provided reference link did not actually lead to the intended FCC documentation.",
+  "plain_english_explanation": "When a product's antenna is built directly onto the Bluetooth module rather than being a separate part, the antenna's technical data usually comes from documentation the module's manufacturer already prepared for other regulatory filings. Here, the link the customer pointed to didn't actually work -- it redirected somewhere unrelated -- so instead of stopping there, the needed antenna information was found in a different, publicly available document for the same module.",
+  "consultant_answer": "The customer's BLE module (BlueNRG-M2SA) has an on-board ceramic chip antenna with no external antenna, and the customer pointed to the module vendor's FCC certification technical documentation as a source for antenna-related information. However, the provided URL redirected to an unrelated page (a ChatGPT page) rather than reaching the actual FCC documentation. Instead of relying on that broken reference, a separately-located, publicly available BlueNRG-M2SA datasheet was found that included the needed antenna data, and that was used for the compliance folder instead.",
+  "decision_logic": "When a customer's provided reference for a compliance folder document (such as antenna data sourced from a module vendor's other regulatory filings) turns out to be broken or inaccessible, the needed technical data should be independently sourced from the module vendor's own publicly available materials (such as its datasheet) rather than blocking on the customer's non-working reference.",
+  "final_recommendation": "If a customer-provided documentation link for a compliance folder item doesn't actually lead to the intended content, independently search for the needed technical data in the module vendor's own publicly available datasheet or similar materials rather than stalling on the broken reference.",
+  "risk_if_done_wrong": "Relying solely on a customer-provided reference without verifying it actually works could stall compliance folder completion if the link turns out to be broken or misdirected.",
+  "bluetooth_tags": ["antenna datasheet", "on-board antenna", "ceramic chip antenna", "compliance folder", "BlueNRG-M2SA"],
+  "search_aliases": ["antenna data broken link FCC reference", "on-board ceramic antenna no external antenna", "source antenna data from module datasheet", "BlueNRG-M2SA antenna data"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

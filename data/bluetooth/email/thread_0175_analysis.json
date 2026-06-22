@@ -1,0 +1,20 @@
+{
+  "source_thread": "thread_0175",
+  "thread_analysis": {
+    "thread_summary": "Go Co., Ltd. thread for a BLE product using Silicon Laboratories BGM210P module. Two main cases: (1) inter-layer ICS inconsistencies when combining two Component QDIDs — resolved by asking Silicon Laboratories to create a Subset DN with conflicting items set to 'Not Supported'; (2) product uses only standard GATT base + proprietary services → no SIG profile test required. Thread also captures the July 2024 QPRDv3.0 pricing impact (pre-July: Single-Design ¥150,000 → post-July: Multi-Design ¥250,000 due to system change). Silicon Laboratories responded to the Subset request and provided an appropriate DN that resolved the inconsistency.",
+    "all_questions_found": [
+      "When combining two Component QDIDs, we get 13 inter-layer ICS inconsistencies. How do we resolve this?",
+      "We implement proprietary GATT profiles only — is profile testing required?",
+      "The module datasheet shows it has both an integrated antenna and an RF pin for external antenna. Which antenna path determines RF PHY test exemption?",
+      "Is it correct that registration completes about 1 month after the order is placed (including remittance proxy and registration proxy)?",
+      "What is the schedule and what documents (operation manual, block diagram, outline drawing, antenna documentation) are required after the order is placed, to build the compliance folder?",
+      "Are required submission documents expected to be in English? (asked by the customer; no explicit answer found anywhere in the thread — unresolved gap)",
+      "Is it acceptable to prepare the antenna documentation by simply transcribing the module datasheet's radiated gain data? (asked by the customer; no explicit answer found anywhere in the thread — unresolved gap)"
+    ],
+    "key_technical_discussion": "Inter-layer ICS inconsistency resolution: the preferred fix is a Subset DN created by the QDID Listing Owner, which sets conflicting features to 'Not Supported' at the QDID level before they enter the product registration scope. This avoids test triggers. If modification is done at the product registration ICS level instead, it triggers test requirements for each modified item (hundreds of LL tests in this case). The customer ultimately resolved the inconsistency by referencing a QDID (for RF PHY) plus a separate Subset DN (for LL, HCI, and Host layers) obtained from Silicon Laboratories; the quote was unaffected. Proprietary profile exemption: SIG profiles = SIG standard; custom GATT services = proprietary = no test required. RF PHY exemption: integrated antenna used → exempt; RF pin / antenna connector used → test required. Separately, the order-to-registration timeline runs: order → Allion remits payment to SIG (~3 weeks to confirmation) → registration proxy submission (1-3 business days) → compliance folder preparation (1-3 business days once operation manual, block diagram, outline drawing, and antenna gain documentation are submitted) → CD-R delivery.",
+    "key_decision_logic": "Resolve ICS conflicts at the QDID level (Subset DN) not at the product registration level. Proprietary ≠ SIG-standard profile; custom services don't trigger profile tests. Antenna type drives RF PHY test scope.",
+    "risk_if_done_wrong": "Fixing LL ICS items at the product registration level instead of creating a Subset DN could trigger 300+ LL test requirements, adding weeks and significant cost. Incorrectly treating proprietary services as SIG profiles would trigger unnecessary profile tests.",
+    "consulting_mistake": "None identified. Sakai correctly identified the Subset DN approach as the right resolution, drafted the request to Silicon Laboratories, and confirmed the quote remained unchanged after Silicon Laboratories provided a suitable Subset DN.",
+    "consulting_takeaway": "When two Component QDIDs produce inter-layer inconsistencies, always check with the QDID Listing Owner first about available Subset DNs before doing any ICS modification at the product registration level. Many QDID owners have pre-prepared Subsets for common inconsistency patterns."
+  }
+}

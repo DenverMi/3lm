@@ -2,6 +2,7 @@
   "source_thread": "thread_0130",
   "case_id": "thread_0130_case_04",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "sensor",
   "customer_question": "We may change the LC matching circuit (antenna matching network) between the BLE chip and the antenna to optimize RF output. If only the LC matching is changed (nothing else), can we still register the new variant as a derivative model rather than a completely new registration?",
   "question_variants": [
@@ -11,11 +12,20 @@
   ],
   "actual_issue": "The customer asked whether changing only the LC matching circuit (antenna matching network) between the BLE chip and antenna - with no other BLE-related changes - allows the new variant to still be treated as a derivative model rather than requiring a completely new registration. The consultant explained that LC matching circuit changes do affect the BLE-antenna interface (and thus the RF PHY performance), so a simplified 2-item RF test (receive sensitivity + transmit power) is required before the new variant can be added to the Product List as a derivative. However, the variant still qualifies as a derivative model (not a full new design registration) - a simpler/cheaper 2-item RF PHY test (¥180,000) is sufficient to confirm the RF performance, and the variant can then be added to the existing Product List for free. This contrasts with changes to non-BLE components (board size, buzzer circuit, programming connector, etc.) which don't even require the 2-item test.",
   "plain_english_explanation": "The BLE chip's output connects to the antenna through a matching circuit (typically LC components) that tunes impedance for optimal RF performance. Unlike purely mechanical or non-BLE circuit changes, modifying this matching network directly affects the RF signal path between the BLE chip and antenna - so a Bluetooth certification authority can't simply assume the RF performance is the same as the base design without some testing. However, a full RF PHY test suite (used for entirely new designs) isn't needed - a simplified 2-item test covering just the two most important RF metrics (transmit power and receive sensitivity) is sufficient to confirm the RF performance is still acceptable, at significantly lower cost (¥180,000). Once this 2-item test is passed, the variant can be added to the existing Product List as a derivative model for free. The key distinction: BLE-antenna path changes require at minimum the 2-item test; non-BLE-path changes require no test at all.",
-  "consultant_answer": "基本的に今回のセンサの試験結果で一旦デザイン登録して、ゲートウェイ、センサ共に、LCマッチング回路以外の設変がなく、LC定数の設変があっても簡易な2項目試験（受信感度、送信出力）を実施して、派生機種として無料で登録することができます。 RF PHY 2項目試験は¥180,000です。 (Basically, we'll first complete a design registration based on this sensor's test results. For both gateway and sensor, if the only change is to LC constants with no other BLE-related changes, you can perform a simplified 2-item test (receive sensitivity, transmit power) and register the variant as a derivative for free. The RF PHY 2-item test is ¥180,000.)",
+  "consultant_answer": "Basically, we'll first complete a design registration based on this sensor's test results. For both gateway and sensor, if the only change is to LC constants with no other BLE-related changes, you can perform a simplified 2-item test (receive sensitivity, transmit power) and register the variant as a derivative for free. The RF PHY 2-item test is ¥180,000.",
   "decision_logic": "When a design change is limited to the LC matching circuit (antenna matching network) with no other BLE-related changes: the variant qualifies as a derivative (not a new design registration) but requires a simplified 2-item RF PHY test (receive sensitivity + transmit power, ¥180,000) before Product List addition. This is distinct from non-BLE-path changes (board size, non-BLE components, etc.) which require no test and qualify for free Product List addition without testing.",
   "final_recommendation": "When a customer plans to change only the LC matching circuit, confirm they qualify as a derivative (not a new registration) but require the simplified 2-item RF PHY test (¥180,000) before Product List addition. Quote accordingly and clarify this is lower cost and simpler than a full design registration while still ensuring RF performance is validated.",
   "risk_if_done_wrong": "Adding a variant with changed LC matching to the Product List without the 2-item RF PHY test could mean selling a product whose RF performance (transmit power, receive sensitivity) has not been validated after the matching change, potentially failing actual RF performance requirements. Conversely, treating this as requiring a full new design registration would result in unnecessary testing cost.",
-  "bluetooth_tags": ["qualification", "RF PHY", "LC matching", "antenna", "derivative product", "RF 2-item test", "Product List", "design change"],
+  "bluetooth_tags": [
+    "qualification",
+    "RF PHY",
+    "LC matching",
+    "antenna",
+    "derivative product",
+    "RF 2-item test",
+    "Product List",
+    "design change"
+  ],
   "search_aliases": [
     "LC matching circuit change derivative RF 2-item test",
     "antenna matching network change Bluetooth re-test",

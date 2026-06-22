@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0177",
+  "case_id": "thread_0177_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth keyboard — 4 models (Topre Corporation)",
+  "customer_question": "We have 4 different keyboard models that all use the same Bluetooth module. Do all 4 models need to be tested, or can we test one and register all 4 under the same registration?",
+  "question_variants": [
+    "We have multiple product variants with the same Bluetooth module. Do we test all of them?",
+    "Can we register all keyboard models under one registration using one test result?",
+    "How are multiple models with identical Bluetooth implementations handled in SIG registration?"
+  ],
+  "actual_issue": "Topre has 4 keyboard models (different sizes/layouts) that all use the same Bluetooth module and the same Bluetooth firmware. They want to know if testing one representative model is sufficient to cover all 4 in a single registration.",
+  "plain_english_explanation": "When multiple product models use the same Bluetooth module and identical Bluetooth firmware, they can all be registered under a single SIG registration (Multi-Design or Single-Design, depending on the module QDID structure). Testing is done on one representative model — SIG does not require separate testing for each product variant if the Bluetooth implementation is identical. All 4 models are listed in the Product List of the single registration, with one set of test evidence covering all of them.",
+  "consultant_answer": "Test one representative keyboard model and list all 4 models in the same SIG registration. As long as the Bluetooth module and firmware are identical across all models, one set of test results covers all of them. All 4 model names/numbers are entered in the Product List of the single registration.",
+  "decision_logic": "SIG qualification scope covers the Bluetooth implementation, not the physical product form factor. Keyboards with different key counts, layouts, or form factors but identical Bluetooth module and firmware are the same Bluetooth implementation. Multi-model registration with a single representative test is the standard practice for product families.",
+  "final_recommendation": "Select one representative model for testing (typically the most functionally complete one). List all 4 models in the Product List during registration. Document clearly that all models share the same Bluetooth module and firmware version, which may be needed for the Compliance Folder.",
+  "risk_if_done_wrong": "Testing all 4 models separately would waste cost and time when the Bluetooth implementation is identical. Failing to list all models in the Product List means the unlisted models are not covered by the registration and cannot legally use the Bluetooth logo.",
+  "bluetooth_tags": [
+    "Multi-model registration",
+    "Product List",
+    "representative model testing",
+    "multiple variants",
+    "same module",
+    "keyboard",
+    "SIG registration"
+  ],
+  "search_aliases": [
+    "multiple models one registration",
+    "test one model register all variants",
+    "product family same Bluetooth module registration",
+    "multi-model Bluetooth SIG registration",
+    "4 models single test registration"
+  ],
+  "qualification_stage": "Pre-registration / qualification scoping",
+  "confidence": "high"
+}

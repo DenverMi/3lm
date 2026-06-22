@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0093",
+  "thread_analysis": {
+    "thread_summary": "[COMPANY] orders Bluetooth SIG registration for a successor beacon product. The thread walks through the standard process flow (registration confirmation document, Qualification Fee invoice obtained under the same account used for registration, direct wire transfer by the customer, and a 3-business-day completion window for this test-exempt registration), and the consultant identifies the correct Host Stack QDID to Include by cross-referencing the SoftDevice firmware version specified in the module vendor's own datasheet against the QDID's actual registered firmware version. The thread closes with Review Page confirmation, Submission, and a request for the remaining compliance folder product documentation.",
+    "all_questions_found": [
+      "Roughly how long will it take to complete certification once the order is placed?",
+      "What documents and information does the customer need to prepare?",
+      "What procedural steps should the customer take next, including how the Qualification Fee should be wired?",
+      "Which Host Stack QDID should be Included with the module's Controller-level registration, given the specific SoftDevice firmware version documented in the module vendor's datasheet?",
+      "Does the Review Page's Product Details and Design Details content look correct before Submission is finalized?"
+    ],
+    "key_technical_discussion": "The thread illustrates how to identify the correct Host Stack QDID to Include with a module's registration: rather than assuming a generic match, the SoftDevice firmware file version specified in the module vendor's own datasheet (here, a Kaga FEI module datasheet referencing a specific Nordic SoftDevice hex file) is cross-referenced against the QDID's actual registered firmware version to confirm the correct, exact-match QDID to reference.",
+    "key_decision_logic": "When selecting a Host Stack QDID to Include with a module for registration, the firmware/SoftDevice version actually documented in the module vendor's own datasheet should be cross-referenced against the QDID's registered firmware version to confirm an exact match, rather than assuming any QDID associated with the general chip family or vendor is interchangeable.",
+    "risk_if_done_wrong": "Including a Host Stack QDID that does not actually match the module's documented SoftDevice firmware version risks an inaccurate registration that does not reflect the product's actual implementation.",
+    "consulting_mistake": "",
+    "consulting_takeaway": "When combining a module with an existing Host Stack QDID for registration, verify the exact firmware/SoftDevice version specified in the module vendor's own datasheet against the QDID's registered firmware version before Including it, rather than assuming a generic vendor or chip-family match is sufficient. The remaining process details in this thread (registration confirmation document, Qualification Fee invoice account matching, direct wire transfer procedure, and compliance folder document checklist) follow patterns already documented in detail elsewhere (e.g., thread_0064, thread_0076, thread_0082, thread_0092)."
+  }
+}

@@ -1,7 +1,8 @@
 {
   "source_thread": "thread_0154",
   "case_id": "thread_0154_case_02",
-  "source_type": "internal_consulting",
+  "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — AVRCP profile",
   "customer_question": "The PTS version shown in the AVRCP report is different from the version in the test log. Also, the test log has TSPC_ALL set to True. Is the TSPC_ALL=True setting acceptable, and does the PTS version mismatch need to be corrected?",
   "question_variants": [
@@ -16,8 +17,20 @@
   "decision_logic": "SIG explicitly allows TSPC_ALL=True. The alternative approach (set the relevant ICS item to False in PTS and regenerate the log) is unnecessary extra work. The PTS version discrepancy between log and report is also acceptable given the 3-digit vs 4-digit convention (see thread_0153).",
   "final_recommendation": "Accept TSPC_ALL=True in PTS logs without regeneration. Document this in the report QC checklist to prevent future confusion when engineers flag it as a potential issue.",
   "risk_if_done_wrong": "Unnecessarily regenerating PTS logs wastes engineer time. There is no compliance risk with TSPC_ALL=True — the test coverage is broader than required, not narrower.",
-  "bluetooth_tags": ["TSPC_ALL", "PTS", "test log", "AVRCP", "report review", "ICS"],
-  "search_aliases": ["TSPC_ALL True acceptable", "PTS TSPC_ALL setting", "regenerate PTS log", "AVRCP PTS TSPC_ALL"],
+  "bluetooth_tags": [
+    "TSPC_ALL",
+    "PTS",
+    "test log",
+    "AVRCP",
+    "report review",
+    "ICS"
+  ],
+  "search_aliases": [
+    "TSPC_ALL True acceptable",
+    "PTS TSPC_ALL setting",
+    "regenerate PTS log",
+    "AVRCP PTS TSPC_ALL"
+  ],
   "qualification_stage": "Test Report Review",
   "confidence": "high"
 }

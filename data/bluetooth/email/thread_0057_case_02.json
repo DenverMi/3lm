@@ -1,46 +1,31 @@
 {
-    "source_thread": "thread_0057",
-    "cases": [
-        {
-            "case_id": "thread_0057_case_02",
-            "iut_type": "BLE device",
-            "customer_question": "Can previously completed RF PHY testing be reused when a product receives a host-level firmware or SDK update and only minor hardware changes are introduced?",
-            "question_variants": [
-                "Must RF PHY testing be repeated after a firmware update?",
-                "Does a host software change affect RF PHY qualification testing?",
-                "Can existing RF PHY reports be reused?",
-                "Is RF PHY retesting required after changing SDK versions?",
-                "How much RF PHY testing is needed for a derivative model?"
-            ],
-            "actual_issue": "The customer wanted to know whether an existing product that had already passed RF PHY testing needed full RF PHY retesting after migration to a newer SDK and creation of a related new model.",
-            "plain_english_explanation": "RF PHY testing focuses on the radio and lower Bluetooth layers. Changes in higher-level application or host software do not automatically require repeating the entire RF PHY test campaign. If the radio implementation remains effectively the same, previously generated RF PHY evidence may be reusable.",
-            "consultant_answer": "The consultant explained that RF PHY testing operates at HCI and lower layers, so host-layer modifications do not by themselves require RF PHY retesting. The proposed qualification strategy was to establish a new qualified baseline using the updated SDK and then treat the lightly modified hardware variant as a derivative product. Under that approach, the existing RF PHY test report could be reused and only RF PHY two-item testing would be performed for the new model. An earlier internal assumption about full RF PHY testing was later corrected to RF PHY two-item testing.",
-            "decision_logic": "RF PHY qualification requirements are driven by the radio-facing implementation rather than host-level software changes. When the RF-relevant design remains compatible, existing RF PHY evidence can be leveraged and limited RF validation may be sufficient.",
-            "final_recommendation": "Evaluate changes at the RF and controller boundary. Reuse existing RF PHY evidence where the RF implementation remains applicable and perform only the RF PHY validation required for the new derivative qualification path.",
-            "risk_if_done_wrong": "Incorrectly assuming full RF PHY retesting is required can lead to unnecessary testing effort and qualification cost. Conversely, incorrectly reusing RF evidence without validating RF-impacting changes can create qualification compliance risk.",
-            "bluetooth_tags": [
-                "RF PHY",
-                "qualification",
-                "reuse",
-                "design change",
-                "controller",
-                "HCI",
-                "test strategy",
-                "derivative product"
-            ],
-            "search_aliases": [
-                "RF PHY retest required",
-                "host layer change RF PHY",
-                "firmware update RF PHY",
-                "reuse RF PHY report",
-                "RF PHY two item test",
-                "HCI below testing",
-                "derivative model RF validation",
-                "RF evidence reuse"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0057",
+  "case_id": "thread_0057_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Subset creation (reduced-profile-support derivative design) remains possible post-2024, but with increased rejection risk under strengthened Consistency Check -- Profile/Service removal subsets succeed more often than other reduction types",
+  "customer_question": "Is it still possible, as before, to create a Subset of a registered design with reduced supported profiles, and then register derivative models linked to that Subset?",
+  "question_variants": [
+    "Has the success rate of creating a Subset changed under the post-2024 registration system?",
+    "Is there a type of Subset reduction that's more likely to succeed than others?"
+  ],
+  "actual_issue": "The customer wanted to know whether the previously-available strategy of defining a Subset (a derivative design with reduced supported profiles relative to the original registered design) and registering derivative models against that Subset remained a viable option under the post-2024 registration system.",
+  "plain_english_explanation": "Defining a Subset and registering derivative models linked to it remains possible as a system feature -- this capability itself was not removed by the 2024 overhaul. However, the underlying Controller-Host inter-layer consistency checking was strengthened starting July 1, 2024. The old system also required passing Consistency Check (achieving No Invalid) during Subset definition, but the new system's Consistency Check is now considerably more stringent, meaning the probability of a Subset-creation attempt being rejected has increased compared to before. Based on practical experience, Subsets that simply remove a BLE Profile or Service from the supported set tend to have a relatively higher success rate than other kinds of reduction -- implying that more granular layer-level reductions (such as removing specific Core-layer or PHY-mode support) are more likely to trigger Consistency Check failures than dropping an entire Profile or Service wholesale.",
+  "consultant_answer": "Yes, defining a Subset and registering derivative models against it remains possible -- that capability wasn't removed. But the underlying Consistency Check has been strengthened since July 2024, so the probability of a Subset-creation attempt being rejected has gone up compared to before. From experience, Subsets that simply remove a BLE Profile or Service tend to succeed more often than other types of reduction.",
+  "decision_logic": "When a customer wants to create a Subset with reduced profile/feature support, confirm the capability remains available but set expectations that rejection risk has increased under the strengthened post-2024 Consistency Check, and favor Profile/Service-level removals over other reduction types when designing the Subset, since these have a historically higher success rate.",
+  "final_recommendation": "When scoping a Subset-creation strategy for a customer, proactively explain the increased rejection risk under the current Consistency Check regime and recommend structuring the reduction as a Profile/Service removal where possible, rather than letting the customer discover the increased difficulty only after an attempt fails.",
+  "risk_if_done_wrong": "A customer attempting a Subset reduction at a finer granularity than Profile/Service removal (e.g., removing specific Core-layer features) without anticipating the higher rejection risk could waste time on a Subset-creation attempt that the strengthened Consistency Check is more likely to reject.",
+  "bluetooth_tags": [
+    "Subset creation still possible post 2024 increased rejection risk",
+    "strengthened Controller Host Consistency Check July 2024",
+    "Profile Service removal subset higher success rate",
+    "Shimano SW-UT600"
+  ],
+  "search_aliases": [
+    "can I still create a Subset for derivative model registration",
+    "Subset creation rejection rate increased 2024",
+    "which type of Subset reduction has higher success rate"
+  ],
+  "qualification_stage": "Subset/derivative design strategy risk assessment",
+  "confidence": "high"
 }

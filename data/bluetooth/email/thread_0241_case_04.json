@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0241",
+  "case_id": "thread_0241_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (DensoTen upper-model HMI/IVI unit), post-test registration process",
+  "customer_question": "After our Profile testing passes, what work will we (DensoTen) need to do on our end, and how long will it take from test completion until certification/registration is fully finished?",
+  "question_variants": [
+    "What deliverables do we need to prepare after a Pass result?",
+    "What's the expected timeline from test completion to final registration?"
+  ],
+  "actual_issue": "The customer wanted to plan their internal resourcing and schedule for the period immediately following test completion, since they didn't yet know what documentation obligations or processing time stood between a Pass result and final certification.",
+  "plain_english_explanation": "Once testing passes, the customer needs to prepare four Compliance Folder documents in parallel with registration completion: the product's operation manual, the product's block diagram, the product's outline drawing, and antenna documentation including the radiation gain characteristic chart. Assuming the registration fee has already been paid, the registration itself completes in roughly 3 business days once the customer submits the proxy registration confirmation document immediately before test completion.",
+  "consultant_answer": "Once testing passes, please prepare four Compliance Folder documents in parallel: the product's operation manual, block diagram, outline drawing, and antenna documentation including the radiation gain characteristic chart. Assuming your registration fee payment is already complete, registration itself wraps up in about 3 business days once you submit the proxy registration confirmation document right before test completion.",
+  "decision_logic": "Post-test timeline and customer-side obligations split into two parallel tracks: Compliance Folder document preparation (customer responsibility, can start immediately) and registration fee/confirmation processing (roughly fixed 3-business-day turnaround once payment and confirmation document are in place).",
+  "final_recommendation": "When customers ask about post-test timeline, give both the concrete document checklist and the specific business-day estimate (conditioned on fee payment status) so they can plan resourcing accurately rather than assuming an open-ended wait.",
+  "risk_if_done_wrong": "Without a clear document checklist and timeline, the customer might delay starting Compliance Folder preparation until after test completion, needlessly extending their actual time-to-market beyond the achievable 3-business-day registration turnaround.",
+  "bluetooth_tags": [
+    "post-test process timeline",
+    "Compliance Folder document checklist",
+    "registration completion turnaround",
+    "proxy registration confirmation document",
+    "DensoTen"
+  ],
+  "search_aliases": [
+    "what to do after Bluetooth test passes",
+    "how long does registration take after test completion",
+    "Compliance Folder documents needed after Pass"
+  ],
+  "qualification_stage": "Post-test / pre-registration",
+  "confidence": "high"
+}

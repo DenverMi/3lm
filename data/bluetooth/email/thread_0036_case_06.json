@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0036",
+  "case_id": "thread_0036_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "PTS tool version regression -- a test item that passed under an older PTS/ETS version fails under the current version; submitting evidence as a mixed-version combination of PTS report files",
+  "customer_question": "One AVRCP test item (AVRCP/TG/MCN/CB) passed under an older PTS version (ETS version 11.5.0.5) but fails under the current version -- our chip vendor suspects this is a tool issue, not a real device non-conformance. Can we submit a combination of test reports generated under different PTS versions as our evidence, rather than needing every item to pass under the single latest version?",
+  "question_variants": [
+    "Is it normal for a PTS tool update to cause a previously-passing test item to start failing?",
+    "Does Bluetooth SIG require all profile test evidence to come from a single PTS/ETS tool version?"
+  ],
+  "actual_issue": "A specific AVRCP test item passed when run under an older PTS tool version but failed under the current version, and the chip vendor suspected this was a PTS tool regression rather than an actual non-conformance in the device -- raising the question of whether the customer could submit a combination of test report files generated under different PTS tool versions as combined registration evidence, rather than being required to re-pass every single item under one uniform, latest tool version.",
+  "plain_english_explanation": "PTS tool version updates have, on a non-trivial number of past occasions, caused test items that previously passed to stop passing -- this is a recognized, recurring pattern, not unique to this case, and is generally understood to reflect tool-side regressions rather than necessarily indicating the device under test has stopped conforming. When this happens and a target profile's test item fails on the latest PTS version, it is acceptable to test some items under one PTS version and other items under a different PTS version, and submit the resulting multiple, separate PTS report files together as the combined registration evidence -- this mixed-version evidence submission is valid and Bluetooth SIG accepts it without issue, as long as each test item passes in at least one of the submitted report files.",
+  "consultant_answer": "Thank you for confirming the Pass under the older PTS version -- this kind of thing has happened before; PTS tool updates have repeatedly caused previously-passing test items to stop passing in our prior experience. Yes, it's fine to submit a combination of test report files generated under different PTS versions as your evidence -- as long as each test item passes in at least one of the submitted reports, this mixed-version evidence is valid and acceptable, no problem.",
+  "decision_logic": "When a profile test item that previously passed under an older PTS tool version fails under the current version, consider that this may reflect a known PTS tool regression rather than an actual device conformance issue -- and if so, submitting a combination of PTS report files from different tool versions (each item passing in at least one submitted report) is an accepted, valid registration evidence approach rather than requiring every item to pass under a single uniform tool version.",
+  "final_recommendation": "When a customer reports a test item regression after a PTS tool update, reassure them this is a known, recurring pattern rather than necessarily a device defect, and proactively offer the mixed-version evidence submission option to avoid unnecessary re-engineering effort chasing a tool-side issue.",
+  "risk_if_done_wrong": "A customer unaware that mixed-version PTS evidence is acceptable might either delay registration indefinitely trying to force a Pass under the latest tool version, or unnecessarily modify their device's actual implementation in response to what is really a tool regression rather than a genuine non-conformance.",
+  "bluetooth_tags": [
+    "PTS tool version regression previously passing test fails",
+    "mixed version PTS report combined evidence accepted",
+    "ETS version test item Pass Fail discrepancy",
+    "Sony TV FY26 AVRCP"
+  ],
+  "search_aliases": [
+    "PTS test passed old version fails new version",
+    "can you submit test reports from different PTS versions",
+    "PTS tool regression known issue Bluetooth SIG",
+    "combined evidence multiple PTS report files"
+  ],
+  "qualification_stage": "Profile test evidence submission and registration finalization",
+  "confidence": "high"
+}

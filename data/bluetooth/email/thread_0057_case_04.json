@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0057",
+  "case_id": "thread_0057_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Hardware/board-level variance tolerance for derivative-product eligibility -- different product function is fine if the same Bluetooth IC/protocol is used; minor RF front-end differences (matching constants, ESD protection) require confirmatory RF PHY 2-item testing on the existing device",
+  "customer_question": "The new model and our already-registered model have significantly different PCBs and different product functions (one is a switch, the other is the electric gear-shifter it controls), and the registered model also has other wireless ICs on board -- but the Bluetooth wireless IC itself is the same, and the only differences in the wireless-IC-to-antenna front end are matching network constant values and the presence/absence of ESD protection components. How much of this kind of difference is tolerated for shared/derivative registration?",
+  "question_variants": [
+    "Can two products with completely different functions share one Bluetooth registration if they use the same wireless IC?",
+    "What test is needed to validate minor RF front-end hardware differences between a new and an already-registered product?"
+  ],
+  "actual_issue": "The customer had two products with substantially different PCBs, different product functions, and minor RF front-end hardware differences (matching network constants, ESD protection component presence), and needed to know whether the already-registered product could be treated as a derivative of the new registration despite these differences.",
+  "plain_english_explanation": "As long as the same Bluetooth wireless IC and protocol implementation is used, differing product functions (a control switch versus the device it controls) do not block the two products from being included in the same registration -- a Subset can be created if needed to scope differing supported profiles between them. However, when there are minor-but-potentially-RF-performance-affecting hardware differences, such as different matching network constants or the presence/absence of ESD protection components in the wireless-IC-to-antenna front end, validation is required: the RF PHY 2-item confirmatory test (transmit power and receive sensitivity) must be performed on BOTH the new model being registered AND the already-registered model -- not the full RF PHY test item set on the new model, which was the consultant's initial (corrected) statement. Once both pass the 2-item test, the already-registered model can be treated as a derivative product of the new registration -- on top of the standard requirement that both products run firmware built from the same SDK.",
+  "consultant_answer": "As long as the same Bluetooth wireless IC and protocol are implemented, differing product functions don't prevent shared registration -- create a Subset if needed. Since you have minor RF front-end differences (matching constants, ESD protection components) that could affect transmit/receive performance, both the new model (SW-UT600) and the already-registered model need to pass the RF PHY 2-item confirmatory test (transmit power, receive sensitivity) -- not the full RF PHY test suite on the new model, which was a mistake in my earlier message. Once both pass the 2-item test, the already-registered model can be treated as a derivative of the new registration, provided both also run firmware from the same SDK.",
+  "decision_logic": "When two products differ in PCB design and product function but share the same Bluetooth wireless IC, evaluate derivative eligibility based on whether minor RF front-end hardware differences exist; if so, require the RF PHY 2-item confirmatory test (transmit power, receive sensitivity) on BOTH the new registration target and the existing product, in addition to the standard same-SDK-firmware requirement, before treating them as derivatives of each other.",
+  "final_recommendation": "When a customer proposes combining two products with different functions and different PCBs under one registration, identify and quantify any RF front-end hardware differences (matching network, ESD protection) early, and plan for the RF PHY 2-item confirmatory test on BOTH products rather than the full RF PHY test suite on either one, rather than assuming functional or board-level differences alone disqualify the combination.",
+  "risk_if_done_wrong": "Assuming two products with different PCBs and functions cannot share a registration could lead to an unnecessary second full registration; conversely, combining them without validating the minor RF front-end hardware differences via the 2-item confirmatory test could result in an invalid derivative claim if actual RF performance diverges.",
+  "bluetooth_tags": [
+    "different product function same Bluetooth IC shared registration",
+    "RF PHY 2-item confirmatory test validates derivative eligibility",
+    "matching network ESD protection minor hardware difference tolerance",
+    "Shimano SW-UT600"
+  ],
+  "search_aliases": [
+    "can switch and gear shifter share one Bluetooth registration",
+    "RF PHY 2 item test for derivative product with hardware differences",
+    "matching constant ESD protection difference tolerance Bluetooth registration"
+  ],
+  "qualification_stage": "Derivative-product hardware-variance validation",
+  "confidence": "high"
+}

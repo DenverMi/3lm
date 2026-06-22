@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0163",
+  "case_id": "thread_0163_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE module / End Product (Global Denshi, BlueNRG-M2SA ceramic chip antenna)",
+  "customer_question": "What is the 'Operation Manual (Bluetooth part)' required for the Compliance Folder? We don't have a formal manual.",
+  "question_variants": [
+    "What document counts as an operation manual for Bluetooth compliance?",
+    "We don't have a user manual — what do we submit for the Bluetooth operation manual?",
+    "How detailed does the Bluetooth operation manual need to be?",
+    "Can a simple memo serve as the operation manual for the Compliance Folder?"
+  ],
+  "actual_issue": "The Compliance Folder required by Bluetooth SIG's QPRD (Qualification Program Requirements Document) includes an 'Operation Manual (Bluetooth part).' Many customers do not have a formal user manual for their product, or the Bluetooth portion is minimal. They want to know what level of documentation is acceptable.",
+  "plain_english_explanation": "The 'Operation Manual (Bluetooth part)' in the Compliance Folder is not required to be a polished, published user manual. Its purpose is simply to document how the product uses Bluetooth — for example, what Bluetooth mode it operates in, how to pair it, and what the Bluetooth feature does in the context of the product. A simple internal memo describing these points is fully acceptable. It does not need to be professionally formatted or match what goes in retail packaging.",
+  "consultant_answer": "A simple memo describing how the product uses Bluetooth is sufficient for the 'Operation Manual (Bluetooth part)' in the Compliance Folder. It does not need to be a formal, published user manual. The memo should describe the Bluetooth functionality: operating mode, pairing method, and the role Bluetooth plays in the product.",
+  "decision_logic": "QPRDv3 specifies that the Compliance Folder must contain documentation of Bluetooth usage. The standard does not require a formal published manual. The intent is to document the Bluetooth use case for audit purposes. A memo-level description satisfies this requirement.",
+  "final_recommendation": "Prepare a simple internal memo describing the product's Bluetooth functionality for the Compliance Folder. It does not need to be a formal user manual — 1–2 pages explaining Bluetooth operation is sufficient.",
+  "risk_if_done_wrong": "If the customer believes a full formal manual is required and delays documentation submission waiting for one, it unnecessarily slows down Compliance Folder delivery.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "operation manual",
+    "QPRDv3",
+    "Bluetooth documentation",
+    "audit preparation"
+  ],
+  "search_aliases": [
+    "operation manual compliance folder",
+    "bluetooth operation manual requirement",
+    "what counts as operation manual",
+    "simple memo operation manual",
+    "bluetooth user manual alternative",
+    "compliance folder documentation"
+  ],
+  "qualification_stage": "post-registration",
+  "confidence": "high"
+}

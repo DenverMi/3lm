@@ -2,6 +2,7 @@
   "source_thread": "thread_0144",
   "case_id": "thread_0144_case_03",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "IoT/commercial device",
   "customer_question": "We are using an nRF53 (Nordic) SoC with Zephyr OS. There is a Nordic Controller Subsystem QDID and a Linux Foundation Zephyr OS Host Subsystem QDID. What registration path should we use, and does it differ if we implement SIG standard profiles?",
   "question_variants": [
@@ -15,8 +16,25 @@
   "decision_logic": "1. Confirm SoC: nRF53 → Nordic Controller Subsystem QDID exists.\n2. Confirm OS: Zephyr → Linux Foundation Host Subsystem QDID exists.\n3. Check if SIG standard profiles are implemented:\n   - No profiles → Design registration referencing both QDIDs, no test.\n   - SIG profiles → Profile Subsystem new Design (PTS test) + both existing QDIDs.",
   "final_recommendation": "At project intake, explicitly ask whether the product implements any SIG standard Bluetooth profiles. The answer determines whether testing is required or whether the project is test-exempt.",
   "risk_if_done_wrong": "Starting a test-exempt Design registration for a product that actually implements SIG profiles creates an incomplete certification. Conversely, advising PTS testing when no SIG profiles are implemented wastes time and budget.",
-  "bluetooth_tags": ["nRF53", "Nordic", "Zephyr-OS", "Linux-Foundation", "Controller-Subsystem", "Host-Subsystem", "Profile-Subsystem", "test-exempt", "SIG-profiles", "PTS-test"],
-  "search_aliases": ["nRF53 Zephyr OS registration path", "Nordic Controller QDID Linux Foundation Host QDID", "Zephyr no SIG profiles test exempt", "nRF53 SIG profile PTS test required", "Declaration Design nRF53 Zephyr"],
+  "bluetooth_tags": [
+    "nRF53",
+    "Nordic",
+    "Zephyr-OS",
+    "Linux-Foundation",
+    "Controller-Subsystem",
+    "Host-Subsystem",
+    "Profile-Subsystem",
+    "test-exempt",
+    "SIG-profiles",
+    "PTS-test"
+  ],
+  "search_aliases": [
+    "nRF53 Zephyr OS registration path",
+    "Nordic Controller QDID Linux Foundation Host QDID",
+    "Zephyr no SIG profiles test exempt",
+    "nRF53 SIG profile PTS test required",
+    "Declaration Design nRF53 Zephyr"
+  ],
   "qualification_stage": "pre-registration / strategy selection",
   "confidence": "high"
 }

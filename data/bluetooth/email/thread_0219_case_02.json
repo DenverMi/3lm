@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0219",
+  "case_id": "thread_0219_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (smart communication unit with embedded antenna, Bluetooth V4.2 smart module, Seiko Solutions)",
+  "customer_question": "What is the 'Compliance Folder creation fee' line item in the quote, and what does it actually cover?",
+  "question_variants": [
+    "What does the Compliance Folder service fee pay for?",
+    "Why is there a separate fee for Compliance Folder creation?"
+  ],
+  "actual_issue": "Seiko Solutions asked Allion to explain the purpose and scope of the 'Compliance Folder creation fee' quote line item before committing to the registration project.",
+  "plain_english_explanation": "Bluetooth SIG calls the document package that proves a registration's conformity and describes the certified product the 'Compliance Folder.' It must be retained for one year after the last listed product is discontinued. It's compared to a vehicle inspection certificate (shaken) — something you must produce if Bluetooth SIG ever audits the registration.",
+  "consultant_answer": "Bluetooth SIG refers to the document set summarizing the registration's conformity and the certified product's information as the 'Compliance Folder,' and requires it be kept until one year after the product's sales discontinuation. It functions like a vehicle inspection certificate (shaken) — it must be produced if SIG conducts an audit.",
+  "decision_logic": "The Compliance Folder fee covers Allion's service of assembling and packaging this audit-ready document set on the customer's behalf, mirroring the documentary retention obligation Bluetooth SIG places on the Listing Owner.",
+  "final_recommendation": "Explain the Compliance Folder fee with the vehicle-inspection-certificate analogy early in customer conversations — it consistently clarifies why the fee exists and what obligation it satisfies.",
+  "risk_if_done_wrong": "If the customer doesn't understand the retention obligation, they may discard the Compliance Folder prematurely, leaving them unable to respond if SIG later requests it during an audit.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "Compliance Folder fee",
+    "audit retention",
+    "vehicle inspection certificate analogy",
+    "Seiko Solutions"
+  ],
+  "search_aliases": [
+    "what is Compliance Folder creation fee",
+    "Compliance Folder explanation customer",
+    "Bluetooth SIG audit document retention"
+  ],
+  "qualification_stage": "Pre-registration / quote clarification",
+  "confidence": "high"
+}

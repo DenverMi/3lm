@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0257",
+  "thread_analysis": {
+    "thread_summary": "JUST.WILL Co., Ltd. (contact Hiroshi Tsukui) inquires with Allion (Masaya Iida, with guidance from Itsuo Sakai) about Bluetooth SIG certification, surfacing a scope misunderstanding (assuming SIG member/Adopter registration was included in the support engagement) and a recent rule change (effective November 10, 2025) requiring profile testing even for certified-component-based registrations.",
+    "all_questions_found": [
+      "Is SIG member/Adopter registration included in Allion's support, and what's the new profile testing rule for certified components? (see thread_0257_case_01)"
+    ],
+    "key_technical_discussion": "SIG member/Adopter registration is a categorical customer-side prerequisite, separate from registration support services; the November 2025 rule change requiring IOPT even when referencing a certified Component represents a meaningful cost and scope change from the prior exemption-based approach customers may still expect.",
+    "key_decision_logic": "See thread_0257_case_01.",
+    "risk_if_done_wrong": "See thread_0257_case_01.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "Confirm SIG member/Adopter registration status explicitly at the start of new engagements, and proactively flag recent certification rule changes (like the November 2025 IOPT requirement) that could affect a customer's cost expectations based on outdated assumptions."
+  }
+}

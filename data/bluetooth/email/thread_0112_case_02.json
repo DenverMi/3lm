@@ -2,6 +2,7 @@
   "source_thread": "thread_0112",
   "case_id": "thread_0112_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "module",
   "customer_question": "Why is the registration support cost higher this time compared to before, and is it true that our Bluetooth module is not registered as a SIG 'Component'?",
   "question_variants": [
@@ -16,7 +17,16 @@
   "decision_logic": "Whether a registration support fee is quoted at the 'Single Design' or 'Multi-Design' reference rate depends on whether the Bluetooth module being used is certified as a single Component/End Product (Single Design, lower fee) or as a combination of separate Host Subsystem and Controller Subsystem QDIDs (Multi-Design, higher fee). Since the July 2024 rule change strengthening Controller-Host consistency checks, Multi-Design references require additional verification work, justifying the higher fee.",
   "final_recommendation": "Before quoting, check SIG's listing for the module's QDID to determine whether it is registered as a single Component/End Product (Single Design reference) or as separate Host Subsystem + Controller Subsystem QDIDs (Multi-Design reference), and quote accordingly.",
   "risk_if_done_wrong": "If a module is incorrectly assumed to be a single Component registration when it is actually a Host+Controller combination, the registration would be quoted/planned at the lower Single Design rate but would actually require the additional Multi-Design verification work (e.g., ICS modifications) mandated by the July 2024 consistency check rules.",
-  "bluetooth_tags": ["qualification", "QDID", "host", "controller", "module", "ICS", "design change", "listing"],
+  "bluetooth_tags": [
+    "qualification",
+    "QDID",
+    "host",
+    "controller",
+    "module",
+    "ICS",
+    "design change",
+    "listing"
+  ],
   "search_aliases": [
     "Multi-Design vs Single Design reference fee",
     "Host Subsystem Controller Subsystem combination QDID",

@@ -1,48 +1,35 @@
 {
-    "source_thread": "thread_0006",
-    "cases": [
-        {
-            "case_id": "thread_0006_case_03",
-            "iut_type": "digital camera",
-            "customer_question": "Can a product include a module QDID that is registered as RF PHY Power Class 1 when the actual product output power behaves as non-Class 1 or Class 2?",
-            "question_variants": [
-                "Can we reference a QDID with RF PHY Class 1 while using lower output power?",
-                "What happens if the module QDID Power Class does not match the product test result?",
-                "Can RF PHY ICS Class 1 be changed to NO when including a module QDID?",
-                "Why does changing RF PHY Power Class trigger additional testing?",
-                "How should we handle a module registered as Class 1 when the product is configured lower?"
-            ],
-            "actual_issue": "The included module QDID declared RF PHY Power Class 1 support, but the finished product operated at lower output power levels closer to Class 1.5/Class 2. Changing the RF PHY ICS to non-Class 1 would invalidate reuse assumptions and require additional RF PHY and LL evidence.",
-            "plain_english_explanation": "The Bluetooth SIG registration for the module said it supported high transmit power, but the finished camera product intentionally used lower power settings. This created a mismatch between the module's registered Bluetooth capability and the product's measured RF behavior. The consultant evaluated whether the customer should force a lower power declaration or continue using the existing module registration.",
-            "consultant_answer": "The consultant identified that the module QDID declared RF PHY ICS Table 1/15 Power Class 1 support, while the customer's RF PHY output measurements were consistent with non-Class 1 operation. The consultant explained that changing the included RF PHY and LL ICS items from YES to NO would require unlocking the layers and submitting additional RF PHY and LL test evidence. The consultant investigated whether the module supplier had another QDID variant registered without Class 1 support. Additional evidence from regulatory filings and datasheets suggested the module's practical operating power aligned more closely with Class 1.5. After discussion, the consultant clarified that SIG registration reflects maximum supported capability and does not require the product to operate permanently at maximum output power. Since the customer intentionally limited output power for SAR and antenna implementation reasons, the consultant ultimately accepted proceeding with the existing Class 1 registration despite the lower configured operating power.",
-            "decision_logic": "A product may include an existing QDID only if the declared ICS capabilities remain consistent with the included design. Changing RF PHY Power Class declarations modifies the ICS and may require additional qualification evidence. However, lower operational transmit settings do not necessarily invalidate a module registration if the hardware and implementation still support the registered maximum capability.",
-            "final_recommendation": "If possible, obtain a supplier QDID variant that matches the intended RF PHY Power Class declaration. If no such variant exists and the implementation still supports the registered maximum capability, proceed using the existing QDID while maintaining supporting technical rationale and qualification records.",
-            "risk_if_done_wrong": "An incorrect RF PHY Power Class declaration can trigger consistency problems, additional RF PHY and LL testing requirements, qualification review rejection, or disputes between product behavior and included QDID capabilities.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "RF PHY",
-                "ICS",
-                "LL",
-                "reuse",
-                "consistency check",
-                "listing"
-            ],
-            "search_aliases": [
-                "RF PHY Power Class mismatch",
-                "QDID include inconsistency",
-                "Class 1 vs Class 2",
-                "RF PHY ICS 1/15",
-                "LE Power Class",
-                "RFPHY test report required",
-                "ICS capability mismatch",
-                "module QDID reuse",
-                "Power Class registration",
-                "LL and RFPHY retest"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0006",
+  "case_id": "thread_0006_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging camera prototype), UFP-only (sink-only) certification feasibility with sub-threshold Source current and DisplayPort Alt Mode",
+  "customer_question": "Our camera prototype's Source output current is only about 200mA, below the 500mA/900mA thresholds that disqualify it from DRP (dual-role power) certification. Given that, can we still obtain UFP-only (sink-only) certification? Also, if our Source current falls short, what can we trim from the quoted test scope to reduce cost while still getting DRP evaluation testing done?",
+  "question_variants": [
+    "If we give up on PD logo certification due to insufficient Source current, what costs can be reduced from the quote?",
+    "Can a product default to UFP mode (with user-switchable DFP) still be certified as UFP-only without testing the DFP mode?",
+    "Is UFP-only certification possible at all if the product needs to support DisplayPort Source functionality?"
+  ],
+  "actual_issue": "The customer's camera prototype had a Source output current (~200mA) well below the DRP eligibility threshold, and they wanted to know both (a) what cost reductions were available if abandoning DRP/PD certification, and (b) whether UFP-only (sink-only) certification was achievable given the product's need to support DisplayPort Source functionality, which has its own power-role requirements that conflict with a sink-only declaration.",
+  "plain_english_explanation": "If the customer commits to DRP evaluation testing regardless, no cost reduction was offered — DRP testing was treated as a fixed requirement in the quoted scope once requested. Separately, on the UFP-only feasibility question: per the 'DisplayPort Alt Mode on USB Type-C Standard,' a DisplayPort Source role requires either the Power Role to be Source, or a DRP that performs DFP-initiated Discovery/Entry — meaning a strictly UFP-only (sink-only) declared device cannot support DP Source functionality at all. This created a direct conflict between the customer's product specification (needing DP Source capability) and a UFP-only certification path, since UFP-only fundamentally cannot satisfy the DP Source role requirements. The customer was advised to consult their IC vendor about this specification conflict before deciding on a certification path. A defaulting-to-one-mode design (e.g., defaults to UFP but is user-switchable to DFP) does not exempt the non-default mode from testing — both modes must still be tested and pass for full dual-role logo certification, regardless of which mode is the factory default.",
+  "consultant_answer": "Regarding cost: since you're committing to DRP evaluation testing either way, no reduction applies for that scope. On the UFP-only question: per the DisplayPort Alt Mode on USB Type-C Standard, a DP Source role requires either a Source Power Role or a DRP capable of DFP-initiated Discovery/Entry — so a strictly UFP-only (sink-only) device cannot support DP Source at all. Since your product needs DP Source functionality, this is a direct conflict with a UFP-only certification path; we'd recommend consulting your IC vendor about resolving this specification conflict. Also note that a product defaulting to one mode but user-switchable to the other still requires both modes to be tested and pass — the default-mode framing doesn't exempt the non-default mode.",
+  "decision_logic": "DisplayPort Source role support has its own power-role prerequisite (Source or DFP-initiated DRP) independent of USB-PD certification tier; a UFP-only (sink-only) declared device is structurally incompatible with DP Source functionality, so any product needing DP Source must pursue DRP or DFP certification regardless of its actual measured Source current, and a sub-threshold Source current that disqualifies DRP eligibility creates a genuine specification conflict requiring IC-vendor-level resolution rather than a certification-path workaround.",
+  "final_recommendation": "Before quoting or scoping a UFP-only certification path, confirm whether the product needs DisplayPort Source functionality — if so, flag the DP Alt Mode power-role prerequisite immediately, since it forecloses UFP-only as an option, and direct the customer to resolve the underlying power-current shortfall with their IC vendor rather than treating it as a certification-process question.",
+  "risk_if_done_wrong": "Proceeding toward a UFP-only certification path for a product that also needs DisplayPort Source functionality would result in a fundamental, unresolvable conflict discovered only at testing time, since UFP-only literally cannot satisfy the DP Source role's power-role prerequisite, wasting the cost and time already spent pursuing that path.",
+  "bluetooth_tags": [
+    "UFP-only sink-only certification",
+    "DisplayPort Alt Mode power role conflict",
+    "DRP eligibility sub-threshold Source current",
+    "default mode does not exempt non-default mode from testing",
+    "Ricoh Imaging",
+    "IC vendor specification conflict"
+  ],
+  "search_aliases": [
+    "can UFP-only support DisplayPort Source",
+    "DP Alt Mode power role requirement",
+    "sink-only certification with DP Source conflict",
+    "default mode user-switchable both modes must test"
+  ],
+  "qualification_stage": "Pre-test feasibility / specification conflict resolution",
+  "confidence": "high"
 }

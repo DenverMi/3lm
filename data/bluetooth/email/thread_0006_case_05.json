@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0006",
+  "case_id": "thread_0006_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging camera), registration timeline planning and confidentiality mechanism",
+  "customer_question": "What exactly does 'desired certification acquisition date' mean when you ask us for one? Also, if testing starts on a certain date, what does the process look like afterward, and how long does it take to actually get registered?",
+  "question_variants": [
+    "Is the certification acquisition date the same as our product's actual launch/release date?",
+    "After RF/RF PHY testing passes, what happens next and how long does registration take?",
+    "Can we keep our launch date confidential while still getting registered before launch?"
+  ],
+  "actual_issue": "The customer did not understand what 'desired certification acquisition date' meant in the context of their internal approval process, was concerned about keeping their unannounced product's release date confidential, and wanted clarity on the steps and timeline following RF/RF PHY test completion.",
+  "plain_english_explanation": "The 'desired certification acquisition date' refers to the date by which the customer's internal product development approval process requires that formal Bluetooth SIG certification (registration) be completed and obtained — i.e., the deadline before whichever internal go/no-go decision gate requires Bluetooth registration to be in place, not necessarily the public launch date itself. Separately, the registration mechanism allows the customer to protect launch confidentiality: when entering the first product into the Product List, the registrant can specify a public disclosure (Publish) date up to 90 days in the future, typically aligned with the actual product launch or press release date, which suppresses public visibility of the Bluetooth product listing until that date even though registration itself is completed earlier. As for the post-testing process: once the required RF/RF PHY tests pass, BQTF report preparation and registration verification work is completed within 5 business days; however, payment to Bluetooth SIG must be completed before this final registration step can proceed, so the test-pass-to-registration timeline depends on when SIG payment is settled, not solely on testing completion. Two further scheduling details matter when the lab handles this payment as a proxy on the customer's behalf: the proxy wire transfer itself takes roughly 3 weeks to complete once the customer's order is placed (so this should be factored into the overall timeline well before the desired certification date), and there is no fixed required order between running the RF/RF PHY tests and completing the SIG payment -- either can be done first, whichever is more convenient operationally.",
+  "consultant_answer": "The 'desired certification acquisition date' is the date by which your internal product development approval process needs formal Bluetooth SIG certification (registration) completed — typically tied to whichever internal go/no-go gate requires it, not necessarily your public launch date. On confidentiality: when registering, you can set a public disclosure (Publish) date up to 90 days in the future, usually matching your launch or press release date, which keeps the listing hidden from public view until then even though registration completes earlier. After RF/RF PHY tests pass, BQTF report preparation and registration verification take 5 business days — but payment to SIG must be completed first, so your timeline depends on when that payment is settled, not just on test completion. Two more scheduling notes: if we handle the SIG payment as your proxy, that wire transfer itself takes about 3 weeks once you place your order, so plan for that against your desired certification date; and there's no required order between running the tests and completing SIG payment -- whichever happens first is fine.",
+  "decision_logic": "Registration timeline planning should distinguish three separate dates: the internal approval deadline ('desired certification acquisition date'), the actual registration completion date (gated on test pass + 5 business days + prior SIG payment), and the public disclosure/Publish date (settable up to 90 days out to protect launch confidentiality) — confusing these can lead to either premature public disclosure or a missed internal approval deadline.",
+  "final_recommendation": "When a new customer asks about a 'desired certification acquisition date,' proactively explain all three relevant dates (internal approval deadline, actual registration completion timeline, and the 90-day-advance Publish date confidentiality mechanism) together, since customers unfamiliar with the registration process often conflate them.",
+  "risk_if_done_wrong": "A customer who doesn't understand the Publish date confidentiality mechanism might either delay registration unnecessarily out of confidentiality concerns, or fail to realize SIG payment must be settled before the 5-business-day registration window starts, leading to missed internal deadlines.",
+  "bluetooth_tags": [
+    "desired certification acquisition date explained",
+    "Product List Publish date 90 days confidentiality",
+    "post-test registration timeline",
+    "BQTF report 5 business days",
+    "SIG payment prerequisite",
+    "Ricoh Imaging"
+  ],
+  "search_aliases": [
+    "what does desired certification acquisition date mean",
+    "how to keep Bluetooth registration confidential before launch",
+    "Product List publish date 90 days",
+    "how long after test pass to get registered",
+    "BQTF report turnaround time"
+  ],
+  "qualification_stage": "Registration timeline planning",
+  "confidence": "high"
+}

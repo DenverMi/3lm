@@ -1,48 +1,31 @@
 {
-    "source_thread": "thread_0055",
-    "cases": [
-        {
-            "case_id": "thread_0055_case_01",
-            "iut_type": "module",
-            "customer_question": "Can a product that uses a qualified Controller Subsystem and a separately qualified Bluetooth stack be qualified by combining the existing registrations without additional testing, even when the stack qualification also contains controller layers such as RF PHY and LL?",
-            "question_variants": [
-                "Can I combine a Controller Subsystem QDID with a stack Component DID?",
-                "Will combining a controller qualification and a stack qualification require new testing?",
-                "What happens when both referenced designs contain RF PHY and LL layers?",
-                "Can overlapping controller layers be ignored during qualification?",
-                "Can an End Product be registered using existing controller and stack qualifications only?"
-            ],
-            "actual_issue": "The product combines a qualified controller design with a qualified stack design that includes overlapping lower Bluetooth layers. The qualification challenge is determining whether the overlap creates additional qualification obligations under the newer Qualification Workspace and QPRDv3 process.",
-            "plain_english_explanation": "A company wanted to reuse an already qualified controller and an already qualified Bluetooth stack. The problem was that the stack qualification also contained some of the same low-level Bluetooth layers already present in the controller qualification. The key question was whether referencing both would trigger unnecessary qualification complexity or testing.",
-            "consultant_answer": "The consultant compared the referenced designs and determined that the lower-layer RF PHY and LL coverage was effectively equivalent. Because the stack-related design already provided the necessary functionality, referencing both designs created unnecessary overlap. Earlier guidance under older qualification assumptions treated overlapping layers as removable during design construction, but under the newer Qualification Workspace process the interaction between included layers, consistency checks, and generated test plans had to be considered. The recommended approach was to use the stack-related design reference alone when it provided the required functionality, thereby avoiding unnecessary qualification complexity.",
-            "decision_logic": "If multiple referenced Bluetooth designs provide equivalent lower-layer functionality, adding both designs does not add qualification value but can increase qualification complexity. The preferred qualification path is the minimum valid design set that satisfies the required Bluetooth functionality while avoiding overlapping layer combinations that may affect consistency checks or generated test plans.",
-            "final_recommendation": "Use the single stack-related qualified design reference when it already provides the required controller and host-layer coverage, rather than combining it with a separate controller qualification that duplicates the same lower layers.",
-            "risk_if_done_wrong": "Combining overlapping qualified designs unnecessarily can lead to more complex Qualification Workspace processing, potential additional test-plan generation, additional review effort, qualification delays, and avoidable testing obligations.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "controller",
-                "component",
-                "RF PHY",
-                "LL",
-                "ICS",
-                "Qualification Workspace"
-            ],
-            "search_aliases": [
-                "controller and stack overlap",
-                "RF PHY duplication",
-                "LL duplication",
-                "QDID combination",
-                "component plus controller",
-                "overlapping layers qualification",
-                "Qualification Workspace test plan",
-                "ICS layer overlap",
-                "reuse existing qualification",
-                "controller subsystem with stack"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0055",
+  "case_id": "thread_0055_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Internal QA check: a customer-submitted proxy registration content confirmation form that merely duplicates an existing prior registration's content, rather than reflecting the actually-intended new registration, must be flagged and clarified before processing",
+  "customer_question": "(Internal, not a direct customer question) I believe the proxy registration content confirmation form I filled out corresponds to fields in my company's existing DID registration -- could you tell me which item in the form maps to which item in that existing registration?",
+  "question_variants": [
+    "What should a consultant do if a customer's submitted registration form appears identical to an already-existing registration rather than reflecting the new design being registered?",
+    "How can a consultant detect that a customer may have misunderstood what content a registration confirmation form was supposed to capture?"
+  ],
+  "actual_issue": "The customer submitted a proxy registration content confirmation form whose content turned out to be effectively identical to their existing prior registration (for the IM-100 module's Controller Subsystem), rather than reflecting the actual new registration combination under discussion -- and asked which form fields corresponded to which fields in that existing registration, prompting the consultant to realize internally that he could not tell what the customer actually intended to register, since literally processing the form as submitted would not have produced anything new.",
+  "plain_english_explanation": "When a customer fills out and returns a proxy registration content confirmation form, the consultant should not assume the form accurately reflects the new registration actually being discussed -- customers can mistakenly submit content that duplicates an existing, already-completed registration (in this case, by referencing the same fields as their existing IM-100 module's Controller Subsystem registration) rather than the new combination being negotiated. When this happens, the consultant should flag the discrepancy internally and seek clarification on the customer's actual intent before proceeding, rather than processing the form literally, since doing so could result in an unintended duplicate registration that does not reflect what the customer actually wants certified.",
+  "consultant_answer": "(Internal note, not sent to the customer as-is) The submitted proxy registration content confirmation form is equivalent in content to the existing IM-100 registration -- I can't imagine the customer actually wants to register with this exact content, and I have no idea what they're actually hoping for. Do you understand what the customer's intent is here?",
+  "decision_logic": "When a customer-submitted registration confirmation form's content appears to merely replicate an existing prior registration rather than reflecting the new design or combination under discussion, treat this as a red flag requiring internal clarification before proceeding, rather than processing the form as submitted.",
+  "final_recommendation": "Build a sanity check into the proxy registration intake process that compares a newly-submitted registration confirmation form against the customer's existing registrations, and proactively flag and clarify with the customer (or internally between consultants) any case where the new form appears to simply duplicate prior registration content, before advancing the form into the actual registration workflow.",
+  "risk_if_done_wrong": "Processing a registration confirmation form literally without checking whether its content actually reflects the new registration intent could result in submitting an unintended duplicate registration, wasting registration fees and requiring rework to correct.",
+  "bluetooth_tags": [
+    "registration confirmation form sanity check",
+    "customer form duplicates existing registration",
+    "internal QA before processing proxy registration",
+    "Silex Technology IM-100"
+  ],
+  "search_aliases": [
+    "customer submitted form identical to existing registration",
+    "how to detect customer intent mismatch in registration form",
+    "proxy registration confirmation form QA check"
+  ],
+  "qualification_stage": "Pre-registration intake QA / internal process",
+  "confidence": "medium"
 }

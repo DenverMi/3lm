@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0214",
+  "case_id": "thread_0214_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Development prototype (BLE module embedded in a coupling component, Miki Pulley)",
+  "customer_question": "We plan to lend our development prototype (a coupling unit with an embedded BLE module) to interested customers for evaluation. The loan may run long-term, in which case we'd consider a subscription-style paid plan. Does paid, long-term 'evaluation equipment lending' still qualify for the SIG certification exemption that applies to free short-term loans?",
+  "question_variants": [
+    "If evaluation equipment lending becomes a long-term subscription with a fee, is SIG certification still unnecessary?",
+    "Does charging for a long-term loan of a development prototype still count as a temporary, no-cost evaluation loan?"
+  ],
+  "actual_issue": "Miki Pulley's development prototype (a coupling part) contains a BLE module sourced from a development subcontractor. The original component (Part A) doesn't need SIG certification since it isn't sold to end users, but Miki Pulley wanted to know if lending the finished prototype coupling to customers — potentially long-term and for a fee (subscription) — still falls under the certification-exempt 'evaluation equipment loan' category.",
+  "plain_english_explanation": "A genuinely free, short-term loan of a development prototype can be argued as deviating in duration from its original free-loan intent without requiring certification. But once money changes hands for the loan itself (even framed as a 'rental' or 'subscription'), it becomes a paid transfer of a Bluetooth-enabled product, which falls outside the evaluation-loan exemption and should be certified.",
+  "consultant_answer": "If the loan is free of charge, it can be argued that even if the 'evaluation equipment loan' unintentionally extends to a long-term arrangement, it remains exempt from SIG certification. However, if the loan is paid (rental/subscription), this constitutes a paid transfer of a Bluetooth product, and SIG certification is recommended.",
+  "decision_logic": "Whether SIG certification is required hinges on whether payment changes hands for the Bluetooth-enabled item itself. Free temporary loans (even if they run long) can be argued as falling under an evaluation-loan exemption; charging money for the loan itself removes that exemption because it becomes a commercial transfer.",
+  "final_recommendation": "If Miki Pulley wants to avoid certification, the loan of the Bluetooth-enabled prototype itself must remain free of charge. Any monetization should be structured around services (e.g., engineer support), not the device loan itself.",
+  "risk_if_done_wrong": "Charging directly for the device loan while treating it as exempt 'evaluation equipment' could expose the company to a future compliance challenge from Bluetooth SIG if discovered.",
+  "bluetooth_tags": [
+    "evaluation equipment loan exemption",
+    "development prototype",
+    "paid rental",
+    "subscription model",
+    "Miki Pulley",
+    "SIG certification exemption"
+  ],
+  "search_aliases": [
+    "evaluation loan exemption",
+    "paid prototype rental Bluetooth",
+    "development prototype subscription certification",
+    "free vs paid Bluetooth product loan"
+  ],
+  "qualification_stage": "Pre-registration / exemption assessment",
+  "confidence": "high"
+}

@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0269",
+  "thread_analysis": {
+    "thread_summary": "This thread is a duplicate/overlapping capture of the same internal Allion RF PHY logo test coordination for an Alinco DUT at Allion's Taiwan HQ lab already fully documented in thread_0231 (Toshitaka Mochizuki, Leo Chou, Ning Lin, Itsuo Sakai) — covering the same DUT power-on/USB driver/cable troubleshooting and the same LE Power Class 1 misclassification issue (SoC qualified under Core Specification v5.2, which predates the Power Class 1 definition) resolved via a 'Non-power class 1' test configuration rather than a firmware update.",
+    "all_questions_found": [
+      "(Already documented in thread_0231_case_01) Why won't the DUT power on/stay connected, and why do LE HCI test commands fail?",
+      "(Already documented in thread_0231_case_02) Does the DUT actually qualify as LE Power Class 1 given its below-10dBm measured output power?"
+    ],
+    "key_technical_discussion": "Identical to thread_0231 — see that thread's case files for the full technical content (USB cable root cause for connection failures; Core Spec v5.2 predating Power Class 1 definition, requiring a test-configuration fix rather than a firmware/hardware change).",
+    "key_decision_logic": "Same as thread_0231.",
+    "risk_if_done_wrong": "Same as thread_0231.",
+    "consulting_mistake": "Same as thread_0231 — see that thread's analysis for the brief initial misstep (requesting a firmware-based output power increase) before the correct Core-Spec-version-based diagnosis was made.",
+    "consulting_takeaway": "This thread duplicates thread_0231's content; no new case files were created here to avoid duplication. Refer to thread_0231_case_01 and thread_0231_case_02 for the full consulting record of this Alinco RF PHY test troubleshooting episode."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0222",
+  "case_id": "thread_0222_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Powered Speaker, Premium Audio Company)",
+  "customer_question": "The proxy registration support fee quoted this time is 2.5x our previous unit price of ¥100,000 — is there a special reason for this increase?",
+  "question_variants": [
+    "Why has the registration support service price gone up 2.5 times compared to last time?",
+    "Has the pricing structure for proxy registration changed?"
+  ],
+  "actual_issue": "The customer compared the new quote to a previous engagement's ¥100,000 unit price and was concerned about an apparent 2.5x price increase, without realizing the pricing structure itself had changed.",
+  "plain_english_explanation": "Following changes to the SIG portal and registration methods on July 1, 2024, Allion's proxy registration support pricing was restructured: ¥150,000 for a Single-Design reference registration, and ¥250,000 for a Multi-Design registration (combining multiple designs). The apparent 2.5x increase reflects this new structure and the specific service category applicable to the customer's registration, not an arbitrary price hike on the same service as before.",
+  "consultant_answer": "This isn't an arbitrary increase on the same service — following the SIG portal/registration method changes on July 1, 2024, our proxy registration support pricing was restructured to ¥150,000 for Single-Design reference and ¥250,000 for Multi-Design (combining multiple designs). The quote reflects the new structure's applicable category for your registration.",
+  "decision_logic": "Pricing comparisons across time periods must account for the July 2024 structural pricing change rather than treating old and new quotes as directly comparable unit prices for the same service.",
+  "final_recommendation": "When a returning customer questions a price difference from a prior engagement, proactively explain the July 2024 pricing restructure rather than simply restating the new number.",
+  "risk_if_done_wrong": "Failing to explain the pricing structure change could leave the customer believing they are being charged an arbitrary markup, damaging trust.",
+  "bluetooth_tags": [
+    "proxy registration pricing",
+    "Single-Design fee",
+    "Multi-Design fee",
+    "July 2024 pricing change",
+    "Premium Audio Company"
+  ],
+  "search_aliases": [
+    "why did registration support price increase",
+    "Single Design vs Multi Design fee",
+    "Bluetooth SIG proxy registration cost 2024"
+  ],
+  "qualification_stage": "Pre-registration / quotation",
+  "confidence": "high"
+}

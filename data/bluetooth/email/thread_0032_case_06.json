@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0032",
+  "case_id": "thread_0032_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BRTF vs. BQTF testing facility accreditation fees -- clarifying these are unrelated to ordinary customer registration costs",
+  "customer_question": "I found information about 'BQTF' but couldn't find much about 'BRTF' -- what is BRTF, when does that fee apply, and how does it differ from BQTF?",
+  "question_variants": [
+    "Is the $2,760 BRTF fee a discounted version of the registration fee?",
+    "Do ordinary customers (not testing facilities) ever need to pay BRTF or BQTF fees?"
+  ],
+  "actual_issue": "The customer encountered a reference to 'BRTF' fees and, having only found information about BQTF online, was confused about what BRTF was, how it differed from BQTF, and -- since the BQTF annual fee happens to equal the Adopter membership registration fee -- whether the lower BRTF fee might represent some kind of discounted registration path.",
+  "plain_english_explanation": "BRTF (Bluetooth Recognized Test Facility) and BQTF (Bluetooth Qualification Test Facility) are both designations for companies that have installed SIG-designated test systems and undergone SIG review to become accredited testing organizations -- they are NOT fees or designations relevant to ordinary companies registering their own products. BRTF accreditation (currently held by 12 companies) permits a company to perform certification testing only for its OWN internal projects, and BRTF-accredited companies undergo periodic SIG renewal audits plus a mandatory annual fee ($2,760) to remain listed on SIG's accredited facility list. BQTF accreditation (currently held by 52 companies) permits a company to perform certification testing for OTHER companies' projects (i.e., third-party testing services, like Allion's own business), and BQTF-accredited companies similarly undergo periodic renewal audits plus a mandatory annual fee ($11,040) to remain listed. Because the BQTF annual fee ($11,040) happens to coincidentally match the Adopter membership's registration fee, some people mistakenly assume the lower BRTF fee ($2,760) represents some kind of discounted registration option available to ordinary customers. This is incorrect: both fees are annual dues paid specifically by companies that are themselves accredited as testing facilities, and have no relevance whatsoever to a third-party company simply registering its own product for certification.",
+  "consultant_answer": "BRTF and BQTF are testing-facility accreditation designations, not something relevant to your own product registration. BRTF lets a company test only its own internal projects (12 companies currently accredited, $2,760 mandatory annual listing fee); BQTF lets a company test other companies' projects as a third-party service (52 companies accredited, $11,040 mandatory annual listing fee). Since the BQTF fee happens to match the Adopter membership registration fee, some people mistakenly think BRTF's lower fee is a discounted registration path -- it isn't. Both are annual fees paid only by accredited testing facilities themselves and have nothing to do with your own product registration costs.",
+  "decision_logic": "When a customer asks about BRTF or BQTF fees, clarify these are testing-facility accreditation annual dues paid only by companies accredited as SIG testing organizations, not anything relevant to an ordinary customer's own product registration costs -- and proactively flag the common BQTF-fee-equals-Adopter-fee coincidence that sometimes leads people to mistakenly think BRTF represents a discounted registration path.",
+  "final_recommendation": "When BRTF or BQTF terminology surfaces in a customer conversation, immediately clarify that these apply only to accredited testing facilities and are unrelated to the customer's own registration costs, to prevent confusion from the coincidental fee-amount overlap with Adopter membership.",
+  "risk_if_done_wrong": "A customer might mistakenly believe a lower-cost registration path exists via BRTF accreditation, leading to confusion or wasted research effort pursuing an irrelevant fee category.",
+  "bluetooth_tags": [
+    "BRTF Bluetooth Recognized Test Facility",
+    "BQTF Bluetooth Qualification Test Facility",
+    "testing facility accreditation fee not customer registration fee",
+    "Elematec smart tracker"
+  ],
+  "search_aliases": [
+    "what is BRTF Bluetooth SIG",
+    "BRTF vs BQTF difference",
+    "is BRTF a discounted registration fee",
+    "Bluetooth testing facility accreditation annual fee"
+  ],
+  "qualification_stage": "General SIG terminology and fee structure clarification",
+  "confidence": "high"
+}

@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0268",
+  "case_id": "thread_0268_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Purgatio Corporation humidifying air purifier, app-connected via Bluetooth, Espressif ESP32-C3-WROOM-02 module)",
+  "customer_question": "Our humidifying air purifier communicates with our smartphone app via Bluetooth. We didn't think we needed the Bluetooth logo, so we never registered with Bluetooth SIG — but we just received a warning email from SIG and need to address this urgently. What's the path to compliance, and how long and how much will it cost?",
+  "question_variants": [
+    "Do we actually need Bluetooth SIG certification if our product just uses Bluetooth for app communication without displaying any logo?",
+    "What's the urgent remediation path now that SIG has sent us a compliance warning?"
+  ],
+  "actual_issue": "The customer had shipped a Bluetooth-communicating product without ever registering it with Bluetooth SIG, under the mistaken belief that registration was only required if they wanted to display the Bluetooth logo on the product, and only discovered the actual requirement after receiving a compliance warning email directly from Bluetooth SIG.",
+  "plain_english_explanation": "Bluetooth SIG certification/registration is required for any product that implements Bluetooth wireless communication technology, regardless of whether the company intends to display the Bluetooth logo on the product or packaging — using Bluetooth communication at all triggers the registration obligation, which is why SIG's compliance monitoring flagged this unregistered product and sent a warning. Once flagged, the practical remediation path is to register as quickly as possible: confirm the company's existing Adopter/member registration status, identify whether the Bluetooth module used (in this case, an Espressif ESP32-C3-WROOM-02) and its associated SDK/Host Subsystem already have valid SIG registrations that can be referenced, and if so, proceed with a registration referencing those existing component registrations — which, if the module uses a built-in antenna, also exempts RF PHY testing — completing compliance relatively quickly without needing new hardware testing.",
+  "consultant_answer": "Bluetooth SIG registration is required for any product using Bluetooth communication, regardless of whether you display the Bluetooth logo — that's why SIG's compliance monitoring caught this and sent the warning. The fastest path forward: since your Adopter registration was already completed years ago, and your ESP32-C3-WROOM-02 module's Bluetooth solution already has its own SIG registration (along with a compatible Host Subsystem SDK registration) that we can reference, we can complete a new registration citing those existing registrations. Since this module uses a built-in antenna, RF PHY testing is also exempted — so this can move forward purely as a registration matter, completing in roughly 3 working days once your registration fee payment reaches SIG, without needing any new hardware testing.",
+  "decision_logic": "Bluetooth SIG registration obligation is triggered by actual use of Bluetooth communication technology in a product, independent of any logo-display intention — a common misconception that leads to unregistered products being later flagged by SIG's own compliance monitoring; remediation should prioritize identifying whether the implemented module/SDK already has a referenceable existing registration to avoid new testing.",
+  "final_recommendation": "When a customer reveals they assumed registration was only needed for logo display, immediately correct this misconception and pivot to urgent remediation, prioritizing a search for existing referenceable module/SDK registrations to minimize new testing and resolve the compliance warning as quickly as possible.",
+  "risk_if_done_wrong": "Continuing to operate on the mistaken belief that registration is optional without logo display could result in further SIG enforcement action, and delaying remediation after a warning has already been issued increases that risk; failing to check for existing referenceable module registrations could lead to unnecessary new testing costs and delay.",
+  "bluetooth_tags": [
+    "Bluetooth registration required regardless of logo use",
+    "SIG compliance warning remediation",
+    "unregistered product enforcement",
+    "Espressif ESP32-C3-WROOM-02",
+    "Purgatio Corporation"
+  ],
+  "search_aliases": [
+    "do I need Bluetooth SIG registration without using the logo",
+    "received Bluetooth SIG compliance warning email",
+    "urgent Bluetooth certification after market launch",
+    "unregistered Bluetooth product enforcement"
+  ],
+  "qualification_stage": "Urgent post-market compliance remediation",
+  "confidence": "high"
+}

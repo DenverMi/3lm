@@ -2,6 +2,7 @@
   "source_thread": "thread_0129",
   "case_id": "thread_0129_case_03",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "consumer electronics",
   "customer_question": "The A2DP test result shows a non-Pass result for A2DP/SRC/SYN, but the Test Case Category is 'D'. Does this mean we still pass A2DP? Also, the TV software was found not to implement Suspend — can we remove the A2DP Suspend test case mid-testing?",
   "question_variants": [
@@ -11,11 +12,20 @@
   ],
   "actual_issue": "During Sony FY26 TV A2DP profile testing, the test result for A2DP/SRC/SYN showed a non-Pass result. The customer noticed the Test Case Category for this item was 'D' and asked if it still counts as passing. The consultant confirmed: Category D items are 不問 (not required / don't care) — a non-Pass result on a Category D item does not affect whether the profile is considered passed. Separately, mid-testing the customer discovered that the TV firmware does not implement A2DP Suspend (does not issue Suspend commands). They removed A2DP ICS 1/8 (Initiate Suspend) from the ICS, and the consultant confirmed this removes the A2DP/SRC/SUS test case from scope — acceptable because the product genuinely does not support the feature.",
   "plain_english_explanation": "Bluetooth SIG test cases are categorized by type (A, B, C, D, etc.). Category D items are labeled 'not required' or 'don't care' — they will never block a qualification. If a Category D item shows any result (Pass, Fail, Indecisive), it does not affect the overall profile qualification outcome. For A2DP, if the TV firmware does not implement Suspend, the correct action is to set ICS 1/8 (Initiate Suspend) to NO in the ICS, which removes the corresponding A2DP/SRC/SUS test case from the mandatory test scope. This is the proper way to handle a feature the product genuinely doesn't support — changing the ICS is the right approach.",
-  "consultant_answer": "[Category D] ⇒そのご認識通りです。A2DPが認証登録に必要な試験項目を完了したことを明確にお知らせしておりませんでした。申し訳ございません。[ICS 1/8 NO] ⇒ご連絡ありがとうございます。A2DP ICS 1/8:NOに変更してA2DP/SRC/SUS/[ID]を試験対象外にいたします。(Yes, that understanding is correct. I apologize for not clearly communicating that A2DP had completed all required test items. [For ICS 1/8:NO] Thank you for the notification. We will change A2DP ICS 1/8 to NO and remove A2DP/SRC/SUS from the test scope.)",
+  "consultant_answer": "Yes, that understanding is correct. I apologize for not clearly communicating that A2DP had completed all required test items. [For ICS 1/8:NO] Thank you for the notification. We will change A2DP ICS 1/8 to NO and remove A2DP/SRC/SUS from the test scope.",
   "decision_logic": "For A2DP profile test scope: (1) Test Case Category D items are 不問 (not required) — any result on a Category D item is acceptable and does not block qualification; (2) If the product does not implement a feature (e.g., Suspend), update the ICS to reflect this (ICS 1/8: NO for Suspend) — this removes the corresponding test case from mandatory scope; (3) ICS can be updated mid-test if a feature gap is discovered; (4) Changing ICS to remove a feature is appropriate when the product genuinely doesn't support it, not as a workaround to avoid failing tests.",
   "final_recommendation": "When reviewing profile test results, always check Test Case Category for non-Pass items: Category D items are not required and never block qualification. For features the product doesn't support, proactively confirm ICS settings before testing begins to avoid test scope confusion. If a feature gap is found mid-test, update the ICS immediately and inform the test lab to remove the associated test cases.",
   "risk_if_done_wrong": "Misidentifying a Category D failure as blocking when it is not required wastes time and may cause unnecessary firmware change requests. Conversely, failing to update the ICS when a feature is not implemented leaves mandatory test cases in scope that the product cannot pass, blocking the qualification.",
-  "bluetooth_tags": ["profile test", "A2DP", "PTS", "Test Case Category D", "ICS", "Suspend", "不問", "feature scope"],
+  "bluetooth_tags": [
+    "profile test",
+    "A2DP",
+    "PTS",
+    "Test Case Category D",
+    "ICS",
+    "Suspend",
+    "不問",
+    "feature scope"
+  ],
   "search_aliases": [
     "Test Case Category D not required A2DP qualification",
     "A2DP SRC SUS ICS 1/8 NO Suspend not implemented remove test",

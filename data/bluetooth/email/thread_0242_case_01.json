@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0242",
+  "case_id": "thread_0242_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product using Silicon Labs BLE module (GO Corporation IoT device)",
+  "customer_question": "The BLE module we're using shows Product Type 'Component (Tested)' on the Bluetooth SIG site. Does that mean we still need to separately test the Soft Device and Application software layers ourselves, and must that testing be done at your facility?",
+  "question_variants": [
+    "Does a 'Component (Tested)' module status mean additional software-layer testing is required?",
+    "Is on-site testing at your facility mandatory for this module?"
+  ],
+  "actual_issue": "The customer was developing a product around a Silicon Labs BLE module and needed to understand exactly what testing obligations, if any, remained on their side given the module's existing SIG-registered test status, before committing to a development and certification plan.",
+  "plain_english_explanation": "According to the module's datasheet, it supports either a built-in antenna or an external antenna connected via an RF pin. If the product uses the module's built-in antenna, RF PHY testing is exempted entirely. The protocol layers LL, L2CAP, GAP, GATT, ATT, and SM are exempted from testing by referencing the module vendor's (Silicon Laboratories') existing Component (Tested) registration in the product registration. What remains is the profile layer: if the product implements Bluetooth SIG-defined profiles, profile testing must be performed and the test report uploaded as registration evidence; if the product implements only proprietary (non-SIG) profiles, or operates at the protocol layer only without any profile, no profile testing is required at all.",
+  "consultant_answer": "Per the module's datasheet, it supports either a built-in antenna or an external antenna via an RF pin — using the built-in antenna exempts you from RF PHY testing. The LL, L2CAP, GAP, GATT, ATT, and SM protocol layers are exempted from testing by referencing Silicon Laboratories' existing Component (Tested) registration. What's left is the profile layer: if you implement SIG-defined profiles, you'll need to run profile testing and upload the report as registration evidence; if you only implement proprietary profiles or operate protocol-layer-only without any profile, no profile testing is needed at all.",
+  "decision_logic": "Test exemption for module-based products is layered: antenna choice (built-in vs. external) determines RF PHY exemption, referencing the module vendor's existing Component (Tested) registration determines protocol-layer exemption, and whether SIG-defined profiles are implemented determines profile-layer testing necessity.",
+  "final_recommendation": "When customers ask about test obligations for a pre-tested module, walk through each layer separately (RF/RF PHY via antenna choice, protocol layers via vendor registration reference, profile layer via SIG-defined vs. proprietary profile use) rather than giving one blanket yes/no answer.",
+  "risk_if_done_wrong": "Incorrectly assuming all layers require independent testing could lead to unnecessary cost; incorrectly assuming the module's Component (Tested) status exempts profile-layer testing for SIG-defined profiles could result in an incomplete registration missing required test evidence.",
+  "bluetooth_tags": [
+    "Component Tested module exemption",
+    "built-in antenna RF PHY exemption",
+    "protocol layer test exemption reference",
+    "profile layer testing SIG defined profile",
+    "Silicon Labs BLE module",
+    "GO Corporation"
+  ],
+  "search_aliases": [
+    "does Component Tested module need more testing",
+    "built-in antenna RF PHY exempt",
+    "profile testing required SIG defined profile",
+    "proprietary profile no testing needed"
+  ],
+  "qualification_stage": "Pre-quotation scoping",
+  "confidence": "high"
+}

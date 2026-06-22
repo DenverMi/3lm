@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0230",
+  "case_id": "thread_0230_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Set-top box future feature planning (LE Audio), chip hardware-ready but software not yet ready (Panasonic Connect)",
+  "customer_question": "You mentioned by phone that if there's any chance of using a feature in the future — even years down the line — it's better to get certified for it upfront. Should we follow that advice even when we haven't done any of our own verification or bug-testing on that feature yet (e.g., LE Audio, where the chip vendor says hardware support exists but software support isn't ready)? If we don't certify it at launch and want to claim support 3 years later, can we still add certification later, and how difficult or costly would that be?",
+  "question_variants": [
+    "Should we get upfront certification for a feature we might use years later, even if it's not verified yet?",
+    "If we skip a feature now and add it 3 years later, what does that registration process and cost look like?"
+  ],
+  "actual_issue": "The customer was weighing whether to proactively certify a not-yet-verified future feature (LE Audio) at initial registration versus deferring it, and wanted to understand the practical cost/difficulty of adding it later if deferred.",
+  "plain_english_explanation": "Adding a Bluetooth profile after the initial registration always requires a brand-new registration, which incurs its own application fee — this is true whether the gap is short or measured in years. Registering for a feature upfront is generally recommended specifically to avoid this later registration and its associated cost. That said, adding a feature later is not described as an especially difficult process — it's simply a new registration with its own fees, not a fundamentally harder undertaking.",
+  "consultant_answer": "Adding a profile after your initial registration always requires a new registration with its own application fee, regardless of how much time has passed — which is exactly why registering upfront is generally recommended if there's a real chance you'll use the feature later. That said, adding it later isn't an especially difficult process; it's simply a new registration with its own associated fees, not something to be particularly afraid of.",
+  "decision_logic": "The cost-benefit tradeoff for upfront vs. deferred certification of an uncertain future feature comes down to one new registration fee paid later versus avoiding that fee by certifying now; difficulty is not the deciding factor, since deferred addition isn't technically harder, just an additional cost event.",
+  "final_recommendation": "When customers debate certifying an unverified future feature upfront versus later, frame the decision purely around the cost of a future new registration fee rather than implying the later path is technically risky or burdensome, since that's not accurate.",
+  "risk_if_done_wrong": "Overstating the difficulty of later registration could pressure a customer into certifying an unverified, not-yet-working feature prematurely; understating the cost implication could lead a customer to defer indefinitely without budgeting for the eventual new registration fee.",
+  "bluetooth_tags": [
+    "future feature certification timing",
+    "LE Audio certification planning",
+    "new registration fee for added profile",
+    "upfront vs deferred certification",
+    "Panasonic Connect"
+  ],
+  "search_aliases": [
+    "should we certify Bluetooth feature before its ready",
+    "cost of adding Bluetooth profile later",
+    "LE Audio certification hardware ready software not ready"
+  ],
+  "qualification_stage": "Pre-certification scoping / future planning",
+  "confidence": "high"
+}

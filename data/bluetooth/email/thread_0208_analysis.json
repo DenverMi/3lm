@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0208",
+  "thread_analysis": {
+    "thread_summary": "ACCESS company (佐京大祐, referred by Phoenix Engineering) registering a product using an antenna-connector module and Fluoride Bluetooth Host Stack (D063309). The module has an antenna connector → RF PHY test not required. Registration is Multi-Design (¥250,000 support fee + ¥150,000 Compliance Folder + ¥100,000 wire transfer proxy fee + Qualification Fee ~$11,040 USD). Customer asked for clarification on two key points: (1) what 'ICS support' means in the context of profile test exemption, and (2) the complete timeline from payment to completed Listing. Customer was a first-time Allion client, so prepayment was required. The thread ends with registration being submitted and Compliance Folder document collection underway.",
+    "all_questions_found": [
+      "What does 'ICS support' mean and how does it determine whether profile testing is needed?",
+      "If our Bluetooth stack is not modified, are A2DP/AVRCP/DI profile tests required?",
+      "What is the total timeline from order placement to completed registration?",
+      "Is the antenna-connector module exempt from RF PHY testing?"
+    ],
+    "key_technical_discussion": "ICS (Implementation Conformance Statement) is a per-feature YES/NO table for each profile. Profile test exemption applies when product ICS ⊆ Host QDID ICS — no modification to stack means ICS likely equals QDID ICS, so profile tests are not needed. Antenna connector → RF test exempt. Multi-Design registration cost ~¥500,000 + USD $11,040 for new customer with wire transfer proxy. Timeline: ~1 month end-to-end (3 weeks for SIG payment + 1-2 weeks for registration and compliance folder steps).",
+    "key_decision_logic": "Profile test exemption: ICS subset of QDID ICS → no test. Antenna connector → RF exempt. New customer → prepayment. Registration support = Multi-Design when multiple QDID references required.",
+    "risk_if_done_wrong": "Profile test exemption granted without confirming ICS match could result in a non-conformant registration. Understating the timeline could cause customer frustration if product launch schedule is tight.",
+    "consulting_mistake": "None identified. ICS explanation was clear and the timeline breakdown was accurate.",
+    "consulting_takeaway": "Explain ICS at the very first inquiry stage to avoid repeated back-and-forth questions. The concept of 'no stack modifications = no profile tests' needs to be explained with explicit reference to ICS to prevent customers from later requesting profile tests unnecessarily or vice versa."
+  }
+}

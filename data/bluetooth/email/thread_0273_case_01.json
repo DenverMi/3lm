@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0273",
+  "case_id": "thread_0273_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Derivative keyboard model (Topre R4H series), electrode board change",
+  "customer_question": "For this new series-addition keyboard model, the electrode board changes (electrode layout/count), but the control board and components implementing BLE and USB communication stay exactly the same. Does this electrode board change require additional Bluetooth certification testing?",
+  "question_variants": [
+    "Does changing a non-communication-related board (the electrode board) trigger retesting?",
+    "Is it only the BLE/USB-implementing board that matters for determining retest necessity?"
+  ],
+  "actual_issue": "The customer wanted to confirm whether a hardware change unrelated to the Bluetooth communication circuitry itself (an electrode board layout/count change) would require additional Bluetooth certification testing for a new model being added to an already-certified keyboard series.",
+  "plain_english_explanation": "For Bluetooth logo certification purposes, what matters is whether the control board and components implementing the BLE communication system remain unchanged — if they do, any other board design changes elsewhere in the product (such as the keyboard's electrode board layout or electrode count) don't require additional Bluetooth testing, since they have no bearing on the certified Bluetooth functionality.",
+  "consultant_answer": "As long as the control board and components implementing BLE communication stay the same, other board design changes — including your electrode board layout/count change — don't require additional Bluetooth testing.",
+  "decision_logic": "Bluetooth certification retest necessity for a derivative model is determined solely by whether the board/components implementing the Bluetooth communication system have changed, independent of any other unrelated hardware changes elsewhere in the product.",
+  "final_recommendation": "When a customer asks whether a hardware change elsewhere in the product (unrelated to the Bluetooth communication circuitry) triggers retesting, confirm that retest necessity tracks only the Bluetooth-implementing board/components, not the product as a whole.",
+  "risk_if_done_wrong": "Requiring unnecessary retesting for hardware changes unrelated to the Bluetooth communication system would impose needless cost and delay on routine product variant additions.",
+  "bluetooth_tags": [
+    "electrode board change no retest needed",
+    "BLE implementing board unchanged",
+    "derivative model hardware change scope",
+    "Topre R4H series"
+  ],
+  "search_aliases": [
+    "does changing unrelated board need Bluetooth retest",
+    "electrode board change keyboard certification",
+    "what hardware change triggers Bluetooth retest"
+  ],
+  "qualification_stage": "Derivative model change assessment",
+  "confidence": "high"
+}

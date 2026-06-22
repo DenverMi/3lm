@@ -1,0 +1,22 @@
+{
+  "source_thread": "thread_0087",
+  "case_id": "thread_0087_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "Can you review this RF test report for AlphaTheta before it's approved?",
+  "question_variants": [
+    "Is this draft report ready for sign-off?",
+    "Is the operating temperature range stated correctly in the report?"
+  ],
+  "actual_issue": "A draft RF test report for AlphaTheta contained an incorrect value for the lower edge of the operating temperature range, which needed to be corrected before the report could be approved.",
+  "plain_english_explanation": "Before a test report is finalized, the specific numeric details in it -- like the temperature range a product is rated to operate in -- need to be checked against what's actually correct, since an error here would mean the certification record doesn't reflect the product's real specifications.",
+  "consultant_answer": "Reviewing the RF report for AlphaTheta found one issue: the lower edge of the operating temperature was incorrect. Nothing else needed correction, and the engineer's approval was requested once the operating temperature was corrected.",
+  "decision_logic": "A test report's specific technical values, such as the operating temperature range, must be verified for correctness before approval; an incorrect value should be corrected rather than approved as-is, even if it is the only issue found in an otherwise acceptable report.",
+  "final_recommendation": "When reviewing a draft test report, check specific stated technical values (such as operating temperature range) for correctness, and require correction before approval if any are found to be wrong.",
+  "risk_if_done_wrong": "Approving a report with an incorrect operating temperature value would leave an inaccurate specification in the certification record.",
+  "bluetooth_tags": ["test report", "operating temperature", "report review"],
+  "search_aliases": ["operating temperature lower bound incorrect report", "RF report review temperature value correction"],
+  "qualification_stage": "testing",
+  "confidence": "high"
+}

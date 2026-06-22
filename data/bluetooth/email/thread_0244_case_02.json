@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0244",
+  "case_id": "thread_0244_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BT-module-equipped wafer temperature measurement unit + USB dongle receiver, global radio-type approval (Sony Semiconductor Solutions)",
+  "customer_question": "Our product uses a Bluetooth module that already has FCC ID (Single Modular Approval), Canada ISED, and Japan Radio Law module-level certifications. For the countries we need to sell into, which ones can rely on this existing module certification, which need local testing and certification, and which just accept a test report? We'd also like to know which countries require a local representative, and what HS codes and Taiwan CCC codes apply.",
+  "question_variants": [
+    "Which target countries can use the module's existing certifications without further local work?",
+    "Which countries require local testing/certification or a local representative?"
+  ],
+  "actual_issue": "The customer needed a country-by-country regulatory strategy for their global product launch, given that their Bluetooth module already carried FCC, Canada ISED, and Japan Radio Law certifications, and wanted to know how much additional work (if any) was required per target market.",
+  "plain_english_explanation": "For Japan and the US, the existing module-level certification can be relied upon directly (Canada isn't planned to be pursued unless requested). The EU is expected to be handled via testing plus self-declaration. China, Korea, and Taiwan each require local testing plus their own certification — leveraging the module's existing certifications doesn't substitute for this. Malaysia and Singapore can accept an existing test report (under a CE Full or CE RED Full scheme, respectively) rather than requiring fresh local testing. Some countries require the customer to arrange a local representative as part of the certification process. To proceed with quoting, the customer's HS codes and Taiwan CCC code for each product (the wafer temperature measurement unit and the USB dongle) were also needed.",
+  "consultant_answer": "Japan and the US can rely on your module's existing certifications directly (Canada isn't planned unless you'd like us to pursue it). The EU is expected to go through testing plus self-declaration. China, Korea, and Taiwan each require local testing plus their own certification regardless of your module's existing approvals. Malaysia and Singapore can accept an existing test report instead of new local testing (CE Full and CE RED Full respectively). Some of these countries will also require you to arrange a local representative. To move forward with quoting, please also provide the HS codes and Taiwan CCC code for both products.",
+  "decision_logic": "Global regulatory strategy for a module-based product should be planned per-country based on three distinct tiers: full reliance on existing module certification (no further work), local testing plus local certification required regardless of existing certifications, or acceptance of an existing test report as a streamlined alternative to local testing — with local representative requirements assessed separately per country.",
+  "final_recommendation": "When advising on multi-country regulatory strategy for a module-based product, organize the answer by these three tiers per target country (reuse, full local requirement, report-acceptance) rather than giving a single blanket answer, since the actual requirement varies significantly by jurisdiction even when the underlying module certification is identical.",
+  "risk_if_done_wrong": "Assuming existing module certifications cover countries like China, Korea, or Taiwan without local testing/certification could result in a customer attempting to ship products without required local approvals, risking customs or market-entry rejection.",
+  "bluetooth_tags": [
+    "global radio law certification strategy",
+    "module certification reuse by country",
+    "China Korea Taiwan local certification required",
+    "CE Full CE RED Full test report acceptance",
+    "local representative requirement",
+    "Sony Semiconductor Solutions"
+  ],
+  "search_aliases": [
+    "which countries accept existing module certification",
+    "China Korea Taiwan local testing required",
+    "CE Full vs CE RED Full test report",
+    "local representative radio certification requirement"
+  ],
+  "qualification_stage": "Pre-quotation / global regulatory strategy",
+  "confidence": "high"
+}

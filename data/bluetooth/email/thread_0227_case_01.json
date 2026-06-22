@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0227",
+  "case_id": "thread_0227_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine HM26 automotive display/HMI unit)",
+  "customer_question": "The DID purchase added in this quote (1 model's worth) is meant to be used for the End Product registration we're requesting. Is it correct that DN acquisition is unnecessary for the existing Controller subsystem already covered by RF/RF PHY testing, and that for future derivative models where only the Host subsystem changes (Controller subsystem unchanged), End Product registration can be done by reusing the RF/RF PHY test report — in which case a separate DID purchase would still be needed for that derivative's End Product registration?",
+  "question_variants": [
+    "Does the newly purchased DID get used for End Product registration rather than Controller subsystem registration?",
+    "Is a new DN acquisition unnecessary for the Controller subsystem already RF/RF PHY tested?",
+    "For future derivative models with only a Host subsystem change, can the existing RF/RF PHY test report be reused for End Product registration, requiring only a new DID purchase rather than re-testing?"
+  ],
+  "actual_issue": "The customer was trying to confirm the registration/test-reuse strategy before placing the order: how the newly added DID purchase line item relates to End Product vs. Controller subsystem registration, and whether RF/RF PHY test results could be reused for future derivative models so they wouldn't need to repeat RF testing every time only the Host subsystem changed.",
+  "plain_english_explanation": "When only the Host subsystem of a product changes and the Controller subsystem (the RF/RF PHY-tested portion) stays the same, the existing RF/RF PHY test report can be reused for the derivative model's End Product registration, so the derivative doesn't need to repeat RF/RF PHY testing or acquire a new DN for the Controller subsystem. However, each End Product registration still requires its own DID, so a new DID purchase is needed for that derivative model even when the underlying RF/RF PHY report is being reused. This matches the customer's own stated understanding, and Allion's subsequent quote updates (including DID purchase and End Product registration line items) were consistent with that understanding.",
+  "consultant_answer": "Your understanding is correct: the DID purchased this time is for the End Product registration, not for re-acquiring a DN on the already RF/RF PHY-tested Controller subsystem. For future derivative models where only the Host subsystem changes and the Controller subsystem stays the same, the existing RF/RF PHY test report can be reused for End Product registration, but a new DID purchase will still be required for that derivative's End Product registration.",
+  "decision_logic": "RF/RF PHY test report reuse is tied to the Controller subsystem remaining unchanged, independent of Host subsystem changes; DID purchase, however, is tied to each individual End Product registration and is required per registration regardless of test report reuse.",
+  "final_recommendation": "When customers ask about reusing RF/RF PHY test reports across derivative models, separate the two independent requirements clearly: test/DN reuse depends on whether the Controller subsystem changed, while DID purchase is required per End Product registration regardless of reuse.",
+  "risk_if_done_wrong": "Conflating DID purchase requirements with DN/test-report reuse rules could lead a customer to either skip a required DID purchase for a derivative registration, or unnecessarily re-run RF/RF PHY testing on a Controller subsystem that hasn't changed, wasting cost and lab time.",
+  "bluetooth_tags": [
+    "DID purchase scope",
+    "End Product registration",
+    "Controller subsystem DN reuse",
+    "RF RF PHY test report reuse",
+    "derivative model registration",
+    "Alps Alpine",
+    "HM26"
+  ],
+  "search_aliases": [
+    "does derivative model need new RF test",
+    "DID purchase per End Product registration",
+    "Controller subsystem unchanged test reuse",
+    "Host subsystem change only registration"
+  ],
+  "qualification_stage": "Quotation / pre-order",
+  "confidence": "medium"
+}

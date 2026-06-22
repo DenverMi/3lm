@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0022",
+  "case_id": "thread_0022_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Registration site Company Address auto-populated from outdated account database, not editable by the registrant during submission",
+  "customer_question": "The registration's listed Company Address still shows our former company name ('Olympus') -- the correct, current address is below; can this be corrected before we submit?",
+  "question_variants": [
+    "Why hasn't this outdated company information ever been noticed or corrected in past registrations?",
+    "Is fixing this a one-time correction for this specific registration, or does it require a separate account-level change?"
+  ],
+  "actual_issue": "The registration's Company Address and Listing Owner fields displayed the customer's former company name (Olympus, since renamed to OM Digital Solutions), and the customer wanted this corrected before finalizing the current registration -- but this field is not directly editable during the registration submission process itself.",
+  "plain_english_explanation": "On the registration site, the Company Address and Listing Owner information is automatically pulled from the account database tied to the registrant's login ID -- it is not a field the applicant can edit during the registration submission flow itself. Because this field isn't shown on the public-facing side of a registration listing, it's easy for outdated information to go unnoticed across many past registrations under the same account, which is likely why it had never been flagged before. The correct way to fix it permanently is to update the company's own member registration information (a separate process from product registration) -- once that's updated, the corrected information will automatically be reflected in all future registrations made under that account, including retroactively appearing correctly going forward, without needing a per-registration fix.",
+  "consultant_answer": "That field is automatically pulled from your account database tied to your login -- it's not something we (or you) can edit directly during this registration's submission flow. Since it isn't shown on the public-facing side of a listing, it's likely gone unnoticed across your past registrations under this account. The permanent fix is to update your company's own member registration information separately -- once that's done, the corrected information will automatically apply to all future registrations made under your account.",
+  "decision_logic": "When a registrant's Company Address or Listing Owner information is outdated on a specific product registration, recognize that this field is sourced from the account-level member registration database, not an editable field within the product registration flow itself -- direct the customer to correct it at the account/member level, which will then automatically propagate to future registrations.",
+  "final_recommendation": "When a customer requests a correction to account-sourced fields (like Company Address) on a specific registration, explain that the fix must happen at the account/member registration level rather than within the current submission, and clarify that the correction will automatically apply going forward once made.",
+  "risk_if_done_wrong": "Attempting to correct the Company Address within the current registration submission itself (rather than at the account level) would fail, since the field isn't editable there, potentially causing confusion or delay if the customer isn't told where the actual fix needs to happen.",
+  "bluetooth_tags": [
+    "Company Address auto-populated from account database",
+    "Listing Owner field not editable during submission",
+    "fix at member registration level not product registration",
+    "outdated company name not publicly visible",
+    "OM Digital Solutions"
+  ],
+  "search_aliases": [
+    "registration shows old company name how to fix",
+    "Company Address field not editable",
+    "Listing Owner information outdated correction",
+    "fix account level not per registration"
+  ],
+  "qualification_stage": "Review page confirmation / account data correction",
+  "confidence": "high"
+}

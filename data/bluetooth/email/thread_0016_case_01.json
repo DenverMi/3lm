@@ -1,48 +1,31 @@
 {
-    "source_thread": "thread_0016",
-    "cases": [
-        {
-            "case_id": "thread_0016_case_01",
-            "iut_type": "wireless communication device",
-            "customer_question": "Can a device qualified using a Class 1 Link Layer QDID pass RF PHY qualification if measured transmit output power only meets Class 2 levels?",
-            "question_variants": [
-                "Does a Class 1 QDID require Class 1 RF PHY output power?",
-                "Can Class 2 RF PHY results be used with a Class 1 Link Layer?",
-                "Why did the RF PHY test fail for output power?",
-                "Is RF PHY evidence valid if transmit power is below 10 dBm?",
-                "Can a Class 1 Bluetooth design qualify with Class 2 measurements?"
-            ],
-            "actual_issue": "The DUT referenced a Class 1 Link Layer QDID, but RF PHY testing showed transmit output power below the minimum threshold required for Class 1 qualification, making the RF PHY evidence invalid for the intended design classification.",
-            "plain_english_explanation": "Bluetooth Class 1 and Class 2 devices have different transmit power requirements. If a product claims or reuses a Class 1 Bluetooth design, the measured RF output power must satisfy Class 1 requirements during qualification testing. A device operating at lower Class 2 power levels cannot reuse Class 1 qualification evidence without correction.",
-            "consultant_answer": "The consultant identified that the 1M mode RF PHY measurements produced average transmit powers around 8.6 to 9.2 dBm, which passed Class 2 limits but failed Class 1 requirements because Class 1 requires transmit power of at least 10 dBm. Since the referenced Link Layer QDID was classified as Class 1, the RF PHY test evidence was not valid for registration. The consultant instructed the customer to request firmware changes from the module vendor to increase output power above 10 dBm or provide updated Class 1-compliant test samples for retesting.",
-            "decision_logic": "The RF PHY qualification evidence must match the Bluetooth class capabilities declared by the referenced Link Layer QDID. If the measured output power does not meet the minimum Class 1 requirement, the RF PHY evidence cannot support a Class 1 qualification listing.",
-            "final_recommendation": "Confirm the intended Bluetooth power class before testing and align DUT firmware output power settings with the referenced QDID classification. If using a Class 1 design, update firmware or hardware settings so measured RF output power exceeds the Class 1 threshold before retesting.",
-            "risk_if_done_wrong": "Using RF PHY evidence that only satisfies Class 2 requirements with a Class 1 QDID can invalidate the qualification evidence and cause registration rejection, retesting delays, and additional firmware update cycles.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "Class 1",
-                "Class 2",
-                "Link Layer",
-                "QDID",
-                "output power",
-                "testing"
-            ],
-            "search_aliases": [
-                "Class 1 output power fail",
-                "Class 2 measured power",
-                "RF PHY output below 10dBm",
-                "invalid RF PHY evidence",
-                "Class mismatch",
-                "Link Layer Class 1",
-                "Bluetooth transmit power fail",
-                "RF PHY retest required",
-                "output power qualification",
-                "Class 1 RF requirement"
-            ],
-            "qualification_stage": "test failure",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0016",
+  "case_id": "thread_0016_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alinco XE1177), RF PHY Output Power Class 1 vs Class 2 shortfall",
+  "customer_question": "Our RF PHY 1M-mode test sample passed, but only at Class 2 output level (around 8.6-9.2 dBm), not the Class 1 level (10-20dBm) required by the Link Layer QDID we're registering against. We're about to run the 2M test too, which will likely show the same shortfall. Is there a way to determine whether adjusting our firmware's output power setting could get us into Class 1 range, given the tester's default configuration might not reflect our actual product settings?",
+  "question_variants": [
+    "Could the test tool's default output power configuration be masking our product's true capability?",
+    "How do we determine whether raising our firmware's output setting could reach Class 1 compliance?"
+  ],
+  "actual_issue": "The test sample's measured output power fell within Class 2 range, short of the Class 1 range required by the registration's referenced Link Layer QDID, and the team needed to determine whether this reflected a genuine hardware limitation or an adjustable firmware/test-configuration setting that could be raised to reach Class 1 compliance.",
+  "plain_english_explanation": "The RF test tool used (BlueTest3) measures output power using a default internal configuration value ('Int=50') unless otherwise specified, and its documentation doesn't clearly state whether this default value actually reflects what the product's real firmware uses in the field. To investigate whether the Class 2-level result was a true hardware ceiling or an adjustable setting, the practical approach is to ask the customer directly what internal output power setting value their actual product firmware uses: if it's higher than the tester's default (50), there's a good chance retesting with that actual higher value would show Output Power exceeding 10dBm (reaching Class 1); if the actual firmware value is at or below the tester's default, the customer would need to deliberately raise that firmware setting to a higher value and report the new value back, so the test could be repeated with the adjusted configuration.",
+  "consultant_answer": "The test tool (BlueTest3) measured your output power using its default internal configuration ('Int=50'), and it's unclear whether that default matches what your actual product firmware uses. Please tell us what internal output power setting value your real product firmware actually uses — if it's higher than 50, retesting with that real value may well show output exceeding 10dBm and reaching Class 1. If your firmware's actual value is at or below 50, please raise that setting to a higher value and let us know the new value so we can retest with the adjusted configuration.",
+  "decision_logic": "When a measured output power result is suspiciously low relative to a target Power Class, check whether the test tool's default configuration setting actually matches the product's real firmware configuration before concluding the product has a genuine hardware-level output limitation, since an adjustable setting mismatch could be the actual cause.",
+  "final_recommendation": "When a Power Class shortfall appears in test results, investigate whether the test tool's configuration defaults (rather than the product's actual hardware) are the limiting factor, by directly asking the customer for their real firmware's relevant setting value before concluding a hardware redesign is needed.",
+  "risk_if_done_wrong": "Concluding prematurely that the product has a hardware-level Class 1 output limitation, without checking whether the test tool's default configuration setting actually matched the product's real firmware value, could lead to unnecessary hardware-level troubleshooting when a simple firmware setting adjustment might have resolved the shortfall.",
+  "bluetooth_tags": [
+    "BlueTest3 default Int configuration",
+    "Output Power Class 1 Class 2 shortfall investigation",
+    "firmware setting vs test tool default mismatch",
+    "Alinco XE1177"
+  ],
+  "search_aliases": [
+    "Output Power test result lower than expected Class",
+    "BlueTest3 Int default configuration value",
+    "is Class 2 result a hardware limit or setting issue"
+  ],
+  "qualification_stage": "Test execution troubleshooting",
+  "confidence": "high"
 }

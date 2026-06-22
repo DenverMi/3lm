@@ -1,43 +1,23 @@
 {
-    "source_thread": "thread_0108",
-    "cases": [
-        {
-            "case_id": "thread_0108_case_02",
-            "iut_type": "head unit",
-            "customer_question": "Can supported profile layers be added to a reused design combination using product-specific PTS test evidence?",
-            "question_variants": [
-                "Can profile QDID content be extended with local PTS reports?",
-                "Can implemented profiles be included when using referenced designs?",
-                "What evidence is needed to add supported profiles to a combined design?",
-                "Can profile qualification be based on product PTS testing?",
-                "How should supported profiles be reflected in qualification scope?"
-            ],
-            "actual_issue": "The qualification submission combines existing designs but must accurately represent the profiles actually implemented in the product and supported by test evidence.",
-            "plain_english_explanation": "A reused Bluetooth design does not automatically prove every profile used by the final product. The qualification records must match the real product implementation. Only profiles that are actually implemented and validated should be included.",
-            "consultant_answer": "The consultant explains that supported profiles may be added to the included layers when backed by PTS test reports generated from the actual product. The supported profile list should reflect implemented functionality and corresponding qualification evidence rather than assumptions inherited from referenced designs.",
-            "decision_logic": "Profile-layer qualification scope is driven by actual implementation and available evidence. Profiles supported by the product and verified through PTS testing can be included; unsupported or unverified profiles should not remain in scope.",
-            "final_recommendation": "Review the implemented profile list, retain only supported profiles, and use product-generated PTS reports as evidence for each included profile layer.",
-            "risk_if_done_wrong": "Including unsupported or unverified profiles can create unnecessary testing obligations, qualification inconsistencies, and evidence gaps during submission review.",
-            "bluetooth_tags": [
-                "qualification",
-                "profile",
-                "PTS",
-                "evidence",
-                "ICS",
-                "IOPT"
-            ],
-            "search_aliases": [
-                "profile test evidence",
-                "PTS report for profile qualification",
-                "supported profile list",
-                "profile layer inclusion",
-                "implemented profile verification",
-                "qualification scope alignment",
-                "profile evidence reuse"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0108",
+  "case_id": "thread_0108_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "infotainment unit",
+  "customer_question": "Can you run our submitted ICS through a Consistency Check and tell us if it's correct? Does passing that check mean our ICS is good to go?",
+  "question_variants": [
+    "What does a clean Consistency Check result actually confirm?",
+    "Which specific ICS items need fixing in our HFP, AVRCP, and OPP tables?",
+    "If we mark an item as supported in the ICS, does that guarantee it will pass testing?"
+  ],
+  "actual_issue": "The customer submitted an ICS file for Consistency Check review ahead of profile testing, and it needed to be clarified what the check actually verified (versus what it did not), along with several specific corrections needed across the HFP, AVRCP, and OPP tables.",
+  "plain_english_explanation": "Running an automated check on a feature checklist only catches the checklist entries that are obviously wrong or inconsistent with each other -- it can't tell you whether the checklist actually reflects everything your product truly needs to claim, since that requires the company's own product knowledge. On top of that, even an entry marked as 'supported' isn't automatically going to pass its real test, because some tests specifically check whether the device can actively send certain data to the test system, and just claiming support doesn't guarantee the device behaves that way in practice. Some checklist entries also come in pairs where exactly one option, not both or neither, has to be chosen.",
+  "consultant_answer": "The submitted ICS was run through Consistency Check in the Qualification Workspace; the result only verifies necessary conditions (content that is clearly incorrect), and whether the ICS is sufficient for the actual product needs to be judged independently by the customer. A2DP, SPP, and HID11 were found to be fine; DI, HID, and PBAP were excluded from the commented file because they had obvious missing Mandatory-item support markings. Specific corrections needed: (1) the HFP ICS is incompletely filled in -- Mandatory items must always be marked (yellow-highlighted); (2) in the AVRCP ICS, Table 12/1 and 14/1, 14/2, 14/3 are Mandatory items, and while Table 3 is entirely marked as supported, an item only passes its PTS test if the DUT can actually send the corresponding data to PTS -- this needs to be verified, not just marked; (3) in the OPP ICS, Table 5/1 and Table 6/1 are Mandatory, and Table 2/9a or 2/9b is an either/or item requiring exactly one selection.",
+  "decision_logic": "A Consistency Check passing only confirms the ICS contains no structurally invalid (obviously incorrect) content; it does not confirm the ICS is sufficient for the actual product, which must be separately judged by the customer. Beyond the check itself, an ICS review must confirm Mandatory items are properly marked, that items claimed as supported are actually achievable by the DUT in the direction PTS requires (such as DUT-to-PTS data transmission), and that either/or mandatory item pairs have exactly one option selected.",
+  "final_recommendation": "When reviewing a customer's ICS, clarify that a clean Consistency Check result only rules out structural errors, not product sufficiency, and separately verify Mandatory item marking, actual DUT-testable capability for claimed-supported items, and correct either/or pair selections before considering the ICS ready for testing.",
+  "risk_if_done_wrong": "Treating a clean Consistency Check result as proof the ICS is fully correct and sufficient, without separately verifying Mandatory marking, actual DUT-testable capability, and either/or pair selections, risks submitting an ICS that still fails specific PTS test items during actual testing.",
+  "bluetooth_tags": ["ICS", "Consistency Check", "HFP", "AVRCP", "OPP", "Mandatory item", "Qualification Workspace"],
+  "search_aliases": ["Consistency Check necessary not sufficient condition", "ICS Mandatory item yellow highlight requirement", "ICS supported claim must match DUT testable capability", "either or mandatory ICS item pair selection", "AVRCP Table 3 DUT to PTS data transmission"],
+  "qualification_stage": "pre-test review",
+  "confidence": "high"
 }

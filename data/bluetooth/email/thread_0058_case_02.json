@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0058",
+  "case_id": "thread_0058_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Single-model-at-a-time registration strategy -- multiple models CAN be registered simultaneously at initial registration, but staggering via free derivative addition afterward is generally recommended",
+  "customer_question": "Are there SIG rules limiting initial registration to only one model? We want to re-register our currently-registered device using a replacement BLE module.",
+  "question_variants": [
+    "If multiple product models need registering, should they all be entered during the initial new registration, or added afterward?",
+    "What happens if a mistake is made in a Product List entry -- can it be corrected directly?"
+  ],
+  "actual_issue": "The customer wanted to know whether SIG's registration process restricted them to registering only a single model at initial registration time, since their plan involved migrating a device family (with an already-large set of existing derivative models) to a replacement BLE module.",
+  "plain_english_explanation": "SIG's rule requires that at least one model be registered to the Product List at the time of a new registration -- but this is a minimum, not a maximum: registering multiple models simultaneously during the initial new registration is also technically possible. In practice, however, it's generally preferable to complete the initial new registration with just one model first, and then use the free derivative-product-addition entry point (which becomes available after the initial registration completes) to add additional models one at a time. This is because the initial new registration process involves a larger volume of other information entry and confirmation steps, and any mistake in a Product List entry can only be corrected by requesting SIG to delete that specific model's entry -- there is no direct edit function. Handling additional models individually through the calmer, simpler post-registration derivative-addition flow reduces the risk of entry errors compared to trying to get everything right in one larger, more complex initial submission.",
+  "consultant_answer": "SIG's rule requires at least one model be registered at initial registration time -- it's not a maximum, so you technically can register multiple models simultaneously if you want. That said, we'd generally recommend completing the initial registration with just one model first, then adding the rest one at a time via the free derivative-product-addition feature that appears after registration completes -- since the initial registration already involves a lot of information entry and confirmation, and any Product List entry mistake can only be fixed via a deletion request to SIG, not a direct edit.",
+  "decision_logic": "When a customer with multiple models to register asks whether they can or should register them all at once, confirm that SIG technically allows multiple simultaneous registrations but recommend staggering via the free derivative-addition flow instead, since this reduces entry-error risk given the lack of a direct edit function for Product List mistakes.",
+  "final_recommendation": "When scoping a multi-model registration, default to recommending single-model initial registration followed by staggered free derivative additions, explaining the entry-error risk reduction rationale, rather than batching everything into one larger initial submission.",
+  "risk_if_done_wrong": "Registering multiple models simultaneously during a complex initial registration increases the chance of an entry mistake that can only be corrected via a deletion request (not a direct edit), creating unnecessary rework.",
+  "bluetooth_tags": [
+    "single model initial registration vs multiple simultaneous",
+    "free derivative addition staggered approach reduces error risk",
+    "Product List entry mistake only fixable via deletion",
+    "Sharp NOKE BLE module replacement"
+  ],
+  "search_aliases": [
+    "can multiple models be registered at once Bluetooth SIG",
+    "should I register one model at a time or all together",
+    "how to fix a Product List entry mistake"
+  ],
+  "qualification_stage": "Multi-model registration strategy scoping",
+  "confidence": "medium"
+}

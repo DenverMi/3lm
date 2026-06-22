@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0117",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This is a single internal forwarding email (December 9, 2024) where Allion sales staff [PERSON]/Iida relays a new inbound web-form inquiry from [COMPANY] (a trading company) to consultant [PERSON]/Sakai. The customer is developing a device using a CC2640R2F Bluetooth module (already separately qualified) and wants a Bluetooth SIG certification quote ahead of a planned March sales launch. Sakai's reply confirms two things before quoting: (1) the CC2640R2F module's datasheet shows a built-in antenna, so RF PHY testing is unnecessary, and Profile testing is unnecessary if no SIG-established profiles are implemented; (2) a search of the SIG member registry shows the customer's company is not yet a member, so membership registration is needed before product registration. Based on these findings, Sakai provides a quote for registration support (Single Design reference) and Compliance Folder creation, plus the standard SIG registration fee remitted by the applicant.",
     "all_questions_found": [
       "For a device using the CC2640R2F module, is RF PHY testing required for Bluetooth SIG certification?",

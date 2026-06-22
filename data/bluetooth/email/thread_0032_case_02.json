@@ -1,46 +1,33 @@
 {
-    "source_thread": "thread_0032",
-    "cases": [
-        {
-            "case_id": "thread_0032_case_02",
-            "iut_type": "module-based consumer device",
-            "customer_question": "Can an OEM/ODM Bluetooth product avoid additional RF and profile testing by referencing the factory's existing QDID?",
-            "question_variants": [
-                "Will RF/RF PHY testing still be required?",
-                "Can profile testing be skipped using an existing QDID?",
-                "Does reusing a qualified design eliminate testing?",
-                "When can testing be waived for an OEM Bluetooth product?",
-                "How is testing scope determined when reusing a Bluetooth module?"
-            ],
-            "actual_issue": "The customer needed to understand whether qualification testing could be reduced or eliminated by reusing an already qualified Bluetooth design from the manufacturing factory.",
-            "plain_english_explanation": "Bluetooth qualification testing can often be reduced when a product reuses an existing qualified Bluetooth implementation without changes. The important factor is whether the Bluetooth-related design, features, and configuration remain identical to the original qualified design. If the Bluetooth implementation changes, additional qualification work or testing may be required.",
-            "consultant_answer": "The consultant explained that if the factory's QDID already exists and the OEM/ODM product reuses that qualified Bluetooth implementation unchanged, the selling company can reference the existing QDID and qualify the product without additional testing. The consultant also clarified that overall qualification timing depends on whether RF/RF PHY tests and profile testing are required, as well as the number of implemented profiles.",
-            "decision_logic": "Qualification reuse eligibility depends on whether the Bluetooth design remains unchanged from the previously qualified implementation. Existing qualified designs can be referenced to avoid repeating testing only when the reused implementation matches the original qualified scope.",
-            "final_recommendation": "Confirm the exact QDID and verify that the Bluetooth implementation, profiles, and ICS-relevant functionality are unchanged before planning qualification as a reuse-based listing.",
-            "risk_if_done_wrong": "If the implementation differs from the referenced qualified design but is incorrectly treated as a reuse case, the company may submit an invalid qualification listing or later discover that additional testing is required, causing rework and schedule delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "reuse",
-                "RF PHY",
-                "profile",
-                "testing",
-                "module",
-                "ICS"
-            ],
-            "search_aliases": [
-                "RF PHY test waiver",
-                "profile test reduction",
-                "existing QDID reuse",
-                "qualification without testing",
-                "reuse-based qualification",
-                "unchanged Bluetooth design",
-                "OEM qualification reuse",
-                "test exemption via QDID"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0032",
+  "case_id": "thread_0032_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth SIG enforcement risk for selling uncertified products -- market surveillance mechanism, registration-recommendation process, and real-world lawsuit precedent",
+  "customer_question": "If it's discovered that a product already on the market is being sold without Bluetooth certification, what action does SIG take? Does SIG conduct periodic market research to find uncertified products, and has any company actually been sued over this?",
+  "question_variants": [
+    "Do Qualification Fees require annual renewal, or is it a one-time payment?",
+    "Has a Japanese company ever faced legal action for selling an uncertified Bluetooth product?"
+  ],
+  "actual_issue": "The customer wanted to understand the real-world enforcement risk of selling a Bluetooth product without completing SIG certification -- specifically how SIG identifies uncertified products, what the consequences are, and whether this risk is theoretical or has actually materialized as litigation.",
+  "plain_english_explanation": "The Qualification Fee is a one-time payment with no annual renewal requirement -- once paid for a given registration, no recurring renewal fee applies. Regarding enforcement: Bluetooth SIG states that it conducts market research, but in practice this appears to rely on information gathered from web product pages, online sales listings, and tips submitted through SIG's own website link for reporting unqualified products. When a product looks suspicious, SIG's typical first step is to contact the selling company recommending they complete registration -- this is described as a 'registration recommendation' stage. If the company complies with this recommendation by registering, no lawsuit is filed; in the consultant's own experience, Japanese manufacturers reach out for this kind of urgent registration support roughly once or twice per year after receiving such a recommendation, and the consultant's company has a track record of successfully providing expedited registration support in these situations. If a company does NOT comply with the registration recommendation, Bluetooth SIG may escalate to a civil lawsuit seeking both the recall of the uncertified product and damages equivalent to the profit SIG and its member companies would have earned. This is not merely theoretical: Fiat Chrysler Automobiles N.V. (FCA) sold vehicles containing an automotive device registered under the set-maker's name, did not comply with SIG's registration recommendation, and was sued as a result -- ultimately, before a higher court ruling was issued, FCA went ahead and registered under that name, likely because the cost of registering was cheaper than continuing to defend the lawsuit. As far as the consultant is aware, no Japanese company has been involved in this kind of lawsuit, likely because Japanese manufacturers who receive a registration recommendation tend to comply promptly.",
+  "consultant_answer": "Qualification Fees are a one-time payment -- there's no annual renewal. As for enforcement: SIG typically identifies uncertified products through web monitoring and tips submitted via their site's reporting link, and their first response is usually to recommend the selling company register, rather than going straight to legal action -- if you comply, no lawsuit follows. We see this 'registration recommendation' scenario from Japanese manufacturers about once or twice a year and have a track record of expedited support in these cases. As far as I know, no Japanese company has actually been sued over this, but it has happened overseas -- Fiat Chrysler Automobiles was sued after not complying with a registration recommendation for a vehicle device, and ultimately registered anyway before the case concluded, likely because it was cheaper than continuing to litigate.",
+  "decision_logic": "When a customer asks about the real-world risk of selling an uncertified Bluetooth product, explain that SIG's enforcement is primarily complaint/web-monitoring-driven rather than proactive systematic audits, that the typical first response is a registration recommendation (compliance with which avoids legal action), and that escalation to litigation (with the FCA precedent) only occurs when a company ignores that recommendation.",
+  "final_recommendation": "When a customer is weighing the urgency of completing Bluetooth certification, share the realistic enforcement picture (complaint-driven detection, registration-recommendation-first approach, and the FCA litigation precedent for non-compliance) to help them make an informed decision, while flagging that prompt registration support is available if they ever receive such a recommendation.",
+  "risk_if_done_wrong": "A company that ignores a SIG registration recommendation risks escalation to a civil lawsuit seeking both product recall and profit-equivalent damages, as demonstrated by the FCA precedent, rather than simply continuing to operate without consequence.",
+  "bluetooth_tags": [
+    "SIG enforcement uncertified product lawsuit risk",
+    "registration recommendation stage compliance avoids lawsuit",
+    "FCA Fiat Chrysler Automobiles lawsuit precedent",
+    "Qualification Fee one-time no renewal",
+    "Elematec smart tracker"
+  ],
+  "search_aliases": [
+    "what happens if Bluetooth product sold without certification",
+    "Bluetooth SIG lawsuit uncertified product",
+    "does Qualification Fee need annual renewal",
+    "FCA lawsuit Bluetooth SIG registration"
+  ],
+  "qualification_stage": "Pre-registration risk assessment and urgency evaluation",
+  "confidence": "high"
 }

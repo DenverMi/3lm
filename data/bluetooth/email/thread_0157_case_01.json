@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0157",
+  "case_id": "thread_0157_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE keyboard (Topre)",
+  "customer_question": "How do you pass the BAS (Battery Service) PTS test that requires a battery level change notification?",
+  "question_variants": [
+    "How do we demonstrate a battery level change during BAS PTS testing?",
+    "What voltage control is needed to pass BAS/SR/CN battery level change test?",
+    "How does the tester trigger a battery level change notification for BAS profile testing?"
+  ],
+  "actual_issue": "The BAS (Battery Service) PTS test includes a test case (BAS/SR/CN) that requires the IUT to send a Battery Level Change Notification. During testing, PTS requests that the device report a battery level change. The tester must physically change the actual battery voltage to cause the device to emit a different battery level reading.",
+  "plain_english_explanation": "The Battery Service (BAS) PTS test has a case where PTS asks the device 'has your battery level changed?' To pass this, the tester physically adjusts the power supply voltage: they start the device at a higher voltage (5.1V) simulating a full battery, and when PTS requests a battery level change notification, they drop the voltage to a lower level (3.42V) to simulate battery depletion. The device reads the new voltage, reports a lower battery percentage, and sends the required notification to PTS — the test passes.",
+  "consultant_answer": "To pass the BAS battery level change notification test: (1) Power the device at 5.1V at the start of the test. (2) When PTS requests a battery level change, lower the voltage to approximately 3.42V. (3) The device reads the new voltage, reports a lower battery level, and sends the notification. This satisfies the BAS/SR/CN test case.",
+  "decision_logic": "BAS profile testing requires a real change in battery level reading. Since the device derives its battery level from its power supply voltage, the tester controls voltage externally to simulate battery drain during the test without actually draining a real battery. The specific voltages (5.1V and 3.42V) are chosen to be within the device's operating range while producing a measurable battery percentage difference.",
+  "final_recommendation": "Use a variable bench power supply during BAS PTS testing. Start at 5.1V, then drop to 3.42V when PTS requests the battery level change notification. Confirm that the device reports a different battery percentage at the lower voltage before running the test.",
+  "risk_if_done_wrong": "If the voltage is not changed when PTS requests the battery level notification, the device will report the same battery level and the test will fail. The tester must be ready to adjust the power supply at the precise moment PTS requests the change.",
+  "bluetooth_tags": [
+    "BAS",
+    "Battery Service",
+    "PTS testing",
+    "battery level change notification",
+    "BAS/SR/CN",
+    "HOGP",
+    "BLE keyboard"
+  ],
+  "search_aliases": [
+    "BAS PTS test",
+    "battery level change test",
+    "BAS/SR/CN pass method",
+    "battery service PTS voltage control",
+    "BLE battery profile testing"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "high"
+}

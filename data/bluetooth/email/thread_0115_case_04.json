@@ -2,6 +2,7 @@
   "source_thread": "thread_0115",
   "case_id": "thread_0115_case_04",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "",
   "customer_question": "When AVRCP/CT/MCN/CB fails because cover-art-related fragmentation doesn't occur, should we ask the BQTF how to run the test, or is there a PTS setting that resolves it?",
   "question_variants": [
@@ -15,7 +16,14 @@
   "decision_logic": "Before escalating a test execution question to the BQTF, first check whether the issue is addressable via PTS's own configuration parameters (e.g., TSPX_no_cover_art_folder for cover-art-related AVRCP test cases); only escalate to the BQTF for issues that genuinely cannot be resolved through PTS/PIXIT configuration.",
   "final_recommendation": "For AVRCP cover-art-related test issues, verify and correctly set the TSPX_no_cover_art_folder PTS parameter before considering any escalation to the BQTF.",
   "risk_if_done_wrong": "Asking the BQTF basic procedural questions that could be answered by correctly configuring PTS parameters wastes the BQTF's time, could harm the working relationship/reputation with the BQTF, and delays resolution of an issue that is solvable internally.",
-  "bluetooth_tags": ["PTS", "PIXIT", "AVRCP", "cover art", "BQTF", "profile test"],
+  "bluetooth_tags": [
+    "PTS",
+    "PIXIT",
+    "AVRCP",
+    "cover art",
+    "BQTF",
+    "profile test"
+  ],
   "search_aliases": [
     "TSPX_no_cover_art_folder PTS parameter",
     "AVRCP cover art folder configuration",

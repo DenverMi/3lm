@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0225",
+  "case_id": "thread_0225_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product using pre-tested components (IDEAL company)",
+  "customer_question": "Since our product's components already passed the required tests previously, do we still need to submit a physical test sample for this registration?",
+  "question_variants": [
+    "Is a test sample submission required if the relevant components already have passing test results?"
+  ],
+  "actual_issue": "The customer wanted to confirm whether they could skip submitting a physical test sample for the current registration, given that the relevant Bluetooth components had already undergone and passed the required testing previously.",
+  "plain_english_explanation": "Because the components in question already have passing test results from prior testing, no new test sample submission is required for this registration — the existing test results can be relied upon.",
+  "consultant_answer": "No additional test sample submission is required, since the relevant components already have passing test results from previous testing.",
+  "decision_logic": "Test sample submission is only required where valid, applicable passing test results for the relevant components/features do not already exist; pre-existing passing results can be reused to satisfy this requirement.",
+  "final_recommendation": "When a customer's components have prior passing test results, confirm exemption from new sample submission explicitly so they don't unnecessarily prepare or ship a physical sample.",
+  "risk_if_done_wrong": "Requiring a redundant test sample submission despite existing valid passing results would create unnecessary cost and delay for the customer.",
+  "bluetooth_tags": [
+    "test sample exemption",
+    "pre-existing passing test results",
+    "component reuse",
+    "IDEAL company"
+  ],
+  "search_aliases": [
+    "do I need to submit test sample if already passed",
+    "component test exemption registration",
+    "reuse prior test results"
+  ],
+  "qualification_stage": "Pre-registration / test sample requirement",
+  "confidence": "medium"
+}

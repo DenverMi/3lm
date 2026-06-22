@@ -1,45 +1,23 @@
 {
-    "source_thread": "thread_0082",
-    "cases": [
-        {
-            "case_id": "thread_0082_case_01",
-            "iut_type": "",
-            "customer_question": "Why can a Bluetooth SIG qualification account log in successfully but still be unable to use an already purchased Qualification Fee?",
-            "question_variants": [
-                "Qualification Fee Receipt Number not found on account",
-                "Wrong Bluetooth SIG account owns the qualification fee",
-                "How do I transfer a Qualification Fee to another account?",
-                "Receipt Number belongs to a different user",
-                "Qualification submission account has no fee entitlement"
-            ],
-            "actual_issue": "The Bluetooth SIG account provided for qualification activities did not possess the Qualification Fee Receipt Number because the fee was associated with a different user account that originally obtained the invoice.",
-            "plain_english_explanation": "A company may have multiple Bluetooth SIG user accounts. The account used for qualification work can successfully log in but still lack access to a purchased qualification fee if that fee is owned by another account. In this situation, ownership of the fee entitlement must be transferred before qualification processing can continue.",
-            "consultant_answer": "After confirming successful login, the consultant verified whether the account contained the required Qualification Fee Receipt Number. The Receipt Number was not assigned to that account, indicating that the invoice and fee ownership resided under a different Bluetooth SIG user. The consultant issued a Transfer Request and instructed that the owner of the Receipt Number accept the transfer through the Bluetooth SIG email workflow.",
-            "decision_logic": "Qualification fee entitlement is tied to the Bluetooth SIG account that obtained or owns the Receipt Number. If qualification work is being performed from a different account, the entitlement must be transferred through the official Transfer Request process.",
-            "final_recommendation": "Identify the account that owns the Receipt Number, complete the Bluetooth SIG Transfer Request acceptance process, and verify that the qualification account receives the fee entitlement before proceeding.",
-            "risk_if_done_wrong": "Qualification activities may be delayed because the working account cannot access the required Qualification Fee entitlement. Users may incorrectly assume there is a login problem when the actual issue is fee ownership.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "Receipt Number",
-                "Qualification Fee",
-                "account transfer"
-            ],
-            "search_aliases": [
-                "Receipt Number transfer",
-                "Qualification Fee ownership",
-                "fee entitlement transfer",
-                "wrong SIG account",
-                "Transfer Request",
-                "invoice owner account",
-                "qualification fee missing",
-                "Receipt Number holder",
-                "SIG account transfer",
-                "fee not assigned"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0082",
+  "case_id": "thread_0082_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "The account in our registration confirmation document doesn't have our Qualification Fee Receipt Number attached to it. How do we get the Receipt Number associated with the right account so registration can proceed?",
+  "question_variants": [
+    "Why isn't our Receipt Number showing up under this registration account?",
+    "How do we move a Receipt Number to a different account?",
+    "Who needs to do what to complete a Transfer Request?"
+  ],
+  "actual_issue": "After logging into the account named in the customer's registration confirmation document, it was found that the Qualification Fee's Receipt Number was not attached to that account, since the Receipt Number had instead been issued to the account used when the Invoice was originally obtained -- a different account from the one intended for the registration.",
+  "plain_english_explanation": "When you pay for Bluetooth certification, the payment receipt gets tied to whichever account was logged in at the time, not necessarily the account that ends up doing the actual registration later. If those two accounts are different, the registration can't just proceed -- the receipt has to be formally transferred to the right account first, and that requires the original account's owner to approve the move.",
+  "consultant_answer": "After logging in with the account from the registration confirmation document, it was confirmed that the Qualification Fee's Receipt Number was not attached to this account. A Transfer Request was issued to move the Receipt Number to the correct account. The holder of the account used when the Invoice was originally obtained will receive an email from SIG containing a link to accept the Transfer Request, and the customer was asked to have that account holder complete the Accept action via that link.",
+  "decision_logic": "Before proceeding with a registration, confirm by logging in that the Qualification Fee's Receipt Number is actually attached to the account intended for registration; if it is attached to a different account instead (such as the one used to obtain the Invoice), the correct remedy is a SIG Transfer Request, which must be accepted by the original account holder via the link SIG sends them, rather than attempting to proceed with the mismatched account.",
+  "final_recommendation": "When a registration confirmation document's account does not have the Qualification Fee's Receipt Number attached, issue a SIG Transfer Request and instruct the customer to have the original Invoice account holder accept it via the emailed link before proceeding with registration.",
+  "risk_if_done_wrong": "Attempting to proceed with registration without confirming the Receipt Number is attached to the correct account would block the registration from finalizing until the mismatch is found and resolved, and skipping the Transfer Request's required acceptance step would leave the Receipt Number unusable for the intended registration account.",
+  "bluetooth_tags": ["Receipt Number", "Transfer Request", "Qualification Fee", "Invoice", "registration"],
+  "search_aliases": ["Receipt Number not attached to registration account", "SIG Transfer Request accept link", "Invoice account different from registration account", "move Receipt Number to correct account"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

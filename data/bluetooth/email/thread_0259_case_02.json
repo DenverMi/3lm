@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0259",
+  "case_id": "thread_0259_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging), RF Power Class measurement discrepancy",
+  "customer_question": "(From Allion) Your submitted QUESTIONNAIRS form indicates Class 2 for BLE output power, but our test measurements were taken at Class 1 levels — can you please reconfirm whether your BLE radiated output is actually Class 2 or Class 1?",
+  "question_variants": [
+    "Which Power Class is actually correct for this product — what was declared, or what was measured?",
+    "Does a mismatch between declared Power Class and measured output level block the test from passing?"
+  ],
+  "actual_issue": "A discrepancy surfaced during RF testing in Taiwan between the customer's self-declared Power Class (Class 2) on the submitted QUESTIONNAIRS form and the actual measured output power level observed during testing, which corresponded to Class 1 instead.",
+  "plain_english_explanation": "Since the measured output power during testing corresponded to Class 1 levels rather than the declared Class 2, Allion needed the customer to reconfirm the product's actual intended Power Class before the test result could be finalized. If Class 1 is confirmed as correct, the test result would simply be treated as a Pass at that classification, resolving the discrepancy without further action — the mismatch was purely a documentation/declaration accuracy issue to be corrected, not an indication of a test failure.",
+  "consultant_answer": "Your QUESTIONNAIRS form declared Class 2, but our test measurements came back at Class 1 output levels — please reconfirm which is actually correct for your BLE radio. If Class 1 is the correct classification, we'll treat this as a Pass at that classification, resolving the discrepancy.",
+  "decision_logic": "A mismatch between a self-declared Power Class and the actually measured output level should be resolved by confirming the product's true classification with the customer, rather than assuming either the declaration or the measurement is automatically correct, since a corrected declaration matching the measured Class can resolve the discrepancy as a straightforward Pass.",
+  "final_recommendation": "When test measurements reveal a Power Class mismatch against a customer's self-declared value, proactively flag the discrepancy and ask for reconfirmation rather than assuming the declared value is authoritative, since accepting an incorrect self-declaration could create an inaccurate registration.",
+  "risk_if_done_wrong": "Proceeding with the customer's originally declared Class 2 without flagging the measured Class 1 discrepancy could result in a registration that misrepresents the product's actual RF output characteristics.",
+  "bluetooth_tags": [
+    "Power Class declaration measurement mismatch",
+    "Class 1 Class 2 confirmation",
+    "QUESTIONNAIRS form accuracy",
+    "Ricoh Imaging"
+  ],
+  "search_aliases": [
+    "declared Class 2 but measured Class 1",
+    "Power Class mismatch RF test",
+    "QUESTIONNAIRS form output power declaration"
+  ],
+  "qualification_stage": "Test execution",
+  "confidence": "high"
+}

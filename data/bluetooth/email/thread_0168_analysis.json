@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0168",
+  "thread_analysis": {
+    "thread_summary": "Flight Solutions thread covering two distinct account management cases related to SIG registration. The customer had an existing SIG registration from 2016 but lost all account credentials, and was also undergoing a company name change. The thread focuses on the administrative/account-level aspects of SIG membership rather than technical Bluetooth qualification questions.",
+    "all_questions_found": [
+      "We lost our Bluetooth SIG account credentials from 2016. Can we recover the account?",
+      "Our company name is changing. Should we register our new product under the old or new company name?"
+    ],
+    "key_technical_discussion": "SIG account recovery does not require the original credentials — it goes through the Primary Contact administrative channel. The Primary Contact of a SIG member company has authority to request Listing Owner changes directly from SIG. Company name changes should be handled sequentially: register under the name currently on file with SIG, then update the company name separately. Both cases illustrate that SIG's administrative processes are distinct from the online portal login flow.",
+    "key_decision_logic": "SIG membership and product registrations are controlled at the administrative level by the Primary Contact role. When portal credentials are unavailable or member records are outdated, the resolution path is always administrative contact with SIG, not attempting to create new accounts or duplicate registrations. Because the two issues co-occur for this customer, the consultant also advised on sequencing: the Listing Owner change request (credential recovery) should be submitted only after the company name change with SIG is completed, and product registration should proceed under the company name currently on file rather than waiting for the name change to take effect.",
+    "risk_if_done_wrong": "Creating a duplicate SIG member account to work around lost credentials could create conflicting membership records and compliance issues. Registering under the wrong company name (new name before SIG records are updated) could result in a rejected or mismatched registration record.",
+    "consulting_mistake": "None identified. The thread is short and the cases are handled by referencing the correct SIG administrative procedures.",
+    "consulting_takeaway": "When customers report lost SIG credentials or company name changes, the first step is always to clarify the current state of their SIG member record, then follow the correct administrative channel — not to start fresh. Proactively mention that Primary Contact information should be kept up to date within SIG."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0170",
+  "case_id": "thread_0170_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE keyboard (Silex Technology / PFU)",
+  "customer_question": "The QDIDs we are referencing already have ICS inconsistencies baked into them. How do we handle these inherited inconsistencies that we have no control over?",
+  "question_variants": [
+    "The third-party QDID we reference already has ICS inconsistencies. Are we responsible for resolving them?",
+    "Inherited ICS inconsistencies from a referenced QDID appear as Invalid on the SIG Review Page. What do we do?",
+    "SIG shows ICS inconsistencies from a component QDID we are referencing. These are not in our own design. How are they handled?"
+  ],
+  "actual_issue": "When the customer references a third-party QDID in their product registration, ICS inconsistencies from that QDID are inherited and appear on the Review Page. The customer cannot modify the third-party QDID's ICS, so they need to understand how these inherited inconsistencies are handled.",
+  "plain_english_explanation": "When you reference a QDID in your product registration, you inherit that QDID's ICS. If that QDID has known ICS inconsistencies, they will appear on your product's Review Page as 'Invalid' items. SIG allows these inherited inconsistencies to be covered by a Test Coverage Waiver (TCW) — a SIG-issued waiver number that acknowledges the inconsistency is known and accepted. You enter the TCW number during registration. The ICS Form in Submission Status will show a yellow warning indicator (not red) once the TCW is entered, and SIG staff will verify and approve the submission within 1–5 US business days.",
+  "consultant_answer": "Inherited ICS inconsistencies from referenced QDIDs are handled with a Test Coverage Waiver (TCW). Obtain the TCW number for each inconsistency (SIG issues these; they can be looked up or requested), enter the TCW number(s) in the registration, and submit. The Review Page will show the ICS Form with a yellow caution indicator — this is expected and normal. SIG staff reviews and approves within 1–5 US business days.",
+  "decision_logic": "SIG acknowledges that inherited inconsistencies can exist in combined multi-layer registrations. The TCW mechanism exists precisely to document that such inconsistencies are known, accepted by SIG, and do not represent a compliance failure. The yellow indicator on the Review Page signals 'waived but acknowledged' — it does not mean the submission will be rejected.",
+  "final_recommendation": "Before submitting, identify all Invalid ICS items on the Review Page and confirm TCW numbers are available for each. Enter all TCW numbers in the registration form. After submission, expect a yellow indicator on the ICS Form in the Submission Status — this is normal. Wait 1–5 US business days for SIG review and approval.",
+  "risk_if_done_wrong": "Submitting without entering the required TCW number for an inherited ICS inconsistency will result in a rejection (category 4: missing TCW). The Fix: add the missing TCW number and resubmit.",
+  "bluetooth_tags": [
+    "TCW",
+    "Test Coverage Waiver",
+    "ICS inconsistency",
+    "inherited inconsistency",
+    "Review Page",
+    "SIG approval",
+    "yellow warning"
+  ],
+  "search_aliases": [
+    "inherited ICS inconsistency TCW",
+    "yellow warning ICS Form Review Page",
+    "Test Coverage Waiver inherited QDID",
+    "TCW number registration submission",
+    "ICS Invalid inherited component QDID"
+  ],
+  "qualification_stage": "Registration / SIG submission",
+  "confidence": "high"
+}

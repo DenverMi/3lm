@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0122",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This is an internal Allion exchange (March 11-24, 2026) tracking an RF PHY test request for [COMPANY] (project [ID]) being executed at an overseas test lab (ABTS). [PERSON]/Mochizuki requests Leo Chou to arrange a test slot and ships the DUT; [PERSON]/Sakai flags that the customer-facing UART connection procedure document risks repeating a prior mistake made with another team ('AJ') and provides an ABTS-specific revised version, also noting a Nordic DTM tool reference document isn't needed at ABTS. The test (2M LE) completes, Sakai reviews the test report and finds no issues, and - having already obtained the proxy registration confirmation form from the customer - the team proceeds to begin proxy registration work.",
     "all_questions_found": [
       "Before sending test setup documentation to the overseas test lab (ABTS), should it be reviewed/adapted to avoid repeating a previously-encountered issue, and is all the originally-prepared reference material still needed?",

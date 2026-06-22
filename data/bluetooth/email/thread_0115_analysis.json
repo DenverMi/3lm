@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0115",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This is an internal Allion exchange (December 3-8, 2025) tracking Profile testing progress for [COMPANY]'s 19AVNJ product. Initial testing showed about 90% PASS, with several FAIL items to investigate. The team resolves a question about a non-mandatory (Category D) A2DP test case missing from PTS, identifies the cause of an AVRCP/CT/MCN/CB metadata test failure (insufficient metadata size to trigger fragmentation), escalates unresolved OPP test failures to the customer for guidance on test sample operation, and finally addresses a remaining AVRCP cover-art test failure via a PTS configuration parameter rather than escalating a basic question to the BQTF.",
     "all_questions_found": [
       "Is the A2DP/SNK/SYN test case, which is missing from PTS and falls under Test Case Category D, acceptable to leave un-executed?",

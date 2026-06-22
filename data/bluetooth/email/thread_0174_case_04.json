@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0174",
+  "case_id": "thread_0174_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE security device (Secom)",
+  "customer_question": "How long does it take from order to completed registration? Also, after we place the order, do we need to provide or lend the registered device to Allion?",
+  "question_variants": [
+    "What is the timeline from placing the order to registration completion?",
+    "Does Allion need a physical sample of our product after we order?",
+    "If our registration is fully test-exempt, is there still a need to ship hardware to the test lab?"
+  ],
+  "actual_issue": "The customer (Secom) asked two related questions when preparing to place their order: (1) how long the process takes from order to completed registration, and (2) whether they need to provide or lend the physical registered device to Allion after ordering. The consultant explained that the main time driver is the USD wire transfer proxy for the Qualification Fee (up to 3 weeks from internal approval to the bank executing the international transfer), during which registration verification and support work happen in parallel; once the wire completes, registration finishes and the product can be publicly announced, shipped, and sold. Because this particular registration's referenced QDID/Host Stack qualifies for full test exemption, no hardware sample needs to be provided or lent to Allion.",
+  "plain_english_explanation": "For a registration where all required tests are exempt (because the referenced module and Host Stack are already qualified and the product doesn't add anything new), the customer doesn't need to send Allion a physical unit at all - there is no test to run on real hardware. The main thing that takes time is not the registration paperwork itself, but the USD wire transfer for the SIG Qualification Fee, which can take up to 3 weeks once a company starts its internal approval process and its bank executes the international transfer. Allion does the registration verification and support work in parallel during that same window, so as soon as the wire transfer completes, the registration is also finished and the product can be publicly announced, shipped, and sold.",
+  "consultant_answer": "The main time driver after ordering is the USD wire transfer proxy for the Qualification Fee, which can take up to 3 weeks depending on when internal approval starts and when the bank executes the international transfer. Verification and registration support work are done in parallel during this window, so once the wire transfer completes, the registration is also complete and the product can be publicly announced, shipped, and sold. Because the registration content in this case is fully test-exempt, no physical device needs to be provided or lent to Allion.",
+  "decision_logic": "When a registration is fully test-exempt, the critical path is the USD Qualification Fee wire transfer, not test scheduling or hardware shipment. Registration verification and support work run in parallel with the wire transfer process. Whether a customer needs to provide a hardware sample depends entirely on whether any test is required - test-exempt registrations require no hardware delivery at all.",
+  "final_recommendation": "When quoting a test-exempt registration, proactively tell the customer that the main timeline driver is the USD wire transfer (up to 3 weeks) and that no physical product sample needs to be sent, since this is a common point of customer uncertainty when no testing is involved.",
+  "risk_if_done_wrong": "If a customer unnecessarily prepares and ships a hardware sample for a test-exempt registration, it wastes shipping time and cost. If a customer underestimates the USD wire transfer lead time, the registration completion date could slip past their planned public announcement or product launch date.",
+  "bluetooth_tags": [
+    "registration timeline",
+    "USD wire transfer",
+    "Qualification Fee",
+    "test exemption",
+    "hardware sample",
+    "proxy payment"
+  ],
+  "search_aliases": [
+    "registration timeline from order",
+    "do we need to send hardware sample registration",
+    "USD wire transfer 3 weeks timeline",
+    "test exempt registration no hardware needed",
+    "how long does Bluetooth SIG registration take"
+  ],
+  "qualification_stage": "pre-registration",
+  "confidence": "high"
+}

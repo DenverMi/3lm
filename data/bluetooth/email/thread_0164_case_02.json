@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0164",
+  "case_id": "thread_0164_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth product with antenna-connector module (ACCESS)",
+  "customer_question": "The module we are using has an antenna connector — does it need RF/RF PHY testing at the product level?",
+  "question_variants": [
+    "Does an antenna connector on the module mean we need RF testing?",
+    "Is RF testing required when the module has an external antenna connector?",
+    "Module with antenna connector — is RF test required or exempt?"
+  ],
+  "actual_issue": "The customer's module has an antenna connector (as confirmed from the module datasheet). The question is whether RF/RF PHY testing at the product level is required or exempt.",
+  "plain_english_explanation": "Whether RF testing is required at the product level depends on the antenna configuration. If the module has an integrated antenna (no external connector) — meaning the antenna is built into the module and cannot be removed or replaced — RF performance is considered pre-qualified at the module level and product-level RF testing is exempt. However, if the module has an antenna connector (an external antenna can be attached), the RF performance depends on the external antenna and the product's PCB layout, both of which are not covered by the module's own qualification. In this case, RF/RF PHY testing at the product level is required to verify the actual RF performance of the assembled product.",
+  "consultant_answer": "Because the module has an antenna connector (confirmed from the datasheet), RF/RF PHY testing at the product level is NOT exempt — testing is required. The external antenna and PCB layout affect RF performance in ways not covered by the module's own qualification. Quote accordingly.",
+  "decision_logic": "RF test exemption applies only when the antenna is integrated within the module (no external connection). An antenna connector means the RF path extends outside the module and is subject to the customer's product design — this requires product-level RF testing to verify performance.",
+  "final_recommendation": "When reviewing a customer's module datasheet, check whether it has an antenna connector or an integrated antenna. Antenna connector → RF testing required. Integrated antenna (no connector) → RF testing exempt. This determination must be made at the quotation stage.",
+  "risk_if_done_wrong": "Incorrectly exempting a product with an antenna connector from RF testing results in a non-compliant qualification. Missing RF test in the quote causes surprise scope and cost additions later.",
+  "bluetooth_tags": [
+    "RF test",
+    "antenna connector",
+    "RF PHY testing",
+    "test exemption",
+    "module RF qualification",
+    "antenna integrated vs connector"
+  ],
+  "search_aliases": [
+    "antenna connector RF test required",
+    "module antenna connector RF testing",
+    "RF test exempt integrated antenna",
+    "when is RF testing required bluetooth",
+    "antenna connector vs integrated antenna test"
+  ],
+  "qualification_stage": "pre-registration",
+  "confidence": "high"
+}

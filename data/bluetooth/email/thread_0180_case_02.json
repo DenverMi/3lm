@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0180",
+  "case_id": "thread_0180_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE wireless unit",
+  "customer_question": "Can Allion perform RF PHY testing including Transmitting Constant Tone Extensions (CTE)?",
+  "question_variants": [
+    "Does Allion support CTE measurement?",
+    "Can you test Transmitting CTE for my BLE product?",
+    "Is Transmitting CTE within scope for your RF certification lab?"
+  ],
+  "actual_issue": "The customer's QDID includes Transmitting CTE support. Allion's certification test system cannot measure Transmitting Constant Tone Extensions, making it impossible for Allion to provide a test report for that item.",
+  "plain_english_explanation": "Transmitting Constant Tone Extensions (CTE) is an RF feature used in Bluetooth direction-finding (AoA/AoD). Not all test labs have equipment capable of measuring CTE transmission. When a product's registered QDID includes CTE, the BQTF test report must cover it. If the lab cannot test CTE, the scope must either be declined or the CTE scope removed from the product's QDID reference.",
+  "consultant_answer": "Allion's certification test systems do not support Transmitting CTE measurement. Therefore Allion declined to submit a quote for this scope. The customer was advised that the test scope would need to exclude CTE, or they should find an alternative lab with CTE capability. Ultimately the customer requested and Allion quoted RF PHY 1M only (¥400,000), excluding CTE.",
+  "decision_logic": "When QDID includes CTE, the product test must cover CTE. If the test lab cannot measure CTE, it must decline that scope. The customer can either (1) find a lab with CTE capability, or (2) reduce the RF PHY test scope by working with the QDID listing owner to create a Subset DN that removes CTE support.",
+  "final_recommendation": "Confirm with your test lab whether CTE measurement is available before submitting. If not, either identify an alternative lab or request a Subset DN from the QDID listing owner to exclude CTE from the QDID ICS, then proceed with the reduced scope.",
+  "risk_if_done_wrong": "If CTE is in the QDID ICS but no test report covers it, the SIG submission will be rejected for missing test evidence.",
+  "bluetooth_tags": [
+    "CTE",
+    "Constant Tone Extensions",
+    "AoA",
+    "AoD",
+    "RF PHY",
+    "BQTF",
+    "test scope",
+    "Subset DN"
+  ],
+  "search_aliases": [
+    "CTE test lab capability",
+    "Transmitting Constant Tone Extensions RF test",
+    "lab cannot measure CTE",
+    "CTE scope exclusion",
+    "BQTF CTE measurement"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
+}

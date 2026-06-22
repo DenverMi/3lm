@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0075",
-    "cases": [
-        {
-            "case_id": "thread_0075_case_03",
-            "iut_type": "automotive device",
-            "customer_question": "If a referenced Bluetooth profile is customized, is additional qualification testing required and how should compatibility with the Host design be verified?",
-            "question_variants": [
-                "Do custom Bluetooth profiles require testing?",
-                "Can a modified Qualcomm profile be reused without testing?",
-                "How do I validate a custom profile against a Host QDID?",
-                "Need qualification testing for profile customization",
-                "How to check Invalid=0 before declaration"
-            ],
-            "actual_issue": "The project intended to build on existing qualified Bluetooth designs, but profile-level customization could introduce incompatibilities with the referenced Host qualification.",
-            "plain_english_explanation": "Reusing qualified Bluetooth designs does not automatically cover later profile modifications. Any customization can change qualification applicability and may affect whether the final design remains compatible with referenced host registrations. Compatibility should be checked before qualification submission.",
-            "consultant_answer": "If the reused profile is customized, qualification testing should be performed on the customized functionality. Afterward, the resulting design should be checked against the referenced Host qualification to ensure no qualification inconsistency exists and that the resulting combination remains valid.",
-            "decision_logic": "Qualification reuse depends on remaining within the scope of the referenced qualified design. Once profile behavior is modified, testing and compatibility verification are needed to confirm that the resulting combination still satisfies qualification rules.",
-            "final_recommendation": "Identify all profile customizations early, perform the required qualification testing on the modified functionality, and validate the resulting Host/Controller combination before proceeding with declaration.",
-            "risk_if_done_wrong": "Undetected incompatibilities may surface late in qualification, requiring additional testing, redesign of the qualification approach, or changes to the referenced design combination.",
-            "bluetooth_tags": [
-                "qualification",
-                "profile",
-                "host",
-                "reuse",
-                "testing",
-                "declaration"
-            ],
-            "search_aliases": [
-                "custom profile testing",
-                "Host QDID compatibility",
-                "Invalid equals zero",
-                "profile customization qualification",
-                "reuse with modifications",
-                "host controller validation",
-                "qualification simulation",
-                "customized profile"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "medium",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0075",
+  "case_id": "thread_0075_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "If our OEM customizes the chipset vendor's stock Bluetooth Profile implementation, does the customized Profile need its own testing, and can we check ahead of time that it won't create an inter-layer inconsistency with our Host QDID?",
+  "question_variants": [
+    "Can we rely on the chipset vendor's own Profile test evidence if we've customized their Profile?",
+    "Is there a way to check for Consistency Check problems before committing to full testing?",
+    "Can you run a simulation to confirm Invalid=0 with our Host QDID before we test the custom Profile?"
+  ],
+  "actual_issue": "The customer's OEM intended to customize the chipset vendor's stock Bluetooth Profile implementation, raising the question of whether the customized Profile needed to be separately tested rather than relying on the vendor's existing Profile test evidence, and whether the resulting combination could be checked for inter-layer inconsistency against the Host QDID before committing to full testing.",
+  "plain_english_explanation": "If an OEM takes a chip vendor's ready-made Bluetooth feature and modifies it, the vendor's original test results no longer fully represent what the OEM is actually shipping, so the modified version needs to be tested in its own right. Before spending the time and cost on that full test, it's possible to run a quick check using the planned registration's settings to make sure the certification system won't reject the combination outright once everything is submitted -- catching configuration problems early instead of after testing is already complete.",
+  "consultant_answer": "If the OEM customizes the chip vendor's Profile, testing of that custom Profile is required -- the vendor's own Profile test evidence covers only their stock implementation, not the OEM's customization. After that testing, it is important to confirm early whether the test results and the Host QDID will produce an inter-layer inconsistency (Invalid=0), and this confirmation can be done as a simulation performed by the consultant ahead of committing to the full registration, reducing the risk of discovering an inconsistency only after testing is complete.",
+  "decision_logic": "A chipset vendor's existing Profile test evidence only covers their unmodified, stock implementation; any OEM customization to that Profile requires its own separate testing, and running an early inter-layer consistency simulation against the intended Host QDID configuration -- before or alongside that testing -- is the appropriate way to catch a potential Invalid result before it surfaces in the formal registration process.",
+  "final_recommendation": "When an OEM customizes a chipset vendor's stock Profile implementation, plan for separate testing of the customization and request an early inter-layer consistency simulation (Invalid=0 check) against the intended Host QDID configuration before committing to full testing.",
+  "risk_if_done_wrong": "Assuming the chipset vendor's existing Profile test evidence covers an OEM-customized version of that Profile risks submitting an inadequately-tested registration. Skipping the early Invalid=0 simulation risks discovering an inter-layer inconsistency only after full testing has already been completed, at greater cost and delay.",
+  "bluetooth_tags": ["custom Profile", "Host QDID", "Invalid", "consistency check", "simulation", "testing"],
+  "search_aliases": ["custom Profile requires its own testing", "Invalid=0 simulation before full test", "vendor stock Profile vs OEM customization", "early inter-layer consistency check Host QDID"],
+  "qualification_stage": "pre-test review",
+  "confidence": "high"
 }

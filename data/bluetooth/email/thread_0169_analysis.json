@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0169",
+  "thread_analysis": {
+    "thread_summary": "NECPF (NEC Platform) thread for an embedded Linux device using the i.MX8MP SoC with a modified AOSP Fluoride Host Stack. The thread covers three distinct technical questions about qualification scoping: whether a modified open-source Host Stack can reuse the original QDID, whether cross-vendor Host+Controller QDID combinations are allowed, and why L2CAP and GAP appear twice in the protocol test list for a dual-mode product.",
+    "all_questions_found": [
+      "We modified the AOSP Fluoride Host Stack. Can we reference Google's existing QDID?",
+      "Our Host Stack and Controller come from different vendors. Is this acceptable for SIG registration?",
+      "L2CAP and GAP appear twice in our protocol test scope for our dual-mode product. Is this an error?"
+    ],
+    "key_technical_discussion": "QDID reuse requires identical implementation — any code modification, even minor, means the implementation is no longer the same as the qualified design and cannot reuse the original QDID. Cross-vendor Host+Controller combinations are fully supported and are the normal use case for Multi-Design registration. For dual-mode (BR/EDR+BLE) products, protocols with both Classic and LE versions (L2CAP, GAP) appear twice in the test scope because they are distinct implementations at the protocol level, each requiring separate PTS test execution and evidence.",
+    "key_decision_logic": "The QDID identity test: 'Is this the exact same implementation that was qualified?' Any modification = new qualification required. The cross-vendor test: SIG layers are independently qualified and referenced — vendor identity is irrelevant to the registration structure. The dual-protocol test: BR/EDR and BLE are distinct transport stacks; shared protocol names do not mean shared test scope.",
+    "risk_if_done_wrong": "Using a modified Host Stack implementation under another company's QDID would constitute a non-compliant registration and could be discovered in a SIG audit, risking membership consequences. Skipping one instance of a dual-listed protocol test would cause submission failure at the SIG portal.",
+    "consulting_mistake": "None identified. The consultant correctly identified all three issues and provided clear, authoritative answers.",
+    "consulting_takeaway": "Modified open-source stacks are one of the most common sources of customer confusion about QDID reuse. Always ask explicitly whether any changes have been made to the referenced implementation before confirming QDID eligibility. For dual-mode products, proactively explain the dual-instance protocol test requirement at the quoting stage to prevent timeline surprises."
+  }
+}

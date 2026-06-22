@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0135",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "Teraoka Seiko / Espressif module BLE-only registration. Three issues surfaced: (1) the module vendor self-described as 'Component' but SIG registration shows Host + Controller Subsystem → Multi-Design (¥250K) applies; (2) RFQ stated BR/EDR/BLE but module is BLE-only — scope must be corrected; (3) module has integrated antenna → RF/RF PHY test exempt; TCW ES-25636 yellow warning is SIG-caused and self-resolves in 1–5 business days.",
     "all_questions_found": [
       "Is this module Single Design or Multi-Design reference?",

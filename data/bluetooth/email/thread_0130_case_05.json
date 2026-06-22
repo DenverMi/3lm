@@ -2,6 +2,7 @@
   "source_thread": "thread_0130",
   "case_id": "thread_0130_case_05",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "sensor",
   "customer_question": "If a PCB board size change also causes the enclosure (casing) size to change, does that require a new Bluetooth test or new registration? What about Japanese regulatory certification?",
   "question_variants": [
@@ -11,11 +12,20 @@
   ],
   "actual_issue": "The customer asked whether a board size change accompanied by a possible enclosure size change still qualifies for free derivative Product List addition if the BLE FW and BLE-antenna circuit path are unchanged. The consultant confirmed yes: for Bluetooth certification, 'the FW on IC100 and IC10 (MCU and BLE chip) is the same as the base registration AND BLE-antenna path components and routing are unchanged' is the only requirement - board size and enclosure size changes are irrelevant to Bluetooth qualification. However, the consultant added an important separate warning: Japanese Radio Act (電波法) 工事設計認証 (engineering design type certification) is a different regulatory regime that requires re-application per model name AND requires re-application if the PCB board shape OR the product's external appearance changes. This is completely separate from Bluetooth SIG certification and must be tracked independently.",
   "plain_english_explanation": "Bluetooth SIG certification and Japan's Radio Act (電波法) type approval are two separate, independent regulatory requirements for Bluetooth products sold in Japan. Bluetooth SIG certification only cares about the Bluetooth protocol/stack and RF PHY - so enclosure/board shape changes are irrelevant as long as the BLE FW and BLE-antenna circuit path are unchanged. However, 工事設計認証 (Japan's Radio Act engineering design type certification) has stricter mechanical requirements: it must be re-applied for each model name (型式名), AND re-application is required whenever the board shape or external appearance (外観) changes. So a product that qualifies for Bluetooth SIG's free derivative addition (because FW and antenna path are unchanged) may still require a new 工事設計認証 application if the board or enclosure changed - the customer needs to track both requirements separately.",
-  "consultant_answer": "はい、Bluetooth認証登録では「IC100とIC10に実装されたFWがベース登録と同じ、かつBLE-アンテナ間の部品や引き回し等に変更が無い場合は追加試験は不要」です。ただし、電波法の工事設計認証は型式名毎に申請が必要かつ無線部以外を含めて基板形状または外観が変われば再申請が必要ですのでご注意ください。 (Yes, for Bluetooth certification registration, 'if the FW on IC100 and IC10 is the same as the base registration AND there are no changes to BLE-antenna path components or routing, no additional test is needed.' However, please note that Japan's Radio Act 工事設計認証 (engineering design type certification) must be applied for per model name, and re-application is required if the board shape or external appearance changes (including non-wireless sections).)",
+  "consultant_answer": "Yes, for Bluetooth certification registration, 'if the FW on IC100 and IC10 is the same as the base registration AND there are no changes to BLE-antenna path components or routing, no additional test is needed.' However, please note that Japan's Radio Act 工事設計認証 (engineering design type certification) must be applied for per model name, and re-application is required if the board shape or external appearance changes (including non-wireless sections).",
   "decision_logic": "When a customer's design change involves board size or enclosure size changes: (1) For Bluetooth SIG certification - if BLE FW and antenna path are unchanged, no test or registration action is needed regardless of board/enclosure changes. (2) For Japan's Radio Act 工事設計認証 - separately check whether the board shape or external appearance changed; if so, a new 工事設計認証 application is required per model name. Always surface the 工事設計認証 requirement proactively when board or enclosure changes are mentioned, as customers may overlook this entirely-separate regulatory obligation.",
   "final_recommendation": "Confirm free Bluetooth derivative addition eligibility when BLE FW and antenna path are unchanged, but proactively add a warning that Japan's Radio Act 工事設計認証 requires re-application per model name if the board shape or external appearance changes - this is a separate requirement that the customer may not be tracking.",
   "risk_if_done_wrong": "If a customer changes the board or enclosure shape and doesn't re-apply for 工事設計認証, they may be selling a product whose radio characteristics have changed (e.g., due to physical changes) without the required type approval re-certification - a regulatory violation under Japan's Radio Act.",
-  "bluetooth_tags": ["qualification", "derivative product", "design change", "Japanese regulatory", "工事設計認証", "Radio Act", "enclosure", "board size"],
+  "bluetooth_tags": [
+    "qualification",
+    "derivative product",
+    "design change",
+    "Japanese regulatory",
+    "工事設計認証",
+    "Radio Act",
+    "enclosure",
+    "board size"
+  ],
   "search_aliases": [
     "enclosure board size change Bluetooth re-registration",
     "工事設計認証 re-application board shape external appearance change",

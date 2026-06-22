@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0261",
+  "case_id": "thread_0261_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Derivative model based on JVC Kenwood's certified VP8000, free Product List addition",
+  "customer_question": "Confirming our understanding: if the new antenna's maximum gain delta versus the base model stays within the Class 1 output ceiling, no testing is needed and we can register this as a derivative product. Can we perform this derivative registration ourselves directly on the web, or does it require Allion's involvement?",
+  "question_variants": [
+    "Is our understanding of the no-retest paper calculation correct?",
+    "Can we self-service the derivative model registration on the SIG website?"
+  ],
+  "actual_issue": "After confirming the paper-calculation method for assessing antenna-change retest risk, the customer wanted to know whether they could complete the actual derivative-model registration step themselves without further involvement from Allion.",
+  "plain_english_explanation": "The customer's restated understanding of the paper-calculation method (comparing the new antenna's maximum gain delta against the Class 1 ceiling) was confirmed as correct, noting that most SoCs registered at Class 1 actually operate at output levels well under 10dBm, making it very unlikely that even a high-gain antenna would push the combined figure past the 20dBm Class 1 limit. For the registration step itself, the customer's company (as Listing Owner, or anyone with the Listing Owner's User Name and password) can complete the derivative-model registration entirely through simple self-service web operations on the SIG registration site, without needing Allion's direct involvement — a reference procedure document for the new registration site's derivative-registration process was provided to guide this.",
+  "consultant_answer": "Yes, your understanding is correct — and in practice, most Class 1-registered SoCs operate at output levels well under 10dBm, so it's very unlikely that even a high-gain antenna would push you past the 20dBm Class 1 ceiling. For the registration itself, you (or anyone with your Listing Owner's User Name and password) can complete the derivative-model registration yourselves through simple web operations on the SIG site — we've attached a reference procedure for the new registration site's derivative-registration process to guide you.",
+  "decision_logic": "Derivative-model Product List additions are designed as a self-service capability available directly to the Listing Owner (or their authorized account credentials) via the SIG registration website, not requiring a proxy registration agent's involvement for this specific step.",
+  "final_recommendation": "When a customer confirms understanding of a no-retest paper calculation and asks about the registration mechanics, confirm both the calculation and clarify that the actual derivative-model registration step is typically self-service via the Listing Owner's own account, providing a procedure reference rather than assuming proxy involvement is required.",
+  "risk_if_done_wrong": "Assuming proxy registration support is required for every derivative-model addition (when it's actually self-service) could create unnecessary cost or delay for the customer for routine future derivative additions.",
+  "bluetooth_tags": [
+    "derivative model self service web registration",
+    "Listing Owner account derivative registration",
+    "Class 1 SoC typical output level",
+    "JVC Kenwood"
+  ],
+  "search_aliases": [
+    "can customer register derivative model themselves",
+    "Listing Owner self service web registration",
+    "new registration site derivative model procedure"
+  ],
+  "qualification_stage": "Derivative model registration execution",
+  "confidence": "high"
+}

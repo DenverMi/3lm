@@ -1,46 +1,33 @@
 {
-    "source_thread": "thread_0021",
-    "cases": [
-        {
-            "case_id": "thread_0021_case_03",
-            "iut_type": "module-integrated Bluetooth device",
-            "customer_question": "What fees and responsibilities remain when Bluetooth SIG testing is not required?",
-            "question_variants": [
-                "Do we still need Bluetooth SIG product registration if testing is waived?",
-                "What costs remain if no Bluetooth testing is needed?",
-                "Who performs the Bluetooth SIG listing?",
-                "Is company membership different from product qualification?",
-                "Can the consultant perform SIG registration on behalf of the customer?"
-            ],
-            "actual_issue": "The customer confused Bluetooth SIG company membership, product qualification, testing requirements, and consultant support fees, especially in cases where testing might be waived through qualified module reuse.",
-            "plain_english_explanation": "Even when Bluetooth testing is not required, the final product still must complete the Bluetooth SIG qualification and listing process. The product owner must maintain its own Bluetooth SIG membership and product declaration. Consultants can help with registration and documentation, but their support fees are separate from Bluetooth SIG fees.",
-            "consultant_answer": "The consultant explained that Bluetooth SIG company membership registration and product qualification are separate activities. Company membership registration is completed directly by the customer, while the consultant can support or perform the product qualification registration process. Even when testing is unnecessary because a qualified module is reused, the final branded product still requires Bluetooth SIG product registration and associated fees. The consultant also clarified that support fees for registration assistance are separate from the Bluetooth SIG administrative qualification fee.",
-            "decision_logic": "Bluetooth qualification obligations apply to the final branded product owner regardless of whether testing is required. Reusing a qualified design may reduce testing scope but does not eliminate the need for product qualification submission and Bluetooth SIG fees.",
-            "final_recommendation": "Ensure the final product owner has an active Bluetooth SIG membership account and budget separately for Bluetooth SIG qualification fees and any consultant support services, even when testing is minimized through qualification reuse.",
-            "risk_if_done_wrong": "Confusing membership, listing, and testing responsibilities can delay product launch, create budgeting errors, prevent proper product declaration, or expose the company to Bluetooth SIG enforcement issues.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "declaration",
-                "QDID",
-                "reuse",
-                "module",
-                "membership"
-            ],
-            "search_aliases": [
-                "Bluetooth SIG membership",
-                "product listing required",
-                "testing waived but listing required",
-                "qualification fee",
-                "registration support",
-                "final brand qualification",
-                "SIG declaration",
-                "reuse without testing",
-                "Bluetooth product registration"
-            ],
-            "qualification_stage": "pre-sales",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0021",
+  "case_id": "thread_0021_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (JUST.WILL device using a Seeed Studio XIAO ESP32S3 third-party board), uncertified third-party board built on a certified SoC still requires RF PHY testing",
+  "customer_question": "The module we're planning to use is the 'Seeed Studio XIAO ESP32S3' -- it already has Japan's radio-law construction-design certification, but I'm not sure about the Bluetooth side. Can you advise?",
+  "question_variants": [
+    "Does a certified underlying chipset automatically make any board built around it exempt from RF PHY testing?",
+    "If the chip itself has a QDID, why would the board built around it still need testing?"
+  ],
+  "actual_issue": "The customer assumed that because their chosen third-party development board ('Seeed Studio XIAO ESP32S3') used a Bluetooth-SIG-qualified chipset internally, the board itself would also be exempt from RF/RF PHY testing -- but a search of the Bluetooth SIG product database found no registration for 'Seeed Studio' or the board itself, only for the underlying chipset.",
+  "plain_english_explanation": "A search for 'Seeed Studio XIAO ESP32S3' and the manufacturer name 'Seeed' in the Bluetooth product database, and a SIG member directory search for 'Seeed,' both returned no hits -- indicating this specific board is itself an unregistered/unqualified module, even though the SoC it implements (ESP32-S3R8) is itself registered with its own QDID. Referencing that chipset's QDID does exempt the higher-layer protocol stack (LL, L2CAP, GAP, GATT, ATT, SM) from needing fresh testing, but it does NOT exempt the RF PHY layer -- because Bluetooth SIG qualification of a chipset only covers what was actually tested for that specific registration, and RF PHY behavior depends on the board-level implementation (antenna, RF front-end, layout) which can differ between an unregistered third-party board and the chipset vendor's own reference design. This meant the customer's chosen board still required a full RF PHY test (quoted at the full 51-item scope, ¥1,500,000, since the board's actual PHY mode support wasn't yet narrowed down) on top of the standard proxy registration and Compliance Folder fees.",
+  "consultant_answer": "We searched for 'Seeed Studio XIAO ESP32S3' and the manufacturer name 'Seeed' in the Bluetooth product database and the SIG member directory, and found no registration for either -- this board itself appears to be unregistered/unqualified, even though the chipset it implements (ESP32-S3R8) does have its own QDID. Referencing that chipset's QDID exempts the protocol stack layers (LL, L2CAP, GAP, GATT, ATT, SM) from fresh testing, but not RF PHY -- RF PHY behavior depends on the board's own antenna/RF front-end implementation, which a chipset-level qualification doesn't cover for an unregistered third-party board. So your chosen board would still need a full RF PHY test, quoted at ¥1,500,000 for the full scope, on top of standard registration and Compliance Folder fees.",
+  "decision_logic": "A Bluetooth-qualified chipset's QDID only exempts the specific layers actually covered by that registration (typically protocol stack layers); it does not automatically exempt RF PHY testing for an unregistered third-party board built around that chipset, since RF PHY performance is board-level (antenna, RF front-end) and can differ from the chipset vendor's own reference design -- always check the SIG product database and member directory for the actual board/module manufacturer's name, not just the underlying chipset, before concluding test exemption applies.",
+  "final_recommendation": "When a customer references a third-party development board built on a known qualified chipset, search the SIG product database and member directory for the board manufacturer's own name (not just the chipset) before answering test-exemption questions, since chipset-level qualification does not extend RF PHY exemption to an unregistered board implementation.",
+  "risk_if_done_wrong": "Assuming an unregistered third-party board is exempt from RF PHY testing simply because its underlying chipset has a QDID could result in an incomplete registration submission, since the board-level RF PHY behavior was never actually tested or qualified.",
+  "bluetooth_tags": [
+    "third party board not exempt despite certified chipset",
+    "Seeed Studio XIAO ESP32S3 unregistered board",
+    "chipset QDID exempts protocol layers not RF PHY",
+    "search SIG database for board manufacturer not just chipset",
+    "JUST.WILL"
+  ],
+  "search_aliases": [
+    "is third party board exempt because chip has QDID",
+    "Seeed Studio XIAO Bluetooth SIG registration status",
+    "chipset qualified but board not qualified RF PHY test needed",
+    "board level RF PHY differs from chipset reference design"
+  ],
+  "qualification_stage": "Pre-test feasibility / module qualification verification",
+  "confidence": "high"
 }

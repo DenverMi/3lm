@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0181",
+  "case_id": "thread_0181_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE camera module (Ricoh Imaging R09010)",
+  "customer_question": "If the BLE output power during data communication was inadvertently set higher than the product specification, and we are correcting it to a lower level, does Bluetooth SIG re-test become necessary?",
+  "question_variants": [
+    "BLE transmit power was accidentally at 10dBm instead of 0dBm — do we need re-test?",
+    "We are reducing data communication output from 10dBm to 0dBm — is re-certification needed?",
+    "Output power change (downward) within Class 2 range: is re-test mandatory?"
+  ],
+  "actual_issue": "During data communication, the BLE output was inadvertently set to 10dBm (the maximum for Class 2), not 0dBm as specified. The BQTF output test was already completed at Class 2 range. The customer plans to correct output to 0dBm and needs to know if a certified re-test is required.",
+  "plain_english_explanation": "Class 2 BLE output is defined as between -10dBm and 10dBm. Both 0dBm and 10dBm are within the Class 2 range. The BQTF test confirmed the product is Class 2. Reducing the output from 10dBm to 0dBm does not change the Class designation — it remains Class 2. Therefore the change is treated as a setting adjustment within the allowed range, not a design change that requires re-certification. The customer can use their own spectrum analyzer or measurement equipment to confirm the corrected output is at 0dBm, and no mandatory BQTF re-test is required.",
+  "consultant_answer": "Reducing data communication output from 10dBm to 0dBm does not violate the Class 2 range (-10dBm < Class 2 < 10dBm). The existing BQTF test result remains valid. Self-verification with the customer's own measurement equipment (spectrum analyzer) is sufficient. A mandatory BQTF re-test is not required. If internal design review requires a certified measurement report, an optional re-test can be commissioned.",
+  "decision_logic": "The Bluetooth SIG Class determination is based on the registered output range. A change that stays within the same Class does not require re-certification. The test report already confirmed Class 2 compliance. The correction to 0dBm does not push the output outside Class 2, so no Class change occurs. The change is equivalent to a firmware parameter adjustment, not a hardware design change.",
+  "final_recommendation": "Correct the output to 0dBm, verify with in-house measurement tools, and keep the verification record. No BQTF re-test is mandatory. Only commission an optional re-test if your internal quality or design approval process requires a certified measurement report.",
+  "risk_if_done_wrong": "If a Class boundary were crossed (e.g., output reduced below -10dBm making it non-compliant, or moved from Class 2 to Class 1 requiring a new ICS declaration), a new test and registration would be required. Always confirm the corrected output stays within the registered Class specification.",
+  "bluetooth_tags": [
+    "RF output power",
+    "Class 2",
+    "BLE",
+    "re-test",
+    "output level change",
+    "BQTF",
+    "self-verification"
+  ],
+  "search_aliases": [
+    "BLE output power change re-test",
+    "Class 2 output adjustment",
+    "10dBm to 0dBm no re-certification",
+    "BLE transmit power reduction",
+    "within Class range no re-test"
+  ],
+  "qualification_stage": "Post-certification / Change Management",
+  "confidence": "high"
+}

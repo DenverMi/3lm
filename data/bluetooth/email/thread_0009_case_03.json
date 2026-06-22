@@ -1,43 +1,33 @@
 {
-    "source_thread": "thread_0009",
-    "cases": [
-        {
-            "case_id": "thread_0009_case_03",
-            "iut_type": "host device",
-            "customer_question": "How can a consultant support Bluetooth SIG registration if the customer refuses to share Qualification Workspace account credentials?",
-            "question_variants": [
-                "Can SIG registration be supported without account sharing?",
-                "Is screen-sharing registration support allowed?",
-                "Can consultants register products without customer login credentials?",
-                "What are the alternatives to sharing Bluetooth SIG account passwords?",
-                "Can qualification support be done through Teams screen sharing?"
-            ],
-            "actual_issue": "The customer would not allow direct sharing of Bluetooth SIG Qualification Workspace account credentials required for registration support and submission handling.",
-            "plain_english_explanation": "The consultant normally needed temporary access to the customer's Bluetooth SIG account to complete qualification submissions. The customer security policy prohibited sharing credentials. The parties explored alternatives such as temporary passwords and live screen-sharing support sessions.",
-            "consultant_answer": "The consultant explained that after the SIG site update, normal registration support workflows required using the customer's login account for direct submission handling. As an alternative for customers unwilling to share credentials, the consultant proposed temporary password changes during the support window or conducting guided registration sessions through a web meeting system with screen sharing. The consultant also explained that required upload materials could be prepared in advance to support remote guided registration.",
-            "decision_logic": "Bluetooth qualification submissions must be completed under the member company's own Bluetooth SIG account. Operationally, consultants may need account access to complete submissions, but credential-sharing restrictions can be mitigated using temporary passwords or supervised live registration sessions.",
-            "final_recommendation": "Use supervised screen-sharing sessions or temporary password procedures to complete Qualification Workspace submissions while maintaining customer control of the account.",
-            "risk_if_done_wrong": "If registration is attempted without proper account access coordination, qualification submissions may be delayed, incomplete, or blocked by customer security policies.",
-            "bluetooth_tags": [
-                "qualification",
-                "Qualification Workspace",
-                "listing",
-                "submission",
-                "account access",
-                "registration support"
-            ],
-            "search_aliases": [
-                "Qualification Workspace credential sharing",
-                "SIG account access",
-                "screen share qualification support",
-                "Teams registration support",
-                "temporary password qualification",
-                "consultant submission access",
-                "Bluetooth SIG login policy"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0009",
+  "case_id": "thread_0009_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Silex Technology module, for end customer 'P company'), registration support without sharing login credentials",
+  "customer_question": "Our end customer's internal policy doesn't allow lending out their SIG account credentials to a third party. As an alternative, would it be possible for them to log into their own account and have you guide them live via a screen-share (Teams) session, rather than handing over the login itself?",
+  "question_variants": [
+    "Can registration proceed without the account holder ever disclosing their password to Allion?",
+    "Is a live, guided screen-share session a viable substitute for handing over login credentials?"
+  ],
+  "actual_issue": "The end customer's internal security policy prohibited sharing their SIG account login credentials with a third party (Allion, working through intermediary Silex Technology), and the parties needed to find a registration support method that didn't require credential disclosure while still allowing Allion to provide its registration expertise.",
+  "plain_english_explanation": "Since the registration site update (effective July 1, 2024), Allion's only standard registration support method is performing the registration directly using the account holder's login credentials — there isn't a credential-free 'submission package' delivery method available under the new system as there might have been previously. As an accommodation for a customer unable to share credentials, Allion can prepare in advance the specific upload materials and information needed for the registration within its own Qualification Workspace trial project, and then provide registration support via a live web-meeting (Teams) session, where the account holder logs in themselves while Allion guides them through each step in real time — this avoids any credential disclosure while still letting Allion provide direct, hands-on registration support.",
+  "consultant_answer": "Since the site update, our standard registration support method requires logging in with the account holder's credentials directly — there's no credential-free package delivery option under the new system. As an accommodation, though, we can prepare the specific upload materials and information needed in advance within our own trial project, and then support the registration via a live Teams screen-share session, where your end customer logs in themselves while we guide them through each step in real time — this avoids any credential disclosure while still letting us provide direct support.",
+  "decision_logic": "When a customer's account holder cannot share login credentials due to internal policy, a live, guided web-meeting session (with the account holder logging in themselves) is a viable accommodation that preserves credential confidentiality while still allowing direct registration support, distinct from both the standard credential-sharing method and an asynchronous self-service package.",
+  "final_recommendation": "When a customer's credential-sharing constraint blocks the standard registration support method, offer a live, guided screen-share session as a middle-ground accommodation, having the necessary materials prepared in advance to make the live session as efficient as possible.",
+  "risk_if_done_wrong": "Insisting only on the standard credential-sharing method without offering an accommodation could stall the registration indefinitely if the end customer's internal security policy genuinely cannot be waived.",
+  "bluetooth_tags": [
+    "credential sharing policy restriction",
+    "live Teams screen share registration support",
+    "account holder logs in themselves guided session",
+    "Silex Technology",
+    "intermediary registration support"
+  ],
+  "search_aliases": [
+    "registration support without sharing password",
+    "live guided session SIG registration",
+    "end customer cannot disclose login credentials",
+    "Teams screen share registration alternative"
+  ],
+  "qualification_stage": "Registration execution planning",
+  "confidence": "high"
 }

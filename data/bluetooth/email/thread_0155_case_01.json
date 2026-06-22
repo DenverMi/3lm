@@ -2,6 +2,7 @@
   "source_thread": "thread_0155",
   "case_id": "thread_0155_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — BLE (Nordic SoftDevice v6.1.1)",
   "customer_question": "Our product comes with an optional plastic cover (resin cover, not related to Bluetooth). Do we need to include this accessory in the Bluetooth SIG registration?",
   "question_variants": [
@@ -15,8 +16,18 @@
   "decision_logic": "SIG registration scope = Bluetooth-capable products and components only. Non-Bluetooth accessories, packaging, and passive attachments are outside the registration scope. The SIG certification applies to the Bluetooth implementation, not the physical package it ships with.",
   "final_recommendation": "Exclude non-Bluetooth optional accessories from the registration scope. If any accessory contains Bluetooth hardware (e.g., a Bluetooth-enabled charging case), include it. Passive accessories with no Bluetooth function are always excluded.",
   "risk_if_done_wrong": "Incorrectly including non-Bluetooth accessories adds unnecessary products to the registration and may create confusion about what is being certified. Excluding a Bluetooth-capable accessory would mean it is used without valid certification.",
-  "bluetooth_tags": ["registration scope", "optional accessories", "non-Bluetooth accessories", "End Product"],
-  "search_aliases": ["optional accessory SIG registration", "plastic cover certification needed", "non-Bluetooth accessory exclude", "registration scope accessories"],
+  "bluetooth_tags": [
+    "registration scope",
+    "optional accessories",
+    "non-Bluetooth accessories",
+    "End Product"
+  ],
+  "search_aliases": [
+    "optional accessory SIG registration",
+    "plastic cover certification needed",
+    "non-Bluetooth accessory exclude",
+    "registration scope accessories"
+  ],
   "qualification_stage": "Scoping / Registration",
   "confidence": "high"
 }

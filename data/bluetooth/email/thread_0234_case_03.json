@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0234",
+  "case_id": "thread_0234_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (OM Digital Solutions headset), HFP test exemption via Profile Subsystem reference",
+  "customer_question": "Is PTS testing actually mandatory here? On a past model, we were able to register by citing the module's own certification number (RQID) since the module was already certified for the relevant profile — can we do the same thing this time to avoid having to run HFP testing?",
+  "question_variants": [
+    "Can we skip HFP PTS testing by referencing our module's existing certification, like we did before?",
+    "Why doesn't the same reference approach from our past model work this time?"
+  ],
+  "actual_issue": "The customer, struggling with unresolved PTS test failures, wanted to know whether they could avoid testing entirely by reusing the same module-certification-reference strategy that had worked for a previous, similar model, since the underlying module was already SIG-certified for HFP.",
+  "plain_english_explanation": "On the customer's past model, registration referenced both the module (as an End Product registration) and a separate Profile Subsystem QDID that included HFP, which exempted that model from running HFP testing directly. Attempting to reuse that exact same Profile Subsystem QDID this time fails because the HFP version included in that old QDID has since been retired/deprecated and can no longer be referenced for a new registration. However, after investigating, Allion identified that Infineon (which had absorbed Cypress and merged its AIROC SDK with the WICED SDK lineage) now maintains a different, currently active Profile Subsystem registration — published under the renamed 'AIROC Bluetooth Audio Profile Package' — that includes a valid, non-deprecated HFP 1.8 (AG/HF) implementation. Subject to the customer's agreement, the module's End Product registration could instead reference this currently active Profile Subsystem QDID, which would exempt HFP testing without requiring an HFP test report upload, avoiding the troubled PTS testing path entirely.",
+  "consultant_answer": "Your past model avoided HFP testing by referencing both the module and a Profile Subsystem QDID that included HFP — but that exact QDID's HFP version is now deprecated and can't be referenced for a new registration. We did find an alternative, though: Infineon's currently active 'AIROC Bluetooth Audio Profile Package' Profile Subsystem registration includes a valid, non-deprecated HFP implementation. With your agreement, we can register your module's End Product registration referencing this active QDID instead, which exempts HFP testing entirely without needing to upload an HFP test report.",
+  "decision_logic": "Module-certification-based test exemption strategies need to be re-verified against the current validity of the specific referenced Profile Subsystem QDID at the time of each new registration, since spec versions and their underlying QDIDs can be deprecated between projects — but an alternative, currently active QDID covering the same profile may still be available from the same or a related vendor lineage (e.g., following an SDK rebrand or company acquisition) and worth actively searching for before assuming testing is unavoidable.",
+  "final_recommendation": "When a customer asks to reuse a past test-exemption strategy, explicitly re-verify whether the specific referenced QDID is still valid for new registrations, and if not, search for a currently active equivalent (potentially from a rebranded or successor vendor entity) before concluding that testing is now required.",
+  "risk_if_done_wrong": "Assuming a past exemption strategy still applies without checking the referenced QDID's current validity could lead to a registration attempt that fails outright; conversely, giving up on the exemption approach too early (without searching for an active alternative QDID) could force unnecessary HFP testing that wasn't actually required.",
+  "bluetooth_tags": [
+    "HFP test exemption Profile Subsystem reference",
+    "deprecated QDID cannot be referenced",
+    "AIROC Bluetooth Audio Profile Package",
+    "Infineon Cypress WICED SDK",
+    "OM Digital Solutions"
+  ],
+  "search_aliases": [
+    "can we skip HFP test by referencing module certification",
+    "deprecated QDID alternative",
+    "AIROC Bluetooth Audio Profile Package HFP",
+    "Profile Subsystem reference avoid testing"
+  ],
+  "qualification_stage": "Registration strategy / test exemption planning",
+  "confidence": "high"
+}

@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0076",
+  "case_id": "thread_0076_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "Some fields, like company City, are showing blank on our registration -- is this a problem, and if so, how do we fix it?",
+  "question_variants": [
+    "Why is our company address incomplete on the registration?",
+    "Can we edit the blank Member Detail fields ourselves during registration?",
+    "Who do we need to contact to correct our company information?"
+  ],
+  "actual_issue": "The customer noticed blank fields (such as company City) in the Member Detail section of their registration and needed to know whether this would block registration and, if the underlying data was wrong, how it could be corrected.",
+  "plain_english_explanation": "Some of the company information shown during registration is pulled automatically from Bluetooth SIG's membership records, not from anything entered as part of the product registration itself, so it can't be fixed within the registration process. Past experience shows leaving it blank doesn't stop a new registration from completing, but if the company wants the underlying record corrected, that has to be done separately by the person responsible for the company's membership account.",
+  "consultant_answer": "Member Detail information is automatically retrieved from the Member registration database and is not an editable area within the product registration process. Past experience shows that blank fields here do not block a new registration. Separately, if the company's address needs correcting, that request should be directed to the company's designated Primary Contact for the Member registration database, who can have it corrected there directly.",
+  "decision_logic": "Member Detail fields on a registration are sourced from the Member registration database and cannot be edited through the product registration workflow; blank values in this section have not historically blocked new registration, and any correction to the underlying data must be requested through the company's Primary Contact in the Member database, not through the registration process itself.",
+  "final_recommendation": "Reassure the customer that blank, auto-populated Member Detail fields will not block new registration, and direct any correction of the underlying company information to the company's Primary Contact for the Member registration database.",
+  "risk_if_done_wrong": "Treating blank Member Detail fields as a registration-blocking error, or attempting to edit them within the product registration workflow, would cause unnecessary delay or confusion, since the correction must go through the Member database's Primary Contact instead.",
+  "bluetooth_tags": ["Member Detail", "Primary Contact", "Member database", "listing"],
+  "search_aliases": ["blank company City Member Detail", "Member registration database auto-populated", "Primary Contact correct company address", "blank fields not a registration blocker"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0227",
+  "case_id": "thread_0227_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine HM23/HM26), RF and RF PHY test procedure",
+  "customer_question": "What exactly is a 'Test Plan,' and are the three requested parameters (Inband Image Frequency, Power Control, Enhanced Power Control) QRCT configuration settings? Also, what kind of equipment is the 'tester' referenced for RF/RF PHY testing, and what do the described automated test steps (Serial port/HCI connection, command-driven automated test, Baud Rate setting) actually involve — what should we answer?",
+  "question_variants": [
+    "Is a Test Plan the same thing as a QRCT settings document?",
+    "Are the requested test parameters QRCT configuration values?",
+    "What is the 'tester' device used in RF/RF PHY testing?",
+    "What is actually being asked about the Serial port/HCI connection and Baud Rate setup, since the customer doesn't understand the test environment being described?"
+  ],
+  "actual_issue": "The customer's engineering team did not understand several pieces of test-engineering terminology and procedure used by Allion when requesting RF test parameters and describing the RF PHY automated test setup, and asked for plain clarification before a scheduled meeting so they could prepare adequate answers.",
+  "plain_english_explanation": "A Test Plan is the document a test lab uses to define which RF test items apply to a device, determined by which RF features the device supports. The requested parameters (Inband Image Frequency, Power Control, Enhanced Power Control) are not QRCT tool settings — they describe functionality supported by the Bluetooth SoC itself, so the customer needed to confirm them with their SoC vendor (Qualcomm) rather than look them up in test tool configuration. The 'tester' referenced is Allion's own RF test equipment, the InterLab RF testsystem (the same system used for HM23). For the RF/RF PHY automated test procedure questions, Allion pointed the customer to the signaling unit's manual (pages 1-5) for the relevant connection and Baud Rate details, since this was lab equipment documentation rather than something requiring a new explanation.",
+  "consultant_answer": "A Test Plan is the document that defines which RF test items apply based on supported features — it's not a QRCT settings file. The three requested parameters describe Bluetooth SoC functionality, so please confirm them with your SoC vendor (Qualcomm) rather than checking QRCT settings. The 'tester' is our own RF test equipment, the InterLab RF testsystem (same one used for HM23). For the Serial port/HCI connection and Baud Rate details in the automated test procedure, please refer to pages 1-5 of the signaling unit's manual that we're attaching.",
+  "decision_logic": "Test parameter and tester-related customer confusion should be resolved by clearly separating SoC-vendor-owned functionality (requiring vendor confirmation) from test-lab-owned equipment/procedure documentation (answerable directly by the lab via existing manuals), rather than re-explaining from scratch.",
+  "final_recommendation": "When a customer's engineering team is unfamiliar with test-lab terminology, proactively distinguish which open questions need SoC vendor input versus which can be answered directly from existing equipment documentation, to avoid unnecessary meetings or delays.",
+  "risk_if_done_wrong": "If the customer incorrectly treated Bluetooth feature parameters as QRCT tool settings, they might supply the wrong values to the Test Plan, leading to an incorrectly scoped or invalid RF test plan.",
+  "bluetooth_tags": [
+    "Test Plan definition",
+    "QRCT settings confusion",
+    "RF tester clarification",
+    "InterLab RF testsystem",
+    "RF PHY automated test Serial port HCI",
+    "Baud Rate",
+    "Alps Alpine"
+  ],
+  "search_aliases": [
+    "what is a Bluetooth SIG Test Plan",
+    "are RF parameters QRCT settings",
+    "InterLab RF testsystem",
+    "RF PHY test Serial port Baud Rate manual"
+  ],
+  "qualification_stage": "Test execution / Test Plan preparation",
+  "confidence": "high"
+}

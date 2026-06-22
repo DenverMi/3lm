@@ -2,6 +2,7 @@
   "source_thread": "thread_0118",
   "case_id": "thread_0118_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "audio",
   "customer_question": "Our in-vehicle audio product implements A2DP (with HFP and LE Audio planned later) using a BT stack that is already Component-certified, running on a general-purpose microcontroller. Do we need to run Profile testing for these profiles?",
   "question_variants": [
@@ -15,7 +16,17 @@
   "decision_logic": "When a product implements Bluetooth profiles via a stack that already holds Component certification (e.g., Q309493 Blue SDK Profiles), check whether the specific profiles the end product implements (A2DP, HFP, LE Audio, etc.) are covered at the ICS level by that Component certification. If covered, Profile testing for those profiles can be exempted from the end-product test scope.",
   "final_recommendation": "For end products using a Component-certified Bluetooth stack (e.g., Q309493 Blue SDK Profiles), exempt Profile testing for any implemented profiles that fall within that certification's ICS coverage; verify coverage for any newly-added profiles (e.g., LE Audio added later) before assuming continued exemption.",
   "risk_if_done_wrong": "Assuming all current and future profiles (including ones added later, like LE Audio) are automatically covered by the stack's existing Component certification without re-checking ICS coverage could result in missing required Profile testing for new profiles, risking an incomplete or invalid certification when those features are added.",
-  "bluetooth_tags": ["profile test", "qualification", "component", "ICS", "Blue SDK Profiles", "A2DP", "HFP", "LE Audio", "test exemption"],
+  "bluetooth_tags": [
+    "profile test",
+    "qualification",
+    "component",
+    "ICS",
+    "Blue SDK Profiles",
+    "A2DP",
+    "HFP",
+    "LE Audio",
+    "test exemption"
+  ],
   "search_aliases": [
     "Q309493 Blue SDK Profiles ICS coverage",
     "profile test exemption component certified stack",

@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0008",
+  "thread_analysis": {
+    "thread_summary": "Shimano Inc. (contacts Hiroshi Matsuda, Kazuya Takahashi, and several copied colleagues) works with Allion (Yukihiro Nakano, Itsuo Sakai) on Bluetooth SIG certification for an unannounced future product (likely a cycle computer), spanning self-administered PTS test scope confirmation, test-convenience modification approval, Design Name/Product Name registration strategy for a confidential/undetermined model name, a banned-branding-term correction ('BLE' to 'Bluetooth LE'), and a 180-day maximum registration display-delay accommodation, through to final Compliance Folder delivery.",
+    "all_questions_found": [
+      "Is Core Protocol testing exempted via the chip's existing registration, and do only BAS/DIS need self-testing? (see thread_0008_case_01)",
+      "Are several test-convenience modifications unrelated to evaluated items acceptable? (see thread_0008_case_02)",
+      "How should Design Name and Product Name be handled for an undetermined/confidential model name, and is 'BLE' an acceptable term? (see thread_0008_case_03)",
+      "Can the registration's public display start date be delayed to match a far-future, confidential product reveal date? (see thread_0008_case_04)",
+      "(Raised but no explicit written resolution located) Is the actual pairing-procedure operation manual genuinely mandatory for the Compliance Folder when the linked webpage isn't yet accessible for an unannounced product?"
+    ],
+    "key_technical_discussion": "This thread covers the layered test-exemption logic for chip-registered products (Core Protocol via chip registration, RF PHY depending on bare-SoC vs. module implementation), acceptable test-convenience modifications, registration-site naming mechanics (Design Name lock-in, Product Name flexibility, banned branding terms), and the 2025 relaxation of the maximum registration display-delay window from 90 to 180 days.",
+    "key_decision_logic": "See thread_0008_case_01 through thread_0008_case_04 for the specific decision logic behind each question.",
+    "risk_if_done_wrong": "See thread_0008_case_01 through thread_0008_case_04 for specific risks.",
+    "consulting_mistake": "The customer's final question about whether the Compliance Folder's operation manual is genuinely mandatory when its linked webpage isn't yet accessible for an unannounced product doesn't appear to have received an explicit written answer in this thread before the engagement concluded — a documentation gap worth flagging for future similar confidential-product engagements.",
+    "consulting_takeaway": "For unannounced or confidentially-timed products, proactively address the full set of naming, timing, and documentation considerations unique to that situation (generic Design Name placeholders, maximum display delay limits, and how Compliance Folder manual requirements interact with not-yet-public product information) rather than handling each in isolation as it comes up."
+  }
+}

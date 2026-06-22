@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0157",
+  "case_id": "thread_0157_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE keyboard (Topre)",
+  "customer_question": "Is the Bluetooth SIG Qualification Fee proxy payment ($11,040 registration fee) included in the consultant's service quote, or does the customer need to pay it separately?",
+  "question_variants": [
+    "Who is responsible for paying the SIG Qualification Fee — the consultant or the customer?",
+    "Does our quote from the consultant already cover the USD proxy remittance for the Qualification Fee?",
+    "Has the SIG registration fee payment been completed, and who arranges it?"
+  ],
+  "actual_issue": "After PTS testing completed, the consultant (Arion) checked the customer's SIG account and found the Qualification Fee ($11,040) was unpaid (no Receipt Number issued yet), and asked the customer to remit it. The customer (Topre, via Enomoto) pushed back, stating their understanding was that the consultant was handling the proxy payment on the customer's behalf. The consultant initially restated the same uncertainty back, then corrected himself, confirming that the quote had in fact been revised on July 1 to include the USD proxy remittance for the Qualification Fee, and that the consultant's side would check the payment schedule.",
+  "plain_english_explanation": "There was confusion about who pays the Bluetooth SIG's $11,040 registration (Qualification) fee. The consultant initially told the customer the fee was unpaid and asked the customer to wire the money. The customer replied that they believed the consultant was supposed to proxy-pay this fee for them. The consultant checked, realized the customer was right, and confirmed that the service quote had already been updated (on July 1) to include this fee as a proxy payment handled by the consultant — so the consultant, not the customer, would arrange payment.",
+  "consultant_answer": "Initial message: the consultant logged into the customer's SIG account, saw the Qualification Fee was unpaid (no Receipt Number issued), and asked the customer to remit the $11,040 registration fee directly and confirm once done. After the customer's pushback, the consultant corrected this: the quote had been revised on July 1, 2025 to already include the USD proxy remittance for the Qualification Fee as part of the consultant's service, so the consultant's company would check on the payment schedule and handle it, not the customer.",
+  "decision_logic": "Whether the customer or the consultant pays the SIG Qualification Fee depends on the specific service quote terms. The consultant must check the quote revision history before asking a customer to pay a fee directly — in this case, an earlier quote revision had already shifted that responsibility to the consultant as a proxy payment, and the consultant's first message overlooked that update.",
+  "final_recommendation": "Before requesting that a customer remit the SIG Qualification Fee directly, the consultant should verify against the current/latest revision of the service quote whether proxy payment of that fee is already included in scope. If it is, the consultant should arrange and track the payment internally rather than asking the customer to pay.",
+  "risk_if_done_wrong": "If the consultant asks the customer to pay a fee that is already included in the quote as a proxy payment, it creates billing confusion, customer distrust, and potential duplicate payment or delay in SIG registration while the discrepancy is resolved.",
+  "bluetooth_tags": [
+    "Qualification Fee",
+    "SIG registration",
+    "proxy payment",
+    "service quote",
+    "billing",
+    "Bluetooth SIG certification",
+    "Receipt Number"
+  ],
+  "search_aliases": [
+    "Qualification Fee proxy payment",
+    "SIG registration fee who pays",
+    "Bluetooth SIG fee included in quote",
+    "Qualification Fee unpaid",
+    "SIG account Receipt Number",
+    "consultant proxy remittance"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

@@ -2,6 +2,7 @@
   "source_thread": "thread_0152",
   "case_id": "thread_0152_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — product with modified antenna pattern vs. certified module",
   "customer_question": "Our product uses a certified Bluetooth module but has a different antenna design (custom PCB antenna instead of the module's built-in antenna). How many RF test items are required in this case?",
   "question_variants": [
@@ -15,8 +16,22 @@
   "decision_logic": "The SIG RF test scope for end products with modified antenna designs is limited to antenna-pattern verification items only (Rx sensitivity + Tx output power). The full 26-item test applies to first-time RF qualification of a Bluetooth design; for end products incorporating already-certified modules with only an antenna change, the abbreviated 2-item scope is standard.",
   "final_recommendation": "When a customer changes only the antenna from a pre-certified module's design, quote 2 RF test items (Rx Sensitivity + Tx Output Power) rather than the full 26-item test. Confirm that no other RF-relevant hardware (PA, filter, balun) has changed.",
   "risk_if_done_wrong": "Quoting the full 26-item test when only 2 are required over-charges the customer and wastes lab capacity. Conversely, applying the 2-item scope when more than the antenna was changed (e.g., RF front-end modifications) would under-test the product and create a compliance gap.",
-  "bluetooth_tags": ["RF test", "antenna", "modified antenna pattern", "2 items", "Rx sensitivity", "Tx output power", "End Product", "module"],
-  "search_aliases": ["RF test antenna different from module", "2 item RF test modified antenna", "antenna design verification RF test", "abbreviated RF test scope"],
+  "bluetooth_tags": [
+    "RF test",
+    "antenna",
+    "modified antenna pattern",
+    "2 items",
+    "Rx sensitivity",
+    "Tx output power",
+    "End Product",
+    "module"
+  ],
+  "search_aliases": [
+    "RF test antenna different from module",
+    "2 item RF test modified antenna",
+    "antenna design verification RF test",
+    "abbreviated RF test scope"
+  ],
   "qualification_stage": "Test Scoping / RF Testing",
   "confidence": "high"
 }

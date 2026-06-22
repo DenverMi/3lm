@@ -1,47 +1,34 @@
 {
-    "source_thread": "thread_0013",
-    "cases": [
-        {
-            "case_id": "thread_0013_case_02",
-            "iut_type": "lighting device",
-            "customer_question": "Does a Bluetooth product using a newly designed BLE module require RF PHY testing and profile PTS testing instead of module reuse qualification?",
-            "question_variants": [
-                "Do we need RF PHY testing for a custom BLE module?",
-                "What changes when using a BLE SoC instead of a pre-qualified module?",
-                "Is PTS testing required for DIS profile implementation?",
-                "Can RF testing be skipped when using our own module design?",
-                "What testing is required for a new BLE module qualification?"
-            ],
-            "actual_issue": "The customer moved from using a previously qualified Bluetooth module to a newly designed BLE module based on a BLE chip and needed to understand the additional Bluetooth SIG qualification testing requirements.",
-            "plain_english_explanation": "Using a pre-qualified Bluetooth module can reduce qualification testing because lower-layer Bluetooth testing may already be covered. When a company designs its own BLE module from the chipset level, the Bluetooth SIG qualification becomes more involved. RF PHY testing and profile interoperability testing may become mandatory.",
-            "consultant_answer": "The consultant explained that the qualification flow is generally similar between a qualified module product and a custom BLE chip/module implementation, but a major difference is that RF PHY testing is mandatory for products using a chip-level or custom module implementation. In addition, SIG-defined profiles such as DIS require PTS profile testing. Proprietary profiles are outside Bluetooth SIG qualification scope and are not tested. The actual test scope depends on the implemented BLE chipset, stack, and supported profiles.",
-            "decision_logic": "Reuse of existing qualified RF evidence is possible for pre-qualified modules, but new or modified Bluetooth controller implementations require RF PHY verification and applicable profile interoperability testing. SIG-defined profiles trigger mandatory PTS-based testing requirements.",
-            "final_recommendation": "Identify the BLE chipset, stack, and implemented SIG profiles, then perform RF PHY testing and required profile PTS testing for the new module-based design before qualification submission.",
-            "risk_if_done_wrong": "Assuming module reuse rules apply to a newly designed module can result in missing mandatory RF or profile testing, causing qualification rejection, redesign delays, or re-testing.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "PTS",
-                "DIS",
-                "profile",
-                "module",
-                "controller",
-                "testing",
-                "LE"
-            ],
-            "search_aliases": [
-                "custom BLE module qualification",
-                "RF PHY mandatory",
-                "PTS DIS testing",
-                "chip-level Bluetooth qualification",
-                "SoC qualification flow",
-                "module reuse limitation",
-                "BLE controller testing",
-                "profile interoperability testing"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0013",
+  "case_id": "thread_0013_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Koizumi Lighting BLE-module lamp), derivative registration and SoftDevice version flexibility",
+  "customer_question": "Can a chip-antenna variant and an external-antenna variant of a product, both using the same BLE module type, be registered as derivative products of each other? Also, for our planned 20-model lamp lineup (JDR50: 12 items, GX53: 8 items), can we use the same approach as before -- register one model formally, then add the other 19 as free derivative registrations? And our chip uses SoftDevice 'S113,' which wasn't one of the SoftDevice types (S112/S132/S140) previously mentioned to us as typical -- is that a problem?",
+  "question_variants": [
+    "Does an antenna difference (chip vs. external) disqualify two products from being registered as derivatives of each other?",
+    "Is there a cost for adding antenna-variant or model-variant derivative registrations?",
+    "Is S113 an acceptable SoftDevice version even though it wasn't in the previously-mentioned list of common types?"
+  ],
+  "actual_issue": "The customer needed to confirm three related but distinct registration mechanics questions before committing to their registration plan: whether an antenna implementation difference (chip vs. external antenna) on an otherwise-identical module disqualifies derivative registration, whether their planned one-formal-registration-plus-19-free-derivatives approach across two lamp socket types (JDR50, GX53) remained valid, and whether their chip's specific SoftDevice version (S113) -- not one of the commonly-cited examples -- was acceptable.",
+  "plain_english_explanation": "As long as the underlying module type is the same, a chip-antenna implementation and an external-antenna implementation of the same product can both be registered as derivative products of each other at no additional cost -- antenna type alone does not disqualify derivative registration. For the planned 20-model lineup (JDR50 at 12 items, GX53 at 8 items) using the same BLE module, the established approach remained valid: register one model formally (incurring the one registration fee), then add the remaining 19 models as free derivative registrations. On the SoftDevice question, S112/S132/S140 were cited only as commonly-seen representative examples, not an exhaustive or restrictive list -- S113 is also an acceptable SoftDevice version and poses no issue for registration.",
+  "consultant_answer": "Antenna type alone doesn't disqualify derivative registration -- as long as the module type is the same, a chip-antenna version and an external-antenna version of your product can both be registered as derivatives of each other at no extra cost. Your planned approach for the 20-model lineup (one formal registration plus 19 free derivative registrations across JDR50 and GX53) remains valid. And yes, S113 is fine -- S112/S132/S140 were just commonly-cited examples, not the only acceptable options.",
+  "decision_logic": "Derivative product registration eligibility hinges on whether the underlying module/chipset implementation is unchanged; surface-level implementation differences like antenna type (chip vs. external) do not break derivative eligibility as long as the core module is identical, and previously-cited example values (like representative SoftDevice versions) should not be read as exhaustive restrictions unless explicitly stated as such.",
+  "final_recommendation": "When citing example values (like common SoftDevice versions) during consulting conversations, explicitly clarify that the examples are representative rather than exhaustive, to avoid customers unnecessarily worrying that their specific configuration might be disqualified.",
+  "risk_if_done_wrong": "A customer mistakenly believing an antenna variant requires a brand new paid registration (rather than a free derivative) could incur unnecessary cost, and a customer worried their SoftDevice version isn't on an exhaustive list could delay their registration unnecessarily seeking further confirmation.",
+  "bluetooth_tags": [
+    "derivative registration antenna variant",
+    "chip antenna vs external antenna same module",
+    "free derivative registration multiple models",
+    "SoftDevice version S113 acceptable",
+    "Koizumi Lighting"
+  ],
+  "search_aliases": [
+    "can antenna difference be registered as derivative product",
+    "free derivative registration multiple lamp models",
+    "is SoftDevice S113 acceptable for registration",
+    "chip antenna external antenna same module derivative"
+  ],
+  "qualification_stage": "Registration planning",
+  "confidence": "high"
 }

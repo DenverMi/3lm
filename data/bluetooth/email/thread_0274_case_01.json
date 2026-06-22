@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0274",
+  "case_id": "thread_0274_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product derivative models (Nippon Seiki sensor units), recurring hardware change assessment",
+  "customer_question": "Across several hardware revisions over time (a buzzer peripheral circuit and firmware-write connector change, a PCB/enclosure size change, and adding a new stroke-position sensor plus 5V boost circuit in either a 2-board or combined 1-board layout) — as long as the MCU/BLE firmware stays identical to the base registration and the BLE-to-antenna components and routing are unchanged, can each of these be registered as a free derivative model without additional RF testing? Does a slight enclosure size change from a PCB size change affect this?",
+  "question_variants": [
+    "Does a buzzer circuit and connector change qualify as a no-retest derivative model?",
+    "Does a PCB size change that slightly affects enclosure size still qualify for the no-retest criterion?",
+    "Does adding a new sensor and boost circuit (in either board layout option) still qualify, as long as BLE wiring/components are untouched?"
+  ],
+  "actual_issue": "Over a multi-year relationship, the customer repeatedly proposed various hardware revisions to an already Bluetooth-certified sensor product line and needed to confirm, each time, whether the specific change still satisfied the criteria for free derivative-model registration without additional RF PHY testing.",
+  "plain_english_explanation": "The governing criterion for Bluetooth logo certification purposes is narrow and consistent: as long as the firmware implemented on the relevant ICs (MCU/BLE chip) remains identical to the base registration, and the components and routing between the BLE chip and its antenna remain unchanged, additional RF PHY testing is not required, and the new variant can be added to the existing registration's Product List for free — regardless of other hardware changes elsewhere in the product (buzzer circuits, connectors, PCB size, enclosure size, or even adding entirely new sensor circuitry in different board layout configurations), since none of those affect the actual RF/RF PHY-relevant signal path. This is a narrower and more permissive standard than Japan's Radio Law technical conformity certification (工事設計認証, a separate, unrelated certification), which requires a new application per model name and whenever the board shape or external appearance changes at all, even for changes unrelated to the radio circuit itself — so a change that's free and automatic for Bluetooth certification purposes may still trigger a required re-application under Japan's Radio Law.",
+  "consultant_answer": "Yes — for Bluetooth logo certification purposes, as long as the MCU/BLE firmware stays identical to your base registration and the BLE-to-antenna components and routing are unchanged, none of these changes (buzzer circuit, connector, PCB/enclosure size, or adding new sensor circuitry in either board layout option) require additional RF PHY testing — you can add each as a free derivative model to your existing Product List. Just be aware this is a narrower standard than Japan's Radio Law technical conformity certification, which is a separate process requiring a new application per model name and whenever board shape or external appearance changes at all, even for non-radio-related reasons — so please track that separately.",
+  "decision_logic": "Free derivative-model registration eligibility for Bluetooth certification purposes depends solely on whether the BLE-relevant signal path (chip firmware and the antenna-feed circuit/routing) remains unchanged, independent of any other hardware modification elsewhere in the product — but this criterion is specific to Bluetooth and doesn't extend to other certifications (like Japan's Radio Law) that have their own, stricter triggering conditions.",
+  "final_recommendation": "When a long-term customer proposes a new hardware revision, consistently apply the same narrow criterion (BLE chip firmware and antenna-circuit/routing unchanged) to determine free derivative-model eligibility, and proactively flag whenever a change might trigger a different, stricter requirement under a separate certification regime like Japan's Radio Law.",
+  "risk_if_done_wrong": "Assuming Bluetooth's permissive derivative-model criterion also exempts a product from Japan's Radio Law re-application requirement could result in non-compliance with that separate, stricter regulatory regime, since its triggering conditions (any board shape or appearance change) are broader than Bluetooth's narrow BLE-signal-path criterion.",
+  "bluetooth_tags": [
+    "free derivative model BLE antenna circuit unchanged",
+    "MCU BLE firmware identical criterion",
+    "Japan Radio Law stricter re-application trigger",
+    "PCB enclosure size change no retest",
+    "Nippon Seiki sensor units"
+  ],
+  "search_aliases": [
+    "does enclosure size change need Bluetooth retest",
+    "BLE antenna circuit unchanged free derivative registration",
+    "Japan Radio Law re-application board shape change",
+    "adding new sensor circuit derivative model"
+  ],
+  "qualification_stage": "Derivative model change assessment",
+  "confidence": "high"
+}

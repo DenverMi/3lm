@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0160",
+  "case_id": "thread_0160_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE keyboard (Topre / PFU OEM)",
+  "customer_question": "Our keyboard is manufactured by Topre but distributed under the PFU brand. Who should register it with Bluetooth SIG — Topre or PFU?",
+  "question_variants": [
+    "Which company name goes on the Bluetooth SIG registration?",
+    "Does the OEM manufacturer or the brand owner register the product?",
+    "We are the OEM but another company sells the product under their brand — whose account is used for registration?",
+    "The product label says PFU but Topre makes it. Who registers?"
+  ],
+  "actual_issue": "A Topre-manufactured keyboard is sold as a PFU-branded product. The Bluetooth SIG registration must be under the company whose name appears on the product label — which is PFU, the distributor/brand owner — not Topre, the OEM manufacturer. If PFU will not share their SIG account credentials with Allion, a documentation package must be prepared for PFU to perform the registration themselves.",
+  "plain_english_explanation": "Bluetooth SIG requires that the company name on the registered product must match the name on the product's label or packaging as sold to end users. If PFU's name is on the keyboard (because PFU sells it as their product), then PFU must be the registrant — not Topre, even though Topre physically manufactures it. This rule exists because the SIG qualification is a public declaration that the named company's product meets Bluetooth standards. If PFU will not share their SIG login credentials with Allion for proxy registration, Allion can instead prepare all required documentation and step-by-step instructions, and PFU performs the final registration clicks on the SIG portal themselves.",
+  "consultant_answer": "SIG registration must be under PFU (brand/label owner), not Topre (OEM manufacturer). If PFU cannot provide SIG account credentials to Allion, Allion prepares: (1) all required registration documentation, (2) a completed instruction package with step-by-step registration guidance for PFU to self-register on the SIG portal. Allion supports the process but PFU performs the actual portal submission.",
+  "decision_logic": "Bluetooth SIG's rules require registration to reflect the commercial product as sold to consumers. The label owner (PFU) is publicly accountable for the product's Bluetooth compliance — using Topre's account would misrepresent who is responsible for the product. Allion's workaround (documentation package + instructions for PFU self-registration) satisfies both the registration requirement and PFU's credential privacy concern.",
+  "final_recommendation": "Always determine who the brand/label owner is before starting registration. If it is not the customer engaging Allion, confirm whether the brand owner will share SIG credentials or prefer a self-registration documentation package. Address this at the quote stage to avoid late surprises.",
+  "risk_if_done_wrong": "Registering under the wrong company name (OEM instead of brand owner) violates SIG rules and may result in a non-compliant registration. If discovered during an audit, the registration could be invalidated.",
+  "bluetooth_tags": [
+    "brand owner registration",
+    "OEM vs brand owner",
+    "registrant account",
+    "proxy registration",
+    "Bluetooth SIG compliance",
+    "label owner"
+  ],
+  "search_aliases": [
+    "who registers bluetooth product",
+    "OEM or brand owner registration",
+    "label owner bluetooth SIG",
+    "wrong company name registration",
+    "PFU Topre registration",
+    "brand owner must register"
+  ],
+  "qualification_stage": "pre-registration",
+  "confidence": "high"
+}

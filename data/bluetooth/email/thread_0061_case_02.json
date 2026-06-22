@@ -1,45 +1,25 @@
 {
-    "source_thread": "thread_0061",
-    "cases": [
-        {
-            "case_id": "thread_0061_case_02",
-            "iut_type": "controller",
-            "customer_question": "What should be done when a previously qualified Controller design is discovered to be missing a required RF PHY test case in the historical test report?",
-            "question_variants": [
-                "Can a missing RF PHY test be added as a delta test?",
-                "Should we update the qualification to reflect a newly executed RF PHY test?",
-                "Can we modify RF PHY ICS settings to incorporate missing evidence?",
-                "Does adding a missing RF PHY test trigger new qualification requirements?",
-                "Can a historical Controller qualification remain valid despite a missing RF PHY report item?"
-            ],
-            "actual_issue": "A legacy Controller qualification was found to be missing a required RF PHY test case in the historical report. The team considered executing the missing test as a supplemental activity and updating qualification records to reflect the result.",
-            "plain_english_explanation": "An old qualification report was missing one RF PHY test that should have been included. Although the test could be run later, adding it back into the qualification is not necessarily beneficial. Making qualification changes solely to insert the missing result can trigger new checks and create additional qualification risk.",
-            "consultant_answer": "A supplemental RF PHY test can technically be executed, but the result cannot simply be retroactively applied to the original qualification. For the planned update path, the existing qualified Controller design is already treated as having satisfied the qualification requirements. Intentionally modifying RF PHY ICS content to force inclusion of the missing test would generate RF PHY test requirements and activate additional inter-layer consistency validation. Depending on the capabilities exposed by the updated Host/Profile layers, this can create new qualification risks.",
-            "decision_logic": "The original Controller qualification was already accepted. Leaving the included Controller design unchanged preserves that status. Modifying RF PHY ICS selections converts the issue into a new qualification assessment path that can trigger additional testing and consistency checks.",
-            "final_recommendation": "Do not modify RF PHY ICS content solely to inject the missing historical test evidence. Reuse the existing approved Controller qualification unchanged unless there is an independent technical reason to reassess the Controller layer.",
-            "risk_if_done_wrong": "Additional RF PHY testing requirements may be generated, inter-layer consistency checks may be triggered, and new qualification mismatches may appear that were previously outside the scope of the update activity.",
-            "bluetooth_tags": [
-                "RF PHY",
-                "controller",
-                "ICS",
-                "test report",
-                "consistency check",
-                "qualification reuse",
-                "design update"
-            ],
-            "search_aliases": [
-                "missing RF PHY test",
-                "delta RF PHY testing",
-                "supplemental test evidence",
-                "ICS modification risk",
-                "RF PHY reassessment",
-                "legacy qualification gap",
-                "consistency check trigger",
-                "Controller qualification reuse"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0061",
+  "case_id": "thread_0061_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "The third-party RF/RF PHY test report we submitted is missing a mandatory test item that has apparently been required since an earlier TCRL. Does this gap need to be fixed -- by a delta test, or by requesting the original test lab redo it for free -- before we can use this report to update our registration, or is there another way to proceed without retesting?",
+  "question_variants": [
+    "Is a missing RF PHY test item a blocker for reusing this report in our update?",
+    "Can the missing item be tested as a standalone delta/differential test, and what would that cost?",
+    "If we add the missing item to our ICS, does that trigger a full RF PHY retest and consistency-check risk?",
+    "Since this looks like a lab oversight, can we get the missing item retested at no cost?",
+    "Is there a way to carry forward the existing approved evidence without retesting at all?"
+  ],
+  "actual_issue": "A third-party RF/RF PHY test report being relied on for a registration update was found to be missing a test item that had been mandatory since an earlier TCRL came into effect -- predating the report's underlying QDID listing by more than a year -- indicating an apparent oversight by the testing lab (BQTF). The question was how to handle this gap without unnecessarily retesting, while the original QDID built on that report was already SIG-approved.",
+  "plain_english_explanation": "A test report the customer wanted to reuse turned out to be missing one required test, likely because the lab that ran it made a mistake. Normally this would mean either paying for an extra test or accepting risk by editing the certification details. But because the original certification built on this report was already approved by the Bluetooth SIG before the gap was found, the consultant identified a way to carry that approved certification forward into the new registration without ever needing to fix the gap or pay for a retest.",
+  "consultant_answer": "As long as the already-approved QDID is Included in the new registration without any of its ICS content being touched, the report's underlying gap does not resurface as a problem -- SIG will not re-examine evidence behind an already-approved QDID. The gap only becomes live again if the same report is submitted as fresh evidence for a brand-new registration. A delta/differential test for just the missing item is technically possible, but cannot be retroactively applied to the original already-approved QDID, only to a new registration -- and deliberately editing the RF PHY ICS to add it and then reverting will still trigger the Test Plan's RF PHY test requirement and exposes the registration to a full inter-layer Consistency Check against the updated Host/Profile subsystem content (risk depends on whether the updated Host subsystem supports things like Isochronous mode or AoA/AoD; the thread's own consistency-check run on this configuration surfaced an unrelated SCPP shortfall as an example). Pricing for a single missing item did not exist, with a 2-item test quoted at ¥200,000, but since the gap is clearly the original lab's testing oversight, the customer has a basis to request the missing item be retested by that lab at no charge. On further review, the missing item was added by a TCRL that took effect 2022-12-28; this means the existing already-approved QDID itself has no compliance problem, but reusing its RF/RF PHY report as evidence for a brand-new registration would expose the gap. The resolved approach: since the existing Controller Subsystem QDID remains valid, combine it with the vendor's Subset DN by Including both -- select the RF/RF PHY layers from the existing approved QDID, and select the remaining layers from the vendor's Subset DN. This partial-combination registration, made possible by the post-2024-07-01 registration site, carries forward the RF/RF PHY evidence that was valid at the time of the original listing without requiring the missing test item at all.",
+  "decision_logic": "An evidence gap behind an already-approved QDID is not re-examined as long as that QDID is Included unmodified; it only resurfaces if the same report is used as fresh evidence in a new registration, or if the relevant ICS item is directly edited (even if reverted, since the consistency check engine still evaluates it). The correct fix is therefore not to retest or risk an ICS edit, but to use a combination (Include) registration that pairs the already-approved QDID's RF/RF PHY layers with another existing DN's remaining layers, which legitimately carries forward valid evidence without retriggering the gap.",
+  "final_recommendation": "Use a combination registration: Include the existing already-approved Controller Subsystem QDID and select its RF/RF PHY layers, and Include the vendor's Subset DN to supply the remaining layers, avoiding any need to retest the missing item or edit the RF PHY ICS directly. Do not attempt a delta test reflected into the new registration unless the inter-layer Consistency Check risk against the updated Host/Profile content has been separately evaluated.",
+  "risk_if_done_wrong": "Submitting the flawed report as fresh evidence for a new registration would surface the missing test item as a live deficiency. Editing the RF PHY ICS to add the item and reverting it still triggers a full inter-layer Consistency Check, which could surface unrelated shortfalls (the thread's own check produced an SCPP shortfall) depending on what the updated Host subsystem supports. Absent the combination-registration approach, the customer faced a quoted ¥200,000 charge for a 2-item retest with no established price for a single item.",
+  "bluetooth_tags": ["RF PHY", "test report gap", "BQTF", "TCRL", "Consistency Check", "TCW", "combination registration", "Include", "Controller Subsystem", "QDID"],
+  "search_aliases": ["missing mandatory RF PHY test item", "BQTF testing oversight", "delta test reflected into registration risk", "reuse approved QDID avoid retest", "combine QDID with Subset DN by layer", "RF PHY ICS edit triggers consistency check", "free retest lab mistake"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

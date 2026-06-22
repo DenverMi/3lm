@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0163",
+  "case_id": "thread_0163_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE module / End Product (Global Denshi, BlueNRG-M2SA ceramic chip antenna)",
+  "customer_question": "Our product does not have a commercial name yet — only a prototype/development name. Can we use the prototype name for SIG registration?",
+  "question_variants": [
+    "Can we register with a development codename instead of the final product name?",
+    "We haven't decided on the commercial name yet — what name do we use for registration?",
+    "Is a prototype product name acceptable for Bluetooth SIG qualification?",
+    "Can the product name be updated after registration if the commercial name changes?"
+  ],
+  "actual_issue": "The customer's product does not yet have a finalized commercial name at the time of registration. They want to know if they can proceed with registration using a prototype or development name.",
+  "plain_english_explanation": "Bluetooth SIG registration requires a product name, but it does not need to be the final commercial name. A prototype name, development codename, or tentative name is acceptable for registration. The SIG registered name is primarily used for the compliance record — it does not need to match retail packaging at the time of registration. Companies often register products before their commercial names are finalized.",
+  "consultant_answer": "A prototype or development product name is acceptable for Bluetooth SIG registration. The customer does not need to wait for the final commercial name to be decided. Proceed with the prototype name, and the registration will be valid regardless of whether the commercial name later differs.",
+  "decision_logic": "SIG does not require that the registered product name match the retail product name. The registration ties the Bluetooth compliance to the described product design. Naming flexibility at registration time allows companies to proceed with qualification on their development timeline without waiting for marketing decisions.",
+  "final_recommendation": "If the final commercial product name is not yet decided, use the prototype/development name for registration. Registration can proceed on schedule without waiting for final product naming decisions.",
+  "risk_if_done_wrong": "Delaying registration to wait for a commercial product name causes unnecessary schedule slip. There is no compliance risk in using a prototype name.",
+  "bluetooth_tags": [
+    "product name",
+    "prototype name",
+    "registration product name",
+    "pre-commercial registration",
+    "Bluetooth SIG registration"
+  ],
+  "search_aliases": [
+    "prototype name registration",
+    "development name bluetooth SIG",
+    "product name not finalized registration",
+    "can we register without final name",
+    "codename registration bluetooth"
+  ],
+  "qualification_stage": "pre-registration",
+  "confidence": "high"
+}

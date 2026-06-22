@@ -1,0 +1,40 @@
+{
+  "source_thread": "thread_0161",
+  "case_id": "thread_0161_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE pen device (Technosite / Kokuyo 'Otona Yaruki Pen')",
+  "customer_question": "How do we register our new BLE pen as a derivative product using the same SoC/module as our already-qualified product?",
+  "question_variants": [
+    "How do we do a free additional registration for a derivative product?",
+    "We have an existing QDID and want to register a second product using the same Bluetooth component — how?",
+    "The instruction manual we received for self-registration doesn't seem to match the current SIG portal. Has the procedure changed?",
+    "How do we use 'Manage Submitted Products' to add a derivative product?"
+  ],
+  "actual_issue": "After the Bluetooth SIG updated its registration portal in July 2024 (QPRDv3.0 transition), the self-registration procedure for derivative products changed. Instruction manuals that Allion had provided to customers prior to July 2024 became outdated and no longer matched the portal's current interface and workflow.",
+  "plain_english_explanation": "When a product is already Bluetooth SIG qualified using a specific module or SoC, a second product using the same Bluetooth component (same QDID) and same Host Stack can be registered as a 'derivative product' for free — the customer does not pay a new Qualification Fee. This self-registration is done by the customer on the SIG portal under 'Manage Submitted Products.' However, after the SIG portal was updated in July 2024 to QPRDv3.0, the on-screen steps changed significantly. Any instruction manual created before July 2024 is now inaccurate. Customers who try to follow old instructions will find that the portal screens no longer match, causing confusion. Allion can provide updated instructions for the new portal flow, or handle the additional registration as a paid proxy service (¥100,000).",
+  "consultant_answer": "After the July 2024 QPRDv3.0 portal update, the derivative product self-registration procedure changed. Old instruction manuals are outdated. Allion provides two options: (1) Provide the customer with updated instructions for the new SIG portal flow so they can self-register for free; or (2) Allion handles the registration as a paid proxy service for ¥100,000. In this thread, the customer successfully self-registered using new instructions.",
+  "decision_logic": "SIG portal updates break prior instruction manuals. Allion must proactively update guidance materials when portal changes occur. Derivative product registration is free from SIG's side (no Qualification Fee) — the only cost is Allion's service fee if the customer wants proxy assistance.",
+  "final_recommendation": "For customers who previously received derivative product self-registration instructions: always provide updated instructions after the July 2024 QPRDv3.0 change. Confirm with customers that they are using current instructions, not old materials. If in doubt, walk through the process with the customer or offer proxy service.",
+  "risk_if_done_wrong": "A customer following outdated instructions will fail to complete self-registration and may incorrectly conclude that the process has changed substantively or that they cannot self-register. This can lead to unnecessary paid proxy requests or unregistered products.",
+  "bluetooth_tags": [
+    "derivative product registration",
+    "free additional registration",
+    "QPRDv3.0",
+    "portal update July 2024",
+    "Manage Submitted Products",
+    "self-registration",
+    "Bluetooth SIG portal"
+  ],
+  "search_aliases": [
+    "derivative product self-registration",
+    "free registration second product",
+    "QPRDv3 procedure change",
+    "July 2024 SIG portal update",
+    "Manage Submitted Products SIG",
+    "additional product registration free",
+    "outdated registration instructions"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0170",
+  "case_id": "thread_0170_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE keyboard (Silex Technology / PFU)",
+  "customer_question": "Our SIG submission was rejected. What are the typical reasons for rejection, and how do we troubleshoot each one?",
+  "question_variants": [
+    "SIG sent a rejection notification after we submitted. What should we check?",
+    "Our Bluetooth SIG registration was rejected. How do we identify and fix the issue?",
+    "What causes SIG to reject a product registration submission?"
+  ],
+  "actual_issue": "The customer's SIG registration submission was rejected. They need a systematic understanding of what causes rejections and how to diagnose which issue triggered theirs.",
+  "plain_english_explanation": "After submitting a product registration to SIG, a team of SIG staff manually reviews it over several business days. Rejections are issued for four main reasons: (1) there are remaining ICS inconsistencies that were not resolved or covered by a TCW; (2) an error was made in a test declaration (wrong test outcome reported); (3) a required test report is missing from the upload; (4) a Test Coverage Waiver (TCW) number is missing for a known inconsistency that requires one. If all four issues are addressed and rejection still comes, escalate directly to SIG's support team.",
+  "consultant_answer": "SIG rejections fall into four categories: (1) unresolved ICS inconsistencies not covered by a TCW; (2) test declaration errors; (3) missing test reports; (4) missing TCW number. Check each of these in the submission. Fix any identified issues, resubmit, and wait another 5-6 US business days for review. If all four are confirmed clean and rejection still occurs, contact SIG support directly.",
+  "decision_logic": "SIG's review process is manual and each rejection notification typically identifies the specific reason. Cross-check the rejection reason against the four categories. ICS inconsistency errors appear on the Review Page; test report and TCW errors appear in the Submission Status check list. Working through each category systematically finds the root cause.",
+  "final_recommendation": "When a rejection is received: (1) Check the Submission Status on the Review Page for red or yellow indicators. (2) Verify all test reports are uploaded and none are missing. (3) Verify all TCW numbers are entered for known inconsistencies. (4) Re-check ICS for any remaining 'Invalid' items not covered by a TCW. After fixing all identified issues, resubmit and expect another 5-6 US business day review cycle.",
+  "risk_if_done_wrong": "Resubmitting without identifying the root cause wastes a 5-6 business day review cycle and delays qualification completion. Missing a TCW or an inconsistency will cause the same rejection on resubmission.",
+  "bluetooth_tags": [
+    "SIG rejection",
+    "submission review",
+    "ICS inconsistency",
+    "TCW",
+    "test report missing",
+    "test declaration error",
+    "QPRDv3"
+  ],
+  "search_aliases": [
+    "SIG registration rejected",
+    "SIG submission rejection reason",
+    "why was my Bluetooth registration rejected",
+    "SIG review rejection troubleshooting",
+    "TCW missing rejection"
+  ],
+  "qualification_stage": "Registration / SIG submission",
+  "confidence": "high"
+}

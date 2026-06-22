@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0241",
+  "case_id": "thread_0241_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (DensoTen upper-model HMI/IVI unit), Consistency Check error involving LMP/BB ICS items",
+  "customer_question": "Our module vendor (Murata) found that this newly-discovered LMP/BB inconsistency involves ICS items that didn't exist in an earlier ICS version, and was told by their certification body contact (BQC) that a Test Coverage Waiver (TCW, ES-25636) can be applied by entering it in the TCW input box on the ICS Selection screen while the Consistency Check error remains present. Can Allion confirm with the SIG-related certification body whether this approach is valid for our registration too?",
+  "question_variants": [
+    "Is it valid to apply this specific TCW to bypass this Consistency Check error?",
+    "Can we use the same TCW-based workaround the vendor used for their own registration?"
+  ],
+  "actual_issue": "The customer's module vendor proposed using a specific Test Coverage Waiver code to register despite the LMP/BB Consistency Check error remaining unresolved, since the vendor had used the same workaround successfully on their own registration, and the customer wanted Allion to confirm this approach was legitimate before applying it.",
+  "plain_english_explanation": "According to Bluetooth SIG's own published guidance, a Test Coverage Waiver can be applied whenever a reported inconsistency points to an ICS item that doesn't actually exist at that layer in the relevant Core Specification version. In this specific case, the BB ICS items (2/4 and 2/5) referenced by the inconsistency rule do exist, but the corresponding LMP ICS items (2b/1-2 and 2b/3) that the rule depends on do not exist in this context — meaning the TCW is likely applicable here, consistent with the vendor's own successful use of it. Given this is a plausible-but-not-certain TCW applicability case, the recommended approach was to include the module's ICS and proceed with registration promptly, preserving schedule margin in case any issue arose that needed further resolution.",
+  "consultant_answer": "According to SIG's own published guidance, a Test Coverage Waiver applies whenever a flagged inconsistency points to an ICS item that doesn't actually exist at that layer for the relevant Core Specification version. In your case, the BB items (2/4, 2/5) do exist, but the corresponding LMP items (2b/1-2, 2b/3) the rule depends on don't exist in this context — so the TCW is likely applicable here, consistent with what your vendor already confirmed for their own registration. We recommend including this module's ICS and proceeding with registration soon, to preserve your schedule margin in case anything further needs resolving.",
+  "decision_logic": "TCW applicability for a Consistency Check error should be evaluated against SIG's specific published rule (whether the referenced ICS item exists at that layer for the relevant spec version), not assumed valid purely because another company successfully used it for a similar-looking error.",
+  "final_recommendation": "When a customer proposes reusing a vendor's TCW workaround for a similar-but-not-identical Consistency Check error, independently verify against SIG's published TCW applicability rule for the specific ICS items involved, rather than approving the workaround purely by analogy to the vendor's case.",
+  "risk_if_done_wrong": "Approving a TCW workaround without verifying it against the actual ICS items and SIG's rule could result in an invalid registration if SIG later determines the waiver didn't actually apply to this specific inconsistency.",
+  "bluetooth_tags": [
+    "Test Coverage Waiver applicability",
+    "TCW ICS item does not exist rule",
+    "LMP BB Consistency Check error",
+    "BQC certification body guidance",
+    "DensoTen",
+    "Murata"
+  ],
+  "search_aliases": [
+    "when does TCW apply to Consistency Check error",
+    "ICS item does not exist Test Coverage Waiver",
+    "TCW ES-25636",
+    "can we reuse vendor TCW workaround"
+  ],
+  "qualification_stage": "Pre-registration ICS feasibility check",
+  "confidence": "high"
+}

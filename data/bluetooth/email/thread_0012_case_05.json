@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0012",
+  "case_id": "thread_0012_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alinco XE1177), efficient RF PHY test sequencing strategy for a chipset registered before Power Class 1/2 distinction existed",
+  "customer_question": "(Internal test planning, not a direct customer question:) The existing registered SoC was registered back when the Core Specification (5.2) only defined Class 2 -- there was no Class 1 distinction yet at that time. Given that, how should RF PHY testing be sequenced to determine the product's actual Power Class without unnecessary testing effort?",
+  "question_variants": [
+    "Should the full Class 1 test suite be run upfront, or only after confirming it's actually needed?",
+    "What single test item is the fastest way to determine whether a product exceeds the Class 2 output power ceiling?"
+  ],
+  "actual_issue": "Because the chipset's existing registration predated the Core Specification's introduction of a Class 1/Class 2 distinction, there was no reliable existing reference to indicate which Power Class test suite (the lighter Class 2 set or the fuller Class 1 set) actually applied to this product, and running the full Class 1 test suite unnecessarily would waste test time and lab resources if the product turned out to be Class 2-level anyway.",
+  "plain_english_explanation": "Rather than committing upfront to the full test item list for either Power Class, the efficient approach was to first run only the single Output Power test item (1 Ms/s) from the lighter Class 2 test plan. If that single item passed (confirming the product's output stays within the Class 2 ceiling), no further Class-1-specific testing would be needed. Only if that single item failed due to the measured level exceeding the Class 2 ceiling would the team then switch to running the full item list from the Class 1 test plan instead -- since a level-over result on that one item would indicate the product is operating in Class 1's higher range, requiring the complete Class 1 test suite to properly characterize it.",
+  "consultant_answer": "Since this chipset's registration predates the Class 1/Class 2 distinction, run just the single Output Power (1 Ms/s) test item from the lighter Class 2 test plan first. If it passes, no further Class-1 testing is needed. Only if that one item fails due to exceeding the Class 2 ceiling should we switch to running the full Class 1 test plan's complete item list instead.",
+  "decision_logic": "When a product's applicable RF PHY Power Class is genuinely ambiguous (e.g., because its underlying chipset's registration predates a spec-level Class distinction), test the cheapest single discriminating item first (the Class 2 Output Power item) rather than committing to the full test suite for either Class upfront -- only escalate to the fuller, more expensive test suite if that single item's result indicates the lighter Class doesn't actually apply.",
+  "final_recommendation": "When a chipset's pre-existing registration doesn't clearly establish which Power Class test suite applies to a current product, use a single discriminating test item to determine the correct path before committing to a full test suite, to avoid unnecessary test time and cost when the lighter Class turns out to be sufficient.",
+  "risk_if_done_wrong": "Committing to the full Class 1 test suite upfront without first checking the single discriminating Output Power item could waste significant test time and lab resources if the product's actual output turns out to be within the lighter Class 2 ceiling all along.",
+  "bluetooth_tags": [
+    "RF PHY test sequencing strategy",
+    "Power Class 1 vs Class 2 ambiguous chipset registration",
+    "single discriminating test item before full suite",
+    "pre-Class-distinction chipset registration",
+    "Alinco XE1177"
+  ],
+  "search_aliases": [
+    "how to test ambiguous Power Class efficiently",
+    "chipset registered before Class 1 Class 2 distinction existed",
+    "single Output Power test item determines Class",
+    "avoid unnecessary full Class 1 test suite"
+  ],
+  "qualification_stage": "RF PHY test planning",
+  "confidence": "medium"
+}

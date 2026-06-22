@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0275",
+  "case_id": "thread_0275_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Products (Alps Alpine integrated module, vital sensor, location beacon, manufactured by an external Chinese OEM/ODM)",
+  "customer_question": "Does the RF PHY test report our manufacturer prepares need to come from a Bluetooth-designated certification body? Can a specific lab (Shenzhen Morlab Communications Technology Co., Ltd.) be used? And does the report's 'Customer information' field need to say 'Alps Alpine' specifically, or can it list the manufacturer's own name?",
+  "question_variants": [
+    "Must RF PHY test data come from a specific type of accredited lab?",
+    "Is this particular test lab actually accredited for this purpose?",
+    "Does the test report need to be issued in our company's name rather than our supplier's?"
+  ],
+  "actual_issue": "The customer was coordinating RF PHY testing through an external OEM/ODM manufacturer in China and needed to confirm the testing lab's accreditation requirements and report formatting before the manufacturer proceeded, to avoid producing an unusable report.",
+  "plain_english_explanation": "RF PHY test reports used as Bluetooth registration evidence must come from a BQTF (Bluetooth Qualified Test Facility) or BRTF (a facility accredited for self-testing only) — reports from other labs cannot be used as registration evidence. The specific lab the customer proposed (Shenzhen Morlab Communications Technology Co., Ltd.) was verified against SIG's published BQTF list and confirmed to have matching accredited test scope, so it was acceptable. Regarding the report's 'Customer information' field: test labs typically list whichever company directly requested the test, and for Bluetooth logo certification evidence purposes, the report does not need to be issued under the certification applicant's name — a report listing the OEM/ODM manufacturer's own name as the requesting party is fully acceptable.",
+  "consultant_answer": "Yes — RF PHY test reports used as registration evidence must come from a BQTF or a BRTF (self-test-only accredited facility); reports from other labs can't be used. We checked Shenzhen Morlab Communications Technology Co., Ltd. against SIG's published BQTF list and confirmed it has matching accredited test scope, so that's fine. For the 'Customer information' field, it's normal for the test lab to list whoever directly requested the test — the report doesn't need to say 'Alps Alpine' specifically; your manufacturer's own name as the requesting party is acceptable.",
+  "decision_logic": "RF PHY test evidence validity is determined by the testing facility's accreditation status (BQTF/BRTF, verifiable against SIG's published list) rather than by which company's name appears as the test requester on the report.",
+  "final_recommendation": "When a customer coordinates testing through a third-party manufacturer, proactively verify the proposed test lab's accreditation against SIG's published BQTF list before testing proceeds, and clarify that report naming conventions (customer information field) don't need to match the certification applicant's name.",
+  "risk_if_done_wrong": "Proceeding with testing at a non-accredited lab would produce an unusable report, requiring costly and time-consuming retesting at an accredited facility once the registration evidence requirement was discovered too late.",
+  "bluetooth_tags": [
+    "BQTF BRTF accredited test lab requirement",
+    "test report Customer information field naming",
+    "OEM ODM manufacturer test coordination",
+    "Alps Alpine",
+    "Shenzhen Morlab"
+  ],
+  "search_aliases": [
+    "does RF PHY test need accredited lab",
+    "is this lab a valid BQTF",
+    "test report customer name requirement",
+    "BQTF list verification"
+  ],
+  "qualification_stage": "Pre-test coordination",
+  "confidence": "high"
+}

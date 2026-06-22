@@ -2,6 +2,7 @@
   "source_thread": "thread_0109",
   "case_id": "thread_0109_case_04",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "module",
   "customer_question": "What exactly are the '2 items' in the 'RF 2-item test', and is this the same as the '2-item RF PHY test'? What equipment and information do we need to provide?",
   "question_variants": [
@@ -17,7 +18,14 @@
   "decision_logic": "When a modification memo lists both '1. RF test' and '2. RF PHY test' as possible categories, the actual scope of a given engagement (e.g., a 2-item antenna-pattern verification test) must be matched to the correct category, because each category has different equipment requirements (e.g., UART-RS232 cable only for RF PHY) and different questionnaire sections to complete.",
   "final_recommendation": "Confirm that the antenna-pattern verification ('RF 2-item test' = receive sensitivity + transmit power) falls under '1. RF test', skip RF-PHY-specific equipment (UART-RS232 cable) and questionnaire sections marked '** RF PHY Testing only', and proceed with the device's built-in DUT-mode entry program for sample setup.",
   "risk_if_done_wrong": "Misclassifying the test scope (e.g., assuming RF PHY testing is required) could lead to unnecessary equipment preparation (UART-RS232 cable, RF PHY test environment) and unnecessary or missing questionnaire fields, causing confusion in Test Plan creation.",
-  "bluetooth_tags": ["RF", "RF PHY", "test report", "IXIT", "TCW", "qualification"],
+  "bluetooth_tags": [
+    "RF",
+    "RF PHY",
+    "test report",
+    "IXIT",
+    "TCW",
+    "qualification"
+  ],
   "search_aliases": [
     "RF test vs RF PHY test difference",
     "2 item RF test scope",

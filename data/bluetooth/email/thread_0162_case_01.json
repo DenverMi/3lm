@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0162",
+  "case_id": "thread_0162_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "automotive Bluetooth product (Denso Ten)",
+  "customer_question": "If all profile re-tests pass in the next test session, when does SIG registration complete? And when do required documents need to be submitted?",
+  "question_variants": [
+    "How long does Bluetooth SIG registration take after the final PTS test passes?",
+    "How many days between last profile test pass and registration completion?",
+    "When should documents for registration be submitted relative to the test schedule?",
+    "Can registration be completed the day after the last profile passes?"
+  ],
+  "actual_issue": "The customer needed to plan a test + registration schedule to complete Bluetooth SIG registration by a fixed deadline (December 20). They needed to know (1) how quickly registration can be finalized after testing completes, and (2) when required registration documents must be submitted.",
+  "plain_english_explanation": "Allion prepares the registration proxy work in parallel with PTS testing — they do not wait for testing to finish before starting registration preparation. This means that when the last profile test passes, the registration is already staged and ready. Allion can typically complete registration the following business day after the last profile passes. Two documents are needed: (1) the SIG Invoice (obtained by the registrant account holder from the SIG portal — required by mid-November to allow time for payment processing before the registration date); and (2) the Registration Proxy Confirmation Form (required by December 13 in this case). The total process from order to completed registration takes approximately one month.",
+  "consultant_answer": "Registration proxy work is prepared in parallel with PTS testing, so registration can typically be completed the business day after the last profile test passes. Required documents: (1) SIG Invoice — must be obtained and submitted by mid-November (to allow 3 weeks for SIG payment processing); (2) Registration Proxy Confirmation Form — required by December 13.",
+  "decision_logic": "Parallel processing (registration prep alongside testing) minimizes total lead time. The critical path is the SIG payment processing time (~3 weeks from Invoice submission to SIG confirming receipt and issuing the RN). The registration itself (portal submission + finalization) takes 1–3 business days once the RN is available. Therefore, Invoice submission must happen well before the target registration date.",
+  "final_recommendation": "Plan registration document submissions early: Invoice by mid-November at the latest for a December registration target. Do not wait for testing to complete before preparing registration paperwork. Allion runs both tracks simultaneously.",
+  "risk_if_done_wrong": "If the Invoice is submitted late, SIG payment processing may not complete before the desired registration date, pushing the registration deadline past the contract end date.",
+  "bluetooth_tags": [
+    "registration timeline",
+    "PTS testing schedule",
+    "proxy registration",
+    "SIG Invoice",
+    "registration lead time",
+    "parallel registration"
+  ],
+  "search_aliases": [
+    "how long does registration take after testing",
+    "registration timeline after PTS pass",
+    "SIG registration lead time",
+    "registration parallel to testing",
+    "when to submit registration documents",
+    "days to complete registration after test"
+  ],
+  "qualification_stage": "registration",
+  "confidence": "high"
+}

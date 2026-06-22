@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0256",
+  "case_id": "thread_0256_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product profile retest (DensoTen), combining Pass/Fail logs from repeated runs and multiple sources",
+  "customer_question": "For a given profile test, if Allion's log and our own log show different Pass/Fail results for the same items, can we combine both logs and treat the overall result as a Pass as long as at least one of them shows Pass? Also, can we run the remaining Fail-item PTS tests ourselves and have Allion incorporate our results into the official Test Evidence submission?",
+  "question_variants": [
+    "If repeated test runs give inconsistent results, is a single Pass result enough to count as passing?",
+    "Can the customer's own PTS test logs be combined with Allion's logs as combined evidence?",
+    "Can the customer run PTS tests themselves and have Allion handle the formal Test Evidence submission?"
+  ],
+  "actual_issue": "The customer was running into test cases that sometimes passed and sometimes failed across repeated runs or between their own and Allion's test environments, and wanted to know whether inconsistent results could still support certification, and whether they could take on some of the testing burden themselves.",
+  "plain_english_explanation": "Profile testing can produce inconsistent Pass/Fail results across repeated runs in the same environment and PTS version, due to subtle timing differences between the product and the PTS execution software — sometimes a test case fails initially but passes on a later repeated attempt, or passes after switching PTS versions. It's an accepted practice to discard the failing results and use only the Pass result as the certification evidence, whether those repeated attempts come from the same source or from combining the customer's own logs with Allion's. Separately, customers can run PTS testing themselves for remaining Fail items and have Allion formally incorporate the results into the official Test Evidence/Test Plan submission — the specific deliverable needed is the PTS-generated report file with a name starting with 'Report,' in .xml format with the logging option enabled; other supplementary log file formats aren't needed for this purpose.",
+  "consultant_answer": "Yes — it's accepted practice that if repeated test runs (whether from the same source or a combination of your logs and ours) produce inconsistent Pass/Fail results due to subtle timing differences, you can discard the Fail results and use just the Pass result as certification evidence. And yes, you can run PTS tests yourselves for the remaining Fail items — just submit the PTS-generated report file (filename starting with 'Report,' .xml format, with the logging option enabled) and we'll incorporate it into the official Test Evidence submission. Other log file formats aren't needed for this.",
+  "decision_logic": "Certification evidence treats a reliably-reproduced Pass result as valid even when other attempts (same or different source, same or different PTS version) produced a Fail due to test execution timing variability, and customer-generated PTS report files in the correct format can be directly incorporated into the formal Test Evidence submission without requiring the testing to be performed exclusively by the certification lab.",
+  "final_recommendation": "When customers ask whether inconsistent repeated test results or self-generated test logs can support certification, confirm that a reliable Pass result is acceptable evidence regardless of how many prior attempts failed or which party ran them, and specify the exact report file format needed for self-submitted logs to be incorporated.",
+  "risk_if_done_wrong": "Requiring every single test attempt to pass consistently, or refusing to incorporate customer-generated logs, would create an unnecessarily rigid and costly retest burden inconsistent with accepted certification evidence practices.",
+  "bluetooth_tags": [
+    "inconsistent PTS test results accepted Pass evidence",
+    "combining customer and lab test logs",
+    "customer self-testing PTS submission",
+    "Report xml log format requirement",
+    "DensoTen"
+  ],
+  "search_aliases": [
+    "can inconsistent Pass Fail results still count",
+    "combine PTS logs from multiple sources",
+    "customer run own PTS test for certification",
+    "PTS Report xml file format requirement"
+  ],
+  "qualification_stage": "Test execution / retest",
+  "confidence": "high"
+}

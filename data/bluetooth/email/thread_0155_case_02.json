@@ -2,6 +2,7 @@
   "source_thread": "thread_0155",
   "case_id": "thread_0155_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — BLE (Nordic SoftDevice v6.1.1)",
   "customer_question": "If we ask Allion to handle the USD wire transfer to SIG on our behalf, when is the exchange rate (FX rate) determined? Also, can Company B pay the SIG Declaration Fee on behalf of Company A (the registrant)?",
   "question_variants": [
@@ -15,8 +16,23 @@
   "decision_logic": "SIG Qualification Numbers are tied to the registrant member company, not to the payer. Any SIG member can pay the fee, but the QN always goes to the account that obtained the Invoice. Invoice acquisition requires logging in with the registrant company's SIG account. FX rate for proxy payment is set at month-end TTS before quote to provide predictability.",
   "final_recommendation": "When handling third-party payment for SIG fees: (1) instruct the registrant company to log in with their SIG account and download the Invoice; (2) confirm the Invoice will be sent to the paying company; (3) confirm the paying company will wire USD to SIG using that Invoice reference. Document that the QN goes to the registrant, not the payer.",
   "risk_if_done_wrong": "If the wrong company (Company B) logs in and obtains the Invoice under their account, the Qualification Number will be issued to Company B — not the intended registrant (Company A). This cannot be reversed, and Company A will not receive their QN. This is a critical, irreversible error.",
-  "bluetooth_tags": ["Declaration Fee", "Qualification Number", "SIG Invoice", "FX rate", "TTS rate", "wire transfer", "third-party payment", "member company"],
-  "search_aliases": ["SIG payment exchange rate", "TTS rate SIG fee", "third party pay SIG Declaration Fee", "QN non-transferable", "SIG Invoice registrant account"],
+  "bluetooth_tags": [
+    "Declaration Fee",
+    "Qualification Number",
+    "SIG Invoice",
+    "FX rate",
+    "TTS rate",
+    "wire transfer",
+    "third-party payment",
+    "member company"
+  ],
+  "search_aliases": [
+    "SIG payment exchange rate",
+    "TTS rate SIG fee",
+    "third party pay SIG Declaration Fee",
+    "QN non-transferable",
+    "SIG Invoice registrant account"
+  ],
   "qualification_stage": "Payment / Registration",
   "confidence": "high"
 }

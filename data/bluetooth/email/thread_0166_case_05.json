@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0166",
+  "case_id": "thread_0166_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Smart TV with Bluetooth (Sony)",
+  "customer_question": "The Controller QDID we originally planned to use creates inter-layer ICS inconsistencies that would require extensive additional testing. How do we find an alternative that avoids these inconsistencies?",
+  "question_variants": [
+    "Our planned Controller QDID creates ICS conflicts in the registration. Is there an alternative?",
+    "There are ICS inconsistencies between our Host QDID and Controller QDID. How do we select a different Controller reference to avoid this?",
+    "We need to change which QDID we reference for the Controller because the original one causes inter-layer conflicts. What should we look for?"
+  ],
+  "actual_issue": "Sony's original planned Controller QDID, when combined with their Host QDID in the registration, produces inter-layer ICS inconsistencies that would require hundreds of additional test items to resolve. Additionally, the original Controller QDID itself has existing inter-layer inconsistencies in its own registration. Allion identified a suitable Subset DN of the same base QDID (with matching RF power class) that avoids all these inconsistencies.",
+  "plain_english_explanation": "When combining a Host QDID and a Controller QDID in a Multi-Design registration, the SIG portal checks cross-layer ICS consistency. If the chosen Controller QDID has features enabled (e.g., output power class) that differ from what the Host references, inconsistencies appear. The fix is to find a Subset DN of the Controller QDID that has the correct matching features. In Sony's case, a Subset DN of the same Controller design exists with the same RF power class (Class 2) as the Host reference, which eliminates the inter-layer inconsistency without any additional testing.",
+  "consultant_answer": "When the planned Controller QDID creates inter-layer inconsistencies with the Host QDID, search for available Subset DNs of that Controller QDID. Look specifically for a Subset that has the same RF power class and relevant ICS entries as the Host QDID references. Use this Subset DN instead of the original QDID. If no suitable Subset exists, contact the Controller QDID's Listing Owner to request one be created.",
+  "decision_logic": "Inter-layer ICS inconsistency resolution at the QDID selection stage (before registration) is far more efficient than resolving it during registration (which triggers test requirements). A Subset DN with matching power class eliminates the inconsistency without any new testing. The selection criteria for the right Subset: match the RF power class and relevant LL/RFPHY ICS entries to the Host QDID's references.",
+  "final_recommendation": "Before finalizing the QDID selection for a Multi-Design registration, run a consistency check by examining the ICS of each QDID pair at the key cross-layer junction (especially LL/RFPHY power class). If inconsistencies are found, look for a Subset DN that resolves them. Document the Subset selection rationale for the registration record.",
+  "risk_if_done_wrong": "Proceeding with a QDID that creates inter-layer inconsistencies without identifying an appropriate Subset DN first could require extensive LL testing (hundreds of items) to resolve the inconsistency, significantly increasing cost and timeline.",
+  "bluetooth_tags": [
+    "Subset DN",
+    "Controller QDID",
+    "Host QDID",
+    "inter-layer ICS inconsistency",
+    "power class",
+    "Multi-Design",
+    "QDID selection",
+    "ICS cross-layer"
+  ],
+  "search_aliases": [
+    "Subset DN resolve inter-layer ICS inconsistency",
+    "Controller QDID power class mismatch",
+    "find Subset DN avoid inconsistency",
+    "QDID selection cross-layer check",
+    "Multi-Design QDID compatibility check"
+  ],
+  "qualification_stage": "Pre-registration / QDID selection",
+  "confidence": "high"
+}

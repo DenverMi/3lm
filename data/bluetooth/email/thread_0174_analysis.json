@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0174",
+  "thread_analysis": {
+    "thread_summary": "Secom thread for a BLE security device (Module + Host, Multi-Design registration). The thread spans from the initial quoting phase through registration completion. Key cases: (1) yellow warning on the ICS Form after TCW entry is normal, not a rejection signal; (2) free derivative product additions are valid until the referenced Core Spec version is deprecated (e.g., v5.0 deprecates Feb 1, 2032); (3) Compliance Folder documents are required per registered model but some documents can be shared across similar designs. Additionally, the thread revealed a quoting correction: the initial quote was Single-Design (¥150,000) due to a SIG portal bug right after the July 2024 system launch; once the bug was fixed, the correct quote was Multi-Design (¥250,000).",
+    "all_questions_found": [
+      "The SIG Review Page shows a yellow warning on the ICS Form. Is this a problem?",
+      "How long can we add derivative models for free after the initial registration?",
+      "Which Compliance Folder documents are required for each product model, and can models share documents?",
+      "What is the timeline from order to registration completion?",
+      "Does the registered product hardware need to be provided to Allion?"
+    ],
+    "key_technical_discussion": "TCW yellow indicator: expected and correct state after entering a TCW number; SIG manually reviews and approves in 1-5 business days. Core Spec deprecation determines the free derivative addition window — for v5.0, this is February 1, 2032. Compliance Folder documentation is product-level; initial registration needs documents for the first registered model only; derivative additions require supplemental documentation for each new model. The quoting error from the SIG portal bug (July 2024 launch: new system initially couldn't correctly distinguish Multi-Design from Single-Design) should be a standing awareness issue for all registrations immediately post-launch.",
+    "key_decision_logic": "Yellow indicator = TCW applied = valid state, not an error. Derivative free addition validity = Core Spec version deprecation date. Compliance Folder scope = all models in the Product List. USD wire transfer timeline = 3 weeks (includes internal approval + bank processing).",
+    "risk_if_done_wrong": "Treating the yellow ICS Form indicator as a failure wastes a resubmission cycle. Missing the Core Spec deprecation date for derivative additions forces full re-registration. An incomplete Compliance Folder (missing documents for listed products) creates audit risk.",
+    "consulting_mistake": "The initial quote was issued as Single-Design (¥150,000) due to a SIG portal bug immediately after the July 2024 system launch. The correct answer was Multi-Design (¥250,000). This was proactively corrected before the customer placed their order, but it illustrates the risk of quoting immediately after a major SIG system update without validating portal behavior.",
+    "consulting_takeaway": "After any major SIG portal update, verify Multi-Design vs. Single-Design determination in a test project before issuing firm quotes. The July 2024 launch had a known bug that could cause incorrect Multi-Design detection. Proactively explain the Core Spec deprecation deadline when quoting derivative product additions."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0179",
+  "case_id": "thread_0179_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE module with uFL antenna connector (Alps Alpine), DUT with two physical antenna terminals",
+  "customer_question": "The DUT has two possible antenna connection points — one on a circuit board exposed outside the housing, and another (per the customer's antenna spec document) that is only accessible after removing the device's top cover. Which terminal should the RF test be connected to?",
+  "question_variants": [
+    "There appear to be two antenna terminals on this DUT — which one is correct for RF testing?",
+    "The customer's antenna spec photo shows a terminal under the top cover, but there's also one on an externally exposed board — which do we use?",
+    "Do we need to open the DUT housing to access the correct antenna test point?"
+  ],
+  "actual_issue": "During RF test setup for the Alps Alpine DUT, a new Allion test engineer (Ushiroebisu) found that the customer's antenna specification document (AH00CDC_ANT_Spec.pptx, page 2) showed an antenna terminal accessible only after removing the device's TOP COVER, whereas the photo taken by colleague Nakayama showed a different terminal on a circuit board that protrudes outside the device body. Sakai instructed to connect to the terminal that does not require opening the panel (the one in Nakayama's photo). However, none of the lab's available uFL-to-SMA cables/adapters mated with that externally exposed terminal (see related case on cable incompatibility), so the team had to request a cable from the customer.",
+  "plain_english_explanation": "Some DUTs have more than one physical point where an antenna or RF test cable could be connected, and documentation from the customer may show one location while photos taken by lab staff show another. Before doing RF testing, the lab must determine which physical terminal is the correct, intended RF test point — opening a device's housing unnecessarily can be undesirable or risky, so the consultant's guidance was to use the externally accessible terminal that does not require disassembly.",
+  "consultant_answer": "Connect the RF test cable to the antenna terminal that is accessible without opening the device's housing (the externally exposed circuit board terminal shown in the lab photo), rather than the terminal shown in the customer's antenna spec document that requires removing the top cover.",
+  "decision_logic": "When a DUT presents more than one plausible antenna connection point and customer documentation does not clearly resolve which is correct, prefer the non-invasive (externally accessible) terminal unless there is a specific technical reason the internal terminal must be used. This avoids unnecessary disassembly risk to the customer's DUT.",
+  "final_recommendation": "When receiving a DUT for RF testing, compare the customer-provided antenna specification document against the physical unit before the test session and confirm with the customer (or internally, with engineers experienced on the same product/module) which antenna terminal is the correct RF test point, especially if the device has multiple candidate connection points.",
+  "risk_if_done_wrong": "Connecting to the wrong antenna terminal could produce invalid or misleading RF measurement results, or require unnecessary disassembly of the customer's DUT, both of which could require repeating the test session.",
+  "bluetooth_tags": [
+    "RF test",
+    "antenna terminal",
+    "DUT disassembly",
+    "antenna spec",
+    "test setup",
+    "RF PHY test"
+  ],
+  "search_aliases": [
+    "which antenna terminal to use RF test",
+    "multiple antenna connection points DUT",
+    "antenna spec vs physical DUT mismatch",
+    "open DUT cover for antenna terminal",
+    "externally accessible antenna terminal RF test"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "medium"
+}

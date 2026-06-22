@@ -1,0 +1,19 @@
+{
+  "source_thread": "thread_0210",
+  "thread_analysis": {
+    "thread_summary": "GUGEN company (商品開発グループ, 細合徹) initial inquiry for Bluetooth SIG registration of an End Product incorporating a Core-Complete End Product QDID module with PCB antenna. Single Design registration scope. Customer asked detailed questions about scope of Allion's services and cost breakdown: (1) whether Compliance Folder creation can be handled by the customer themselves (yes, at no fee from Allion), (2) payment terms for new clients (prepayment required — standard net-30 not available), (3) SIG Qualification Fee taxability and currency conversion (TTS rate at formal quotation time), (4) post-registration SIG audit response support scope (Allion advises if SIG contacts the customer), and (5) derivative model registration cost (free if same module + same Host Stack; full cost if Host Stack differs).",
+    "all_questions_found": [
+      "Can the Compliance Folder be created by the customer themselves, and if so does the cost change?",
+      "Are standard net-30 payment terms available for a new client?",
+      "Is the Qualification Fee (SIG fee) taxable and what is the exchange rate used?",
+      "What is included in Allion's 'post-registration SIG inquiry response' service?",
+      "What does the SIG audit response support actually cover?",
+      "How much does a derivative model registration cost if the same module is used?"
+    ],
+    "key_technical_discussion": "Compliance Folder creation is an optional service from Allion — customers can do it themselves and the ¥100,000 fee is simply omitted. The SIG Qualification Fee ($11,040 USD) is taxable, converted at TTS rate at formal quotation time (not fixed). New client prepayment is mandatory — no exceptions for standard invoice terms. Derivative model: same module + same Host Stack → free addition; different Host Stack → full re-registration cost. Post-registration audit support: Allion advises on response approach if SIG contacts the customer — no market surveillance is performed proactively.",
+    "key_decision_logic": "Compliance Folder optionality is an important selling flexibility point. Prepayment protects Allion with no prior client relationship. Derivative free addition requires both module AND Host Stack to match. Audit support is reactive, not proactive.",
+    "risk_if_done_wrong": "If customer creates their own Compliance Folder without guidance, it may not meet SIG requirements. If derivative model has a different Host Stack and is added without new registration, that model is uncertified.",
+    "consulting_mistake": "None identified. Responses were thorough and accurate across all five inquiry points.",
+    "consulting_takeaway": "For first-inquiry clients, proactively address: (1) Compliance Folder optionality, (2) prepayment terms, (3) currency conversion method for Qualification Fee, (4) derivative product rules. These are the most common clarification questions and bundling the answers saves multiple round trips."
+  }
+}

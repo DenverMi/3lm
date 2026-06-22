@@ -1,49 +1,34 @@
 {
-    "source_thread": "thread_0028",
-    "cases": [
-        {
-            "case_id": "thread_0028_case_04",
-            "iut_type": "module",
-            "customer_question": "Can FCC radio certification tools or procedures be used together with Bluetooth SIG RF PHY qualification testing?",
-            "question_variants": [
-                "FCC_assist tool causes RF PHY failure",
-                "Can FCC tools be used for SIG RF PHY testing?",
-                "InterLab and FCC_assist conflict",
-                "RF PHY COM port conflict",
-                "Why does RF PHY fail after FCC_assist use?",
-                "FCC procedure interfering with qualification testing"
-            ],
-            "actual_issue": "A regulatory RF test tool intended for FCC or radio-law testing interfered with the Bluetooth SIG RF PHY qualification test system by disrupting the DUT serial communication path.",
-            "plain_english_explanation": "The lab accidentally used an FCC-oriented RF assist tool together with the Bluetooth SIG qualification tester. Both tools attempted to control the same DUT communication interface, causing the qualification tester to lose access to the device. Once the FCC tool was removed and HCI mode was used directly with the SIG tester, RF PHY testing succeeded.",
-            "consultant_answer": "The consultant determined that the root cause was the installation and use of FCC_assist1.0.4.exe on the InterLab test management PC. The FCC tool established its own COM port handling sequence and disrupted the serial communication path required by the InterLab RF PHY qualification tester. The consultant instructed the team to stop using FCC_assist entirely and perform RF PHY testing directly through the InterLab system in Serial - HCI mode. After this correction, RF PHY 1M testing passed successfully.",
-            "decision_logic": "Bluetooth SIG RF PHY qualification requires exclusive and stable tester-to-DUT communication control. External FCC or regulatory RF tools that manipulate the same serial interface can break the qualification tester communication path and invalidate testing.",
-            "final_recommendation": "Do not use FCC or regulatory RF assist tools during Bluetooth SIG RF PHY qualification testing unless explicitly required and validated for compatibility. Use only the approved SIG qualification tester workflow and validated HCI communication mode.",
-            "risk_if_done_wrong": "Conflicting COM port control can prevent RF PHY testing from running, create misleading FAIL results, waste lab schedules, and delay qualification completion.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "testing",
-                "HCI",
-                "COM port",
-                "InterLab",
-                "FCC",
-                "module"
-            ],
-            "search_aliases": [
-                "FCC_assist conflict",
-                "COM port conflict",
-                "InterLab communication failure",
-                "RF PHY cannot start",
-                "FCC tool interference",
-                "Serial HCI only",
-                "RF PHY tester conflict",
-                "FCC_assist1.0.4.exe",
-                "qualification tester path issue",
-                "RF PHY timeout cause"
-            ],
-            "qualification_stage": "test failure",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0028",
+  "case_id": "thread_0028_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Toytec Bluetooth module), RF PHY DTM test repeatedly fails to get a normal command response -- root cause traced to a conflicting customer-provided tool occupying the COM port",
+  "customer_question": "Our RF PHY test keeps failing at the pre-test DUT command response stage, even after replacing test samples and checking our setup -- we've followed your customer sample document's procedures but keep getting errors. What's going wrong, and once we used your standalone Automation Explore tool, we found 'Serial - Two-Wire' times out completely but 'Serial - HCI' gets Success on every command -- does that mean we're ready for the formal test?",
+  "question_variants": [
+    "Is there a difference between getting a successful response via a standalone PC-based confirmation tool versus the lab's own InterLab test system, that could explain inconsistent results?",
+    "Could running two different control tools against the same DUT at the same time on the same COM port cause this kind of failure?"
+  ],
+  "actual_issue": "Across multiple test attempts and replacement samples, RF PHY testing consistently failed to get a normal DUT command response at the InterLab test system, even though the customer's own independent confirmation (using a standalone PC tool) showed the DUT responding successfully in HCI mode. The root cause turned out to be that the lab's own test engineer had installed a customer-referenced tool, 'FCC_assist1.0.4.exe' (intended for radio-law/FCC-style legal certification procedures, not SIG DTM testing), on the InterLab control PC and was running it immediately before the InterLab test -- causing the two tools to contend for the same DUT COM port, so that by the time the actual InterLab test tried to communicate with the DUT, the serial path was no longer properly established.",
+  "plain_english_explanation": "The customer's own confirmation test (using a standalone PC tool, separate from the lab's InterLab system) showed that a sample running RF-test-passing firmware responded successfully to all DTM commands in 'Serial - HCI' mode (though it timed out completely in 'Serial - Two-Wire' mode) -- this was good evidence the DUT itself was healthy and configured for HCI, but on its own wasn't sufficient confirmation that the lab's specific InterLab test system would behave the same way, since InterLab is a different physical and software setup. When the lab's own test engineer still couldn't get a normal response at InterLab despite this, deeper investigation revealed the actual root cause: the test engineer had installed and was running 'FCC_assist1.0.4.exe' (a tool intended for radio-law/FCC-style legal certification test procedures, where the DUT spontaneously emits radio signals under its own control scheme) on the same control PC, treating it as a step to run before the InterLab test on the same DUT. Because both tools were trying to use the same DUT COM port, the initial connection InterLab's management tool established with the DUT got severed once FCC_assist took over that port for its own procedure -- meaning that by the time the actual RF PHY test tried to run, the serial path between InterLab and the DUT was no longer properly connected, even though nothing was wrong with the DUT itself. The fix was straightforward once identified: stop using FCC_assist1.0.4.exe entirely for SIG certification testing, and run the RF PHY test using only InterLab directly, in 'Serial - HCI' mode. Once implemented, the RF PHY (1Mbps) test's 10 items passed without issue the next morning.",
+  "consultant_answer": "Your standalone tool's result is encouraging -- it confirms your DUT itself responds correctly via HCI mode -- but it doesn't fully confirm InterLab specifically will see the same result, since it's a different setup. We found the actual root cause on our end: our test engineer had installed a tool called FCC_assist1.0.4.exe (meant for radio-law/FCC-style legal certification procedures, not SIG DTM testing) and was running it right before the InterLab test on the same DUT -- both tools were contending for the same COM port, so the connection InterLab had established with your DUT got severed once FCC_assist took over that port, even though nothing was wrong with your DUT itself. We've corrected this: we'll run the RF PHY test using only InterLab directly in Serial-HCI mode, without FCC_assist at all. We apologize for the delay this caused on our end.",
+  "decision_logic": "When a DUT consistently fails to get a normal command response at one specific test system despite independent confirmation elsewhere that the DUT itself is healthy, investigate whether the test system's own control PC is running any other tool against the same DUT/COM port immediately beforehand -- two tools contending for the same serial connection can sever an already-established path, producing a result that looks like a DUT problem but is actually a test-setup conflict on the lab's own side.",
+  "final_recommendation": "Before installing or running any customer-referenced auxiliary tool (such as one intended for a different certification regime, like radio-law/FCC testing) on a test system's control PC, verify it won't conflict with the actual certification test system's own COM port usage for the same DUT -- and when independent customer-side confirmation of DUT health doesn't resolve a persistent lab-side failure, look for a tooling conflict on the lab's own setup rather than continuing to suspect the DUT or sample.",
+  "risk_if_done_wrong": "Continuing to treat this as a DUT-side problem (e.g., requesting further replacement samples) without identifying the COM-port tool conflict on the lab's own test PC would have wasted further shipping cycles and delayed testing indefinitely, since the actual DUT samples were never the problem.",
+  "bluetooth_tags": [
+    "FCC_assist tool COM port conflict",
+    "two tools contending for same serial connection",
+    "InterLab vs standalone confirmation tool discrepancy",
+    "Serial HCI vs Two-Wire mode",
+    "root cause on lab side not DUT side",
+    "Toytec"
+  ],
+  "search_aliases": [
+    "RF PHY test fails despite DUT confirmed healthy elsewhere",
+    "two tools same COM port conflict test failure",
+    "FCC_assist1.0.4.exe conflicts with InterLab",
+    "lab side tooling conflict not DUT problem"
+  ],
+  "qualification_stage": "RF PHY test execution troubleshooting",
+  "confidence": "high"
 }

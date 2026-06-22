@@ -1,43 +1,23 @@
 {
-    "source_thread": "thread_0094",
-    "cases": [
-        {
-            "case_id": "thread_0094_case_03",
-            "iut_type": "BLE module-based product",
-            "customer_question": "What documentation is required for Bluetooth SIG product registration when qualifying a finished product that uses a BLE module?",
-            "question_variants": [
-                "What documents are needed for Bluetooth qualification?",
-                "Do I need module design files for registration?",
-                "Are product-level documents required for qualification?",
-                "What is required for the compliance folder?",
-                "Which drawings and manuals must be provided?"
-            ],
-            "actual_issue": "The customer initially assumed module-level engineering documents would be required, but Bluetooth qualification documentation requirements apply to the finished product.",
-            "plain_english_explanation": "Bluetooth qualification documentation focuses on the final product being registered rather than only the Bluetooth module itself. Product-level information is needed to demonstrate how Bluetooth is implemented in the final device and to support qualification records.",
-            "consultant_answer": "The consultant clarified that Bluetooth qualification requires product-level documentation, including the product user manual, product block diagram, product external drawing, antenna drawing, and antenna gain information. The required materials are not limited to module schematics, PCB layouts, or module component lists.",
-            "decision_logic": "Bluetooth product registration is based on the finished product and its implementation. Supporting documentation must describe the final product and its Bluetooth integration rather than only the module supplier's internal design data.",
-            "final_recommendation": "Prepare product-level qualification documentation, including user manuals, block diagrams, product drawings, and antenna information, as part of the qualification and compliance-folder process.",
-            "risk_if_done_wrong": "Providing only module-level documentation may leave qualification records incomplete and delay registration or compliance-folder preparation.",
-            "bluetooth_tags": [
-                "qualification",
-                "documentation",
-                "compliance folder",
-                "antenna",
-                "declaration"
-            ],
-            "search_aliases": [
-                "qualification documents",
-                "product manual requirement",
-                "antenna gain document",
-                "product block diagram",
-                "Bluetooth compliance folder",
-                "registration evidence",
-                "product drawing requirement",
-                "qualification documentation"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0094",
+  "case_id": "thread_0094_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Including our module's Component QDID together with the newer Host/LL QDID produces a bunch of inter-layer inconsistencies around AoA/AoD and Isochronous features. How do we resolve this without triggering a massive new test requirement?",
+  "question_variants": [
+    "Why does combining these two QDIDs cause so many LL-RFPHY inconsistencies?",
+    "Do we have to edit the LL ICS ourselves to fix this?",
+    "Can the chip vendor provide a Subset that resolves the conflict for free?"
+  ],
+  "actual_issue": "Including the module's Component-level QDID (Core Spec v5.1) together with a newer Core-Spec Host/LL QDID (v5.4) for the product registration produced 13 inter-layer inconsistencies between the LL and RFPHY layers, tied to AoA/AoD and Isochronous features that the newer Host/LL QDID supports but the older Component QDID's RF PHY content does not address, and a way to resolve this without triggering a large new test requirement was needed.",
+  "plain_english_explanation": "When you combine an older chip-level certification with a newer software-stack certification, the newer one can claim support for advanced features (like direction-finding or isochronous audio channels) that the older certification's radio-testing checklist simply doesn't have entries for, causing a long list of automatic conflicts. Fixing this by directly editing the older certification's checklist would force a huge amount of additional radio testing. The better fix is to ask the company that owns the older certification to issue a trimmed-down version of it with those specific advanced features turned off, which is free and avoids the conflict entirely.",
+  "consultant_answer": "Including QDID [Component, Core Spec v5.1] together with QDID [Wireless Gecko Link Layer and Host, Core Spec v5.4] produces 13 inter-layer inconsistencies between LL and RFPHY (tied to AoA/AoD and Isochronous functionality), each following the pattern 'If [RFPHY] is Supported and [RFPHY] (item) is Not Supported then [LL] (item) is Excluded.' Modifying the LL ICS directly to resolve this would trigger LL-layer testing requirements numbering in the hundreds of items. Instead, the recommended fix is for the Component QDID's Listing Owner (the chip vendor) to create a free Subset that flips the specific 15 conflicting LL ICS items from Support YES to NO, removing AoA/AoD and Isochronous support from that Subset. If the vendor already has a Subset DN with these features set to NO (from this QDID or an equivalent design registration), that DN can be used directly. The customer confirmed with Silicon Laboratories and received the resolving registration data: a specific QDID for the Component part, together with a specific DN covering the LL, HCI, and Host layers, which eliminated the inconsistency.",
+  "decision_logic": "When Including a Component-level Controller QDID together with a newer Core-Spec Host/LL QDID produces inter-layer inconsistencies tied to features the newer QDID supports but the Component QDID's RF PHY content does not address (such as AoA/AoD or Isochronous), the correct fix is to request a free Subset from the Component QDID's Listing Owner with the specific conflicting ICS items flipped to NO, rather than editing the LL ICS directly, which would trigger a large new LL-layer test requirement.",
+  "final_recommendation": "When combining a Component-level Controller QDID with a newer Core-Spec Host/LL QDID produces inter-layer inconsistencies tied to advanced features like AoA/AoD or Isochronous, ask the Component QDID's Listing Owner to create (or provide an existing) free Subset with those specific ICS items set to NO, rather than directly editing the LL ICS and triggering a large new test requirement.",
+  "risk_if_done_wrong": "Directly editing the LL ICS to resolve the inconsistency, instead of requesting a vendor-issued Subset, would trigger a large new LL-layer test requirement (hundreds of items), adding substantial unplanned cost and schedule to the registration.",
+  "bluetooth_tags": ["LL", "RFPHY", "AoA", "AoD", "Isochronous", "Subset", "Component", "Core Spec version", "Inter-Layer Dependency"],
+  "search_aliases": ["LL RFPHY inconsistency AoA AoD Isochronous", "vendor free Subset removes ICS conflict", "Component QDID newer Host LL QDID mismatch", "avoid LL layer retest with Subset DN", "Silicon Labs Wireless Gecko Subset DN"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

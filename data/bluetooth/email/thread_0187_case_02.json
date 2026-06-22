@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0187",
+  "case_id": "thread_0187_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Shin Cosmos Denki Bluetooth sensor device",
+  "customer_question": "Is an English product description mandatory for Bluetooth SIG registration? For an unreleased product, how should we write it?",
+  "question_variants": [
+    "Is a product description in English required for SIG registration?",
+    "What should we write for the product description if the product is not yet released?",
+    "How detailed does the English product description need to be for SIG registration?"
+  ],
+  "actual_issue": "The customer was unsure whether the English product description field in the SIG registration form is mandatory, and what to write for a product that is not yet publicly announced (to avoid revealing product details before launch).",
+  "plain_english_explanation": "The English product description is mandatory for Bluetooth SIG registration. It appears directly on the SIG's publicly accessible list of qualified Bluetooth products. For unreleased products, the customer can use a generic, non-revealing description (e.g., 'This is a wireless sensor device with Bluetooth technology.') to avoid disclosing product details before launch. Additionally, the registration allows setting a future publication date, so the product listing won't appear publicly until that date.",
+  "consultant_answer": "The English product description is mandatory — it is published directly on the Bluetooth SIG's qualified product database. For products not yet publicly announced, use a generic description that describes the product's function without revealing specific details. Example: 'This is a wireless sensor device with Bluetooth technology.' Also, set a Product Publication Date in the registration to control when the listing becomes publicly visible — this prevents early disclosure.",
+  "decision_logic": "SIG mandatory fields cannot be left blank. The product description must be submitted. For confidentiality of unreleased products: (1) use a generic, non-revealing description, and (2) set a Publication Date to control when the listing goes public (up to 3 months in the future is a common choice).",
+  "final_recommendation": "Write a generic, functional description (not product-model-specific) for unreleased products. Set the Product Publication Date to match the planned product launch date (or up to 3 months forward). This protects product confidentiality while satisfying the mandatory description requirement.",
+  "risk_if_done_wrong": "Leaving the description blank will block registration submission. Using a detailed description without setting a future Publication Date could expose product details before the official launch.",
+  "bluetooth_tags": [
+    "product description",
+    "English description",
+    "mandatory field",
+    "Publication Date",
+    "SIG registration",
+    "product confidentiality"
+  ],
+  "search_aliases": [
+    "English product description SIG mandatory",
+    "product description unreleased product",
+    "generic product description SIG",
+    "publication date SIG registration",
+    "SIG qualified product listing description"
+  ],
+  "qualification_stage": "Registration / Documentation",
+  "confidence": "high"
+}

@@ -1,12 +1,14 @@
 {
   "source_thread": "thread_0143",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "AlpsAlpine 27BRD module — Review page re-confirmation before Submission after corrections (HFP version and model name updates from thread_0142). Key confirmations: (1) after any correction, re-capture and re-send the Review page for customer approval; (2) model names with trailing periods (e.g., '19AVNJ.') are acceptable in SIG Launchstudio.",
     "all_questions_found": [
       "How do we re-confirm the Review page after corrections were made?",
-      "Is a model name with a trailing period acceptable for SIG registration?"
+      "Is a model name with a trailing period acceptable for SIG registration?",
+      "Our OPP profile test is failing - how do we set up the vCard file path and physically connect the USB to a product with no exposed USB port?",
+      "Our AVRCP/CT/MCN/CB profile test is FAILing - where do we get and place a music file with metadata large enough to trigger fragmentation?"
     ],
-    "key_technical_discussion": "Standard pre-submission workflow: after any Qualification Workspace correction, the Review page must be re-captured and re-sent to the customer for explicit re-confirmation. Trailing periods in model names are SIG-acceptable.",
+    "key_technical_discussion": "Standard pre-submission workflow: after any Qualification Workspace correction, the Review page must be re-captured and re-sent to the customer for explicit re-confirmation. Trailing periods in model names are SIG-acceptable. The thread's deeper nested history also covers profile test troubleshooting from the same project: an OPP test FAIL traced to a missing vCard sample file and an unclear USB connection method, and an AVRCP/CT/MCN/CB test FAIL traced to a missing large-metadata (>512KB) music file needed to trigger fragmentation behavior.",
     "key_decision_logic": "Corrections made → re-capture Review page → send to customer → await explicit OK → submit. Model name punctuation: trailing periods are acceptable, no change required.",
     "risk_if_done_wrong": "Submitting after corrections without re-confirming the Review page risks submitting content the customer has not approved in its corrected form.",
     "consulting_mistake": "Submitting to SIG based on the original approval when corrections have since been made to the registration content.",

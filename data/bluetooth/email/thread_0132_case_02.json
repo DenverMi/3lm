@@ -2,6 +2,7 @@
   "source_thread": "thread_0132",
   "case_id": "thread_0132_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "consumer electronics",
   "customer_question": "The existing QDID we want to reference has ICS inter-layer inconsistencies that, if fixed, would trigger new LL test requirements. Is there a way to proceed with the registration without triggering hundreds of new test items?",
   "question_variants": [
@@ -11,11 +12,20 @@
   ],
   "actual_issue": "When preparing a new registration referencing a prior QDID (Q325703), the consultant found: (1) Q325703 itself had existing inter-layer (階層間) ICS inconsistencies; (2) ICS differences between Q325703 and the current product's Controller Subsystem QDID (LL 9/15 Power Class 1 and RF 1/1 Power Class 1 differed); (3) Under the new registration system (effective July 1, 2024), if LL ICS changes are made, a Test Plan is automatically generated requiring ~300 LL test item reports to be uploaded - making this path impractical. The consultant proposed using Q333791 instead - a Subset of Q325703 - which shares the same RF/RFPHY Class 2 as the existing prior registration, avoids the inter-layer inconsistency issue, and does not trigger new LL test requirements. This allowed the registration to proceed with proxy registration support only (no new testing).",
   "plain_english_explanation": "When referencing an existing QDID in a new registration, the referenced QDID's ICS must be compatible with the new product's ICS. If the referenced QDID has inter-layer inconsistencies in its ICS, those problems propagate to the new registration. Under the Bluetooth SIG's post-July 2024 registration system, any change to LL (Link Layer) ICS items automatically triggers a full LL Test Plan output requiring ~300 test item reports - an enormous and impractical undertaking. The solution: use a Subset of the problematic parent QDID. Subsets are pre-defined sub-registrations with a restricted ICS profile. If a Subset exists that matches the product's RF Class and avoids the ICS inconsistency, referencing the Subset instead of the parent QDID allows the registration to proceed without triggering LL test requirements.",
-  "consultant_answer": "[ID]には4種のSubsetが準備されていて、そのうちの[ID]が既存の[ID]とRF/RF PHYが同じClass 2で、[ID]と組み合わせた登録で階層間不整合が発生しません。このため[ID]は[ID]に変更して登録を進めたいと思いますのでご検討ください。（さらに[ID]登録自体に階層間不整合が存在し、仮Projectで[ID]と組み合わせた登録過程でICS修正で階層間不整合を取り除くと新たな階層の試験要求が発生します。2024年7月1日以降の新登録制度ではLLの試験要求がTest Planとして出力されて300項目程度の試験レポートのアップロードが必要となりますので試験費用と所要期間が現実的ではありません。）([ID] has 4 types of Subsets, and among them [ID] has the same Class 2 RF/RFPHY as the existing [ID], and combining [ID] with [ID] in a registration does not generate inter-layer inconsistencies. Therefore, I would like to change [ID] to [ID] and proceed with the registration. (Furthermore, the [ID] registration itself has inter-layer inconsistencies, and if ICS modifications to remove inconsistencies are made during the registration process combining with [ID] in a test Project, new layer test requirements arise. Under the new registration system effective July 1, 2024, LL test requirements are output as a Test Plan requiring upload of approximately 300 test item reports, which is not practical in terms of cost and timeline.))",
+  "consultant_answer": "[ID] has 4 types of Subsets, and among them [ID] has the same Class 2 RF/RFPHY as the existing [ID], and combining [ID] with [ID] in a registration does not generate inter-layer inconsistencies. Therefore, I would like to change [ID] to [ID] and proceed with the registration. (Furthermore, the [ID] registration itself has inter-layer inconsistencies, and if ICS modifications to remove inconsistencies are made during the registration process combining with [ID] in a test Project, new layer test requirements arise. Under the new registration system effective July 1, 2024, LL test requirements are output as a Test Plan requiring upload of approximately 300 test item reports, which is not practical in terms of cost and timeline.)",
   "decision_logic": "When a proposed registration would reference a QDID with ICS inter-layer inconsistencies, or where ICS changes would be needed to align with the current product: (1) Check whether Subsets of the problematic QDID exist; (2) Find a Subset that matches the current product's RF Class and does not generate inter-layer inconsistencies when combined with the new registration's other QDIDs; (3) Use the Subset instead of the parent QDID to avoid triggering LL Test Plan requirements (~300 items under July 2024+ registration rules). Verify by running a preliminary (仮) Project simulation before finalizing the registration approach.",
   "final_recommendation": "Always check the referenced QDID for existing ICS inter-layer inconsistencies before planning a new registration. If inconsistencies exist, look for a Subset that avoids the problem. Under the post-July 2024 registration system, triggering LL ICS changes results in a ~300-item test plan - this must be avoided unless the customer is prepared for full LL testing. Using the right Subset QDID can preserve the test-exempt path.",
   "risk_if_done_wrong": "Referencing a parent QDID with inter-layer inconsistencies without checking Subsets could result in: (1) the registration being blocked by inconsistency errors; or (2) LL ICS changes being required, triggering an unforeseen ~300-item test plan that was not quoted, causing significant cost and timeline overrun for the customer.",
-  "bluetooth_tags": ["qualification", "ICS", "inter-layer inconsistency", "Subset", "QDID", "LL", "Test Plan", "registration system 2024"],
+  "bluetooth_tags": [
+    "qualification",
+    "ICS",
+    "inter-layer inconsistency",
+    "Subset",
+    "QDID",
+    "LL",
+    "Test Plan",
+    "registration system 2024"
+  ],
   "search_aliases": [
     "QDID inter-layer inconsistency Subset avoid LL test",
     "ICS 階層間不整合 Subset QDID selection",

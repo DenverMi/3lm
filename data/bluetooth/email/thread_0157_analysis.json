@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0157",
+  "thread_analysis": {
+    "thread_summary": "Topre keyboard PTS test completion thread. Covers HOGP, BAS, DIS, and HIDS profiles. Key technical note: the BAS battery level change test (BAS/SR/CN) was passed by starting the device at 5.1V and lowering to 3.42V when PTS requests the battery level change notification. Also includes clarification that the Qualification Fee proxy payment was already included in the original service quote.",
+    "all_questions_found": [
+      "How do you pass the BAS battery level change notification test in PTS (BAS/SR/CN)?",
+      "Is the Qualification Fee proxy payment included in the service quote?"
+    ],
+    "key_technical_discussion": "BAS PTS testing requires the device to emit a Battery Level Change Notification. Since the device derives battery level from supply voltage, the tester uses an external power supply: start at 5.1V (high battery simulation), then lower to 3.42V when PTS requests the change. The device reports a lower battery percentage and sends the required notification.",
+    "key_decision_logic": "PTS battery level change tests require a physical change in the device's battery reading. Controlling the supply voltage with a bench power supply is the standard technique for simulating battery drain during lab testing without using an actual battery.",
+    "risk_if_done_wrong": "If the voltage is not changed when PTS requests the notification, the device reports the same battery level and the test fails. The tester must be ready to lower voltage at the exact moment PTS prompts for the change.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "For BAS profile PTS testing with battery level change requirements, pre-plan the voltage adjustment procedure and confirm the device's battery level reporting behavior relative to supply voltage before the test session."
+  }
+}

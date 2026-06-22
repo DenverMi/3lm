@@ -2,6 +2,7 @@
   "source_thread": "thread_0151",
   "case_id": "thread_0151_case_03",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — BR/EDR+BLE (BLE not implemented in firmware)",
   "customer_question": "Our product is registered as BR/EDR/LE but BLE is not actually used. Do we need to conduct a BLE RF PHY test?",
   "question_variants": [
@@ -15,8 +16,19 @@
   "decision_logic": "RF PHY test requirement is determined by whether the product physically emits signals in a given PHY mode (1M, 2M, Coded). If BLE is not enabled, no BLE RF PHY emission occurs, and no RF PHY test is required. Only PHY modes the product actually uses need RF PHY testing.",
   "final_recommendation": "Confirm with the customer whether BLE is physically enabled (firmware can advertise/scan/connect). If not: no BLE RF PHY test. If yes (even if only partially, e.g., advertising only): determine which PHY modes are used and test only those modes.",
   "risk_if_done_wrong": "Conducting unnecessary BLE RF PHY testing wastes budget. Conversely, skipping RF PHY testing for a product that does emit BLE signals (even unintentionally) would result in a non-compliant product reaching market.",
-  "bluetooth_tags": ["RF PHY test", "BLE", "radio emission", "BR/EDR/LE", "test scope"],
-  "search_aliases": ["BLE RF PHY required", "RF PHY test not implemented BLE", "BLE radio emission test requirement", "1M PHY test scope"],
+  "bluetooth_tags": [
+    "RF PHY test",
+    "BLE",
+    "radio emission",
+    "BR/EDR/LE",
+    "test scope"
+  ],
+  "search_aliases": [
+    "BLE RF PHY required",
+    "RF PHY test not implemented BLE",
+    "BLE radio emission test requirement",
+    "1M PHY test scope"
+  ],
   "qualification_stage": "Test Scoping / RF Testing",
   "confidence": "high"
 }

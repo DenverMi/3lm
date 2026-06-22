@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0222",
+  "thread_analysis": {
+    "thread_summary": "Premium Audio Company (Munehiro Yoneda) continues its Powered Speaker (GX10) Bluetooth SIG registration process referencing QDID:180730 and QDID:175332. This thread substantially overlaps with previously-processed thread_0201 and thread_0209 — same project, same document-sharing access restriction involving ID 'yukihiro.nakano' already documented in thread_0209_case_01. New, non-duplicate content in this thread covers two distinct questions: the validity/risk of referencing an already-certified product's DID instead of a Multi-Design combined registration, and an explanation of why the proxy registration support fee appears to have increased 2.5x from a previous engagement.",
+    "all_questions_found": [
+      "Can we reference an already-certified product's DID instead of doing a Multi-Design combined registration, and what are the cost/risk implications?",
+      "Why has the proxy registration support fee increased 2.5x compared to our previous unit price?",
+      "(Operational, duplicate of thread_0209) Document download access restricted to ID yukihiro.nakano — needs resolution."
+    ],
+    "key_technical_discussion": "DID-reference registration validity hinges on an actual OEM/ODM supply relationship with the referenced registration's Listing Owner, not mere configuration similarity; unauthorized referencing risks revocation if reported. Separately, the July 1, 2024 SIG portal/registration method change restructured proxy registration support pricing into Single-Design (¥150,000) and Multi-Design (¥250,000) tiers, explaining the apparent price increase from an older ¥100,000 quote.",
+    "key_decision_logic": "Eligibility for DID referencing is relationship-based, not configuration-based; pricing differences across time must be evaluated against the new post-July-2024 fee structure rather than treated as a flat increase on an unchanged service.",
+    "risk_if_done_wrong": "Approving DID-reference registration without verifying an actual supply relationship risks future revocation; failing to explain the new pricing structure risks customer distrust over a perceived arbitrary price hike.",
+    "consulting_mistake": "None identified in the newly extracted content of this thread.",
+    "consulting_takeaway": "This thread is a companion to thread_0201/thread_0209 (same Premium Audio Company / GX10 Powered Speaker project). To avoid duplicate case extraction, only the genuinely new technical questions (DID-reference validity, pricing structure change) were extracted here; the recurring document-access issue is already documented under thread_0209_case_01 and was not re-extracted."
+  }
+}

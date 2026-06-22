@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0158",
+  "thread_analysis": {
+    "thread_summary": "JVC Kenwood thread about a product using a Murata module with an Infineon Bluetooth chip, supporting HSP, SPP, and BLE. The customer asked how BLE RF PHY testing is conducted and whether sample hardware modification is required. Sakai explained that Allion uses a SIG-certified InterLab RF Test System supporting Core Spec DTM, and that sample hardware modification is required to expose the DTM interface.",
+    "all_questions_found": [
+      "How does BLE RF PHY testing work? What DTM connection method does Allion use?",
+      "Does the test sample hardware need modification for BLE RF PHY testing?"
+    ],
+    "key_technical_discussion": "BLE RF PHY testing requires Direct Test Mode (DTM) per the Bluetooth Core Specification. DTM allows the test system to send raw HCI commands to the Bluetooth controller to generate and receive RF test signals, bypassing the normal application and Host Stack layers. Most production-configured hardware does not expose the DTM interface externally. Therefore, the test sample must be modified — typically by adding an external connector or probe pads to the controller's UART/DTM interface on the PCB. Allion uses a SIG-certified InterLab RF Test System that supports Core Spec DTM. Allion provides a modification memo specifying exactly what changes are needed on the sample.",
+    "key_decision_logic": "DTM access at the controller level is mandatory for BLE RF PHY testing. Without it, the test system cannot control the radio directly. Sample modification is a prerequisite, not optional. The modification memo provided by Allion ensures the sample is prepared correctly.",
+    "risk_if_done_wrong": "Submitting an unmodified sample for BLE RF PHY testing results in an inability to connect for DTM. The test session cannot proceed, and a new modified sample must be submitted — causing schedule delays and potential additional costs.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "For any product requiring BLE RF PHY testing, inform the customer about the DTM modification requirement at the quote or kickoff stage. Allion's modification memo should be provided early so the customer can prepare a suitable sample before the test date."
+  }
+}

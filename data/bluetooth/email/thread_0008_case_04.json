@@ -1,45 +1,31 @@
 {
-    "source_thread": "thread_0008",
-    "cases": [
-        {
-            "case_id": "thread_0008_case_04",
-            "iut_type": "BLE peripheral device",
-            "customer_question": "Are terms like 'BLE' allowed in Bluetooth SIG Product Names during qualification listing?",
-            "question_variants": [
-                "Can Product Name contain BLE?",
-                "What Bluetooth terminology is prohibited in SIG listings?",
-                "Should BLE be replaced with Bluetooth LE?",
-                "Why was the Product Name rejected by SIG guidelines?",
-                "What naming format does SIG recommend for LE products?"
-            ],
-            "actual_issue": "The submitted Product Name used the abbreviation 'BLE', which violated Bluetooth SIG naming guidelines for listing terminology.",
-            "plain_english_explanation": "The Bluetooth SIG has naming rules for official qualification listings. The abbreviation 'BLE' is not an approved public-facing Bluetooth branding term in Product Names. The consultant corrected the listing to use the approved term 'Bluetooth LE' instead.",
-            "consultant_answer": "The consultant identified that the submitted Product Name contained the term 'BLE', which was prohibited under Bluetooth SIG naming guidelines. The consultant corrected the registration to use the SIG-preferred expression 'Bluetooth LE' and regenerated the Review page before final submission.",
-            "decision_logic": "Bluetooth SIG branding and listing guidelines restrict the terminology permitted in public registration data. Non-approved abbreviations such as 'BLE' must be replaced with approved terminology such as 'Bluetooth LE'.",
-            "final_recommendation": "Use Bluetooth SIG-approved terminology such as 'Bluetooth LE' in Product Names and listing descriptions instead of unsupported abbreviations like 'BLE'.",
-            "risk_if_done_wrong": "Using prohibited Bluetooth terminology may require listing correction, resubmission, or review delays before qualification approval.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "branding",
-                "Product Name",
-                "Bluetooth LE"
-            ],
-            "search_aliases": [
-                "BLE prohibited term",
-                "Bluetooth LE naming",
-                "SIG branding guideline",
-                "Product Name correction",
-                "BLE naming issue",
-                "listing terminology",
-                "Bluetooth trademark guidance",
-                "Review page correction",
-                "SIG approved wording",
-                "BLE to Bluetooth LE"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0008",
+  "case_id": "thread_0008_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Shimano, unannounced future product), registration public display start date",
+  "customer_question": "Our product's information won't be revealed until around September next year — can the registration's public display start date be set that far out, given we've heard the maximum delay window changed recently?",
+  "question_variants": [
+    "How far in the future can the registration's public visibility be delayed?",
+    "Has the maximum display delay window recently changed?"
+  ],
+  "actual_issue": "The customer's product reveal date was roughly nine months away at the time of registration, and they needed to confirm the registration site could actually delay public visibility that far out, especially since they recalled a shorter limit from past experience.",
+  "plain_english_explanation": "Around mid-2025, alongside an announcement of a registration fee increase effective March 1, 2026, Bluetooth SIG relaxed the previous 90-day maximum display-start-date delay to a new maximum of 180 days. Since the customer's actual product reveal date was still further out than even 180 days, the registration was set to the maximum currently available delay (180 days) to push public visibility as far out as possible, even though it wouldn't fully cover the gap until the customer's actual September reveal date.",
+  "consultant_answer": "Yes — around mid-2025, alongside the registration fee increase announcement effective March 1, 2026, SIG relaxed the previous 90-day maximum display-start-date delay to 180 days. Since your actual reveal date is further out than even that, we'll set the registration to the maximum currently available delay (180 days) to push public visibility out as far as currently possible, though it won't fully cover the gap until your actual September reveal date.",
+  "decision_logic": "Registration public display delay should be set to the maximum currently available window when the customer's actual confidential reveal date exceeds that window, since no further delay is possible beyond the platform's current maximum, regardless of how much further out the customer's real timeline extends.",
+  "final_recommendation": "When a customer's confidential reveal date exceeds even the maximum available registration display delay, clearly set expectations that the registration will become publicly visible before the customer's actual reveal date, since no further extension beyond the platform's current maximum is possible.",
+  "risk_if_done_wrong": "Assuming the display delay could be set indefinitely to match the customer's actual confidential timeline, rather than the platform's actual current maximum (180 days), could result in unexpectedly early public exposure of an unannounced product.",
+  "bluetooth_tags": [
+    "registration display start date maximum delay",
+    "180 day display delay 2025 relaxation",
+    "confidential product registration timing",
+    "Shimano"
+  ],
+  "search_aliases": [
+    "maximum registration display delay days",
+    "how far can public visibility be delayed",
+    "180 day display start date SIG 2025"
+  ],
+  "qualification_stage": "Registration form preparation",
+  "confidence": "high"
 }

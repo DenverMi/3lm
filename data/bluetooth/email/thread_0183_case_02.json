@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0183",
+  "case_id": "thread_0183_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alps Alpine HM23 (Qualcomm-based, Android 14 update)",
+  "customer_question": "The RF PHY test report is missing one test item (RFPHY/TRM/[item]) that was required by the updated test spec. What are the options?",
+  "question_variants": [
+    "RF test lab missed one test item — can we still register?",
+    "RFPHY/TRM item missing from test report — is additional testing required?",
+    "Test lab did not include a newly required RF PHY item — what are the options?"
+  ],
+  "actual_issue": "The RF/RF PHY test report from SGS Taiwan is missing one test item (RFPHY/TRM/[item]) that was added to the TCRL after the original QDID was issued. While this item is not strictly required for the original QDID registration, it becomes a problem if a new product registration uses that report as evidence.",
+  "plain_english_explanation": "When the SIG updates the Test Case Reference List (TCRL), new test items can be added after a QDID is already registered. The original QDID is not retroactively required to pass those new items. However, if a new product registration re-uses the old RF PHY report as evidence, the new registration site may flag the missing item as required. The cleanest resolution: the test lab (SGS Taiwan) made an error by not including this item in scope — they should provide the additional test at no charge since it was their oversight. Alternatively, a Subset DN approach that inherits the RF PHY from the original QDID registration date can avoid the new item requirement.",
+  "consultant_answer": "The missing item (RFPHY/TRM/[item]) was added to the TCRL after the original QDID's registration date, so it was not required for the QDID itself. For a new product registration using that QDID's RF PHY report as evidence, the item may be flagged as missing. Options: (1) Demand SGS Taiwan provide the missing test at no charge since it was their error to omit it from scope; (2) Use a Subset DN inheritance approach where the product registration inherits the RF PHY QDID from its original date, making the new item irrelevant for that registration.",
+  "decision_logic": "Test labs are responsible for testing all items in scope at the time of the test. If a required item was missed, the lab bears responsibility for the additional test. However, because the item was added after the original QDID date, if the product registration uses a Subset DN that inherits the old QDID's RF PHY, the new item is not required for that registration path.",
+  "final_recommendation": "First approach: request SGS Taiwan to provide the missing RFPHY/TRM test item at no charge, as it was an omission in their test scope. If SGS Taiwan refuses, consider the Subset DN inheritance approach to sidestep the missing item. Do not pay for the additional test if the lab error is clear.",
+  "risk_if_done_wrong": "If the missing test item is ignored and the new product registration uses the incomplete RF PHY report as evidence, the SIG submission may be rejected for missing test coverage.",
+  "bluetooth_tags": [
+    "RFPHY",
+    "TRM",
+    "test report",
+    "TCRL",
+    "missing test item",
+    "SGS Taiwan",
+    "BQTF",
+    "RF PHY",
+    "Subset DN"
+  ],
+  "search_aliases": [
+    "missing RF PHY test item",
+    "RFPHY TRM missing",
+    "TCRL new item after QDID",
+    "lab missed test item",
+    "RF PHY report incomplete SGS"
+  ],
+  "qualification_stage": "Test / Documentation",
+  "confidence": "high"
+}

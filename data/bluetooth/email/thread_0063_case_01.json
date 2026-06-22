@@ -1,46 +1,23 @@
 {
-    "source_thread": "thread_0063",
-    "cases": [
-        {
-            "case_id": "thread_0063_case_01",
-            "iut_type": "",
-            "customer_question": "How should an RF qualification test case be handled when the DUT explicitly reports that an optional Bluetooth feature is not supported?",
-            "question_variants": [
-                "Can an RF test item be removed if the DUT reports feature unsupported?",
-                "Should Enhanced Power Control testing remain in the RF report when the DUT does not support it?",
-                "How do we treat a test case that was included because feature support was uncertain?",
-                "Can an unsupported optional feature be marked as not applicable during RF qualification?",
-                "What should be done when RF logs show a non-supported feature response from the DUT?"
-            ],
-            "actual_issue": "The RF test plan included testing for Enhanced Power Control because feature support was unknown. RF test logs later showed that the DUT explicitly reported the feature as unsupported, creating a mismatch between the planned test scope and the actual DUT capabilities.",
-            "plain_english_explanation": "The test team initially assumed the device might support a Bluetooth feature and included related testing. After running the tests, the device itself reported that the feature was not implemented. Once objective evidence showed the feature was unsupported, the associated test case no longer belonged in the applicable qualification scope.",
-            "consultant_answer": "The DUT's response in the RF test log is the authoritative evidence of feature support. Since the log explicitly indicated that Enhanced Power Control was not supported, the corresponding RF test item should be treated as out of scope rather than as a failed test. The test plan should be updated to reflect the actual capability set, the unsupported item should be removed from the applicable log and reporting scope, and the RF report should be regenerated using the corrected test applicability.",
-            "decision_logic": "Bluetooth qualification testing must align with the DUT's implemented and declared capabilities. When a feature-dependent test case is included only because support status is uncertain, and subsequent evidence confirms the feature is unsupported, the correct action is to remove the test from the applicable scope rather than report a failure.",
-            "final_recommendation": "Update the test plan to remove the unsupported feature-dependent test case, exclude the corresponding log item from the RF report, and generate qualification documentation that reflects the DUT's actual supported feature set.",
-            "risk_if_done_wrong": "An unsupported feature could be incorrectly reported as a failed RF test item, leading to report inaccuracies, unnecessary investigation, documentation rework, qualification review issues, and avoidable delays.",
-            "bluetooth_tags": [
-                "RF",
-                "qualification",
-                "test-plan",
-                "ICS",
-                "IXIT",
-                "optional-feature",
-                "test-report"
-            ],
-            "search_aliases": [
-                "Enhanced Power Control unsupported",
-                "RF feature not supported",
-                "test case not applicable",
-                "remove RF test item",
-                "DUT reports unsupported",
-                "RF report correction",
-                "feature applicability review",
-                "optional feature qualification",
-                "RF log unsupported response"
-            ],
-            "qualification_stage": "testing",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0063",
+  "case_id": "thread_0063_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "One RF test item didn't pass, but it was only in the Test Plan as a precaution because we weren't sure if the DUT supports Enhanced Power Control. How should this item be handled?",
+  "question_variants": [
+    "Is a non-pass on an optional-feature test item a real failure if the DUT reports it doesn't support that feature?",
+    "Should we exclude this RF test item from the report since the DUT's own response says it's unsupported?",
+    "Do we need to redo this test, or just remove it from scope?"
+  ],
+  "actual_issue": "An RF test item (RF/TRM/CA) was included in the Test Plan only as a precaution, since it was unclear whether the DUT supported the optional Enhanced Power Control feature. The test did not pass, and it needed to be determined whether this represented a genuine compliance failure or simply confirmation that the feature is unsupported and the item should be excluded from scope.",
+  "plain_english_explanation": "Some Bluetooth tests only apply if a device claims to support a particular optional feature. Here, nobody was sure in advance whether the device supported one such feature, so the test was run just in case. The device's own response during the test made it clear it doesn't support that feature, so the test item doesn't apply and shouldn't be counted as a failure -- it should simply be left out of the final report.",
+  "consultant_answer": "The RF/TRM/CA test log explicitly shows the DUT responding with a non-support indication for Enhanced Power Control. Since the DUT itself confirms it does not support this optional feature, the test item should be treated as out of scope: exclude it from the applicable test items, remove it from the test log, and prepare the RF report on that basis. The Test Plan should also be updated to reflect that this item is excluded going forward.",
+  "decision_logic": "A test item that was only included in the Test Plan due to uncertainty about optional feature support should be excluded from scope, not treated as a failure, once the DUT's own protocol-level response in that test's log explicitly confirms non-support for the feature in question.",
+  "final_recommendation": "Exclude the Enhanced Power Control RF test item from the applicable test items, remove it from the test log, update the Test Plan to reflect the exclusion, and finalize the RF report without counting this item as a failure.",
+  "risk_if_done_wrong": "Counting this item as a failed test result instead of excluding it as out of scope would incorrectly flag the DUT as non-compliant on a feature it was never required to support, requiring rework of the Test Plan, log, and RF report to correct.",
+  "bluetooth_tags": ["RF", "Test Plan", "Enhanced Power Control", "test report", "testing"],
+  "search_aliases": ["Enhanced Power Control not supported RF test", "exclude RF test item out of scope", "DUT log non-support response", "RF/TRM/CA non-pass optional feature"],
+  "qualification_stage": "testing",
+  "confidence": "high"
 }

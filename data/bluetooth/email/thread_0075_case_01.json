@@ -1,45 +1,24 @@
 {
-    "source_thread": "thread_0075",
-    "cases": [
-        {
-            "case_id": "thread_0075_case_01",
-            "iut_type": "module",
-            "customer_question": "Can a module with LE transmit power below Class 1 be qualified by referencing a Controller design that is registered as LE Class 1:YES?",
-            "question_variants": [
-                "Can I combine a Class 2 module with a Class 1 controller QDID?",
-                "LE Class 1 consistency issue in Controller Subsystem qualification",
-                "Why does RF PHY need Class 1:YES when the referenced controller is Class 1:YES?",
-                "Can a low-power LE module reuse a Class 1 controller design?",
-                "Bluetooth SIG inter-layer consistency error for LE Class 1"
-            ],
-            "actual_issue": "The planned qualification reused a controller design whose LL declaration included LE Class 1:YES. The new module could only be combined with that design if its RF PHY qualification evidence also satisfied the corresponding LE Class 1 requirements.",
-            "plain_english_explanation": "Bluetooth SIG qualification requires consistency between capabilities declared in referenced designs and the tested product. If the reused controller design claims LE Class 1 support, the RF PHY evidence used with it must also be consistent with Class 1 operation. A lower-power implementation cannot simply reuse a higher-power controller declaration without creating a qualification inconsistency.",
-            "consultant_answer": "The referenced controller registration contained LL capability declarations indicating LE Class 1:YES. Therefore, the RF PHY qualification associated with the new module must also correspond to Class 1 operation. If the module transmits below the LE Class 1 range, the referenced controller design cannot be used as-is. The customer must either select a controller design already registered with LE Class 1:NO or obtain an updated controller registration reflecting the correct capability.",
-            "decision_logic": "Bluetooth qualification combinations must remain consistent across referenced layers. A controller design declaring LE Class 1:YES cannot be combined with RF PHY evidence that represents a non-Class-1 implementation without creating an inter-layer consistency failure.",
-            "final_recommendation": "Verify the module's actual LE transmit-power classification before selecting reusable controller designs. If the module is not LE Class 1, use a controller registration with LE Class 1:NO or request an updated component qualification from the component owner.",
-            "risk_if_done_wrong": "The qualification combination may fail consistency validation and the registration process may not be completed. This can force redesign of the qualification strategy and create project delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "controller",
-                "RF PHY",
-                "LE",
-                "Class 1",
-                "QDID",
-                "consistency check"
-            ],
-            "search_aliases": [
-                "LE Class 1 mismatch",
-                "RF PHY Class 1 YES required",
-                "controller subsystem consistency",
-                "Class 1 controller reuse",
-                "QDID combination invalid",
-                "LE power class conflict",
-                "inter-layer consistency",
-                "LL Class 1 declaration"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0075",
+  "case_id": "thread_0075_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Can we register our module by combining its own RF/RF PHY test results with an existing Qualcomm Controller-layer QDID? And if our module's transmit power doesn't match that QDID's registered Power Class, can a Subset ID fix the mismatch?",
+  "question_variants": [
+    "Does our module's LE transmit power need to match the Controller QDID's registered Power Class?",
+    "What happens if our module is lower-power than the Controller QDID we want to reference?",
+    "Can the chipset vendor create a Subset registration to remove the Power Class mismatch?",
+    "Why didn't entering the existing Subset ID into the new registration do anything?"
+  ],
+  "actual_issue": "The customer wanted to register a module by combining its own RF/RF PHY test Pass report with an existing Qualcomm Controller-layer QDID, but that QDID was registered with LE Power Class 1 (YES), which only matches modules transmitting between 10mW and 100mW in LE mode; the module's actual transmit power needed to be checked against this, and when a Subset-ID-based fix for a mismatch was investigated, it could not be Included in the new registration.",
+  "plain_english_explanation": "When you build a new Bluetooth registration by combining your own test results with someone else's existing chip registration, the power level your product actually transmits at has to match what that existing registration says it supports. If your product is actually lower-power than the registration assumes, you can't just file a trimmed-down version of that registration to fix the mismatch anymore -- a rule change closed that shortcut. Instead, you either need to find a different existing chip registration that already matches your power level, or get the chip maker to officially register a new version with the right power setting.",
+  "consultant_answer": "The Qualcomm Controller-layer QDID referenced in the quote covers the LL, BB, LMP, and HCI layers at Core spec v5.3. The registration approach is to run RF and RF PHY testing on the customer's own module, then use the Pass report as evidence to add RF and RF PHY support to this QDID's existing supported layers. The caveat: this QDID is registered with LL 8/11 LE Class 1:YES, so the module's own RF PHY item 1/15 must also be Class 1:YES, or an inter-layer inconsistency will occur and the registration cannot complete -- in other words, the module's LE-mode transmit power must fall between 10mW and 100mW. If the customer instead wants an LE-mode transmit power below 10mW (Class 1:NO), the customer needs to either select a different already-registered Controller stack that is registered with LL 8/11 Class 1:NO, or ask the chip vendor (Qualcomm) about an updated registration with LL 8/11 Class 1:NO. Following up on this, it was confirmed that the existing Component registration's Subset ID could not be Included into a new registration at all -- entering it produced no response in the registration system -- consistent with inter-layer Consistency Checking having become stricter since July 1. The conclusion: even if the chip vendor created a new Subset ID with the Class capability removed on the existing Component registration, that Subset ID would still not be Includable in a new registration; the only viable paths remain selecting a different already-registered Controller QDID with the needed Class designation, or having the vendor issue a genuinely new (non-Subset) QDID with that Class configuration.",
+  "decision_logic": "An existing Controller-layer QDID's registered Power Class (or any other Class-dependent ICS item) must match the actual product's corresponding capability for a combination registration to pass Consistency Check; if it does not, a Subset-ID-based registration is not a viable fix for new registrations since Subset IDs cannot be Included into them under the current Consistency Check, leaving only two paths: reference a different already-registered Controller QDID with the matching Class designation, or have the chip vendor issue an updated, non-Subset QDID with that Class configuration.",
+  "final_recommendation": "Before quoting or proceeding with a combination registration against an existing Controller-layer QDID, verify that the module's actual transmit power (or other Class-dependent capability) matches that QDID's registered Class designation. If it does not, do not propose a Subset-ID workaround; instead, identify a different already-registered Controller QDID with the matching Class, or request the chip vendor issue a new, properly-configured QDID.",
+  "risk_if_done_wrong": "Combining RF/RF PHY evidence with a Controller QDID whose Power Class doesn't match the module's actual transmit power produces an inter-layer inconsistency that blocks registration completion. Pursuing a Subset-ID fix for this mismatch would fail outright, since Subset IDs are not Includable in new registrations under the current Consistency Check, wasting time before the correct remedy (a different QDID, or a vendor-issued update) is pursued.",
+  "bluetooth_tags": ["Power Class", "LE Class 1", "Controller Subsystem", "Subset ID", "Include", "Consistency Check", "QDID"],
+  "search_aliases": ["Power Class mismatch Controller QDID", "LE Class 1 YES NO transmit power", "Subset ID cannot be Included new registration", "10mW 100mW LE Class 1 threshold", "vendor updated QDID Class removed"],
+  "qualification_stage": "planning",
+  "confidence": "high"
 }

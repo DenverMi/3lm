@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0225",
+  "case_id": "thread_0225_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (IDEAL company)",
+  "customer_question": "What are the pros and cons of having Allion handle the Declaration Fee wire transfer on our behalf, versus our company transferring the funds directly ourselves?",
+  "question_variants": [
+    "Should we delegate the wire transfer to Allion or pay directly?",
+    "Why would a customer choose to have Allion handle payment instead of paying themselves?"
+  ],
+  "actual_issue": "The customer was deciding whether to handle their own USD wire transfer for the Declaration Fee or pay an additional fee to have Allion execute the transfer on their behalf.",
+  "plain_english_explanation": "Self-transfer is generally recommended, since it avoids extra cost and delay. Customers who choose to delegate to Allion typically do so because they want combined/consolidated invoicing across multiple fees, or because their internal accounting department cannot quickly execute a USD-denominated wire transfer. Delegating to Allion costs an additional ¥100,000 and takes approximately 3 weeks to complete.",
+  "consultant_answer": "We generally recommend self-transfer, since it's faster and avoids the extra fee. Customers who delegate to us usually do so for combined invoicing convenience or because their accounting team can't quickly process a USD wire transfer. Our delegated transfer service costs an additional ¥100,000 and takes about 3 weeks.",
+  "decision_logic": "Payment method choice should weigh the customer's internal USD wire transfer capability and invoicing-consolidation needs against the added cost and 3-week turnaround of delegating to Allion.",
+  "final_recommendation": "Default to recommending self-transfer for cost and speed, but offer the Allion-delegated option proactively for customers with USD wire transfer constraints or who want consolidated invoicing.",
+  "risk_if_done_wrong": "Recommending delegation by default could unnecessarily add ¥100,000 cost and 3 weeks of delay for customers who could easily self-transfer.",
+  "bluetooth_tags": [
+    "Declaration Fee payment",
+    "wire transfer delegation",
+    "Allion proxy payment",
+    "IDEAL company"
+  ],
+  "search_aliases": [
+    "should I delegate wire transfer to Allion",
+    "pros cons proxy payment SIG fee",
+    "USD wire transfer delegation cost"
+  ],
+  "qualification_stage": "Pre-payment / fee payment method selection",
+  "confidence": "high"
+}

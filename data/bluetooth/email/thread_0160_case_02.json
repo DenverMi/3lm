@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0160",
+  "case_id": "thread_0160_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE keyboard (Topre / PFU OEM)",
+  "customer_question": "We registered our keyboard under Bluetooth Core Specification 4.2 but want to change it to 5.0. Can we update the existing registration?",
+  "question_variants": [
+    "Can we change the Bluetooth Core Spec version on an already-registered product?",
+    "How do we update the registered spec version from 4.2 to 5.0?",
+    "Can the spec version be corrected retroactively on the SIG portal?",
+    "Is it possible to upgrade a registration from Core Spec 4.2 to 5.0 without a new registration?"
+  ],
+  "actual_issue": "The customer registered their product under Bluetooth Core Specification 4.2 but the actual module/product supports Core Spec 5.0. They want to update the registered version to 5.0. However, once registered, the Core Spec version is locked and cannot be changed retroactively — a completely new registration is required.",
+  "plain_english_explanation": "The Bluetooth Core Specification version listed in a registration is locked once the registration is finalized on the SIG portal. There is no 'edit' function to change it afterward. To change from Core Spec 4.2 to 5.0, a brand new registration must be created from scratch, with a new Qualification Fee of $11,040. The good news: the same test reports from the prior registration can be reused for the new one (if the tests are still valid), so no retesting is required. But the full registration fee applies again.",
+  "consultant_answer": "The registered Bluetooth Core Specification version cannot be changed retroactively. To register under Core Spec 5.0, a completely new registration is required. The existing test reports can be reused (no new testing needed), but a new Qualification Fee of $11,040 must be paid and a new registration must be submitted.",
+  "decision_logic": "SIG registration records are immutable once confirmed — the spec version is part of the product's public compliance declaration and cannot be edited post-submission. A new registration creates a new public record. Existing test data remains valid across registrations if the product and test scope are unchanged.",
+  "final_recommendation": "Always confirm the correct Bluetooth Core Specification version before finalizing registration. A mistake requires a brand new registration with full fees. If the customer is unsure which spec version applies, consult the module datasheet and QDID component to confirm before proceeding.",
+  "risk_if_done_wrong": "If the wrong spec version is registered, the product's public Bluetooth compliance record is incorrect. Correcting it requires a new $11,040 registration fee and processing time.",
+  "bluetooth_tags": [
+    "Bluetooth Core Specification version",
+    "spec version change",
+    "retroactive correction",
+    "new registration required",
+    "Qualification Fee",
+    "registration error"
+  ],
+  "search_aliases": [
+    "change bluetooth spec version",
+    "update registered spec version",
+    "core spec version correction",
+    "4.2 to 5.0 registration",
+    "cannot change spec version after registration",
+    "retroactive spec version update"
+  ],
+  "qualification_stage": "post-registration",
+  "confidence": "high"
+}

@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0105",
-    "cases": [
-        {
-            "case_id": "thread_0105_case_01",
-            "iut_type": "end product",
-            "customer_question": "How should a Bluetooth SIG product registration be completed when an included QDID causes consistency check issues before submission?",
-            "question_variants": [
-                "Consistency check failed during qualification workspace registration",
-                "How do we resolve inconsistencies before Bluetooth SIG submission?",
-                "Can an included QDID be used if the registration shows consistency check errors?",
-                "What should be done before approving the Review Page and submitting?",
-                "How are ICS inconsistencies handled during declaration?"
-            ],
-            "actual_issue": "A new product registration based on an included existing qualified design encountered Bluetooth SIG Consistency Check inconsistencies that had to be resolved before final submission.",
-            "plain_english_explanation": "The product reused an existing qualified Bluetooth design, but the qualification workspace detected configuration mismatches. Before the product could be submitted, the qualification data had to be adjusted so the registration became internally consistent. The customer then needed to review and approve the final registration data before submission.",
-            "consultant_answer": "The consultant included the existing qualified End Product/QDID in the registration, corrected the Consistency Check mismatches by modifying the ICS selections, and advanced the registration to the pre-submission Review Page. The customer was asked to verify the Review Page contents and authorize final submission only after the inconsistencies had been resolved.",
-            "decision_logic": "A Bluetooth SIG submission must pass the Consistency Check before final submission. When inconsistencies are identified, the qualification data and ICS selections must be corrected so the resulting design and included qualified references are internally consistent.",
-            "final_recommendation": "Resolve all Consistency Check issues through appropriate ICS updates, verify the Review Page contents with the customer, and submit only after the registration data is confirmed to be correct.",
-            "risk_if_done_wrong": "Submitting with unresolved inconsistencies can lead to qualification submission problems, rejection, correction cycles, and qualification delays requiring rework before acceptance.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "ICS",
-                "consistency check",
-                "listing",
-                "reuse"
-            ],
-            "search_aliases": [
-                "consistency check failed",
-                "ICS inconsistency",
-                "QDID include",
-                "qualification workspace error",
-                "review page approval",
-                "submission preparation",
-                "ICS correction",
-                "included design mismatch"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0105",
+  "case_id": "thread_0105_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "We confirmed the Review Page weeks ago, but now Submission is failing -- why, and what do we need to do to fix it?",
+  "question_variants": [
+    "Why can't we submit now if the Review Page was already approved?",
+    "Did our account information change since we last checked?",
+    "Whose account actually has the registration fee Receipt Number right now?"
+  ],
+  "actual_issue": "When the registration first reached the Review Page, the registration fee Receipt Number was attached to an account under a specific person's name. By the time Submission was actually attempted weeks later, the account designated in the registration confirmation document appeared under a different person's name and had no Receipt Number attached, blocking Submission until the current account holding the Receipt Number could be identified and accessed.",
+  "plain_english_explanation": "The payment receipt for a Bluetooth registration is tied to a specific login account, not just a person's name on paper. If, between the time a registration is reviewed and the time it's actually finalized, something changes on the customer's side -- like an account being renamed, reassigned to someone else, or otherwise updated -- the account that's supposed to hold the receipt might no longer be the one you expect. The fix is to track down whichever account currently actually holds the receipt and get access to it, rather than assuming nothing changed since the last check.",
+  "consultant_answer": "When the registration reached the Review Page on July 4, the registration fee Receipt Number (R075210) was attached to an account under the name 'Shunji Konishi.' When attempting Submission later by logging into the account designated in the registration confirmation document, that account now appeared under the name 'Shiro Koike' and had no registration fee attached, blocking Submission. The consultant requested the current account information for 'Shunji Konishi' in order to perform a Transfer operation, and the customer provided the User Name for that account. The consultant then also requested the Password for that account in order to proceed.",
+  "decision_logic": "When Submission fails despite an apparently successful Review Page confirmation weeks earlier, check whether the account expected to hold the registration fee Receipt Number has changed (renamed, reassigned, or replaced) on the customer's side in the interim; resolve this by identifying the current account that actually holds the Receipt Number and obtaining access to it (via login credentials or a formal Transfer operation) rather than assuming the originally-designated account is still correct.",
+  "final_recommendation": "If Submission fails after a previously-confirmed Review Page, re-verify which account currently holds the registration fee Receipt Number rather than assuming it is unchanged, and obtain access to that account (credentials or a Transfer operation) to complete Submission.",
+  "risk_if_done_wrong": "Assuming the originally-designated account still held the Receipt Number, without re-verifying it after a time gap, would leave Submission blocked indefinitely until the actual current account is identified.",
+  "bluetooth_tags": ["Receipt Number", "Submission", "account mismatch", "Transfer"],
+  "search_aliases": ["Receipt Number account changed before Submission", "account renamed reassigned blocks Submission", "Transfer operation Receipt Number current account", "Submission fails despite approved Review Page"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

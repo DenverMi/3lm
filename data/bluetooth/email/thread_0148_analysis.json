@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0148",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "Short internal report review thread (58 lines) for AlpsAlpine 19AVN A2DP profile test. Two compliance issues flagged by Sakai: (1) A2DP/SNK/SYN/[ID] test case is in the test plan but was not executed; (2) profile version was written in two-digit format (X.Y) instead of the required three-digit format (X.Y.Z). Both issues require correction before report approval. Low-value thread — operational review only.",
     "all_questions_found": [
       "Is a missing (unexecuted) test case in the test plan acceptable?",

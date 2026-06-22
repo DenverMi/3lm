@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0004",
+  "case_id": "thread_0004_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine UXC10), RF PHY Direct Test Mode connection diagram clarification",
+  "customer_question": "Regarding the RF PHY test procedure manual we provided: in the Bluetooth Connection Diagram, (1) is the light-green line a 'USB Conversion harness'? (2) where does the light-green line's upper connection point lead to -- is it the Test System? (3) the light-green line appears to branch -- is that correct?",
+  "question_variants": [
+    "Does our existing wiring/connection diagram (used for radio-law/FCC testing) already cover what's needed for RF PHY DTM testing?",
+    "What additional connections are needed beyond what our Connection Diagram shows, for Direct Test Mode RF PHY testing specifically?"
+  ],
+  "actual_issue": "The customer's provided RF PHY test procedure manual included a Connection Diagram whose specific wiring details (a 'light-green' line of ambiguous identity, destination, and branching) were unclear, and -- once clarified -- it turned out the diagram itself was missing the control-path connections actually required for Direct Test Mode (DTM) RF PHY testing, since it had likely been created for a different test purpose.",
+  "plain_english_explanation": "RF PHY testing in Direct Test Mode requires a UART/COM-port serial control connection between the DUT and the test system, in addition to (and separate from) the RF measurement signal path -- on this chipset, that meant a DUT-to-PC (Ethernet) to PC (Serial-over-USB) to RF-PHY-tester chain, with an external PC running the chipset vendor's own test application acting as a bridge between the DUT and the tester. The customer's submitted Connection Diagram, however, appeared to be the wiring diagram used for radio-law/FCC open-loop antenna testing rather than for DTM testing specifically, and was missing this essential control-path connection between the RF test system and the DUT. The customer needed to revisit their DTM-mode setup procedure with this distinction in mind, rather than assuming their existing radio-law-test wiring diagram was sufficient for RF PHY DTM testing.\n\nResolution (after several rounds of clarification): the customer confirmed the missing control-path segment was specifically the USB conversion harness plus USB Type-A cable run between the DUT and the PC running the chipset vendor's QDART test application, used for USB-Serial communication. The customer also confirmed the Ethernet connection between DUT and the QDART PC (used during plain RF testing) remains physically connected but unused during RF PHY/DTM testing, and that the QDART PC connects onward to the RF PHY Test System via direct RS232/GPIB -- not via the DUT's USB path. The lab confirmed the customer's understanding was correct (the Serial-over-USB connection terminates at any free USB port on the QDART PC, configured as the Serial port within QDART's DTM test mode), provided the customer's full operation manual PDFs (Bluetooth measurement procedure.pdf, BLE measurement procedure.pdf) as the authoritative reference, and the lab itself updated its own Connection Diagram to add the RF PHY Test System segment, closing out the clarification.",
+  "consultant_answer": "Apologies for the confusing earlier question -- it turned out to be a rendering issue on our end with an older Excel version. To the substance: RF PHY DTM testing requires a UART/COM-port serial control connection between the DUT and our test system, separate from the RF measurement path -- for this chipset, that's a DUT-to-PC(Ethernet)-to-PC(Serial-over-USB)-to-RF-PHY-tester chain, with an external PC running the chipset vendor's test application as a bridge (DTM mode manual attached). Your submitted Connection Diagram appears to be the wiring used for radio-law/FCC open-loop testing rather than DTM testing, and is missing this control-path connection -- please revisit your DTM-mode setup procedure with this in mind. (Confirmed final topology: DUT <-> USB conversion harness + USB Type-A cable <-> PC running QDART <-> RS232/GPIB <-> RF PHY Test System, with the DUT's separate Ethernet link to the QDART PC staying connected but unused during RF PHY/DTM testing itself. The Serial-over-USB connection lands on any free USB port on the QDART PC, configured as the Serial port within QDART's own DTM test mode.)",
+  "decision_logic": "A Connection Diagram or wiring procedure created for one certification test purpose (e.g., radio-law/FCC open-loop antenna testing) should not be assumed to be sufficient for a different test purpose (e.g., RF PHY Direct Test Mode testing) without explicit verification, since DTM testing has its own distinct control-path connection requirements (a serial/UART bridge to the test system) that an open-loop antenna test setup would not include.",
+  "final_recommendation": "When a customer submits an existing wiring/connection diagram for RF PHY DTM test setup, verify explicitly whether it was originally created for DTM testing or for a different certification purpose (like radio-law/FCC open-loop testing), since reusing the wrong diagram could mean a required control-path connection is missing.",
+  "risk_if_done_wrong": "Proceeding with a Connection Diagram missing the DTM control-path connection could result in failed or incomplete RF PHY test setup, requiring rework once the missing connection requirement is eventually discovered.",
+  "bluetooth_tags": [
+    "RF PHY DTM connection diagram",
+    "UART COM port serial control path",
+    "open loop radio law FCC wiring vs DTM wiring",
+    "external PC bridge test application",
+    "Alps Alpine UXC10",
+    "Qualcomm chipset DTM"
+  ],
+  "search_aliases": [
+    "RF PHY DTM connection diagram missing control path",
+    "is radio law wiring diagram sufficient for DTM test",
+    "UART serial bridge RF PHY DTM setup",
+    "Direct Test Mode connection requirements"
+  ],
+  "qualification_stage": "RF PHY test setup clarification",
+  "confidence": "high"
+}

@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0217",
+  "case_id": "thread_0217_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (fire-extinguisher-shaped AR controller, Nihon Bousai Gijutsu Center)",
+  "customer_question": "We created 3 individual employee accounts under our company's SIG membership — what can these employees actually do with these accounts? Also, what is the difference between 'Primary Contact' and 'Listing Owner'?",
+  "question_variants": [
+    "What capabilities do newly created individual member accounts have?",
+    "Can you explain Primary Contact vs Listing Owner roles?"
+  ],
+  "actual_issue": "After adding three individual employee accounts to their company's Bluetooth SIG membership, the customer was unclear what those accounts could actually do, and was also confused about the distinction between the 'Primary Contact' and 'Listing Owner' roles.",
+  "plain_english_explanation": "An individual member account can: (1) become the Listing Owner/Contact for a brand-new registration, (2) be a transfer destination if an existing registration's Listing Owner/Contact needs to hand off responsibility, and (3) be a transfer destination if the company's Primary Contact (the person who registered the company's SIG membership) needs to hand off responsibility. 'Primary Contact' is the person who registered the company as an SIG member; 'Listing Owner' is the person who actually executed a specific product registration.",
+  "consultant_answer": "Individual member accounts can: (1) become Listing Owner/Contact for a new registration, (2) be the transfer destination for an existing registration's Listing Owner/Contact, and (3) be the transfer destination for the company's Primary Contact. Primary Contact is the company's SIG membership registrant; Listing Owner is the individual product registration's executor.",
+  "decision_logic": "Membership-level roles (Primary Contact) and registration-level roles (Listing Owner) are distinct hierarchies within the SIG account system, each with its own transfer mechanism, and individual member accounts are eligible recipients for either type of role transfer.",
+  "final_recommendation": "When customers ask about account roles after adding members, explain both the capabilities of the new accounts and the Primary Contact vs Listing Owner distinction together, since customers commonly conflate the two.",
+  "risk_if_done_wrong": "Confusing Primary Contact and Listing Owner roles could lead a customer to attempt the wrong transfer procedure for their actual need.",
+  "bluetooth_tags": [
+    "Primary Contact",
+    "Listing Owner",
+    "individual member account",
+    "role transfer",
+    "Nihon Bousai Gijutsu Center"
+  ],
+  "search_aliases": [
+    "what can SIG member account do",
+    "Primary Contact vs Listing Owner difference",
+    "individual account capabilities Bluetooth SIG"
+  ],
+  "qualification_stage": "Post-registration / account management",
+  "confidence": "high"
+}

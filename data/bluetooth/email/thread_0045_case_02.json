@@ -1,41 +1,31 @@
 {
-    "source_thread": "thread_0045",
-    "cases": [
-        {
-            "case_id": "thread_0045_case_02",
-            "iut_type": "module-based end product",
-            "customer_question": "Can a development-stage or temporary product model name be used during Bluetooth SIG qualification before the final commercial name is finalized?",
-            "question_variants": [
-                "Can we use a temporary model name during qualification?",
-                "Does the Bluetooth SIG require the final shipping product name immediately?",
-                "Can development product names be used in a listing?",
-                "Can the model name be updated later in the qualification process?",
-                "Is it acceptable to qualify under a prototype naming convention?"
-            ],
-            "actual_issue": "The customer needed confirmation that a temporary or development-stage model name could be used during the Bluetooth qualification process before final commercial branding was completed.",
-            "plain_english_explanation": "Products are often still in development when Bluetooth qualification begins. Companies may not yet have finalized the exact marketing name or model number. The issue was whether the qualification process could continue without waiting for final branding details.",
-            "consultant_answer": "The consultant confirmed that temporary development-stage model names could be used during qualification activities provided the product details are finalized appropriately later in the process. The qualification focus remained on ensuring the Bluetooth implementation and associated compliance information were accurate rather than blocking progress solely due to early-stage naming.",
-            "decision_logic": "Bluetooth qualification activities can proceed before final commercial naming is fully finalized as long as the product identity can still be managed correctly and updated appropriately before release or final listing publication.",
-            "final_recommendation": "Proceed with qualification using the temporary development model name while maintaining internal controls to ensure the final product identity is updated consistently before commercial release.",
-            "risk_if_done_wrong": "If naming is handled inconsistently, the qualification listing may not clearly match the released product, potentially causing administrative confusion, declaration mismatches, or additional correction work before launch.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "product naming",
-                "declaration"
-            ],
-            "search_aliases": [
-                "temporary model name",
-                "development product name",
-                "prototype naming",
-                "qualification before final branding",
-                "listing name update",
-                "Bluetooth SIG model naming",
-                "early-stage qualification naming"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "medium",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0045",
+  "case_id": "thread_0045_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "New Receipt Number 6-month unused-expiration policy (effective September 9, 2025) -- scoped to 'unused' meaning not yet applied to a server Submission, not tied to Compliance Folder completion status",
+  "customer_question": "Bluetooth SIG announced that, alongside a fee revision, 'Receipt Numbers issued to Adopter members on or after September 9, 2025 will expire if left unused 6 months after the payment date.' We haven't finished our Compliance Folder yet -- does this expiration deadline apply to us?",
+  "question_variants": [
+    "What does 'unused' mean in the context of this new Receipt Number expiration policy?",
+    "Does completing the Compliance Folder count as part of 'using' a Receipt Number?"
+  ],
+  "actual_issue": "The customer saw SIG's announcement of a new policy under which Receipt Numbers issued to Adopter members from September 9, 2025 onward would expire after 6 months if left unused, and -- since their own Compliance Folder paperwork was still incomplete -- wanted to confirm whether this expiration risk applied to their already-registered product.",
+  "plain_english_explanation": "The new policy's 6-month unused-expiration clock applies specifically to Receipt Numbers that have not yet been applied to a completed server registration (Submission) -- it is not tied to whether the Compliance Folder has been assembled or submitted. In this customer's case, the registration to the server had already been completed and the listing was already publicly visible well before the Compliance Folder paperwork was finished -- meaning the Receipt Number had already been 'used' at the moment registration was completed (Submission), regardless of how much time it then takes to finish the separate, subsequent Compliance Folder documentation process. Since the Receipt Number was already used at registration completion, the 6-month unused-expiration condition simply does not apply -- that clock only matters for a Receipt Number that has been obtained (via Invoice payment) but never actually applied to a completed registration Submission within 6 months.",
+  "consultant_answer": "No, this doesn't affect you -- your registration to the server is already complete and publicly listed, which means your Receipt Number was already considered 'used' at that point. The 6-month unused-expiration policy only applies to Receipt Numbers that haven't yet been applied to a completed registration Submission -- it has nothing to do with whether your Compliance Folder paperwork is finished, since that's a separate, later step.",
+  "decision_logic": "When a customer asks whether the new Receipt Number 6-month unused-expiration policy affects their pending registration, check whether the registration's server Submission has already been completed -- if so, the Receipt Number is already 'used' regardless of Compliance Folder completion status, and the expiration policy does not apply; the policy only matters for Receipt Numbers obtained but never yet applied to a completed Submission.",
+  "final_recommendation": "When explaining the new Receipt Number expiration policy to customers, clarify upfront that 'unused' specifically means 'not yet applied to a completed registration Submission,' distinct from and unrelated to Compliance Folder completion status, to prevent unnecessary concern from customers with pending post-registration paperwork.",
+  "risk_if_done_wrong": "A customer might mistakenly believe an already-completed registration is at risk of Receipt Number expiration due to a slow Compliance Folder process, causing unnecessary alarm or rushed documentation.",
+  "bluetooth_tags": [
+    "Receipt Number 6 month unused expiration policy September 2025",
+    "unused means not yet applied to Submission",
+    "Compliance Folder completion unrelated to Receipt Number expiration",
+    "Global Electronics"
+  ],
+  "search_aliases": [
+    "Bluetooth SIG Receipt Number expiration policy 2025",
+    "does Compliance Folder delay risk Receipt Number expiring",
+    "what counts as unused Receipt Number Bluetooth SIG"
+  ],
+  "qualification_stage": "Post-registration policy clarification",
+  "confidence": "high"
 }

@@ -1,47 +1,31 @@
 {
-    "source_thread": "thread_0020",
-    "cases": [
-        {
-            "case_id": "thread_0020_case_01",
-            "iut_type": "",
-            "customer_question": "How can a Bluetooth SIG Qualification Receipt Number be transferred from one company account user to another?",
-            "question_variants": [
-                "How do we transfer a Bluetooth SIG Receipt Number?",
-                "How is a Receipt Number ownership transfer approved in Qualification Workspace?",
-                "Where do we accept a Receipt Number transfer request?",
-                "Why does the SIG transfer email only show a login link?",
-                "How do we complete Receipt Number migration between accounts?"
-            ],
-            "actual_issue": "The customer could not determine how to approve and complete a Bluetooth SIG Qualification Receipt Number transfer because the automated SIG email only provided a generic login link and did not clearly explain the approval workflow.",
-            "plain_english_explanation": "A Bluetooth SIG qualification Receipt Number needed to be moved from one user account to another. The users were confused because the email from the SIG only contained a login button and did not clearly show where to approve the transfer. The consultant guided the customer through the Qualification Workspace screens step-by-step until the transfer approval was completed successfully.",
-            "consultant_answer": "The consultant explained that the login link in the SIG email was only an entry point and not the actual approval operation itself. The consultant instructed the customer to first log in using the account that originally obtained the Invoice, then open the Qualification Workspace transfer page, locate the Receipt Number in the Manage Receipt Numbers section, and use the Transfer workflow to reach the approval screen. When the customer encountered unexpected screens, the consultant requested screenshots and iteratively guided the navigation until the customer reached the 'Approve Transfer' action and confirmed successful completion.",
-            "decision_logic": "Bluetooth SIG Receipt Number transfers must be approved within the Qualification Workspace by the account currently associated with the Receipt Number. Automated SIG notification emails alone may not provide enough workflow guidance, so the transfer must be completed through the proper account context and approval interface.",
-            "final_recommendation": "Log in using the account currently associated with the Receipt Number, navigate to the Qualification Workspace transfer management area, approve the transfer request through the Transfer workflow, and verify completion using the SIG confirmation email.",
-            "risk_if_done_wrong": "If the Receipt Number transfer is not completed correctly, the wrong account may retain ownership of the qualification workflow, preventing registration management, delaying declaration submission, or blocking qualification administration activities.",
-            "bluetooth_tags": [
-                "qualification",
-                "Receipt Number",
-                "Qualification Workspace",
-                "transfer",
-                "declaration",
-                "workflow",
-                "account management"
-            ],
-            "search_aliases": [
-                "Receipt Number transfer",
-                "Qualification Workspace transfer",
-                "Approve Transfer",
-                "SIG transfer request",
-                "Bluetooth SIG account transfer",
-                "Manage Receipt Numbers",
-                "transfer approval",
-                "Invoice account",
-                "Receipt Number migration",
-                "qualification ownership transfer"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0020",
+  "case_id": "thread_0020_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Atago), Receipt Number Transfer Request completion procedure",
+  "customer_question": "We received a Bluetooth SIG email about a Receipt Number Transfer Request with just a 'log in' link, and we're not sure what to click after logging in to actually approve the transfer. Can you walk us through the exact steps?",
+  "question_variants": [
+    "Where do we find the Accept/Approve button after logging in?",
+    "What's the exact sequence of clicks needed to complete a Receipt Number transfer?"
+  ],
+  "actual_issue": "The customer received a SIG-generated Receipt Number Transfer Request email but couldn't determine the correct sequence of steps to actually approve the transfer, since the email's 'log in' link led to a generic login flow rather than directly to the transfer-approval action, and several attempted steps didn't match what Allion initially guessed.",
+  "plain_english_explanation": "The 'log in' link in the SIG transfer-request email is a distinct login flow from the general Qualification Workspace login, and following it requires a specific sequence: (1) log in using the same account that originally obtained the Invoice; (2) click the 'log in' button in the SIG email itself (or open its linked URL directly in a browser); (3) once on the resulting page, locate the 'Manage Receipt Numbers' section, where the specific Receipt Number in question should be listed; (4) click the link in that entry's 'Transfer' column, which opens a window with 'Approve Transfer' and 'Decline Transfer' options; (5) click the blue 'Approve Transfer' button to complete the transfer. A confirmation email arriving afterward confirms the transfer completed successfully.",
+  "consultant_answer": "Here's the exact sequence: (1) log in using the same account that originally obtained your Invoice; (2) click the 'log in' button in the SIG email itself, or open its linked URL directly in your browser; (3) on the page that opens, find the 'Manage Receipt Numbers' section, where your specific Receipt Number should be listed; (4) click the link in that entry's 'Transfer' column, which opens a window with 'Approve Transfer' and 'Decline Transfer' options; (5) click the blue 'Approve Transfer' button. You'll receive a confirmation email once the transfer completes successfully.",
+  "decision_logic": "Resolving an unfamiliar SIG workflow (like Receipt Number Transfer) benefits from iterative, screenshot-guided troubleshooting when the consultant hasn't personally encountered the exact email/page flow before, rather than guessing the full sequence upfront and risking incorrect guidance.",
+  "final_recommendation": "When a customer encounters an unfamiliar SIG email workflow that the consultant hasn't personally seen before, request screenshots at each step to provide accurate, verified guidance incrementally, rather than guessing the complete process from general knowledge of the registration site alone.",
+  "risk_if_done_wrong": "Providing an incorrect guess about the transfer-approval sequence without verifying against the customer's actual screen could lead the customer down a wrong path, delaying the Receipt Number transfer and the dependent registration proxy work.",
+  "bluetooth_tags": [
+    "Receipt Number Transfer Request completion steps",
+    "Manage Receipt Numbers Approve Transfer button",
+    "SIG email login flow distinct from Qualification Workspace",
+    "Atago"
+  ],
+  "search_aliases": [
+    "how to approve Receipt Number transfer",
+    "Manage Receipt Numbers Transfer column link",
+    "Approve Transfer button location SIG"
+  ],
+  "qualification_stage": "Registration execution / account administration",
+  "confidence": "high"
 }

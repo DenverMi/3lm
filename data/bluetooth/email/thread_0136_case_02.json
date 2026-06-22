@@ -2,6 +2,7 @@
   "source_thread": "thread_0136",
   "case_id": "thread_0136_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "wearable",
   "customer_question": "Is there any strategy to get a Core Complete Design Number without running into the GAP-LL inconsistency problem?",
   "question_variants": [
@@ -14,8 +15,22 @@
   "decision_logic": "1. Module vendor registers Core-Controller (SoC QDID + RF PHY test) → obtains Core-Controller DN.\n2. Set maker creates new Design, includes Core-Controller DN with 'use unchanged.'\n3. Set maker adds Host Subsystem QDID.\n4. Result: Core Complete, no GAP-LL inconsistency because controller is locked in 'use unchanged' state.",
   "final_recommendation": "When a set maker is combining a Controller Subsystem QDID with a Host Stack and faces inter-layer Consistency Check errors, the Core-Controller DN strategy via the module vendor is the cleanest solution that produces a real Design Number.",
   "risk_if_done_wrong": "If 'use unchanged' is not selected when including the Core-Controller DN, the Consistency Check will still apply the full inter-layer check and may find inconsistencies.",
-  "bluetooth_tags": ["Core-Controller", "Design-Number", "use-unchanged", "Include-Design", "module-vendor", "set-maker", "GAP-LL-inconsistency"],
-  "search_aliases": ["Core-Controller DN strategy", "use unchanged Include Design", "module vendor registers Core Controller", "set maker includes DN use unchanged", "avoid GAP LL inconsistency"],
+  "bluetooth_tags": [
+    "Core-Controller",
+    "Design-Number",
+    "use-unchanged",
+    "Include-Design",
+    "module-vendor",
+    "set-maker",
+    "GAP-LL-inconsistency"
+  ],
+  "search_aliases": [
+    "Core-Controller DN strategy",
+    "use unchanged Include Design",
+    "module vendor registers Core Controller",
+    "set maker includes DN use unchanged",
+    "avoid GAP LL inconsistency"
+  ],
   "qualification_stage": "design registration",
   "confidence": "high"
 }

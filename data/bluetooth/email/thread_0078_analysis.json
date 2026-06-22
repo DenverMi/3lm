@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0078",
+  "thread_analysis": {
+    "thread_summary": "[COMPANY] provides a Bluetooth SIG registration quote for a product using the AX210 module, concluding that RF PHY testing is not required and quoting agency registration support referencing the module as a Multi-Design, plus compliance folder preparation. The thread closes months later with the standard Review Page confirmation step before final Submission and a request for the customer's product documentation needed for the compliance folder.",
+    "all_questions_found": [
+      "Is RF PHY testing required for a product using the AX210 module, and what does the registration quote look like if it references the module as a Multi-Design?",
+      "Does the Review Page content match the customer's intent, and should final registration confirmation proceed?",
+      "What product documentation does the customer need to prepare for the compliance folder?"
+    ],
+    "key_technical_discussion": "The thread illustrates that RF PHY testing can be skipped for a registration referencing an already-qualified module (AX210) as a Multi-Design, since that module's own existing registration already carries the relevant RF PHY evidence; the registration support quote in this case is structured as Multi-Design reference support plus compliance folder preparation, rather than full RF/RF PHY testing.",
+    "key_decision_logic": "When a product is built around an already-qualified module that has its own existing SIG registration, referencing that module's registration as a Multi-Design can avoid the need for new RF PHY testing on the end product, since the module's own registration already carries that evidence; the registration quote in this scenario reflects agency registration support for the Multi-Design reference and compliance folder preparation, not full RF/RF PHY test fees.",
+    "risk_if_done_wrong": "Assuming new RF PHY testing is required when an already-qualified module's existing registration could instead be referenced as a Multi-Design would add unnecessary test cost and time to the quote.",
+    "consulting_mistake": "The two near-identical internal quote messages sent two minutes apart describe the AX210 module's antenna configuration inconsistently -- one calls it an antenna-embedded module, the other an antenna-connector module -- though both reach the same conclusion (RF PHY testing not required) and quote. This kind of internal wording inconsistency should be caught before either message is relied upon downstream.",
+    "consulting_takeaway": "When quoting a registration for a product built around an already-qualified module, check whether the module's own existing registration can be referenced as a Multi-Design to avoid new RF PHY testing, rather than defaulting to a full RF/RF PHY test quote. No new case was created for the compliance folder document checklist or Review Page confirmation step in this thread, since both follow patterns already documented in detail elsewhere (e.g., thread_0062, thread_0064)."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0234",
+  "case_id": "thread_0234_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (OM Digital Solutions headset/camera accessory) ICS Mandatory item flagged",
+  "customer_question": "You flagged that our ICS has a Status{M} (Mandatory) item set to NO — does this actually have to be YES? I don't have much background on how to handle this, even though our module's Bluetooth implementation (profiles, module-side firmware) was developed mainly via the supplier's FAE with what I understand to be solid SIG registration experience.",
+  "question_variants": [
+    "Does a Mandatory-status ICS item really have to be set to YES?",
+    "What happens if a Mandatory item is left as Not Supported?"
+  ],
+  "actual_issue": "The customer didn't understand why an ICS item marked Mandatory in the specification couldn't simply be left as Not Supported in their registration, especially since they were relying on their module supplier's field application engineer for the underlying Bluetooth implementation.",
+  "plain_english_explanation": "Each ICS item is documented with a Status designation, and when that designation is 'M' (Mandatory), the specification requires unconditional support for that item — there's no option to declare it Not Supported. If an ICS entry marked Mandatory is set to anything other than Supported (YES), the registration site's Consistency Check will flag it as Invalid, which blocks the registration from proceeding any further in the process. This isn't a matter of choice or implementation difficulty — it's a hard specification requirement tied directly to the ICS Status designation.",
+  "consultant_answer": "Yes, it has to be YES — when an ICS item's Status designation is 'M' (Mandatory), the specification requires unconditional support, with no option to mark it Not Supported. If you leave a Mandatory item as anything other than Supported, the registration site's Consistency Check will flag it as Invalid and block you from proceeding further in the registration process.",
+  "decision_logic": "ICS Status designations directly determine whether an item can be left Not Supported: Mandatory ('M') items require Supported=YES unconditionally, with the registration site's Consistency Check enforcing this as a hard block rather than a soft warning.",
+  "final_recommendation": "When a customer questions why a flagged ICS item must be set to YES, explain the ICS Status designation system directly (Mandatory means unconditional support, enforced by the Consistency Check as a hard block) rather than assuming they understand ICS terminology from their module supplier's implementation work alone.",
+  "risk_if_done_wrong": "A customer unfamiliar with ICS Status semantics might try to leave a Mandatory item as Not Supported to match an incomplete implementation, repeatedly hitting Consistency Check blocks without understanding why, or might mistakenly assume the requirement is negotiable.",
+  "bluetooth_tags": [
+    "ICS Status Mandatory M",
+    "Consistency Check Invalid",
+    "ICS item must be Supported",
+    "OM Digital Solutions"
+  ],
+  "search_aliases": [
+    "what does ICS Status M mean",
+    "Mandatory ICS item must be YES",
+    "Consistency Check Invalid Mandatory item"
+  ],
+  "qualification_stage": "Registration execution / ICS verification",
+  "confidence": "high"
+}

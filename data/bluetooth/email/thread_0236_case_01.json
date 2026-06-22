@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0236",
+  "case_id": "thread_0236_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Pi Crystal, via Sharp Kashiwa office, contact Tsurumi)",
+  "customer_question": "What documents do we need to prepare for the Compliance Folder, and how exactly does the CD-R get turned from a provisional version into the final, official Compliance Folder once we have those documents ready?",
+  "question_variants": [
+    "What's the full list of required Compliance Folder documents?",
+    "How do we convert the provisional placeholder CD-R into the final Compliance Folder once our documents are ready?"
+  ],
+  "actual_issue": "The customer needed to know both what documentation to prepare for the Compliance Folder and the exact mechanical procedure for finalizing the CD-R once Allion had already shipped a provisional version, since Allion proactively sends a provisional CD-R with placeholder PDFs before the customer's final documents are ready.",
+  "plain_english_explanation": "The Compliance Folder requires four documents: an operation manual (Bluetooth-related sections only), a product block diagram, a product outline drawing, and antenna documentation that includes radiation gain characteristic charts. Customers can send these as they become ready rather than waiting to send everything at once. Separately, Allion ships a provisional Compliance Folder CD-R about a month after registration, using a writable (not finalized) CD-R format with placeholder PDF files inside. Once the customer's real documents are ready, they convert each to PDF and overwrite the corresponding placeholder file in the CD-R's Data directory using their own CD/DVD-drive-equipped Windows 10/11 PC, then run the finalize operation to lock in the disc as the official, permanent Compliance Folder.",
+  "consultant_answer": "The Compliance Folder needs four documents: (1) the operation manual's Bluetooth-related sections, (2) the product block diagram, (3) the product outline drawing, and (4) antenna documentation including radiation gain characteristic charts — feel free to send whichever are ready first rather than waiting for all four. For the CD-R itself: we ship a provisional version with placeholder PDF files about a month after registration, using a writable (non-finalized) format. Once your real documents are ready, convert them to PDF, overwrite the corresponding placeholder files in the CD-R's Data directory using a Windows 10/11 PC with a CD/DVD drive, and then run the finalize operation — that completes the official Compliance Folder.",
+  "decision_logic": "Sending a provisional placeholder CD-R early (rather than waiting for all final documents) lets the customer begin the finalize process incrementally as documents become available, while the writable (non-finalized) format keeps the disc editable until the customer is ready to lock it in.",
+  "final_recommendation": "When delivering compliance documentation with a multi-step finalize process, give the customer the complete document checklist up front and explicit step-by-step instructions for converting a provisional deliverable into the final version, since the procedure is not self-evident from the placeholder disc alone.",
+  "risk_if_done_wrong": "Without clear instructions, customers could either accidentally finalize the CD-R while it still contains placeholder PDFs (locking in an invalid Compliance Folder), or fail to realize they're responsible for the overwrite-and-finalize steps themselves.",
+  "bluetooth_tags": [
+    "Compliance Folder document checklist",
+    "provisional CD-R",
+    "CD-R finalize procedure",
+    "block diagram outline drawing antenna data",
+    "Pi Crystal",
+    "Sharp Kashiwa"
+  ],
+  "search_aliases": [
+    "what documents needed for Compliance Folder",
+    "how to finalize provisional CD-R",
+    "overwrite placeholder PDF Compliance Folder CD-R"
+  ],
+  "qualification_stage": "Post-registration documentation",
+  "confidence": "high"
+}

@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0004",
+  "case_id": "thread_0004_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine UXC10), BLE optional feature DUT export to Taiwan lab, export classification document responsibility",
+  "customer_question": "Since the DUT needs to be shipped to your Taiwan lab for BLE optional-feature testing, am I right in understanding that your company will be the one issuing the export classification opinion document, not us?",
+  "question_variants": [
+    "Who is responsible for issuing export compliance paperwork when a sample needs to move from the Japan lab to the Taiwan lab for additional testing?",
+    "Does the customer need to prepare any export documentation themselves for this Japan-to-Taiwan sample transfer?"
+  ],
+  "actual_issue": "The customer needed to confirm who bears responsibility for preparing the export classification/compliance opinion document (used to determine whether the product is subject to export control restrictions) for the leg of the test process where a sample moves from the lab's Japan facility to its Taiwan facility for BLE optional-feature testing.",
+  "plain_english_explanation": "For this particular shipment leg -- the lab's own internal transfer of the sample from its Japan facility to its Taiwan facility for BLE optional-feature testing -- the lab itself takes responsibility for issuing the export classification document, rather than requiring the customer to prepare it. This is distinct from the customer's own outbound shipment to the lab's Japan facility in the first place, where the customer would typically be expected to provide their own export classification paperwork as part of standard sample submission requirements.",
+  "consultant_answer": "Correct -- for this leg of the process (our own internal transfer from our Japan facility to our Taiwan facility for BLE optional-feature testing), we'll issue the export classification document ourselves; you don't need to prepare that for this particular shipment.",
+  "decision_logic": "Export classification document responsibility should be assigned based on which party is the actual shipper of a given leg of a multi-site test process -- when the lab itself initiates an internal transfer between its own facilities (e.g., Japan to Taiwan) to continue testing, the lab is the shipper of record for that leg and therefore issues the export documentation, distinct from the customer's own outbound shipment to the lab in the first place.",
+  "final_recommendation": "When a multi-site test plan involves the lab transferring a sample between its own international facilities, proactively clarify to the customer which party is responsible for export classification documentation at each leg of the shipment, since customers may otherwise assume they need to prepare paperwork for transfers that are actually internal to the lab's own operations.",
+  "risk_if_done_wrong": "If the customer mistakenly believed they needed to prepare export classification documentation for the lab's own internal Japan-to-Taiwan transfer, this could create unnecessary delay or duplicate paperwork, or conversely, the lab failing to prepare its own documentation could delay the international transfer.",
+  "bluetooth_tags": [
+    "export classification document responsibility",
+    "Japan to Taiwan internal lab transfer",
+    "BLE optional feature testing",
+    "Alps Alpine UXC10",
+    "multi-site test shipment logistics"
+  ],
+  "search_aliases": [
+    "who issues export classification document lab transfer",
+    "Japan Taiwan sample shipment export paperwork responsibility",
+    "BLE optional feature test Taiwan lab export document"
+  ],
+  "qualification_stage": "Multi-site test logistics",
+  "confidence": "high"
+}

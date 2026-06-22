@@ -1,42 +1,31 @@
 {
-    "source_thread": "thread_0003",
-    "cases": [
-        {
-            "case_id": "thread_0003_case_03",
-            "iut_type": "module-based device",
-            "customer_question": "Should I remove unused BR/EDR profiles during qualification to avoid IOPT testing?",
-            "question_variants": [
-                "Do unused profiles need to be included in qualification?",
-                "Can I delete A2DP/HFP profiles to reduce testing?",
-                "Does keeping unused profiles trigger IOPT?",
-                "Should I remove BR/EDR profiles if not used?",
-                "How to reduce IOPT test scope?"
-            ],
-            "actual_issue": "Impact of retaining vs removing unused profiles on IOPT test requirements.",
-            "plain_english_explanation": "If your product includes Bluetooth features you don’t actually use, you may still have to test them. Removing those unused features during certification can reduce the amount of testing required.",
-            "consultant_answer": "If BR/EDR profiles (e.g., A2DP, HFP) are retained in the qualification, IOPT testing will be required for them. If these profiles are not implemented in the product (e.g., disabled at compile time), they should be removed from the design during registration. Doing so eliminates the associated IOPT requirements.",
-            "decision_logic": "IOPT applies to profiles present in the ICS; removing unused profiles removes associated test obligations.",
-            "final_recommendation": "Remove all unused BR/EDR profiles from the qualification design if they are not implemented in the product to avoid unnecessary IOPT testing.",
-            "risk_if_done_wrong": "Keeping unused profiles increases test scope, cost, and duration due to mandatory IOPT testing for those profiles.",
-            "bluetooth_tags": [
-                "profile",
-                "IOPT",
-                "ICS",
-                "BR/EDR",
-                "qualification",
-                "test scope"
-            ],
-            "search_aliases": [
-                "remove profiles Bluetooth qualification",
-                "unused profile IOPT",
-                "A2DP HFP IOPT requirement",
-                "reduce IOPT tests",
-                "ICS profile deletion",
-                "profile test scope"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0003",
+  "case_id": "thread_0003_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Panasonic Automotive Systems), RF PHY test scope for preliminary test-mode verification",
+  "customer_question": "(In the context of the informal preliminary test-mode check) The full formal RF PHY test for our module covers 34 items across 1M, 2M, Stable Mod Index Tx, and Stable Mod Index Rx modes, quoted at ¥1,000,000. Do we need to run all of that for just a preliminary test-mode and mandatory-function verification?",
+  "question_variants": [
+    "Can RF PHY test scope be reduced for a preliminary, non-certification-grade check?",
+    "Which specific subset of RF PHY items is sufficient to confirm test mode and mandatory functions?"
+  ],
+  "actual_issue": "The customer assumed the full 34-item RF PHY test scope (covering multiple modes) would be needed even for an early, informal verification check, when a much smaller scope would actually suffice for that specific, narrower purpose.",
+  "plain_english_explanation": "For confirming test-mode entry and mandatory-function pass/fail behavior specifically (as opposed to the complete formal certification test), it isn't necessary to run the full 34-item RF PHY scope across all supported modes (1M, 2M, Stable Mod Index Tx, Stable Mod Index Rx) — a much narrower scope of just 10 items under 1M mode alone is sufficient to confirm test mode and mandatory functionality, reducing the cost from ¥1,000,000 (full scope) to ¥400,000 (1M-only, 10-item scope) for this preliminary purpose.",
+  "consultant_answer": "No, you don't need the full 34-item scope for this preliminary check — confirming test mode entry and mandatory-function behavior only requires the 10 items under 1M mode alone, bringing the cost down to ¥400,000 instead of the ¥1,000,000 full-scope test. Please let us know if you'd like to proceed with this reduced scope for the preliminary verification.",
+  "decision_logic": "RF PHY test scope should be tailored to the actual purpose at hand — a preliminary test-mode/mandatory-function check needs only a narrow subset of items (1M mode, 10 items) rather than the complete multi-mode formal certification scope (34 items), since the preliminary check's goal doesn't require validating every supported mode.",
+  "final_recommendation": "When a customer requests a preliminary or informal verification check, proactively recommend a reduced test scope appropriate to that specific narrower purpose, rather than defaulting to the full formal certification scope and its associated cost.",
+  "risk_if_done_wrong": "Quoting the full 34-item RF PHY scope for what's actually just a preliminary test-mode check would unnecessarily inflate the cost of an early verification step that doesn't require validating every supported mode.",
+  "bluetooth_tags": [
+    "RF PHY test scope reduction preliminary check",
+    "1M mode 10 item subset",
+    "test mode mandatory function verification scope",
+    "Panasonic Automotive Systems"
+  ],
+  "search_aliases": [
+    "reduced RF PHY scope preliminary verification",
+    "1M mode only test for test mode check",
+    "how many RF PHY items needed for mandatory function check"
+  ],
+  "qualification_stage": "Pre-engagement preliminary verification scoping",
+  "confidence": "high"
 }

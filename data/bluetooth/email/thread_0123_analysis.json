@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0123",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This thread (January 28 - February 17, 2025) covers the final stages of a Bluetooth SIG proxy registration for [COMPANY] (Premium Audio Company Technology Center, contact [PERSON]/Yoneda) for an ONKYO GX10 Powered Speaker, referencing two component QDIDs. After receiving the signed proxy registration confirmation form and remittance confirmation, [PERSON]/Sakai advances the registration to the review page, shares a screenshot for customer sign-off, then performs final confirmation and shares the My Page URL for the customer to view registration details pre-publication. Sakai then requests Compliance Folder materials (Bluetooth operation manual section, block diagram, outline drawings, antenna radiation-gain data) from the customer, compiles them onto a CD-R, ships it via trackable mail, and explains retention rules (1 year post-discontinuation, audit-only presentation) and free derivative-model registration via 'Manage Submitted Products'. The customer confirms receipt and retention understanding, closing out the engagement.",
     "all_questions_found": [
       "Can the customer review the registration's review page before it is finalized, and once finalized, can they view the registration details before the public release date?",

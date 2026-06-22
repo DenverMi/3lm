@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0229",
+  "thread_analysis": {
+    "thread_summary": "Yamaha (Takeshi Dodo / 百々武志) requested a Bluetooth SIG certification quote via Allion's web form. Internally, Itsuo Sakai drafted a detailed reply for Masaya Iida explaining the substantial cost and risk implications of using Open Source BlueZ as the Host Stack, including full protocol-layer test scope, ADB debugger/language logistics for Allion's Taiwan lab, historical pass-rate data, and a complete cost breakdown, while recommending the customer instead consider purchasing a commercial BlueZ-based stack from one of several named Japanese distributors.",
+    "all_questions_found": [
+      "What does choosing Open Source BlueZ as our Host Stack imply for testing scope, cost, and risk compared to a commercial stack?"
+    ],
+    "key_technical_discussion": "Open-source BlueZ Host Stacks require full mid-layer protocol testing (L2CAP, GAP, GATT, ATT, SM, SDP, RFCOMM, SPP) at the product level, needing an embedded ADB debugger and an English/Chinese-speaking on-site engineer for Allion's Taiwan lab. Historical first-pass rate for BlueZ BR/EDR protocol testing is ~60%, with ~40% needing rework/retest. Full project cost breakdown given: protocol test ~¥5M, profile test ¥600K, RF test ¥200K, registration support ¥250K, Compliance Folder ¥150K, plus $11,040 SIG fee.",
+    "key_decision_logic": "Whether a Host Stack requires full protocol-layer product testing depends on whether it has been pre-validated/certified by a commercial vendor; uncertified open-source stacks shift that testing burden (and risk) onto the implementing customer's specific product.",
+    "risk_if_done_wrong": "Underestimating the scope, cost, and historical failure rate of an open-source BlueZ certification project could lead to budget overruns, schedule slippage, or project abandonment, as has occurred with prior customers in similar situations.",
+    "consulting_mistake": "None identified — the response thoroughly quantified cost, risk, and historical pass-rate data, and proactively offered a lower-risk commercial-stack alternative with named vendor options.",
+    "consulting_takeaway": "When a prospective customer's Host Stack choice is an uncertified open-source implementation (e.g., BlueZ), proactively quantify the added protocol-test scope, lab logistics requirements, historical pass/fail data, and total cost, and present established commercial-stack vendors as an alternative for risk-averse customers."
+  }
+}

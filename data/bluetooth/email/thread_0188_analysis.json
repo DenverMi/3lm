@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0188",
+  "thread_analysis": {
+    "thread_summary": "Pyke Crystal (first-time Bluetooth product) inquired about Bluetooth SIG certification for a product using Fanstel BM805 or BM832 modules (Nordic-based, integrated antenna, pre-certified). Key answer: both modules are certified with integrated antennas, so RF PHY and all core layer tests are exempt. No SIG profiles or only proprietary GATT → no profile test required. Rough pricing: Single Design ¥150,000 + Compliance Folder ¥150,000 + SIG Qualification Fee $11,040. Registration timeline: 3 business days from SIG fee receipt. Wire transfer takes ~3 weeks.",
+    "all_questions_found": [
+      "What tests are required for a product using a certified BLE module with integrated antenna?",
+      "What is the cost estimate for Bluetooth SIG certification without profile testing?",
+      "How long does registration take after the SIG fee is received?"
+    ],
+    "key_technical_discussion": "Pre-certified modules with integrated antennas eliminate the two most expensive test categories (RF PHY and core layer). This makes registration a primarily administrative and documentation task. The only variable cost is profile testing if SIG-standardized profiles are implemented. The SIG Qualification Fee ($11,040) is fixed. The Allion service fee is ¥150,000 (Single Design) or ¥250,000 (Multi-Design).",
+    "key_decision_logic": "Certified module + integrated antenna = all RF and core tests exempt. No SIG profiles = no profile test. Registration is a 3-business-day administrative process after SIG fee receipt.",
+    "risk_if_done_wrong": "None identified for this straightforward case. The main variable risk is if the product uses an external antenna (invalidates RF exemption) or implements SIG profiles without informing Allion (adds profile test cost).",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "For first-time customers using certified modules, proactively explain the test exemption logic (certified module = RF + core exempt) and the two cost variables: (1) Single vs. Multi-Design, (2) presence of SIG profiles. This prevents sticker shock from unexpected profile test costs later."
+  }
+}

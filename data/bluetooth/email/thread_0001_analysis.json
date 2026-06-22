@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0001",
+  "thread_analysis": {
+    "thread_summary": "This is the earliest historical capture of the Topre Corporation R4H/RC1 keyboard certification saga (contacts Kenki Enomoto, Seiji Hiraki, Takato Kamei, with Allion's Toshitaka Mochizuki, Misumi Sato, Itsuo Sakai), already extensively documented in thread_0211, thread_0224, and thread_0267 for its HOGP/BAS/DIS/HIDS Bluetooth PTS debugging content. This thread's earliest portion additionally covers the combined WHQL/USB side of the engagement (USB IOP+Chapter9 testing, sample shipment, a JP-keyboard USB Fail requiring firmware update and retest, file-download password troubleshooting) and two genuinely new, distinct questions: whether adding a new HID keycode requires re-registration, and whether battery-charging current draw needs special USB test documentation.",
+    "all_questions_found": [
+      "Does adding a new keycode (e.g., Mute) to an already-certified keyboard require re-registration? (see thread_0001_case_01)",
+      "Does variable battery-charging current draw require additional USB IOP/Chapter 9 documentation? (see thread_0001_case_02)",
+      "(Already documented in thread_0211's case files) HOGP/BAS/DIS/HIDS PTS debugging, Nordic QDID:44613 Profile Subsystem fallback, and related Bluetooth-specific technical content from this same keyboard project."
+    ],
+    "key_technical_discussion": "Beyond the duplicated Bluetooth-specific PTS debugging content (see thread_0211 for the full record), this thread's new contributions clarify that incremental HID keycode additions don't require re-registration unless accompanied by a new model name, and that battery-charging current draw variability falls outside USB IOP/Chapter 9's regulated scope.",
+    "key_decision_logic": "See thread_0001_case_01 and thread_0001_case_02 for the new decision logic; the duplicated Bluetooth PTS content follows the logic already documented in thread_0211.",
+    "risk_if_done_wrong": "See thread_0001_case_01 and thread_0001_case_02.",
+    "consulting_mistake": "None identified in the newly-extracted content.",
+    "consulting_takeaway": "This thread reinforces thread_0211's findings for the same Topre keyboard project and adds two practical post-certification/pre-test scoping lessons: incremental keycode additions don't require re-registration absent a new model name, and battery-related current draw variability doesn't require special USB test documentation."
+  }
+}

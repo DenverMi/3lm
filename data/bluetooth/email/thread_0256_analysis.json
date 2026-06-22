@@ -1,0 +1,20 @@
+{
+  "source_thread": "thread_0256",
+  "thread_analysis": {
+    "thread_summary": "DensoTen Corporation (HMI Solutions, contacts Ryuusuke Yamakawa, Kensuke Nakamura, Hiroshi Majima) works extensively with Allion (Toshitaka Mochizuki, Jun Wang, Itsuo Sakai) on Bluetooth profile retesting for a product with multiple Fail items across several PTS test sessions (October-November 2024). The thread documents a detailed retest methodology negotiation: PTS version regression behavior and mixed-version evidence rules, accepting inconsistent repeated-test results and combining logs from multiple sources, customer self-testing with submission of formatted PTS reports, test environment requirements, the validity concerns around per-test-case firmware swapping, and direct ICS file sharing to resolve an MPS profile test-scope gap.",
+    "all_questions_found": [
+      "Why does the same test case Pass/Fail differently across PTS versions, and do we need to standardize on one version? (see thread_0256_case_01)",
+      "Can inconsistent repeated test results and combined logs from multiple sources still count as valid Pass evidence, and can the customer self-test? (see thread_0256_case_02)",
+      "Are special RF-isolated test environments required for any test items? (see thread_0256_case_03)",
+      "Is per-test-case firmware swapping during retest an acceptable certification methodology? (see thread_0256_case_04)",
+      "Why isn't MPS coming into PTS test scope via the manual ICS-difference approach, and can Allion's own ICS file be shared? (see thread_0256_case_05)",
+      "Does Bluetooth certification's retest billing policy differ from other certification programs (USB/WiFi), and why is DLT log capture billed separately? (see thread_0256_case_06)",
+      "(Raised but no written answer located in this thread) If multiple physical units are used and swapped per Test Case, does an all-items Pass across multiple units count as an overall Pass, or must all tests pass on one single unit?"
+    ],
+    "key_technical_discussion": "This thread provides a comprehensive view of profile retest methodology and evidence-acceptance rules: PTS tool version regression patterns, the principle that a reliable Pass result is valid evidence regardless of prior Fail attempts or which party generated the log, environment requirements being outcome-based rather than facility-mandated, and the tension between practical retest needs (per-test-case firmware swapping) and certification testing's mass-production-specification premise.",
+    "key_decision_logic": "See the individual case files (thread_0256_case_01 through thread_0256_case_05) for the decision logic behind each question.",
+    "risk_if_done_wrong": "See thread_0256_case_01 through thread_0256_case_05 for specific risks.",
+    "consulting_mistake": "The customer's question about whether passing all test items across multiple swapped physical units (rather than one single unit passing everything) counts as an overall Pass does not appear to have received an explicit written answer in this thread — it may have been resolved verbally in one of the referenced internal meetings, but the written record doesn't capture a follow-up confirmation, which is worth flagging as a documentation gap.",
+    "consulting_takeaway": "For complex, multi-session profile retest engagements involving PTS version changes, inconsistent results, and unconventional methodologies (per-test-case firmware swaps), proactively document each methodology question's resolution in writing — even points seemingly settled in a verbal meeting — to avoid ambiguity about what evidence and approach were actually agreed to support the final certification."
+  }
+}

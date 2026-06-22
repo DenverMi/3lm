@@ -1,43 +1,34 @@
 {
-    "source_thread": "thread_0029",
-    "cases": [
-        {
-            "case_id": "thread_0029_case_02",
-            "iut_type": "module",
-            "customer_question": "Which Bluetooth SIG account must be used for qualification registration and payment processing?",
-            "question_variants": [
-                "Why does the SIG login fail during registration?",
-                "Does the invoice account need to match the qualification account?",
-                "Which Bluetooth SIG member account should be used?",
-                "Can qualification proceed with a different login account?",
-                "How do we recover access to the SIG qualification account?"
-            ],
-            "actual_issue": "The qualification process depended on using the correct Bluetooth SIG member account associated with the invoice and registration activity, but the customer experienced account access and authentication problems.",
-            "plain_english_explanation": "Bluetooth SIG qualification activities are tied to specific member accounts. If the wrong account is used or the correct credentials are unavailable, the registration process may stop completely. The thread explains the need to use the correct account and recover access properly instead of bypassing the process.",
-            "consultant_answer": "The consultant clarified that qualification registration must use the same Bluetooth SIG account associated with the qualification fee invoice and member membership. When the customer could not authenticate successfully, the consultant recommended standard account recovery and reset procedures rather than attempting alternative submission paths. The consultant also coordinated confirmation of account ownership before proceeding with registration.",
-            "decision_logic": "Bluetooth SIG qualification workflows are account-bound, and payment, membership, and declaration activities depend on valid access to the correct member account. Using mismatched or unauthorized accounts can invalidate or block the registration process.",
-            "final_recommendation": "Verify ownership of the correct Bluetooth SIG member account early, confirm that the invoice and qualification activity are tied to the same account, and resolve login issues through official recovery procedures before registration work begins.",
-            "risk_if_done_wrong": "Using the wrong account or failing to recover access could delay or block qualification submission and prevent completion of the Bluetooth listing process.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "declaration",
-                "SIG",
-                "member account"
-            ],
-            "search_aliases": [
-                "SIG account mismatch",
-                "Bluetooth SIG login failure",
-                "qualification account access",
-                "invoice account mismatch",
-                "member account recovery",
-                "Bluetooth declaration login",
-                "SIG credential issue",
-                "registration authentication"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0029",
+  "case_id": "thread_0029_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "SIG member account login failure during proxy registration, root-caused to a departed employee's deactivated account, resolved via new account creation plus a Qualification Fee Receipt Number 'Transfer Request'",
+  "customer_question": "We're getting an 'Invalid username or password' error when trying to log in with the credentials provided in the proxy registration confirmation document, even though we haven't changed the password and this login used to work. Why is this happening and how do we fix it?",
+  "question_variants": [
+    "Does the registration login have to be the same account that obtained the Invoice for the registration fee payment?",
+    "If we create a brand-new SIG account, can the Qualification Fee Receipt Number (tied to the old account) be moved over to it?"
+  ],
+  "actual_issue": "The customer's provided login credentials failed with 'Invalid username or password.' The consultant first confirmed the standing rule that the registration login must be the same SIG member account used to obtain the Invoice for the registration fee, then guided the customer through SIG's account-recovery decision tree. Investigation eventually revealed the true root cause: the account had been set inactive because the employee who originally registered it had left the company. Since using a departed employee's ID causes ongoing complications, the customer created a brand-new account -- but the existing Qualification Fee Receipt Number was tied to the original (Invoice-obtaining) account and could not be exercised directly from the new account, requiring a SIG 'Transfer Request' operation to move it over.",
+  "plain_english_explanation": "When a registration login fails, the consultant's standard troubleshooting flow is: (1) use SIG's 'Get Username' tool with the customer's registered email address -- if the returned Username combines successfully with the password the customer provided, the login should work and the customer should report back; (2) if the tool replies 'No Username found,' the customer needs to create a new account via SIG's signup page; (3) if the email is found but tied to a different password, the customer must first reset the account via SIG's password-reset page, then proceed to step (2) to obtain account access. In this case, troubleshooting surfaced a deeper root cause: the account had been deactivated because the employee who had originally registered it left the company, and continuing to use that departed employee's ID was undesirable. The customer created an entirely new account instead. However, this created a new problem: the Qualification Fee Receipt Number (the proof of having paid the SIG registration fee) was tied to the account that had originally obtained the Invoice, not the new account, so the new account could not use it directly. The consultant resolved this using SIG's 'Transfer Request' feature: a notification email is sent to the email address linked to the new account, and the customer must open that email and click 'Accept' (or an equivalent consent action) to complete the transfer of the Receipt Number to the new account. Once the customer confirmed the Transfer Request approval, the consultant verified the Receipt Number had been successfully transferred and proceeded with the registration using the new account.",
+  "consultant_answer": "Yes, login credentials for registration must be the same SIG member account used to obtain the Invoice for the registration fee. Since your login is failing, let's run SIG's 'Get Username' tool with your email first: if the returned Username works with your password, you're set; if it returns 'No Username found,' you'll need to create a new account; if the email is tied to a different password, reset the account first, then create/recover the account. [After root cause was found to be a deactivated account tied to a departed employee, and a new account was created:] Since the Qualification Fee Receipt Number is tied to the original Invoice-obtaining account, it can't be used directly from your new account -- I've submitted a 'Transfer Request' for it. You'll receive a notification email at your new account's address; please open it and click 'Accept' to complete the transfer.",
+  "decision_logic": "Registration login credentials must always match the SIG member account that originally obtained the Invoice for the registration fee payment; if login fails, follow SIG's three-branch account-recovery decision tree (Get Username success / No Username found / email-password mismatch requiring reset) to diagnose the cause, and if the root cause turns out to be an account being deactivated (e.g., due to employee departure) requiring a brand-new account, use SIG's 'Transfer Request' feature to move the existing Qualification Fee Receipt Number to the new account rather than attempting to re-pay or treating the new account as unable to use the already-paid fee.",
+  "final_recommendation": "When a customer reports a registration login failure, walk them through SIG's Get Username decision tree systematically rather than guessing, and if the underlying cause turns out to be an inactive account due to staff turnover, proactively explain the Transfer Request mechanism for moving the Qualification Fee Receipt Number to a newly created account so the customer doesn't assume the already-paid fee is stranded or needs to be repaid.",
+  "risk_if_done_wrong": "A customer who creates a new account without using the Transfer Request mechanism could mistakenly believe their paid Qualification Fee is inaccessible or needs to be paid again, or could continue trying to use a deactivated departed-employee account indefinitely, stalling the registration.",
+  "bluetooth_tags": [
+    "Invalid username or password SIG login",
+    "Get Username account recovery decision tree",
+    "account deactivated departed employee",
+    "Transfer Request Qualification Fee Receipt Number",
+    "New Cosmos Electric"
+  ],
+  "search_aliases": [
+    "SIG login invalid username password fix",
+    "how to recover SIG member account access",
+    "Qualification Fee Receipt Number tied to wrong account",
+    "Bluetooth SIG Transfer Request feature",
+    "employee left company SIG account inactive"
+  ],
+  "qualification_stage": "Proxy registration account access and credential resolution",
+  "confidence": "high"
 }

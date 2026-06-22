@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0032",
+  "case_id": "thread_0032_case_07",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Parent-company vs. subsidiary nameplate identity for SIG registration, and Japan Radio Law's nameplate/packaging display requirement and its size-exception",
+  "customer_question": "If the product itself doesn't display a separate nameplate, is it acceptable to print the SIG-member subsidiary's name on the product packaging instead? Also, if it turns out the company name actually appearing on the packaging is the parent company (the brand trademark holder) rather than the selling subsidiary, does the parent company also need to become a SIG member?",
+  "question_variants": [
+    "Does Bluetooth Logo certification obligation belong to whichever company actually sells the product, or to whichever company name appears on the product's nameplate?",
+    "Is there an exception to Japan's Radio Law nameplate display requirement for very small devices?"
+  ],
+  "actual_issue": "The customer initially assumed that registering the selling subsidiary (already a SIG member) would be sufficient even without a product nameplate, by displaying that subsidiary's name on the packaging instead -- but on closer inspection, the company name that would actually appear on the packaging turned out to be the parent company (which held the brand trademark), raising the question of whether the parent company itself would then need to become a SIG member.",
+  "plain_english_explanation": "Both Japan's Radio Law and Bluetooth Logo certification tie the certification obligation to whichever company name appears on the product's nameplate (or equivalent display) -- not simply to whichever company happens to be the one physically selling the product. If the nameplate company name is the subsidiary, the parent company (as mere trademark holder, with no display obligation) does not need to be a SIG member. But if the nameplate company name is actually the parent, then the parent itself must become a SIG member and the certification must be filed under the parent's name -- and in that case, the selling subsidiary does NOT need to obtain its own separate logo certification. Separately, on the nameplate display requirement itself: to sell wireless equipment in Japan, displaying -- on the nameplate or molded into the housing -- the certified company name, the applied equipment's model number, and the Giteki mark plus certification number is mandatory. There is a narrow exception for devices too small to have adequate display area (the example given was compact wireless headphones), where the rule instead requires affixing the same information in two places: the instruction manual and a clearly visible spot on the packaging or container. However, if the device's housing genuinely has enough display area, this packaging-based exception cannot be used as a workaround to avoid the nameplate-equivalent display obligation -- and whichever company name ends up actually displayed (on the nameplate, housing, or packaging-as-exception) determines which company must hold both the Radio Law certification and the SIG membership/Bluetooth Logo certification.",
+  "consultant_answer": "The certification obligation -- for both Japan's Radio Law and Bluetooth Logo certification -- belongs to whichever company name appears on the product's nameplate, not necessarily whoever happens to be selling it. If your nameplate company name is the subsidiary, the parent (as just the trademark holder) doesn't need to be a SIG member. But based on what you've described, since third parties can only recognize 'the selling company' as the parent (via the packaging display), Bluetooth Logo certification must absolutely be obtained under the parent's name -- meaning the parent itself must register as a SIG member. Regarding the packaging-based display: Japan's Radio Law does allow displaying the required information on the instruction manual and packaging instead of the nameplate, but only for devices too small to have adequate display area -- if your housing has room for a nameplate, you can't use the packaging exception to sidestep this.",
+  "decision_logic": "When a brand/trademark structure involves a parent company and a selling subsidiary, determine SIG registration and Radio Law certification obligations by checking which specific company name will actually appear on the product's nameplate or its packaging-based equivalent (if the size exception applies) -- that company, not necessarily the operational seller, is the one that must hold both the certification and any required SIG membership.",
+  "final_recommendation": "When a customer's brand structure involves a parent company holding the trademark and a subsidiary handling sales, explicitly verify which company's name will actually be displayed on the product or its packaging before concluding which entity needs SIG membership, since the trademark-holder/seller distinction does not by itself determine certification obligation.",
+  "risk_if_done_wrong": "A customer might register the wrong company (the operational seller) for SIG membership and Bluetooth Logo certification when the company name actually displayed on the product is a different entity (e.g., the parent brand holder), resulting in a registration that doesn't match the actual nameplate identity and could trigger a corrective recommendation.",
+  "bluetooth_tags": [
+    "parent company subsidiary nameplate identity SIG registration",
+    "certification obligation tied to displayed company name not seller",
+    "Japan Radio Law small device packaging display exception",
+    "Elematec smart tracker"
+  ],
+  "search_aliases": [
+    "does parent company need SIG membership if subsidiary sells product",
+    "which company name determines certification obligation",
+    "Japan Radio Law nameplate display exception small devices",
+    "packaging display instead of nameplate Radio Law"
+  ],
+  "qualification_stage": "Pre-registration brand/entity identity determination",
+  "confidence": "high"
+}

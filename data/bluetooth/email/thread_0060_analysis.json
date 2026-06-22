@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0060",
+  "thread_analysis": {
+    "thread_summary": "Paramount Bed Co. (contact Kazuyuki Nagase) engages Allion (Itsuo Sakai, Masaya Iida) for Bluetooth SIG registration of a toilet sensor product line acquired from NEC Platforms, spanning February-March 2025. The thread surfaces three genuinely distinct and valuable cases around business-acquisition registration scoping, the actual basis of the registration deadline, and model-name registration granularity.",
+    "all_questions_found": [
+      "Can NEC Platforms' existing SIG registration be carried over for the acquired product line, or must Paramount Bed complete a new registration? (see thread_0060_case_01)",
+      "Is the registration deadline tied to the planned sale date, or to earlier disclosure events like press releases or dealer pamphlets? (see thread_0060_case_02)",
+      "Should all 9 catalog/ordering product codes be registered in the Product List, or just the 1 internal manufacturing code, and is a 'series' registration format possible? (see thread_0060_case_03)",
+      "(Administrative, not separately cased) Standard quote breakdown, order confirmation, Qualification Fee wire transfer process, and Compliance Folder document checklist -- consistent with administrative content documented extensively elsewhere in this corpus."
+    ],
+    "key_technical_discussion": "This thread documents three previously undocumented but practically important rules: that business/product-line acquisition does not transfer an existing SIG registration (case_01); that the registration deadline is tied to the earliest public or dealer-facing disclosure event rather than the literal sale date (case_02); and that model-name registration granularity is determined strictly by physical nameplate display, with wildcard/series registration explicitly prohibited (case_03).",
+    "key_decision_logic": "See thread_0060_case_01 through thread_0060_case_03 for case-specific decision logic.",
+    "risk_if_done_wrong": "See individual case files; case_02 carries particular risk since a customer focused only on their sale date could inadvertently disclose a product's existence (via a press release or dealer pamphlet) before completing registration, and case_03's wildcard-registration prohibition could trip up customers planning a product family with future expansion in mind.",
+    "consulting_mistake": "No significant consulting-side mistakes identified -- the consultant provided clear, concrete answers to a thorough and well-organized customer inquiry covering acquisition scoping, deadline timing, and model-name structure all in a single initial response.",
+    "consulting_takeaway": "When a customer acquires a product line with an existing SIG registration, clarify upfront that a new registration under their own name is required even though the predecessor's Compliance Folder materials can be reused; when scoping a registration deadline against a planned sale date, proactively ask about any earlier disclosure activities; and when a product has multiple model-naming structures, determine Product List registration scope based on the physical nameplate display rather than internal or catalog code structures."
+  }
+}

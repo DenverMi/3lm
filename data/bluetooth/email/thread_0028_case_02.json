@@ -1,46 +1,33 @@
 {
-    "source_thread": "thread_0028",
-    "cases": [
-        {
-            "case_id": "thread_0028_case_02",
-            "iut_type": "module",
-            "customer_question": "When are Stable Modulation Index transmitter and receiver RF PHY tests required, and are they practically useful?",
-            "question_variants": [
-                "What is Stable Modulation Index testing?",
-                "Do we need Stable RX/TX Mod tests?",
-                "When is Stable Modulation Index required?",
-                "Why add Stable Modulation Index qualification?",
-                "What happens if Stable Modulation Index fails?"
-            ],
-            "actual_issue": "The customer needed clarification on the purpose, requirements, and practical value of optional Stable Modulation Index RF PHY tests for BLE GFSK modulation accuracy.",
-            "plain_english_explanation": "Stable Modulation Index testing checks whether the Bluetooth radio generates extremely accurate GFSK modulation. Normal BLE devices are allowed a wider modulation tolerance, but Stable Modulation Index support requires much tighter accuracy. Most products do not need this feature unless they specifically claim support for it.",
-            "consultant_answer": "The consultant explained that standard BLE devices allow a GFSK modulation index range of approximately 0.5±10%, while Stable Modulation Index support narrows the acceptable range to approximately 0.5±1%. These tests are optional and mainly depend on the intrinsic RF quality of the selected SoC. If the SoC already produces very clean modulation, the tests are likely to pass, but if not, the tests will simply fail without providing much practical benefit because the SoC usually cannot be changed at that stage.",
-            "decision_logic": "Stable Modulation Index is an optional Bluetooth RF PHY capability with significantly tighter modulation accuracy requirements than standard BLE modulation tolerance.",
-            "final_recommendation": "Only include Stable Modulation Index qualification if there is a clear product requirement or feature claim that depends on it. Confirm SoC RF performance capability before committing to these optional tests.",
-            "risk_if_done_wrong": "Unnecessary Stable Modulation Index testing can increase qualification cost and create avoidable RF PHY failures that may not be correctable without changing the underlying SoC.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "LE",
-                "GFSK",
-                "Stable Modulation Index",
-                "testing",
-                "SoC"
-            ],
-            "search_aliases": [
-                "Stable RX Mod",
-                "Stable TX Mod",
-                "Stable Modulation Index",
-                "GFSK modulation tolerance",
-                "0.5±1% modulation",
-                "optional RF PHY feature",
-                "BLE modulation accuracy",
-                "RF PHY optional test",
-                "stable modulation fail"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0028",
+  "case_id": "thread_0028_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Toytec Bluetooth module), Stable Modulation Index test items -- what they are and whether they're worth testing",
+  "customer_question": "We're trying to decide whether to include the 'Stable Modulation Index - Transmitter' and 'Stable Modulation Index - Receiver' test items, but we can't find clear information on when these are actually needed. Could you explain in what cases this testing becomes necessary?",
+  "question_variants": [
+    "What is the practical difference between standard modulation index tolerance and Stable Modulation Index tolerance?",
+    "Is there any real value in testing Stable Modulation Index if our chipset choice can't easily be changed afterward?"
+  ],
+  "actual_issue": "The customer was uncertain whether to add the Stable Modulation Index Transmitter and Receiver test items to their RF PHY scope, since the publicly available documentation didn't clearly explain when this feature/testing actually matters for a real product decision.",
+  "plain_english_explanation": "BLE's GFSK modulation scheme normally allows a modulation index tolerance of 0.45-0.55 (0.5 plus or minus 10%) for standard BLE products, but products that declare Stable Modulation Index support are held to a much narrower tolerance of 0.495-0.505 (0.5 plus or minus 1%) -- full technical definitions are in Core Specification v5.1, with the corresponding test details in the RF PHY test specification. Practically, whether this test is worth paying for depends entirely on the underlying SoC/IC's modulation quality: if the chipset produces a clean GFSK modulation, paying for the test will likely result in a Pass; if it doesn't, paying for the test will likely just produce a Fail with no practical recourse, since once a SoC is selected, its modulation cleanliness generally can't be improved by switching to a different chip without a larger redesign. For this reason, there's often limited practical value in testing these items, since the outcome is largely predetermined by a chipset choice that's unlikely to change regardless of the result.",
+  "consultant_answer": "Standard BLE products are allowed a modulation index tolerance of 0.45-0.55 (0.5 ± 10%), but Stable Modulation Index support requires a much tighter 0.495-0.505 (0.5 ± 1%) -- full details are in Core Specification v5.1 and the RF PHY test spec. Whether it's worth testing depends on your SoC's modulation quality: a clean-modulating chipset will Pass, a non-clean one will Fail with no real recourse, since chipset choice typically can't be changed after the fact without a larger redesign. Given that, there's often limited practical value in paying for this test, since the outcome is largely locked in by your chipset choice either way.",
+  "decision_logic": "Whether to test Stable Modulation Index support should be evaluated based on whether the chosen SoC/IC genuinely produces clean GFSK modulation, since the test outcome is effectively predetermined by a chipset-level characteristic that usually cannot be changed after the fact -- testing a chipset of unknown or poor modulation quality offers little practical value since a Fail result provides no actionable recourse.",
+  "final_recommendation": "When a customer is deciding whether to add Stable Modulation Index testing, explain both the technical tolerance difference and the practical economics: since the outcome is largely chipset-determined and not something a Fail result can help fix, only recommend testing it if there's a genuine product reason to declare that capability.",
+  "risk_if_done_wrong": "Paying for Stable Modulation Index testing on a chipset with unknown modulation quality could result in a Fail with no actionable next step, wasting test cost on a result that doesn't change the product's chipset choice.",
+  "bluetooth_tags": [
+    "Stable Modulation Index Transmitter Receiver",
+    "GFSK modulation index tolerance",
+    "Core Specification v5.1 modulation tolerance",
+    "chipset modulation quality determines test outcome",
+    "Toytec"
+  ],
+  "search_aliases": [
+    "what is Stable Modulation Index test",
+    "GFSK modulation index 0.45 0.55 vs 0.495 0.505",
+    "is Stable Modulation Index testing worth it",
+    "Core Spec v5.1 modulation index tolerance"
+  ],
+  "qualification_stage": "Pre-test quotation / scoping",
+  "confidence": "high"
 }

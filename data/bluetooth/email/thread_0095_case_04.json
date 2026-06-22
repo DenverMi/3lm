@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0095",
+  "case_id": "thread_0095_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "Is the 'brief English product description' field on the registration confirmation document mandatory? Our product hasn't launched yet, so we can't give much detail -- how much should we actually write?",
+  "question_variants": [
+    "Do we have to fill in a product description before launch?",
+    "Won't a detailed description reveal what our unreleased product does?",
+    "How vague can the product description be?"
+  ],
+  "actual_issue": "The customer's product had not yet launched, and they were concerned that the registration confirmation document's required 'brief English product description' field -- which gets posted directly to Bluetooth SIG's public list of certified products -- would force them to reveal product details prematurely, and needed guidance on how much detail was actually appropriate.",
+  "plain_english_explanation": "Part of the registration becomes public information once it's filed, including a short description of what the product is. For a product that hasn't been announced yet, writing too much detail (like exactly what a sensor is designed to detect) could tip off competitors or customers before the company is ready to reveal it. Keeping the description deliberately generic, combined with telling SIG not to make the listing visible until a chosen date, helps avoid that risk.",
+  "consultant_answer": "The product description field is mandatory, and its content is posted directly to Bluetooth SIG's list of certified products. For a sensor device, describing the specific detection target would make the product's use and function easy to guess, so a generic description is recommended -- for example, 'This is a wireless sensor device with Bluetooth technology.' Separately, registration is required to be completed before a product's public disclosure date (market launch, press release, or exhibition), and specifying that public disclosure date at registration time prevents third parties from being able to anticipate the product launch ahead of time. Both simplifying the description and specifying a public disclosure date were recommended.",
+  "decision_logic": "Since the product description field is mandatory and becomes publicly visible on Bluetooth SIG's certified product list, a not-yet-launched or sensitive product's description should be kept deliberately generic (avoiding specifics that would reveal its exact function), and the registration's public disclosure date should be specified to control when the listing becomes visible to third parties.",
+  "final_recommendation": "For a not-yet-launched or sensitive product, advise the customer to write a generic, non-revealing product description and to specify a public disclosure date on the registration, rather than leaving the listing immediately and fully visible with detailed product information.",
+  "risk_if_done_wrong": "Writing a detailed product description for an unreleased product would expose its function and use to the public via Bluetooth SIG's certified product list before the company is ready to disclose it, and failing to specify a public disclosure date would leave the listing immediately visible to third parties.",
+  "bluetooth_tags": ["product description", "public disclosure date", "certified product list", "listing"],
+  "search_aliases": ["product description mandatory publicly listed", "keep description generic unreleased product", "public disclosure date prevents early visibility", "sensor device generic description example"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

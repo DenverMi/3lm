@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0221",
+  "thread_analysis": {
+    "thread_summary": "Move company (Koji Kishimoto) submitted a quote request referencing Q309899 (Core-Controller SoC) for Bluetooth SIG registration, and asked Allion (via Kentaro Taniguchi) several clarification questions before placing the order: whether the registration contact must be the SIG signer, how to fill in RF PHY Optional Function/Power Class fields, and when the SIG fee receipt number must be obtained. An NDA signing request was also raised but the response text wasn't included in the excerpt reviewed. The customer's question about overall registration completion timeline from data submission was also raised but not answered within this excerpt.",
+    "all_questions_found": [
+      "Does the registration point of contact need to be the SIG account signer?",
+      "How should we fill in RF PHY Optional Function and Power Class given our reference is Q309899?",
+      "By when do we need the receipt number for the SIG fee payment?"
+    ],
+    "key_technical_discussion": "Q309899 is a Core-Controller SoC, requiring product-board-level RF/RF PHY testing (no exemption) since RF performance depends on the actual board design, not the bare SoC. Its declared ICS includes RF Class 1 and RF PHY 1M/2M/Stable Mod(Tx)/Stable Mod(Rx)/Class 1 — any customer-submitted test data must cover these features via a BQTF report.",
+    "key_decision_logic": "RF PHY test exemption applies to RF-complete modules, not bare Core-Controller SoCs. Payment receipt numbers must be secured before the planned registration Submission date.",
+    "risk_if_done_wrong": "Treating a Core-Controller SoC's QDID as conferring RF PHY exemption would produce an invalid registration; missing the payment lead time would delay Submission.",
+    "consulting_mistake": "None identified in the answered portions — though the customer's question about overall registration timeline (data submission to completion) appears to have gone unanswered in this excerpt and may need follow-up.",
+    "consulting_takeaway": "When a customer's reference QDID is a bare SoC (Core-Controller) rather than an RF-complete module, always flag that RF/RF PHY testing on the actual product board is required, and pull the precise ICS declaration from the SIG portal rather than assuming exemption."
+  }
+}

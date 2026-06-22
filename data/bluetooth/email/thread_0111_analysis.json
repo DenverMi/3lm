@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0111",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This short thread covers two post-registration steps for a Bluetooth product ('U2KIT Car Entertainment Adaptor') handled by an Allion consultant ([PERSON]) for a customer ([COMPANY], contact [PERSON]) during early April 2025. First, the consultant corrects a character-formatting issue in the product name on the SIG registration Review Page before the customer confirms it. Second, after registration is confirmed, the consultant requests supporting documents for the compliance folder, and the customer asks whether TELEC certification documentation can substitute for a missing antenna radiation pattern diagram, which the consultant confirms is acceptable.",
     "all_questions_found": [
       "Is the corrected registration content on the Review Page (with the corrected product name) correct and ready for confirmation?",

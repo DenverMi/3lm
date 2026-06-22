@@ -1,0 +1,40 @@
+{
+  "source_thread": "thread_0158",
+  "case_id": "thread_0158_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE product with Murata module (Infineon BT chip) — JVC Kenwood",
+  "customer_question": "How does the BLE RF PHY test work? What DTM connection method is used?",
+  "question_variants": [
+    "How does Allion connect for BLE Direct Test Mode (DTM)?",
+    "What equipment does Allion use for BLE RF PHY testing?",
+    "Does our sample hardware need modification for the BLE RF test?",
+    "How is the DTM connection established for BLE RF PHY testing?"
+  ],
+  "actual_issue": "The customer did not understand how the BLE RF PHY test DTM (Direct Test Mode) connection works in practice. BLE RF PHY testing requires sending direct HCI commands to the Bluetooth controller to generate RF test signals — this requires a direct connection to the controller's UART or USB port, bypassing the normal application layer. Many products do not expose this interface externally, requiring hardware modification of the sample.",
+  "plain_english_explanation": "BLE RF PHY testing (part of Bluetooth SIG qualification) requires accessing the device's Bluetooth controller in 'Direct Test Mode' (DTM), which lets test equipment send raw commands directly to the radio. This bypasses the normal app and host stack. To do this, Allion connects to the controller's DTM interface (typically a UART or USB pad on the PCB). Most finished products don't expose these pads externally, so the test sample must be physically modified — usually by adding an external connector or probe leads to the DTM pins on the board. Allion uses a SIG-certified 'InterLab RF Test System' that supports the Core Spec DTM protocol. Allion provides a memo explaining exactly what hardware modifications are needed on the sample.",
+  "consultant_answer": "Allion uses a SIG-certified 'InterLab RF Test System' that supports the Core Specification's Direct Test Mode (DTM). To connect, the test sample must be physically modified to expose the DTM interface (UART or equivalent) on the PCB. Allion provides a memo specifying the required modifications. The customer must prepare a hardware-modified sample per the memo before submitting it for BLE RF PHY testing.",
+  "decision_logic": "BLE RF PHY testing mandates DTM per the Bluetooth Core Specification. Since finished products typically do not expose the controller's DTM interface, hardware modification of the sample is a prerequisite. This is a standard requirement — not a special Allion procedure. The InterLab RF Test System is a SIG-recognized test tool, ensuring test results are acceptable for qualification.",
+  "final_recommendation": "Before submitting a sample for BLE RF PHY testing, confirm with Allion which DTM pads need to be exposed on the PCB. Prepare the hardware-modified sample per Allion's memo. Do not send an unmodified production unit — it cannot be connected for DTM testing.",
+  "risk_if_done_wrong": "If the sample is not modified for DTM access, the RF PHY test cannot be performed. The customer will need to re-submit a modified sample, causing schedule delay. Early coordination with Allion on sample modification requirements prevents this.",
+  "bluetooth_tags": [
+    "BLE RF PHY",
+    "Direct Test Mode",
+    "DTM",
+    "RF testing",
+    "BLE qualification",
+    "InterLab RF Test System",
+    "sample modification",
+    "hardware modification"
+  ],
+  "search_aliases": [
+    "BLE RF test DTM connection",
+    "Direct Test Mode hardware modification",
+    "BLE RF PHY sample prep",
+    "InterLab RF Test System",
+    "BLE qualification DTM",
+    "RF PHY test sample modification"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "high"
+}

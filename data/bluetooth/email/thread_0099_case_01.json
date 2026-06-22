@@ -1,45 +1,26 @@
 {
-    "source_thread": "thread_0099",
-    "cases": [
-        {
-            "case_id": "thread_0099_case_01",
-            "iut_type": "end product",
-            "customer_question": "Can additional products that use the same Bluetooth implementation be added later without paying for a new qualification?",
-            "question_variants": [
-                "Can similar products be added after initial qualification?",
-                "Is there a validity period for free derivative product registration?",
-                "Can future models be added to the existing Product List?",
-                "Do we need to list all future products during the initial registration?",
-                "Can products using the same module and Host stack reuse the qualification?"
-            ],
-            "actual_issue": "Determining eligibility and duration for adding derivative products to an existing Bluetooth qualification using the same Bluetooth implementation.",
-            "plain_english_explanation": "The customer wanted to know whether future products could reuse the same Bluetooth qualification instead of requiring a completely new registration. The discussion focused on products that share the same Bluetooth module and Host stack. The key concern was whether additional models must be declared immediately or can be added later.",
-            "consultant_answer": "The initial registration should include only one representative model. After qualification is completed, additional derivative products that use the same Bluetooth module and Host stack can be added through Product List expansion using the MyBlue qualification tools. Future models do not need to be listed during the initial registration. The ability to add derivative products remains available while the referenced Bluetooth qualification remains valid, and previously registered products may continue to be sold if not affected by future SIG rule changes.",
-            "decision_logic": "Qualification reuse is permitted when derivative products implement the same qualified Bluetooth architecture, specifically the same module and Host stack. Product List expansion is therefore used instead of creating a new qualification entry.",
-            "final_recommendation": "Qualify a representative model first, then use the Product List expansion process to add future derivative models that share the same Bluetooth implementation.",
-            "risk_if_done_wrong": "A company may perform unnecessary new qualifications, incur avoidable registration effort, or incorrectly assume future models must be included in the initial qualification submission.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "Product List",
-                "reuse",
-                "module",
-                "host",
-                "derivative product"
-            ],
-            "search_aliases": [
-                "free product list addition",
-                "derivative model registration",
-                "qualify more products",
-                "same module reuse",
-                "same host stack reuse",
-                "product list expansion",
-                "future model addition",
-                "representative model qualification"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0099",
+  "case_id": "thread_0099_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "We're filling out the Bluetooth SIG quote-request form for the first time and have several questions: which Member Class to pick, how to write the model name, whether SW/HW Version is mandatory, how much detail the Product Description needs, which Product Category/Type to select, and whether we checked the Declaration Fee payment option correctly.",
+  "question_variants": [
+    "What Member Class should we select?",
+    "Can we list multiple models on one quote-request form, and in what language?",
+    "Do we need to fill in SW/HW Version if it's not finalized yet?",
+    "How long should the Product Description be, and can it be in Japanese?",
+    "Which Product Category and Product Type fit our device?",
+    "Should we check the box to have Allion handle our Declaration Fee wire transfer?"
+  ],
+  "actual_issue": "A first-time customer needed field-by-field guidance on how to correctly complete the Bluetooth SIG quote-request form, since several fields' expectations (Member Class options, model name formatting, version-field requirements, description length, category/type selection, and the wire-transfer-agent checkbox) were unclear.",
+  "plain_english_explanation": "The certification quote-request form has several fields that aren't self-explanatory to someone filling it out for the first time. Walking through them one at a time -- what category best describes your role, how to format the device name, which fields can wait until later, how much description is actually needed, and what a particular checkbox means for how payment gets handled -- helps a new customer fill out the form correctly without guessing.",
+  "consultant_answer": "(1) Member Class: select 'adaptor.' (2) Model name: use alphabetic (Romanized) notation rather than Japanese, and list only one model for this registration -- a separate, Bluetooth-unchanged model can be added later for free, with guidance provided once the representative model's registration is complete. (3) SW Version / HW Version: not required at the quote stage; this can be discussed again at the time of actual product registration. (4) Product Description: one line is sufficient, and Japanese is acceptable. (5) Product Category: select whichever option is closest to the company's actual product; if nothing fits, select 'Other.' (6) Product Type: select 'End Product.' (7) Declaration Fee wire transfer: if the box for 'request Allion to act as wire-transfer agent' is checked, the wire-transfer-agent fee and process apply as already quoted; if the customer will wire the Declaration Fee directly themselves, that box should be unchecked.",
+  "decision_logic": "Quote-request form fields that are not yet finalized (such as SW/HW Version) should not block quoting and can be deferred to the actual registration stage; descriptive fields (Product Description) can be kept brief and in the customer's native language; category/type fields should default to the closest match or a fallback 'Other' option; and the Declaration Fee payment-method checkbox should reflect whether the customer wants the consultant's wire-transfer agency service or plans to wire the fee themselves.",
+  "final_recommendation": "When guiding a first-time customer through the quote-request form, clarify the Member Class to select, recommend Romanized model names with only one model per initial registration, defer SW/HW Version to registration time if not finalized, allow brief native-language Product Descriptions, guide Category/Type selection toward the closest match or 'Other,' and confirm the Declaration Fee checkbox matches the customer's intended payment method.",
+  "risk_if_done_wrong": "Requiring unfinalized fields like SW/HW Version at the quote stage could stall quoting unnecessarily, and an incorrectly checked Declaration Fee payment-method box could create confusion about who is responsible for the wire transfer.",
+  "bluetooth_tags": ["quote request form", "Member Class", "Product Category", "Product Type", "Declaration Fee"],
+  "search_aliases": ["Member Class adaptor selection", "model name Romanized alphabetic format", "SW HW Version not required at quote stage", "Product Type select End Product", "Declaration Fee wire transfer agent checkbox"],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
 }

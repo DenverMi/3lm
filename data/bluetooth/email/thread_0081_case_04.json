@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0081",
+  "case_id": "thread_0081_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "communications terminal",
+  "customer_question": "We want to register three separate products that all use the same Bluetooth module and host stack. Can we list all three model names on this one registration?",
+  "question_variants": [
+    "Do we need three separate registrations for our three product variants?",
+    "Can multiple model names go in the 'first model to sell' field?",
+    "How do we register several products that share identical Bluetooth hardware and software?"
+  ],
+  "actual_issue": "The customer had three distinct products that all used the identical Bluetooth module and host stack, and needed to know whether all three model names could be entered on a single new registration, specifically in the field for the first model planned for sale.",
+  "plain_english_explanation": "When several different products are really just variations that all use the exact same Bluetooth hardware and software inside, they don't need three separate registrations -- they can all be listed together on one registration, even in the field that normally just asks for a single 'first model to be sold' name.",
+  "consultant_answer": "Yes, the three model names can be listed together in the registration form's field for the model name of the first product planned for sale.",
+  "decision_logic": "Multiple distinct products that share an identical Bluetooth module and host stack can be listed together on a single new registration, including being listed together in the 'first model to sell' field, rather than requiring a separate registration for each.",
+  "final_recommendation": "When a customer has multiple products sharing the same Bluetooth module and host stack, register them together under one new registration, listing all relevant model names together in the 'first model to sell' field rather than creating separate registrations.",
+  "risk_if_done_wrong": "Assuming each product variant needs its own separate registration, when they share identical Bluetooth hardware and software, would create unnecessary registration cost and duplication.",
+  "bluetooth_tags": ["Product List", "multiple models", "new registration", "module", "host stack"],
+  "search_aliases": ["list multiple model names same registration", "first model to sell field multiple products", "shared module host stack one registration", "three products same Bluetooth hardware registration"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

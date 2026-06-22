@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0167",
+  "case_id": "thread_0167_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE module (Alps Alpine UXC10, Qualcomm chipset)",
+  "customer_question": "During RF PHY testing, the DUT cannot support the 255-byte packet length declared in the ICS. It only supports 37 bytes. Also, the output power does not meet the required level. How do we handle these issues?",
+  "question_variants": [
+    "Our DUT can't run RF PHY test with 255 packet length — it only supports 37. What do we do?",
+    "The DUT output power is below the required level for RF PHY testing. Can we continue or must we stop?",
+    "The Test Plan declares 255-byte packet length but the DUT only handles 37 bytes. Do we need to revise the Test Plan?"
+  ],
+  "actual_issue": "Internal Allion RF PHY test coordination for Alps Alpine UXC10 module. During test setup, Allion Taiwan (Leo) found two issues: (1) the DUT cannot be tested with 255-byte packet length (ICS declared 255 but device supports only 37); (2) the DUT output power is below the required RF PHY test threshold. Sakai instructed to revise the Test Plan to match the actual DUT capability (37 bytes), and requested the DUT vendor update the firmware to meet the output power requirement.",
+  "plain_english_explanation": "RF PHY tests are conducted according to a Test Plan that declares the DUT's capabilities (packet length, output power class, etc.). If the DUT's actual capability differs from what the Test Plan declares, the Test Plan must be corrected before testing can proceed. For packet length, revise the Test Plan to use the DUT's actual supported value (37 instead of 255). For output power, if the DUT does not meet the required output power level for the declared power class, the DUT firmware must be updated — testing cannot proceed until the hardware/firmware meets the requirement.",
+  "consultant_answer": "Revise the Test Plan to declare 37-byte packet length instead of 255, and re-send the corrected Test Plan to the test lab. For the output power issue, halt testing and request the DUT vendor update the firmware to achieve the required output power. Resume testing only after firmware correction and DUT replacement/update.",
+  "decision_logic": "The Test Plan must reflect the DUT's actual capabilities — not theoretical maximum values. Testing with a declared capability that the DUT cannot demonstrate produces invalid results. Output power failures are hardware/firmware issues that cannot be worked around at the test plan level; the DUT must be corrected.",
+  "final_recommendation": "For packet length discrepancy: immediately revise the Test Plan and inform the lab. For output power: halt testing, return to vendor for firmware fix, then retest. Do not continue RF PHY testing with a DUT that doesn't meet the declared capabilities in either dimension.",
+  "risk_if_done_wrong": "Testing with incorrect Test Plan parameters produces non-conformant results. An RF PHY report generated with incorrect parameters cannot be used as SIG qualification evidence and will need to be repeated.",
+  "bluetooth_tags": [
+    "RF PHY test",
+    "Test Plan",
+    "packet length",
+    "output power",
+    "DUT capability",
+    "DTM",
+    "InterLab"
+  ],
+  "search_aliases": [
+    "RF PHY test packet length mismatch",
+    "DUT output power too low RF PHY",
+    "Test Plan revision RF PHY",
+    "packet length 37 vs 255 RF test",
+    "DUT capability mismatch Test Plan"
+  ],
+  "qualification_stage": "Testing / RF PHY test execution",
+  "confidence": "low"
+}

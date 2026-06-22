@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0260",
+  "thread_analysis": {
+    "thread_summary": "ACCESS Corporation (contact Daisuke Sakyo, referred via Phoenix Engineering/Junichi Yamada) works with Allion (Masaya Iida, Itsuo Sakai) on Bluetooth SIG certification for a module-based product (antenna-connector type, RF/RF PHY test-exempt) referencing D063309 (Fluoride Bluetooth Host Subsystem) for A2DP/AVRCP/DI profile support. As a first-time customer requiring prepayment, the thread covers an ICS terminology clarification, a full timeline breakdown, and Compliance Folder document requirements for a non-publicly-sold product, through to final registration completion and CD-R Compliance Folder delivery.",
+    "all_questions_found": [
+      "What does 'ICS support' mean, and does an unmodified stack implementation qualify for the stated profile test exemption? (see thread_0260_case_01)",
+      "Is the 3-week SIG wire transfer window the entire registration timeline? (see thread_0260_case_02)",
+      "Why are Compliance Folder documents needed for a product not sold to the general public, and what can substitute for a missing operation manual? (see thread_0260_case_03)"
+    ],
+    "key_technical_discussion": "This thread illustrates ICS-based profile test exemption logic in plain terms, a complete multi-stage registration timeline for a prepayment-required first-time customer, and the product-type-agnostic nature of Compliance Folder documentation requirements, including acceptable substitutions (specification documents, reused Radio Law certification materials) when conventional documents don't exist.",
+    "key_decision_logic": "See thread_0260_case_01 through thread_0260_case_03.",
+    "risk_if_done_wrong": "See thread_0260_case_01 through thread_0260_case_03.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "For first-time, prepayment-required customers and for products that don't fit the typical consumer-product mold (e.g., not sold publicly, no conventional manual), proactively walk through the complete process timeline and clarify that documentation requirements are rule-based rather than product-type-dependent, suggesting practical substitutions where conventional materials don't exist."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0240",
+  "thread_analysis": {
+    "thread_summary": "DensoTen's already-certified 24MM upper model is being considered for a derivative with a 2.4GHz antenna configuration change (1x1 to 2x2, antenna external to the Bluetooth module). Allion sales (Jun Wang) relays the customer's retest-necessity question to Itsuo Sakai, who provides the technical answer on RF/RF PHY retest scope based on the antenna connector measurement-point principle.",
+    "all_questions_found": [
+      "Does changing the 2.4GHz antenna configuration from 1x1 to 2x2 require Bluetooth re-certification testing, and if so what test items and lead time apply?"
+    ],
+    "key_technical_discussion": "RF/RF PHY test results for module-based Bluetooth products are tied to the module's circuit, components, and board layout up to the antenna connector (the test measurement point). Antenna changes external to that connector, like the proposed 1x1-to-2x2 reconfiguration, don't affect the validity of existing test results. The customer's own assumption that 'RF two items' might be needed was effectively superseded by Allion's connector-based answer, which implies no retest may be needed at all if no module-side change occurs.",
+    "key_decision_logic": "Retest scope is determined by the location of the change relative to the antenna connector, not by whether the change is RF-related in a general sense.",
+    "risk_if_done_wrong": "Misjudging this rule could lead to unnecessary retest cost for an antenna-only change, or — in the opposite error — skipping a required retest if a module-side circuit/layout change were mistakenly treated as antenna-only.",
+    "consulting_mistake": "None identified — Sakai's answer directly addressed the customer's specific change scenario with the relevant governing principle.",
+    "consulting_takeaway": "For derivative-model RF change assessments, always pinpoint whether the proposed hardware change sits before or after the module's antenna connector before determining test scope, since this single distinction governs the entire retest-necessity decision."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0186",
+  "case_id": "thread_0186_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Panasonic wireless lighting control product (nRF52 SoC, RF PHY test)",
+  "customer_question": "For RF PHY testing of a product using a bare SoC (no pre-certified module), does the product need to be able to run Direct Test Mode (DTM)? What is DTM and how should it be implemented?",
+  "question_variants": [
+    "Is Direct Test Mode required for RF PHY certification of a SoC-based product?",
+    "How do we implement DTM for the RF PHY test?",
+    "Does DTM need to be implemented in the product firmware for RF testing?"
+  ],
+  "actual_issue": "The product uses a bare SoC (not a pre-certified module), so RF PHY testing must be done at the product level. The customer was not sure what firmware requirements are needed for the RF test.",
+  "plain_english_explanation": "Direct Test Mode (DTM) is a special Bluetooth LE test mode defined in the BT spec that allows a test instrument (the certification tester) to control the DUT's transmitter/receiver via HCI commands. For RF PHY certification testing, the DUT must implement DTM so the certification tester can send RF test commands and measure the RF output. DTM operates at the SoC's RF PHY, LL, and HCI layers only — it does not require the full Bluetooth application stack to be running. For Nordic nRF52, a sample 'Direct Test Mode app' exists and can be integrated into the firmware.",
+  "consultant_answer": "Yes, DTM implementation is mandatory for RF PHY certification testing of a bare SoC product. The certification tester sends HCI-based DTM commands to control the DUT's transmitter. For Nordic nRF52 with SoftDevice, this means integrating the 'Direct Test Mode app' into the firmware (per the RF PHY Test Sample Modification Guide). DTM operates only at the RF PHY/LL/HCI layers — the full Bluetooth application stack does not need to be running during the RF test.",
+  "decision_logic": "RF PHY certification of a SoC-based product always requires DTM. Without DTM, the certification tester cannot issue TX/RX test commands to the DUT. For Nordic SoftDevice, the DTM app is provided as a sample and must be compiled in. This is a standard requirement for any SoC-based (non-module) RF PHY test.",
+  "final_recommendation": "Before scheduling RF PHY testing for an nRF52-based product, integrate the Direct Test Mode app into the firmware. Use the RF PHY Test Sample Modification Guide provided by Allion to implement the necessary modifications. Confirm DTM is operational before shipping the DUT to the test lab.",
+  "risk_if_done_wrong": "If the DUT does not support DTM, the RF PHY test cannot be performed. The test session will be wasted and the DUT must be returned for firmware modification, causing significant delay.",
+  "bluetooth_tags": [
+    "DTM",
+    "Direct Test Mode",
+    "RF PHY test",
+    "SoC",
+    "nRF52",
+    "Nordic",
+    "SoftDevice",
+    "HCI",
+    "BQTF"
+  ],
+  "search_aliases": [
+    "Direct Test Mode DTM RF PHY test",
+    "DTM implementation nRF52",
+    "SoC RF test firmware requirements",
+    "DTM HCI RF PHY certification",
+    "Direct Test Mode app Nordic"
+  ],
+  "qualification_stage": "implementation",
+  "confidence": "high"
+}

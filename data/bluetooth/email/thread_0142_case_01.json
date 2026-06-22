@@ -2,6 +2,7 @@
   "source_thread": "thread_0142",
   "case_id": "thread_0142_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "module",
   "customer_question": "We noticed a mismatch between the Profile versions in the PTS test report and what is entered in the Qualification Workspace. Specifically, HFP is shown as 1.7.2 but it should be 1.8, and HID was tested at v1.1.1 but the current TCRL lists v1.1.2. Can these be corrected?",
   "question_variants": [
@@ -14,8 +15,23 @@
   "decision_logic": "1. For input errors (wrong version entered): correct immediately before Submission.\n2. For TCRL version upgrades: check if new version's test items are identical to the version used during testing. If yes → update registration to newer version for longer certification life.\n3. If test items differ → cannot upgrade without re-testing.",
   "final_recommendation": "When reviewing a registration before Submission, cross-check all Profile versions in the Qualification Workspace against the PTS test report. If a TCRL upgrade has occurred, verify test item parity before deciding to upgrade the version in the registration.",
   "risk_if_done_wrong": "Submitting with wrong HFP version (1.7.2 instead of 1.8) may cause SIG to reject or question the registration. Not upgrading HID to v1.1.2 when the test items are identical misses an opportunity for a longer-lived certification.",
-  "bluetooth_tags": ["profile-version-mismatch", "TCRL", "HFP", "HID", "input-error", "version-upgrade", "Submission", "qualification-workspace"],
-  "search_aliases": ["profile version mismatch PTS report registration", "HFP version wrong corrected before submission", "TCRL pkg101 HID 1.1.1 to 1.1.2", "TCRL upgrade same test items version bump", "correct profile version before submission"],
+  "bluetooth_tags": [
+    "profile-version-mismatch",
+    "TCRL",
+    "HFP",
+    "HID",
+    "input-error",
+    "version-upgrade",
+    "Submission",
+    "qualification-workspace"
+  ],
+  "search_aliases": [
+    "profile version mismatch PTS report registration",
+    "HFP version wrong corrected before submission",
+    "TCRL pkg101 HID 1.1.1 to 1.1.2",
+    "TCRL upgrade same test items version bump",
+    "correct profile version before submission"
+  ],
   "qualification_stage": "pre-submission review",
   "confidence": "high"
 }

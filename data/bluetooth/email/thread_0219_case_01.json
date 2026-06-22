@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0219",
+  "case_id": "thread_0219_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (smart communication unit with embedded antenna, Bluetooth V4.2 smart module, Seiko Solutions)",
+  "customer_question": "What exactly does the 'RF 2-item test' (¥200,000) consist of, and is real hardware required for it?",
+  "question_variants": [
+    "What are the specific test items covered under the RF 2-item test quote line?",
+    "Do we need an actual physical sample for the RF tests, or can it be done some other way?"
+  ],
+  "actual_issue": "Seiko Solutions, planning Bluetooth SIG registration for a communication unit built around a smart module with embedded antenna (Bluetooth V4.2, with LTE/GNSS/WLAN also onboard), asked for clarification on what the quoted 'RF 2-item test' actually covers and whether a physical test sample was required.",
+  "plain_english_explanation": "The 'RF 2-item test' refers to two specific test items defined in the RF test specification: TP/RCV/CA (receive sensitivity) and TP/TRM/CA (transmit output power). A physical test sample (a modified unit suitable for RF testing) is required to run these tests.",
+  "consultant_answer": "The RF 2-item test consists of TP/RCV/CA (receive sensitivity) and TP/TRM/CA (transmit output power) as defined in the RF test specification. A test sample (a test-modified actual unit) is required.",
+  "decision_logic": "RF testing for Bluetooth qualification requires a physical sample because receive sensitivity and transmit power measurements cannot be performed on paper specifications or simulation alone — actual RF performance must be measured.",
+  "final_recommendation": "When quoting RF test line items, always specify the exact test case IDs (TP/RCV/CA, TP/TRM/CA) and clarify upfront that a physical test sample is mandatory, to avoid back-and-forth clarification later.",
+  "risk_if_done_wrong": "If the customer assumes no physical hardware is needed and doesn't prepare a test sample in time, the testing schedule will slip.",
+  "bluetooth_tags": [
+    "RF 2-item test",
+    "TP/RCV/CA",
+    "TP/TRM/CA",
+    "receive sensitivity",
+    "transmit power",
+    "Seiko Solutions"
+  ],
+  "search_aliases": [
+    "RF 2 item test meaning",
+    "receive sensitivity transmit power test Bluetooth",
+    "RF test sample requirement",
+    "TP/RCV/CA TP/TRM/CA"
+  ],
+  "qualification_stage": "Pre-registration / quote clarification",
+  "confidence": "high"
+}

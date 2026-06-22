@@ -2,6 +2,7 @@
   "source_thread": "thread_0116",
   "case_id": "thread_0116_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "keyboard",
   "customer_question": "We have a device registered under Bluetooth Core Specification 4.2, but the QDIDs it references (97470 and another [ID]) are actually Core Specification 5.0. With no hardware or software changes, can we change this existing 4.2 registration to 5.0, and would new testing be required?",
   "question_variants": [
@@ -15,7 +16,15 @@
   "decision_logic": "If a product's registration spec version (e.g., 4.2) does not match the spec version of its referenced component QDIDs (e.g., 5.0), do not attempt to edit the spec version on the existing registration - SIG rules do not permit in-place spec version changes. Instead, file a new registration referencing the same component QDIDs at the desired (higher) spec version. If hardware/software are unchanged, existing test reports can be reused, so only the new registration fee applies (no new testing cost).",
   "final_recommendation": "To move from a 4.2 registration to 5.0 with unchanged hardware/software: file a brand-new registration referencing the same component QDIDs at spec 5.0, reusing existing test reports (no new testing needed), and budget for the standard registration fee ($11,040) plus registration support/Compliance Folder costs (~¥400,000) if using proxy registration support, or ~¥400,000 + tax if the customer remits the SIG fee directly.",
   "risk_if_done_wrong": "Attempting to edit an existing 4.2 registration's spec version to 5.0 is not permitted and would not succeed under SIG's operational rules. Assuming a simple in-place edit is possible could cause delays and confusion; failing to budget for the new registration fee (treating it as a free 'spec correction') could cause cost surprises for the customer.",
-  "bluetooth_tags": ["qualification", "listing", "core specification version", "DID", "QDID", "registration fee", "re-registration"],
+  "bluetooth_tags": [
+    "qualification",
+    "listing",
+    "core specification version",
+    "DID",
+    "QDID",
+    "registration fee",
+    "re-registration"
+  ],
   "search_aliases": [
     "Bluetooth registration 4.2 to 5.0 conversion",
     "cannot change registration spec version in place",

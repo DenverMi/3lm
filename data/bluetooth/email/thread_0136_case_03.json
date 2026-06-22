@@ -2,6 +2,7 @@
   "source_thread": "thread_0136",
   "case_id": "thread_0136_case_03",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "wearable",
   "customer_question": "What does the 'Q30' prefix on a QDID mean? Is it less official than an older-format QDID number?",
   "question_variants": [
@@ -14,8 +15,20 @@
   "decision_logic": "1. Q30 prefix: new format since QPRDv3.0 — legally equivalent to old QDIDs.\n2. Combine unmodified Designs: ≥2 QDIDs → Q30 DN auto-assigned; 1 QDID → no DN (entry shows 'Details').",
   "final_recommendation": "Reassure customers that Q30 QDIDs are fully valid. When using Combine unmodified Designs, plan to have ≥2 QDIDs if a Design Number is needed for product listing or product identification purposes.",
   "risk_if_done_wrong": "If a customer needs a Design Number (e.g., to list their product in the SIG member directory) and only has 1 QDID to combine, Combine unmodified Designs will not produce one — they need a different approach.",
-  "bluetooth_tags": ["Q30-QDID", "QPRDv3.0", "Combine-unmodified-Designs", "Design-Number", "QDID-format"],
-  "search_aliases": ["Q30 QDID prefix meaning", "QPRDv3.0 QDID format", "Combine unmodified Designs design number", "when is DN assigned combine designs", "1 QDID no DN 2 QDIDs DN"],
+  "bluetooth_tags": [
+    "Q30-QDID",
+    "QPRDv3.0",
+    "Combine-unmodified-Designs",
+    "Design-Number",
+    "QDID-format"
+  ],
+  "search_aliases": [
+    "Q30 QDID prefix meaning",
+    "QPRDv3.0 QDID format",
+    "Combine unmodified Designs design number",
+    "when is DN assigned combine designs",
+    "1 QDID no DN 2 QDIDs DN"
+  ],
   "qualification_stage": "design registration",
   "confidence": "high"
 }

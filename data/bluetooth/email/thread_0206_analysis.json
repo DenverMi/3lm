@@ -1,0 +1,19 @@
+{
+  "source_thread": "thread_0206",
+  "thread_analysis": {
+    "thread_summary": "Two-message thread for Denso Ten IVI device Bluetooth profile testing and post-registration compliance folder questions. Message 1 (Sep 2024) is an internal Allion communication resolving whether Bluetooth PTS profile tests check the device's UI — answer: no dedicated UI test package exists, but UI interactions (button presses) are embedded within some profile test items. Message 2 (Dec 2024) covers Denso Ten's questions about post-test Compliance Folder document requirements: antenna radiation gain coverage (±100° average OK vs. ±180° full not required), outline drawing format (no strict engineering format needed), whether documents are registered on SIG portal (no — private retention), and whether Allion consolidates all documents (yes, into a CD-R).",
+    "all_questions_found": [
+      "Does Bluetooth logo testing include dedicated UI tests?",
+      "Is ±100° (200°) antenna radiation gain data sufficient, or is ±180° (360°) full sweep required?",
+      "Are peak radiation gain values required or is average sufficient?",
+      "Are strict engineering dimension drawings required, or can dimension annotations/photos suffice?",
+      "Are Compliance Folder documents uploaded to and publicly visible on the SIG portal?",
+      "Does Allion consolidate all Compliance Folder documents into a single CD-R package?"
+    ],
+    "key_technical_discussion": "Profile tests (IOPT/PTS) do not have a dedicated UI test category but many items require button/UI interaction as test steps. Antenna data: ±100° average gain is acceptable (no full 360° required, no peak required). Outline drawing: dimensions must be stated but formal drawing format is not required. Compliance Folder: private document, never uploaded to SIG portal, retained by Listing Owner until 1 year after product discontinuation. Allion compiles all documents (certification outputs + customer-supplied product materials) into one CD-R package.",
+    "key_decision_logic": "SIG compliance documentation requirements are more flexible than customers often assume. Antenna data partial sweep is acceptable. Privacy of the Compliance Folder is absolute — the SIG does not display these documents publicly, only requests them during audits.",
+    "risk_if_done_wrong": "Customers may over-engineer their antenna documentation or unnecessarily refuse to share design documents if they believe full-coverage data or public disclosure is required.",
+    "consulting_mistake": "None identified. Responses were clear and accurate.",
+    "consulting_takeaway": "Proactively address common customer misconceptions: antenna data does not need 360° coverage, and Compliance Folder documents are never posted publicly on the SIG portal. These two points reduce unnecessary delays and customer anxiety."
+  }
+}

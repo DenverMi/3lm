@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0159",
+  "case_id": "thread_0159_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "payment terminal with integrated antenna Bluetooth module (Flight Solutions)",
+  "customer_question": "What tests are needed for Bluetooth SIG qualification for our payment terminal?",
+  "question_variants": [
+    "Are we exempt from Bluetooth testing?",
+    "Does our product need RF testing or profile testing?",
+    "What test list applies to a product using an antenna-integrated module with no SIG profiles?"
+  ],
+  "actual_issue": "The customer's product uses a Bluetooth module with an integrated antenna and does not implement any Bluetooth SIG-defined profiles. This combination triggers full RF test and profile test exemptions.",
+  "plain_english_explanation": "Bluetooth SIG qualification can require two categories of tests: (1) RF/RF PHY tests (radio performance), and (2) Profile tests (protocol behavior). If a product uses a module that already has an integrated antenna and no antenna connector exposed to the outside, there is no need to test RF performance at the product level — the module's own qualification covers it. Separately, if the product does not implement any SIG-defined profiles (e.g., A2DP, HFP, HOGP, etc.), there are no profile-level tests to run. When both conditions apply — integrated antenna module AND no SIG profiles — the product qualifies with zero additional testing required.",
+  "consultant_answer": "Because the product uses a module with an integrated antenna (no external antenna connector) and implements no SIG-defined Bluetooth profiles, both RF/RF PHY testing and profile testing are fully exempt. Qualification proceeds directly to registration without any testing at the product level.",
+  "decision_logic": "RF test exemption: module with integrated antenna means the RF interface is internal and pre-qualified at the module level. Profile test exemption: if the product uses the same Bluetooth Host Stack as the QDID component without adding any new profile ICS support, no product-level profile testing is required. When both exemptions apply simultaneously, no testing at all is needed.",
+  "final_recommendation": "For products using an integrated-antenna Bluetooth module with no SIG profiles, confirm both exemptions with Allion during the quote phase. Registration proceeds directly after payment without scheduling any test sessions.",
+  "risk_if_done_wrong": "Incorrectly scheduling tests for an exempt product wastes time and money. Conversely, failing to verify exemption eligibility for a product that does need testing delays qualification.",
+  "bluetooth_tags": [
+    "test exempt",
+    "integrated antenna",
+    "no SIG profiles",
+    "RF test exempt",
+    "profile test exempt",
+    "Bluetooth qualification",
+    "End Product registration"
+  ],
+  "search_aliases": [
+    "test exempt integrated antenna module",
+    "no profile test required",
+    "RF test exemption conditions",
+    "Bluetooth qualification without testing",
+    "integrated antenna test exempt"
+  ],
+  "qualification_stage": "pre-test review",
+  "confidence": "high"
+}

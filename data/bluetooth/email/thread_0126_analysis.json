@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0126",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This is an internal/lab-coordination thread (June 13-25, 2025) for an RF 2-item logo test of a Ricoh Imaging DSC (digital camera) at the ABTS test lab (Leo Chou), arranged by Allion's Mochizuki. After testing, the lab observed the measured output power didn't match LE Power Class 1 and flagged that digital cameras are typically non-Power-Class-1 by design. The customer initially confirmed 'Class 2' and revised the test plan's ICS accordingly, but the lab pushed back: 'Power Class 2' isn't a defined category in the current ICS/Test Specification (only Power Class 1 yes/no for LE, and only a Power Class 1 level for classic RF output power per the updated TCRL) - it's a Core Specification concept only. The lab requested the report be made as 'non-Class 1' instead and sent a revised Test Plan ICS image reflecting the latest definitions. Separately, a Model Name typo carried over from the test plan into the report was identified and corrected, with the lab confirming no other issues and sending the updated report; Sakai closed out the thread on Mochizuki's behalf thanking the lab for the quick turnaround.",
     "all_questions_found": [
       "(Internal/lab) Based on the measured output power, is this digital camera's Bluetooth module LE Power Class 1, and if not, how should that be reflected in the ICS/report?",

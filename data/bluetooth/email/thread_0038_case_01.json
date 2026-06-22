@@ -1,48 +1,34 @@
 {
-    "source_thread": "thread_0038",
-    "cases": [
-        {
-            "case_id": "thread_0038_case_01",
-            "iut_type": "air purifier",
-            "customer_question": "Can a product using a pre-qualified ESP32 Bluetooth module complete Bluetooth SIG qualification quickly without additional testing after receiving an enforcement warning?",
-            "question_variants": [
-                "Can we avoid Bluetooth testing by using a qualified ESP32 module?",
-                "How quickly can Bluetooth SIG registration be completed for a module-based product?",
-                "Does an ESP32-C3-WROOM module allow qualification reuse?",
-                "Can we resolve a Bluetooth SIG enforcement warning using module reuse?",
-                "Is additional Bluetooth testing required for a product using ESP32-C3-WROOM-02?"
-            ],
-            "actual_issue": "The customer had not completed Bluetooth SIG qualification because they believed qualification was unnecessary without using the Bluetooth logo, but the product still required qualification. The consultant needed to determine whether the product could leverage an already qualified ESP32 module and complete qualification without new testing.",
-            "plain_english_explanation": "The product already used a Bluetooth module that had existing Bluetooth qualification coverage. Because the Bluetooth portion of the design was likely unchanged, the consultant determined that new hardware testing might not be necessary. Instead, the case could potentially be handled through registration support and compliance documentation to quickly address the Bluetooth SIG warning.",
-            "consultant_answer": "The consultant reviewed the module datasheet and confirmed that the ESP32-[ID]02 was an already qualified antenna-integrated module with an identified Host Subsystem combination. Based on this reuse scenario, the consultant concluded that the case could likely proceed without additional testing if the Bluetooth-compliant portions were unchanged. Internal guidance stated that registration support could potentially be completed within approximately three working days in the no-test scenario. The consultant also clarified that the applicant company itself would still need to pay the Bluetooth SIG registration fee directly.",
-            "decision_logic": "Bluetooth qualification obligations apply even if the Bluetooth logo is not used. If a product uses a previously qualified Bluetooth module and the Bluetooth-compliant implementation remains unchanged, qualification reuse may eliminate the need for additional testing. Qualification can then proceed primarily through declaration, registration, and compliance documentation.",
-            "final_recommendation": "Verify that the final product fully matches the qualified ESP32 module reuse conditions and proceed with Bluetooth SIG qualification registration using the existing module qualification evidence instead of initiating new testing.",
-            "risk_if_done_wrong": "If the module reuse conditions are incorrectly assumed, the product may lack required qualification coverage or require additional testing later. Failure to complete Bluetooth SIG qualification after receiving an enforcement warning could prolong compliance exposure and delay resolution. Incorrect assumptions about qualification obligations could also lead to unnecessary testing cost or registration delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "module",
-                "reuse",
-                "listing",
-                "declaration",
-                "host",
-                "compliance folder",
-                "enforcement"
-            ],
-            "search_aliases": [
-                "ESP32 qualification reuse",
-                "ESP32-C3-WROOM qualification",
-                "qualified module no retest",
-                "Bluetooth SIG enforcement warning",
-                "module-based qualification",
-                "reuse existing QDID",
-                "registration only qualification",
-                "no Bluetooth logo still requires qualification",
-                "host subsystem reuse",
-                "Bluetooth qualification without testing"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0038",
+  "case_id": "thread_0038_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Purgatio humidifying air purifier, Espressif ESP32-C3-WROOM-02 module), responding to a Bluetooth SIG non-compliance warning with an already-qualified module",
+  "customer_question": "We sell a humidifying air purifier that communicates with a smartphone app via Bluetooth. We never applied for Bluetooth SIG certification since we don't use the Bluetooth logo, but we just received a warning email from Bluetooth SIG telling us to address this urgently. Can you advise on how to resolve this, and if registration is needed, what's the timeline and cost? Our Bluetooth module is the Espressif ESP32-C3-WROOM-02.",
+  "question_variants": [
+    "Since we received an enforcement warning, how quickly can registration be completed?",
+    "Does our module require retesting, or can we register based on its existing qualification?"
+  ],
+  "actual_issue": "The customer had shipped a Bluetooth-enabled product without ever registering it with Bluetooth SIG (mistakenly believing that not displaying the Bluetooth logo exempted them, similar to the misunderstanding addressed in thread_0034), and had now received a direct compliance warning email from Bluetooth SIG itself, creating urgency to resolve the registration gap quickly.",
+  "plain_english_explanation": "The customer's Bluetooth module, the Espressif ESP32-C3-WROOM-02, was confirmed via its datasheet to be an antenna-integrated module that was already registered/qualified with Bluetooth SIG, with its compatible Host Subsystem combinations clearly documented -- meaning no new testing was required for the customer's product, only a proxy registration referencing the module's existing qualification (a Multi-Design reference path). Given this, the consultant could offer a fast turnaround (about 3 business days for the registration itself) once the customer's own payment to Bluetooth SIG (the Declaration fee, separate from the consulting fees) was sent, since the customer -- not the consultant -- is responsible for making that direct payment themselves in this scenario. The quoted proxy registration support and Compliance Folder creation fees were the standard rates for an already-qualified-module Multi-Design reference registration.",
+  "consultant_answer": "Good news -- your module, the Espressif ESP32-C3-WROOM-02, is an antenna-integrated module that's already registered/qualified with Bluetooth SIG, with its compatible Host Subsystem combinations already documented. That means no new testing is needed for your product -- we can do a proxy registration referencing the module's existing qualification, which typically takes about 3 business days once your payment to Bluetooth SIG (the Declaration fee) is sent. Note that payment needs to come from you directly, not through us, in this case. Our fees would be ¥250,000 for proxy registration support and ¥150,000 for Compliance Folder creation, on top of the Bluetooth SIG Declaration fee itself.",
+  "decision_logic": "When a customer receives a Bluetooth SIG compliance warning for an unregistered product, first check whether the product's Bluetooth module is already a qualified, antenna-integrated module with documented compatible Host Subsystem combinations -- if so, a fast proxy registration referencing the existing qualification (no retesting) is available, which is especially valuable given the urgency created by a direct SIG warning.",
+  "final_recommendation": "When responding to a customer who has received a direct compliance warning from Bluetooth SIG, prioritize checking whether their module is already qualified (avoiding retesting) to offer the fastest possible resolution path, and be clear about which party (customer vs. consultant) is responsible for the direct Declaration fee payment to SIG.",
+  "risk_if_done_wrong": "Delaying resolution of a direct Bluetooth SIG compliance warning, or unnecessarily treating the module as requiring fresh testing when it was already qualified, could expose the customer to further enforcement action while wasting time and cost on testing that wasn't actually needed.",
+  "bluetooth_tags": [
+    "Bluetooth SIG compliance warning email response",
+    "already qualified antenna-integrated module no retest",
+    "ESP32-C3-WROOM-02 Multi-Design reference",
+    "fast proxy registration turnaround",
+    "customer pays Declaration fee directly",
+    "Purgatio"
+  ],
+  "search_aliases": [
+    "received Bluetooth SIG warning email what to do",
+    "already qualified module no retest registration",
+    "ESP32-C3-WROOM-02 Bluetooth SIG registration",
+    "how fast can Bluetooth registration be done"
+  ],
+  "qualification_stage": "Compliance enforcement response / pre-registration scoping",
+  "confidence": "high"
 }

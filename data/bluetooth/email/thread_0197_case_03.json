@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0197",
+  "case_id": "thread_0197_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth module-based product, proxy registration service (new customer)",
+  "customer_question": "Since our company has no prior transaction history with you, must we pay before work begins (pre-payment)? And if payment is made first, what is the resulting lead time to completion?",
+  "question_variants": [
+    "Do new customers need to pay before any work starts?",
+    "What is the full schedule from payment to Compliance Folder delivery?",
+    "If we wire the payment first, when can we expect registration and Compliance Folder completion?",
+    "Why is pre-payment required for first-time customers?"
+  ],
+  "actual_issue": "The customer had no prior transaction history with the consulting company, and asked whether pre-payment (paying before any work begins) was required, and if so, what the resulting lead time to full completion (registration plus Compliance Folder) would be.",
+  "plain_english_explanation": "Because this was the customer's first transaction with the consultant's company, the consultant required pre-payment before starting any proxy work — this is standard practice for new customers with no transaction history. The consultant then laid out the full process timeline: customer orders and wires payment, customer submits the invoice needed for the consultant's proxy wire transfer to SIG (1-2 business days), the consultant arranges the wire transfer to SIG (about 3 weeks until funds are received by SIG), the consultant completes proxy registration once given login access (1-3 business days), the customer submits documents needed for the Compliance Folder (1-3 business days), and the consultant creates and delivers the Compliance Folder (1-3 business days) — a total of about one month or more from payment.",
+  "consultant_answer": "Since there is no prior transaction history between our companies, work will begin only after your company's wire transfer (pre-payment). The expected timeline from order/payment to completion: your payment and invoice submission (1-2 business days) -> our wire transfer arrangement and completion (about 3 weeks until funds reach SIG) -> proxy registration completion once you provide login account access (1-3 business days) -> your submission of documents needed for the Compliance Folder (1-3 business days) -> Compliance Folder creation and delivery (1-3 business days). Total: approximately one month or more.",
+  "decision_logic": "For customers with no prior transaction history, require pre-payment before starting proxy registration or wire-transfer work. Communicate the full lead-time chain explicitly (payment -> invoice submission -> SIG wire transfer ~3 weeks -> proxy registration 1-3 business days -> Compliance Folder document submission and creation 1-3 business days each) so the customer can plan around the ~1 month total.",
+  "final_recommendation": "State the pre-payment requirement and the full step-by-step lead-time schedule up front for any new customer with no transaction history, to avoid disputes about when payment is due relative to deliverables.",
+  "risk_if_done_wrong": "Not clarifying the pre-payment requirement and lead-time chain up front with a new customer can cause scheduling disputes or distrust if the customer expects work to start before payment, or expects a faster turnaround than the SIG wire-transfer process allows.",
+  "bluetooth_tags": [
+    "pre-payment",
+    "new customer",
+    "lead time",
+    "proxy registration",
+    "wire transfer",
+    "Compliance Folder",
+    "process timeline"
+  ],
+  "search_aliases": [
+    "pre-payment required new customer Bluetooth registration",
+    "lead time SIG wire transfer proxy registration",
+    "how long does Bluetooth SIG registration take",
+    "payment before work starts new customer",
+    "Compliance Folder delivery timeline"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
+}

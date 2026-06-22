@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0205",
+  "case_id": "thread_0205_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (registration fee payment / Invoice handling)",
+  "customer_question": "If we want a different company (e.g., a parent or affiliate company) to actually make the wire transfer for our SIG registration fee, will the Qualification Number still be assigned to our own company's account?",
+  "question_variants": [
+    "Can a third-party company pay the Bluetooth SIG registration fee on our behalf?",
+    "Does it matter who actually sends the wire transfer for the SIG Invoice, as long as our account obtained the Invoice?",
+    "If Company A's account holder gets the Invoice but Company B pays it, who receives the Qualification Number?"
+  ],
+  "actual_issue": "The customer (IDEAL) obtained the SIG Invoice by logging into the SIG portal under IDEAL's own account, as instructed by Allion. The customer then asked about a hypothetical scenario: what happens if the actual wire transfer of the registration fee is made by a different company (such as a parent company or affiliate) rather than the account holder itself.",
+  "plain_english_explanation": "The Bluetooth SIG Invoice must be obtained by logging into the SIG portal using the credentials of the company's account that will own the registration — this determines which company's account receives the Qualification Number. However, once the Invoice (a PDF specifying the bank wire details) has been generated under that account, the actual bank wire transfer can be executed by any party — for example, a parent company, an affiliate, or a payment processor — as long as the correct Invoice reference is used. The SIG only tracks which account generated the Invoice, not which bank account the money came from. So Company A's account holder can obtain the Invoice, forward the Invoice PDF to Company B, have Company B wire the funds from its own bank account, and the Qualification Number will still be issued to Company A's account.",
+  "consultant_answer": "Yes — the Invoice must always be obtained by logging in as the account holder of the company under whose name the registration will be made (this determines who receives the Qualification Number), but the actual wire transfer can be performed by any third party. For example, Company A's account holder obtains the Invoice, sends the Invoice PDF to Company B, and Company B wires the funds from its own bank — the Qualification Number is still issued to Company A's account regardless of who paid.",
+  "decision_logic": "SIG Qualification Number assignment is tied to the account that generated the Invoice, not to the source of the wire transfer funds. Cross-company Qualification Number transfers are not possible after the fact, and unpaid Invoices expire after 1 year without refund. Therefore the Invoice must always be obtained under the correct registering company's account from the start, but payment execution is flexible.",
+  "final_recommendation": "Always instruct customers to obtain the SIG Invoice using the account of the company that should ultimately hold the registration. Reassure customers that delegating the actual fund transfer to a parent company, affiliate, or other third party is acceptable and does not affect Qualification Number assignment, as long as the Invoice itself was generated under the correct account.",
+  "risk_if_done_wrong": "If the Invoice is obtained under the wrong company's account, the Qualification Number will be issued to that wrong account and cannot be transferred to another member company later. The original Invoice would also expire unrefunded after 1 year if unpaid, requiring a new Invoice and additional fee.",
+  "bluetooth_tags": [
+    "Invoice",
+    "Qualification Number",
+    "third-party payment",
+    "wire transfer",
+    "SIG account",
+    "registration fee"
+  ],
+  "search_aliases": [
+    "third party pay SIG registration fee",
+    "Invoice account Qualification Number",
+    "parent company wire transfer SIG",
+    "who pays SIG invoice Qualification Number",
+    "SIG invoice obtained wrong account"
+  ],
+  "qualification_stage": "Pre-registration / Payment and Invoice",
+  "confidence": "high"
+}

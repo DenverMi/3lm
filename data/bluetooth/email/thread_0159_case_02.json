@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0159",
+  "case_id": "thread_0159_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "payment terminal (Flight Solutions)",
+  "customer_question": "The SIG Qualification Fee was paid under one account but registration must be done under a different account. How does this work?",
+  "question_variants": [
+    "How do we transfer the Receipt Number (RN) from the Invoice holder to the registrant?",
+    "What is the RN Transfer Request procedure?",
+    "SIG fee was paid by one company but registration should be under another — what do we do?",
+    "We paid the Qualification Fee but need to register under a different account name."
+  ],
+  "actual_issue": "When a Bluetooth SIG Qualification Fee is paid (Invoice obtained and payment made), the resulting Receipt Number (RN) is issued to the account that obtained the Invoice. If registration must be done under a different SIG member account (e.g., the actual brand owner or the proxy's customer), the RN must be transferred to the target account before registration can proceed.",
+  "plain_english_explanation": "When Allion acts as payment proxy and pays the Bluetooth SIG Qualification Fee on behalf of a customer, the SIG Receipt Number (RN) is initially issued to the account that paid (the Invoice holder). But the registration itself must be done under the customer's account (the actual registrant). To move the RN from the Invoice holder's account to the customer's account, Allion initiates a 'Transfer Request' on the SIG portal. SIG then automatically sends an email to the Invoice holder with a link. The Invoice holder clicks 'Agree' (or 'Yes') in that email to approve the transfer. Once approved, the RN appears in the target registrant's account, and the proxy registration can proceed.",
+  "consultant_answer": "To transfer the RN from the Invoice holder's account to the target registrant's account: (1) After SIG issues the RN to the Invoice holder, Allion initiates a Transfer Request on the SIG portal specifying the target account. (2) SIG automatically sends an email to the Invoice holder with a transfer approval link. (3) The Invoice holder clicks 'Agree' or 'Yes' in the email. (4) The RN transfers to the target registrant's account. (5) Allion can then complete the registration under the target account.",
+  "decision_logic": "SIG ties the RN to the account that obtained the Invoice and paid the fee. The Transfer Request mechanism exists specifically for scenarios where the payer (Invoice holder) and the registrant are different entities. The transfer requires explicit consent from the Invoice holder via an email confirmation link — it cannot be done unilaterally.",
+  "final_recommendation": "When the Qualification Fee payer and the product registrant are different SIG member accounts, plan for the RN Transfer Request step. Brief the Invoice holder in advance so they know to expect the SIG automatic email and to click 'Agree' promptly to avoid delays.",
+  "risk_if_done_wrong": "If the Invoice holder does not respond to the SIG transfer email, the RN remains in the wrong account and registration cannot proceed. The transfer must be approved before registration can be completed.",
+  "bluetooth_tags": [
+    "RN Transfer Request",
+    "Receipt Number",
+    "proxy registration",
+    "Qualification Fee",
+    "account transfer",
+    "Bluetooth SIG portal"
+  ],
+  "search_aliases": [
+    "RN transfer",
+    "Receipt Number transfer",
+    "transfer request SIG",
+    "Bluetooth SIG account transfer",
+    "qualification fee transfer",
+    "invoice holder transfer",
+    "RN Transfer Request procedure"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

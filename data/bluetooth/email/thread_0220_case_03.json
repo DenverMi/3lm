@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0220",
+  "case_id": "thread_0220_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Secom Corporation security device)",
+  "customer_question": "After placing the order, how long will registration take, do we need to provide or lend a physical sample of the device, and will additional documents like a spec sheet be required?",
+  "question_variants": [
+    "What's the timeline from order to registration completion?",
+    "Is a physical device sample required for this type of registration?",
+    "What additional product documentation will be needed?"
+  ],
+  "actual_issue": "The customer wanted to understand the post-order process timeline and documentation/sample requirements before placing their order, given a target registration date.",
+  "plain_english_explanation": "The main time-consuming step after ordering is the USD wire transfer proxy service for the registration fee — it can take up to about 3 weeks from internal approval to the actual international wire transfer, and verification/registration support work is performed within that same window. Because the registration covers a declaration-only scope where all tests are exempted, no physical device sample or loan is needed. However, since the SIG certification requirements updated to QPRDv3.0 on July 1, 2024, this registration is now subject to Compliance Folder creation and retention requirements, which require the product's user manual (Bluetooth-related operation sections), block diagram, and outline drawing as supporting documents — needed only for the representative model first listed in the Product List at initial registration.",
+  "consultant_answer": "The main time driver after ordering is the USD wire transfer proxy service for the registration fee, which can take up to about 3 weeks from internal approval to the actual transfer; verification and registration support work happens within that same window, after which registration is complete and the product can be publicly announced, shipped, and sold. Since your registration content is fully test-exempt (declaration-only), no physical device sample or loan is needed. However, since SIG certification requirements updated to QPRDv3.0 on July 1, 2024, this registration is now subject to Compliance Folder documentation requirements, so please prepare a user manual (Bluetooth-related operation portions), block diagram, and outline drawing for the representative model being registered first.",
+  "decision_logic": "Test-exempt declaration-only registrations don't require physical samples, but post-July-2024 QPRDv3.0 rules still require Compliance Folder documentation (manual, block diagram, outline drawing) for the initially-listed representative model, separate from any testing requirement.",
+  "final_recommendation": "For customers asking about post-order logistics, clearly separate the wire-transfer timeline driver from documentation requirements, and clarify that test-exemption doesn't exempt the customer from QPRDv3.0 Compliance Folder documentation obligations.",
+  "risk_if_done_wrong": "A customer might assume a fully test-exempt registration has no further documentation obligations, risking non-compliance with QPRDv3.0 Compliance Folder retention requirements if audited by SIG.",
+  "bluetooth_tags": [
+    "registration timeline",
+    "USD wire transfer lead time",
+    "test exemption no sample needed",
+    "QPRDv3.0 Compliance Folder requirement",
+    "Secom"
+  ],
+  "search_aliases": [
+    "how long does SIG registration take after order",
+    "is a device sample required for declaration registration",
+    "Compliance Folder required documents",
+    "QPRDv3.0 documentation requirement"
+  ],
+  "qualification_stage": "Post-order / pre-registration",
+  "confidence": "high"
+}

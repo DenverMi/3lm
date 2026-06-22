@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0248",
+  "thread_analysis": {
+    "thread_summary": "Shinko Shoji (contact Seiji Nakajima), acting as a reseller introducing a medical-device customer, asks Allion (via Masaya Iida, with guidance from Itsuo Sakai) for help identifying commercially available peripheral devices that support various Bluetooth GATT profiles (BLP, HRP, HTP, HOGP, GLP, CGMP, GHSP), for use as interoperability test counterparts against a planned BLE-central medical device.",
+    "all_questions_found": [
+      "How should commercially available peripheral devices supporting specific Bluetooth profiles be identified for interoperability testing? (see thread_0248_case_01)"
+    ],
+    "key_technical_discussion": "The Bluetooth SIG's official product database (searchable via Advanced Search by profile) is the authoritative source for identifying real, qualified peripheral devices for a given profile, prioritizing Japanese-company results. Not every requested profile (e.g., GHSP) necessarily has any registered product.",
+    "key_decision_logic": "Use the SIG's own registered-product search as the basis for peripheral device recommendations, rather than general market research, since it guarantees the recommended device is actually SIG-qualified for the target profile.",
+    "risk_if_done_wrong": "See thread_0248_case_01.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "Early-stage product planning inquiries about multi-profile BLE implementations benefit from concrete, verifiable peripheral examples sourced directly from the SIG's product database, and any profile gaps (no registered products) should be flagged transparently rather than guessed at."
+  }
+}

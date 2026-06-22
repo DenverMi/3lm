@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0268",
+  "case_id": "thread_0268_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Purgatio Corporation), CAP response from Bluetooth SIG regarding the Espressif module's QDID",
+  "customer_question": "We submitted a Corrective Action Plan (CAP) to Bluetooth SIG, and they replied saying our module's QDID has been withdrawn and can't be referenced in a new registration, and that we're also missing a Host Core Layer QDID to demonstrate a complete Bluetooth solution. They recommended we contact our supplier for updated information. Is this accurate, and what should we actually do?",
+  "question_variants": [
+    "Is SIG's claim that our QDID was withdrawn actually correct?",
+    "Do we really need to track down a separate Host Core Layer QDID from our supplier?"
+  ],
+  "actual_issue": "The customer received a CAP response from Bluetooth SIG's own support staff stating their module's QDID was withdrawn and that a Host Core Layer QDID was missing, and worried this meant they needed to chase down updated information from their module supplier before they could proceed.",
+  "plain_english_explanation": "SIG's own support staff are not necessarily fully versed in the technical details of the registration database, and in this case their response contained inaccurate information: checking the SIG registration site directly confirmed that the referenced QDID (166590) is still currently valid and has not actually been withdrawn. Furthermore, a valid, registered Host Subsystem QDID does exist that pairs with this Controller-layer QDID — specifically, a registration covering Espressif Systems' own SDK for this module, which is the natural Host Subsystem counterpart needed to demonstrate a complete Bluetooth solution alongside the Controller-layer QDID. With both pieces in hand, the customer doesn't actually need to chase down new information from their supplier — they can proceed directly to registration by obtaining an Invoice under their existing SIG member registration name, wiring the required registration fee to SIG, and submitting a new registration referencing both the existing Controller QDID and the identified Host Subsystem QDID together.",
+  "consultant_answer": "SIG's support staff aren't always fully up to date on the registration database's actual current state, and in this case their response was inaccurate — checking the registration site directly confirms QDID 166590 is still valid and has not been withdrawn. There's also already a valid Host Subsystem QDID that pairs with it, covering Espressif Systems' own SDK for this module — exactly the Host Core Layer piece SIG's response said was missing. So you don't need to chase your supplier for new information: we can proceed straight to registration, referencing both QDIDs together, under your existing SIG member registration name.",
+  "decision_logic": "Responses from a certification body's own support staff should be independently verified against the actual registration database before being accepted as accurate, since support staff may not have complete or current technical knowledge of specific registration records — independent verification can avoid sending a customer on an unnecessary, time-consuming detour to their supplier.",
+  "final_recommendation": "When a customer relays a confusing or alarming response from SIG's own support channel, independently verify the specific claims (QDID validity, missing registration layers) against the actual registration site data before accepting them at face value, since support responses can be inaccurate.",
+  "risk_if_done_wrong": "Accepting SIG support's inaccurate claim at face value could have sent the customer on an unnecessary, time-consuming detour contacting their module supplier for information that wasn't actually needed, further delaying urgent compliance remediation after an active SIG warning had already been issued.",
+  "bluetooth_tags": [
+    "SIG support response inaccuracy",
+    "QDID withdrawal claim verification",
+    "Host Core Layer QDID identification",
+    "CAP Corrective Action Plan response",
+    "Espressif Systems SDK registration",
+    "Purgatio Corporation"
+  ],
+  "search_aliases": [
+    "SIG said our QDID was withdrawn is that true",
+    "how to verify QDID validity independently",
+    "missing Host Core Layer QDID",
+    "CAP response from Bluetooth SIG inaccurate"
+  ],
+  "qualification_stage": "Urgent post-market compliance remediation",
+  "confidence": "high"
+}

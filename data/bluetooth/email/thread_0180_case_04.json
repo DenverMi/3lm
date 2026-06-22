@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0180",
+  "case_id": "thread_0180_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Hosiden BLE wireless unit",
+  "customer_question": "Can Allion provide a Bluetooth certification quote from a brief product description? Also, if we limit RF PHY testing to 1M only, what is the cost?",
+  "question_variants": [
+    "Can we get a cost estimate with just a basic product description?",
+    "What information does Allion need to scope and quote a Bluetooth certification?",
+    "What is the cost for RF PHY 1M-only testing?"
+  ],
+  "actual_issue": "The customer sent a brief product description (BLE unit, coin battery, data transmission to smartphone) and asked Allion to quote. Allion could not determine test scope without the filled-in Estimate Request Form. After the customer filled in the form (revealing the specific QDID and its ICS), Allion determined that RF PHY 1M-only testing is applicable given the customer's configuration. Once the scope was clarified, the cost for RF PHY 1M-only testing was provided.",
+  "plain_english_explanation": "Bluetooth certification test scope and cost depend entirely on the specific product configuration: which QDID the product references, which RF PHY modes are supported (1M, 2M, Coded, CTE), and which profiles are implemented. Without this information, Allion cannot determine what tests are required and cannot provide a quote. The customer must fill in Allion's Estimate Request Form with as much detail as possible. For this customer's case, after reviewing the QDID information, the applicable test was RF PHY 1M-only. When CTE testing is excluded (because Allion cannot test Transmitting CTE) and when 2M and Coded PHY are also excluded by the customer's choice, the cost for RF PHY 1M-only is ¥400,000.",
+  "consultant_answer": "A brief product description is insufficient to scope Bluetooth certification — the customer must fill in the Estimate Request Form. After the customer provided QDID details and agreed to limit scope to RF PHY 1M only (excluding 2M, Coded, and CTE), the cost is: RF PHY 1M test ¥400,000. Note: a formal quote is issued by the sales department separately.",
+  "decision_logic": "Bluetooth test scope cannot be determined without knowing: (1) the referenced QDID and its included ICS, (2) which RF PHY modes the product implements, (3) which profiles are implemented. The Estimate Request Form is designed to capture these details. In this case, once the customer agreed to scope down to RF PHY 1M only, the quoted cost was ¥400,000.",
+  "final_recommendation": "Always ask new customers to fill in the Estimate Request Form before scoping or quoting. Do not attempt to scope from a product category description alone. For customers who want to reduce test scope (e.g., 1M only), confirm which PHY modes are actually supported by the hardware and QDID.",
+  "risk_if_done_wrong": "Quoting based on a product description without the specific QDID and ICS information risks significantly under- or over-quoting, damaging customer trust.",
+  "bluetooth_tags": [
+    "RF PHY",
+    "1M PHY",
+    "pricing",
+    "test scope",
+    "Estimate Request Form",
+    "BLE",
+    "scoping"
+  ],
+  "search_aliases": [
+    "RF PHY 1M test cost price",
+    "Bluetooth test scoping estimate request form",
+    "400000 yen RF PHY 1M",
+    "how to scope Bluetooth certification",
+    "minimum RF PHY test cost"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
+}

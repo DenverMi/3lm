@@ -1,48 +1,33 @@
 {
-    "source_thread": "thread_0030",
-    "cases": [
-        {
-            "case_id": "thread_0030_case_02",
-            "iut_type": "medical device",
-            "customer_question": "How can an existing Bluetooth module qualification be reused without triggering additional testing or qualification cost?",
-            "question_variants": [
-                "Can we avoid additional Bluetooth testing by reusing existing QDIDs?",
-                "Will this qualification structure trigger extra Test Plans?",
-                "Can the product be listed using existing module qualifications only?",
-                "How do we minimize Bluetooth qualification cost and schedule impact?",
-                "Can future products reuse the same module declaration?"
-            ],
-            "actual_issue": "The customer needed a compliant Bluetooth qualification strategy that reused existing qualified components while avoiding additional testing, qualification cost, and future reuse limitations.",
-            "plain_english_explanation": "The product already used a Bluetooth module and previously qualified software components. The challenge was to build the declaration correctly so the company would not need unnecessary testing or pay for avoidable qualification work. The consultant also considered how future products could reuse the same qualification structure efficiently.",
-            "consultant_answer": "The consultant reviewed the proposed qualification architecture using Multi-Design Option 2b and verified that the revised QDID combination did not generate additional Test Plans during project validation. The consultant also advised selecting an appropriate Design Name so future products using the same module and host stack could later be added as derivative products without additional registration fees. The final Review Page was prepared and approved before submission.",
-            "decision_logic": "If a product reuses already qualified Bluetooth layers in a valid configuration, the declaration can often proceed without additional testing. Proper qualification architecture and naming decisions also affect whether future derivative products can efficiently reuse the same declaration structure.",
-            "final_recommendation": "Use a validated reuse-based qualification structure with existing compliant QDIDs, confirm that no additional Test Plans are generated before submission, and choose a reusable Design Name strategy for future derivative products.",
-            "risk_if_done_wrong": "An incorrect qualification structure could trigger unnecessary testing, additional qualification effort, avoidable registration cost, or future reuse limitations for derivative products.",
-            "bluetooth_tags": [
-                "qualification",
-                "reuse",
-                "QDID",
-                "module",
-                "listing",
-                "design reuse",
-                "derivative product",
-                "test plan"
-            ],
-            "search_aliases": [
-                "avoid additional Test Plans",
-                "reuse existing qualification",
-                "derivative product strategy",
-                "module qualification reuse",
-                "no extra Bluetooth testing",
-                "qualification cost reduction",
-                "review page validation",
-                "Multi-Design Option 2b reuse",
-                "future product reuse",
-                "existing QDID declaration"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0030",
+  "case_id": "thread_0030_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Nippon Seimitsu Sokki blood pressure monitor), free derivative registration for a different device type and forward-looking Design Name strategy",
+  "customer_question": "If we later want to register a completely different product type (a pulse oximeter, instead of our initial blood pressure monitor), using the same module and same QDID references, can it be added to our initial registration for free?",
+  "question_variants": [
+    "Does the derivative-registration-is-free rule depend on the product type being similar, or just on the module/QDID being the same?",
+    "What Design Name should be used if more product types are expected to be added later?"
+  ],
+  "actual_issue": "The customer wanted to know whether a free derivative addition to their registration was available not just for variants of the same product (e.g., different blood pressure monitor models) but for an entirely different device category (a pulse oximeter), as long as the same module and QDID references were used, and how to best set up the registration to accommodate this future addition.",
+  "plain_english_explanation": "Free derivative registration to the Product List is available for any subsequent product that implements the same module and the same Host Stack as the initially-registered product -- the rule is tied to the underlying Bluetooth implementation being identical, not to the product category or device type being similar. This meant the customer's planned future pulse oximeter, despite being a functionally different device category from the initial blood pressure monitor, could still be added for free as long as it used the same module/QDID references. Because of this, the consultant recommended that the registration's Design Name (the name that's locked in from the first Product List entry, separate from the more flexible per-entry Product Name) be chosen as a broader, category-spanning term like 'Health Device' rather than narrowly tied to the initial product (which would otherwise default to something like 'Blood pressure monitor'), specifically to better accommodate the different device types the customer already anticipated adding later.",
+  "consultant_answer": "Yes -- free derivative registration depends on using the same module and the same Host Stack, not on the product category being similar, so your planned pulse oximeter can be added for free even though it's a different device type from your blood pressure monitor. Given that you already anticipate adding different device types, we'd recommend using a broader, category-spanning Design Name like 'Health Device' rather than something narrowly tied to the blood pressure monitor, since the Design Name gets locked in from your first Product List entry.",
+  "decision_logic": "Free derivative registration eligibility is determined by whether a subsequent product implements the same module and Host Stack as the initially-registered product, regardless of whether the product category or device type differs -- when a customer signals they expect to register multiple different device types under the same underlying Bluetooth implementation, recommend a Design Name broad enough to span all anticipated types, since it's locked in from the first registration entry.",
+  "final_recommendation": "When a customer asks about adding a different device type as a free derivative, clarify that the determining factor is the shared module/Host Stack, not product similarity -- and proactively recommend a forward-looking, category-spanning Design Name if the customer signals plans for future device types under the same Bluetooth implementation.",
+  "risk_if_done_wrong": "Locking in a narrowly-scoped Design Name (e.g., tied specifically to 'blood pressure monitor') without anticipating future different device types could create naming confusion or an awkward-looking registration once an unrelated device category is added as a derivative later.",
+  "bluetooth_tags": [
+    "free derivative registration different device type",
+    "same module same Host Stack determines eligibility",
+    "Design Name forward-looking category-spanning",
+    "Design Name locked from first entry",
+    "Nippon Seimitsu Sokki"
+  ],
+  "search_aliases": [
+    "can different device type be free derivative registration",
+    "free derivative registration rule same module Host Stack",
+    "Design Name strategy for future device types",
+    "Health Device broad Design Name recommendation"
+  ],
+  "qualification_stage": "Registration planning",
+  "confidence": "high"
 }

@@ -1,45 +1,23 @@
 {
-    "source_thread": "thread_0095",
-    "cases": [
-        {
-            "case_id": "thread_0095_case_01",
-            "iut_type": "sensor device",
-            "customer_question": "How should a product using Nordic S140 SoftDevice v7.2.0 be qualified when no matching S140 v7.2.0 component qualification can be found in the Bluetooth SIG database?",
-            "question_variants": [
-                "Cannot find S140 v7.2.0 component QDID",
-                "Which QDID should be used for SoftDevice S140 v7.2.0?",
-                "Can S140 v7.2.0 reuse an older qualified design?",
-                "How do I qualify an nRF52 product using S140 7.2.0?",
-                "What qualification reference should be used when the exact stack version is not listed?"
-            ],
-            "actual_issue": "The implementation uses Nordic S140 v7.2.0, but the originally identified qualification references correspond to a different version. The customer cannot find a dedicated component qualification entry for S140 v7.2.0 and needs to determine the correct qualification reference path.",
-            "plain_english_explanation": "The customer believed a new stack version required its own separate qualification reference. However, an existing qualified design already covered the Bluetooth functionality used by the newer stack version. The challenge was identifying the correct previously qualified references rather than creating a new qualification basis.",
-            "consultant_answer": "An existing End Product qualification references LL and Host QDIDs originally registered for S140 v7.0.1. The associated product listing was later expanded to include S140 v7.2.0 and v7.3.0, indicating that the referenced LL and Host functionality is common across those versions. Therefore the qualification should reuse the appropriate existing LL and Host QDIDs rather than searching for a separate S140 v7.2.0 component qualification. The qualification draft was updated to use the corrected QDID references and registration proceeded successfully.",
-            "decision_logic": "Qualification eligibility is determined by the qualified Bluetooth functionality represented by the referenced design. When an existing qualified design explicitly covers later software versions through the associated product listing, the existing LL and Host QDIDs remain valid references for those versions.",
-            "final_recommendation": "Use the existing qualified LL and Host QDID combination that is documented as covering the deployed SoftDevice version, update the qualification draft to reference those QDIDs, and verify the resulting Review page before final submission.",
-            "risk_if_done_wrong": "The product may be qualified using incorrect references, or qualification may be delayed while unnecessary searches for a non-existent version-specific component qualification are performed. Incorrect QDID selection can also create qualification record accuracy issues.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "reuse",
-                "host",
-                "controller",
-                "SoftDevice",
-                "listing"
-            ],
-            "search_aliases": [
-                "S140 v7.2.0 qualification",
-                "Nordic SoftDevice reuse",
-                "missing component QDID",
-                "existing QDID coverage",
-                "LL Host QDID selection",
-                "S140 7.2.0 registration",
-                "nRF52 qualification path",
-                "qualified design reuse"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0095",
+  "case_id": "thread_0095_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "We're actually using SoftDevice S140 v7.2.0, not the v6.1.1 we listed on our quote request, but there's no Component registration on the SIG site explicitly for S140 v7.2.0. How should we apply for registration in this case?",
+  "question_variants": [
+    "What QDID should we reference if our exact SoftDevice version has no Component registration?",
+    "Is there a way to register a firmware version that doesn't have its own QDID?",
+    "Can we use the QDID from an earlier SoftDevice version if our version isn't explicitly listed?"
+  ],
+  "actual_issue": "The customer's product actually used SoftDevice S140 v7.2.0, which had no Component-level QDID registered explicitly for that exact version on the Bluetooth SIG site, and it needed to be determined how to identify the correct QDIDs to reference for registration.",
+  "plain_english_explanation": "Not every firmware version gets its own separate certification record -- sometimes a newer compatible version is simply added to the list of covered versions under an existing certification that was originally filed for an earlier version. By looking at which versions have been added over time to an existing product registration, you can confirm that the underlying chip-level certification still applies to your specific newer version, even though there's no certification record with your exact version number on it.",
+  "consultant_answer": "An End Product registration (QDID 138767) exists referencing an LL/S140 QDID and a Host/S140 QDID; its registration page shows it was originally registered for S140 v7.0.1, with v7.2.0 and v7.3.0 later added to its Product List. This means the referenced LL/S140/7.0.1 and Host/S140/7.0.1 QDIDs represent functionality common to v7.0.1, v7.2.0, and v7.3.0. Based on this, the quote-request form's listed QDIDs were corrected to reference these v7.0.1-based LL and Host QDIDs, and registration proceeded to the Review Page on that basis.",
+  "decision_logic": "When no Component-level QDID exists explicitly for a product's exact firmware/SoftDevice version, check whether an existing End Product registration's Product List shows that version having been added later on top of an earlier, originally-registered version; if so, the earlier version's underlying LL/Host QDIDs can be referenced for a new registration, since they represent functionality common across the compatible version range.",
+  "final_recommendation": "When a product's exact firmware version has no explicit Component-level QDID, search for an existing End Product registration whose Product List shows that version added on top of an earlier base version, and reference that earlier version's underlying QDIDs for the new registration.",
+  "risk_if_done_wrong": "Assuming no registration path exists simply because no QDID matches the exact firmware version, without checking End Product Product List history for a shared earlier-version base, could block a viable registration unnecessarily or lead to referencing an incorrect QDID.",
+  "bluetooth_tags": ["SoftDevice", "QDID", "Component registration", "Product List", "End Product", "S140"],
+  "search_aliases": ["no Component QDID for exact firmware version", "End Product Product List shared earlier version base", "S140 7.2.0 no explicit QDID", "reference earlier version QDID for newer compatible firmware"],
+  "qualification_stage": "planning",
+  "confidence": "high"
 }

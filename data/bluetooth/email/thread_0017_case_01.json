@@ -1,45 +1,32 @@
 {
-    "source_thread": "thread_0017",
-    "cases": [
-        {
-            "case_id": "thread_0017_case_01",
-            "iut_type": "DJ system",
-            "customer_question": "Why did the RF report show Power Class 2 when the same module was expected to be Class 1?",
-            "question_variants": [
-                "Why was PowerClass judged as 2?",
-                "Why did the same module not appear as Class 1?",
-                "Was the RF test plan set to the wrong class?",
-                "Do we need to retest because the Bluetooth power class was wrong?"
-            ],
-            "actual_issue": "The RF test plan was created with the wrong Power Class setting, causing the report to show Class 2 instead of the intended Class 1.",
-            "plain_english_explanation": "The product itself was not identified as the root problem. The test setup was configured incorrectly, so the report reflected the wrong power class. The measured result was still good enough to pass, but the evidence had to be corrected.",
-            "consultant_answer": "The consultant acknowledged that the Class 2 result was caused by a test plan creation mistake. Because the measured result was at a level that could pass for both Class 1 and Class 2 coexistence, the practical correction was to rerun using the revised test plan and issue a corrected report.",
-            "decision_logic": "The reported RF Power Class depends on the test plan and declared test configuration. If the test plan uses the wrong Power Class, the report classification is unreliable even if the RF result itself passes.",
-            "final_recommendation": "Revise the test plan to Class 1, rerun the RF test, and issue a corrected report.",
-            "risk_if_done_wrong": "The qualification evidence may show the wrong Power Class, causing customer dispute, report correction, retest, or qualification evidence inconsistency.",
-            "bluetooth_tags": [
-                "RF",
-                "RF PHY",
-                "qualification",
-                "test plan",
-                "Power Class",
-                "Class 1",
-                "Class 2",
-                "retest"
-            ],
-            "search_aliases": [
-                "Power Class mismatch",
-                "RF report Class 2",
-                "Class 1 expected",
-                "wrong RF test plan",
-                "PowerClass 2 error",
-                "Bluetooth output power classification",
-                "RF retest",
-                "Class 1 report correction"
-            ],
-            "qualification_stage": "test failure",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0017",
+  "case_id": "thread_0017_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (AlphaTheta DJ equipment, EP169), RF 2-item test Power Class discrepancy",
+  "customer_question": "Our RF 2-item test came back classified as Power Class 2, but other products using the identical Bluetooth module have always tested as Class 1 — can you share the actual Output Power measurement values so we can investigate this discrepancy ourselves?",
+  "question_variants": [
+    "Why did this product test as Class 2 when the same module tested Class 1 in other products?",
+    "Can you provide the raw Output Power figures for our own investigation?"
+  ],
+  "actual_issue": "The customer noticed an unexpected Power Class result inconsistent with their experience using the same Bluetooth module in other products, and proactively requested the underlying measurement data to investigate whether something was wrong with their hardware or with the test itself.",
+  "plain_english_explanation": "Investigating the discrepancy revealed the Class 2 result was actually caused by a mistake in how Allion's own Test Plan was created for this engagement, not by any actual product issue — the measured output power was in fact within the overlapping range that both Class 1 and Class 2 cover, meaning the product would pass Class 1 testing without any problem once retested under a corrected Test Plan. The corrected Test Plan was prepared, and a subsequent retest using the appropriate Class 1 TX Power setting documented in the customer's own test-tool operation manual (matching a documented precedent from a similar past product, EP147, which also passed Class 1 at the specified output level) confirmed a Class 1 Pass.",
+  "consultant_answer": "We found the issue: this was a mistake in how we created your Test Plan, not a problem with your product — your measured output power actually falls within the range that both Class 1 and Class 2 cover, so it will pass Class 1 testing without issue. We've corrected the Test Plan and will retest using the Class 1 TX Power setting documented in your own test-tool operation manual, consistent with how a similar past product (EP147) also passed Class 1 at that same output level.",
+  "decision_logic": "When a Power Class result is unexpectedly inconsistent with prior experience using the same module, verify whether the Test Plan itself (rather than the product) is the source of the discrepancy before concluding a hardware issue exists, especially when the measured output falls within an overlapping range between classes.",
+  "final_recommendation": "When a customer flags an unexpected Power Class result based on prior experience with the same module, transparently investigate and acknowledge any Test Plan creation errors found, and retest promptly using the corrected configuration rather than leaving the discrepancy unexplained.",
+  "risk_if_done_wrong": "Failing to investigate and acknowledge a Test Plan creation error could leave the customer believing their product has a genuine hardware-level output deficiency, potentially triggering unnecessary hardware troubleshooting on their end.",
+  "bluetooth_tags": [
+    "Power Class result discrepancy investigation",
+    "Test Plan creation mistake",
+    "Class 1 Class 2 overlapping output range",
+    "AlphaTheta",
+    "EP169"
+  ],
+  "search_aliases": [
+    "unexpected Power Class result same module different products",
+    "Test Plan creation error Power Class",
+    "Class 1 Class 2 overlapping output power range"
+  ],
+  "qualification_stage": "Test execution / result review",
+  "confidence": "high"
 }

@@ -2,6 +2,7 @@
   "source_thread": "thread_0137",
   "case_id": "thread_0137_case_03",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "IoT/embedded",
   "customer_question": "How do we verify that our SIG Launchstudio account is set up correctly and linked to our company?",
   "question_variants": [
@@ -14,8 +15,18 @@
   "decision_logic": "1. Navigate to launchstudio.bluetooth.com.\n2. Look for the 'My blue' user icon in the top-right corner.\n3. Click it → select 'My account.'\n4. Review displayed account details and company association.",
   "final_recommendation": "When a customer reports account issues or asks how to check their SIG account, direct them to the 'My blue' icon → 'My account' path on launchstudio.bluetooth.com.",
   "risk_if_done_wrong": "If a customer cannot find their account or is linked to the wrong company, they will not be able to create or manage Qualification Workspaces — blocking all registration activity.",
-  "bluetooth_tags": ["SIG-Launchstudio", "account-verification", "My-blue-icon", "company-membership"],
-  "search_aliases": ["SIG Launchstudio account verification", "My blue icon account", "how to check SIG account company", "launchstudio.bluetooth.com account"],
-  "qualification_stage": "pre-registration / account setup",
+  "bluetooth_tags": [
+    "SIG-Launchstudio",
+    "account-verification",
+    "My-blue-icon",
+    "company-membership"
+  ],
+  "search_aliases": [
+    "SIG Launchstudio account verification",
+    "My blue icon account",
+    "how to check SIG account company",
+    "launchstudio.bluetooth.com account"
+  ],
+  "qualification_stage": "planning",
   "confidence": "high"
 }

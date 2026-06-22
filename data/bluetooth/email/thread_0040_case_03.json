@@ -1,49 +1,33 @@
 {
-    "source_thread": "thread_0040",
-    "cases": [
-        {
-            "case_id": "thread_0040_case_03",
-            "iut_type": "module-based Bluetooth product",
-            "customer_question": "Which hardware or software changes require a new Bluetooth qualification, and which changes can be treated as non-Bluetooth modifications?",
-            "question_variants": [
-                "Do non-Bluetooth software updates require requalification?",
-                "Does changing the antenna require a new Bluetooth qualification?",
-                "Can PCB changes be ignored if Bluetooth circuitry is unchanged?",
-                "Do enclosure changes require RF retesting?",
-                "What hardware changes affect Bluetooth qualification status?",
-                "Can antenna tuning changes remain under the same listing?"
-            ],
-            "actual_issue": "Determining whether design modifications change the qualified Bluetooth Support Layers or ICS-defined functionality enough to require a new qualification instead of derivative product listing.",
-            "plain_english_explanation": "The customer wanted to know which product changes affect Bluetooth qualification status. Software or hardware changes unrelated to Bluetooth functionality generally do not require requalification. However, antenna changes and RF-related modifications must still be checked to ensure the product remains within the original qualified RF class and performance limits.",
-            "consultant_answer": "Bluetooth qualification covers the Bluetooth Support Layers and ICS-defined Bluetooth functionality, not unrelated SoC features such as Wi-Fi or unrelated software. Non-Bluetooth software modifications do not require requalification if the registered Bluetooth functionality is unchanged. Antenna changes require RF output and receiver sensitivity verification using a BQTF RF test system. If the modified antenna still satisfies the original qualification class and RF limits, the product can be added as a derivative model to the existing Product List. However, a gain increase can change BR/EDR class compliance, such as causing a Class 2 design to fail and effectively become Class 1, preventing reuse of the original listing. Bluetooth-unrelated circuit changes, such as audio amplifiers, are outside Bluetooth qualification scope if they do not affect Bluetooth RF characteristics. Enclosure changes alone do not require Bluetooth radiated retesting because Bluetooth qualification uses conducted mode testing rather than radiation-mode testing.",
-            "decision_logic": "The deciding factor is whether the change affects Bluetooth Support Layers, ICS-defined capabilities, or Bluetooth RF characteristics associated with the qualified design. Non-Bluetooth modifications are out of scope, while RF-impacting changes must still satisfy the original qualification conditions.",
-            "final_recommendation": "Before product updates, verify whether the change affects Bluetooth RF behavior, Support Layers, or ICS-defined features. For antenna or RF-path changes, perform conducted RF verification and confirm the product still meets the original qualification class before reusing the existing listing.",
-            "risk_if_done_wrong": "Improperly reusing an existing listing after RF-impacting changes may invalidate the qualification or cause compliance failures. Antenna gain changes can unintentionally shift BR/EDR class compliance and prevent derivative listing eligibility.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF",
-                "antenna",
-                "module",
-                "ICS",
-                "Support Layer",
-                "BR/EDR",
-                "design change"
-            ],
-            "search_aliases": [
-                "antenna change qualification",
-                "non Bluetooth software update",
-                "RF retest requirement",
-                "derived product RF verification",
-                "Class 2 to Class 1 issue",
-                "Bluetooth unrelated circuit change",
-                "enclosure change no retest",
-                "antenna gain impact",
-                "ICS unchanged reuse",
-                "Support Layer unchanged"
-            ],
-            "qualification_stage": "post-launch change",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0040",
+  "case_id": "thread_0040_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Pre-registration consulting (Move Corporation), electrically-identical product rebranded under a different selling company still requires a brand-new full-fee registration",
+  "customer_question": "If a product is electrically completely identical (only the printed silk/labeling on the product differs) but is sold by a different company than the one already registered, is full SIG certification (paying the $11,040 fee again) really required? Couldn't this be handled more simply, like a listing with attached test results instead of a full new registration?",
+  "question_variants": [
+    "Is there any reduced-cost or expedited path for registering an electrically-identical product under a new brand?",
+    "Since the product was already tested and passed once, shouldn't a second company be able to just reference that result without paying again?"
+  ],
+  "actual_issue": "The customer hoped that because the underlying product was electrically identical to an already-registered one (differing only in cosmetic labeling), a second selling company could register it more cheaply or simply by referencing the existing test results, rather than paying the full registration fee again.",
+  "plain_english_explanation": "Bluetooth SIG specifically requires that when an already-qualified OEM/ODM product is sold under a nameplate bearing a different selling company's name than the one already registered, that new selling company must complete its own brand-new registration under its own name -- there is no reduced-cost or 'listing with attached test results' shortcut for this situation, regardless of how electrically identical the underlying product is. The free derivative Product List addition mechanism only works for adding model names within an already-registered company's own existing registration -- it cannot be used to extend one company's registration to cover a different company's branded version of the same product, since a different company has no access to add a derivative listing into another company's registration. Cosmetic differences alone (such as different silk-printed text on the product, with the selling company's nameplate name unchanged) can still be added as a free derivative within the same registration -- the distinguishing factor is specifically whether the selling company's nameplate name itself differs, not whether any cosmetic detail differs.",
+  "consultant_answer": "Unfortunately no -- Bluetooth SIG requires that when an already-qualified product is sold under a different selling company's nameplate name, that new company must complete its own brand-new, full-fee registration under its own name. There's no reduced-cost or 'listing with test results attached' shortcut for this, no matter how electrically identical the product is to the already-registered version. The free derivative Product List addition only works within an already-registered company's own existing registration -- it can't be used to extend coverage to a different company's branded version, since that company has no access to add anything into another company's registration. If only cosmetic details (like silk-printed text) differ but the selling company's nameplate name itself is unchanged, that can still be added as a free derivative -- it's specifically the nameplate company name that determines this, not any other cosmetic difference.",
+  "decision_logic": "Whether an electrically-identical product variant can be added as a free derivative versus requiring a brand-new full registration depends entirely on whether the selling company's nameplate name is the same as the already-registered company -- any difference in that specific identifier requires a new registration with no shortcut, regardless of how minor other cosmetic or electrical differences are (or aren't).",
+  "final_recommendation": "When a customer proposes registering an electrically-identical product under a different brand name, be direct and clear that no shortcut exists -- a full, separately-paid registration is required, and clarify that the free derivative mechanism is strictly limited to additions within the same already-registered company's own registration.",
+  "risk_if_done_wrong": "A customer attempting to add a different company's branded version of an identical product as a free derivative under the original registrant's account would find this impossible, since the new company has no access rights to that registration -- discovering this only after attempting it would waste time relative to learning upfront that a new registration is unavoidable.",
+  "bluetooth_tags": [
+    "rebranded identical product requires new full registration",
+    "no shortcut for electrically identical product different brand",
+    "free derivative limited to same registered company",
+    "nameplate company name determines registration requirement",
+    "Move Corporation"
+  ],
+  "search_aliases": [
+    "does electrically identical product need new registration different brand",
+    "is there a cheaper path for rebranded OEM product registration",
+    "free derivative addition limited to same company registration",
+    "nameplate company name determines new registration need"
+  ],
+  "qualification_stage": "Pre-registration general consulting",
+  "confidence": "high"
 }

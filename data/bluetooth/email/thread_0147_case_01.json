@@ -1,7 +1,8 @@
 {
   "source_thread": "thread_0147",
   "case_id": "thread_0147_case_01",
-  "source_type": "internal_consulting",
+  "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — BR/EDR+BLE (Head Unit / AVN)",
   "customer_question": "Why are there 16 Inter-Layer Dependency (IDL) errors when running the SIG Consistency Check on our new design that uses A&W Bluetooth Stack 5.4 Host QDID with an existing v5.2 Controller QDID?",
   "question_variants": [
@@ -15,8 +16,22 @@
   "decision_logic": "IDLs arise when a higher-layer QDID (Host) asserts spec-version features that are absent in the lower-layer QDID (Controller). The SIG Consistency Check enforces inter-layer ICS alignment across the full feature set. The fix is to align all stacked QDIDs to the same specification version — use a Host Stack QDID whose version matches the Controller QDID.",
   "final_recommendation": "Always select a Host Stack QDID whose Bluetooth specification version matches the Controller QDID version. If the customer has both v5.2 and v5.4 Host Stack QDIDs available, choose the v5.2 QDID when combining with a v5.2 Controller QDID.",
   "risk_if_done_wrong": "Submitting a qualification design with 16 IDL errors will result in SIG rejection. The IDLs must be resolved before the registration can be approved. Delays in catching this cost significant test lab time and re-work.",
-  "bluetooth_tags": ["IDL", "Inter-Layer Dependency", "Consistency Check", "Host Stack QDID", "Controller QDID", "version mismatch", "QPRDv3.0", "A&W Bluetooth Stack"],
-  "search_aliases": ["inter-layer dependency error", "IDL Consistency Check", "version mismatch host controller", "A&W 5.4 IDL 16"],
+  "bluetooth_tags": [
+    "IDL",
+    "Inter-Layer Dependency",
+    "Consistency Check",
+    "Host Stack QDID",
+    "Controller QDID",
+    "version mismatch",
+    "QPRDv3.0",
+    "A&W Bluetooth Stack"
+  ],
+  "search_aliases": [
+    "inter-layer dependency error",
+    "IDL Consistency Check",
+    "version mismatch host controller",
+    "A&W 5.4 IDL 16"
+  ],
   "qualification_stage": "Consistency Check / Design Creation",
   "confidence": "high"
 }

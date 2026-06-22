@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0266",
+  "case_id": "thread_0266_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth module registration combining a Controller QDID and Host QDID with cross-layer GAP inconsistency (Hoshiden)",
+  "customer_question": "Combining our SoC's QDID with the Host Controller's QDID produces a fatal cross-layer Consistency Check Invalid that, if we try to resolve it by editing the ICS, would require GAP-layer protocol testing — which historically only stack vendors have been able to actually perform. Is there a way to register despite this, and what's the best overall strategy given this constraint?",
+  "question_variants": [
+    "How do we avoid GAP-layer protocol testing that only the stack vendor can realistically perform?",
+    "What's the best registration strategy given this specific QDID combination's inherent inconsistency?"
+  ],
+  "actual_issue": "Combining the customer's SoC QDID with a specific Host Controller QDID produced a cross-layer Consistency Check Invalid at the GAP layer that, if resolved by directly editing the ICS, would require running actual GAP-layer protocol conformance testing — a category of testing that, based on past experience, is realistically achievable only by the entity that actually built the Bluetooth stack (i.e., the stack vendor itself), not by a module integrator or set maker, since it requires embedding a debugger above the GAP layer in the software development environment and iteratively analyzing and fixing source code based on Fail results.",
+  "plain_english_explanation": "There are two distinct registration paths available for this QDID combination: editing the ICS to resolve the Invalid, which would require genuine GAP-layer protocol testing (realistically only feasible for the actual stack vendor, not the customer); or choosing 'Combine Unmodified Designs,' an Include-without-modification approach equivalent to the old Declaration registration type, which skips the cross-layer Consistency Check entirely and requires no test report upload — at the cost of not getting an assigned DN (showing as 'Details' instead). Since changing the underlying Host Stack to one without this inherent inconsistency wasn't practical (the original listing company for the relevant QDID had already withdrawn from SIG, making a corrective update request to a third party like ARM Ltd. impractical), the recommended alternative strategy was: since the SoC, despite normally warranting Component registration, is registered as a Controller Subsystem, the customer's module could be registered on its own via a real RF PHY test (run on the module/board), yielding its own DN under Controller Subsystem registration — and then the eventual set maker, when registering their end product, could Include both that module DN and the Host Controller QDID via 'Use this Design without modification,' achieving a full Core Complete product registration that sidesteps the cross-layer inconsistency problem entirely, while still benefiting from a real, DN-backed module registration.",
+  "consultant_answer": "There are two paths here: editing the ICS to resolve the Invalid would require genuine GAP-layer protocol testing, which based on our experience is realistically only feasible for the actual stack vendor — not practical for you. The alternative is 'Combine Unmodified Designs,' which skips the cross-layer check entirely and needs no test report, though it won't generate an assigned DN (it'll show as 'Details'). Since switching to a different Host Stack without this inherent inconsistency isn't practical (the original QDID's listing company has already withdrawn from SIG), our recommended strategy instead is: register your module on its own via a real RF PHY test, giving you your own DN under Controller Subsystem registration. Then, when your set maker customers register their end products, they can Include both your module's DN and the Host Controller QDID via 'Use this Design without modification,' achieving a full Core Complete registration that avoids the cross-layer inconsistency entirely — while you still get the benefit of a real, DN-backed module registration to offer your customers.",
+  "decision_logic": "When a specific Controller+Host QDID combination produces a cross-layer Consistency Check Invalid whose only direct resolution requires test capability realistically limited to the stack vendor, evaluate the Include-without-modification path (no DN, but immediate registrability) against a restructured strategy (separate module DN registration via RF PHY test, then customer-side Include-without-modification for the full product), favoring the latter when it can still deliver a useful, DN-backed module registration despite the underlying stack-level inconsistency.",
+  "final_recommendation": "When a Controller+Host QDID combination's cross-layer inconsistency would require test capability outside the customer's realistic reach, look beyond the immediate Include-without-modification workaround and consider whether restructuring the registration sequence (module-level DN via RF PHY test, then customer-side unmodified Include) can still deliver business value (a DN to offer downstream customers) that a pure Declaration-equivalent approach wouldn't provide.",
+  "risk_if_done_wrong": "Attempting to resolve a GAP-layer cross-layer inconsistency through ICS editing without stack-vendor-level testing capability would likely fail to produce a valid registration; settling for the simple Include-without-modification path without considering the module-DN-first restructuring would forgo the ability to offer downstream OEM customers a referenceable DN.",
+  "bluetooth_tags": [
+    "GAP layer protocol testing stack vendor only",
+    "Combine Unmodified Designs no DN tradeoff",
+    "module DN first registration strategy",
+    "Core Complete product registration",
+    "cross layer GAP Consistency Check Invalid",
+    "Hoshiden"
+  ],
+  "search_aliases": [
+    "GAP layer test only stack vendor can do",
+    "Combine Unmodified Designs vs module DN strategy",
+    "Core Complete registration avoiding cross layer inconsistency",
+    "withdrawn listing company cannot request ICS correction"
+  ],
+  "qualification_stage": "Registration strategy planning",
+  "confidence": "high"
+}

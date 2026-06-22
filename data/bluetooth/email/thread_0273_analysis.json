@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0273",
+  "thread_analysis": {
+    "thread_summary": "Topre Corporation (contacts Yuta Morimoto, Yoshito Tamai) consults Allion (Toshitaka Mochizuki, Misumi Sato, with guidance from Itsuo Sakai) about adding new models to the already-certified R4H keyboard series, covering both Bluetooth-specific retest scope for an electrode board hardware change and combined USB Chapter9/WHQL test requirements for the series addition.",
+    "all_questions_found": [
+      "Does an electrode board change (unrelated to BLE communication components) require additional Bluetooth testing? (see thread_0273_case_01)",
+      "Is USB Chapter9 testing required for this series addition, and is WHQL still required despite a minimal model difference? (see thread_0273_case_02)"
+    ],
+    "key_technical_discussion": "Bluetooth retest necessity for derivative models tracks only the BLE-implementing board/components; USB Chapter9 testing is tied to new-certification status (not required for series additions); WHQL testing is required per new model regardless of how minor the difference, since driver/compatibility behavior can be affected by even small changes.",
+    "key_decision_logic": "See thread_0273_case_01 and thread_0273_case_02.",
+    "risk_if_done_wrong": "See thread_0273_case_01 and thread_0273_case_02.",
+    "consulting_mistake": "The customer initially received apparently conflicting guidance about USB Chapter9 testing from two different Allion contacts (Mochizuki and Sato), which was then reconciled in the final exchange — a reminder to ensure consistent messaging across team members handling related but distinct certification programs (Bluetooth, USB, WHQL) for the same customer engagement.",
+    "consulting_takeaway": "When multiple certification programs (Bluetooth, USB, WHQL) apply to the same product family, ensure the team members handling each program coordinate their guidance to the customer, since each program's retest/new-certification rules differ and inconsistent answers from different contacts can create confusion."
+  }
+}

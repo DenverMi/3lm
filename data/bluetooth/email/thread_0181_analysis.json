@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0181",
+  "thread_analysis": {
+    "thread_summary": "Ricoh Imaging (camera module R09010) thread spanning the full registration lifecycle and post-registration questions. The registration was completed (TCW applied, approved) and the Compliance Folder was delivered. Post-registration, two change-management questions arose: (1) an IC Fab change where the output power stays the same — no BQTF re-test needed if self-verified; (2) a data-communication BLE output discovered to be inadvertently set at 10dBm instead of 0dBm — reducing to 0dBm stays within Class 2 range, no mandatory re-test. Also during the test phase, a discrepancy appeared: the ICS said Class 2 but the test measured Class 1 output — this was resolved when the customer confirmed Class 1 was actually correct (and a Class 1 test is a pass under Class 2 criteria).",
+    "all_questions_found": [
+      "Does IC Fab change require re-certification if output stays the same?",
+      "If BLE output is accidentally at 10dBm (max Class 2) instead of 0dBm, does correction require re-test?",
+      "During test, output measured as Class 1 but ICS says Class 2 — which is correct?"
+    ],
+    "key_technical_discussion": "Two re-test thresholds covered in this thread: (1) The critical boundary is QDID/DN change — if unchanged, the applicant can self-verify RF output without mandatory re-test. (2) The critical boundary for output level change is the Class boundary — staying within the same Class means no re-test is required. Class 2 range is -10dBm to +10dBm; 0dBm and 10dBm are both Class 2. The ICS vs. measured output discrepancy (Class 2 ICS vs. Class 1 measurement) was resolved: Class 1 (> 10dBm) had been mistakenly set initially; after correction to 0dBm, the result aligns with Class 2.",
+    "key_decision_logic": "Re-test is mandatory when: (1) QDID/DN changes, or (2) output moves across a Class boundary. If neither condition is met, the applicant can self-verify. The SIG certification is tied to the registered Class range, not the exact output value within that range.",
+    "risk_if_done_wrong": "Overlooking an accidental output exceeding Class limits without re-test would leave the product outside its certified spec. If a Fab change causes output drift beyond the Class range without re-verification, the certification is technically invalid.",
+    "consulting_mistake": "None identified in this thread.",
+    "consulting_takeaway": "When customers report post-certification changes (Fab, firmware, output level), immediately check: (1) Does the QDID/DN change? (2) Does the output cross a Class boundary? If neither, self-verification by the customer is sufficient and should be the first recommendation, with optional BQTF re-test available if their internal process requires it."
+  }
+}

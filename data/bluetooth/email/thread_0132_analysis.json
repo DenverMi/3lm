@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0132",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This thread covers FY26 Bluetooth SIG certification for [COMPANY] Sony's TV body and remote control products, handled as two separate registration projects. For the TV (OS version upgrade of a 3-year-old registration): the consultant confirmed RF test report reuse was valid since RF hardware was unchanged, then identified ICS inter-layer inconsistencies in the proposed reference QDID (Q325703), proposed using a Subset QDID (Q333791) to avoid triggering the post-July 2024 ~300-item LL Test Plan requirement, and quoted ¥400,000 (proxy registration + Compliance Folder only, no new testing). For the remote control (new BLE HID product): the consultant identified that QPRDv4 takes effect November 10, 2025, adding IOPT interoperability tests; by completing SIG server registration by November 9 (leveraging the new 180-day advance publication date feature), all RF/profile tests are exempt at ¥400,000 total; after November 10, IOPT tests add ¥200,000. The thread also includes an internal note confirming the Core Spec version in the registration will be v5.2 (from the referenced QDID D049426), not v5.4 as the customer specified in their RFQ.",
     "all_questions_found": [
       "Can the existing RF/RFPHY test report from a 3-year-old registration be reused for an OS version upgrade listing when RF hardware is unchanged?",

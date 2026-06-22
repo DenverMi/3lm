@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0266",
+  "case_id": "thread_0266_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth module (Hoshiden, SoC+Host Stack combination) supplied to OEM set makers",
+  "customer_question": "When we tried re-using our SoC's design for a module registration, it nearly completed but flagged that the Design Number (DN) would show as 'Default' rather than an actual assigned number. Is there any disadvantage or problem with the DN showing as 'Default'? Also, is it a problem for Bluetooth certification purposes if a re-branded registration only has a QDID starting with 'Q30' rather than the old-style numbering?",
+  "question_variants": [
+    "Does a 'Default' DN display cause any certification or business problem?",
+    "Is a Q30-prefixed QDID fully equivalent to old-style QDIDs?",
+    "How does the registration site decide whether to assign an actual DN versus showing 'Details'?"
+  ],
+  "actual_issue": "As a module vendor planning to register and supply Bluetooth modules to OEM set makers, the customer was confused by unfamiliar registration site behavior (a 'Default' DN display, Q30-prefixed QDIDs) discovered while testing their own registration approach, and needed to understand whether any of this indicated a problem before committing to their registration strategy.",
+  "plain_english_explanation": "When the post-July-2024 registration system processes a registration that Includes existing QDID/DN registrations without modification (equivalent to the old Declaration registration type), the DN field initially just displayed 'Details' alongside the Included QDID/DN, with no separate DN assigned — a quirk of the new system, not a defect. More recently, the system was updated so that when two or more QDID/DNs are Included together, the overall ICS resulting from that combination now gets its own Q30-prefixed DN assigned (since Q30 denotes registrations under the new QPRDv3.0 framework, starting July 1, 2024), displayed alongside the Included QDID/DNs — and this combination-level DN can itself be Included by other companies' product registrations, just like an old-style QDID. If only a single QDID/DN is Included (no combination), no such DN is assigned, matching the previous behavior. Critically, a Q30-prefixed DN carries exactly the same legal/certification effect as an old-style QDID — there's no disadvantage from the prefix or numbering scheme itself. The practical recommendation for a module vendor selling to OEM set makers is to favor SoC and Host Stack combinations where Including them together (i.e., as Controller Subsystem + Host Subsystem) results in an assigned DN, since this gives downstream OEM customers something concrete to Include in their own product registrations — if the module's own combination were registered as a complete End Product instead, no DN would be assigned at all, which is less useful for OEM supply purposes.",
+  "consultant_answer": "A 'Default' DN display (or 'Details' in the registration database) just reflects the new system's handling of an Include-without-modification registration — there's no disadvantage to it. Recently, when two or more QDID/DNs are Included together, the resulting combined ICS gets its own Q30-prefixed DN that other companies can Include in their own registrations, just like an old-style QDID — a single Included QDID/DN alone doesn't get this combination DN. A Q30-prefixed DN carries exactly the same certification effect as old-style QDIDs, so there's no problem proceeding with this approach. As a module vendor supplying OEM set makers, we'd recommend favoring SoC/Host Stack combinations that, when registered together as Controller Subsystem + Host Subsystem, do get an assigned DN — this gives your OEM customers something concrete to Include in their own registrations, unlike registering as a complete End Product, which wouldn't generate a DN at all.",
+  "decision_logic": "Module vendors supplying OEM set makers should prioritize registration structures (Controller Subsystem + Host Subsystem combination) that result in an assigned, Includable DN, since this is what enables downstream customers to achieve simplified, test-exempt registrations by referencing the module vendor's DN — registering as a complete End Product instead would forgo this OEM-enabling benefit even though it might otherwise seem like the more complete registration type.",
+  "final_recommendation": "When advising a module vendor on registration strategy, explicitly frame the choice around downstream OEM customer benefit (will this registration produce something OEM customers can Include) rather than just the immediate registration outcome, since a complete End Product registration — while seemingly more thorough — would actually be less useful for a component supplier's business model.",
+  "risk_if_done_wrong": "If a module vendor registered as a complete End Product instead of a DN-generating Controller+Host Subsystem combination, none of their OEM customers would have a DN to reference for simplified registration, undermining the module vendor's value proposition to its customer base.",
+  "bluetooth_tags": [
+    "DN Default Details display behavior",
+    "Q30 prefix DN equivalent to old QDID",
+    "combination DN for multiple Included QDID DN",
+    "module vendor OEM registration strategy",
+    "Hoshiden"
+  ],
+  "search_aliases": [
+    "what does DN Default mean",
+    "Q30 QDID same as old QDID",
+    "combination of QDID gets new DN",
+    "module vendor registration strategy for OEM customers"
+  ],
+  "qualification_stage": "Registration strategy planning",
+  "confidence": "high"
+}

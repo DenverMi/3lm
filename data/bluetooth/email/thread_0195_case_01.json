@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0195",
+  "case_id": "thread_0195_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alinco BR/EDR + BLE transceiver (IC change)",
+  "customer_question": "The referenced Controller QDID has LMP 31/1 marked as Mandatory. When we enter RF 1/1:YES (Class 1) in the ICS, we get an error. Why? And what is the correct RF Class setting?",
+  "question_variants": [
+    "LMP 31/1 Mandatory error when RF 1/1:YES — what does this mean?",
+    "What RF Power Class should we register when the Controller QDID requires specific LMP ICS settings?",
+    "RF Class 1 vs Class 2 — when is Class 2 required even if the hardware is Class 1?"
+  ],
+  "actual_issue": "The customer's product uses an IC that is Class 1 capable, and they initially entered RF 1/1:YES (Class 1 = output power > +10 dBm) in the ICS. However, the referenced Controller QDID has LMP 31/1 (Power Control) marked as Mandatory. If RF 1/1:YES (Class 1), then LMP 31/1 is triggered as Mandatory — but the product does not implement Power Control. This causes a Consistency Check failure that cannot be resolved without either implementing Power Control or changing to RF Class 2.",
+  "plain_english_explanation": "In Bluetooth, if a device declares Class 1 output power (RF 1/1:YES), the ICS mandates that it also implements Power Control (LMP 31/1:YES). This is because Class 1 devices, which transmit at higher power, must be able to reduce their power when requested — otherwise they could overwhelm nearby receivers. The referenced Controller QDID declares LMP 31/1 as Mandatory. If the product does not actually implement Power Control but is operating at Class 2 levels, the solution is to register as RF Class 2 (RF 1/1:NO). The actual RF PHY output can still be declared as Class 1 capable (RF PHY 1/15:YES), as long as the LL layer declares Class 2.",
+  "consultant_answer": "Change RF registration to Class 2 (RF 1/1:NO). This resolves the LMP 31/1 Mandatory conflict. If the RF PHY hardware is capable of Class 1 output, you can still declare RF PHY 1/15:YES to show the full hardware capability, but the LL layer must declare Class 2 to avoid triggering the Power Control mandatory requirement. The product should operate at Class 2 levels during actual use.",
+  "decision_logic": "RF 1/1:YES (Class 1 at LL layer) → LMP 31/1:YES mandatory → cannot pass Consistency Check if Power Control is not implemented. RF 1/1:NO (Class 2 at LL layer) → LMP 31/1 condition not triggered → Consistency Check passes. RF PHY 1/15 (hardware Class 1 capability) is independent of LL Class declaration.",
+  "final_recommendation": "When referencing a Controller QDID that has LMP 31/1 Mandatory, set LL-layer RF Class to Class 2 (RF 1/1:NO) unless the product actually implements Power Control. The RF PHY layer can still declare hardware Class 1 capability (RF PHY 1/15:YES) separately.",
+  "risk_if_done_wrong": "Declaring Class 1 at the LL layer without implementing Power Control causes a Consistency Check failure and blocks registration submission. If the ICS is falsified to pass, this constitutes a qualification error that may lead to SIG challenge.",
+  "bluetooth_tags": [
+    "RF Power Class",
+    "LMP 31/1",
+    "Power Control",
+    "Class 1",
+    "Class 2",
+    "Consistency Check",
+    "ICS",
+    "Controller QDID",
+    "BR/EDR"
+  ],
+  "search_aliases": [
+    "LMP 31/1 mandatory error RF Class",
+    "RF 1/1 YES consistency check failure",
+    "Class 1 vs Class 2 registration ICS",
+    "Power Control mandatory LMP ICS",
+    "RF PHY 1/15 LL Class 2 combination"
+  ],
+  "qualification_stage": "Registration / ICS Configuration",
+  "confidence": "high"
+}

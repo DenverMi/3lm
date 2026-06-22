@@ -2,6 +2,7 @@
   "source_thread": "thread_0116",
   "case_id": "thread_0116_case_06",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "keyboard",
   "customer_question": "Our product is sold under [COMPANY]'s brand (their company name appears on the product nameplate). For the Bluetooth SIG registration, should the User Name/Password (SIG login credentials) be in our representative's name, or in [COMPANY]'s representative's name? And is it acceptable for us to ask [COMPANY] for their login User Name/Password?",
   "question_variants": [
@@ -15,7 +16,15 @@
   "decision_logic": "When a product is sold under a different company's brand (OEM/ODM arrangement), determine which company's name appears on the product nameplate - SIG registration (including the account User Name/Password) must be under that selling company's name, regardless of which company manufactures the product. If the manufacturer does not hold those credentials, obtaining them requires direct coordination with the brand-owning company - this is a business/contractual matter outside the registration rules themselves.",
   "final_recommendation": "Confirm which company's name is on the product nameplate and register Bluetooth SIG credentials under that company's representative. If the manufacturer needs access to those credentials, advise them to coordinate directly with the brand-owning company, and flag that this specific point was not resolved within this thread.",
   "risk_if_done_wrong": "Registering Bluetooth SIG credentials under the manufacturer's name instead of the nameplate brand owner's name would violate SIG certification rules and could require correcting the registration later. Failing to clarify the credential-sharing question between the manufacturer and brand owner could stall the registration process.",
-  "bluetooth_tags": ["qualification", "listing", "registration ownership", "OEM", "branding", "login credentials", "declaration"],
+  "bluetooth_tags": [
+    "qualification",
+    "listing",
+    "registration ownership",
+    "OEM",
+    "branding",
+    "login credentials",
+    "declaration"
+  ],
   "search_aliases": [
     "Bluetooth SIG registration name nameplate brand owner",
     "OEM ODM SIG account ownership rules",

@@ -1,0 +1,35 @@
+{
+  "source_thread": "thread_0185",
+  "case_id": "thread_0185_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Cable TV set-top box (Panasonic Connect, external antenna)",
+  "customer_question": "The product uses an external antenna — does this require RF testing?",
+  "question_variants": [
+    "External antenna: is RF PHY test required?",
+    "Does having an external antenna mean we cannot skip RF testing?",
+    "Is RF test mandatory for products with external Bluetooth antenna?"
+  ],
+  "actual_issue": "Customer is using an external antenna for Bluetooth. They may have expected that because the module might already have QDID, RF testing could be exempt. The question is whether an external antenna configuration changes this.",
+  "plain_english_explanation": "Bluetooth SIG rules exempt RF testing when a product uses a certified module with an integrated antenna, because the antenna is already part of the tested configuration. However, when the product uses an external antenna (not the antenna that was tested when the module was certified), the RF characteristics are no longer covered by the module's test results. The product must undergo RF testing with its actual external antenna configuration.",
+  "consultant_answer": "Because the product uses an external antenna (not integrated in the module), RF testing is mandatory. The antenna is part of the certified configuration — changing the antenna invalidates the module's RF test results for the product-level registration. RF PHY testing must be performed on the product as configured with its actual external antenna.",
+  "decision_logic": "The rule is: integrated antenna = RF test exempt (if module QDID covers it); external antenna = RF test required. The external antenna changes the effective antenna performance and cannot be assumed equivalent to the integrated antenna tested during module certification. This is a clear categorical rule in Bluetooth SIG certification.",
+  "final_recommendation": "For any product with an external Bluetooth antenna: budget for RF PHY testing. The module's QDID does not exempt the product from RF testing when an external antenna is used. Factor this into the pricing estimate.",
+  "risk_if_done_wrong": "Registering a product with an external antenna without conducting RF testing violates SIG certification requirements. If the SIG detects the external antenna configuration without test evidence, the registration may be invalidated.",
+  "bluetooth_tags": [
+    "external antenna",
+    "RF PHY test",
+    "antenna exemption",
+    "RF test required",
+    "module QDID"
+  ],
+  "search_aliases": [
+    "external antenna RF test required",
+    "Bluetooth external antenna certification",
+    "antenna configuration RF testing",
+    "integrated vs external antenna SIG",
+    "RF PHY exempt conditions"
+  ],
+  "qualification_stage": "Pre-registration / Scoping",
+  "confidence": "high"
+}

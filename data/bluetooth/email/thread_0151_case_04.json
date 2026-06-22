@@ -2,6 +2,7 @@
   "source_thread": "thread_0151",
   "case_id": "thread_0151_case_04",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — BR/EDR+BLE using Combine Unmodified Design",
   "customer_question": "How many RF test items are required? Is the RF test scope different for a BR/EDR-only product vs a BR/EDR/LE product? Does using Combine Unmodified Design exempt us from the profile test?",
   "question_variants": [
@@ -15,8 +16,21 @@
   "decision_logic": "The 26-item Classic RF test set is fixed by SIG test specifications and does not change based on BLE scope. Profile test exemption under Combine Unmodified Design is explicit SIG policy — when no modifications are made to the pre-certified design, no re-testing is required.",
   "final_recommendation": "Always quote Classic RF as 26 items. When using Combine Unmodified Design, inform customers that PTS profile test is not required — this significantly reduces cost and timeline compared to a fresh registration.",
   "risk_if_done_wrong": "Incorrectly quoting fewer than 26 RF items would produce an underpowered test scope. Failing to apply the Combine Unmodified Design profile test exemption would over-scope and over-charge the customer.",
-  "bluetooth_tags": ["RF test", "26 items", "Combine Unmodified Design", "profile test exemption", "Classic Bluetooth", "BR/EDR", "lead time"],
-  "search_aliases": ["RF test how many items", "26 RF test items always", "Combine Unmodified Design profile exempt", "BR/EDR RF test scope BLE"],
+  "bluetooth_tags": [
+    "RF test",
+    "26 items",
+    "Combine Unmodified Design",
+    "profile test exemption",
+    "Classic Bluetooth",
+    "BR/EDR",
+    "lead time"
+  ],
+  "search_aliases": [
+    "RF test how many items",
+    "26 RF test items always",
+    "Combine Unmodified Design profile exempt",
+    "BR/EDR RF test scope BLE"
+  ],
   "qualification_stage": "Test Scoping / RF Testing / Registration",
   "confidence": "high"
 }

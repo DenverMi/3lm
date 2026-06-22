@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0228",
+  "case_id": "thread_0228_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (JVC Kenwood, post-HSP re-test registration)",
+  "customer_question": "(Standard Compliance Folder delivery notice — no explicit customer question in this message; documents the standard guidance Allion provides upon shipping the Compliance Folder.)",
+  "question_variants": [
+    "How long do we need to keep the Compliance Folder, and what happens if SIG audits us?",
+    "How do we register future derivative models using the same module and Host Stack as this registration?"
+  ],
+  "actual_issue": "After receiving the customer's Compliance Folder source documents, Allion shipped the completed Compliance Folder (CD-R) via tracked mail and used the delivery notice to remind JVC Kenwood of two standing obligations/options: Compliance Folder retention duration and audit exposure, and the free derivative-model addition process for future models sharing the same module and Host Stack.",
+  "plain_english_explanation": "The Compliance Folder must be retained for one year after the last Product List item using this registration is discontinued, to be produced if Bluetooth SIG ever conducts an audit — comparable to a vehicle inspection certificate (shaken). Allion notes that none of its previously supported customers have ever actually faced an SIG audit, to reassure the customer this is a low-frequency event. Separately, any future derivative model using the same module and Host Stack as this registration can be added for free via the 'Manage Submitted Products' feature on the SIG portal's My Page, following the attached derivative product addition guide — no new registration or fee is required.",
+  "consultant_answer": "The Compliance Folder (CD-R) has been shipped via Japan Post Click Post tracking number 6287 1252 2874. Please retain it for one year after your last Product List item under this registration is discontinued, to present if Bluetooth SIG conducts an audit (similar to a vehicle inspection certificate) — though no Allion-supported customer has experienced an audit to date. Future models using the same module and Host Stack as this registration can be added free via 'Manage Submitted Products' on My Page; refer to the attached derivative product registration guide.",
+  "decision_logic": "Standard post-registration delivery communication bundles retention obligations and forward-looking derivative-product guidance into a single message to minimize follow-up questions from the customer.",
+  "final_recommendation": "Continue using this combined delivery-notice template (retention duration + audit reassurance + derivative addition guide) for all Compliance Folder shipments, since it proactively answers the most common post-registration questions.",
+  "risk_if_done_wrong": "If a customer discards the Compliance Folder before the 1-year-post-discontinuation window, they would be unable to respond to an SIG audit request. If they don't know about the free derivative addition path, they might pay for unnecessary new registrations.",
+  "bluetooth_tags": [
+    "Compliance Folder delivery",
+    "audit retention",
+    "derivative product addition",
+    "Manage Submitted Products",
+    "JVC Kenwood"
+  ],
+  "search_aliases": [
+    "Compliance Folder shipped notice",
+    "Bluetooth SIG audit retention period",
+    "derivative product addition guide",
+    "Manage Submitted Products free addition"
+  ],
+  "qualification_stage": "Post-registration / Compliance Folder delivery",
+  "confidence": "high"
+}

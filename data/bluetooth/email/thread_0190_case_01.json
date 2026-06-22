@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0190",
+  "case_id": "thread_0190_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Fulltech Bluetooth product (Haudi sub-brand)",
+  "customer_question": "The URL in the Bluetooth SIG member registration guide PDF no longer works — it redirects to a different page. Also, our company domain (fulltech1963.com) is not a .jp domain — what document do we use to prove mail domain ownership?",
+  "question_variants": [
+    "SIG member registration guide URL is broken — how do we access the registration page?",
+    "Non-Japanese domain: how to prove domain ownership for SIG member registration?",
+    "What document proves ownership of a .com domain for Bluetooth SIG membership?"
+  ],
+  "actual_issue": "The SIG member registration guide PDF contains a URL that previously linked to the SIG's member registration description page. That page has since been removed from the SIG portal — the URL now redirects elsewhere. Additionally, the customer's registered domain is fulltech1963.com (not a .jp domain), so they cannot use a JP domain Whois certificate that Allion's standard guide references.",
+  "plain_english_explanation": "The Bluetooth SIG has updated its portal flow for member registration. The description page that the guide PDF linked to no longer exists — the portal now leads directly to the 'Begin Application' button without the intermediate description page. For domain ownership proof, the SIG requires some evidence that the applicant controls the mail domain used for the SIG account. For non-JP domains (e.g., .com), a Whois certificate (a printout/PDF of the Whois record showing the domain registrant matches the company name) serves as the proof document.",
+  "consultant_answer": "The registration guide URL pointing to the old description page is outdated. The SIG portal now goes directly to the 'Begin Application' button — proceed from there. For domain ownership proof of fulltech1963.com (.com domain, not .jp): provide a Whois certificate (PDF/printout from a Whois service) showing the domain registrant information matches your company name. This serves as the ownership proof for non-JP domains.",
+  "decision_logic": "SIG portal changes over time and guide documents may become outdated. When a guide URL stops working, navigate to the SIG portal directly and look for the current registration flow. For non-JP domains, Whois certificate is the standard substitute for the JP domain Whois PDF that Allion's internal guide references.",
+  "final_recommendation": "Keep SIG member registration guides updated to reflect the current portal flow. For non-JP domain customers, proactively mention the Whois certificate requirement for domain ownership proof to avoid delays during SIG account setup.",
+  "risk_if_done_wrong": "Attempting to use an outdated guide URL may confuse customers and cause them to abandon the registration process. Without proper domain ownership proof, SIG may reject the membership application.",
+  "bluetooth_tags": [
+    "SIG membership",
+    "member registration",
+    "domain ownership",
+    "Whois certificate",
+    "non-JP domain",
+    "SIG portal",
+    "Begin Application"
+  ],
+  "search_aliases": [
+    "SIG member registration URL broken",
+    "domain ownership proof SIG membership",
+    "Whois certificate non-JP domain SIG",
+    ".com domain SIG registration",
+    "SIG portal Begin Application"
+  ],
+  "qualification_stage": "Pre-registration / SIG Membership Setup",
+  "confidence": "high"
+}

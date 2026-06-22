@@ -1,0 +1,19 @@
+{
+  "source_thread": "thread_0211",
+  "thread_analysis": {
+    "thread_summary": "Topre Corporation (multiple staff: Hiraki, Morimoto, Enomoto) develops a new flagship BLE+USB dual-mode keyboard line (R4HA/R4HB/R4HD, four key-layout variants) and pursues combined WHQL (Windows) and Bluetooth SIG HOGP/BAS/DIS/HIDS certification through Allion (Sakai, Mochizuki, Iida, Sato). The thread documents the full cycle: quotation, scope clarification (HOGP necessity, new mandatory BAS/DIS/HIDS scope under July 2024 checking rules), test sample logistics, extensive PTS test debugging across BAS Notify/security settings and HIDS Input Report Notify requirements, payment/Invoice handling, Listing Owner reassignment mid-process, and final Submission/Compliance Folder dispatch.",
+    "all_questions_found": [
+      "Can we register without running HOGP testing, and what would that certification actually cover?",
+      "Why do BAS/DIS/HIDS now need testing when our 2021 registration of a similar keyboard didn't require them?",
+      "Must all Fail/Indecisive PTS items Pass before certification is possible, or is there a workaround?",
+      "(Operational) What's the functional difference between the printed and unprinted keycap keyboard variants, for sample selection purposes?",
+      "(Operational) Can SIG send a registration name change mid-process (Listing Owner reassignment)?",
+      "(Operational, WHQL-specific) Should the WHQL test target Windows 11 or wait for an unreleased Windows 12?"
+    ],
+    "key_technical_discussion": "Registering with only Core-layer items yields a no-profile-scope certification, not coverage for an actually-implemented HOGP function. The July 2024 SIG checking-rule revision cascaded into requiring BAS, DIS, and HIDS minimum items for any HOGP HID-Device role registration, expanding scope beyond what older registrations required. Detailed PTS debugging covered BAS Notify/security configuration (TSPC_BAS_2a_1, TSPX_security_enabled) and HIDS Input Report Notify requirements across Media key/mouse/App Tx, as well as a fallback option of referencing an unrelated certified module's Profile Subsystem registration (Nordic QDID:44613, covering BAS/DIS/HIDS) instead of fixing firmware, contingent on the missing features not being used in practice.",
+    "key_decision_logic": "Certification scope tracks actual tested/declared functionality; current checking rules (not past registration precedent) govern required test scope; all assigned PTS items must Pass for profile-having products, with third-party Profile Subsystem reference registration available only as a last-resort fallback when real-world feature usage doesn't require firmware remediation.",
+    "risk_if_done_wrong": "Misunderstanding Core-only registration scope could leave a shipping HOGP product without valid profile coverage; failing to explain the July 2024 checking-rule cascade could create customer distrust over quote increases; treating the Profile Subsystem reference fallback as a primary solution rather than a last resort could misrepresent actual product behavior.",
+    "consulting_mistake": "None identified — Allion consistently explained scope limitations, rule changes, and fallback options accurately and proactively across this extended technical engagement.",
+    "consulting_takeaway": "For HID-device customers comparing new quotes to older registrations, proactively explain how SIG's evolving checking rules (especially the July 2024 revision) can expand required test scope for the same profile role over time, and clearly frame any reference-registration fallback options as secondary to genuine firmware remediation."
+  }
+}

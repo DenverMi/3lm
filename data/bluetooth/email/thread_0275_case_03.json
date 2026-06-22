@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0275",
+  "case_id": "thread_0275_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Quote request form field guidance (Alps Alpine, 3 products)",
+  "customer_question": "The quote request form's 'Profiles' field used to be called 'Profiles for Test' and we used to leave it blank — what should we actually write in it now?",
+  "question_variants": [
+    "Has the meaning of the Profiles field changed under the new registration system?",
+    "Should we list profiles regardless of whether they'll actually be tested?"
+  ],
+  "actual_issue": "The customer noticed the quote request form's profile-related field had been renamed and was unsure what information it was now asking for, since their previous understanding (leave it blank, since it described test scope) no longer seemed to apply.",
+  "plain_english_explanation": "Under the registration system in effect since July 1, 2024, for BLE products, any profile already covered by an Included existing registration doesn't require testing, and any proprietary (non-SIG-defined) profile added beyond that is also not subject to testing. The field was renamed from 'Profiles for Test' specifically because it now asks for something broader: every SIG-defined profile actually implemented in the product (excluding the mandatory Core-layer profiles), plus any proprietary profile, regardless of whether that specific profile will actually require testing. If a SIG-defined profile is implemented, list its name; if a proprietary profile is implemented, note that; if neither applies, leave the field blank.",
+  "consultant_answer": "Since July 2024's new registration system, profiles already covered by an Included existing registration don't need testing, and proprietary profiles aren't tested either — that's why the field was renamed: it's no longer asking only about test scope, but about every SIG-defined profile actually implemented (excluding mandatory Core-layer profiles) plus any proprietary profile, regardless of whether that specific one needs testing. List the SIG-defined profile name if implemented, note it if proprietary, or leave it blank if neither applies.",
+  "decision_logic": "Quote-form field semantics should be explicitly re-explained when the underlying system or terminology changes, rather than assuming customers will infer the new meaning from a renamed field label alone, especially when the new meaning is broader than the old one (implementation status, not test status).",
+  "final_recommendation": "When a quote-form field is renamed to reflect a registration system change, proactively explain the new semantics to returning customers who may rely on their prior understanding of the old field name, rather than assuming the rename alone communicates the change.",
+  "risk_if_done_wrong": "A customer relying on outdated understanding of the field (leaving it blank because it only asked about test scope) could submit an incomplete quote request that doesn't reflect their product's actual implemented profiles, leading to an inaccurate cost estimate.",
+  "bluetooth_tags": [
+    "Profiles field quote form renamed",
+    "implemented profile vs tested profile distinction",
+    "SIG defined profile proprietary profile listing",
+    "Alps Alpine"
+  ],
+  "search_aliases": [
+    "what to write in Profiles field quote request form",
+    "Profiles for Test field renamed meaning",
+    "list implemented profiles regardless of test requirement"
+  ],
+  "qualification_stage": "Quote request form preparation",
+  "confidence": "high"
+}

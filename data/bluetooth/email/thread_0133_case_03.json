@@ -2,6 +2,7 @@
   "source_thread": "thread_0133",
   "case_id": "thread_0133_case_03",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "automotive",
   "customer_question": "Are IOPT interoperability tests required for our product?",
   "question_variants": [
@@ -11,11 +12,21 @@
   ],
   "actual_issue": "A customer ([COMPANY] Alps Alpine) developing a Volvo automotive unit with Qualcomm's Android V Auto Core Host DN (Q370647) asked whether IOPT interoperability tests were required for their product. The consultant confirmed that IOPT tests are NOT required in this case, based on a specific QPRDv4 rule: if the product's supported profiles are included at the ICS level by the included Host DN (Q370647 Qualcomm Android V Auto Core Host), QPRDv4 (effective July 21, 2025) specifies that IOPT tests are not required. The IOPT test exemption applies because the Host DN already covers the profile conformance at the ICS level, making product-level IOPT testing redundant.",
   "plain_english_explanation": "QPRDv4 introduced IOPT (Interoperability Testing) requirements for Bluetooth profile certification. However, QPRDv4 also introduced an exemption: if the product's supported profiles are already covered at the ICS (Implementation Conformance Statement) level by the Host DN being included in the registration, the product does not need to separately perform IOPT tests. In this automotive case, the Qualcomm Android V Auto Core Host DN (Q370647) covers the profile ICS, so the product registration that includes Q370647 can claim IOPT test exemption. This is distinct from the QPRD deadline-based exemption (registering before a QPRD effective date) - this exemption is specifically based on ICS-level coverage of profiles by an included Host DN.",
-  "consultant_answer": "製品がサポートするプロファイルがQ370647（Qualcomm Android V Auto Core Host）によりICSレベルで包含されている場合、IOPT試験はQPRDv4(7/21発効)の規定で不要になりました。(If the profiles supported by the product are included at the ICS level by Q370647 (Qualcomm Android V Auto Core Host), IOPT tests have become unnecessary under QPRDv4 (effective 7/21) rules.)",
+  "consultant_answer": "If the profiles supported by the product are included at the ICS level by Q370647 (Qualcomm Android V Auto Core Host), IOPT tests have become unnecessary under QPRDv4 (effective 7/21) rules.",
   "decision_logic": "When assessing IOPT test requirements under QPRDv4: (1) Check whether the product's supported profiles are ICS-level included by the Host DN being referenced in the registration. (2) If yes, IOPT tests are exempt under QPRDv4 rules. (3) This exemption applies regardless of the QPRD version effective date - it is an ICS-level coverage exemption, not a deadline-based exemption. (4) Confirm with the senior consultant before finalizing the quote, as the specific QPRDv4 exemption rules may require interpretation.",
   "final_recommendation": "Before including IOPT tests in a quote, verify whether the Host DN's ICS-level profile coverage triggers the QPRDv4 IOPT exemption. If the included Host DN covers the product's profiles at the ICS level, IOPT tests are not required and should not be quoted. This can significantly reduce the test scope for products using established chip vendor Host DNs.",
   "risk_if_done_wrong": "Incorrectly quoting IOPT tests when they are exempt would overquote the customer. Incorrectly omitting IOPT tests when they are actually required would result in an incomplete certification.",
-  "bluetooth_tags": ["qualification", "QPRDv4", "IOPT", "test exemption", "Host DN", "ICS", "profiles", "Qualcomm", "Android Auto"],
+  "bluetooth_tags": [
+    "qualification",
+    "QPRDv4",
+    "IOPT",
+    "test exemption",
+    "Host DN",
+    "ICS",
+    "profiles",
+    "Qualcomm",
+    "Android Auto"
+  ],
   "search_aliases": [
     "IOPT test exemption QPRDv4 Host DN ICS level profiles",
     "Qualcomm Android V Auto Core Host Q370647 IOPT not required",

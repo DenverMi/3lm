@@ -1,49 +1,34 @@
 {
-    "source_thread": "thread_0027",
-    "cases": [
-        {
-            "case_id": "thread_0027_case_01",
-            "iut_type": "module",
-            "customer_question": "Why does Bluetooth RF-PHY testing fail with ERROR or FAIL results in Automation Explore even though the DUT was configured according to the customer procedure?",
-            "question_variants": [
-                "RF-PHY test shows ERROR 100%",
-                "Automation Explore command response stays red",
-                "2-wire UART RF-PHY test fails",
-                "SkipCommand causes RF-PHY FAIL",
-                "InterLab RF-PHY DUT communication error",
-                "BLE RF PHY test mode setup not working"
-            ],
-            "actual_issue": "The DUT could not establish proper command communication with the RF-PHY qualification tester because the HCI mode, UART configuration, baud rate, or DUT test setup procedure was incorrect.",
-            "plain_english_explanation": "The Bluetooth qualification tester must communicate correctly with the DUT before RF-PHY testing can begin. In this case, the tester could not get valid command responses from the DUT, so the RF-PHY tests failed before real RF measurements were properly executed. The issue was likely related to UART settings, HCI mode configuration, or incorrect test preparation instructions.",
-            "consultant_answer": "The consultant determined that the DUT communication check in Automation Explore must succeed before RF-PHY qualification testing can proceed. The provided configuration specified 2-wire UART at 115200 bps, but the DUT consistently returned ERROR responses while a reference DUT worked correctly. This suggested that the DUT might not actually be operating in HCI mode or might be using a different baud rate. The consultant instructed the team to verify DUT control settings with the module or SoC vendor and avoid using SkipCommand as a workaround because the command communication stage itself was failing.",
-            "decision_logic": "RF-PHY qualification testing depends on successful DUT command communication through Automation Explore before RF measurements are valid. If the tester cannot exchange commands with the DUT, RF-PHY failures are caused by setup or control path issues rather than confirmed RF noncompliance.",
-            "final_recommendation": "Verify the DUT HCI mode, UART interface type, baud rate, and command communication settings with the module or SoC vendor. Confirm that Automation Explore shows successful DUT command responses before starting RF-PHY testing.",
-            "risk_if_done_wrong": "Engineers may incorrectly treat the issue as an RF performance failure and waste time repeating RF-PHY tests that cannot execute correctly. Incorrect use of SkipCommand or invalid DUT communication settings can produce misleading FAIL or ERROR results and delay Bluetooth qualification.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "testing",
-                "HCI",
-                "UART",
-                "InterLab",
-                "Automation Explore",
-                "module"
-            ],
-            "search_aliases": [
-                "Automation Explore ERROR",
-                "RF PHY ERROR 100%",
-                "2-wire UART issue",
-                "HCI mode mismatch",
-                "baud rate mismatch",
-                "SkipCommand fail",
-                "DUT command response red",
-                "InterLab command error",
-                "RF PHY setup failure",
-                "UART communication failure"
-            ],
-            "qualification_stage": "test failure",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0027",
+  "case_id": "thread_0027_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Toytec Bluetooth module), RF PHY DTM command response check failing with COM port error",
+  "customer_question": "(Internal lab engineer to PM:) The RF PHY test is failing -- I followed the customer's sample explanation document for entering test mode, but the System Software shows an error. Setting to 2-Wire causes ERROR, and setting to SkipCommand causes Fail. Can you advise on the cause?",
+  "question_variants": [
+    "Could 'Unable to open COM8' indicate a Windows-level port assignment problem rather than a DUT or test-system issue?",
+    "Is bypassing the DUT command response check via SkipCommand an acceptable way to work around a connection failure?"
+  ],
+  "actual_issue": "The lab engineer's RF PHY test attempt failed at the pre-test DUT command response confirmation stage (Automation Explore), with the log showing 'Unable to open COM8' -- a connection-level failure occurring before any actual test commands were even exchanged with the DUT -- and the engineer had attempted to work around it by setting SkipCommand, which instead produced an outright Fail.",
+  "plain_english_explanation": "The 'Unable to open COM8' error message points to a Windows-level COM port assignment problem on the InterLab system's own control PC, not a DUT or antenna issue -- the lab needed to check the Device Manager's Ports (COM & LPT) section to confirm COM8 was actually assigned and available before Automation Explore could get a normal (green) response from the DUT. Bypassing this check via SkipCommand is not a valid workaround -- the test must actually proceed only after Automation Explore confirms a normal DUT command response, since skipping that confirmation step produces an outright Fail rather than a meaningful test result. Separately, the customer's own sample explanation document contained two distinct sections covering different purposes: a 'preparation' section (relevant for SIG certification testing) and a 'test operation method' section that was actually written for radio-law/FCC-style legal certification testing, where the DUT spontaneously emits radio signals under a different control scheme -- only the preparation section should be followed for SIG certification RF PHY testing.",
+  "consultant_answer": "First, only follow the document's 'preparation' section -- the 'test operation method' section is actually written for radio-law/FCC-style legal certification testing, which uses a different DUT control scheme, not for our SIG certification RF PHY test. For the connection error: 'Unable to open COM8' means the COM port isn't properly assigned on the InterLab control PC -- check Device Manager's Ports section to confirm COM8 is actually assigned, since Automation Explore won't show a normal (green) DUT response otherwise. Don't use SkipCommand as a workaround -- that produces an outright Fail, not a valid result; the test should only proceed once Automation Explore actually confirms a normal DUT command response.",
+  "decision_logic": "When a DTM pre-test command response check reports a 'cannot open COM port' style error, treat it as a Windows-level port assignment issue on the test system's control PC, verifiable directly in Device Manager, before suspecting the DUT or antenna path; do not bypass a failing command-response confirmation step via a skip option, since that produces an invalid result rather than working around the underlying connection problem.",
+  "final_recommendation": "When a 'cannot open COM port' error appears during DTM pre-test setup, check the test system control PC's Device Manager port assignment first, and never use a skip-confirmation option as a substitute for actually resolving a failing DUT command response check.",
+  "risk_if_done_wrong": "Using SkipCommand to bypass a failing DUT response check, rather than fixing the underlying COM port assignment problem, produces an invalid Fail result that doesn't reflect the DUT's actual capability, potentially leading to incorrect conclusions about the DUT's readiness.",
+  "bluetooth_tags": [
+    "Unable to open COM8 error",
+    "Device Manager COM port assignment check",
+    "SkipCommand invalid workaround",
+    "sample document preparation vs test operation method sections",
+    "radio law FCC test mode vs SIG DTM mode",
+    "Toytec"
+  ],
+  "search_aliases": [
+    "Unable to open COM8 Automation Explore",
+    "DTM pre-test command response check fails",
+    "SkipCommand causes Fail not valid workaround",
+    "customer document has radio law section not for SIG test"
+  ],
+  "qualification_stage": "RF PHY test setup troubleshooting",
+  "confidence": "medium"
 }

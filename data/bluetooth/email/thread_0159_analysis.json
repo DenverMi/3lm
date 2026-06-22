@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0159",
+  "thread_analysis": {
+    "thread_summary": "Flight Solutions payment terminal thread. The product uses a Bluetooth module with an integrated antenna and does not implement any SIG-defined profiles. Both RF testing and profile testing are exempt. Thread also documents the full RN (Receipt Number) Transfer Request procedure: after SIG issues the RN to the Invoice holder's account, Allion initiates a Transfer Request to move the RN to the target registrant account, and the Invoice holder approves via SIG's automated email link.",
+    "all_questions_found": [
+      "What tests are required for our payment terminal? Does it need RF or profile testing?",
+      "The SIG Qualification Fee was paid under one account — how do we register under a different account?",
+      "Does the registration become publicly visible immediately upon confirmation, or can a future display/publication start date be specified?"
+    ],
+    "key_technical_discussion": "Test exemption: integrated antenna module + no SIG profiles → RF test exempt (no external antenna, module pre-qualified) + profile test exempt (no SIG profiles implemented). RN Transfer Request: SIG Receipt Number is issued to the Invoice holder; Allion initiates Transfer Request; SIG auto-emails Invoice holder; Invoice holder clicks 'Agree'; RN moves to target registrant account.",
+    "key_decision_logic": "Test exemption requires both conditions: (1) integrated antenna (not an external connector), and (2) no SIG profile ICS additions beyond what the QDID component already qualifies. RN transfer is required when payer and registrant are different SIG accounts — the transfer mechanism is SIG's designed workflow for this scenario.",
+    "risk_if_done_wrong": "Incorrectly classifying a product as test-exempt when it has an antenna connector or added profile ICS leads to a non-compliant qualification. For RN transfer: if the Invoice holder does not respond to the SIG transfer email, the RN remains in the wrong account and registration is blocked.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "Always check antenna type (integrated vs. connector) and profile ICS scope together to determine testing requirements. For RN transfers, brief the Invoice holder in advance so they expect and promptly respond to the SIG automated email."
+  }
+}

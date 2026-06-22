@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0133",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This thread (August–September 2025) covers the Bluetooth SIG certification planning for an automotive in-vehicle connectivity unit (Volvo UXC, developed by Alps Alpine [COMPANY] with a Qualcomm SoC directly mounted on PCB). The thread involves multiple parties: Alps Alpine (customer, infotainment system developer), Volvo (vehicle OEM), Qualcomm (SoC/chipset vendor), and Ariion (certification service). Key topics: (1) Power Class 2 vs. Class 1 inconsistency with the included Qualcomm Host DN (Q366226), requiring a Subset request to Qualcomm; (2) RF PHY test scope for automotive - what modes are needed (Coded not needed, 2M likely needed, scope determined by product app not included DN); (3) IOPT test exemption under QPRDv4 when Host DN covers product profiles at ICS level; (4) Core-Controller DN creation as a future-proofing strategy against chip vendor DN updates. The quote evolved from a provisional ¥2,600,000 (before Qualcomm DN was confirmed) to a final ¥2,000,000 (RF full ¥1,200,000 + RF PHY 1M only ¥400,000 + proxy ¥250,000 + CF ¥150,000), with a new Component DN from Qualcomm also resolving the Power Class ICS issue.",
     "all_questions_found": [
       "Our product targets Power Class 2 but the included Qualcomm DN has LL ICS 9/11 (Power Class 1) = YES. Does this cause a Power Class inconsistency, and how do we fix it without triggering a massive LL test plan?",

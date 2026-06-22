@@ -1,43 +1,32 @@
 {
-    "source_thread": "thread_0002",
-    "cases": [
-        {
-            "case_id": "thread_0002_case_02",
-            "iut_type": "",
-            "customer_question": "Which modification memo should be sent when RF PHY testing is involved, and how should RF vs RF PHY cases be handled?",
-            "question_variants": [
-                "Which 改造メモ should be used for RF PHY testing?",
-                "Do we send RF or RF PHY version of the document?",
-                "What document applies when both RF and RF PHY tests are performed?",
-                "How to choose correct memo for RF vs RF PHY test cases?",
-                "Which template to send for BLE RF PHY testing?"
-            ],
-            "actual_issue": "Selecting the correct documentation variant (RF vs RF PHY modification memo) depending on the type of RF testing scope in Bluetooth qualification.",
-            "plain_english_explanation": "There are different versions of the modification memo depending on the type of RF testing. The team is unsure which one to send when RF PHY testing is involved. The confusion comes from overlapping RF and RF PHY test scenarios.",
-            "consultant_answer": "When RF PHY testing is involved, send the version that includes 'RF PHY' in the title. If only RF testing is performed, send the RF-only version. If both RF and RF PHY tests are included, send both documents.",
-            "decision_logic": "Document selection depends on the test scope. RF-only testing uses RF documentation, while RF PHY (typically LE-related) requires RF PHY documentation. Combined test scopes require both.",
-            "final_recommendation": "Check the test scope and send the appropriate memo: RF-only → RF document, RF PHY → RF PHY document, both → send both.",
-            "risk_if_done_wrong": "Providing incorrect or incomplete documentation may cause confusion, rework, or delays in the qualification process due to mismatched test scope and paperwork.",
-            "bluetooth_tags": [
-                "RF",
-                "RF PHY",
-                "LE",
-                "testing",
-                "documentation"
-            ],
-            "search_aliases": [
-                "RF vs RF PHY memo",
-                "which document RF PHY test",
-                "BLE RF PHY documentation",
-                "RF test vs RF PHY test difference",
-                "qualification memo selection RF",
-                "RF PHY LE requirement document",
-                "test scope documentation mismatch",
-                "RF PHY paperwork"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0002",
+  "case_id": "thread_0002_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Harada Industries) DUT, InterLab tester connection setup",
+  "customer_question": "We connected the DUT following the customer's documentation, but couldn't get the InterLab test system to control it — we connected using a cross cable through USB-Serial converters between the InterLab system's USB port and the PC's USB port, similar to a prior Qualcomm-based project, but the 'LE Reset' command just returns an ERROR. What are we missing?",
+  "question_variants": [
+    "Why can't the InterLab system establish control over the DUT through this connection setup?",
+    "Should the PC be kept in the signal path between the DUT and the InterLab system?"
+  ],
+  "actual_issue": "The test engineer, lacking explicit connection instructions from the customer's documentation, assumed the same PC-bridging cable setup used in a prior, different chipset's project (Qualcomm) would apply here too, but this assumption was incorrect for the current DUT's chipset and caused the InterLab system to fail to establish control.",
+  "plain_english_explanation": "The customer's documentation describes a 'DUT to PC' connection, but for this particular product, the PC is not meant to act as a bridge between the DUT and the InterLab test system — that bridging-PC architecture (requiring a cross cable) applies specifically to certain chipsets, like the Qualcomm-based project referenced from prior experience, not universally. For this DUT, the correct setup is to connect the InterLab system's own USB port directly in the position where the PC would normally connect to the DUT, rather than routing through a PC bridge with cross cables.",
+  "consultant_answer": "For this particular DUT, the PC isn't meant to bridge between the DUT and the InterLab system — that bridging architecture (with a cross cable) is specific to certain chipsets like the Qualcomm-based project you're recalling, not a universal setup. Please connect the InterLab system's own USB port directly in the position where the PC would normally connect to the DUT, instead of routing through a PC bridge.",
+  "decision_logic": "DUT-to-tester connection architecture (whether a PC acts as a bridge requiring cross cables, or whether the tester connects directly in the PC's place) depends on the specific chipset involved, and should not be assumed to generalize from a prior project's setup with a different chipset.",
+  "final_recommendation": "When customer documentation doesn't explicitly describe the DUT-to-tester connection method, verify the correct architecture for the specific chipset involved rather than defaulting to a setup pattern used in a previous, different project.",
+  "risk_if_done_wrong": "Assuming a PC-bridging architecture that doesn't apply to the current chipset would prevent the tester from ever establishing control over the DUT, blocking test execution indefinitely until the connection assumption is corrected.",
+  "bluetooth_tags": [
+    "DUT InterLab connection setup",
+    "PC bridge architecture chipset specific",
+    "LE Reset command error",
+    "test connection troubleshooting",
+    "Harada Industries"
+  ],
+  "search_aliases": [
+    "InterLab cannot control DUT LE Reset error",
+    "is PC a bridge between DUT and tester",
+    "DUT tester connection setup chipset specific"
+  ],
+  "qualification_stage": "Test execution setup",
+  "confidence": "high"
 }

@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0214",
+  "case_id": "thread_0214_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Development prototype (BLE module embedded in a coupling component, Miki Pulley)",
+  "customer_question": "If we avoid writing 'Bluetooth' anywhere on the evaluation equipment, does that mean SIG certification is unnecessary?",
+  "question_variants": [
+    "Can we avoid SIG certification simply by not labeling the device as 'Bluetooth'?",
+    "Does omitting the word 'Bluetooth' from the device exempt it from certification requirements?"
+  ],
+  "actual_issue": "Miki Pulley asked whether removing the word 'Bluetooth' from the physical device label would let them avoid SIG certification obligations, while still lending the BLE-equipped prototype to customers.",
+  "plain_english_explanation": "Not labeling the device 'Bluetooth' doesn't avoid the certification question, because the operation manual must still indicate that it is a Bluetooth device for the user to operate it correctly — so the receiving company can still recognize it as a Bluetooth product. As a Bluetooth SIG-qualified test lab (BQTF), Allion must convey the SIG's official position objectively: per the SIG's 'Do I need to Qualify?' guidance, qualifying is required for Bluetooth products, but whether to comply is ultimately the company's own legal/compliance decision (best made jointly with their IP department).",
+  "consultant_answer": "Omitting the word 'Bluetooth' from the physical label does not exempt the product, since the operation manual must still disclose Bluetooth functionality for the device to be usable. Allion, as a Bluetooth SIG-qualified BQTF lab, must reference the SIG's official 'Do I need to Qualify?' page, which states qualification is required for Bluetooth products — though ultimate compliance decisions rest with the requesting company's own legal/IP judgment.",
+  "decision_logic": "Certification obligation is tied to the functional nature of the product (does it implement Bluetooth) rather than to surface labeling. Removing a label doesn't change the underlying compliance requirement; the lab can only present SIG's official guidance, not make the legal decision for the customer.",
+  "final_recommendation": "Direct customers to the official Bluetooth SIG 'Do I need to Qualify?' resource for compliance decisions, and recommend they consult internal legal/IP teams rather than relying on labeling tricks to avoid certification.",
+  "risk_if_done_wrong": "Distributing unlabeled but functionally Bluetooth-enabled devices without certification, while believing this avoids compliance obligations, exposes the company to potential SIG compliance action regardless of labeling.",
+  "bluetooth_tags": [
+    "Bluetooth labeling",
+    "Do I need to Qualify",
+    "BQTF objectivity",
+    "compliance decision",
+    "Miki Pulley"
+  ],
+  "search_aliases": [
+    "avoid Bluetooth certification by not labeling",
+    "Do I need to Qualify SIG page",
+    "Bluetooth label removal certification exemption"
+  ],
+  "qualification_stage": "Pre-registration / exemption assessment",
+  "confidence": "high"
+}

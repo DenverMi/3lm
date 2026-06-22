@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0187",
+  "thread_analysis": {
+    "thread_summary": "Shin Cosmos Denki (新コスモス電機) sensor device registration. Multi-QDID (Multi-Design) registration. Process: customer originally provided credentials for an old/inactive account → Allion could not log in → customer created a new account → Allion initiated a Transfer Request to move the Receipt Number from the original Invoice account to the new account → customer accepted the Transfer Request → registration completed. Side discussion: English product description is mandatory for SIG registration; for unreleased/confidential products, a generic description is recommended along with setting a future Product Publication Date (up to ~3 months) to control public visibility.",
+    "all_questions_found": [
+      "SIG account credentials do not work — old account may be inactive",
+      "Receipt Number is on one account but registration will be from a new account — how to transfer?",
+      "Is the English product description mandatory?",
+      "What should we write for a confidential/unreleased product's description?"
+    ],
+    "key_technical_discussion": "SIG account issues are common when employees change roles or leave companies. The Transfer Request mechanism allows Receipt Numbers to move between accounts within the same SIG Member organization. The English product description is published on SIG's public database and is mandatory — generic descriptions and Publication Date controls are the tools for pre-launch confidentiality.",
+    "key_decision_logic": "Always confirm account credentials work before starting registration. If the Invoice holder account differs from the registrant account, initiate Transfer Request immediately. For pre-launch products, always recommend setting a future Publication Date and using a generic description.",
+    "risk_if_done_wrong": "Starting registration without resolving account issues causes delays when the portal blocks submission due to credentials or Receipt Number mismatch. Publishing detailed product descriptions before launch can violate product confidentiality.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "At the start of every registration engagement: (1) verify SIG account credentials work; (2) confirm the account matches the Invoice/Receipt Number holder; (3) for unreleased products, proactively recommend a generic description and future Publication Date."
+  }
+}

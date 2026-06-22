@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0247",
+  "case_id": "thread_0247_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product using LAPIS module with Nordic nRF52811 chip (Teraoka Seiko)",
+  "customer_question": "We plan to implement the S112 Soft Device stack on this LAPIS module. Can you provide a quote, and is DID acquisition cost handled by purchasing a declaration ID via SIG's Launch Studio?",
+  "question_variants": [
+    "What's the registration cost for this module/stack combination?",
+    "Is DID acquisition done by purchasing an ID through Launch Studio?"
+  ],
+  "actual_issue": "The customer wanted a quote for registering a printer product using a LAPIS Bluetooth module, but the module's existing SIG Component registration had already passed its 3-year validity period, which complicated which reference registration to use.",
+  "plain_english_explanation": "Checking the LAPIS module against the manufacturer's published specifications confirmed it has a built-in antenna, uses a Nordic nRF52811 chip, and can implement any of three possible Nordic SDK Soft Device stacks (S140, S112, or S113, all v7.0.1). However, the module's own SIG Component registration had already exceeded its 3-year validity period, so it could no longer be referenced directly. As an alternative, Nordic had a separate, currently valid End Product registration available to reference instead, allowing a simple Declaration-type registration. Since pricing was identical regardless of which specific stack (S140/S112/S113) was finally chosen, a single quote (¥100,000 for Declaration registration proxy support, plus a separate ~$9,600 DID acquisition fee paid directly to Bluetooth SIG) covered any of the three options, with the final stack choice only needing to be confirmed before registration.",
+  "consultant_answer": "Per the manufacturer's published data, this module has a built-in antenna, a Nordic nRF52811 chip, and supports any of three Nordic SDK Soft Device stacks (S140, S112, S113, all v7.0.1). Its own Component registration has already passed its 3-year validity period, so we'll instead reference Nordic's separate, still-valid End Product registration for a Declaration-type registration. Our quote is ¥100,000 for Declaration registration proxy support regardless of which of the three stacks you finalize, plus a separate DID acquisition fee of about $9,600 paid directly to Bluetooth SIG. Yes, DID acquisition is done by purchasing the ID through SIG's Launch Studio.",
+  "decision_logic": "When a module's own Component registration has exceeded its validity period, check whether the chip/stack vendor maintains a separate, still-valid registration (e.g., an End Product registration) that can be referenced instead, rather than assuming the module can no longer be used for a Declaration-type registration at all.",
+  "final_recommendation": "When quoting for a module whose registration is near or past its validity window, proactively check the underlying chip/stack vendor's own registrations for a valid reference alternative before concluding the module can't support a simple Declaration registration.",
+  "risk_if_done_wrong": "Assuming an expired Component registration makes a Declaration-type registration impossible could lead to recommending unnecessary full testing, when a valid alternative reference registration from the chip/stack vendor may still be usable.",
+  "bluetooth_tags": [
+    "Component registration 3 year validity expiration",
+    "End Product registration reference alternative",
+    "Nordic nRF52811 stack",
+    "Declaration registration",
+    "Teraoka Seiko"
+  ],
+  "search_aliases": [
+    "Component registration expired 3 years",
+    "End Product registration reference instead of Component",
+    "Nordic Soft Device S140 S112 S113",
+    "DID acquisition Launch Studio"
+  ],
+  "qualification_stage": "Quotation",
+  "confidence": "high"
+}

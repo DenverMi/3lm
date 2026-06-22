@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0236",
+  "thread_analysis": {
+    "thread_summary": "Pi Crystal Corporation (contact Junto Tsurumi, working out of Sharp's Kashiwa office) completes Bluetooth SIG registration with Allion (Itsuo Sakai). The thread spans final Review Page approval and Submission confirmation through to the provisional Compliance Folder CD-R shipment, including the document checklist and CD-R finalize procedure.",
+    "all_questions_found": [
+      "What documents are needed for the Compliance Folder, and how does the provisional CD-R get converted into the final version? (see thread_0236_case_01)"
+    ],
+    "key_technical_discussion": "The Compliance Folder document checklist (operation manual Bluetooth sections, block diagram, outline drawing, antenna data with radiation gain charts) and the provisional-to-final CD-R conversion procedure (overwrite placeholder PDFs, then finalize) represent a standard deliverable mechanic Allion uses across multiple customer engagements (see also thread_0235's nearly identical procedure for Atago).",
+    "key_decision_logic": "Same as thread_0236_case_01.",
+    "risk_if_done_wrong": "See thread_0236_case_01.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "This provisional-CD-R-with-placeholder-then-finalize mechanic appears to be Allion's standard Compliance Folder delivery process and should be explained consistently and proactively across customer engagements, since it is not self-evident to recipients."
+  }
+}

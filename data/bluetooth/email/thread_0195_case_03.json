@@ -1,0 +1,40 @@
+{
+  "source_thread": "thread_0195",
+  "case_id": "thread_0195_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alinco BR/EDR + BLE transceiver (HFP + SPP profiles)",
+  "customer_question": "What IOPT test items are required for our product registration? We have BR/EDR with HFP and SPP profiles.",
+  "question_variants": [
+    "Which IOPT test cases are mandatory for our BR/EDR product?",
+    "What are the required IOPT test items for HFP and SPP profiles?",
+    "IOPT requirements for BR/EDR with HFP Hands-Free role and SPP?"
+  ],
+  "actual_issue": "The customer's product implements BR/EDR with HFP (Hands-Free role) and SPP (Serial Port Profile). The registration requires IOPT (Interoperability Testing) test items in addition to the core and profile PTS tests. The customer (via sub-contractor Wireless Technology/Cresgo Wireless) needed to know the specific IOPT test case IDs required for this registration.",
+  "plain_english_explanation": "IOPT (Interoperability Testing) test items are SIG-mandatory tests for BR/EDR profiles that verify basic interoperability between Bluetooth devices. For a product with HFP (Hands-Free role) and SPP, the following IOPT items are required: IOPT/SR/COD (Service Record / Class of Device), IOPT/BAS/SR (Basic Access Service Record), IOPT/HFP/HF/SDPR (HFP Hands-Free Service Discovery Profile Request), IOPT/HFP/HF/CGSIT (HFP Hands-Free Connection Gating Service Interoperability Test), IOPT/SPP/DEVA/CGSIT (SPP Device A Connection Gating Service Interoperability Test), IOPT/SPP/DEVB/SDPR (SPP Device B Service Discovery Profile Request). These IOPT items are triggered by the presence of BR/EDR profiles in the registration.",
+  "consultant_answer": "For this product (BR/EDR with HFP HF role + SPP), the required IOPT test items are: (1) IOPT/SR/COD, (2) IOPT/BAS/SR, (3) IOPT/HFP/HF/SDPR, (4) IOPT/HFP/HF/CGSIT, (5) IOPT/SPP/DEVA/CGSIT, (6) IOPT/SPP/DEVB/SDPR. These are all mandatory as part of the Bluetooth SIG qualification for BR/EDR HFP and SPP profiles.",
+  "decision_logic": "IOPT items are determined by the profile set (HFP HF + SPP in this case). IOPT/SR/COD and IOPT/BAS/SR are common to most BR/EDR profile registrations. HFP-specific: SDPR and CGSIT for the HF role. SPP-specific: CGSIT for Device A (initiator), SDPR for Device B (responder). The sub-contractor performing PTS testing must be informed of all required IOPT items before test planning begins.",
+  "final_recommendation": "When scoping BR/EDR profile registrations, explicitly list the required IOPT items in the test plan sent to the testing sub-contractor. IOPT requirements are not always intuitive and are easily missed, leading to incomplete test reports at submission time.",
+  "risk_if_done_wrong": "Missing IOPT test items means the test report is incomplete and the registration cannot be submitted. Discovering missing IOPT items late requires scheduling additional testing, causing schedule delays.",
+  "bluetooth_tags": [
+    "IOPT",
+    "interoperability testing",
+    "HFP",
+    "SPP",
+    "BR/EDR",
+    "IOPT/SR/COD",
+    "IOPT/BAS/SR",
+    "IOPT/HFP/HF/SDPR",
+    "IOPT/SPP",
+    "test plan"
+  ],
+  "search_aliases": [
+    "IOPT test items HFP SPP BR/EDR",
+    "required IOPT tests HFP Hands-Free SPP",
+    "IOPT/SR/COD IOPT/BAS/SR required",
+    "BR/EDR IOPT mandatory items",
+    "IOPT test case list HFP registration"
+  ],
+  "qualification_stage": "Testing / Test Planning",
+  "confidence": "high"
+}

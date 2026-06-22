@@ -1,47 +1,31 @@
 {
-    "source_thread": "thread_0028",
-    "cases": [
-        {
-            "case_id": "thread_0028_case_01",
-            "iut_type": "module",
-            "customer_question": "If a Bluetooth LE product only supports LE 1M PHY, is RF PHY testing limited to 1M only and can qualification costs be reduced accordingly?",
-            "question_variants": [
-                "Do we need 2M PHY testing if the product only supports 1M?",
-                "Can RF PHY testing be limited to LE 1M mode?",
-                "Is LE 2M PHY mandatory for Bluetooth qualification?",
-                "How much does 1M-only RF PHY testing cost?",
-                "Can unsupported PHY modes be excluded from testing?"
-            ],
-            "actual_issue": "The customer needed clarification on whether unsupported LE PHY modes such as 2M and Coded must still be included in Bluetooth SIG RF PHY qualification testing and pricing.",
-            "plain_english_explanation": "Bluetooth qualification testing only needs to cover the PHY modes that the product actually supports. If a device only supports LE 1M PHY, then only LE 1M RF PHY testing is required. Optional features like 2M PHY or LE Coded PHY increase both test scope and cost.",
-            "consultant_answer": "The consultant explained that if the registered product supports only LE 1M mode, then RF PHY testing only needs to cover 1M. Additional PHY modes such as 2M, Coded, and Stable Modulation Index are optional test scopes that increase the number of RF PHY test items and total qualification cost. The consultant also provided staged pricing examples showing how enabling additional PHY capabilities expands the RF PHY test matrix.",
-            "decision_logic": "Bluetooth RF PHY qualification scope is determined by the PHY capabilities declared and supported by the implementation. Unsupported PHY modes do not require RF PHY qualification testing.",
-            "final_recommendation": "Only declare and test the LE PHY modes that are actually implemented and required for the product roadmap. Avoid adding optional PHY capabilities unless future interoperability or marketing requirements justify the additional qualification scope.",
-            "risk_if_done_wrong": "Declaring unsupported or unnecessary PHY capabilities can significantly increase qualification cost, test scope, scheduling complexity, and risk of RF PHY failures.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "LE",
-                "1M PHY",
-                "2M PHY",
-                "LE Coded",
-                "testing",
-                "module"
-            ],
-            "search_aliases": [
-                "1M only RF PHY",
-                "LE 2M optional",
-                "Coded PHY optional",
-                "RF PHY cost increase",
-                "PHY capability scope",
-                "BLE PHY test scope",
-                "1M qualification only",
-                "RF PHY item count",
-                "optional PHY testing"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0028",
+  "case_id": "thread_0028_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Toytec Bluetooth module), RF PHY test scope and cost tiers by supported PHY mode",
+  "customer_question": "For RF PHY testing, we believe 1M-only testing is sufficient -- is 2M also required? And if 1M-only is acceptable, is the test cost lower?",
+  "question_variants": [
+    "What does each additional RF PHY test tier (1M, 1M+2M, 1M+2M+Coded) actually cost?",
+    "What is the cost difference between testing 1M+Coded versus the full 1M+2M+Coded set?"
+  ],
+  "actual_issue": "The customer needed to confirm whether limiting RF PHY testing to 1M mode only (since their registered product only supports 1M) was sufficient, and whether doing so would reduce the test cost compared to testing additional PHY modes.",
+  "plain_english_explanation": "RF PHY test scope is determined by which PHY modes the product being registered actually supports -- if the product only supports 1M mode, testing only 1M mode is sufficient and acceptable; there's no requirement to test modes the product doesn't implement. Cost scales with PHY mode scope: 1M-only testing (10 items) was quoted at ¥400,000, while progressively broader scope tiers added cost: 1M+2M (20 items) at ¥700,000, 1M+2M+Coded (28 items) at ¥900,000, and the full set including Stable Modulation Index items (51 items) at ¥1,500,000. An intermediate combination not in the original tier list, 1M+Coded without 2M (18 items), was also quoted at ¥700,000 when the customer later asked about it, noting this specific combination (Coded support without 2M support) is unusual and hadn't come up in the lab's prior experience.",
+  "consultant_answer": "If your product only supports 1M mode, testing only 1M mode is sufficient -- there's no need to test modes it doesn't implement. Cost scales with scope: 1M-only (10 items) is ¥400,000; adding 2M (20 items total) is ¥700,000; adding Coded as well (28 items total) is ¥900,000; and including Stable Modulation Index items (51 items total) is ¥1,500,000. If you specifically want 1M+Coded without 2M (18 items), that's also ¥700,000, though this is an unusual combination we haven't seen requested before.",
+  "decision_logic": "RF PHY test scope should match the PHY modes the registered product actually supports -- testing unsupported modes is unnecessary, and cost scales directly with the number of test items required by the chosen scope tier.",
+  "final_recommendation": "When scoping RF PHY testing, confirm exactly which PHY modes the product supports before quoting, and present the cost tiers transparently (incremental scope vs. incremental cost) so the customer can choose the minimum sufficient scope for their actual product capability.",
+  "risk_if_done_wrong": "Testing PHY modes the product doesn't actually support would waste cost on unnecessary test items, while testing too narrow a scope relative to the product's actual capabilities could leave required conformance evidence missing.",
+  "bluetooth_tags": [
+    "RF PHY test scope by supported PHY mode",
+    "1M 2M Coded test cost tiers",
+    "test cost scales with item count",
+    "Toytec"
+  ],
+  "search_aliases": [
+    "is 1M only RF PHY test sufficient",
+    "RF PHY test cost 1M 2M Coded tiers",
+    "does unsupported PHY mode need testing"
+  ],
+  "qualification_stage": "Pre-test quotation / scoping",
+  "confidence": "high"
 }

@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0245",
+  "case_id": "thread_0245_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "PC product series with shared Bluetooth M.2 module, multiple memory/storage variants",
+  "customer_question": "We build PCs using an Intel M.2-format Bluetooth module (already 技適-certified through the antenna) that won't change across our model lineup, but we have multiple model numbers in the PC series due to memory/storage differences. Can the PC category certification be done as a single registration covering all model numbers at once?",
+  "question_variants": [
+    "Can multiple PC model numbers be registered together under one certification?",
+    "Is there a way to register a whole PC series in a single step rather than one model at a time?"
+  ],
+  "actual_issue": "The customer (SORD) wanted to know whether their planned PC series, which shares an identical Bluetooth module/configuration across multiple memory/storage variants, could be certified as a single bulk registration rather than requiring separate certification work per model number.",
+  "plain_english_explanation": "A single certification is performed for a base model, and then any derivative models that share the exact same Bluetooth configuration as that base model can be added for free to the base registration's Product List through simple self-service web operations. This means memory/storage variants of the same Bluetooth-identical PC series can all be covered by the one base registration's Product List rather than needing separate full registrations. However, SIG does not allow registering multiple model numbers at once using a wildcard pattern (such as an asterisk) — each individual model name still has to be added one at a time, even though the addition itself is free and simple.",
+  "consultant_answer": "You register the base model first, and then any derivative model that shares the same Bluetooth configuration as that base model can be added for free to the base registration's Product List via simple web operations — so your memory/storage variants can all be covered this way rather than needing separate registrations. That said, SIG doesn't allow registering multiple model numbers in bulk using a wildcard (like an asterisk); each model name still needs to be added individually, even though each addition is free and straightforward.",
+  "decision_logic": "Bulk coverage of a model lineup is achieved through the free derivative-model Product List addition mechanism (which requires identical Bluetooth configuration), not through a single bulk-registration step covering all model numbers simultaneously; wildcards are categorically disallowed regardless of how similar the model numbers are.",
+  "final_recommendation": "When customers ask about registering an entire product series at once, clarify that the mechanism is base-model registration plus free individual derivative additions, not a true bulk/wildcard registration, to set the right expectation about the per-model administrative effort still required.",
+  "risk_if_done_wrong": "A customer expecting true bulk registration might be surprised by the need to individually add each model name, or might mistakenly believe a wildcard registration is possible and attempt to use one, leading to incomplete certification coverage of their full model lineup.",
+  "bluetooth_tags": [
+    "PC series Bluetooth registration",
+    "derivative model free addition",
+    "Product List wildcard not allowed",
+    "M.2 Bluetooth module",
+    "SORD"
+  ],
+  "search_aliases": [
+    "can multiple PC models be registered at once",
+    "wildcard model registration not allowed",
+    "Bluetooth registration for PC series with memory variants"
+  ],
+  "qualification_stage": "Pre-registration planning",
+  "confidence": "high"
+}

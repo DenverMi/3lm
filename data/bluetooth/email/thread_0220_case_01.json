@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0220",
+  "case_id": "thread_0220_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Secom Corporation security device)",
+  "customer_question": "How should I fill in several fields on the Bluetooth SIG certification quote request form: Member Class, Model Name, SW/HW Version, Product Description, Product Category, Product Type, and the Declaration Fee wire-transfer-delegation checkbox?",
+  "question_variants": [
+    "Which Member Class should we select?",
+    "Should the model name be written in Japanese or English, and can multiple models be listed together?",
+    "Is SW Version/HW Version a required field at the quote stage?",
+    "How long and in what language should the Product Description be?",
+    "Which Product Category and Product Type should we select?",
+    "What does the 'Request Allion to proxy the USD wire transfer' checkbox actually mean?"
+  ],
+  "actual_issue": "The customer was filling out the SIG certification quote request form for the first time and had multiple uncertainties about specific fields before submission.",
+  "plain_english_explanation": "For the quote request form: select 'adaptor' as the Member Class; write the model name in alphabetic (Roman) characters and list only one representative model (additional similar models can be registered for free later, with separate guidance to follow after the representative model's registration completes); SW/HW Version is not required at the quotation stage and can be discussed again at actual registration; the Product Description can be a single line and can be in Japanese; Product Category should be whichever is closest to the actual product, or 'Other' if none fit; Product Type should be 'End Product'; and the wire-transfer-delegation checkbox should be left checked if the customer wants Allion to handle the USD wire transfer (with corresponding fee), or unchecked if the customer will wire the funds themselves.",
+  "consultant_answer": "Member Class: select 'adaptor'. Model Name: use alphabetic characters, list only one model for now (additional similar models can be added for free later via separate guidance after the representative model is registered). SW/HW Version: not needed at quote stage; we'll discuss again at registration time. Product Description: one line is fine, Japanese is fine. Product Category: choose the closest match, or 'Other' if nothing fits. Product Type: select 'End Product'. Wire-transfer checkbox: leave checked if you want Allion to handle the USD wire transfer (with the associated fee), or uncheck it if you'll wire the registration fee yourselves.",
+  "decision_logic": "Quote request form fields that don't affect cost calculation (description language/length, category closest-match, model name format) can be filled flexibly and refined at actual registration; fields tied to billing (wire-transfer delegation checkbox, Member Class) determine specific fee line items and should be confirmed clearly upfront.",
+  "final_recommendation": "Provide first-time customers filling out the SIG quote request form field-by-field guidance distinguishing which fields are flexible/refinable later versus which directly affect the quoted fees.",
+  "risk_if_done_wrong": "Incorrect Member Class or wire-transfer checkbox selection could lead to an inaccurate quote or unexpected fee line items; an overly long or improperly formatted model name/description could complicate the actual SIG registration submission later.",
+  "bluetooth_tags": [
+    "quote request form",
+    "Member Class adaptor",
+    "Product Type End Product",
+    "wire transfer delegation checkbox",
+    "Secom"
+  ],
+  "search_aliases": [
+    "how to fill out SIG quote request form",
+    "Member Class selection adaptor",
+    "Product Description language requirement",
+    "wire transfer proxy checkbox meaning"
+  ],
+  "qualification_stage": "Pre-quotation / quote request form completion",
+  "confidence": "high"
+}

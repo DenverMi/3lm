@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0150",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "Short internal quoting thread (91 lines) for Soar / NTT Sonority A2DP/AVRCP/IOPT profile certification project. Sakai established the prerequisites that must be confirmed before the project can be scoped: certified module QDID, certified Host Stack QDID with clean ICS, and Host Stack must cover AVCTP, AVDTP, and GADTP. Quote estimate: PTS test ¥300K + Multi-Design reference fee ¥250K + wire transfer fee ¥100K + SIG Qualification Fee ($6,000 USD equivalent). This thread is a precursor to thread_0151, which covers the actual project execution.",
     "all_questions_found": [
       "What prerequisites must be verified before scoping an A2DP/AVRCP/IOPT profile test project?"

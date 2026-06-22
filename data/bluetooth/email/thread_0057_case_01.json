@@ -1,46 +1,31 @@
 {
-    "source_thread": "thread_0057",
-    "cases": [
-        {
-            "case_id": "thread_0057_case_01",
-            "iut_type": "BLE device",
-            "customer_question": "Does changing a product from Nordic SoftDevice S332/S132 to nRF Connect SDK v2.8.0 or later require a new Bluetooth qualification, even if supported profiles remain unchanged?",
-            "question_variants": [
-                "Does SDK migration require requalification?",
-                "Can a SoftDevice-based product become a derivative of an nRF Connect SDK design?",
-                "Is a firmware-only SDK change covered by an existing QDID?",
-                "Does changing from S132/S332 to nRF Connect SDK require a new registration?",
-                "Can an existing qualification be reused after a Nordic SDK migration?"
-            ],
-            "actual_issue": "A Bluetooth-qualified product was originally based on a Nordic SoftDevice-derived qualified design, but the manufacturer planned to migrate to nRF Connect SDK. The question was whether the change could remain a derivative product or required a new qualification basis.",
-            "plain_english_explanation": "Even if the product looks the same to users and supports the same Bluetooth features, changing the underlying Bluetooth software platform can change the qualification basis. If the new SDK references different Bluetooth qualification artifacts and different ICS content, the existing qualification lineage may no longer apply. In that situation the product must be qualified against the new design basis.",
-            "consultant_answer": "The existing qualification referenced a Nordic SoftDevice-based qualified design. A product migrated to nRF Connect SDK v2.8.0 or later uses a different qualification basis with different Core specification and ICS content. Because of those differences, the migrated product is no longer considered a derivative of the previously qualified design and requires a new registration tied to the newer SDK lineage. However, if multiple future products are aligned to the same newly qualified SDK baseline, later models may be covered as derivatives of that new qualification rather than requiring separate new registrations.",
-            "decision_logic": "Qualification eligibility is determined by the qualified design being referenced, the Core specification basis, and the resulting ICS content. When those change sufficiently, the product is no longer a derivative of the original qualification and must be registered as a new design.",
-            "final_recommendation": "Create a new qualification based on the nRF Connect SDK design lineage. Where possible, align future products to the same SDK baseline so they can be handled as derivative products under the new qualification strategy.",
-            "risk_if_done_wrong": "Treating the migrated product as a derivative of the original SoftDevice-based qualification could result in an invalid qualification basis, registration rework, qualification delays, and the need to repeat the qualification process later.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "ICS",
-                "design change",
-                "reuse",
-                "derivative product",
-                "nRF Connect SDK",
-                "Nordic"
-            ],
-            "search_aliases": [
-                "SoftDevice to nRF Connect SDK",
-                "SDK migration qualification",
-                "S132 to nRF Connect",
-                "new registration required",
-                "QDID lineage change",
-                "ICS changed after SDK migration",
-                "derivative product invalid",
-                "Nordic SDK requalification"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0057",
+  "case_id": "thread_0057_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Placeholder model name registration strategy continuity, and confirmation that free derivative-model registration applies even across different product categories",
+  "customer_question": "Under the old certification program, if certification completed more than 3 months before our product's planned public disclosure date, the model name would get prematurely exposed on Launch Studio -- so we used to register under a dummy model name like 'Prototype' and later add the real model name via the same derivative-addition operation. Is this still possible under the current program? Also, could a different model in a different product category be registered as a free derivative if its design (hardware, supported profiles, and ICS at each layer) was identical -- is this still possible too?",
+  "question_variants": [
+    "Does the placeholder-name workaround still make sense now that the disclosure-date deferral window has been extended?",
+    "Is free derivative-model registration restricted to the same product line or category?"
+  ],
+  "actual_issue": "The customer, returning to Bluetooth certification for the first time since the major 2024 process overhaul, wanted to confirm whether two previously-relied-upon strategies -- placeholder model name registration and cross-category free derivative-model addition -- remained available under the current registration program.",
+  "plain_english_explanation": "Both strategies remain fully available under the current system. First, registering under a placeholder/dummy model name (such as 'Prototype') and later adding the real, final model name via the standard derivative-product-addition operation continues to work exactly as before -- this remains a valid approach for situations where a customer wants to avoid prematurely exposing their actual model name before they're ready, independent of (and in addition to) the now-extended public-disclosure-date deferral window. Second, free derivative-model registration is not restricted to the same product category or product line -- as long as the underlying design (hardware configuration, supported profiles, and ICS content at every layer) is genuinely identical, a model in a completely different product category can still be added as a free derivative to an existing registration.",
+  "consultant_answer": "Yes, both approaches still work the same way: you can register under a placeholder model name and add the real name later via the standard derivative-product-addition operation, just like before. And yes, free derivative-model registration isn't limited to the same product category -- as long as the design (hardware configuration, supported profiles, and ICS at every layer) is genuinely identical, a model in an entirely different product category can still be registered as a free derivative.",
+  "decision_logic": "When a returning customer asks whether pre-2024-overhaul strategies (placeholder model names, cross-category free derivative additions) still work, confirm both remain available under the current system, since neither was actually eliminated by the 2024 process changes -- only the underlying registration mechanics (Consistency Check stringency, terminology) changed, not these specific customer-facing flexibilities.",
+  "final_recommendation": "When a customer with prior Bluetooth certification experience asks whether their previously-used strategies still apply post-2024, confirm continuity explicitly rather than assuming they'll rediscover it themselves, since the overhaul changed registration mechanics significantly enough that customers may incorrectly assume long-standing flexibilities were also removed.",
+  "risk_if_done_wrong": "A customer who assumes the placeholder-name strategy or cross-category derivative registration was eliminated by the 2024 overhaul might unnecessarily complicate their registration planning or miss out on legitimate cost/confidentiality-saving options that remain fully available.",
+  "bluetooth_tags": [
+    "placeholder model name strategy still valid post 2024",
+    "free derivative registration not limited to same product category",
+    "design identity hardware profiles ICS determines derivative eligibility",
+    "Shimano SW-UT600"
+  ],
+  "search_aliases": [
+    "does Prototype placeholder name still work for Bluetooth registration",
+    "can derivative model be different product category",
+    "free derivative addition across product lines same design"
+  ],
+  "qualification_stage": "Returning-customer process continuity confirmation",
+  "confidence": "high"
 }

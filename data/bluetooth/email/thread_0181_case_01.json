@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0181",
+  "case_id": "thread_0181_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE camera module (Ricoh Imaging R09010)",
+  "customer_question": "If the IC's fabrication (Fab) process changes but the BLE output power is kept the same, does Bluetooth SIG re-certification become necessary?",
+  "question_variants": [
+    "IC Fab change: is re-test required if output power stays the same?",
+    "Does changing the IC manufacturing process require a new Bluetooth SIG test?",
+    "If we update the Fab but keep the same output level, do we need re-certification?"
+  ],
+  "actual_issue": "The IC inside the registered BLE module has an upcoming Fab change. The customer is concerned this may require a new BQTF RF output test and Bluetooth SIG re-registration.",
+  "plain_english_explanation": "A Bluetooth SIG registration is tied to specific QDID/DN references. If the IC's Fab change causes the referenced QDID or DN to change, a new registration is required. However, if the QDID/DN stays the same and the output power (as measured at the module level) remains identical before and after the Fab change, no mandatory re-test by a certified Bluetooth tester is required. The applicant can self-verify by measuring the output before and after the Fab change with their own instruments.",
+  "consultant_answer": "If the referenced QDID/DN does not change as a result of the Fab change, and the module's output power is managed so it is identical before and after the Fab change, the applicant's own self-verification of the output levels is sufficient — no mandatory Bluetooth BQTF test is required. If their internal design review or outgoing QA process requires a certified measurement, they may optionally commission a re-test.",
+  "decision_logic": "The Bluetooth SIG registration is bound to QDID/DN references, not the underlying IC fab. As long as the referenced QDID/DN is unchanged, and the product-level RF output power is verified to remain the same by the applicant, no re-test or re-registration is required. Mandatory re-testing would only be required if the QDID/DN changes or if the RF output specification itself changes.",
+  "final_recommendation": "If the QDID/DN is unchanged and the module's output power is managed to remain the same, self-verify with in-house equipment after the Fab change. No BQTF re-test is mandatory. Keep the self-verification records in case they are needed for internal design review.",
+  "risk_if_done_wrong": "If the Fab change causes the RF output to change beyond the registered spec (Class boundary) and no re-test is performed, the product would be out of compliance with its registered Bluetooth certification without the company being aware.",
+  "bluetooth_tags": [
+    "Fab change",
+    "IC change",
+    "RF output power",
+    "re-certification",
+    "QDID",
+    "BLE",
+    "self-verification"
+  ],
+  "search_aliases": [
+    "Fab change Bluetooth re-test",
+    "IC manufacturing change re-registration",
+    "output power unchanged no re-test",
+    "BLE chip change certification",
+    "semiconductor fab process change SIG"
+  ],
+  "qualification_stage": "Post-registration / Change Management",
+  "confidence": "high"
+}

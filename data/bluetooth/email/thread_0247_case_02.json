@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0247",
+  "case_id": "thread_0247_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Teraoka Seiko printer, module + antenna + Windows 11 motherboard)",
+  "customer_question": "For our printer product combining this module with a custom antenna (see attached) and a Windows 11-based motherboard, can the same simple Declaration registration process from our prior project be used again, and is the antenna we're using a concern? Also, should we worry about the timing of DID acquisition costs?",
+  "question_variants": [
+    "Is test-exempt Declaration registration available again for this module+antenna+Windows 11 combination?",
+    "Is there any issue with the specific antenna being used?",
+    "Does DID acquisition cost change over time?"
+  ],
+  "actual_issue": "The customer was applying the same registration approach used in a prior successful project to a new printer product with a custom antenna paired with the same module and a Windows 11 host, and wanted confirmation that this combination remained valid before proceeding, along with cost-timing guidance.",
+  "plain_english_explanation": "A product combining the referenced module (registered as a Controller Subsystem) with its connected custom antenna and a Windows-based motherboard (registered as a Host Subsystem) qualifies for the same simple Declaration-type registration as the prior project, with no testing required. The submitted antenna documentation showed no issues combining with the module for this Declaration approach. Separately, DID acquisition fees were scheduled to increase by 15% starting January 1, 2024; paying for DID acquisition before year-end would lock in the lower pre-increase price, and since a DID remains valid for one year, this wouldn't create any problem for the customer's planned early-next-year application.",
+  "consultant_answer": "Yes — combining this module (as Controller Subsystem), your custom antenna, and the Windows 11 motherboard (as Host Subsystem) qualifies for the same simple Declaration registration as before, with no testing required. We reviewed your antenna documentation and see no issues with this combination. One timing note: DID acquisition fees are increasing 15% starting January 1, 2024 — if you complete payment before year-end, you'll lock in the lower rate, and since a DID is valid for one year, this won't cause any problem for your planned early-next-year application.",
+  "decision_logic": "Test exemption eligibility for a Controller+Host combination is determined by whether each subsystem is already independently registered (module as Controller, OS as Host), regardless of which specific antenna or end-product chassis surrounds them, provided the antenna documentation doesn't raise compliance concerns; DID fee timing should be flagged proactively whenever a known fee change is imminent and within the customer's control to avoid.",
+  "final_recommendation": "When a customer references a prior successful registration approach for a new but similar product, explicitly reconfirm subsystem-level eligibility (Controller/Host) for the new combination rather than assuming it carries over automatically, and flag any known upcoming fee changes that the customer could act on to save cost.",
+  "risk_if_done_wrong": "Failing to reconfirm subsystem eligibility for the new antenna/chassis combination could result in mistakenly treating a different configuration as test-exempt when it isn't; failing to flag the DID fee increase deadline could cost the customer an avoidable 15% fee increase.",
+  "bluetooth_tags": [
+    "Controller Host Subsystem test exemption",
+    "antenna combination review",
+    "DID fee increase deadline",
+    "Declaration registration reuse",
+    "Teraoka Seiko"
+  ],
+  "search_aliases": [
+    "is antenna combination ok for Declaration registration",
+    "DID fee increase 2024",
+    "Controller Host Subsystem already registered no test needed"
+  ],
+  "qualification_stage": "Quotation / pre-order",
+  "confidence": "high"
+}

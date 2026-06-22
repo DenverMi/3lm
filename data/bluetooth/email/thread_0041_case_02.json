@@ -1,48 +1,31 @@
 {
-    "source_thread": "thread_0041",
-    "cases": [
-        {
-            "case_id": "thread_0041_case_02",
-            "iut_type": "module-based Bluetooth product",
-            "customer_question": "What work is actually performed during a Bluetooth SIG qualification registration project and how are responsibilities divided between the customer and consultant?",
-            "question_variants": [
-                "What does the Bluetooth qualification consultant do?",
-                "What tasks does the customer perform during qualification?",
-                "What happens inside Qualification Workspace?",
-                "What is Consistency Check in Bluetooth SIG qualification?",
-                "How is TCW used during qualification registration?",
-                "What activities are required to complete Bluetooth SIG submission?"
-            ],
-            "actual_issue": "Clarification of the practical qualification workflow, including Qualification Workspace registration, Consistency Check handling, TCW usage, and responsibility separation between customer and consultant.",
-            "plain_english_explanation": "The customer wanted a clearer explanation of what work was actually done during the Bluetooth SIG qualification process. The consultant explained that the customer provides account access, QDID information, product details, and payment support, while the consultant performs registration-site operations, consistency validation, and submission handling. The thread also explains that some inconsistencies can be accepted using TCW allowances permitted by Bluetooth SIG.",
-            "consultant_answer": "The consultant explained that the customer was responsible for providing the qualification account information, obtaining invoices for qualification fee payment, and supplying the implemented module QDID, model name, launch timing, and product overview. The consultant handled the Qualification Workspace registration process, payment transfer support, entry of qualification information, and Consistency Check validation for the selected qualification hierarchy. The consultant attempted to reduce inconsistencies to zero but proceeded using SIG-accepted TCW (Test Case Waiver) allowances where permitted before completing Submission.",
-            "decision_logic": "Bluetooth SIG qualification registration requires both administrative ownership from the product company and technical qualification processing inside Qualification Workspace. Consistency Check validation is a key gate, but SIG-approved TCW allowances may permit submission even when some inconsistencies remain.",
-            "final_recommendation": "Clearly separate customer responsibilities and consultant responsibilities at the beginning of qualification projects, verify QDID and product information early, and review Consistency Check results together before submission.",
-            "risk_if_done_wrong": "Misunderstanding qualification responsibilities can delay registration, create incorrect submissions, or leave unresolved Consistency Check issues. Failure to properly evaluate TCW eligibility could lead to rejected submissions or qualification inconsistencies.",
-            "bluetooth_tags": [
-                "qualification",
-                "Qualification Workspace",
-                "Consistency Check",
-                "TCW",
-                "QDID",
-                "submission",
-                "listing"
-            ],
-            "search_aliases": [
-                "Qualification Workspace process",
-                "Consistency Check handling",
-                "TCW usage",
-                "submission workflow",
-                "Bluetooth qualification consultant role",
-                "QDID registration flow",
-                "qualification responsibility split",
-                "SIG submission process",
-                "Test Case Waiver allowance",
-                "consistency validation"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0041",
+  "case_id": "thread_0041_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Customer-vs-consultant division of responsibilities during proxy SIG registration -- a clean breakdown for customers unfamiliar with the overall process",
+  "customer_question": "I understand roughly that SIG certification was performed, but could you give me an overview of exactly what you (the consultant) did versus what we (the customer) did during this registration?",
+  "question_variants": [
+    "What specific inputs does the customer need to provide for a proxy registration, versus what does the consultant handle independently?",
+    "What does 'Consistency Check' and 'TCW' mean in the context of what the consultant actually did?"
+  ],
+  "actual_issue": "The customer had only a high-level sense that 'SIG certification was completed' and wanted a clear, concrete breakdown of which specific steps were the customer's responsibility versus the consultant's, to understand the division of labor in the registration process they had just paid for.",
+  "plain_english_explanation": "In a typical proxy registration engagement, the customer's responsibilities are: providing the registration account credentials for whoever will be the registrant, obtaining the Invoice (under the customer's own company name) needed to pay the Qualification Fee, and providing the registration information for the implemented module (its QDID), along with the first product's model name, launch timing, and product overview information. The consultant's responsibilities are: proxy-handling the USD wire transfer based on the information the customer provided, entering the required information into the Qualification Workspace registration site, working through the Consistency Check tool to resolve inter-layer inconsistencies (aiming for zero inconsistencies), and -- in cases where zero inconsistencies cannot be fully achieved -- using SIG's allowed Test Case Waiver (TCW) mechanism to bring the remaining inconsistencies within an acceptable range before proceeding to final Submission.",
+  "consultant_answer": "Here's the breakdown: you provided the registration account info, obtained the Invoice under your own company's name for the Qualification Fee payment, and gave us the implemented module's QDID plus your first product's model name, launch timing, and overview information. On our end, we proxy-handled the USD wire transfer using the information you provided, entered the necessary data into the Qualification Workspace registration site, worked through the Consistency Check to resolve inter-layer inconsistencies toward zero, and since we couldn't fully reach zero in this case, used SIG's Test Case Waiver mechanism to bring the remainder within an acceptable range before submitting.",
+  "decision_logic": "When a customer who is new to the SIG registration process asks for a plain breakdown of who did what, provide a concrete two-column split (customer-provided inputs vs. consultant-performed technical/administrative steps) rather than a general summary, since customers often need this concrete breakdown to understand what they paid for and what their own role was.",
+  "final_recommendation": "After completing a proxy registration, proactively offer a clear breakdown of customer-provided inputs versus consultant-performed steps, since customers unfamiliar with the process may otherwise be unclear on what exactly occurred during the engagement.",
+  "risk_if_done_wrong": "A customer left without a clear understanding of the division of responsibilities might be unprepared for what inputs they'll need to provide again for future derivative registrations, or might misunderstand which party is responsible for ongoing obligations like Compliance Folder storage.",
+  "bluetooth_tags": [
+    "customer vs consultant responsibility breakdown registration",
+    "Consistency Check TCW explained to customer",
+    "proxy registration division of labor",
+    "Atago"
+  ],
+  "search_aliases": [
+    "what does customer need to provide for proxy SIG registration",
+    "what does consultant do during Bluetooth registration",
+    "Consistency Check Test Case Waiver explained simply"
+  ],
+  "qualification_stage": "Post-registration process recap and education",
+  "confidence": "medium"
 }

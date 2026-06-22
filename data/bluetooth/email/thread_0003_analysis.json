@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0003",
+  "thread_analysis": {
+    "thread_summary": "Panasonic Automotive Systems (PAS, contact Koutarou Mitani) works with Allion (Itsuo Sakai, Jun Wang) on Bluetooth SIG certification for an automotive Bluetooth module supporting both Classic and BLE functionality, spanning IOPT test scope determination, a significant July 2025 QPRDv4 rule change favorably altering IOPT generation for inherited profiles, and a staged approach involving an early informal test-mode verification (reduced RF PHY scope) ahead of the formal certification request planned for later in the year.",
+    "all_questions_found": [
+      "Has the IOPT test generation rule for inherited profiles changed, and does it still apply to every inherited profile? (see thread_0003_case_01)",
+      "Can test mode operation be informally verified ahead of the formal certification request, without an official report? (see thread_0003_case_02)",
+      "Does the full RF PHY test scope apply even for this preliminary test-mode verification? (see thread_0003_case_03)",
+      "(Administrative) Quote arithmetic correction for combined RF 2-item test items"
+    ],
+    "key_technical_discussion": "This thread captures a meaningful favorable rule change (QPRDv4, July 2025) relaxing IOPT test generation to apply only to modified-since-inheritance profiles, plus a staged engagement structure (informal, reduced-scope preliminary test-mode verification ahead of a full formal certification request) that lets a customer de-risk their test-mode-entry mechanism early and cost-effectively.",
+    "key_decision_logic": "See thread_0003_case_01 through thread_0003_case_03 for the specific decision logic behind each question.",
+    "risk_if_done_wrong": "See thread_0003_case_01 through thread_0003_case_03 for specific risks.",
+    "consulting_mistake": "None identified — Allion proactively re-contacted the customer once the QPRDv4 rule change was identified, rather than letting outdated guidance from an earlier meeting stand uncorrected.",
+    "consulting_takeaway": "When a significant certification rule change occurs, proactively revisit prior guidance given to affected customers; and for customers planning a future formal certification request, offer staged, appropriately-scoped preliminary verification services (like a reduced-RF-PHY-scope test-mode check) to de-risk their project economically ahead of the full formal engagement."
+  }
+}

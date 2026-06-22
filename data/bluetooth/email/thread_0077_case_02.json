@@ -1,48 +1,23 @@
 {
-    "source_thread": "thread_0077",
-    "cases": [
-        {
-            "case_id": "thread_0077_case_02",
-            "iut_type": "controller",
-            "customer_question": "Should a new Controller Subsystem-equivalent registration be created before the final product listing, or should RF/RF PHY evidence be used directly during end-product registration?",
-            "question_variants": [
-                "Is an intermediate Controller Subsystem registration worthwhile?",
-                "Should I create a Core Controller registration first?",
-                "Can I rely on a Controller Subsystem-equivalent registration under Qualification Workspace?",
-                "Will a subsystem registration guarantee successful end-product registration?",
-                "How should qualification architecture be structured after the July 2024 system changes?"
-            ],
-            "actual_issue": "The qualification strategy relies on creating an intermediate Controller Subsystem-equivalent registration, but Qualification Workspace now performs consistency checks across qualification layers, making the future usability of that intermediate registration uncertain.",
-            "plain_english_explanation": "A qualification step that previously seemed useful may no longer provide value under the newer Bluetooth SIG registration system. Even if an intermediate registration succeeds, it may later fail to combine correctly with host stacks and profiles when the final product is registered. The qualification path should therefore be chosen based on end-product success rather than intermediate milestones.",
-            "consultant_answer": "Under the post-July-2024 Qualification Workspace process, combinations involving controller, host, profile, and end-product layers are subject to consistency checking. An intermediate Controller Subsystem-equivalent registration can be created with zero invalid conditions, but there is no reliable way to predict whether a later host/profile combination will also pass. The consultant therefore recommended performing RF and RF PHY testing only, then using those reports directly during end-product registration together with the appropriate component qualifications. This approach also increases the likelihood of benefiting from existing waiver mechanisms associated with component-based qualification reuse.",
-            "decision_logic": "Qualification value should be evaluated at the final product registration stage. If an intermediate registration cannot be guaranteed to remain usable when combined with host and profile layers, it introduces risk without providing assured qualification benefit.",
-            "final_recommendation": "Avoid creating an intermediate Controller Subsystem-equivalent registration solely for reuse purposes. Perform RF and RF PHY qualification, then complete end-product registration directly using the test evidence together with compatible component qualifications and host/profile assets.",
-            "risk_if_done_wrong": "An intermediate registration may later prove unusable during end-product registration because of consistency-check failures. Qualification effort can be spent creating a registration that provides little practical value and may reduce flexibility compared with direct component-based qualification reuse.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "Qualification Workspace",
-                "consistency check",
-                "controller",
-                "host",
-                "profile",
-                "TCW"
-            ],
-            "search_aliases": [
-                "Controller Subsystem registration",
-                "Core Controller registration",
-                "Qualification Workspace consistency check",
-                "Launch Studio migration",
-                "end product listing strategy",
-                "component reuse path",
-                "host profile combination",
-                "registration architecture",
-                "TCW applicability",
-                "intermediate qualification risk"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0077",
+  "case_id": "thread_0077_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "We planned to register an intermediate Controller-Subsystem-equivalent registration now using our RF/RF PHY evidence, then combine it with our Host Subsystem and Profile later for the actual product registration. Is that a safe sequence, or could it cause problems we can't foresee?",
+  "question_variants": [
+    "Can you guarantee our later End-Product registration will also pass if our intermediate Controller registration passes now?",
+    "Should we register Controller Subsystem now and the rest later, or do everything together at the end?",
+    "Does doing an intermediate registration step affect whether we can use an existing TCW later?"
+  ],
+  "actual_issue": "The customer planned to perform RF/RF PHY testing now and use it as evidence to complete an intermediate, old-style Controller-Subsystem-equivalent registration, intending to combine that registration with the Host Subsystem and Profile at a later date to complete the actual old-style End-Product-equivalent product registration -- but this sequencing carried risk because cross-subsystem-type combinations only became subject to Consistency Check as of July 1, meaning the later combination's success could not be pre-simulated, and the intermediate step would also affect eligibility for an existing waiver.",
+  "plain_english_explanation": "Until recently, combining different levels of a Bluetooth registration (the chip-level piece, the software-stack piece, and the final product piece) wasn't automatically checked against each other for consistency. That changed, so now even if an early, partial registration goes through cleanly, there's no way to know in advance whether the later step that combines everything else will also go through cleanly -- it might reveal a conflict that wasn't visible before. On top of that, doing the early partial registration as its own separate step means giving up access to an existing exception process that's only available when the final registration references the chip-level piece directly, without that extra step in between.",
+  "consultant_answer": "The customer's plan was to perform RF and RF PHY testing now, complete an old-style Controller-Subsystem-equivalent registration with that evidence (which the consultant could guarantee at Invalid=0), and then later combine it with the Host Subsystem and Profile to complete the old-style End-Product-equivalent registration. The concern: combinations of Controller Subsystem, Host Subsystem, Profile Subsystem, and End Product that were exempt from Consistency Check before June 30, 2024 became subject to it as of July 1. This means that even though the intermediate Controller-Subsystem-equivalent registration can be guaranteed Invalid=0, whether the subsequent End-Product-equivalent registration (when the customer combines it with Host Subsystem and Profile) will also achieve Invalid=0 cannot be simulated in advance -- it can only be determined by attempting it. The recommendation: skip the intermediate registration step entirely. Perform only the RF and RF PHY testing now, and at the time of the actual product registration, combine the RF/RF PHY report as evidence together with the Component-level reference (per the Power Class resolution) and the Host Stack + Profile, completing the old-style End-Product-equivalent registration in one step. This avoids the risk that the intermediate registration, even if completed successfully, turns out to have no practical value if the subsequent step fails Consistency Check anyway. There is also a secondary benefit: as of July 1, an existing TCW already covers product registrations that reference an old-style Component registration directly. If the intermediate Controller-Subsystem-equivalent ('Core Controller') registration is completed first, then the later registration would be referencing that intermediate registration rather than the Component registration directly, and would not be eligible for this existing TCW. By instead referencing the Component registration (or its alternative) directly at the final registration stage using the RF/RF PHY report as evidence, the registration is likely to remain eligible for this TCW, which could help resolve some Invalid results that might otherwise arise.",
+  "decision_logic": "When a registration plan involves combining multiple subsystem-type registrations that are now subject to cross-type Consistency Check (since July 1), an intermediate lower-level registration's success does not guarantee the eventual full-combination registration's success, since that combination cannot be pre-simulated; the lower-risk approach is to perform only the underlying testing now and combine all pieces directly at the final registration stage, which both avoids the risk of a wasted intermediate registration and preserves eligibility for any existing TCW that applies specifically to registrations referencing a Component-level registration directly, which an intermediate registration step would forfeit.",
+  "final_recommendation": "Do not complete an intermediate Controller-Subsystem-equivalent registration as a separate step when the final registration will combine it with additional subsystem-type registrations under cross-type Consistency Check. Instead, perform the underlying RF/RF PHY testing now, and combine all pieces (test evidence, Component-level reference, Host Stack, and Profile) directly at the final End-Product-equivalent registration stage, to preserve eligibility for any TCW tied to direct Component-level references and avoid risking a wasted intermediate registration.",
+  "risk_if_done_wrong": "Completing an intermediate Controller-Subsystem-equivalent registration first risks discovering an unresolvable inter-layer Consistency Check failure only at the later End-Product-equivalent registration stage, after the intermediate effort has already been spent, and forfeits eligibility for an existing TCW that could otherwise help resolve some Invalid results at the final stage.",
+  "bluetooth_tags": ["Consistency Check", "Invalid", "Controller Subsystem", "End Product", "TCW", "Component registration", "registration sequencing"],
+  "search_aliases": ["cross subsystem type consistency check July 1", "intermediate registration cannot be pre-simulated", "TCW eligibility direct Component reference", "skip intermediate Controller Subsystem registration", "register everything together at final stage"],
+  "qualification_stage": "planning",
+  "confidence": "high"
 }

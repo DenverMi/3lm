@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0131",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "An internal thread ([COMPANY] Ariion sales + senior consultant) handling two separate Bluetooth SIG registration proxy cases for [COMPANY] Shibutani (product 'Tebura' and one other). The customer had an expired quote and asked two questions: (1) whether the SIG payment could be sent before the 'simplified test' results, and (2) what the Compliance Folder is. Internally, the sales person (Iida) forwarded the customer inquiry to the consultant (Sakai) to confirm test requirements and quote re-issuance details. Sakai clarified that all tests are fully exempt for these registrations (no test of any kind is needed), confirmed payment can proceed immediately, and provided instructions for re-issuing two separate quotes at their respective prices (¥400,000 for Mori-san's Tebura case, ¥300,000 for the other case re-issued 2025/12/28).",
     "all_questions_found": [
       "Can the customer send SIG payment (Declaration Fee) before the simplified test results are ready?",

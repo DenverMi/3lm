@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0245",
+  "thread_analysis": {
+    "thread_summary": "SORD (contact Hiroyuki Takahashi, Product Center PC Development Group), an existing Allion HDMI compliance customer, reaches out via Hsiaoting Huang and Yukihiro Nakano about Bluetooth certification for a PC product line implementing an Intel M.2 Bluetooth module (already 技適-certified) across multiple memory/storage model variants. Itsuo Sakai drafts the response (sent under Nakano's name) addressing both a registration-mechanics question and a general service-scope question, in the same email exchange.",
+    "all_questions_found": [
+      "Can a PC series with multiple model numbers sharing an identical Bluetooth module be registered as a single bulk certification? (see thread_0245_case_01)",
+      "What does Allion's Bluetooth certification 'consulting' support actually include, beyond QDID testing and reporting? (see thread_0245_case_02)"
+    ],
+    "key_technical_discussion": "Bulk model coverage for a Bluetooth-identical product series is achieved via free derivative-model Product List additions to a single base registration, not a true wildcard/bulk registration mechanism (which SIG does not allow). Allion's full service scope spans quote-stage test determination, RF/RF PHY test modification guidance, profile test sample requirements, fail-item remediation advice, proxy registration with consistency-check troubleshooting, and post-registration audit support.",
+    "key_decision_logic": "Both answers follow the principle of translating an abstract customer question (bulk registration possibility; what does consulting mean) into the specific, concrete mechanism or lifecycle stages that actually apply, rather than giving a generic yes/no or vague description.",
+    "risk_if_done_wrong": "See thread_0245_case_01 and thread_0245_case_02 for the specific risks of each question.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "For prospective customers new to Bluetooth certification (even if experienced with adjacent compliance programs like HDMI), proactively walk through the full engagement lifecycle and the free derivative-model registration mechanism early, since these are the two areas most likely to be misunderstood by someone unfamiliar with Bluetooth SIG-specific registration rules."
+  }
+}

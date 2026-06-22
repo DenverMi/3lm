@@ -2,6 +2,7 @@
   "source_thread": "thread_0135",
   "case_id": "thread_0135_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "industrial/commercial device",
   "customer_question": "The module vendor says it is a 'Component,' but on the SIG website it appears as two separate entries: a Host Subsystem and a Controller Subsystem. Which fee applies — Single Design (¥150K) or Multi-Design (¥250K)?",
   "question_variants": [
@@ -14,8 +15,21 @@
   "decision_logic": "1. Search the module QDID in SIG Launchstudio.\n2. Check the registration category: single QDID → Single Design reference (¥150K); Host Subsystem + Controller Subsystem split → Multi-Design reference (¥250K).\n3. Never rely on the vendor's self-declared category — use the actual SIG record.",
   "final_recommendation": "Always search the module QDID in SIG Launchstudio and confirm the registration category before preparing a quote. A module marketed as 'Component' may still be a split Host/Controller Subsystem in SIG.",
   "risk_if_done_wrong": "Quoting Single Design when Multi-Design is required results in a ¥100K underquote, causing customer disputes and internal losses.",
-  "bluetooth_tags": ["Multi-Design", "Single-Design", "Host-Subsystem", "Controller-Subsystem", "QDID", "Design-Number", "quoting"],
-  "search_aliases": ["module Component vs Subsystem", "Host Controller two QDIDs", "Multi-Design Single-Design fee difference", "¥250K ¥150K which applies"],
+  "bluetooth_tags": [
+    "Multi-Design",
+    "Single-Design",
+    "Host-Subsystem",
+    "Controller-Subsystem",
+    "QDID",
+    "Design-Number",
+    "quoting"
+  ],
+  "search_aliases": [
+    "module Component vs Subsystem",
+    "Host Controller two QDIDs",
+    "Multi-Design Single-Design fee difference",
+    "¥250K ¥150K which applies"
+  ],
   "qualification_stage": "pre-registration / quoting",
   "confidence": "high"
 }

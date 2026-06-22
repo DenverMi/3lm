@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0032",
+  "case_id": "thread_0032_case_09",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "SIG membership application mechanics -- independent parent/subsidiary memberships, email domain ownership proof document, and registrant eligibility",
+  "customer_question": "Since our situation is the reverse of a guide we found (our parent company has no SIG membership while our subsidiary already does), should the parent simply proceed with a normal new member registration, or does this instead require an 'add a user account' type application? Also, what happens to the subsidiary's existing SIG membership once the parent registers? And what counts as acceptable proof of email domain ownership for the membership application? Can any employee, regardless of department or title, apply as the registrant?",
+  "question_variants": [
+    "Are parent and subsidiary SIG memberships linked or independent of each other?",
+    "What format should the domain ownership proof document be in for SIG membership application?"
+  ],
+  "actual_issue": "The customer needed practical guidance on several distinct mechanical aspects of applying for new SIG membership for their parent company, given that their subsidiary was already a separate, existing SIG member.",
+  "plain_english_explanation": "There is no special exception or linked-account process for a parent company joining SIG when its subsidiary is already a member -- the parent should simply proceed with a normal new member registration, completely independent of the subsidiary's existing membership. Once the parent's registration completes, the subsidiary's existing SIG membership is treated as a fully separate, independent company membership, unaffected by the parent's new registration. For the email domain ownership proof document required during membership application, the practical approach is to perform a WHOIS domain lookup and convert the results to a PDF file for upload -- the search results can be in Japanese. For a .co.jp domain, this means printing the WHOIS lookup result page to PDF; for a .com domain, copying the lookup result to the clipboard and converting it to PDF via a word processor or similar tool. Finally, there is no specific rule restricting which employee within a company can apply as the SIG membership registrant -- any employee can apply regardless of department or job title, though it's advisable to choose someone likely to remain involved in Bluetooth certification work for the long term.",
+  "consultant_answer": "There's no special exception for your situation -- just proceed with a normal new member registration for the parent; it will be completely independent of the subsidiary's existing membership, which continues unaffected as its own separate company membership. For the domain ownership proof, do a WHOIS lookup and convert the result to PDF (Japanese results are fine) -- for .co.jp domains, print the lookup page to PDF; for .com domains, copy the result and convert it via a word processor. And no, there's no restriction on which employee can apply as registrant -- just choose someone likely to stay involved in Bluetooth certification work long-term. One related point: whoever performs the registration is designated as the company's 'Primary Contact,' and SIG will send all future correspondence (often in English) to that person's name and email address -- so be careful not to enter a manager's name/email as the registrant if that person tends to ignore English-language emails, even if someone else is doing the actual web registration on their behalf.",
+  "decision_logic": "When a company within a corporate group (parent or subsidiary) needs to apply for its own new SIG membership, treat it as a fully independent, standard new-member application unrelated to any other group company's existing membership, prepare the email domain ownership proof via a WHOIS lookup converted to PDF, and select any employee likely to remain involved in Bluetooth certification work as the registrant, since there is no role/title restriction.",
+  "final_recommendation": "When guiding a customer through SIG membership application mechanics within a corporate group structure, proactively clarify that each company's membership is independent, provide the concrete WHOIS-to-PDF method for the domain ownership proof document, and note there is no restriction on which employee can serve as registrant.",
+  "risk_if_done_wrong": "A customer might mistakenly delay their parent company's registration assuming it needs to be linked to or coordinated with the subsidiary's existing membership, or submit an unacceptable domain ownership proof format, causing application delays.",
+  "bluetooth_tags": [
+    "parent subsidiary independent SIG memberships",
+    "WHOIS domain ownership proof document SIG membership",
+    "any employee can be SIG registrant",
+    "Elematec smart tracker"
+  ],
+  "search_aliases": [
+    "does parent company SIG membership affect subsidiary membership",
+    "what document proves email domain ownership SIG application",
+    "who can apply as SIG member registrant",
+    "WHOIS lookup PDF for Bluetooth SIG membership"
+  ],
+  "qualification_stage": "SIG membership application process",
+  "confidence": "high"
+}

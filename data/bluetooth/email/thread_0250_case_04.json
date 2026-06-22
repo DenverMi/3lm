@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0250",
+  "case_id": "thread_0250_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (NEC Platforms, 3 distinct Communications Terminal models sharing the same module and Host Stack)",
+  "customer_question": "We want to register 3 different products under this engagement, all implementing the same Bluetooth module and Host Stack. Should we just list all 3 model names together?",
+  "question_variants": [
+    "How should multiple distinct product model names be entered for a single registration?",
+    "What happens to the 'Design Name' when there are 3 different individual product names?"
+  ],
+  "actual_issue": "The customer had three distinct product model names sharing identical Bluetooth hardware/software, and needed to understand how the registration site's form fields would handle multiple model names within what is fundamentally a single registration.",
+  "plain_english_explanation": "All three model names should be listed together in the registration form's field for 'first models to be sold.' However, the registration site's underlying mechanism automatically treats whichever Product Name is entered first as the registration's overall 'Design Name' — and since this engagement involves three separate, individually distinct product names rather than one single name, a unified name needs to be chosen and entered specifically as the Design Name (separate from simply listing the three individual model names), to serve as the registration's overarching identifier. In this case, the customer's current product was generically referred to as a 'Communications Terminal,' so that term was adopted as the Design Name.",
+  "consultant_answer": "Yes, please list all 3 model names together in the 'first models to be sold' field. However, because the registration site automatically treats whichever Product Name is entered first as the overall 'Design Name,' and you have three distinct individual product names rather than one, we'll need a separate, unified name to serve specifically as the Design Name. Since your current product line is generically referred to as a 'Communications Terminal,' we've adopted that as the Design Name.",
+  "decision_logic": "When a single registration covers multiple distinct product model names sharing identical Bluetooth hardware/software, the registration's overarching 'Design Name' identifier should be a separate, unified term rather than simply defaulting to whichever individual model name happens to be entered first, since that default behavior could create a misleadingly narrow registration identifier for what's actually a multi-model registration.",
+  "final_recommendation": "When a customer plans to register multiple distinct product names under one engagement, proactively flag the registration site's first-entered-name-becomes-Design-Name behavior and recommend selecting a deliberate, unified Design Name rather than letting the system default to one arbitrary model name.",
+  "risk_if_done_wrong": "Letting the system default to using just one of the three individual model names as the overall Design Name could create a confusing or misleading registration identifier that doesn't reflect all three products it actually covers.",
+  "bluetooth_tags": [
+    "multiple model names single registration",
+    "Design Name default behavior",
+    "first Product Name becomes Design Name",
+    "unified Design Name selection",
+    "NEC Platforms"
+  ],
+  "search_aliases": [
+    "how to register multiple product names",
+    "what is Design Name in Bluetooth registration",
+    "first Product Name automatically becomes Design Name"
+  ],
+  "qualification_stage": "Registration form preparation",
+  "confidence": "high"
+}

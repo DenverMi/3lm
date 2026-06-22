@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0259",
+  "case_id": "thread_0259_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging), DIS profile ICS documentation",
+  "customer_question": "What is 'DIS ICS'? We don't know what this term refers to or who within our company should be filling it out.",
+  "question_variants": [
+    "What does DIS stand for and what is its ICS document?",
+    "Who internally should complete the DIS ICS form?"
+  ],
+  "actual_issue": "The customer was asked to provide a 'DIS ICS' document for Test Plan creation but had no familiarity with the term, blocking progress until it was clarified.",
+  "plain_english_explanation": "ICS (Implementation Conformance Statement) is a Bluetooth SIG-defined document format for declaring exactly which functional items of a given profile or protocol are supported. DIS refers to the Device Information Service profile specifically. The DIS ICS form needs to be filled out by whichever team actually implemented the DIS profile in the product — either an internal software engineering department or an external development subcontractor responsible for that part of the Bluetooth stack implementation.",
+  "consultant_answer": "ICS (Implementation Conformance Statement) is a Bluetooth SIG-defined document for declaring exactly which functional items of a given profile are supported — DIS specifically refers to the Device Information Service profile. Please have whichever team implemented the DIS profile in your product — your internal software engineering department or an external development subcontractor responsible for that part of the Bluetooth stack — fill out the attached DIS ICS form.",
+  "decision_logic": "Profile-specific ICS forms should be completed by the party with direct implementation knowledge of that specific profile, not by whoever happens to be the customer's primary registration contact, since accurate per-item support declarations require firsthand implementation knowledge.",
+  "final_recommendation": "When a customer is unfamiliar with a specific profile's ICS terminology, define both the general ICS concept and the specific profile abbreviation in plain terms, and direct the form to the actual implementing engineering team rather than assuming the primary business contact can complete it themselves.",
+  "risk_if_done_wrong": "Having a non-technical contact attempt to fill out a profile-specific ICS form without implementation knowledge could result in inaccurate support declarations, risking either an invalid registration or missing required test coverage.",
+  "bluetooth_tags": [
+    "DIS ICS definition",
+    "Device Information Service profile",
+    "ICS form completion responsibility",
+    "implementation team",
+    "Ricoh Imaging"
+  ],
+  "search_aliases": [
+    "what is DIS ICS",
+    "Device Information Service ICS form",
+    "who fills out profile ICS form"
+  ],
+  "qualification_stage": "Test Plan preparation",
+  "confidence": "high"
+}

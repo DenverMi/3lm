@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0174",
+  "case_id": "thread_0174_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE security device (Secom)",
+  "customer_question": "The SIG Review Page shows a yellow warning mark on the ICS Form under Submission Requirements. Is this a problem? Will the registration be approved?",
+  "question_variants": [
+    "There is a yellow caution mark on the ICS Form in the Submission Status. What does this mean?",
+    "Our SIG submission shows a yellow indicator instead of green on the ICS Form. Should we be concerned?",
+    "Will SIG reject our registration because of the yellow warning on the Review Page?"
+  ],
+  "actual_issue": "After entering a TCW (Test Coverage Waiver) for an ICS inconsistency, the Submission Status ICS Form shows a yellow caution indicator instead of green. The customer wants to know if this blocks approval.",
+  "plain_english_explanation": "A yellow warning mark on the ICS Form in the SIG Review Page is the expected, normal result when a Test Coverage Waiver (TCW) has been applied. It means: 'There is an ICS inconsistency here, but a valid TCW number has been entered and SIG has acknowledged this is acceptable.' It does not mean rejection. SIG staff manually reviews the submission and confirms the TCW is valid, after which the registration is approved. This typically takes 1–5 US business days.",
+  "consultant_answer": "The yellow warning on the ICS Form is completely normal when a TCW has been entered. It indicates an acknowledged and waived inconsistency — not a failure. SIG staff will review the TCW during their manual review process and approve the registration within 1–5 US business days.",
+  "decision_logic": "SIG's portal uses color indicators: green = all clear, yellow = waived/acknowledged inconsistency (TCW applied), red = unresolved issue that will cause rejection. Yellow is a normal and expected state for any registration with inherited or product-level ICS inconsistencies covered by a TCW.",
+  "final_recommendation": "When you see a yellow indicator on the ICS Form after entering a TCW, proceed with registration confirmation and submission. Do not attempt to 'fix' the yellow indicator — it is the correct state. Wait 1–5 US business days for SIG approval.",
+  "risk_if_done_wrong": "Attempting to eliminate the yellow indicator by modifying the ICS (e.g., changing feature entries) without understanding the TCW mechanism could trigger hundreds of additional test requirements or create new inconsistencies.",
+  "bluetooth_tags": [
+    "TCW",
+    "Test Coverage Waiver",
+    "Review Page",
+    "ICS Form",
+    "yellow warning",
+    "SIG approval",
+    "Submission Status"
+  ],
+  "search_aliases": [
+    "yellow warning ICS Form Review Page",
+    "TCW yellow indicator normal",
+    "SIG submission yellow mark ICS",
+    "Submission Status yellow not green",
+    "TCW applied yellow indicator"
+  ],
+  "qualification_stage": "Registration / SIG submission review",
+  "confidence": "high"
+}

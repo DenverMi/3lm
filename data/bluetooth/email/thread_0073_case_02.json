@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0073",
-    "cases": [
-        {
-            "case_id": "thread_0073_case_02",
-            "iut_type": "keyboard",
-            "customer_question": "How should profile qualification testing be prepared when reusing a previously qualified HOGP design?",
-            "question_variants": [
-                "Can we reuse an old HOGP ICS?",
-                "What information is needed before PTS testing?",
-                "How do we identify qualification-impacting profile changes?",
-                "What should be compared against a previously qualified keyboard design?",
-                "What is required to create a PTS test plan?"
-            ],
-            "actual_issue": "The qualification team needed current HOGP ICS information and any differences from a previously qualified design to determine the correct qualification scope and generate a valid PTS test plan.",
-            "plain_english_explanation": "A previously qualified Bluetooth design cannot simply be assumed to remain valid for a new product version. The qualification team needs current feature declarations and any changes from the earlier design so that the correct tests can be selected. Missing ICS information can delay planning and testing.",
-            "consultant_answer": "The existing HOGP ICS from a previously registered product should be used as a baseline. Any changes or additions must be identified as explicit ICS differences so the qualification team can determine the applicable requirements and prepare the PTS test plan. Collection of HOGP-related ICS information is necessary before profile testing can proceed.",
-            "decision_logic": "Qualification scope and generated test requirements are driven by the declared ICS capabilities. Accurate identification of differences between the previous design and the current implementation is required to ensure the correct profile requirements and test cases are applied.",
-            "final_recommendation": "Obtain the current HOGP ICS, compare it against the previously qualified design, document all capability changes, and use the resulting ICS information to generate the PTS test plan.",
-            "risk_if_done_wrong": "Incorrect or incomplete ICS information can produce an incorrect test scope, missed requirements, qualification rework, and delays in test planning and execution.",
-            "bluetooth_tags": [
-                "qualification",
-                "ICS",
-                "PTS",
-                "HOGP",
-                "profile",
-                "test-plan"
-            ],
-            "search_aliases": [
-                "HOGP ICS update",
-                "reuse previous qualification",
-                "ICS delta review",
-                "PTS test plan preparation",
-                "profile capability changes",
-                "existing design comparison",
-                "qualification planning",
-                "ICS driven testing"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0073",
+  "case_id": "thread_0073_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "keyboard",
+  "customer_question": "Some of the newly-mandatory BAS/DIS/HIDS test items came back Fail or Indecisive. Is there any way around needing to pass them, short of fixing our firmware?",
+  "question_variants": [
+    "Is there a workaround if our firmware can't pass the new mandatory BAS/DIS/HIDS items?",
+    "Can we reference someone else's existing registration for BAS/DIS/HIDS instead of testing our own firmware?",
+    "If our product doesn't actually use these profiles, do we still need to fix the firmware to pass them?"
+  ],
+  "actual_issue": "The customer's keyboard returned Fail or Indecisive results on some of the newly-mandatory BAS/DIS/HIDS minimum test items, and the customer was looking for a way to complete registration without modifying their firmware to genuinely pass those items.",
+  "plain_english_explanation": "If a product can't pass tests for profiles it was only forced to add because of a recent rule change -- and the product never actually used those profiles' features to begin with -- there can be a shortcut: pointing the registration at an existing, already-passing registration for those specific profiles from a chipset or stack vendor, instead of fixing your own firmware to pass. This only makes sense if the product genuinely doesn't rely on those features, and it should be treated as a fallback, not the first thing to try.",
+  "consultant_answer": "If the customer's existing model registered without BAS, DIS, or HIDS support has not experienced any market connectivity-compatibility problems, that is evidence the keyboard does not actually use BAS, DIS, or HIDS functionality. In that case, the registration can formally reference an existing Nordic Profile Subsystem registration (a specific QDID) that includes BAS 1.0, DIS 1.1, and HIDS, instead of preparing a firmware fix and obtaining a fresh Pass report for the items that returned Fail or Indecisive. This was explicitly framed as a last-resort 'escape route': the customer should first consider pursuing a firmware fix to genuinely pass the BAS/DIS/HIDS minimum items, with the Profile Subsystem reference workaround held in reserve only if that does not pan out.",
+  "decision_logic": "Referencing an existing third-party Profile Subsystem registration to satisfy a newly-mandatory profile requirement is appropriate only when there is supporting evidence (such as a lack of market compatibility issues on a registration that lacked the profile) that the product does not actually rely on that profile's functionality, and should be pursued only after a genuine firmware fix has been considered, not as the default first response to a Fail/Indecisive result.",
+  "final_recommendation": "Before recommending a third-party Profile Subsystem reference as a workaround for a Fail/Indecisive newly-mandatory profile item, check whether the product's existing registration (without that profile) has a track record free of market connectivity issues, and present the firmware-fix path as the primary recommendation, with the reference workaround offered only as a fallback.",
+  "risk_if_done_wrong": "Defaulting to the third-party Profile Subsystem reference workaround without first confirming the product doesn't rely on the relevant profile's functionality risks registering a product that claims support for capabilities its actual firmware does not implement correctly.",
+  "bluetooth_tags": ["BAS", "DIS", "HIDS", "Profile Subsystem", "Include", "QDID", "workaround", "test failure"],
+  "search_aliases": ["reference existing Profile Subsystem registration workaround", "Nordic BAS DIS HIDS QDID Include", "Fail Indecisive profile item escape route", "no market compatibility issue justifies skipping firmware fix"],
+  "qualification_stage": "test failure",
+  "confidence": "high"
 }

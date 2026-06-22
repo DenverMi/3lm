@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0187",
+  "case_id": "thread_0187_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Shin Cosmos Denki Bluetooth sensor device",
+  "customer_question": "The SIG account credentials the customer provided do not work. The account may be old or inactive. What should we do before we can proceed with registration?",
+  "question_variants": [
+    "SIG account login fails — the account may be inactive",
+    "Customer provided credentials for an old SIG account that doesn't work — how to proceed?",
+    "What to do when SIG account credentials are invalid at the start of a registration project?"
+  ],
+  "actual_issue": "The customer provided SIG account credentials (email/password) to Allion at the start of the registration project. When Allion attempted to log in, the credentials did not work. The account may have been created by a previous employee or may have become inactive over time.",
+  "plain_english_explanation": "SIG account credential failures commonly happen when the original account was created by an employee who has since left, or when accounts have been inactive for a long time and the SIG portal has changed. The solution is: (1) If the account can be recovered (password reset via the registered email), attempt recovery. (2) If the email address is no longer accessible (former employee's email), the customer must create a new SIG account using a current employee's email. (3) Once a new account is created, if the Invoice/Receipt Number was purchased under the old account, a Receipt Number Transfer Request is needed to move it to the new account before registration can proceed.",
+  "consultant_answer": "First, verify that the credentials are correct and that the SIG portal URL being used is current. If the account is truly inaccessible, the customer should create a new SIG account using a current active email address. Then, if the SIG Invoice was issued to the old account, initiate a Receipt Number Transfer Request to move the Receipt Number to the new account before proceeding with registration.",
+  "decision_logic": "Always verify SIG account credentials work at the start of a project — before starting any registration preparation. Credential failure cascades into: (1) password reset attempt, (2) new account creation if recovery fails, (3) Receipt Number Transfer Request if the Invoice belongs to the old account. Catching this early prevents delays when the registration is ready to submit.",
+  "final_recommendation": "At the kickoff of every registration project, the first step should be: 'Please log in to the SIG portal at [URL] and confirm you can access your account.' This simple verification catches account issues before any work is done.",
+  "risk_if_done_wrong": "Discovering account credential issues at the time of Submission — after all registration preparation is complete — causes significant delays while the account issue is resolved and (if needed) a Receipt Number transfer is processed.",
+  "bluetooth_tags": [
+    "SIG account",
+    "account credentials",
+    "inactive account",
+    "password",
+    "SIG portal",
+    "account management",
+    "pre-registration"
+  ],
+  "search_aliases": [
+    "SIG account login failed inactive",
+    "SIG account credentials not working",
+    "old SIG account inaccessible",
+    "SIG account cannot login registration",
+    "verify SIG account before registration"
+  ],
+  "qualification_stage": "Pre-registration / Account Verification",
+  "confidence": "high"
+}

@@ -2,6 +2,7 @@
   "source_thread": "thread_0109",
   "case_id": "thread_0109_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "module",
   "customer_question": "If we use an already-certified Controller Subsystem QDID plus a purchased certified Host Subsystem stack, can registration be done purely on paperwork (final product listing only), with no protocol/profile testing (L2CAP, GAP, SPP, etc.)?",
   "question_variants": [
@@ -17,7 +18,17 @@
   "decision_logic": "Certified Controller + certified Host Subsystem normally exempts the product from protocol/profile testing. But if the RF module is surface-mounted and its antenna feed trace runs through the product's own PCB (i.e., the antenna path differs from what was tested during the module's own certification), an RF 2-item test (TX power, RX sensitivity) on the modified feed path is still required to validate that the added PCB antenna pattern doesn't compromise RF performance. This RF-only test is independent of host OS because it only exercises HCI-layer-and-below.",
   "final_recommendation": "Plan for an RF 2-item test (TX power, RX sensitivity) at the Japan lab in addition to final product registration, even when both subsystems are certified, because the module's antenna feed runs through the product PCB. No on-site witnessing or special host-OS handling is needed; send a modified RF-test sample with a DUT-mode entry procedure.",
   "risk_if_done_wrong": "If the RF 2-item test is skipped on the assumption that 'both subsystems are certified', the antenna pattern added on the product PCB would remain unverified, which could fail to satisfy SIG qualification requirements for the as-built product.",
-  "bluetooth_tags": ["qualification", "RF", "RF PHY", "QDID", "controller", "host", "module", "test report", "PTS"],
+  "bluetooth_tags": [
+    "qualification",
+    "RF",
+    "RF PHY",
+    "QDID",
+    "controller",
+    "host",
+    "module",
+    "test report",
+    "PTS"
+  ],
   "search_aliases": [
     "RF 2-item test surface-mount module",
     "antenna pattern design validation test",

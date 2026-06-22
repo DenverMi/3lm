@@ -1,47 +1,36 @@
 {
-    "source_thread": "thread_0033",
-    "cases": [
-        {
-            "case_id": "thread_0033_case_01",
-            "iut_type": "controller",
-            "customer_question": "How can Bluetooth RF PHY qualification testing be started when the DUT documentation only explains RF regulatory test mode and not Bluetooth LE Direct Test Mode control for the qualification tester?",
-            "question_variants": [
-                "How do we enter BLE DTM for RF PHY qualification?",
-                "Why can the InterLab tester not control the DUT during RF PHY testing?",
-                "Does the DUT support automated LE Direct Test Mode over UART?",
-                "What is missing from the RF PHY qualification procedure?",
-                "How should Qualcomm BLE DTM be connected to the test system?"
-            ],
-            "actual_issue": "The supplied DUT procedure described only RF regulatory test mode operation and did not provide the Bluetooth LE Direct Test Mode interface and automation details required for RF PHY qualification testing with the InterLab tester.",
-            "plain_english_explanation": "The device could enter a radio test mode, but the qualification lab could not automatically control it using the Bluetooth qualification tester. Bluetooth RF PHY qualification requires a specific Direct Test Mode interface so the tester can send commands and collect results. Without those instructions and interfaces, qualification testing cannot properly begin.",
-            "consultant_answer": "The consultant determined that the provided procedure was incomplete for Bluetooth RF PHY qualification because it only documented a generic RF test mode rather than Bluetooth LE Direct Test Mode under automated tester control. Qualcomm reference documentation clarified that the DUT must be controlled through the QC.BluetoothLE_DirectMode.exe utility using UART or USB serial communication integrated with the InterLab tester. The consultant also identified the required tester topology where the PC acts as a serial bridge between the tester and DUT, and verified that correct COM port mapping and HCI-Serial configuration were necessary for automated RF PHY execution.",
-            "decision_logic": "Bluetooth RF PHY qualification requires standardized LE Direct Test Mode communication under tester automation, not merely a manual or regulatory RF transmit mode. If the tester cannot control the DUT through the supported DTM interface, RF PHY qualification cannot proceed correctly.",
-            "final_recommendation": "Obtain and validate the vendor-specific BLE DTM procedure for qualification testing, configure the DUT for HCI-Serial DTM communication, verify COM port assignments between the tester and DUT, and confirm that the InterLab system can control the DUT before starting RF PHY testing.",
-            "risk_if_done_wrong": "The qualification lab may be unable to start RF PHY testing despite scheduled test time. Misinterpreting RF regulatory test mode as sufficient for Bluetooth qualification can cause failed tester integration, repeated debugging cycles, and qualification delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "DTM",
-                "LE",
-                "HCI",
-                "testing",
-                "controller"
-            ],
-            "search_aliases": [
-                "BLE DTM setup",
-                "RF PHY tester control",
-                "InterLab DTM connection",
-                "UART DTM interface",
-                "HCI serial DTM",
-                "RF PHY qualification blocked",
-                "Direct Test Mode missing",
-                "BLE qualification test mode",
-                "Qualcomm DTM utility",
-                "automated RF PHY testing"
-            ],
-            "qualification_stage": "testing",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0033",
+  "case_id": "thread_0033_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine HM26-series device, Qualcomm WCN685x-based chipset), entering RF PHY Direct Test Mode (DTM) for InterLab automated tester connection via Qualcomm's QC.BluetoothLE_DirectMode.exe tool",
+  "customer_question": "Qualcomm's QDART Android Platform User Guide documents how to put the device into RF test DUT mode, but it doesn't document how to connect to the RF PHY certification tester for automated InterLab testing via UART/USB test commands -- does a procedure for this exist, and how do we get the device responding to the tester's DTM mode commands?",
+  "question_variants": [
+    "Why won't the QC.BluetoothLE_DirectMode.exe tool launch after copying it to the QDART BIN folder as instructed?",
+    "What physical cable chain is needed to connect the InterLab tester to the control PC for DTM mode?",
+    "Why does clicking 'Enable' in the DTM tool produce a COM Port Open Error even though both COM ports are recognized?"
+  ],
+  "actual_issue": "Alps Alpine's existing internal test procedure document (modeled on the ALAP-authored manual) only covered RF test DUT-mode entry for Qualcomm WCN685x-based devices; it did not document how to connect the device to the RF PHY certification tester (InterLab) for automated testing via UART/USB test commands. The consultant's engineer (Ushiroebisu) worked through a multi-stage troubleshooting process, encountering and resolving (or partially resolving) a chain of separate but related obstacles: the DTM tool failing to launch, an undocumented mismatch between the Qualcomm guide's configuration steps and the actual tool UI, uncertainty over the correct physical cable chain, and a final 'COM Port Open Error' on Enable.",
+  "plain_english_explanation": "For Qualcomm WCN685x-based devices, the chipset vendor's own published guide ('Bluetooth Low Energy Direct Test Mode' PDF) contains the missing procedure, under a section titled 'DTM with Test Equipment Control' (page 13), with concrete steps on page 14. The process involved several layered obstacles, resolved in sequence: (1) Tool deployment: simply copying QC.BluetoothLE_DirectMode.exe from C:\\[chip]\\WCN\\ProdTests\\BIN to C:\\Program Files (x86)\\[chip]\\QDART\\BIN was not sufficient -- the exe silently failed to launch (no window, nothing in Task Manager, even with 'Run as administrator') because it depends on supporting .dll files (and any .ocx files) present in the original folder; copying all of those alongside the exe resolved the launch failure. (2) Configuration mismatch: once launched, the tool's actual UI differed from the guide's page-14 screenshot (showing a 'COM Port: AUTO' field not pictured in the doc), and the documented Step A/B settings could not be set as written; matching the equivalent options in QRCT (Qualcomm's own test tool) resolved this -- Target Type should be set to 'APQ', and Connection Mode (labeled 'Library Mode' in QRCT) should be set to 'QUTS'. (3) Physical cabling: the InterLab tester's connector is a native D-SUB9 male RS-232C port despite housing an embedded Windows 7 PC, but a straight male-to-male cable cannot bridge it to another male connector -- the correct chain is: InterLab's front-panel USB port to a USB-RS232C conversion cable, to an RS-232C female-female CROSS (null-modem) cable, to another RS232C-USB conversion cable, into the control PC's USB port. Cross cables are special-purpose and were historically kept in the Bluetooth shielded room; a cross cable can be identified by testing continuity between pins 2-3, 3-2, and 5-5 (a straight cable will not show this pattern), and the team's own previously-donated cross cable was marked with handwritten 'cross' labels at both ends as a faster way to identify it without testing. (4) Final root cause of the 'Enable' button error: even with the tool launched, correctly configured, and both COM ports recognized, clicking Enable produced a COM Port Open Error. The root cause was that the test sample (DUT) was not actually connected at the time of the check, because the same test sample/equipment was concurrently in use for ongoing RF testing -- the tool performs an initial handshake with the DUT (exchanging model-family information) upon Enable, and the absence of a response from a connected DUT is reported as this error. The fix is to wait until RF testing finishes, then connect the test sample and complete the COM-COM cross connection (in practice a virtual COM port via the USB-Serial conversion cable) before retrying.",
+  "consultant_answer": "Use Qualcomm's 'Bluetooth Low Energy Direct Test Mode' guide (not the QDART Android Platform guide) -- section 'DTM with Test Equipment Control' on page 13/14 documents this. To get the tool (QC.BluetoothLE_DirectMode.exe) to actually launch, copy all .dll (and .ocx, if present) files alongside it into the QDART BIN folder, not just the exe itself. Once it launches, if the documented Step A/B settings don't match the UI, set Target Type to 'APQ' and Connection Mode ('Library Mode' in QRCT) to 'QUTS' to match QRCT's equivalent fields. For the physical connection, you'll need a USB-RS232C adapter on each end plus a DB-9P female/female cross (null-modem) cable in between -- a straight cable will not work since both ends are otherwise male; a cross cable can be identified by continuity testing between pins 2-3, 3-2, and 5-5. If you get a COM Port Open Error on Enable despite both ports being recognized, it's likely because no test sample is actually connected (e.g., because it's in use elsewhere for RF testing) -- the tool requires a live handshake with the DUT, so connect the test sample and complete the COM-COM cross connection before retrying.",
+  "decision_logic": "For Qualcomm WCN685x-based devices, the RF PHY DTM connection procedure is documented separately from the standard QDART Android platform guide, in Qualcomm's dedicated 'Bluetooth Low Energy Direct Test Mode' document; the DTM tool (QC.BluetoothLE_DirectMode.exe) requires its full supporting .dll set to be copied alongside it (not just the exe) to launch; its configuration UI may not exactly match the vendor document and should instead be matched against the equivalent QRCT tool settings (Target Type=APQ, Library Mode=QUTS); the physical InterLab-to-PC connection requires a null-modem (cross) RS-232C cable, not a straight cable, identifiable via pin continuity testing (2-3, 3-2, 5-5); and a COM Port Open Error on Enable despite recognized ports indicates the DUT itself is not connected/available for the tool's required initial handshake, not a port configuration problem.",
+  "final_recommendation": "When a customer's internal Qualcomm-chipset RF PHY test procedure document only covers DUT-mode entry (per the standard QDART Android guide) without an InterLab/automated-tester connection procedure, proactively point them to Qualcomm's dedicated DTM document; warn upfront that the DTM tool needs its full supporting DLL set copied (not just the exe), that its actual UI may diverge from the vendor doc's screenshots (requiring QRCT-equivalent settings instead), that a null-modem cross cable (not a straight cable) is required for the physical connection, and that a COM Port Open Error after correct configuration most likely indicates the test sample itself isn't connected/available, rather than a settings problem.",
+  "risk_if_done_wrong": "Without this layered troubleshooting knowledge, an engineer could spend significant time incorrectly assuming the DTM tool itself, the cable, or the COM port settings are at fault when the actual blocker is sequential (missing DLLs, then UI/setting mismatches, then cable type, then DUT availability), potentially stalling RF PHY test execution for the certification timeline.",
+  "bluetooth_tags": [
+    "Qualcomm WCN685x RF PHY DTM mode",
+    "QC.BluetoothLE_DirectMode.exe launch failure missing dll",
+    "InterLab tester null modem cross cable RS-232C",
+    "Target Type APQ Library Mode QUTS QRCT settings",
+    "COM Port Open Error DUT not connected handshake",
+    "Alps Alpine HM26"
+  ],
+  "search_aliases": [
+    "Qualcomm DTM mode tool won't launch",
+    "QC.BluetoothLE_DirectMode.exe no window opens",
+    "InterLab RS-232C cross cable connection",
+    "COM Port Open Error Bluetooth DTM Enable",
+    "RF PHY automated test setup Qualcomm WCN685x"
+  ],
+  "qualification_stage": "RF PHY test execution setup (InterLab automated DTM testing)",
+  "confidence": "high"
 }

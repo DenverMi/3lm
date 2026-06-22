@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0272",
+  "case_id": "thread_0272_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Koizumi Lighting linear strip light), Bluetooth logo trademark display",
+  "customer_question": "Our product's enclosure is aluminum, and to maintain communication range we've cut a small resin-lid opening near the module where the Bluetooth Combination Mark logo would be displayed too small for the registered trademark (R) symbol to remain legible. We're considering removing the (R) from the lid and instead printing the trademark notice and Footnote in the included user manual — is that an acceptable way to handle this?",
+  "question_variants": [
+    "Can the (R) symbol be omitted from a too-small logo if a Footnote is placed in the user manual instead of on the product itself?",
+    "Does Allion have the authority to approve or reject this kind of branding/trademark question?"
+  ],
+  "actual_issue": "The customer's product design constraint (a small resin opening near the module) meant the Bluetooth Combination Mark logo, if displayed there, would be too small for the registered trademark (R) symbol to stay legible, and the customer wanted to confirm whether moving the required Footnote disclosure into the user manual (rather than onto the product itself) was an acceptable substitute.",
+  "plain_english_explanation": "Per Bluetooth SIG's own Brand Guide and Help & Support documentation, if the (R) symbol would become unrecognizable due to small logo size, the licensee may omit it, but only if they include a specific Footnote text establishing proper ownership and registered-trademark status of the logos. The exact wording of the Footnote requirement ('the licensee MUST include the footnote to show proper ownership of the logos...') is ambiguous about whether the Footnote itself merely needs to convey ownership information (which a user manual could satisfy), or whether 'footnote' specifically implies a physical display method tied to the logo's own location (which a separate user manual likely would not satisfy) — and Allion could not give a definitive answer to this specific interpretive question. Critically, Allion's own certification authority (as a BQTF) covers RF/RF PHY testing and report issuance, but does not extend to branding or trademark display approval — that authority rests with Bluetooth SIG itself, so this specific question needed to be submitted directly to SIG's own inquiry channel for an authoritative answer.",
+  "consultant_answer": "If the Footnote requirement means just conveying ownership information, then placing it in your user manual could work. But the requirement's exact wording is ambiguous about whether 'footnote' specifically requires a display method tied to the logo's own physical location, in which case a separate user manual wouldn't satisfy it. We're not able to give you a definitive answer here — as a BQTF, our certification authority covers RF/RF PHY testing and reporting, not branding or trademark display approval. For an authoritative answer, please submit this specific question directly to Bluetooth SIG's own inquiry channel.",
+  "decision_logic": "Branding and trademark display questions fall outside a BQTF's certification authority (which is limited to RF/RF PHY testing and reporting) and must be referred to Bluetooth SIG directly, rather than answered definitively by the testing lab even when the lab can identify the relevant Brand Guide language and flag the interpretive ambiguity.",
+  "final_recommendation": "When a customer raises a branding, trademark display, or logo-usage question, clearly distinguish it from certification testing/registration questions that fall within the lab's actual authority, point to the specific relevant Brand Guide language to help the customer understand the issue, and direct them to Bluetooth SIG's own inquiry channel for a definitive, authoritative ruling.",
+  "risk_if_done_wrong": "Giving a confident but ultimately unauthoritative answer to a branding question outside the lab's actual certification authority could lead a customer to implement a non-compliant trademark display, risking a dispute with SIG over improper logo usage.",
+  "bluetooth_tags": [
+    "Combination Mark logo too small (R) omission",
+    "Footnote trademark ownership disclosure",
+    "BQTF authority scope limitation",
+    "branding question referred to SIG directly",
+    "Koizumi Lighting"
+  ],
+  "search_aliases": [
+    "can R symbol be omitted from small logo",
+    "Footnote requirement Bluetooth Brand Guide",
+    "does testing lab approve branding questions",
+    "where to ask Bluetooth trademark display questions"
+  ],
+  "qualification_stage": "Product design / branding compliance",
+  "confidence": "high"
+}

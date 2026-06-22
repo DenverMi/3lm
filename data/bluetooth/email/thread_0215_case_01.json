@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0215",
+  "case_id": "thread_0215_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product with embedded BLE module (Furuhira/Iida customer board)",
+  "customer_question": "We plan to change the accelerometer mounted on the same board as our Bluetooth module. Does this require a re-application or new registration?",
+  "question_variants": [
+    "Does changing a component (accelerometer) on the board require Bluetooth SIG re-registration?",
+    "Is replacing the accelerometer a derivative-model change requiring a new SIG application?"
+  ],
+  "actual_issue": "The customer asked whether swapping the accelerometer on a board that also carries a Bluetooth module would require a new Bluetooth SIG application. Allion's first response (incorrect) analyzed this as a Bluetooth SIG derivative-model question; on review, Allion corrected itself — this is actually a question about Japan's technical regulation conformity certification (giko sekkei ninsho / 工事設計認証, governed by the Radio Law), not Bluetooth SIG qualification.",
+  "plain_english_explanation": "Initially, Allion answered as if this were a Bluetooth SIG derivative-product question: if the module/SoC, Host Stack, and upper-layer profiles are unchanged, it's a derivative model that can be added free to the existing Product List, and accelerometer changes alone don't require new SIG testing or registration. However, this case is actually about Japan's Radio Law technical regulation conformity certification (giko sekkei ninsho), which is a separate, unrelated certification system from Bluetooth SIG. Under that system, if the accelerometer's part/model name is listed in the original application's parts layout diagram, block diagram, or parts list, switching to a different part model number requires a simple supplementary application similar to the current one.",
+  "consultant_answer": "Correction: this is a Japan Radio Law technical regulation conformity certification (giko sekkei ninsho) matter, not a Bluetooth SIG matter. If the accelerometer's part/model name appears in any of the original application's parts layout diagram, block diagram, or parts list, changing to a different part model number requires the same type of simple supplementary application as this current case. The customer should be sent a correction email.",
+  "decision_logic": "Bluetooth SIG derivative-model rules (same module + same Host Stack = free addition) apply only to Bluetooth qualification, not to Japan's domestic radio type-approval system. For giko sekkei ninsho, the triggering factor is whether the specific changed part's model name was documented in the original application's technical drawings/parts list — if so, a supplementary filing is required even for a minor component swap like an accelerometer.",
+  "final_recommendation": "Always identify which certification regime (Bluetooth SIG vs. Japan Radio Law technical regulation conformity) a customer's question actually pertains to before answering, since the rules and triggers differ significantly between the two systems.",
+  "risk_if_done_wrong": "Answering under the wrong certification framework could lead the customer to believe no action is needed when in fact a giko sekkei ninsho supplementary application is required for the Radio Law system, leaving the product non-compliant under Japanese domestic regulation despite being fine under Bluetooth SIG rules.",
+  "bluetooth_tags": [
+    "giko sekkei ninsho",
+    "technical regulation conformity certification",
+    "accelerometer change",
+    "Radio Law Japan",
+    "derivative model correction"
+  ],
+  "search_aliases": [
+    "construction design certification Japan accelerometer change",
+    "giko sekkei ninsho part change re-application",
+    "Bluetooth SIG vs Radio Law derivative model confusion",
+    "technical regulation conformity supplementary application"
+  ],
+  "qualification_stage": "Post-registration / component change assessment",
+  "confidence": "high"
+}

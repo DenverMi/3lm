@@ -1,7 +1,8 @@
 {
   "source_thread": "thread_0117",
   "case_id": "thread_0117_case_02",
-  "source_type": "internal_consulting",
+  "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "",
   "customer_question": "(Internal) Before quoting this new customer's Bluetooth SIG registration, is there anything else we need to check beyond the test scope?",
   "question_variants": [
@@ -15,7 +16,12 @@
   "decision_logic": "Before quoting or proceeding with a new customer's product registration, search the Bluetooth SIG member registry for the applicant company's name. If no membership record is found, membership registration must be completed first and factored into the project timeline/quote before product registration can begin.",
   "final_recommendation": "For new customers, always verify SIG membership status via the member registry early in the engagement; if absent, include membership registration as a prerequisite step ahead of product registration.",
   "risk_if_done_wrong": "Proceeding with product registration steps for a company without confirmed SIG membership could stall the registration process partway through, causing delays once the missing membership is discovered, and potentially affecting the customer's planned product launch timeline.",
-  "bluetooth_tags": ["qualification", "membership", "listing", "pre-sales"],
+  "bluetooth_tags": [
+    "qualification",
+    "membership",
+    "listing",
+    "pre-sales"
+  ],
   "search_aliases": [
     "Bluetooth SIG membership registration prerequisite",
     "member registry search company not found",

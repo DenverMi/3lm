@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0178",
+  "case_id": "thread_0178_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE product — RF PHY + SIG registration quote (System Design Co.)",
+  "customer_question": "Internal quote preparation: what are the standard service fees for BLE RF PHY testing, proxy SIG registration, Compliance Folder creation, and Qualification Fee proxy payment?",
+  "question_variants": [
+    "What is the standard fee for BLE RF PHY 2-item test?",
+    "How much does Allion charge for proxy SIG registration (Multi-Design)?",
+    "What is the cost breakdown for a BLE product registration with RF PHY test, proxy registration, Compliance Folder, and Qualification Fee?"
+  ],
+  "actual_issue": "Internal Allion thread for preparing a quote for System Design Co. The thread confirms standard pricing for the various service components in a BLE RF PHY + registration service package.",
+  "plain_english_explanation": "Allion's quote for this BLE registration (as stated in this thread): BLE RF PHY test (2 items) = ¥200,000; proxy registration support (Multi-Design) = ¥250,000; Compliance Folder creation fee = ¥150,000; a second line also labeled Compliance Folder creation fee = ¥100,000; Qualification Fee = $12,000. The duplicate Compliance Folder line label appears as written in the source quote and is not explained elsewhere in the thread.",
+  "consultant_answer": "Quote: RF PHY 2-item test ¥200,000; Multi-Design proxy registration support ¥250,000; Compliance Folder creation fee ¥150,000; Compliance Folder creation fee (second line) ¥100,000; Qualification Fee $12,000.",
+  "decision_logic": "Standard pricing applies unless the project has exceptional scope or complexity. This registration is Multi-Design (referencing multiple QDIDs), which carries the ¥250,000 proxy registration support fee.",
+  "final_recommendation": "Use these standard fees when preparing quotes. Confirm whether the registration is Single-Design or Multi-Design before issuing the quote.",
+  "risk_if_done_wrong": "Issuing a Single-Design quote for a Multi-Design project leads to an underquote that must be corrected before or after order placement. Leaving an ambiguous duplicate line item (two 'Compliance Folder creation fee' entries) unexplained in a quote risks customer confusion or billing disputes.",
+  "bluetooth_tags": [
+    "pricing",
+    "RF PHY test",
+    "proxy registration",
+    "Compliance Folder",
+    "Qualification Fee",
+    "Multi-Design",
+    "Single-Design",
+    "BLE"
+  ],
+  "search_aliases": [
+    "Allion BLE RF PHY price",
+    "proxy registration cost Multi-Design",
+    "Compliance Folder preparation fee",
+    "Qualification Fee cost",
+    "BLE registration total cost breakdown"
+  ],
+  "qualification_stage": "Pre-registration / quoting",
+  "confidence": "low"
+}

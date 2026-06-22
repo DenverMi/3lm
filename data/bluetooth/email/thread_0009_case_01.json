@@ -1,49 +1,33 @@
 {
-    "source_thread": "thread_0009",
-    "cases": [
-        {
-            "case_id": "thread_0009_case_01",
-            "iut_type": "host device",
-            "customer_question": "Does HOGP Host qualification under the new Qualification Workspace require additional DIS, HIDS, BAS, and ScPS profile support and testing?",
-            "question_variants": [
-                "Are DIS/HIDS/BAS mandatory for HOGP Host?",
-                "Does HOGP Report Host require ScPS testing?",
-                "Why does Qualification Workspace add HIDS and DIS to HOGP Host test plans?",
-                "Can HOGP Host be qualified without HIDS and BAS?",
-                "Did the 7/1 Qualification Workspace update change HOGP Host requirements?",
-                "Is the HOGP Host ICS enough without extra services?"
-            ],
-            "actual_issue": "After the July 2024 Qualification Workspace migration under QPRDv3, Consistency Check and generated test plans temporarily appeared to require additional services and profile tests for HOGP Host roles that were historically not required.",
-            "plain_english_explanation": "The customer saw new Bluetooth qualification test requirements appear after the SIG updated its qualification system. They believed these extra services should not apply to an HOGP Host device because the specification only requires service discovery for the host side. The consultant verified the generated test plans and confirmed the system behavior was corrected after the Workspace recovered from temporary issues.",
-            "consultant_answer": "Initial Consistency Check behavior in the new Qualification Workspace showed HIDS, DIS, BAS, and ScPS dependencies for HOGP Host roles. The customer challenged this based on the HOGP specification wording and existing market listings such as iPhone listings that did not include those services. After Qualification Workspace recovered from timeout and rule-update issues, the consultant regenerated the test plan using the minimum required HOGP Report Host ICS with Invalid=0 and confirmed that the generated plan only required standard HOGP test cases plus a single SCPP/CL/CGGIT/SER test case. The previously observed extra DIS, HIDS, BAS, and ScPS requirements were no longer present.",
-            "decision_logic": "Qualification requirements are determined by the active Qualification Workspace ICS consistency rules and generated test plan, not only by historical listings. Temporary rule inconsistencies in the new QPRDv3 Workspace caused additional dependencies to appear. Once the Workspace rules were corrected and the proper HOGP Host ICS was used, only the expected HOGP-related tests remained mandatory.",
-            "final_recommendation": "Use the corrected Qualification Workspace-generated test plan based on the minimum HOGP Host ICS and execute only the required HOGP tests plus the listed SCPP service discovery test case. Recheck the generated test plan after Workspace or TCRL updates before starting testing.",
-            "risk_if_done_wrong": "If the wrong interpretation is followed, the company may perform unnecessary profile testing, increase qualification cost and schedule, or submit incomplete evidence if relying on outdated Workspace behavior.",
-            "bluetooth_tags": [
-                "qualification",
-                "HOGP",
-                "HOGP Host",
-                "ICS",
-                "Consistency Check",
-                "PTS",
-                "ScPP",
-                "test plan"
-            ],
-            "search_aliases": [
-                "HOGP Host DIS not required",
-                "HOGP Report Host BAS requirement",
-                "Qualification Workspace HOGP issue",
-                "HOGP Host extra services",
-                "ScPS requirement for HOGP",
-                "Consistency Check HOGP dependency",
-                "HOGP ICS validation",
-                "SCPP CL CGGIT SER",
-                "HOGP Report Host test plan",
-                "QPRDv3 HOGP"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0009",
+  "case_id": "thread_0009_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Silex Technology module, for an end customer referred to as 'P company'), HOGP Host role dependency requirement dispute",
+  "customer_question": "Your post-July-2024 registration site says HOGP Host (whether Report Host or Boot Host) now also requires DIS, HIDS, and BAS (and ScPS for Report Host) profile testing. But the HOGP specification's HID Device Requirements explicitly say 'Service' is Mandatory for the Device role, while for the Host role it only says 'Service Discovery' is Mandatory — and that Discovery requirement is already covered within HOGP's own ICS. Also, checking a real published Listing (the latest iPhone 15's Bluetooth registration) shows it includes HOGP but not HIDS or DIS. Based on this, we believe HOGP Host shouldn't actually require these additional services — can you double-check?",
+  "question_variants": [
+    "Is the new registration site's HOGP Host dependency requirement a genuine spec rule or a site bug?",
+    "Does real-world precedent (other companies' published Listings) support skipping DIS/HIDS/BAS for HOGP Host?"
+  ],
+  "actual_issue": "The customer's careful reading of the HOGP specification's exact wording (distinguishing 'Service' Mandatory for Device role versus 'Service Discovery' Mandatory for Host role), combined with real-world evidence from a major company's published Bluetooth Listing, contradicted the post-July-2024 registration site's Consistency Check requirement that HOGP Host role also support DIS, HIDS, BAS, and ScPS — creating uncertainty about whether to trust the site's current behavior or the customer's spec-based interpretation.",
+  "plain_english_explanation": "Checking the prior, pre-July-2024 Launch Studio registration system confirmed that HOGP Host registrations under the old system indeed did not require DIS, HIDS, or BAS support — the old system's Test Plan for HOGP Report Host only ever listed a single ScPP item alongside the standard HOGP test items, with no separate DIS/HIDS/BAS profile support requirement at all. This matched the customer's own spec-based reading and their iPhone 15 Listing precedent. Since the new Qualification Workspace system was still undergoing bug-fix work at the time (experiencing network timeouts that prevented immediate re-verification), the most likely explanation was that the new system's stricter Consistency Check requirement for HOGP Host was an unintended bug introduced during the system migration, not an actual new spec requirement — and once the system stabilized, re-running the Consistency Check with the minimum-required HOGP Host ICS items confirmed exactly that: the Test Plan reverted to only the standard HOGP items plus a single ScPP item, with no DIS/HIDS/BAS requirement, confirming the customer's interpretation was correct all along.",
+  "consultant_answer": "You're right to question this — checking the prior Launch Studio system confirmed that HOGP Host registrations never required DIS, HIDS, or BAS support; the old Test Plan only ever listed a single ScPP item alongside the standard HOGP items. This matches your spec reading and the iPhone 15 precedent. The new Qualification Workspace system was still undergoing bug-fix work, so this was very likely an unintended bug from the migration rather than an actual new requirement. We've now re-confirmed with the minimum-required HOGP Host ICS items: the Test Plan correctly reverts to just the standard HOGP items plus one ScPP item, with no DIS/HIDS/BAS requirement — your interpretation was correct.",
+  "decision_logic": "When a new registration site behavior contradicts both a careful reading of the underlying specification's exact wording and verifiable real-world precedent (other companies' published Listings), treat this as a strong signal of a site bug introduced during a system migration, and re-verify once the new system stabilizes rather than assuming the new, stricter behavior is automatically correct.",
+  "final_recommendation": "When a customer presents a well-reasoned challenge to a registration site's behavior, backed by both specification language analysis and real-world precedent, take the challenge seriously and re-verify against the prior system's behavior and the new system's stabilized state, rather than defaulting to trusting the newest site behavior as automatically authoritative.",
+  "risk_if_done_wrong": "Accepting the new system's unverified, bugged behavior at face value would have required the customer to unnecessarily run and pay for DIS, HIDS, and BAS profile testing that wasn't actually required, based on a temporary site migration bug rather than a genuine specification requirement.",
+  "bluetooth_tags": [
+    "HOGP Host role dependency requirement dispute",
+    "Service vs Service Discovery Mandatory wording",
+    "iPhone 15 Listing precedent",
+    "post July 2024 site migration bug",
+    "Silex Technology"
+  ],
+  "search_aliases": [
+    "does HOGP Host require DIS HIDS BAS",
+    "HOGP Host Service Discovery Mandatory wording",
+    "registration site bug after July 2024 migration",
+    "iPhone Bluetooth Listing HOGP without HIDS DIS"
+  ],
+  "qualification_stage": "Pre-registration feasibility dispute resolution",
+  "confidence": "high"
 }

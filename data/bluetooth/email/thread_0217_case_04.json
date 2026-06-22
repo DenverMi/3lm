@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0217",
+  "case_id": "thread_0217_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (fire-extinguisher-shaped AR controller, Nihon Bousai Gijutsu Center)",
+  "customer_question": "After Submission, the page immediately showed 'The submission has been approved' with no further confirmation email yet — does this simply mean the registration process is complete? I expected some kind of downloadable certificate.",
+  "question_variants": [
+    "Is the registration officially finished once 'The submission has been approved' appears on screen, even without an approval email yet?",
+    "Where can I download a certificate proving the registration is complete?"
+  ],
+  "actual_issue": "After Allion executed Submission on the customer's behalf, the registration page immediately displayed 'The submission has been approved' rather than the customer's expected sequence of an SIG staff approval email followed by a downloadable certificate. The customer wanted confirmation that this simplified flow still meant the registration was officially complete.",
+  "plain_english_explanation": "SIG's general documentation describes a process where an SIG staff member sends a Submission Approve or Reject email, and registration is officially complete once Approve arrives, with the 'submission has been approved' banner appearing then. In this case, because the registration referenced a Controller Subsystem and Host Subsystem with no issues found by the automatic system check, the server immediately displayed 'The submission has been approved' without a separate staff email being necessarily involved. The registration is already in an approved state and will become publicly visible on the customer's chosen Publish Date. As of roughly 10 years ago, a downloadable Certificate document existed, but this has since been simplified — the two current signs of being certified are: (1) public visibility on the registration page from the Publish Date onward, and (2) the green 'The submission has been approved' banner visible to the Listing Owner on the registration detail page. A server-issued document confirming Submission receipt was provided as the closest equivalent to a certificate.",
+  "consultant_answer": "Yes — because the registration's automatic system check found no issues, the server immediately displayed 'The submission has been approved,' meaning the registration is already approved (regardless of whether a separate SIG staff email follows) and will be publicly visible from your chosen Publish Date. A downloadable Certificate no longer exists (it was discontinued roughly 10 years ago); the two current proof signs are (1) public listing visibility from Publish Date, and (2) the green approval banner on the registration detail page. A server-issued Submission receipt document is attached as the closest equivalent.",
+  "decision_logic": "Modern SIG registration confirmation relies on the automatic system check result rather than a manual staff email in cases with no detected conflicts — the displayed approval banner is authoritative even before/regardless of a follow-up email, and proof of certification today consists of portal visibility plus the banner rather than a downloadable certificate.",
+  "final_recommendation": "When delivering a Review Page or Submission confirmation to first-time registrants, proactively explain that the modern process no longer issues a downloadable Certificate, and clarify what the actual signs of completed certification look like, to manage expectations.",
+  "risk_if_done_wrong": "A customer unaware that certificates were discontinued might wait indefinitely for a document that will never arrive, or doubt that their registration is actually complete despite valid approval signals.",
+  "bluetooth_tags": [
+    "Submission approved banner",
+    "Publish Date",
+    "Certificate discontinued",
+    "registration completion proof",
+    "Nihon Bousai Gijutsu Center"
+  ],
+  "search_aliases": [
+    "The submission has been approved meaning",
+    "Bluetooth SIG certificate download",
+    "how to prove registration complete SIG",
+    "Publish Date visibility registration"
+  ],
+  "qualification_stage": "Registration confirmation / post-Submission",
+  "confidence": "high"
+}

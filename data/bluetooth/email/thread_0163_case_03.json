@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0163",
+  "case_id": "thread_0163_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE module / End Product (Global Denshi, BlueNRG-M2SA ceramic chip antenna)",
+  "customer_question": "What antenna data is required for the Compliance Folder, and can we use the module manufacturer's FCC filing?",
+  "question_variants": [
+    "What counts as acceptable antenna data for the Compliance Folder?",
+    "Can the FCC certification documents from the module maker serve as antenna documentation?",
+    "We don't have an antenna data sheet — can we use FCC technical filing documents?",
+    "What radiation gain specifications are needed for Bluetooth compliance documentation?"
+  ],
+  "actual_issue": "The Compliance Folder requires antenna data including radiation gain characteristics. The customer does not have a dedicated antenna datasheet but the module manufacturer has FCC technical filing documents that include antenna radiation gain data.",
+  "plain_english_explanation": "The Bluetooth SIG Compliance Folder must include antenna data — specifically, a document that includes the antenna's radiation gain characteristics (gain pattern). The customer does not need to commission their own antenna measurement if the module manufacturer's FCC technical filing already contains this data. FCC technical filings submitted by module manufacturers typically include antenna gain measurements as part of the regulatory approval process. If the FCC filing includes the radiation gain characteristics, it is acceptable as the antenna data document for the Bluetooth Compliance Folder.",
+  "consultant_answer": "The module manufacturer's FCC technical filing document is acceptable as antenna data for the Bluetooth Compliance Folder, provided it includes radiation gain characteristics. The customer does not need a separate antenna datasheet if the FCC filing covers this information.",
+  "decision_logic": "QPRDv3 requires antenna documentation with radiation gain data. FCC filings are regulatory documents that must include detailed antenna characterization — they typically contain exactly the data SIG requires. Using existing regulatory documents avoids redundant testing or documentation costs for the customer.",
+  "final_recommendation": "Request the FCC technical filing from the module manufacturer and confirm it includes radiation gain characteristics. If it does, include it in the Compliance Folder as the antenna data document. No separate antenna testing or datasheet is required.",
+  "risk_if_done_wrong": "If the FCC filing does not include radiation gain data, a separate antenna measurement or manufacturer datasheet will be needed. Always verify the FCC document contents before concluding it satisfies the requirement.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "antenna data",
+    "radiation gain",
+    "FCC filing",
+    "module manufacturer documentation",
+    "QPRDv3"
+  ],
+  "search_aliases": [
+    "FCC filing antenna data",
+    "radiation gain compliance folder",
+    "antenna documentation bluetooth",
+    "module FCC filing acceptable",
+    "antenna datasheet alternative",
+    "FCC technical filing bluetooth compliance"
+  ],
+  "qualification_stage": "post-registration",
+  "confidence": "high"
+}

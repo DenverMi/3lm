@@ -2,6 +2,7 @@
   "source_thread": "thread_0128",
   "case_id": "thread_0128_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "sensor",
   "customer_question": "We'd like a quote for a new SIG registration using a newly-adopted BLE module, split into specific cost categories, and we'd also like to know how long the whole process takes from request to completed registration.",
   "question_variants": [
@@ -11,11 +12,20 @@
   ],
   "actual_issue": "The customer (New Cosmos Electric), a returning client who had previously used Allion for SIG registration, requested a quote for (1) registering a product using a newly-adopted BLE module and (2) adding a model to a previously-registered product. After Allion requested module information, the customer asked for the quote to be split into two groups: Group 1 = proxy registration support fee (referencing Multi-Design pricing, ¥250,000) + Compliance Folder creation fee (¥150,000); Group 2 = USD remittance proxy fee (¥100,000) + Qualification Fee ($11,040, converted to JPY at the prior month-end TTS rate at formal quote issuance). Allion confirmed this breakdown (total ¥500,000 + $11,040, tax excluded) and explained the timeline: about 2-3 weeks for Allion's USD remittance proxy to complete and for SIG to confirm receipt, then 1-3 business days for the actual registration once funds arrive.",
   "plain_english_explanation": "When a customer wants Allion to both remit the SIG Qualification Fee on their behalf (since SIG requires USD payment, which can be cumbersome for Japanese companies) and perform the proxy registration, the total cost breaks into two conceptual groups: the registration-related work (proxy registration support fee, often referenced against a 'Multi-Design' fee schedule, plus Compliance Folder creation), and the payment-related work (a fee for Allion's USD remittance proxy service, plus the Qualification Fee itself, converted from USD to JPY using an exchange rate fixed near the time of formal quote issuance). The overall timeline has two phases: first, Allion's remittance to SIG and SIG's confirmation of receipt (about 2-3 weeks), and second, the actual registration work itself, which is fast (1-3 business days) once SIG confirms the funds have arrived.",
-  "consultant_answer": "当社見積もり費用は以下の通りです。・代行登録サポート費(Multi-Design参照) ¥250,000 ・コンプライアンスフォルダ作成費 ¥150,000 ・ドル送金代行手数料 ¥100,000 ・Qualification Fee $11,040(見積書発行前月末日TTSレート円換算) 合計: 500,000円とUS$11,040です。※本費用は税別表示です。※USドルは正式見積もり発行時に円換算いたします。 ご依頼から登録完了までですが、まず、当社での送金代行に2〜3週間ほどいただきます。送金が完了し、Bluetooth SIGに着金しましたらその後の登録完了までの期間は1〜3稼働日です。 (Our quoted costs are as follows: proxy registration support fee (Multi-Design reference) ¥250,000; Compliance Folder creation fee ¥150,000; USD remittance proxy fee ¥100,000; Qualification Fee $11,040 (converted to JPY at the TTS rate as of the last business day of the month prior to formal quote issuance). Total: ¥500,000 plus US$11,040, tax excluded; USD will be converted to JPY at formal quote issuance. Regarding the timeline from request to completed registration: our remittance proxy takes about 2-3 weeks, and once funds arrive at Bluetooth SIG, registration completes within 1-3 business days.)",
+  "consultant_answer": "Our quoted costs are as follows: proxy registration support fee (Multi-Design reference) ¥250,000; Compliance Folder creation fee ¥150,000; USD remittance proxy fee ¥100,000; Qualification Fee $11,040 (converted to JPY at the TTS rate as of the last business day of the month prior to formal quote issuance). Total: ¥500,000 plus US$11,040, tax excluded; USD will be converted to JPY at formal quote issuance. Regarding the timeline from request to completed registration: our remittance proxy takes about 2-3 weeks, and once funds arrive at Bluetooth SIG, registration completes within 1-3 business days.",
   "decision_logic": "When quoting a proxy registration that includes Allion handling the USD Qualification Fee remittance, present the quote in two groups: (1) registration-related fees (proxy registration support referencing the applicable design-reference schedule, plus Compliance Folder creation), and (2) payment-related fees (USD remittance proxy fee plus the Qualification Fee itself, converted to JPY near the time of formal quote issuance). Communicate the two-phase timeline: remittance-and-confirmation (~2-3 weeks) followed by registration execution (1-3 business days after fund confirmation).",
   "final_recommendation": "Provide a two-group fee breakdown (registration support + Compliance Folder vs. USD remittance proxy + Qualification Fee) with the JPY conversion timing for the USD fee clearly stated, and communicate the realistic end-to-end timeline (~2-3 weeks for remittance/confirmation, then 1-3 business days for registration) so the customer can plan their internal approval and product launch schedule accordingly.",
   "risk_if_done_wrong": "If the fee breakdown or USD-to-JPY conversion timing isn't clearly communicated, the customer's internal budget approval (稟議) could be delayed or based on inaccurate figures. If the 2-3 week remittance timeline isn't factored into the customer's launch planning, the registration could be completed later than expected relative to the product's public disclosure date.",
-  "bluetooth_tags": ["qualification", "listing", "registration fee", "Multi-Design", "Qualification Fee", "USD remittance", "quote", "proxy registration"],
+  "bluetooth_tags": [
+    "qualification",
+    "listing",
+    "registration fee",
+    "Multi-Design",
+    "Qualification Fee",
+    "USD remittance",
+    "quote",
+    "proxy registration"
+  ],
   "search_aliases": [
     "proxy registration quote fee breakdown groups",
     "USD remittance proxy fee Qualification Fee TTS rate",

@@ -1,47 +1,24 @@
 {
-    "source_thread": "thread_0081",
-    "cases": [
-        {
-            "case_id": "thread_0081_case_02",
-            "iut_type": "module",
-            "customer_question": "How should inherited profile ICS selections and profile testing requirements be handled when reusing an existing Host Stack qualification?",
-            "question_variants": [
-                "Do inherited profiles require new PTS testing?",
-                "How do I evaluate profile ICS differences?",
-                "Can I reuse profile qualifications from an included Host Stack?",
-                "Which profiles need additional evidence?",
-                "How should inherited HID profile capabilities be handled?"
-            ],
-            "actual_issue": "The reused Host Stack qualification contained inherited profile ICS selections that did not perfectly match the desired product functionality, creating uncertainty about which profiles could be inherited and which required additional testing or evidence.",
-            "plain_english_explanation": "A reused Bluetooth stack may already contain profile capabilities that become inherited in a new qualification. The challenge is deciding whether those inherited capabilities are acceptable as-is or whether new testing is needed to support the actual product feature set. The decision depends on the ICS content and profile coverage already present in the included qualification.",
-            "consultant_answer": "The consultant proposed reviewing the profile ICS content of the included Host Stack qualification and comparing it with the intended product behavior. Existing profile qualifications should be reused where the inherited ICS coverage is acceptable. Additional PTS testing and profile evidence should only be generated for profiles whose required functionality is not adequately covered by the inherited qualification. After scope review, HID11 was ultimately not required, reducing the need for additional profile evidence.",
-            "decision_logic": "Reuse inherited profile qualifications whenever the included design already provides acceptable ICS coverage. Generate new profile evidence only when required functionality is missing, mismatched, or intentionally changed relative to the inherited qualification.",
-            "final_recommendation": "Review inherited profile ICS selections, accept inherited profile functionality where appropriate, remove unnecessary profiles from scope, and perform additional PTS testing only for genuinely uncovered profile requirements.",
-            "risk_if_done_wrong": "Unnecessary profile testing may be performed for functionality already covered by inherited qualifications. Alternatively, a qualification package may be incomplete if required profile capabilities are assumed to be covered without verifying the inherited ICS selections.",
-            "bluetooth_tags": [
-                "qualification",
-                "profile",
-                "ICS",
-                "PTS",
-                "profile inheritance",
-                "HID",
-                "reuse"
-            ],
-            "search_aliases": [
-                "inherited profile ICS",
-                "profile qualification reuse",
-                "PTS scope reduction",
-                "ICS comparison",
-                "profile evidence reuse",
-                "HID11 qualification",
-                "included design profiles",
-                "Host Stack profile coverage",
-                "profile testing decision",
-                "ICS review"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0081",
+  "case_id": "thread_0081_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "communications terminal",
+  "customer_question": "We want to Include an existing module QDID and an existing host-stack QDID to cover our needed profiles (HID, SPP, PAN, BNEP, HOGP, ScPP). Which of these need fresh testing on our part, and which can just rely on what's already covered by the host stack?",
+  "question_variants": [
+    "Does the host stack's existing ICS already cover what we need for each profile?",
+    "Do we need to test SPP, ScPP, and BNEP if we only need minimum support?",
+    "Is there an easier way to check the host stack's supported ICS than importing it into a Workspace project?",
+    "Can we just accept the host stack's existing ICS everywhere and skip testing entirely?"
+  ],
+  "actual_issue": "The customer wanted to combine an existing module QDID and an existing host-stack QDID (Fluoride 1.5) to cover several required profiles, and needed a way to determine, profile by profile, whether the host stack's already-registered ICS sufficiently matched their requirements or whether fresh PTS testing and a replacement test report were needed.",
+  "plain_english_explanation": "When you build a registration by combining an existing chip module's certification with an existing software stack's certification, the software stack only covers whatever feature set it was originally tested and registered for. If your product needs more than that for a given feature, you have to test and prove that extra capability yourself; if what's already covered is good enough, you can just rely on it without any new testing. Some features only need to meet a bare minimum, which any registered stack is guaranteed to already meet, so those don't even need to be checked.",
+  "consultant_answer": "Including the module QDID (MAYA-W1) and the host-stack QDID (Fluoride 1.5) together covers HID, SPP, PAN, BNEP, HOGP, and ScPP, matching most -- but not all -- of the customer's submitted ICS. The recommended check: compare the host stack's actual supported ICS for HID, PAN, and HOGP against the customer's desired ICS. Initially this was suggested via exporting an ICS file and importing it into a Qualification Workspace project, but a simpler method was identified afterward: directly view the host-stack QDID's own registration detail page on the SIG site, which shows its supported profiles and ICS without any import step. For any profile where the gap is 'non-negotiable' (a feature the customer genuinely needs that isn't covered), the inherited ICS content from the host stack must be removed for that profile and replaced with a fresh PTS test report as evidence. Where the gap involves an item the customer doesn't actually care about either way, the recommendation is to accept the inherited ICS as-is rather than test. Separately, profiles needing only their minimum required ICS support (here, SPP, ScPP, and BNEP) do not need this comparison at all, since an already-registered QDID is guaranteed to support at least the minimum required ICS for any profile it includes, as a condition of its own registration -- only profiles where the customer wants more than the baseline (here, HID, PAN, HOGP, and separately HID11, which the host stack doesn't cover at all) need the detailed comparison. In this case, after reviewing the gaps, the customer ultimately decided to drop HID11 entirely and align all remaining profile ICS fully with the host stack's existing support, foregoing any of the extra ICS items originally requested -- avoiding the need for any fresh PTS testing and proceeding on a full profile-testing exemption basis.",
+  "decision_logic": "When combining a module QDID and a host-stack QDID, profiles needing only minimum/baseline ICS support require no comparison, since an already-registered QDID guarantees that baseline; for profiles where more is wanted, compare the customer's desired ICS against the host stack's actual registered ICS (checked directly via its registration detail page) and pursue fresh PTS testing only for the specific gaps the customer considers non-negotiable, accepting the inherited ICS for gaps the customer is willing to forgo -- including the option of forgoing all such gaps to avoid testing entirely.",
+  "final_recommendation": "Check the host-stack QDID's actual registered ICS directly via its registration detail page (not via Workspace import) before deciding test scope. Skip comparison entirely for profiles needing only minimum/baseline support. For profiles needing more, ask the customer which specific ICS gaps are non-negotiable and pursue fresh PTS testing only for those, recommending the customer accept the inherited ICS for any gap they're willing to forgo, up to and including foregoing all gaps to avoid new testing altogether.",
+  "risk_if_done_wrong": "Assuming a host-stack QDID's existing ICS always covers what's needed, without checking the actual registered ICS, risks registering a product that claims support it cannot demonstrate. Pursuing fresh PTS testing for gaps the customer would have been willing to forgo adds unnecessary cost and schedule.",
+  "bluetooth_tags": ["ICS", "Include", "module QDID", "host stack", "Fluoride", "HID", "HOGP", "PAN", "minimum required ICS", "PTS"],
+  "search_aliases": ["compare ICS with host stack registration detail page", "minimum required ICS already guaranteed", "non-negotiable ICS gap requires fresh PTS test", "accept inherited ICS to avoid testing", "Fluoride 1.5 supported profiles ICS"],
+  "qualification_stage": "pre-test review",
+  "confidence": "high"
 }

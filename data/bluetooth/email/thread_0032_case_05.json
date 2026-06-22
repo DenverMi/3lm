@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0032",
+  "case_id": "thread_0032_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Product List mechanics under a single registration (Declaration ID) -- multiple model name entries, no requirement that every entry be sold, no entry-count limit, and the delete-and-re-add workaround for correcting registered names",
+  "customer_question": "If we register a representative model name first, then add our actual store-sold SKU model numbers (e.g., EST01iOS, EST02iOS) as additional derivative products, does that satisfy SIG's requirement -- even though the representative model name itself is never literally sold? Is there a limit on how many products can be added to one registration? And can a registered model name be edited later if needed?",
+  "question_variants": [
+    "Does every name in a registration's Product List need to correspond to an actually-sold product?",
+    "If a registered model name needs to be corrected, is there a direct edit function, or another way to fix it?"
+  ],
+  "actual_issue": "The customer was planning to register a representative model name first and add the actual store-sold SKU variants (multiple packaging/OS combinations) as derivative product additions, and wanted to confirm this structure was compliant, along with related questions about entry limits and the ability to correct a registered name later.",
+  "plain_english_explanation": "Adding a product to the Product List means adding it under a single registration (Declaration ID). In the customer's case, this meant: first registering 'Elematec Smart Tracker' as the representative model in the initial registration, then adding 'EST01iOS' and 'EST02iOS' (the actual store-sold SKUs) as derivative product additions -- this fully satisfies SIG's requirement that sold products be registered. Importantly, there is no rule requiring that EVERY name registered in the Product List actually be sold -- having a representative model name (like 'Elematec Smart Tracker') that is never literally sold in stores, alongside the actually-sold SKU names, does not violate SIG's regulations. As of the current rules, there is no explicitly stated limit on how many products can be added to a single Declaration ID's Product List -- the consultant has personally seen real examples with several dozen model names registered under one Declaration ID's Product List, though there is likely some practical limit tied to the registration site's storage allocation per registration. Finally, there is no function for the Listing Owner to directly edit a registered name in the Product List. However, the same practical outcome can be achieved by performing a new, correctly-named derivative product addition at any time, and then requesting SIG to delete the no-longer-needed incorrect registration -- effectively allowing the registered content to be corrected even without a direct edit feature.",
+  "consultant_answer": "Yes, that structure is fine -- registering 'Elematec Smart Tracker' as the representative model and then adding 'EST01iOS' and 'EST02iOS' as derivative products satisfies SIG's requirement, and there's no rule that every name in the Product List must correspond to an actually-sold product, so having the unsold representative name alongside the sold SKUs is not a violation. There's also no explicit limit on the number of products addable to one registration -- I've personally seen real registrations with several dozen model names listed, though there's probably some practical capacity limit. And while there's no direct edit function for a registered name, you can always perform a new, corrected derivative addition and then request SIG delete the outdated entry -- which achieves the same effect as editing.",
+  "decision_logic": "When structuring a Product List for a registration covering multiple SKU variants, register a representative model first and add the actual sold SKUs as free derivative products -- an unsold representative name causes no compliance issue, there is no hard limit on the number of Product List entries under one Declaration ID, and any future correction to a registered name can be achieved via a new derivative addition plus a deletion request rather than a direct edit.",
+  "final_recommendation": "When a customer has multiple SKU variants of the same certified design, proactively explain the representative-model-plus-derivative-additions structure, reassure them that an unsold representative name is not a compliance issue, and explain the delete-and-re-add workaround for correcting registered names since no direct edit function exists.",
+  "risk_if_done_wrong": "A customer might mistakenly believe every registered Product List entry must correspond to an actually-sold product, or might not realize a registered name can be effectively corrected via the delete-and-re-add approach, leading to unnecessary registration complexity or unresolved incorrect entries.",
+  "bluetooth_tags": [
+    "Product List multiple SKU representative model derivative addition",
+    "no requirement every registered name be sold",
+    "no limit on Product List entries per Declaration ID",
+    "delete and re-add to correct registered name",
+    "Elematec smart tracker"
+  ],
+  "search_aliases": [
+    "does every Product List entry need to be sold",
+    "limit on number of products per Bluetooth registration",
+    "how to edit a registered model name SIG",
+    "representative model plus derivative SKU registration structure"
+  ],
+  "qualification_stage": "Product List structuring and post-registration name correction",
+  "confidence": "high"
+}

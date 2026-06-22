@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0164",
+  "thread_analysis": {
+    "thread_summary": "ACCESS (株式会社ACCESS) thread for a Bluetooth product supporting A2DP, AVRCP, and DI using the Fluoride Bluetooth Host Subsystem (QDID D063309). Thread covers sales/quoting flow and three key technical questions: (1) ICS-based profile test exemption when the product's Bluetooth stack matches the QDID component's ICS; (2) antenna connector on module means RF/RF PHY testing IS required at product level (not exempt); (3) Compliance Folder is required even for non-publicly-sold products, and a specification document can substitute for an operation manual. Overall registration timeline: approximately 1 month from order to completed Compliance Folder delivery.",
+    "all_questions_found": [
+      "If we use the same Bluetooth Host Stack as the QDID component without modification, are A2DP, AVRCP, and DI profile tests exempt?",
+      "Our module has an antenna connector — does that mean RF testing is required at the product level?",
+      "Our product is not for general sale, so we have no operation manual. Is the Compliance Folder still required, and what substitutes for the operation manual?"
+    ],
+    "key_technical_discussion": "ICS match → profile test exempt: if the product's A2DP, AVRCP, DI ICS items are the same as or a subset of the QDID component's ICS, no product-level PTS testing is required. Antenna connector → RF test required: unlike integrated antenna modules, a module with an antenna connector exposes the RF path to the customer's product design (external antenna, PCB layout), which is not covered by the module's own qualification — product-level RF testing is mandatory. Compliance Folder for non-consumer products: QPRDv3 applies regardless of product distribution model; operation manual can be substituted with a specification document.",
+    "key_decision_logic": "Three separate determination criteria: (1) ICS scope matching for profile test exemption, (2) antenna integration type for RF test exemption, (3) QPRDv3 applicability regardless of product type. Each must be evaluated independently at the quoting stage.",
+    "risk_if_done_wrong": "Incorrectly exempting an antenna-connector product from RF testing: non-compliant qualification. Incorrectly exempting a product with expanded ICS from profile testing: non-compliant qualification. Failing to collect Compliance Folder documents for non-consumer products: compliance obligation unfulfilled.",
+    "consulting_mistake": "None identified. Sakai correctly identified that the module's antenna connector makes RF testing mandatory (not exempt) — this is an easy mistake to overlook if only the module qualification is checked without inspecting the connector configuration.",
+    "consulting_takeaway": "The antenna connector vs. integrated antenna distinction is a common and consequential determination at the quoting stage. Always check the module datasheet to confirm antenna configuration before quoting test scope. ICS comparison requires access to the QDID component's ICS document — confirm with the customer whether they are adding any profile features."
+  }
+}

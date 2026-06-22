@@ -1,0 +1,35 @@
+{
+  "source_thread": "thread_0187",
+  "case_id": "thread_0187_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Shin Cosmos Denki Bluetooth sensor device",
+  "customer_question": "The SIG Qualification Fee Invoice was obtained under one account but the actual product registration will be done from a different new account. How do we transfer the Receipt Number?",
+  "question_variants": [
+    "Receipt Number is on the wrong account — how to transfer it?",
+    "SIG Invoice paid from one account but registration must be done from another — what to do?",
+    "How do we move a Receipt Number between SIG accounts?"
+  ],
+  "actual_issue": "The SIG Qualification Fee Invoice was obtained (and payment made) from one account, but the person responsible for product registration created a new account. The Receipt Number (proof of SIG fee payment) is tied to the original Invoice holder's account and cannot be used directly from the new account.",
+  "plain_english_explanation": "In the Bluetooth SIG registration portal, the Receipt Number (issued when the qualification fee is received) is attached to the account that obtained the Invoice. If registration will be done from a different account (e.g., because the original account holder left the company or a new registrant account was created), the Receipt Number must be transferred to the new account via SIG's 'Transfer Request' mechanism. The original account receives a Transfer Request notification email with an Accept link. Once accepted, the new account can use the Receipt Number to proceed with registration.",
+  "consultant_answer": "Allion initiated a Transfer Request from the Invoice-holding account to the new account. SIG sends a Transfer Request notification email to the new account's email address containing an 'Accept' link. The new account holder must click Accept (or perform the equivalent consent action) to complete the transfer. After transfer, the new account can access the Receipt Number and proceed with product registration.",
+  "decision_logic": "The Receipt Number must be on the same account as the registrant performing the submission. The SIG portal's Transfer Request mechanism is the standard way to move a Receipt Number between accounts. Both accounts (source and destination) must be in the same SIG Member organization.",
+  "final_recommendation": "If the Receipt Number is on a different account: initiate a Transfer Request from the portal. Check the new account's email for the Transfer Request notification and accept it. After acceptance, verify the Receipt Number is accessible from the new account before proceeding with registration.",
+  "risk_if_done_wrong": "Without completing the Transfer Request, the new account cannot access the Receipt Number and cannot proceed with product registration submission.",
+  "bluetooth_tags": [
+    "Receipt Number",
+    "Transfer Request",
+    "SIG account",
+    "Qualification Fee",
+    "account change"
+  ],
+  "search_aliases": [
+    "Receipt Number transfer between accounts",
+    "SIG account Transfer Request",
+    "Qualification Fee wrong account",
+    "move Receipt Number SIG",
+    "SIG registration account change"
+  ],
+  "qualification_stage": "Registration / Fee Management",
+  "confidence": "high"
+}

@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0045",
+  "thread_analysis": {
+    "thread_summary": "Global Electronics (contact Shuji Konishi) engages Allion (Itsuo Sakai, Masaya Iida) for Bluetooth SIG registration of an End Product, spanning June through September 2025. Beyond standard registration administration, the thread surfaces two genuinely valuable, previously undocumented cases: an account-mismatch issue that silently blocked Submission, and a brand-new SIG Receipt Number expiration policy with an important scoping clarification.",
+    "all_questions_found": [
+      "How is a Submission-blocking account mismatch (where the Receipt-Number-holding account differs from the account named in the registration confirmation document) resolved? (see thread_0045_case_01)",
+      "Does the new Receipt Number 6-month unused-expiration policy (effective September 9, 2025) apply to a registration whose Compliance Folder is still incomplete? (see thread_0045_case_02)",
+      "(Administrative, not separately cased) Standard quote/Invoice/payment timeline (approximately 1 month total to certification), Review Page confirmation and registration finalization, and a post-completion request for a formal 'order acceptance document' for the customer's internal accounting purposes."
+    ],
+    "key_technical_discussion": "Case_01 documents a genuine real-world failure mode -- account designation drift between trial Review Page generation and final Submission -- that hadn't been previously captured at this level of specificity, extending the broader Invoice-account-binding theme already documented elsewhere with the concrete Transfer-operation resolution. Case_02 captures a brand-new SIG policy (the September 2025 Receipt Number expiration rule) along with the crucial clarification that 'unused' is scoped to Submission completion, not Compliance Folder completion -- a distinction that could otherwise cause unnecessary customer alarm.",
+    "key_decision_logic": "See thread_0045_case_01 and thread_0045_case_02 for case-specific decision logic.",
+    "risk_if_done_wrong": "See individual case files; case_01's risk is discovering the account mismatch only at the final Submission step, while case_02's risk is a customer unnecessarily rushing Compliance Folder completion under a mistaken belief that it's tied to Receipt Number expiration.",
+    "consulting_mistake": "None identified -- the consultant promptly diagnosed the account mismatch and resolved it via the Transfer operation, and clearly distinguished the new expiration policy's actual scope when the customer raised it.",
+    "consulting_takeaway": "Before attempting final Submission, re-verify that the account named in a customer's registration confirmation document still matches the account holding the Receipt Number, since internal account changes on the customer's side can silently create a mismatch; and when explaining new SIG policy changes (like the Receipt Number expiration rule), proactively clarify the precise scope of terms like 'unused' to prevent customers from conflating unrelated process steps (like Compliance Folder completion) with the policy's actual trigger condition."
+  }
+}

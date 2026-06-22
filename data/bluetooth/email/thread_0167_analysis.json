@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0167",
+  "thread_analysis": {
+    "thread_summary": "Internal Allion thread coordinating RF PHY testing for Alps Alpine UXC10 BLE module at Allion Taiwan HQ. The thread documents scheduling, DUT shipment, test setup, and two issues found during testing: (1) DUT packet length limited to 37 bytes despite ICS declaring 255 bytes — resolved by revising the Test Plan; (2) DUT output power not meeting RF PHY test requirements — resolved by requesting a firmware update from the DUT vendor. The thread also covers a Qualcomm-specific tool requirement (QUTS Status App) needed to configure the DUT for DTM testing.",
+    "all_questions_found": [
+      "DUT can only run RF PHY test with 37-byte packet length, not 255. How do we handle this?",
+      "DUT output power is below the required RF PHY test level. Can we continue testing?"
+    ],
+    "key_technical_discussion": "RF PHY Test Plan must match the DUT's actual capability — packet length declared in ICS must match what the DUT can actually execute in DTM mode. Discrepancy = Test Plan error, not DUT defect. Output power failure: the DUT's transmit power level is a hardware/firmware property that must meet the minimum threshold for the declared power class. This is a DUT defect that requires firmware correction before testing can continue. Qualcomm modules require the QUTS Status App (installed via Qualcomm Package Manager from Qualcomm's developer portal) to enable DTM test mode.",
+    "key_decision_logic": "Test Plan parameters must reflect actual DUT capabilities, not nominal/maximum values from the datasheet. If they diverge, the Test Plan is corrected before testing. If the DUT itself fails to meet a required characteristic (output power), testing is halted until the DUT is corrected.",
+    "risk_if_done_wrong": "Generating an RF PHY report with incorrect Test Plan parameters (wrong packet length or output power class) produces a report that does not validly represent the DUT's qualification. This report cannot be used as SIG evidence and testing must be repeated.",
+    "consulting_mistake": "None identified. The consultant (Sakai) correctly instructed to revise the Test Plan for the packet length issue and halt testing pending firmware correction for the output power issue.",
+    "consulting_takeaway": "Before shipping a DUT for RF PHY testing, validate that the declared ICS packet length and output power class match the DUT's actual capabilities in DTM mode. Discrepancies at the test lab stage cause schedule delays and potential rework. For Qualcomm-based modules, confirm availability of the QUTS Status App and relevant Qualcomm tools with the customer before test session scheduling."
+  }
+}

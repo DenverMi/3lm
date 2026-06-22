@@ -1,48 +1,32 @@
 {
-    "source_thread": "thread_0019",
-    "cases": [
-        {
-            "case_id": "thread_0019_case_01",
-            "iut_type": "module",
-            "customer_question": "Can a Bluetooth module that references separate Host and Controller QDIDs be treated as a single Component registration for SIG qualification?",
-            "question_variants": [
-                "Is this Bluetooth module a Component registration?",
-                "Why is the module treated as Multi-Design instead of Component?",
-                "Do we need to reference both Host and Controller QDIDs?",
-                "Can one Declaration ID represent a complete Component?",
-                "Why did the qualification support cost increase for this module?"
-            ],
-            "actual_issue": "The customer believed the Bluetooth module was already registered as a Component, but the referenced Declaration actually consisted of separate Host Subsystem and Controller Subsystem QDIDs that had to be combined during qualification.",
-            "plain_english_explanation": "The Bluetooth module vendor indicated that the module could be treated as a Component registration, but the qualification review showed that the SIG records only contained separate Host and Controller subsystem references. Because the registration was not a single unified Component or End Product declaration, the product qualification had to reference multiple QDIDs together. This increased the qualification complexity and validation work.",
-            "consultant_answer": "The consultant explained that the referenced declaration consisted of separate Host Subsystem and Controller Subsystem QDIDs rather than a single Component or End Product registration. Because the qualification must combine multiple referenced designs, the registration falls under a Multi-Design workflow. The consultant further explained that after the 2024-07-01 SIG process changes, consistency checks between Controller and Host layers became stricter, increasing the amount of ICS correction and validation work required when combining multiple QDIDs.",
-            "decision_logic": "If a Bluetooth module qualification requires separate Host and Controller subsystem references rather than a single Component or End Product QDID, the product must be handled as a Multi-Design reference. Multi-QDID combinations require additional consistency validation between stack layers.",
-            "final_recommendation": "Verify whether the referenced Bluetooth declaration is truly a single Component or End Product registration. If separate Host and Controller subsystem QDIDs are required, plan the project as a Multi-Design qualification with additional consistency validation effort.",
-            "risk_if_done_wrong": "Incorrectly assuming that a module is a single Component registration can cause underestimation of qualification complexity, missing ICS consistency validation work, declaration errors, additional support effort, qualification delays, and incorrect project costing.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "Component",
-                "Host",
-                "Controller",
-                "Multi-Design",
-                "ICS",
-                "consistency check"
-            ],
-            "search_aliases": [
-                "Multi-Design reference",
-                "Host Controller combination",
-                "not a Component registration",
-                "multiple QDID reference",
-                "Controller Host consistency",
-                "ICS correction",
-                "Declaration ID mismatch",
-                "Subsystem combination",
-                "SIG consistency check",
-                "single design vs multi design"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0019",
+  "case_id": "thread_0019_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Teraoka Seiko, already-certified product), post-certification Service UUID type change",
+  "customer_question": "On a product we already certified, our BLE service currently uses a standard 16-bit SIG-defined Service UUID, but since this service isn't actually one of SIG's defined services, we're planning to switch it to a custom 128-bit UUID for productization. Does this affect our existing Bluetooth SIG certification, and would we need to file any kind of change application? Our module manufacturer couldn't answer and told us to ask SIG or a certification body directly.",
+  "question_variants": [
+    "Does switching a Service UUID from 16-bit standard to 128-bit custom affect SIG certification status?",
+    "Is a change application required for this kind of UUID modification?"
+  ],
+  "actual_issue": "The customer wanted to change an already-certified product's BLE service identifier from a standard 16-bit UUID to a custom 128-bit UUID, and needed to understand whether this affected their existing Bluetooth SIG certification or required any formal notification, since even their module manufacturer couldn't answer the question.",
+  "plain_english_explanation": "An LE profile using a 128-bit UUID is treated as a custom (proprietary) profile rather than a SIG-defined one. Since custom profiles can't be mapped to any SIG-defined Test Specification (they aren't included in any PTS release), Bluetooth SIG doesn't require custom 128-bit profiles to be explicitly declared in registration, and verification responsibility for them rests entirely with the implementing set maker rather than SIG. As a direct consequence, switching from a 16-bit standard UUID to a 128-bit custom UUID requires no certification-related action at all — no change application, no test report upload, nothing needs to be done from a Bluetooth SIG certification standpoint.",
+  "consultant_answer": "A 128-bit UUID-based LE profile is treated as a custom (proprietary) profile rather than a SIG-defined one — since custom profiles aren't included in any PTS release or mapped to a SIG Test Specification, SIG doesn't require them to be declared in registration, and verification responsibility rests with you as the implementing set maker. As a result, this change requires no certification action at all on your part — no change application, no test report upload, nothing needs to be done.",
+  "decision_logic": "Service UUID format changes (16-bit standard to 128-bit custom) reclassify the affected profile from SIG-defined to proprietary, removing any SIG declaration or testing obligation entirely, since proprietary profiles fall outside SIG's certification scope by definition.",
+  "final_recommendation": "When a customer asks about the certification impact of changing a Service UUID type, clearly explain the SIG-defined-vs-proprietary profile distinction this change creates, and confirm that proprietary profile changes require no certification action, to resolve a question that even module manufacturers may be unable to answer.",
+  "risk_if_done_wrong": "A customer mistakenly believing a UUID format change requires a formal SIG change application could delay their productization timeline unnecessarily, while a customer mistakenly believing no impact exists at all (if the change actually affected a SIG-defined profile) could ship a product with an undeclared, inaccurate registration.",
+  "bluetooth_tags": [
+    "Service UUID 16-bit to 128-bit custom profile reclassification",
+    "proprietary profile no SIG declaration needed",
+    "post certification product change",
+    "no change application required",
+    "Teraoka Seiko"
+  ],
+  "search_aliases": [
+    "does changing Service UUID affect SIG certification",
+    "128-bit UUID custom profile certification impact",
+    "do I need change application for UUID modification"
+  ],
+  "qualification_stage": "Post-certification product modification",
+  "confidence": "high"
 }

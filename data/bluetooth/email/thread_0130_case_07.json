@@ -1,0 +1,40 @@
+{
+  "source_thread": "thread_0130",
+  "case_id": "thread_0130_case_07",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "The consultant mentioned the SIG registration name and the product model name must completely match - does 'product model name' mean our model/part number, and should it match the 'Model Number' field exactly? Also, do we need to display the model number on the product itself, and what happens if a registered product is later discontinued?",
+  "question_variants": [
+    "Does the published Model Number in the Product List need to match the part number printed on the product label/manual/catalog?",
+    "If we sell multiple color variants of the same model, do we need to register each color code separately in the Product List?",
+    "What happens if a product's nameplate model number can't be found in SIG's Product List search?",
+    "Once a product is discontinued, do we need to remove or update its Product List entry?"
+  ],
+  "actual_issue": "During the Holfee project's initial registration (Nippon Seiki sensor/gateway system), the customer asked the consultant to clarify what 'product model name' meant in the context of the SIG registration requirement (raised during a lab visit) that the SIG registration name and product model name must match exactly, and whether the vehicle-part nameplate/label needed to display the model number. The consultant explained that the Model Number published in the Product List must exactly match the model/part number printed on the actual sold product's nameplate, label, user manual, or catalog - because Bluetooth SIG's market surveillance investigators search the SIG site by the model number found on a real product, and if no match is found, they report it as an 'unregistered product,' creating a compliance headache. The consultant further advised that every sold variant, including separate color codes, must be added to the Product List as its own derivative entry, and that a discontinued product's entry can simply remain in the Product List as-is (no removal needed).",
+  "plain_english_explanation": "Bluetooth SIG enforces compliance by having market surveillance staff search its public Product List database using the model/part number found on an actual shipped product's nameplate, label, manual, or catalog page. If that exact string isn't in the Product List, the product gets flagged as unregistered, which creates compliance trouble for the brand owner even if a registration technically covers the same hardware design. So the rule is simple: whatever model number appears on the real, sold product must be entered into the Product List, including a separate entry for every distinct color code or variant that ships under its own number. There's no need to go back and remove or update entries for products that have since been discontinued - they can just stay in the list.",
+  "consultant_answer": "If the model number published as the Model Number in the Product List doesn't match the model name printed on the sold product's nameplate, user manual, or catalog, SIG's market surveillance investigators may report it as an 'unregistered product,' which creates trouble. It's fine to leave a discontinued product's entry as-is, but please make sure every sold model number is registered to the Product List as a derivative product, covering all of them (if there are color codes, please register each color code separately, even though it's tedious). Even for vehicle parts, there should be a nameplate or label, and the model number or part number printed there must match the Model Number published in the Product List.",
+  "decision_logic": "When advising a customer on Product List Model Number entries: (1) the published Model Number must exactly match whatever model/part number is printed on the actual product's nameplate, label, user manual, or catalog listing - this is what SIG market surveillance searches against; (2) if a product line ships in multiple color codes or variants under different numbers, each one must be added to the Product List as its own derivative entry, even though this is tedious; (3) a mismatch between the nameplate and the Product List entry risks the product being flagged as 'unregistered' during a market survey; (4) discontinued products' entries do not need to be removed or modified - leaving them in the Product List is fine.",
+  "final_recommendation": "Advise customers early in the registration process that the Model Number entered into the Product List must exactly match the model/part number that will actually appear on the shipped product's nameplate, label, manual, or catalog - and that every distinct color code or variant sold under its own number needs a separate Product List derivative entry. This avoids later market-surveillance flags for 'unregistered product' and prevents confusion when multiple similar-looking variants exist.",
+  "risk_if_done_wrong": "If the Model Number published in the Product List doesn't match what's printed on the actual shipped product, SIG market surveillance can flag the real product as unregistered even though a technically-equivalent registration exists, creating compliance friction for the brand owner. Failing to register every sold color code/variant as its own Product List entry leaves those specific variants unsearchable and similarly exposed to being flagged as unregistered.",
+  "bluetooth_tags": [
+    "qualification",
+    "listing",
+    "Product List",
+    "Model Number",
+    "market surveillance",
+    "nameplate",
+    "color code",
+    "derivative product",
+    "compliance"
+  ],
+  "search_aliases": [
+    "Model Number must match product nameplate label SIG Product List",
+    "unregistered product market surveillance Model Number mismatch",
+    "color code variant separate Product List registration",
+    "SIG registration name product model name must match",
+    "discontinued product Product List entry no removal needed"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

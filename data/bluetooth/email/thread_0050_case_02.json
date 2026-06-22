@@ -1,45 +1,32 @@
 {
-    "source_thread": "thread_0050",
-    "cases": [
-        {
-            "case_id": "thread_0050_case_02",
-            "iut_type": "communication terminal",
-            "customer_question": "Which Bluetooth profiles require new testing versus inherited qualification evidence when reusing an existing Fluoride host stack registration?",
-            "question_variants": [
-                "Can existing Fluoride profile QDIDs be inherited?",
-                "Do we need new HID11 testing?",
-                "Which profiles require new PTS evidence?",
-                "Can profile qualification be reused from Fluoride 1.5?",
-                "How to minimize Bluetooth profile testing using inherited QDIDs"
-            ],
-            "actual_issue": "The project needed to determine whether profile testing and qualification evidence could be inherited from existing Fluoride registrations or whether additional profile-level testing was required.",
-            "plain_english_explanation": "The customer wanted to avoid unnecessary Bluetooth profile testing by reusing previously qualified profile evidence. Some profile combinations were already covered by the existing Fluoride registration, but profile selection and ICS alignment had to match correctly. The consultant reviewed which functions were already qualified and which would otherwise trigger additional testing obligations.",
-            "consultant_answer": "The consultant evaluated the available Fluoride profile registrations and determined that profile inheritance was possible when the product's implemented functionality matched the inherited ICS and profile scope. The consultant specifically aligned the qualification configuration to Fluoride 1.5 profile coverage so that additional HID11 testing would not be required. The recommendation focused on minimizing new PTS execution by selecting inherited profiles that already matched the implementation.",
-            "decision_logic": "Bluetooth SIG qualification reuse is allowed when the implementation matches the inherited profile qualification scope and ICS selections. Additional profile testing only becomes necessary when implemented functionality falls outside inherited coverage or introduces incompatible ICS declarations.",
-            "final_recommendation": "Reuse existing Fluoride 1.5 profile qualifications wherever the implementation matches the inherited ICS and profile scope, and avoid introducing profile selections that would trigger unnecessary new PTS testing.",
-            "risk_if_done_wrong": "Incorrect profile inheritance decisions could either invalidate the qualification or force unnecessary PTS testing and profile qualification work. Selecting mismatched ICS values could also cause Qualification Workspace consistency failures or incomplete qualification coverage.",
-            "bluetooth_tags": [
-                "qualification",
-                "profile",
-                "PTS",
-                "ICS",
-                "reuse",
-                "HID",
-                "QDID"
-            ],
-            "search_aliases": [
-                "inherit profile QDID",
-                "reuse profile qualification",
-                "HID11 testing required",
-                "Fluoride profile inheritance",
-                "PTS reduction",
-                "ICS profile alignment",
-                "reuse existing profile evidence",
-                "profile qualification scope"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0050",
+  "case_id": "thread_0050_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "How to confirm registration completion via My Page, and the alarming-but-benign '×Withdraw Product' UI label that appears only to the Listing Owner",
+  "customer_question": "What should we look at to be confident our registration has actually completed? Also, when searching for our product's DN, each product model number's right-edge column shows '×Withdraw Product' -- this display worried us. What does it mean?",
+  "question_variants": [
+    "Where in My Page can a registrant verify their product's certification status?",
+    "Does a 'Withdraw Product' label next to a listed product mean it has already been withdrawn?"
+  ],
+  "actual_issue": "The customer wanted a reliable way to confirm their registration had actually completed, and separately became alarmed upon noticing a '×Withdraw Product' label displayed next to their product's listing when searching by DN, fearing this indicated their registration had already been cancelled or withdrawn.",
+  "plain_english_explanation": "To confirm registration completion, the registrant should log into My Page, click [Manage Submitted Products] from the top menu, and check the resulting [Member Company's Qualified Products] list -- any DN/QDID appearing there has completed certification registration. Regarding the '×Withdraw Product' label: this is not an indicator that the product has already been withdrawn -- it is a UI element displayed ONLY to the Listing Owner (not visible to the general public or other companies viewing the same listing), functioning as an action button/link that initiates a deletion request for that specific Product List entry if the registrant ever wants to remove it. Clicking it proceeds to a deletion-request page, but simply seeing the label does not mean any deletion action has occurred or is pending -- the product remains fully registered and certified unless the registrant actually completes that deletion request. This deletion feature is intended for three scenarios: no longer planning to sell a registered model, sales of that model having ended, or correcting a registration mistake by removing the erroneous entry after re-registering correctly. Using it for the first two scenarios is entirely optional -- there is no obligation to remove a discontinued or never-launched model from the Product List. The only firm, mandatory obligation is the opposite one: any model name that has actually been publicly disclosed (via market sales, mail-order, a website product page, or a press release) must be registered in the Product List. The label itself carries no status meaning at all -- SIG's site mechanically displays the '×Withdraw Product' text link on the right edge of every single Product List entry, regardless of that entry's actual status; it is not a smart indicator and not a NO/YES status toggle. The reason SIG built it this confusing way (rather than simply letting the Listing Owner directly edit Product List entries) is to prevent a specific gaming scenario: if direct editing were allowed, a company notified by SIG about an unregistered product could simply rename an already-registered, unrelated model to match the flagged unregistered model name, erasing evidence that the product had ever been unregistered. The link is purely a click-to-act mechanism -- clicking it is the ONLY way anything happens; not clicking it leaves the current registration completely untouched.",
+  "consultant_answer": "To confirm completion, log into My Page, click [Manage Submitted Products], and check the [Member Company's Qualified Products] list -- any DN/QDID shown there is fully registered. The '×Withdraw Product' label you saw isn't an indication that your product has been withdrawn -- it's a Listing-Owner-only UI element that lets you initiate a deletion request for that Product List entry if you ever want to remove it. Just seeing the label doesn't mean anything has happened; your product remains fully registered unless you actually click through and complete that deletion request. This feature is meant for three scenarios: (1) after Product List registration, you no longer plan to sell that model; (2) sales of that model have ended; (3) you noticed a registration mistake and, after re-registering correctly, want to remove the mistaken entry. Importantly, requesting deletion for scenarios (1) and (2) is NOT mandatory -- it's perfectly fine for a model that's no longer marketed to remain listed in the Product List indefinitely. The one firm obligation runs the other direction: any model name that HAS been publicly disclosed (through market sales, mail-order, a website product page, or a press release) MUST be registered in the Product List.",
+  "decision_logic": "When a customer asks how to confirm registration completion, point them to My Page's Manage Submitted Products > Member Company's Qualified Products list; when a customer is alarmed by a '×Withdraw Product' label next to their listing, reassure them this is a Listing-Owner-only deletion-request action button, not an indicator of actual withdrawal status.",
+  "final_recommendation": "Proactively explain the Manage Submitted Products verification path and the benign nature of the '×Withdraw Product' label when onboarding a customer to My Page's post-registration interface, since this label's alarming appearance (despite being harmless) is a predictable source of customer concern.",
+  "risk_if_done_wrong": "A customer who misunderstands the '×Withdraw Product' label as an actual withdrawal indicator might panic unnecessarily or even accidentally click through and initiate a real deletion request for a product that was never actually at risk.",
+  "bluetooth_tags": [
+    "Manage Submitted Products Member Company Qualified Products list",
+    "Withdraw Product label Listing Owner only deletion button",
+    "confirming registration completion My Page",
+    "NEC Platforms"
+  ],
+  "search_aliases": [
+    "how to confirm Bluetooth SIG registration completed",
+    "what does Withdraw Product label mean My Page",
+    "is my product already withdrawn SIG registration",
+    "Manage Submitted Products verification"
+  ],
+  "qualification_stage": "Post-registration My Page interface interpretation",
+  "confidence": "high"
 }

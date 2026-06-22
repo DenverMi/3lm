@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0174",
+  "case_id": "thread_0174_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE security device (Secom)",
+  "customer_question": "Which Compliance Folder documents are required for each product model, and are different models allowed to share the same documents?",
+  "question_variants": [
+    "We have multiple product variants. Does each model need its own Compliance Folder documents?",
+    "Can we use one block diagram and operation manual for all our registered product models?",
+    "How many sets of Compliance Folder documents do we need to prepare?"
+  ],
+  "actual_issue": "The customer is planning to register one initial product model and add derivative models later. They want to know how many sets of Compliance Folder documents are required, and whether the initial model's documents can serve all derivative models.",
+  "plain_english_explanation": "The Compliance Folder is required for each product included in the Product List of a registration. However, if you initially register only one product model (the representative model), you only need to prepare documents for that one model. When you later add derivative models to the Product List for free, those derivative models also need their own Compliance Folder documents added at that time. For similar products, some documents (like the block diagram) may be shareable if the products are functionally similar, but the operation manual and external drawing should be model-specific.",
+  "consultant_answer": "For the initial registration with one representative model, prepare documents for that model only: operation manual (Bluetooth part), block diagram, and external dimension drawing. When adding derivative models later, provide documents for each added model. For similar products, a shared block diagram is acceptable if the Bluetooth architecture is the same. Operation manuals and external drawings should be per-model.",
+  "decision_logic": "The Compliance Folder is a product-level record. Its purpose is to allow SIG auditors to verify that each specific registered product conforms to its declared Bluetooth characteristics. Documents that vary per product (external drawing, model-specific operation manual) must be per-model. Documents that are common across similar designs (block diagram, antenna data) may be shared if the designs are genuinely the same.",
+  "final_recommendation": "Start with the initial representative model's documents. When adding derivative products to the Product List, supplement the Compliance Folder with model-specific documents for each new model added. Consult the Allion-provided derivative registration instruction manual for the specific update procedure.",
+  "risk_if_done_wrong": "A Compliance Folder that covers only the initial model but lists multiple registered products would be incomplete. If SIG audits the registration, the audit would reveal missing documentation for unlisted models.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "Compliance Folder documents",
+    "Product List",
+    "derivative product",
+    "operation manual",
+    "block diagram",
+    "external drawing"
+  ],
+  "search_aliases": [
+    "Compliance Folder documents per model",
+    "block diagram shared multiple products",
+    "Compliance Folder how many documents needed",
+    "operation manual each model",
+    "Compliance Folder derivative product"
+  ],
+  "qualification_stage": "Post-registration / Compliance Folder preparation",
+  "confidence": "high"
+}

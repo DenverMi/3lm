@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0261",
+  "case_id": "thread_0261_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Derivative model based on JVC Kenwood's certified VP8000, with a changed Bluetooth antenna component",
+  "customer_question": "Our next-gen product is based on our already-certified VP8000 model, using the identical Bluetooth module and profiles, but with a different antenna component. If this antenna change could turn an existing Pass result into a Fail at the RF/RF PHY level, we'd need a new registration — is there a way to estimate this risk on paper before testing, and how does this fit with last year's registration system changes?",
+  "question_variants": [
+    "Can we calculate, without retesting, whether an antenna change risks turning a Pass into a Fail?",
+    "Do last year's QPRDv3.0/registration system changes affect how many tests are now needed for this kind of antenna-only change?"
+  ],
+  "actual_issue": "The customer wanted to avoid unnecessary RF/RF PHY retesting for a derivative model that only changed the antenna component, and needed both a way to estimate the retest risk on paper and clarification on whether recent registration system changes affected the applicable rules for this kind of derivative model.",
+  "plain_english_explanation": "The risk of an antenna swap turning a previously-Pass RF/RF PHY result into a Fail can be estimated on paper by taking the original RF test report's actual measured Output Power and adding the difference between the new antenna's maximum gain and the base model's maximum gain — if that combined effective figure doesn't exceed 20dBm (the Class 1 output ceiling), the antenna change will not cause the base model's Pass result to flip to Fail. Separately, the rules governing how derivative models get added to an existing registration's Product List have not changed under the QPRDv3.0 and new registration system in effect since last July — so this paper-calculation approach to avoiding unnecessary retesting remains valid under current rules. If the paper calculation did exceed 20dBm (unlikely in practice, since most SoCs operate well under 10dBm even at Class 1), a new RF/RF PHY test with the new antenna's data would be required instead.",
+  "consultant_answer": "Yes — take the original RF test report's actual measured Output Power and add the difference between your new antenna's maximum gain and the base model's maximum gain; if that combined figure doesn't exceed 20dBm (the Class 1 ceiling), the antenna change won't flip your base model's Pass result to Fail, and no retest is needed. The rules for adding derivative models to an existing registration's Product List haven't changed under last July's QPRDv3.0 and new registration system, so this approach remains valid. If your calculation did exceed 20dBm, you'd need to run a new RF/RF PHY test with the new antenna's data and register that as a new entry — but in practice, most SoCs operate well under 10dBm even at Class 1, so exceeding the ceiling is unlikely.",
+  "decision_logic": "Antenna-only changes to an already-certified base model can be evaluated for retest necessity via a simple paper calculation (measured output power plus antenna gain delta versus the relevant power class ceiling) rather than requiring an automatic new RF/RF PHY test, and this evaluation method is unaffected by registration-system-level rule changes that govern derivative-model addition mechanics rather than RF retest criteria.",
+  "final_recommendation": "When customers ask about antenna-only hardware changes to a certified base model, offer the paper-calculation method (measured output power plus antenna gain delta vs. power class ceiling) as a way to avoid unnecessary retesting, and clarify that registration-system rule changes affect derivative-model addition mechanics separately from RF retest criteria.",
+  "risk_if_done_wrong": "Skipping the paper calculation and assuming any antenna change is automatically safe could risk shipping a non-compliant device if the new antenna's gain genuinely pushed effective output past the certified Class limit; conversely, assuming any antenna change automatically requires a costly new test would waste resources when the paper calculation would have shown it's unnecessary.",
+  "bluetooth_tags": [
+    "antenna change retest risk estimation",
+    "Output Power plus antenna gain delta calculation",
+    "Class 1 20dBm ceiling",
+    "QPRDv3.0 derivative model rules unchanged",
+    "JVC Kenwood",
+    "VP8000"
+  ],
+  "search_aliases": [
+    "how to estimate retest risk for antenna change",
+    "Output Power antenna gain delta calculation method",
+    "does QPRDv3.0 change derivative model registration rules",
+    "Class 1 output power ceiling 20dBm"
+  ],
+  "qualification_stage": "Derivative model change assessment",
+  "confidence": "high"
+}

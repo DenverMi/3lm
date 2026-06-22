@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0275",
+  "case_id": "thread_0275_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine vital sensor), Telink Host Subsystem GAP/Isochronous mismatch",
+  "customer_question": "(Internal/proactive) The proposed combination of Controller Subsystem (Telink, v5.0, no Isochronous support) and Host Subsystem (Telink Bluetooth LE Host, v5.4, Isochronous-capable) for the vital sensor produces numerous GAP-layer Consistency Check Invalid errors. How can this be resolved without triggering a costly GAP test requirement?",
+  "question_variants": [
+    "Why does combining this specific Controller and Host version produce so many GAP errors?",
+    "Is there a way to register this combination without having to run new GAP-layer testing?"
+  ],
+  "actual_issue": "A preliminary Consistency Check run by Allion ahead of the customer's registration revealed that the vital sensor's proposed Controller Subsystem (v5.0, lacking Isochronous channel support) combined with a newer Host Subsystem version (v5.4, which added Isochronous support) produced numerous GAP-layer cross-layer inconsistencies, which if resolved by directly editing the ICS would trigger a GAP-layer test requirement aligned to the current GAP ICS feature set.",
+  "plain_english_explanation": "The specific GAP-layer inconsistencies all stemmed from the Host Subsystem's Isochronous-related GAP features (added between versions) not being matched by corresponding Link Layer support in the older Controller Subsystem. Rather than directly editing the ICS to resolve these mismatches (which would trigger a real GAP test requirement), Allion identified that the same Host Subsystem vendor (Telink) had an earlier registered version of the same Host Stack (v5.2) that predated the Isochronous feature addition — meaning it didn't claim the GAP capabilities that were causing the mismatch in the first place. Since the vital sensor doesn't actually need Isochronous functionality, referencing this earlier, Isochronous-free Host Subsystem version (v5.2) alongside the existing Controller Subsystem (v5.0) cleared the Consistency Check entirely, avoiding the GAP test requirement without any compromise to the product's actual functionality.",
+  "consultant_answer": "These GAP-layer inconsistencies all stem from your Host Subsystem's Isochronous-related GAP features (added in a later version update) not being matched by Link Layer support in your older Controller Subsystem. Rather than editing the ICS (which would trigger a real GAP test requirement), we found that the same vendor (Telink) has an earlier registered version of this same Host Stack (v5.2) that predates the Isochronous feature addition — so it doesn't claim the GAP capabilities causing the mismatch. Since your vital sensor doesn't need Isochronous functionality anyway, we recommend referencing this earlier Host Subsystem version (v5.2) alongside your existing Controller Subsystem (v5.0) instead — this clears the Consistency Check entirely with no functional compromise.",
+  "decision_logic": "When a cross-layer Consistency Check inconsistency stems from a Host Subsystem feature addition (in a newer version) that the product doesn't actually need, check whether the same vendor has an earlier registered version predating that feature addition, which can be referenced instead to avoid the inconsistency entirely without any functional loss to the actual product.",
+  "final_recommendation": "When a GAP/Isochronous-type cross-layer inconsistency arises from a version mismatch between Controller and Host Subsystem feature support, look for an earlier vendor-registered Host Subsystem version that predates the unneeded feature addition, rather than defaulting to either an ICS edit (triggering real testing) or assuming no clean resolution exists.",
+  "risk_if_done_wrong": "Directly editing the ICS to resolve the inconsistency would trigger a real GAP-layer test requirement that the product doesn't actually need to support, imposing unnecessary cost; failing to find the earlier Host Subsystem version alternative could lead to assuming retesting was unavoidable.",
+  "bluetooth_tags": [
+    "GAP Isochronous cross layer inconsistency",
+    "Host Subsystem earlier version without feature",
+    "Telink Bluetooth LE Host version mismatch",
+    "avoid GAP test requirement",
+    "Alps Alpine vital sensor"
+  ],
+  "search_aliases": [
+    "GAP Isochronous Consistency Check error",
+    "Host Subsystem version mismatch Controller",
+    "earlier vendor registered version avoids inconsistency",
+    "Telink LE Host v5.2 vs v5.4"
+  ],
+  "qualification_stage": "Pre-registration feasibility check",
+  "confidence": "high"
+}

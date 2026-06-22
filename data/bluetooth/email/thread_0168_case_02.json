@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0168",
+  "case_id": "thread_0168_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE product (Flight Solutions)",
+  "customer_question": "Our company name has changed since our original SIG registration. Should we register the new product under the new company name, or under the old one?",
+  "question_variants": [
+    "We changed our company name. Do we need to re-register with SIG under the new name?",
+    "Our corporate entity was renamed. Which name do we use for Bluetooth SIG product registration?"
+  ],
+  "actual_issue": "Flight Solutions is undergoing a company name change and needs to register a new Bluetooth product. They are uncertain whether to use the old or new company name for SIG registration, and how the name change affects their existing SIG membership record.",
+  "plain_english_explanation": "SIG registration requires a valid SIG member account, and SIG uses the company name on file at the time of registration. If your company name has changed but your SIG membership record hasn't been updated yet, the SIG portal will still show the old name. The correct procedure is: (1) complete the product registration under the old company name while it is still the name on file, then (2) update the company name in the SIG system. This prevents mismatches between the registration record and the current SIG member name.",
+  "consultant_answer": "Register the product first under the current company name as it appears in the SIG system (the old name), then separately request a company name update through the SIG member management process. Do not delay registration waiting for the name change to be reflected.",
+  "decision_logic": "SIG product registrations are linked to the company's SIG member account at the time of submission. If the company name in SIG has not yet been updated, attempting to register under the new name will fail or create an inconsistency. The cleanest path is to complete registration first, then update the member record.",
+  "final_recommendation": "Complete the SIG product registration using the company name currently registered with SIG (the old name). After the registration is confirmed, update the company name through the SIG member services process. The existing registration will reflect the updated company name once SIG processes the change.",
+  "risk_if_done_wrong": "Attempting to register under the new company name before SIG records are updated could result in a rejected registration or a mismatch between the product listing and the SIG member account. Delaying registration waiting for the name change could cause the customer to miss product launch or qualification deadlines.",
+  "bluetooth_tags": [
+    "company name change",
+    "SIG member account",
+    "product registration",
+    "SIG membership update"
+  ],
+  "search_aliases": [
+    "company name change SIG",
+    "register under old company name",
+    "SIG member name update",
+    "corporate name change Bluetooth SIG"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

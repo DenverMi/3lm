@@ -1,47 +1,32 @@
 {
-    "source_thread": "thread_0023",
-    "cases": [
-        {
-            "case_id": "thread_0023_case_01",
-            "iut_type": "module",
-            "customer_question": "How should Bluetooth RF PHY test documentation be corrected when the DUT interface mode in the ICS/Test Plan is wrong?",
-            "question_variants": [
-                "The DUT uses HCI but the test plan says 2-wire",
-                "How do we correct an RF PHY ICS interface mismatch?",
-                "Can RF PHY testing proceed if the TSPX_Test_Interface is wrong?",
-                "What should be updated when the Bluetooth command mode is incorrect?",
-                "How do we replace outdated RF-PHY IXIT and test plan files?"
-            ],
-            "actual_issue": "The RF PHY qualification documents incorrectly specified the DUT test interface as 2-wire mode instead of HCI mode, creating a mismatch between the actual implementation and the submitted ICS/Test Plan/IXIT documentation.",
-            "plain_english_explanation": "Bluetooth RF PHY testing depends on the test lab using the correct communication interface configuration for the DUT. In this case, the documents described the product as using a 2-wire test interface, but the actual implementation used HCI. The incorrect configuration had to be corrected and redistributed before testing could proceed reliably.",
-            "consultant_answer": "The consultant determined that the DUT command mode described in the questionnaires and RF-PHY ICS/Test Plan/IXIT files was incorrect. The original documentation referenced a 2-wire interface, but the actual DUT used HCI mode. The consultant instructed the team to replace the old files on the server, resend the revised HCI-based test plans to the test laboratory, and remove unrelated documents from the project package. During testing, the laboratory again identified that the active document still referenced 2-wire mode under TSPX_Test_Interface, leading the consultant to request redistribution of the revised HCI test plan before finalizing the testing workflow.",
-            "decision_logic": "Bluetooth RF PHY testing and qualification evidence must accurately reflect the DUT's real hardware interface and command transport mode. If the ICS, IXIT, or test plan describes the wrong test interface, the laboratory may execute invalid procedures or produce inconsistent qualification evidence.",
-            "final_recommendation": "Update all RF-PHY questionnaires, ICS, IXIT, and test plan documents so the DUT interface mode correctly matches the actual HCI implementation, replace obsolete files in all shared repositories, and confirm the laboratory is using only the revised documentation before testing continues.",
-            "risk_if_done_wrong": "Using the wrong interface definition can cause invalid RF PHY test execution, inconsistent qualification evidence, retesting, project delays, and confusion between the test laboratory and customer documentation. Obsolete files remaining in circulation can also lead to repeated execution mistakes during qualification.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "ICS",
-                "IXIT",
-                "HCI",
-                "Classic",
-                "module",
-                "test plan"
-            ],
-            "search_aliases": [
-                "TSPX_Test_Interface mismatch",
-                "2-wire vs HCI",
-                "RF PHY interface error",
-                "incorrect command mode",
-                "HCI test plan revision",
-                "RF-PHY IXIT correction",
-                "Bluetooth interface mismatch",
-                "obsolete test plan replacement",
-                "2-wire configuration mistake"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0023",
+  "case_id": "thread_0023_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Toytec Bluetooth module), RF PHY Class 3 test interface declaration mismatch (2-Wire vs HCI)",
+  "customer_question": "(Internal, Taiwan lab to Japan sales/PM, mid-test:) The submitted documentation declares the test interface as 2-Wire (115200bps), but this DUT should actually use an HCI connection -- please check and confirm, since testing is starting today.",
+  "question_variants": [
+    "Can RF PHY testing proceed with a mismatched test interface declaration, or must the documentation be corrected first?",
+    "What should happen to an unrelated document accidentally included in a test request package?"
+  ],
+  "actual_issue": "The QUESTIONNAIRE and Test Plan submitted for a Bluetooth RF PHY Class 3 test declared the DUT's test command interface as 2-Wire (115200bps), but the Taiwan lab discovered partway through test setup that the DUT actually required an HCI interface -- a documentation error that needed correcting and reissuing before the formal test could proceed, and an unrelated reference document had also been included in the same package by mistake.",
+  "plain_english_explanation": "Once the lab flagged the interface mismatch, the Japan-side team corrected the QUESTIONNAIRE and Test Plan to declare HCI instead of 2-Wire, replaced the outdated versions on the shared server, and reissued the corrected files to the lab so the already-in-progress test could continue on the correct basis. The team also identified that an unrelated reference spreadsheet (a generic 'Bluetooth SIG certification acquisition sample explanation' document) had been mistakenly included in the original package and asked the lab to discard it, since it had no bearing on this specific project.",
+  "consultant_answer": "Confirmed -- the interface should be HCI, not 2-Wire. We've corrected and reissued the QUESTIONNAIRE and Test Plan with this fix; please replace the old versions and continue testing on the corrected basis. Also, please discard the unrelated sample-explanation spreadsheet that was mistakenly included in the original package -- it's not relevant to this project.",
+  "decision_logic": "When a lab discovers a test interface declaration mismatch (e.g., 2-Wire vs. HCI) partway through test setup, correct and reissue the governing documentation (QUESTIONNAIRE, Test Plan) immediately so the in-progress test can continue on the correct basis, rather than letting the test proceed against the original incorrect declaration.",
+  "final_recommendation": "Before submitting test documentation to a lab, double-check that the declared test command interface (2-Wire vs. HCI) actually matches the DUT's real configuration, since a lab may not catch a mismatch until partway through test setup, costing time; also screen submitted packages for unrelated leftover reference documents before sending them to the lab.",
+  "risk_if_done_wrong": "Proceeding with RF PHY testing against an incorrectly-declared test interface could invalidate the test setup or produce incorrect results, requiring the test to be redone once the mismatch is eventually noticed.",
+  "bluetooth_tags": [
+    "RF PHY test interface declaration mismatch",
+    "2-Wire vs HCI interface",
+    "QUESTIONNAIRE Test Plan correction mid-test",
+    "Toytec",
+    "Allion Taiwan HQ lab coordination"
+  ],
+  "search_aliases": [
+    "test interface declared 2-Wire but should be HCI",
+    "correcting QUESTIONNAIRE Test Plan mid-test",
+    "RF PHY Class 3 test interface mismatch"
+  ],
+  "qualification_stage": "RF PHY test setup execution",
+  "confidence": "medium"
 }

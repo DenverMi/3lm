@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0178",
+  "thread_analysis": {
+    "thread_summary": "Short internal Allion quote preparation thread for System Design Co. BLE RF PHY test + Multi-Design registration + Compliance Folder + Qualification Fee proxy. No customer-facing Q&A. The quote as stated lists: RF PHY 2-item test ¥200,000, Multi-Design proxy registration support ¥250,000, Compliance Folder creation fee ¥150,000, a second line also labeled Compliance Folder creation fee ¥100,000, and Qualification Fee $12,000.",
+    "all_questions_found": [
+      "What are the standard fees for RF PHY testing, proxy registration, Compliance Folder, and Qualification Fee proxy?"
+    ],
+    "key_technical_discussion": "Pricing confirmation only. No technical cases beyond standard fee schedule for a BLE RF PHY + Multi-Design registration package. Note: the quote text contains two separate line items both labeled 'Compliance Folder creation fee' (¥150,000 and ¥100,000) — this duplicate labeling is present in the source itself and was not clarified or corrected within the thread.",
+    "key_decision_logic": "Standard pricing applies. The only judgment call is Single-Design vs. Multi-Design, which depends on the QDID count of the referenced components.",
+    "risk_if_done_wrong": "Quoting the wrong registration type (Single vs. Multi) leads to price corrections that damage customer trust.",
+    "consulting_mistake": "None identified. Thread is purely a pricing confirmation.",
+    "consulting_takeaway": "Standard fee schedule should be memorized and applied consistently. Always verify Multi-Design vs. Single-Design before finalizing the quote by checking the QDID structure of the referenced components."
+  }
+}

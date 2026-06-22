@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0118",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This is an internal Allion exchange (December 19-23, 2024) where sales staff [PERSON]/Wang forwards a Bluetooth certification quote request from [COMPANY] for an in-vehicle 1DIN audio product (A2DP + AM/FM radio, with HFP and LE Audio planned later) to consultant [PERSON]/Sakai. The product uses a Component-certified BT HCI module and a Component-certified BT stack running on a general-purpose microcontroller, with two destination variants (domestic-only, and domestic+overseas with an external PCB pattern antenna fed from the module via wire). Sakai determines that RF 2-item testing (transmit power, receive sensitivity) is required to validate the custom PCB antenna design for the external-antenna variant, while Profile testing is exempted for profiles covered at the ICS level by the BT stack's Q309493 (Blue SDK Profiles) Component certification. A quote is provided, and a follow-up Q&A sheet is prepared for a customer web meeting (the sheet's contents are in an attachment not reproduced in the email body).",
     "all_questions_found": [
       "What testing is required for a product that routes a certified module's antenna signal out to a custom PCB pattern antenna design (for the domestic+overseas variant)?",

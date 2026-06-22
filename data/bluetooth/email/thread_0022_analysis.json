@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0022",
+  "thread_analysis": {
+    "thread_summary": "OM Digital Solutions (contact Tadashi Horiuchi), a repeat customer (formerly Olympus, and distinct from the earlier OM Digital Solutions HFP headset engagement documented in thread_0005/thread_0234), engages Allion (Itsuo Sakai, Toshitaka Mochizuki) for Bluetooth SIG registration of a new HFP-capable device (an EZ-BT WICED Module With Mesh-based product), spanning February 2026. The thread covers a PTS test DUT-detection troubleshooting saga escalated to an in-person session, an HFP test-exemption strategy revived by finding a successor Profile Subsystem registration after the prior one became deprecated, Compliance Folder document clarifications, and a Company Address correction process.",
+    "all_questions_found": [
+      "Why does PTS testing fail to detect/connect to the DUT despite following the documented procedure, and is an in-person session more effective than remote troubleshooting? (see thread_0022_case_01)",
+      "Can HFP PTS testing be avoided by referencing the module's registration, given the previously-used exemption reference is now deprecated? (see thread_0022_case_02)",
+      "Is the Compliance Folder public, can existing design documents substitute for requested items, and why does the registration include SPP if the product doesn't expose it as a feature? (see thread_0022_case_03)",
+      "Why does the registration show an outdated company name, and how can it be corrected? (see thread_0022_case_04)",
+      "(Administrative, not separately cased) Order/billing adjustment after cancelling the profile test order, invoice timing confirmation, and equipment return logistics -- routine project administration without a generalizable technical lesson."
+    ],
+    "key_technical_discussion": "The thread's most valuable technical content is case_02's demonstration of tracking a chipset vendor's lineage (Cypress acquired by Infineon, WICED SDK unified with AIROC) to find a currently-valid successor Profile Subsystem registration after a previously-used exemption reference became deprecated -- directly paralleling a similar strategy documented in thread_0234 for a different OM Digital Solutions product, but with fresh, specific details for this engagement. Case_01's Paging-timeout diagnostic narrowing (wrong target address vs. DUT-side response defect) is also a clear, reusable troubleshooting pattern.",
+    "key_decision_logic": "See thread_0022_case_01 through thread_0022_case_04 for case-specific decision logic; the throughline is verifying whether a previously-successful approach (an exemption reference, a document substitute, a registration field) remains valid or editable in its current context before assuming it still applies.",
+    "risk_if_done_wrong": "See individual case files; case_02 carries the most cost-relevant risk, since failing to find the successor Profile Subsystem registration would have forced the customer into running HFP PTS testing and potentially modifying firmware unnecessarily.",
+    "consulting_mistake": "No significant consulting-side mistakes identified in the visible record -- responses were thorough and proactively researched (e.g., tracing the SDK rebranding lineage for case_02).",
+    "consulting_takeaway": "When a customer wants to reuse a previously-successful test-exemption strategy, verify the specific reference is still valid before assuming it applies, and proactively trace chipset vendor lineage (acquisitions, SDK rebranding) to find a successor reference if it isn't; and when a registration field shows outdated account-level information, direct the fix to the account/member registration level rather than the current submission."
+  }
+}

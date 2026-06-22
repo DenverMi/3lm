@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0062",
+  "case_id": "thread_0062_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Our chipset vendor's documentation describes a DUT test-mode procedure for open-loop testing. Is that the procedure we should use for SIG certification RF/RF PHY testing at InterLab, and do we need an external PC to issue the commands?",
+  "question_variants": [
+    "Which DUT test-mode section of the vendor manual applies to certification testing versus regulatory testing?",
+    "Do we need a separate PC to put the DUT into test mode for InterLab testing?",
+    "Is the open-loop test procedure the same one InterLab uses for SIG RF PHY testing?"
+  ],
+  "actual_issue": "The chipset vendor's documentation contains multiple DUT test-mode procedures for different purposes, and it needed to be clarified which one applies to Bluetooth SIG certification RF/RF PHY testing performed at the certification lab versus regulatory (radio law/FCC) open-loop testing, and whether an external PC is required to issue the relevant commands.",
+  "plain_english_explanation": "Chipset vendors often publish more than one procedure for putting a device into a special radio test mode -- one for government radio-approval testing and a different one for Bluetooth certification lab testing. Using the wrong one can mean following the wrong steps or assuming you need extra equipment you don't actually need. Here, the consultant clarified which procedure section applies to lab certification and confirmed the lab's own automation tool can issue the needed commands without any extra PC.",
+  "consultant_answer": "The vendor documentation's section 3.4 procedure is the open-loop test procedure used for radio-law/FCC testing, not the one needed for SIG certification testing at a lab like InterLab. The procedure actually needed for certification-lab testing is section 3.1, DUT Test Mode. InterLab issues the section 3.1 commands itself via its Automation Explore feature, so no external PC is required to put the DUT into test mode for this purpose.",
+  "decision_logic": "When a chipset vendor's manual contains more than one DUT test-mode procedure, the applicable one must be matched to the testing context (regulatory open-loop testing vs. certification-lab automated testing) rather than assumed from section proximity or general familiarity; certification labs with their own automation tooling can typically issue the correct procedure's commands directly, without requiring an external PC.",
+  "final_recommendation": "For SIG certification RF/RF PHY testing on this chipset, use the vendor manual's section 3.1 DUT Test Mode procedure, issued via the lab's own automation tooling (e.g., InterLab's Automation Explore), and do not use the section 3.4 open-loop procedure intended for radio-law/FCC testing; no external PC is needed.",
+  "risk_if_done_wrong": "Using the open-loop (regulatory) test-mode procedure instead of the certification-lab procedure, or assuming an external PC is required, risks an incorrect or unnecessarily complicated test setup at the certification lab.",
+  "bluetooth_tags": ["DUT mode", "RF PHY", "test setup", "InterLab", "Automation Explore"],
+  "search_aliases": ["DUT Test Mode 3.1 vs 3.4", "open-loop test mode vs certification test mode", "InterLab Automation Explore DUT mode", "external PC not needed for DUT mode"],
+  "qualification_stage": "testing",
+  "confidence": "high"
+}

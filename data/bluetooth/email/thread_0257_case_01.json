@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0257",
+  "case_id": "thread_0257_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product referencing a certified Component (JUST.WILL)",
+  "customer_question": "Do we need to complete Bluetooth SIG member registration (corporate registration, Adopter status) ourselves before this engagement can proceed, or is that included as part of your registration support? Also, what's changed with the new rule about profile testing even when using a certified component?",
+  "question_variants": [
+    "Is SIG member/Adopter registration something we need to do ourselves, or is it part of Allion's service?",
+    "Why would profile testing (IOPT) be required even though we're using an already-certified component?"
+  ],
+  "actual_issue": "The customer assumed Bluetooth SIG member registration (corporate registration and Adopter status) was included within Allion's registration support engagement and hadn't started it themselves, while also needing to understand a recent rule change affecting whether profile testing could be skipped for a certified-component-based product.",
+  "plain_english_explanation": "SIG member registration (becoming a corporate member with Adopter status) is a prerequisite step that the customer's own company must complete themselves before registration support can begin — it is not something Allion performs on the customer's behalf, and Allion provided an updated step-by-step procedure document for moving from company-level member registration to obtaining an individual user account. Separately, Bluetooth SIG's product certification rules changed such that, for registrations made on or after November 10, 2025, even when referencing an already-certified Component, Profile testing (IOPT) is now required — a change from the prior rule where component-level certification could fully exempt profile testing.",
+  "consultant_answer": "SIG member registration (corporate registration and Adopter status) needs to be completed by your own company first — it's not part of our registration support service. We're attaching an updated step-by-step procedure for going from company member registration to obtaining an individual user account. Separately, please note that as of a recent rule change, registrations made on or after November 10, 2025 now require Profile testing (IOPT) even when referencing an already-certified Component — this is a change from the prior rule, and our quote reflects that requirement.",
+  "decision_logic": "SIG member/Adopter registration is categorically a customer-side prerequisite, not part of the registration support service scope, and should be explicitly clarified before any assumption is made about engagement scope; profile testing requirements should be re-checked against the current effective-date rule (Nov 10, 2025 change) rather than relying on prior certified-component exemption assumptions.",
+  "final_recommendation": "Early in any new customer engagement, explicitly confirm whether SIG member/Adopter registration has already been completed, since this is a common point of customer assumption-mismatch about service scope; also flag any recent rule changes (like the Nov 2025 profile testing requirement) that affect previously-assumed exemptions.",
+  "risk_if_done_wrong": "If member/Adopter registration status is left unconfirmed, the customer might believe the engagement is further along than it actually is, causing project delays once the missing prerequisite step is discovered; failing to flag the Nov 2025 IOPT rule change could result in an inaccurate quote that omits now-required profile testing.",
+  "bluetooth_tags": [
+    "SIG member registration prerequisite",
+    "Adopter registration scope clarification",
+    "November 2025 IOPT rule change",
+    "certified component no longer fully exempt",
+    "JUST.WILL"
+  ],
+  "search_aliases": [
+    "is SIG member registration included in registration support",
+    "Adopter registration procedure",
+    "IOPT required for certified component 2025 rule change",
+    "profile testing required even with certified component"
+  ],
+  "qualification_stage": "Pre-engagement scoping",
+  "confidence": "high"
+}

@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0179",
+  "case_id": "thread_0179_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE module with uFL antenna connector (Alps Alpine)",
+  "customer_question": "The DUT arrived at the lab but none of Allion's uFL-to-SMA conversion cables or adapters fit the DUT's antenna connector. The connector shape differs from the image the customer previously sent. Does the DUT need modification, or can the customer supply a compatible cable?",
+  "question_variants": [
+    "Will the uFL connector on the DUT mate with standard SMA cables at the test lab?",
+    "None of our lab's uFL-to-SMA cables fit this DUT's connector — does the DUT need to be modified?",
+    "Our DUT has a uFL connector. The lab uses an SMA interface. What cable do we need?",
+    "Can we ask the customer to send their own SMA conversion cable since ours don't fit?"
+  ],
+  "actual_issue": "Alps Alpine's BLE module DUT has a uFL (u.FL) antenna connector used for RF testing, connecting via a uFL-to-SMA cable to the InterLab RF Test System. Before the DUT was shipped, Allion (Sakai) had told the customer's contact that the lab has uFL-to-SMA cables/adapters but that mating sometimes fails depending on connector manufacturer, and asked to borrow the customer's own connector-specific cable/adapter if the lab's own cables didn't fit. The customer never confirmed this and simply shipped the DUT without a cable. Once the DUT arrived, Allion engineers tried every uFL-to-SMA cable and adapter available in the lab (including cables purchased and donated by Sakai over multiple past purchases) and none of them mated with the DUT's antenna connector. The connector's physical shape also differed from the image the customer had previously emailed, raising the question of whether the DUT itself needed modification. The resolution was to ask the customer to ship their own SMA conversion cable.",
+  "plain_english_explanation": "uFL (u.FL) connectors are very small RF connectors used in compact modules. Different connector manufacturers produce physically similar but not always interchangeable uFL connectors. In this case, that risk materialized: the DUT's connector did not mate with any of the lab's existing uFL-to-SMA cables or adapters, even though the lab had several on hand from past purchases. Because the connector shape also looked different from what the customer had previously described in images, the lab could not be sure whether simple adapter incompatibility or an actual DUT design issue was at play. Rather than modifying the DUT, the practical resolution was to ask the customer to send their own SMA conversion cable that is known to fit their connector.",
+  "consultant_answer": "When the lab's own uFL-to-SMA cables and adapters do not mate with the DUT's connector, do not assume DUT modification is required. First exhaust all available cables/adapters in the lab (including checking with staff who used similar cables on past projects). If none fit, the most practical resolution is to request the customer ship their own SMA conversion cable/adapter that is confirmed to mate with their specific connector, rather than modifying the DUT.",
+  "decision_logic": "uFL is a non-standardized micro RF connector format used by many manufacturers with slight variations, so physical mating is not guaranteed across manufacturers. When a pre-test heads-up about possible incompatibility goes unanswered and the DUT is shipped without a confirmed-compatible cable, the lab should still attempt all available cables before concluding the DUT needs modification — and if none fit, ask the customer for their own cable rather than assuming a hardware problem.",
+  "final_recommendation": "Before the RF test session: (1) confirm the manufacturer and part number of the DUT's uFL connector with the customer in advance; (2) explicitly request the customer to ship their own uFL-to-SMA adapter cable alongside the DUT if there is any doubt, rather than leaving it as an open offer that may go unanswered; (3) at the lab, try all available cables/adapters (including consulting staff who handled similar past projects) before concluding a DUT modification is needed; (4) if no lab cable fits, request the customer send their own confirmed-compatible cable.",
+  "risk_if_done_wrong": "Shipping a DUT without a confirmed-compatible cable, or without a clear customer response to a compatibility heads-up, results in wasted lab time once the DUT arrives and no cable fits. Misdiagnosing a connector mismatch as a DUT defect could lead to unnecessary DUT modification requests, adding delay.",
+  "bluetooth_tags": [
+    "RF test",
+    "uFL connector",
+    "SMA",
+    "antenna connector",
+    "RF PHY test",
+    "cable compatibility",
+    "InterLab"
+  ],
+  "search_aliases": [
+    "uFL SMA cable compatibility RF test",
+    "uFL connector mismatch",
+    "uFL to SMA adapter RF testing",
+    "antenna connector compatibility test session",
+    "BLE module uFL connector RF test"
+  ],
+  "qualification_stage": "Testing / RF PHY test preparation",
+  "confidence": "high"
+}

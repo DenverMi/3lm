@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0221",
+  "case_id": "thread_0221_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product incorporating Q309899 Core-Controller SoC (Move company)",
+  "customer_question": "Our quote request form references Q309899 (Core-Controller) — can you explain what we need to fill in for 'RF PHY Optional Function' and 'Power Class'?",
+  "question_variants": [
+    "What ICS values should we declare for RF PHY Optional Function and Power Class given our reference QDID is Q309899?",
+    "If we submit our own RF/RF PHY test data, what features must our test report cover?"
+  ],
+  "actual_issue": "Move company asked Allion to explain how to fill in the RF PHY Optional Function and Power Class fields on the quote request form, given that their referenced QDID (Q309899) is a Core-Controller SoC.",
+  "plain_english_explanation": "Since Q309899 is a Core-Controller SoC (not an antenna/RF-complete module), the customer's actual product board must undergo RF and RF PHY testing and obtain a passing report — RF PHY exemption doesn't apply to bare SoCs. Checking the ICS for Q309899's registration page shows it declares RF Class 1, and RF PHY 1M, 2M, Stable Mod (Tx), Stable Mod (Rx), Class 1. If the customer submits their own measurement data, it must come from a BQTF-issued RF/RF PHY test report covering all of these declared ICS features.",
+  "consultant_answer": "Q309899 is a Core-Controller SoC, so RF and RF PHY testing on the actual product board is required, with a passing report. Checking Q309899's registration page ICS shows RF Class 1 and RF PHY 1M, 2M, Stable Mod (Tx), Stable Mod (Rx), Class 1. If submitting your own data, it must be a BQTF-issued RF/RF PHY test report covering all of these ICS features.",
+  "decision_logic": "RF PHY exemption only applies when the referenced QDID is a fully RF-complete module (e.g., with antenna connector or certified RF chain); a bare SoC like Q309899 requires the actual product board to be tested because the RF front-end (antenna, matching, board layout) is implemented downstream of the SoC.",
+  "final_recommendation": "Before quoting RF PHY exemption status, always check whether the customer's referenced QDID is a Core-Controller SoC versus a fully RF-complete module — and pull the actual ICS declaration from the SIG registration page rather than assuming based on QDID type alone.",
+  "risk_if_done_wrong": "If RF/RF PHY testing is skipped under a false assumption that the SoC's QDID already covers RF performance, the registration would be invalid since the SoC alone doesn't certify the product board's actual RF behavior.",
+  "bluetooth_tags": [
+    "Core-Controller SoC",
+    "Q309899",
+    "RF PHY Optional Function",
+    "Power Class",
+    "ICS declaration",
+    "Move"
+  ],
+  "search_aliases": [
+    "RF PHY test required for SoC QDID",
+    "Core-Controller SoC RF test exemption",
+    "ICS RF Class 1 RF PHY declaration",
+    "BQTF RF PHY test report requirements"
+  ],
+  "qualification_stage": "Pre-registration / ICS and test scoping",
+  "confidence": "high"
+}

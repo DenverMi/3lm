@@ -1,43 +1,32 @@
 {
-    "source_thread": "thread_0038",
-    "cases": [
-        {
-            "case_id": "thread_0038_case_02",
-            "iut_type": "",
-            "customer_question": "How should Bluetooth SIG member identity be verified before starting qualification registration work?",
-            "question_variants": [
-                "How do we confirm the correct Bluetooth SIG member company?",
-                "What if the SIG member search returns the wrong company?",
-                "How should adopter membership be validated?",
-                "Can qualification proceed without confirming the legal member entity?",
-                "Why is member company verification important before registration?"
-            ],
-            "actual_issue": "The consultant initially identified the wrong Bluetooth SIG member company during membership lookup and later corrected the conclusion after realizing the company names did not match the customer.",
-            "plain_english_explanation": "Bluetooth SIG qualification records belong to a specific legal member company. The consultant initially matched the customer to an unrelated member company in the SIG database, but later corrected the mistake. The thread shows the importance of confirming the exact legal member name before qualification work begins.",
-            "consultant_answer": "The consultant first reported that a company named [xxx COMPANY] appeared as an Adopter member in the Bluetooth SIG member search. A later review determined that this company was unrelated to the customer because searches using the customer's known company names did not match. The consultant instructed internal staff to ask the customer for the exact company name used for Bluetooth SIG membership registration before proceeding further.",
-            "decision_logic": "Bluetooth qualification ownership and submission rights are tied to the exact Bluetooth SIG member entity. Similar or unrelated company names in the member database cannot be assumed to represent the customer without direct confirmation.",
-            "final_recommendation": "Always confirm the customer's exact Bluetooth SIG legal member name and account identity before starting qualification registration, invoice handling, or qualification planning.",
-            "risk_if_done_wrong": "Using the wrong member entity could cause incorrect qualification ownership, registration delays, submission errors, or billing and account mismatches that require rework.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "member account",
-                "declaration",
-                "registration"
-            ],
-            "search_aliases": [
-                "wrong SIG member company",
-                "Bluetooth member verification",
-                "Adopter lookup mismatch",
-                "legal entity confirmation",
-                "incorrect member search result",
-                "member account validation",
-                "qualification ownership mismatch",
-                "SIG company name verification"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0038",
+  "case_id": "thread_0038_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Verifying a customer's existing Bluetooth SIG Adopter membership by company name search, and a false-positive pitfall",
+  "customer_question": "(Internal, before confirming a quote:) Is this customer already a Bluetooth SIG Adopter member, since they mentioned their adapter registration was completed a few years ago?",
+  "question_variants": [
+    "How should a company name search on the SIG member directory be cross-checked before relying on a match?",
+    "What should be done if the search result doesn't match the customer's actual company name?"
+  ],
+  "actual_issue": "A search of the Bluetooth SIG member directory for a name resembling the customer's company ('Purgatio') returned a hit for 'Dyaco International Inc,' but on closer inspection this was an unrelated company with no actual connection to the customer, and searches for the customer's own name or a related brand name ('DVAC') did not return any match at all -- meaning the customer's actual Adopter membership status and registered company name needed to be directly confirmed with the customer rather than assumed from the initial search result.",
+  "plain_english_explanation": "An initial member-directory search returned a plausible-looking but ultimately unrelated company name, which could have been mistakenly treated as confirming the customer's existing Adopter membership if not double-checked. Since neither the customer's actual company name nor an associated brand name produced a match, the correct next step was to go back to the customer and ask exactly what company name they used when they registered as a SIG member, rather than proceeding on the basis of the initial (incorrect) search hit.",
+  "consultant_answer": "The initial search hit ('Dyaco International Inc') turned out to be an unrelated company, and searching for your company name or your 'DVAC' brand name doesn't return any match either. Could you let us know exactly what company name was used when your Adopter membership was registered, so we can verify it properly?",
+  "decision_logic": "When searching a member/adopter directory by company name to confirm an existing membership, do not accept a plausible-looking but unverified search hit as confirmation -- cross-check that the result is genuinely connected to the customer, and if no match is found under the customer's own name or known brand names, ask the customer directly for the exact registered name rather than guessing.",
+  "final_recommendation": "Treat company-name directory searches as a starting point requiring verification, not a final answer -- when a search hit doesn't clearly and unambiguously match the customer, or when no match is found at all, ask the customer directly for the exact name under which they registered rather than relying on an assumption.",
+  "risk_if_done_wrong": "Treating an unrelated company's directory entry as confirmation of the customer's own membership could lead to incorrect assumptions about the customer's registration status, potentially causing downstream registration errors or delays once the mistake is discovered.",
+  "bluetooth_tags": [
+    "SIG Adopter member directory search verification",
+    "false positive company name match",
+    "confirm exact registered company name with customer",
+    "Purgatio",
+    "Dyaco International unrelated company"
+  ],
+  "search_aliases": [
+    "how to verify SIG Adopter membership by company name",
+    "member directory search false match",
+    "confirm exact company name used for SIG registration"
+  ],
+  "qualification_stage": "Pre-registration membership verification",
+  "confidence": "medium"
 }

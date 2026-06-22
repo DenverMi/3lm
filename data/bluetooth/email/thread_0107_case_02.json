@@ -1,45 +1,23 @@
 {
-    "source_thread": "thread_0107",
-    "cases": [
-        {
-            "case_id": "thread_0107_case_02",
-            "iut_type": "audio module",
-            "customer_question": "What qualification risks exist when a Bluetooth module uses an unqualified host stack or open-source Bluetooth stack implementation?",
-            "question_variants": [
-                "Can I use BlueZ without an existing qualification?",
-                "What happens if the Host Subsystem is not qualified?",
-                "Do open-source Bluetooth stacks require protocol testing?",
-                "How important is the Host Subsystem QDID?",
-                "Can host-stack qualification be reused?"
-            ],
-            "actual_issue": "The qualification path depends on whether the host stack and supported profiles are already covered by qualified Host Subsystem references or require new protocol qualification work.",
-            "plain_english_explanation": "Bluetooth qualification is not limited to the radio. The host software and supported profiles may also need qualification coverage. If those layers are not already qualified, the qualification effort can increase significantly.",
-            "consultant_answer": "The consultant requested Host Subsystem qualification references and asked whether the listed profiles were already covered by the host implementation. If an unqualified open-source host stack such as BlueZ is used without existing qualification coverage, substantial protocol-testing obligations may apply. The consultant recommended obtaining qualification evidence from the party responsible for the stack implementation whenever possible.",
-            "decision_logic": "Qualification coverage must exist for both controller and host functionality. When host functionality is not covered by an existing qualified Host Subsystem, protocol qualification obligations can be triggered for the implemented Bluetooth features and profiles.",
-            "final_recommendation": "Identify the Host Subsystem qualification references and verify whether the implemented profiles are already covered. If qualification evidence does not exist, coordinate with the stack provider or module manufacturer before defining the qualification plan.",
-            "risk_if_done_wrong": "Failure to verify host-stack qualification status can lead to unexpected protocol-testing requirements, increased qualification effort, schedule impact, and major project replanning.",
-            "bluetooth_tags": [
-                "qualification",
-                "host",
-                "Host Subsystem",
-                "profile",
-                "protocol testing",
-                "BlueZ",
-                "reuse"
-            ],
-            "search_aliases": [
-                "BlueZ qualification",
-                "Host Subsystem QDID",
-                "unqualified host stack",
-                "protocol testing required",
-                "profile qualification",
-                "host stack reuse",
-                "open source Bluetooth stack",
-                "host qualification coverage"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0107",
+  "case_id": "thread_0107_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Our quote-request form lists 'Controller Subsystem' under Host Stack, which doesn't seem right -- what's the actual Host Subsystem QDID/DN, and what if it's actually running on an open-source stack like BlueZ?",
+  "question_variants": [
+    "What does it mean if our Host Stack is an unauthenticated open-source implementation?",
+    "Who should be responsible for getting test evidence for an open-source Bluetooth stack?",
+    "Are our listed supported profiles backed by existing certified evidence, or do they need new testing?"
+  ],
+  "actual_issue": "The customer's quote-request form listed 'Controller Subsystem' in the field meant for the Host Stack, and it needed to be clarified what the actual Host Subsystem QDID/DN was, with a specific concern that if the product's Host Stack was actually an unauthenticated open-source implementation (such as BlueZ) rather than a certified stack, protocol-layer testing would be far more costly than typical, and responsibility for resolving this needed to be assigned appropriately.",
+  "plain_english_explanation": "The software layer that handles Bluetooth profiles on top of the radio chip needs its own certification evidence, just like the radio hardware does. If that software is a popular open-source Bluetooth stack that hasn't itself been through certification testing, proving it actually works correctly with all the relevant profiles can require an enormous and expensive testing effort -- and that's a cost that should fall on whoever actually built and is responsible for that software implementation (usually the module or chip maker), not necessarily the company that's just integrating the module into their product.",
+  "consultant_answer": "The quote-request form's Host Stack field listed 'Controller Subsystem,' which is the wrong category for that field; the actual Host Subsystem QDID/DN was needed. If the product's Host Stack is built on an unauthenticated open-source implementation (such as BlueZ), protocol-layer testing would incur enormous cost and time. In that situation, the recommendation is to ask the module manufacturer -- who holds implementation responsibility for that stack -- to pursue obtaining the necessary report, rather than the integrating customer bearing that cost directly. Relatedly, it needed to be confirmed whether the listed supported profiles (HFP, HSP, A2DP, AVRCP) were already backed by the Host Stack's existing certified evidence, or whether they were unauthenticated profiles that would require new testing as part of this registration.",
+  "decision_logic": "When a product's Host Stack turns out to be an unauthenticated open-source implementation rather than a certified one, protocol-layer testing becomes enormously costly and time-consuming, and the responsibility for obtaining that evidence should be directed to the module or chip manufacturer who holds implementation responsibility for that stack, rather than assumed by the integrating customer; supported profiles listed on a quote-request form should also be checked against whether they are actually backed by existing certified evidence or would require fresh testing.",
+  "final_recommendation": "When a Host Stack turns out to be an unauthenticated open-source implementation, flag the resulting cost and time scale clearly to the customer and recommend directing the request for test evidence to the module manufacturer who holds implementation responsibility, rather than quoting the integrator for that scope directly. Verify whether listed supported profiles are backed by existing certified evidence before assuming no new testing is needed for them.",
+  "risk_if_done_wrong": "Quoting protocol-layer testing for an unauthenticated open-source Host Stack without recognizing its enormous cost and time scale, or without directing responsibility to the module manufacturer, risks a severely underestimated quote and an unmanageable testing burden falling on the wrong party.",
+  "bluetooth_tags": ["Host Subsystem", "open-source stack", "BlueZ", "protocol testing cost", "module manufacturer responsibility"],
+  "search_aliases": ["unauthenticated open source Host Stack BlueZ", "protocol testing enormous cost open source stack", "module manufacturer responsible for stack evidence", "Controller Subsystem listed instead of Host Stack error"],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
 }

@@ -2,6 +2,7 @@
   "source_thread": "thread_0144",
   "case_id": "thread_0144_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "IoT/commercial device",
   "customer_question": "What actually changed in the SIG Qualification process in July 2024 (QPRDv3.0)? Did test requirements or fees change?",
   "question_variants": [
@@ -15,8 +16,24 @@
   "decision_logic": "1. QPRDv3.0 does NOT change SIG test requirements or Qualification Fees.\n2. Structural changes: Component→Subsystem, Declaration→Design, Compliance Folder mandatory for all.\n3. Consistency Check: new inter-layer validation — this is the biggest operational impact.\n4. Allion pricing changes are separate from SIG rule changes — communicate clearly to avoid customer confusion.",
   "final_recommendation": "When customers ask about QPRDv3.0 changes, lead with 'tests and SIG fees unchanged' to address the most common concern, then explain the three structural changes. Separately communicate any internal pricing changes with their own effective date.",
   "risk_if_done_wrong": "Customers who misunderstand QPRDv3.0 as requiring new tests may delay projects unnecessarily, or may not realize the Consistency Check now blocks registrations that previously would have passed.",
-  "bluetooth_tags": ["QPRDv3.0", "July-2024-update", "Component-to-Subsystem", "Declaration-to-Design", "Compliance-Folder", "Consistency-Check", "SIG-fee-unchanged", "test-requirements-unchanged"],
-  "search_aliases": ["QPRDv3.0 what changed", "July 2024 SIG qualification update", "Component Subsystem merge QPRDv3", "Declaration Design merge SIG", "Consistency Check new rules 2024", "SIG fee unchanged July 2024"],
+  "bluetooth_tags": [
+    "QPRDv3.0",
+    "July-2024-update",
+    "Component-to-Subsystem",
+    "Declaration-to-Design",
+    "Compliance-Folder",
+    "Consistency-Check",
+    "SIG-fee-unchanged",
+    "test-requirements-unchanged"
+  ],
+  "search_aliases": [
+    "QPRDv3.0 what changed",
+    "July 2024 SIG qualification update",
+    "Component Subsystem merge QPRDv3",
+    "Declaration Design merge SIG",
+    "Consistency Check new rules 2024",
+    "SIG fee unchanged July 2024"
+  ],
   "qualification_stage": "pre-registration / process understanding",
   "confidence": "high"
 }

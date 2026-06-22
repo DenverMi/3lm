@@ -2,6 +2,7 @@
   "source_thread": "thread_0116",
   "case_id": "thread_0116_case_04",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "keyboard",
   "customer_question": "We were told that once the SIG registration fee arrives, we'll receive an email with the DID information. Does receiving that email mean our registration is already complete? Also, is it realistic to complete registration and acceptance by the end of March?",
   "question_variants": [
@@ -15,7 +16,14 @@
   "decision_logic": "Treat the SIG 'fee arrival + DID' notification email as a trigger to begin registration work, not as confirmation that registration is complete. Upon receiving it, have the customer complete and return the proxy registration confirmation form so registration can proceed in parallel with remittance processing. Use past project timelines as a basis for assessing whether a stated completion deadline (e.g., month-end) is realistic.",
   "final_recommendation": "Clarify to the customer that the fee-arrival/DID email starts the registration process (requiring the proxy registration confirmation form), not ends it, and confirm deadline feasibility based on prior project timelines.",
   "risk_if_done_wrong": "If the customer mistakenly believes registration is already complete upon receiving the DID email, they may not promptly return the required confirmation form, delaying the actual registration and potentially causing the customer to miss their target completion/acceptance deadline.",
-  "bluetooth_tags": ["qualification", "listing", "DID", "registration timeline", "proxy registration", "declaration"],
+  "bluetooth_tags": [
+    "qualification",
+    "listing",
+    "DID",
+    "registration timeline",
+    "proxy registration",
+    "declaration"
+  ],
   "search_aliases": [
     "SIG fee arrival DID email meaning",
     "proxy registration confirmation form 代行登録内容確認書",

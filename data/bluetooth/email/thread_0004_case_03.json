@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0004",
+  "case_id": "thread_0004_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine UXC10), IOPT/PTS profile test ICS Table discrepancy for PBAP, MAP, and SPP",
+  "customer_question": "Our OEM (Volvo) says there's a discrepancy between the ICS Table they expected and what you tested against for PBAP, MAP, and SPP -- can you re-confirm these three profiles against the ICS Table in the attached file? If we need to change the registered ICS for these profiles, what additional testing and cost would that require?",
+  "question_variants": [
+    "Does changing the ICS for one profile only require retesting that profile, or does it cascade to others?",
+    "Why would the originally-included Host Subsystem QDID's registered ICS being unchanged still result in needing only IOPT testing, while changing PBAP/MAP/SPP ICS specifically requires full re-testing?"
+  ],
+  "actual_issue": "The OEM's expected ICS Table for the PBAP, MAP, and SPP profiles differed from what had been used as the basis for the already-completed PTS/IOPT testing, and the customer needed to understand both the technical re-confirmation needed and the cost/scope implications if the registered ICS for these three profiles needed to change.",
+  "plain_english_explanation": "The IOPT (interoperability) testing already performed had followed the ICS exactly as originally registered under the Included Host Subsystem QDID, which is why only IOPT testing (not full profile testing) was needed for that portion -- IOPT testing alone suffices precisely because the underlying registered ICS itself was not being changed. However, if the customer wanted to change the registered ICS specifically for PBAP, MAP, or SPP (to match the OEM's expectation), that would no longer qualify for the lighter IOPT-only path -- instead, full profile testing covering every test item corresponding to the new ICS for those three profiles would be required, at an additional cost of ¥300,000 for the profile testing.",
+  "consultant_answer": "The IOPT testing we already performed followed the ICS exactly as originally registered, which is why only IOPT testing (not full profile testing) was sufficient -- that lighter path only applies because the underlying ICS itself isn't changing. If you want to change the registered ICS for PBAP, MAP, or SPP specifically to match Volvo's expectation, that's a different scope: full profile testing covering all test items for the new ICS on those three profiles would be required, adding ¥300,000 to the profile testing cost. Let us know if you'd like to proceed on that basis.",
+  "decision_logic": "Whether IOPT-only testing or full profile testing is required depends on whether the registered ICS itself is being changed: testing against an unchanged, already-registered ICS only requires interoperability (IOPT) confirmation, while any change to the registered ICS for a profile triggers the full profile test scope for that profile, since the conformance basis itself has shifted.",
+  "final_recommendation": "When an OEM raises an ICS Table discrepancy after IOPT testing is already complete, clarify the cost/scope distinction immediately: re-confirming against the existing registered ICS is a lighter check, but actually changing the registered ICS requires full profile retesting at additional cost -- and confirm which of these two outcomes the customer actually wants before proceeding.",
+  "risk_if_done_wrong": "If the customer assumed an ICS Table change could be accommodated within the already-completed IOPT-only test scope, they might be surprised by the additional ¥300,000 cost and full retest requirement once they decided to actually change the registered ICS for these profiles.",
+  "bluetooth_tags": [
+    "IOPT test ICS Table discrepancy",
+    "PBAP MAP SPP ICS change cost",
+    "Included Host Subsystem QDID unchanged ICS",
+    "full profile test vs IOPT only",
+    "Alps Alpine UXC10",
+    "Volvo OEM"
+  ],
+  "search_aliases": [
+    "ICS Table discrepancy OEM expectation vs IOPT test",
+    "changing registered ICS requires full profile test",
+    "IOPT only sufficient when ICS unchanged",
+    "PBAP MAP SPP profile retest cost"
+  ],
+  "qualification_stage": "Post-IOPT-test ICS reconciliation",
+  "confidence": "high"
+}

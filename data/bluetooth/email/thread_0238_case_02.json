@@ -1,0 +1,35 @@
+{
+  "source_thread": "thread_0238",
+  "case_id": "thread_0238_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product using Silicon Labs BGM210P module (GO Corporation IoT device), Compliance Folder document preparation",
+  "customer_question": "Three questions about the Compliance Folder documents: is it correct that documents should basically be in English? The operation manual (Bluetooth portion) is hard to picture in terms of expected format/level of detail — is there a reference example? And for the antenna documentation, since we're using the BGM210P module's built-in antenna as-is, is it correct that we should just transcribe the data from the module's datasheet?",
+  "question_variants": [
+    "Should Compliance Folder documents be submitted in English?",
+    "What should the Bluetooth-portion operation manual actually look like?",
+    "Is transcribing the module datasheet's antenna data sufficient for the antenna documentation?"
+  ],
+  "actual_issue": "Before preparing their Compliance Folder submission, the customer wanted to confirm three separate assumptions about document language, the operation manual's expected format, and whether the antenna documentation could simply restate the module vendor's existing datasheet data, since the module's built-in antenna was being used without modification.",
+  "plain_english_explanation": "The customer's first attempt at the operation manual was assessed as too product-description-oriented; Allion's feedback (given once a draft was submitted) was to instead follow the style of a reference example — a Bluetooth TAG product's user manual page 4 — which focuses on describing the pairing/connection procedure with the counterpart device early in the document, rather than general product description. This concrete reference example effectively answered the customer's request for a sense of the expected format and level of detail. The customer's other two assumptions (English-language documents, and transcribing the BGM210P module datasheet's antenna data directly since the built-in antenna is used unmodified) were not explicitly contradicted in any follow-up communication, and the customer proceeded on those assumptions without further correction through to final Compliance Folder delivery.",
+  "consultant_answer": "For the operation manual's format and detail level: please follow the style of the Bluetooth TAG product's user manual (page 4 as a reference example) — focus on describing the pairing/connection procedure with the counterpart device early on, rather than general product description, like your first draft did. (Regarding document language and antenna documentation: these specific points weren't separately addressed in writing beyond the customer's own stated assumptions, which were not corrected in any subsequent communication through final delivery.)",
+  "decision_logic": "Operation manual format guidance is best conveyed through a concrete reference example (an existing approved manual excerpt) rather than an abstract description, since 'level of detail' is hard to specify in words alone; assumptions that go unchallenged through to project completion can reasonably be treated as accepted, though this is weaker confirmation than an explicit written answer.",
+  "final_recommendation": "When a customer asks for a sense of expected document format that's hard to describe abstractly (like an operation manual's level of detail), provide a concrete reference example from a prior approved submission rather than attempting a purely verbal description, and explicitly confirm any other open assumptions (like document language or datasheet-transcription approaches) in writing to avoid relying on the customer's silence as confirmation.",
+  "risk_if_done_wrong": "Relying on an unaddressed customer assumption (e.g., about document language or antenna documentation format) as implicit confirmation could surface as a problem later if Bluetooth SIG or an auditor expected a different format than what the customer assumed was acceptable.",
+  "bluetooth_tags": [
+    "Compliance Folder document language",
+    "operation manual reference example",
+    "Bluetooth TAG user manual example",
+    "antenna documentation datasheet transcription",
+    "BGM210P module",
+    "GO Corporation"
+  ],
+  "search_aliases": [
+    "what should Bluetooth operation manual look like",
+    "reference example operation manual format",
+    "can antenna documentation just be datasheet data",
+    "are Compliance Folder documents required in English"
+  ],
+  "qualification_stage": "Post-registration / Compliance Folder preparation",
+  "confidence": "medium"
+}

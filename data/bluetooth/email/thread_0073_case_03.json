@@ -1,42 +1,24 @@
 {
-    "source_thread": "thread_0073",
-    "cases": [
-        {
-            "case_id": "thread_0073_case_03",
-            "iut_type": "keyboard",
-            "customer_question": "Can a multi-model Bluetooth keyboard family be qualified using a single representative test unit?",
-            "question_variants": [
-                "Do all keyboard variants require Bluetooth testing?",
-                "Can one model represent a product family?",
-                "Which model should be tested for qualification?",
-                "Is representative model qualification allowed?",
-                "Can a single Bluetooth test cover multiple variants?"
-            ],
-            "actual_issue": "A product family contained multiple keyboard variants, and the team needed to determine whether Bluetooth testing could be performed on a single representative model rather than every model.",
-            "plain_english_explanation": "When several product variants share the same Bluetooth implementation, qualification planning often focuses on selecting a representative model. The key procedural question is choosing and documenting the model that will represent the family during testing.",
-            "consultant_answer": "The discussion treated Bluetooth testing as being performed on one selected model from the product family, with the customer identifying the representative model. Qualification preparation and testing activities would then be based on that selected representative unit.",
-            "decision_logic": "When the Bluetooth implementation is treated as common across a family, qualification planning can be organized around a representative model that serves as the basis for testing and documentation.",
-            "final_recommendation": "Identify and document the representative model for the Bluetooth implementation before testing begins and use that model consistently throughout qualification activities.",
-            "risk_if_done_wrong": "Failure to define the representative model early can create confusion in test planning, documentation preparation, and qualification scope definition, resulting in avoidable delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "product-family",
-                "representative-model",
-                "planning"
-            ],
-            "search_aliases": [
-                "representative model",
-                "family qualification",
-                "multiple keyboard variants",
-                "single test unit",
-                "product family testing",
-                "model selection",
-                "qualification scope",
-                "shared Bluetooth design"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "medium",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0073",
+  "case_id": "thread_0073_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "keyboard",
+  "customer_question": "Our BAS Battery Level change-notification test keeps failing -- the DUT just powers off around 2.8V instead of reporting a level change when we ramp the test voltage down steadily from 5.1V. What's going wrong, and how do we get this to pass?",
+  "question_variants": [
+    "Why does our keyboard power off instead of reporting a battery level change during this test?",
+    "Could the device's battery-detection interval be too slow to catch the test's voltage ramp?",
+    "Should we time the voltage change to the test system's prompt instead of a steady ramp?",
+    "What battery threshold and detection period info do you need to help diagnose this?"
+  ],
+  "actual_issue": "The BAS Battery Level change-notification test item (confirming the DUT reports a changed Battery Level) failed repeatedly: when the test voltage was steadily lowered from 5.1V, the DUT powered off abruptly around 2.8V instead of properly reporting the expected battery-level transition, and the cause needed to be diagnosed.",
+  "plain_english_explanation": "This test checks whether a device correctly tells a connected phone or computer when its battery level changes, by feeding it different voltages to simulate the battery draining. If the test lowers the voltage smoothly and continuously, but the device only checks its battery level periodically, the device can drop straight through the brief voltage window where it was supposed to notice and report a change, and shut off before it ever reports anything. Lining the voltage change up with the moment the test software is actually looking for the report fixed the problem.",
+  "consultant_answer": "With HOGP, DIS, and HIDS testing already complete, the three test items triggered by a BAS ICS change were run: BAS/SR/CON passed, BAS/SR/SGGIT/CHA passed, and BAS/SR/CN (the Battery Level change-notification item) remained an open issue. This item confirms the DUT reports a changed Battery Level; per the test sample's manual, the battery indicator thresholds are documented (green at 30% or above, yellow at 10% or above, with a third state below 10%). Starting the test at an external constant-voltage supply of 5.1V and gradually lowering it, the DUT powered off abruptly around 2.8V instead of reporting the expected level change, suspected to be because the device's voltage-detection interval is too long, causing it to lower past the detection window for the 'yellow' threshold band before that periodic check could catch it. The consultant requested the customer's actual voltage threshold levels and detection period for the green/yellow thresholds to inform further testing. The eventual fix: after exploring several conditions, starting the test at 5.1V as before, but lowering the voltage to 3.42V specifically at the moment PTS displayed its on-screen prompt asking to change the Battery Level (rather than a continuous steady ramp) produced a Pass, completing all PTS testing (HOGP, BAS, DIS, HIDS) needed for the Bluetooth Logo certification registration.",
+  "decision_logic": "A battery-level change-notification test that fails under a steady, continuous voltage ramp should be suspected of a timing mismatch between the ramp rate and the DUT's own periodic battery-level detection/reporting interval, rather than a genuine inability to report the change; the fix is to step the voltage down at the specific moment the test system itself signals it is checking for that change (e.g., its on-screen prompt), rather than relying on a fixed-rate continuous decline that can outpace the DUT's detection timing.",
+  "final_recommendation": "If a battery-level (or similarly periodic-detection-dependent) test item fails under a steady voltage ramp with the DUT powering off or otherwise failing to report the expected transition, retest by stepping the voltage to the target level specifically when the test system's own prompt indicates it is checking for that change, rather than a continuous ramp, and gather the DUT's actual detection thresholds and reporting interval to size the step correctly.",
+  "risk_if_done_wrong": "Repeatedly retesting with a steady voltage ramp without recognizing the detection-interval mismatch would continue to produce false failures on the Battery Level test item, delaying completion of the PTS testing needed for Bluetooth Logo certification registration.",
+  "bluetooth_tags": ["BAS", "Battery Level", "PTS", "test failure", "detection interval"],
+  "search_aliases": ["BAS Battery Level test fails voltage ramp", "BAS/SR/CN battery level change notification", "DUT powers off during battery test", "step voltage at PTS prompt battery test", "detection interval mismatch battery threshold"],
+  "qualification_stage": "test failure",
+  "confidence": "high"
 }

@@ -1,0 +1,41 @@
+{
+  "source_thread": "thread_0180",
+  "case_id": "thread_0180_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE wireless unit (coin battery LR41)",
+  "customer_question": "Is the RF PHY QDID alone sufficient for new Core-Complete product registration?",
+  "question_variants": [
+    "Can I register a Core-Complete product using only an RF PHY QDID?",
+    "My product only has an RF PHY QDID reference — what else is needed?",
+    "Is RF PHY QDID sufficient for Bluetooth SIG End Product registration?"
+  ],
+  "actual_issue": "Customer provided a QDID that covers only RF PHY (1M, 2M, Coded, Transmitting CTE). This alone is not sufficient to register a Core-Complete product — it must be combined with a Component QDID that covers LL, L2CAP, GAP, GATT, ATT, and SM.",
+  "plain_english_explanation": "A Bluetooth SIG 'Core-Complete' registration means the product implements all Bluetooth core protocol layers. The RF PHY layer is just one piece. The Host layers (LL, L2CAP, GAP, GATT, ATT, SM) must also be covered by a qualified QDID. If only the RF PHY QDID is available, you cannot make a Core-Complete End Product registration — you need a second QDID (typically a Component registration) that covers the Host/LL stack.",
+  "consultant_answer": "The QDID provided (D064352, v5.4) covers only RF PHY (1M, 2M, Coded, Transmitting CTE). To register a Core-Complete product, it must be combined with a Component QDID that includes LL, L2CAP, GAP, GATT, ATT, and SM. Allion confirmed the combined BQTF test scope would be RF PHY test, but declined to quote because Allion cannot measure Transmitting CTE.",
+  "decision_logic": "RF PHY QDID covers the physical layer only. A Core-Complete registration requires all Bluetooth core layers to be covered by qualified QDID(s). If the Host/LL stack QDID is missing, the registration cannot proceed as Core-Complete. The customer must identify an existing Component or Host Subsystem QDID for the LL and above layers.",
+  "final_recommendation": "Identify a Component QDID that covers LL, L2CAP, GAP, GATT, ATT, SM and combine it with the RF PHY QDID to proceed with Core-Complete registration. Without the Host/LL Component QDID, no Core-Complete registration is possible.",
+  "risk_if_done_wrong": "Attempting registration with only RF PHY QDID will fail — the SIG portal Consistency Check will flag missing host-layer coverage and the submission cannot be completed.",
+  "bluetooth_tags": [
+    "Core-Complete",
+    "RF PHY",
+    "Component QDID",
+    "Host QDID",
+    "LL",
+    "L2CAP",
+    "GAP",
+    "GATT",
+    "ATT",
+    "SM",
+    "End Product registration"
+  ],
+  "search_aliases": [
+    "RF PHY only QDID registration",
+    "Core-Complete registration requirements",
+    "RF PHY insufficient for End Product",
+    "Host layer QDID required",
+    "BLE module registration missing Host stack"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
+}

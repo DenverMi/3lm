@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0177",
+  "thread_analysis": {
+    "thread_summary": "Topre Corporation thread for 4 keyboard models with identical Bluetooth implementations. The key case is that multi-model product families with the same Bluetooth module and firmware can be registered under a single SIG registration with one representative test, with all models listed in the Product List. Thread also notes that quotes cannot be issued based on email inquiries alone — a formal quote request form (見積依頼書) must be submitted.",
+    "all_questions_found": [
+      "We have 4 keyboard models with the same Bluetooth module. Do we test all of them or just one?",
+      "Can we get a quote based on the email inquiry?"
+    ],
+    "key_technical_discussion": "Multi-model registration: one test on a representative model + all model names in the Product List = all models covered by the single registration. This is the standard practice for product families sharing identical Bluetooth implementations. Quote issuance requires a formal quote request form regardless of email detail level.",
+    "key_decision_logic": "The Bluetooth implementation scope (module + firmware) determines what needs to be tested and qualified — not the physical form factor of each product variant. All models with the same Bluetooth implementation share one qualification.",
+    "risk_if_done_wrong": "Listing only the tested model in the Product List means the other 3 keyboard models are not covered and cannot use the Bluetooth logo. All models must be listed at registration time (or added later via free derivative registration).",
+    "consulting_mistake": "None identified. The consultant correctly explained the multi-model registration approach and requested the formal quote form.",
+    "consulting_takeaway": "When quoting product families, always ask at intake how many models and variants exist, and confirm they share the same Bluetooth module and firmware. This allows accurate quoting and prevents the customer from later discovering that some of their products are not covered by the registration."
+  }
+}

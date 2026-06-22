@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0010",
+  "thread_analysis": {
+    "thread_summary": "Topre Corporation (contact Kenki Enomoto, with Seiji Hiraki copied) works with Allion (Itsuo Sakai, Masaya Iida, Toshitaka Mochizuki) on Bluetooth SIG certification for a device ultimately sold under end-customer PFU's brand, spanning a module vendor change and Core Specification version decision (Taiyo Yuden to Kaga FEI module, staying at 4.2 vs. upgrading to 5.0), and a significant registration-naming correction once it was clarified the registration needed to be under PFU's name (the selling company) rather than Topre's, including an Invoice cancellation/reissue to match.",
+    "all_questions_found": [
+      "Does the registration account need to be under the manufacturer's or the brand-owner's name, and how should credential-sharing concerns be handled? (see thread_0010_case_01)",
+      "Does a module vendor change require registration action, and does upgrading Core Specification version require new testing? (see thread_0010_case_02)",
+      "(Administrative) Invoice cancellation/reissue once the registration was corrected from Topre's name to PFU's name."
+    ],
+    "key_technical_discussion": "This thread surfaces an important compliance requirement that's easy to overlook in manufacturer-intermediary scenarios: registration must be under the name of the company whose brand appears on the product, not the manufacturer coordinating the engagement — with a self-service registration package as the practical fallback when the actual brand owner is unwilling to share login credentials with an intermediary.",
+    "key_decision_logic": "See thread_0010_case_01 and thread_0010_case_02.",
+    "risk_if_done_wrong": "See thread_0010_case_01 and thread_0010_case_02.",
+    "consulting_mistake": "The initial Invoice was obtained under the manufacturer's (Topre/Enomoto's) account before the selling-company naming requirement was clarified, requiring a cancellation/reissue correction — a reminder to clarify the correct registering party's identity as early as possible in manufacturer-intermediary engagements, before any Invoice or payment steps are taken.",
+    "consulting_takeaway": "In manufacturer-intermediary certification engagements where the product will be sold under a different company's brand, clarify the selling-company registration-naming requirement at the very start of the engagement (before any Invoice or account setup steps), and have the self-service registration package ready as a fallback for credential-sharing-sensitive end customers."
+  }
+}

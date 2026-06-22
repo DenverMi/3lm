@@ -1,48 +1,23 @@
 {
-    "source_thread": "thread_0078",
-    "cases": [
-        {
-            "case_id": "thread_0078_case_01",
-            "iut_type": "module",
-            "customer_question": "Can a product using a previously qualified Bluetooth controller module and a qualified Windows host stack be registered through a Declaration process without additional Bluetooth testing?",
-            "question_variants": [
-                "Can I qualify a product using a qualified controller module and Windows host without testing?",
-                "Is Declaration registration sufficient when reusing a qualified Bluetooth module?",
-                "Can an Intel AX210-based product use qualification reuse?",
-                "Do I only need a DID and registration support for a qualified module implementation?",
-                "Can a qualified Controller Subsystem be combined with a qualified Host Subsystem without new testing?"
-            ],
-            "actual_issue": "Determining whether an end product that reuses an already qualified Controller Subsystem and a qualified Host Subsystem can rely on qualification reuse and Declaration registration instead of performing new Bluetooth testing.",
-            "plain_english_explanation": "The product uses Bluetooth technology that was already qualified in a module and operating-system Bluetooth stack. The key question is whether the final product can reuse those existing qualifications instead of repeating Bluetooth testing. The answer depends on whether the referenced qualifications remain eligible for new registrations under current Bluetooth SIG rules.",
-            "consultant_answer": "A qualified controller module combined with an appropriate qualified Host Subsystem can normally be registered through a simplified Declaration path without additional Bluetooth testing. The consultant initially confirmed that the controller module and Windows host combination qualified for this approach because both qualification assets already existed. However, reuse eligibility must be verified against the current Bluetooth SIG qualification system before proceeding.",
-            "decision_logic": "Qualification reuse is allowed when the implementation is composed from eligible previously qualified building blocks. The determining factor is not only that the component qualifications exist, but also that the referenced qualification records remain usable for new registrations under current Bluetooth SIG qualification rules and tools.",
-            "final_recommendation": "Verify the exact Controller Subsystem and Host Subsystem qualification references in the current Bluetooth SIG qualification environment before committing to a Declaration-based registration strategy.",
-            "risk_if_done_wrong": "Assuming qualification reuse is automatically available because a module and host stack were previously qualified can lead to selecting an invalid registration path and require qualification rework after registration preparation has already begun.",
-            "bluetooth_tags": [
-                "qualification",
-                "declaration",
-                "reuse",
-                "controller",
-                "host",
-                "module",
-                "QDID",
-                "listing"
-            ],
-            "search_aliases": [
-                "Declaration registration",
-                "qualified controller subsystem",
-                "qualified host subsystem",
-                "module reuse",
-                "Windows host stack reuse",
-                "no Bluetooth testing",
-                "qualification reuse",
-                "existing QDID reuse",
-                "controller host combination",
-                "DID declaration path"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0078",
+  "case_id": "thread_0078_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Our product uses the AX210 module -- do we need RF PHY testing for this registration, and what would the quote look like?",
+  "question_variants": [
+    "Is RF PHY testing required when our product is built around AX210?",
+    "Can we reference AX210's existing registration instead of testing RF PHY ourselves?",
+    "What does the quote look like for a Multi-Design registration referencing AX210?"
+  ],
+  "actual_issue": "The customer's product is built around the AX210 module, and it needed to be determined whether RF PHY testing was required for the registration, or whether the module's own existing qualification could be referenced instead.",
+  "plain_english_explanation": "Some Bluetooth modules are already fully qualified on their own, including the radio-level testing. When a product is built around one of these already-qualified modules, the registration can point back to that module's existing qualification (a 'Multi-Design' reference) instead of repeating the radio-level testing from scratch, which keeps the registration scope and cost down to the registration support and compliance paperwork rather than a full test campaign.",
+  "consultant_answer": "Since the product uses the AX210 module, RF PHY testing is not required. The quote for this registration is for agency registration support referencing the module as a Multi-Design (¥250,000) plus compliance folder preparation (¥150,000), rather than RF/RF PHY test fees.",
+  "decision_logic": "When a product is built around an already-qualified module, referencing that module's existing registration as a Multi-Design can avoid the need for new RF PHY testing, since the module's own registration already carries that evidence; the appropriate quote in this scenario covers agency registration support and compliance folder preparation rather than test fees.",
+  "final_recommendation": "Before quoting RF/RF PHY testing for a product, check whether it is built around an already-qualified module whose existing registration can instead be referenced as a Multi-Design, which would change the quote to registration support and compliance folder preparation only.",
+  "risk_if_done_wrong": "Quoting and performing unnecessary RF PHY testing for a product built around an already-qualified module would add avoidable cost and time when a Multi-Design reference to the module's existing registration would have sufficed.",
+  "bluetooth_tags": ["AX210", "Multi-Design", "RF PHY", "module", "registration"],
+  "search_aliases": ["AX210 RF PHY not required", "Multi-Design reference existing module registration", "already qualified module skip RF PHY testing", "registration quote Multi-Design support"],
+  "qualification_stage": "planning",
+  "confidence": "medium"
 }

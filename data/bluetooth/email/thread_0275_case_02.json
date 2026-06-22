@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0275",
+  "case_id": "thread_0275_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Products (Alps Alpine), SoC already registered as End Product or Controller Subsystem",
+  "customer_question": "If our manufacturer can't get BQTF/BRTF testing completed in time, is there any other way RF PHY test results could still be used as evidence, perhaps with your review? And separately — if the SoC we're using is already registered as End Product or Controller Subsystem, do we still need any RF PHY test report at all?",
+  "question_variants": [
+    "Can non-accredited test results become usable if Allion reviews them?",
+    "If our SoC is already registered, can we skip RF PHY testing entirely as a formal matter?"
+  ],
+  "actual_issue": "The customer wanted a contingency plan in case the manufacturer's BQTF/BRTF testing didn't come through in time, and separately wanted to understand the actual formal testing obligation given that the implemented SoC already had its own End Product or Controller Subsystem registration.",
+  "plain_english_explanation": "For uploading a report as registration evidence, only BQTF/BRTF-issued reports qualify — Allion's review of a non-accredited lab's results cannot substitute for this. However, when the implemented SoC is already registered as an End Product or Controller Subsystem, the registration site doesn't require an uploaded RF/RF PHY report at all — it becomes a self-confirmation matter, where the brand owner can optionally have the product tested at a BQTF/BRTF, use a standard RF tester for a basic check, or formally do nothing at all and still register. Despite this formal exemption, since the brand owner bears product quality responsibility to their own customers, it's still recommended to require the supplying manufacturer to perform real RF/RF PHY testing on the actual product — ideally at a BQTF/BRTF, or at minimum using a standard RF tester — purely for quality assurance purposes, even though it isn't formally required for registration.",
+  "consultant_answer": "Only BQTF/BRTF-issued reports can be uploaded as registration evidence — our review of non-accredited results can't substitute for that. That said, since your implemented SoC is already registered as an End Product or Controller Subsystem, the registration site doesn't formally require any RF/RF PHY report upload at all — it becomes a self-confirmation matter where you could test at a BQTF/BRTF, use a standard RF tester for a basic check, or technically do nothing and still register. Even though it's formally exempt, since you bear product quality responsibility to your own customers, we'd still recommend requiring your manufacturer to perform real RF/RF PHY testing on the actual product — ideally at a BQTF/BRTF, or at minimum with a standard RF tester — purely for your own quality assurance.",
+  "decision_logic": "Formal registration-evidence requirements (BQTF/BRTF-only) are distinct from formal testing obligation (waived entirely when implementing an already End-Product/Controller-Subsystem-registered SoC) — and a brand owner's own quality assurance interest should be treated as a separate, additional reason to still pursue real product-level testing even when formally exempt.",
+  "final_recommendation": "When a customer asks about formal testing exemptions for an already-registered SoC, clearly distinguish the formal registration requirement (which may be waived) from the brand owner's own quality assurance interest (which should still motivate real testing), rather than letting the formal exemption be mistaken for 'testing doesn't matter.'",
+  "risk_if_done_wrong": "Treating the formal test exemption as license to skip all product-level RF verification could result in shipping a product whose actual RF performance was never validated, risking field quality issues despite a technically valid registration.",
+  "bluetooth_tags": [
+    "self confirmation exemption registered SoC",
+    "BQTF BRTF required for evidence upload only",
+    "quality assurance beyond formal requirement",
+    "Alps Alpine"
+  ],
+  "search_aliases": [
+    "do I need RF PHY test if SoC already registered",
+    "self confirmation test exemption",
+    "quality assurance testing beyond formal requirement"
+  ],
+  "qualification_stage": "Pre-test scoping",
+  "confidence": "high"
+}

@@ -2,21 +2,36 @@
   "source_thread": "thread_0149",
   "case_id": "thread_0149_case_03",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "N/A — SIG account management",
-  "customer_question": "We want to change the email address on our SIG member account. Is it possible to update the email address on an existing account?",
+  "customer_question": "We want to change the password and/or email address on our SIG member account. Opening 'MyProfile' only lets us change the Username. Is it possible to update the password or email address on an existing account, and if we register a new account for the email change, does that mean an additional account is created, with both accounts usable for login and work?",
   "question_variants": [
     "How do I change my SIG account email address?",
     "Can we update the registered email on a SIG member account?",
-    "We changed company email domains — how do we update the SIG account?"
+    "We changed company email domains — how do we update the SIG account?",
+    "Does registering a new account for an email change add a second account, and can we log in with either one?"
   ],
-  "actual_issue": "Customer ATAGO Co. wanted to change the email address associated with their existing SIG member account. SIG does not allow email modification on an existing account.",
-  "plain_english_explanation": "The SIG system does not support changing the email address on an existing member account. Instead, the customer must register a new account with the new email address (under the same member company). Both the old and the new accounts can be used to access and work on the same projects.",
-  "consultant_answer": "SIG does not permit email address modification on an existing account. The solution is to create a new SIG account using the new email address within the same member company. Both accounts can coexist and be used simultaneously on the same qualification projects.",
-  "decision_logic": "SIG member accounts are tied to a specific email address and cannot be edited. Adding a new account under the same company membership is the supported path. The SIG system allows multiple accounts per member company, and all accounts can access the same project workspace.",
-  "final_recommendation": "If a customer needs to change their SIG account email, instruct them to register a new account using the new email address. Their old and new accounts will both work, and they can transfer ongoing project responsibilities to the new account.",
-  "risk_if_done_wrong": "Attempting to modify the email on an existing account is not possible and wastes time. If the old account is the Registrant on existing QDIDs/QNs, those Qualification Numbers remain tied to the registrant company (not a specific account) and are still accessible.",
-  "bluetooth_tags": ["SIG account", "email change", "member account", "Qualification Workspace", "account management"],
-  "search_aliases": ["change SIG account email", "SIG email update", "new SIG account same company", "SIG account cannot change email"],
+  "actual_issue": "Customer ATAGO Co. wanted to change the password and email address associated with their existing SIG member account; MyProfile only exposes an editable Username field. For the email change specifically: if the new email keeps the same domain (@atago.net) but changes the part before the @, the existing account cannot be modified — the customer must register a new account via the SIG registration URL. If the new email uses a different domain, SIG treats that as belonging to a different company, so the customer would need to register as a new corporate member (requiring a certificate of incorporation) — and this path fails if that different domain already matches an existing company record in SIG's system. The customer confirmed registering a new account means an additional account is created, and either account can be used to log in and perform work on the same projects. The consultant's answer did not address whether the password itself can be changed.",
+  "plain_english_explanation": "The SIG system does not support directly changing the email address on an existing member account. If the new email just changes the part before the @ but keeps the same company domain, the customer must register a brand-new account using that new email. If the new email uses a completely different domain, SIG treats it as a different company, requiring a fresh corporate member registration (with a certificate of incorporation) — and that can fail if the new domain happens to already be registered as another company in SIG's system. Registering a new account adds a second account rather than replacing the first; both accounts remain usable for logging in and working on the same projects. The thread does not record an answer about changing the account password.",
+  "consultant_answer": "SIG does not permit email address modification on an existing account. For a same-domain email change (only the part before the @ changes), the customer must register a new account via the SIG registration URL — this is treated as adding a new account, not replacing the old one, and either account can log in and work on the same projects. For a different-domain email change, SIG would treat it as a different company, requiring new corporate member registration with a certificate of incorporation — and this is not possible if that domain already matches an existing company record. The consultant did not provide an answer regarding changing the account password.",
+  "decision_logic": "SIG member accounts are tied to a specific email address and cannot be edited directly. The path depends on whether the new email keeps the same company domain: same domain (different prefix) -> register a new account under the existing company, which is simply an additional account, and both old and new accounts can access the same project workspace. Different domain -> SIG treats this as a new company, requiring a full corporate registration with a certificate of incorporation, which is blocked if that domain duplicates an already-registered company.",
+  "final_recommendation": "If a customer needs to change their SIG account email, first determine whether the new email is on the same company domain. If yes, have them register a new account (an addition, not a replacement) — both old and new accounts will work for login and project access. If the new email is on a different domain, warn them this requires a new corporate member registration with a certificate of incorporation, which will fail if that domain already exists as a registered company in SIG's system. Flag to the customer that password-change procedure was not addressed and should be confirmed separately if needed.",
+  "risk_if_done_wrong": "Attempting to modify the email on an existing account is not possible and wastes time. Assuming a different-domain email change can use the same simple new-account path as a same-domain change could lead the customer to attempt a corporate registration that gets blocked due to domain duplication with an existing company record.",
+  "bluetooth_tags": [
+    "SIG account",
+    "email change",
+    "member account",
+    "Qualification Workspace",
+    "account management"
+  ],
+  "search_aliases": [
+    "change SIG account email",
+    "SIG email update",
+    "new SIG account same company",
+    "SIG account cannot change email",
+    "different domain new company registration certificate of incorporation",
+    "MyProfile change password email"
+  ],
   "qualification_stage": "Account Management",
   "confidence": "high"
 }

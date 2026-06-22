@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0217",
+  "thread_analysis": {
+    "thread_summary": "Nihon Bousai Gijutsu Center (Japan Disaster Prevention Technology Center, Kenji Fujii) completed Bluetooth SIG registration for a fire-extinguisher-shaped AR goggle controller. The thread covers the tail end of the registration process (Submission confirmation, certification completion explanation, outline drawing substitution for the Compliance Folder) plus a separate, detailed follow-up conversation about SIG account management roles — multi-person administration, Primary Contact vs Listing Owner, shared email address usage, and the self-service Listing Owner transfer feature introduced July 1, 2024.",
+    "all_questions_found": [
+      "Can a single registration have multiple Listing Owner/Contacts, or how can we transfer ownership without losing access?",
+      "What can our newly created individual member accounts do, and what's the Primary Contact vs Listing Owner difference?",
+      "Can multiple employees be administrators via a shared/group email address?",
+      "Does 'The submission has been approved' on screen mean registration is officially complete, and where is the certificate?",
+      "Can we substitute a reference DevKit's outline drawing for our own dispersed-component product's outline drawing?"
+    ],
+    "key_technical_discussion": "SIG account hierarchy: Primary Contact (company membership registrant) vs Listing Owner (per-registration executor) — each with different transfer mechanisms and different tolerance for shared/group email addresses. Since July 1, 2024, self-service Listing Owner transfer via 'Manage Submitted Products' > 'Change Contact' replaced the old manual SIG-staff-driven process. Certificates were discontinued roughly a decade ago; current proof of certification is the green approval banner plus public Publish Date visibility. Compliance Folder outline drawings can be substituted with a reasonable proxy (e.g., reference DevKit drawing) when the actual product's physical layout makes a literal drawing impractical.",
+    "key_decision_logic": "Account role hierarchy determines transfer mechanisms and shared-address tolerance; system-confirmed Submission approval is authoritative even without a separate manual approval email; document substitutions for Compliance Folder materials are acceptable with customer agreement when the literal requirement is impractical to satisfy.",
+    "risk_if_done_wrong": "Misunderstanding account role hierarchy could lead to using a shared address for Primary Contact (undermining legal delegation), and a customer unaware of certificate discontinuation might mistakenly doubt their registration's completeness.",
+    "consulting_mistake": "None identified — Allion answered all account-management nuances accurately and proactively proposed a practical Compliance Folder documentation workaround.",
+    "consulting_takeaway": "For customers asking about account succession/multi-administrator planning, clearly separate the rules for Primary Contact versus Listing Owner roles, and reference the post-July-2024 self-service Change Contact feature as the modern solution. For Compliance Folder document gaps caused by unusual product designs, proactively propose practical substitutions rather than insisting on a literal but impractical document."
+  }
+}

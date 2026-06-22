@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0275",
+  "case_id": "thread_0275_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Products (Alps Alpine integrated module, vital sensor, location beacon) implementing SoCs directly (Nordic nRF52832, Telink chips)",
+  "customer_question": "Since SIG's Module Vendor Qualification Guide says module vendors with antenna-built-in or antenna-connector modules can get RF/RF PHY test exemption for downstream customers, does that apply to our products since we're implementing the same SoC across two of our three products? Can we reuse one RF PHY test result for both, or does each genuinely need its own testing?",
+  "question_variants": [
+    "Does the SIG module-vendor RF test exemption rule apply when we're implementing SoCs directly rather than modules?",
+    "If two of our products use the identical SoC, can we test only one and reuse the result for both?"
+  ],
+  "actual_issue": "The customer was implementing bare SoCs (not pre-packaged modules) across two of their three products and wanted to understand whether SIG's module-vendor RF/RF PHY test-reuse exemption could apply, and whether using the identical SoC across two products would let them avoid duplicate testing.",
+  "plain_english_explanation": "SIG's Module Vendor Qualification Guide rule, which allows skipping RF/RF PHY retesting for downstream customers, applies specifically to genuine modules (antenna-built-in or antenna-connector packaged components) where the module vendor's own original test conditions (circuit, components, board pattern design) match the conditions when implemented in a customer's product — and bare SoCs are not eligible for End Product or Controller Subsystem registration in the way that exemption requires, so this rule doesn't apply here. Each of the three products therefore needs RF/RF PHY testing for the mandatory 1M mode plus whichever optional modes (2M, Coded) it actually uses. However, a separate test-reuse path is available: if two products implementing the same SoC have an antenna feed circuit (from the antenna terminal back to the feed point, including circuit components and board layout/routing) that is identical — verifiable via Gerber board-layout data comparison — then only one of them needs the full RF PHY test, with the other only needing a reduced 2-item RF PHY test instead of a second full test. If the circuits are merely similar rather than identical, the same reduced approach can still apply based on that similarity.",
+  "consultant_answer": "SIG's module-vendor RF test exemption rule applies specifically to genuine packaged modules whose original test conditions match the customer's implementation — bare SoCs aren't eligible for that kind of registration, so this exemption doesn't apply to your products. Each of the three will need RF/RF PHY testing for the mandatory 1M mode plus whichever optional modes (2M, Coded) it actually uses. That said, since two of your products implement the identical SoC, if their antenna feed circuits (from the antenna terminal to the feed point, including components and board layout) are identical — which we can verify via Gerber data comparison — only one needs the full RF PHY test, and the other only needs a reduced 2-item test instead of a second full test. Even if the circuits are merely similar rather than identical, that reduced-test approach can still apply.",
+  "decision_logic": "The module-vendor RF test exemption is reserved for genuine packaged modules with matching original test conditions, not bare SoC implementations; however, a separate identical/similar-antenna-circuit test-reuse mechanism (verified via Gerber data comparison) can still reduce duplicate testing across multiple products sharing the same SoC, independent of the module-vendor exemption rule.",
+  "final_recommendation": "When a customer asks about applying the module-vendor test-reuse rule to bare SoC implementations, clarify that it doesn't apply, but proactively check whether an alternative antenna-circuit-similarity-based test reduction is available across their product line sharing the same SoC, since this can still meaningfully reduce their testing cost.",
+  "risk_if_done_wrong": "Incorrectly applying the module-vendor exemption to bare SoC implementations could result in an invalid registration lacking required RF PHY test evidence; failing to identify the antenna-circuit-similarity test-reduction opportunity across same-SoC products could cause the customer to pay for two full RF PHY tests when only one full test plus a reduced test was actually necessary.",
+  "bluetooth_tags": [
+    "Module Vendor Qualification Guide SoC not eligible",
+    "bare SoC requires RF PHY testing",
+    "identical antenna circuit Gerber comparison test reuse",
+    "reduced 2 item RF PHY test",
+    "Alps Alpine",
+    "Nordic nRF52832"
+  ],
+  "search_aliases": [
+    "does module vendor exemption apply to bare SoC",
+    "can RF PHY test be reused across products with same SoC",
+    "Gerber data antenna circuit comparison test reduction",
+    "reduced RF PHY 2 item test"
+  ],
+  "qualification_stage": "Pre-quotation test scoping",
+  "confidence": "high"
+}

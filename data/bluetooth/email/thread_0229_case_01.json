@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0229",
+  "case_id": "thread_0229_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product with Open Source BlueZ Host Stack (Yamaha)",
+  "customer_question": "What does using Open Source BlueZ as our Host Stack imply for SIG testing scope, cost, and process, compared to a commercial Host Stack?",
+  "question_variants": [
+    "If our Host Stack is the free, open-source BlueZ, what additional testing is required versus a purchased commercial stack?",
+    "What would it cost and how reliable is it to certify a product using BlueZ as the Host Stack?"
+  ],
+  "actual_issue": "Yamaha (Takeshi Dodo / 百々武志) requested a quote for Bluetooth SIG certification, and Allion needed to flag the significant additional testing burden, cost, and risk specific to using the open-source BlueZ Host Stack rather than a commercial Host Stack from an established vendor.",
+  "plain_english_explanation": "Adopting open-source BlueZ as the Host Stack requires full protocol-layer testing of the product (L2CAP, GAP, GATT, ATT, SM, SDP, RFCOMM, SPP), since these mid-layer protocols haven't been pre-validated by a commercial vendor. This requires embedding an ADB debugger into the product and sending an English- or Chinese-speaking engineer to Allion's Taiwan lab to operate the DUT side via ADB during testing. Historically, an open-source BlueZ BR/EDR protocol implementation has passed only about 60% of the time on the first attempt, with the remaining 40% needing rework and retesting (sometimes multiple rounds). Test cost is billed based on actual time spent, and a past similar BlueZ project for a stack vendor's customer cost roughly ¥3 million; this Yamaha project (BR/EDR/LR protocols) is estimated at roughly ¥5 million. Some past customers using set-maker-style projects have abandoned development partway through due to this burden. Allion recommends instead purchasing a commercial BlueZ-based stack (with vendor support) from one of several Japanese distributors, listing six options.",
+  "consultant_answer": "Using Open Source BlueZ as Host Stack requires full product-level protocol testing (L2CAP, GAP, GATT, ATT, SM, SDP, RFCOMM, SPP), which in turn requires embedding an ADB debugger and sending an English/Chinese-speaking engineer to Allion's Taiwan lab to operate the DUT. Historical pass rate for open-source BlueZ BR/EDR protocol implementations is roughly 60% on first pass, with ~40% needing rework and retest. Past similar projects cost around ¥3 million; this project (BR/EDR/LR) is estimated at roughly ¥5 million for protocol testing alone. Full cost breakdown: Protocol test (L2CAP/GAP/GATT/ATT/SM/SDP/RFCOMM/SPP) ~¥5,000,000; Profile test (A2DP/AVDTP/GAVDP/DID/DIS/IOPT) ¥600,000; RF 2-item test ¥200,000; Registration support (Multi-Design) ¥250,000; Compliance Folder ¥150,000; plus the applicant's own $11,040 SIG fee wire transfer. Allion recommends purchasing a commercial BlueZ-based stack from an established Japanese distributor instead, listing: Toshiba Information Systems, Ubiquitous AI Corporation (OpenSynergy Japan distributor), Grape Systems (IVT Japan distributor), Himiko Solutions (IVT Japan distributor), Hit Corporation (Workaround GmbH Japan distributor), and Atmark Techno (Design Gateway Japan distributor).",
+  "decision_logic": "Open-source Host Stacks (like BlueZ) lack a commercial vendor's pre-validation of mid-layer protocol compliance, so the certifying product itself must undergo full protocol-layer testing rather than relying on inherited Host Stack QDID conformance. The added testing requires DUT-side ADB debugging support, a language-capable on-site engineer for the lab, and carries a meaningfully higher failure/rework rate and total cost than a commercially-validated stack.",
+  "final_recommendation": "When a customer proposes using an open-source Host Stack like BlueZ, proactively present the full testing/cost/risk picture (protocol test requirement, ADB/language logistics, historical pass rate, total estimated cost) alongside the alternative of purchasing a commercial stack from a known distributor, so the customer can make an informed build-vs-buy decision before committing.",
+  "risk_if_done_wrong": "Underestimating the cost and schedule risk of an open-source Host Stack project could lead to mid-project abandonment (as has happened with past customers), wasted investment in test cycles, and delayed product launch.",
+  "bluetooth_tags": [
+    "Open Source BlueZ",
+    "Host Stack protocol testing",
+    "ADB debugger",
+    "Taiwan lab language requirement",
+    "protocol test cost estimate",
+    "commercial Host Stack vendors",
+    "Yamaha"
+  ],
+  "search_aliases": [
+    "BlueZ Host Stack certification cost",
+    "open source Bluetooth stack protocol test requirement",
+    "ADB debugger Bluetooth IOPT test",
+    "commercial BlueZ stack vendor Japan",
+    "ATL2CAP GAP GATT ATT SM SDP protocol test"
+  ],
+  "qualification_stage": "Pre-registration / Host Stack selection and quote",
+  "confidence": "high"
+}

@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0227",
+  "case_id": "thread_0227_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Test environment wiring (DUT/CSD/DC Power Supply connections for HM23/HM26)",
+  "customer_question": "(Direction note: in this exchange Allion's own test engineer raised the question to the customer, not the reverse.) Allion wired the DUT, CSD (CID/Meter), and DC Power Supply connections by following pages 5-6 of the Radio Law Test Operation / BluetoothSIG_Qualification_Test_Operation_Manual.docx, and asked Alps Alpine to confirm whether the resulting connection table was correct. Allion also asked Alps Alpine: the CSD side of the CSD (CID/Meter) cable has 3 green cables and 1 black cable coming out — is there a difference between them?",
+  "question_variants": [
+    "Allion asked the customer to verify the DUT/CSD/DC Power Supply wiring table Allion had prepared",
+    "Allion asked the customer what distinguishes the 3 green cables from the 1 black cable on the CSD side of the CSD (CID/Meter) cable"
+  ],
+  "actual_issue": "While setting up RF/RF PHY testing, Allion's engineer (Mochizuki) wired the DUT-to-CSD-to-DC-Power-Supply connections himself based on the customer-supplied test operation manual, but was not fully confident the wiring was correct and asked Alps Alpine (who owns the product/connector design) to verify it. In the same message, Mochizuki specifically flagged that the CSD (CID/Meter) cable's CSD-side connector has three similarly-colored green cables plus one black cable, and asked the customer what distinguished them, since the manual's documentation wasn't self-explanatory at that connector. No reply addressing this specific cable-identification question was found later in this thread.",
+  "plain_english_explanation": "This was the test lab (Allion) seeking confirmation from the product's manufacturer (Alps Alpine) about hardware wiring — the reverse of the more common pattern where the customer asks Allion a certification question. Allion shared the full connector/cable/terminal mapping table it had used (DUT Extension2/Main1 connectors, CSD Meter/CID connectors, DC Power Supply terminals) and asked the customer to check it, while separately flagging that the three green cables versus the one black cable on the CSD (CID/Meter) cable's CSD side weren't distinguishable from the documentation alone.",
+  "consultant_answer": "No customer answer to this specific cable-identification question was found in this thread. Allion's message itself stated the wiring as performed and asked Alps Alpine to confirm correctness, including the specific ask about what differentiates the three green cables from the one black cable at the CSD-side CID/Meter connector. This appears to have been left for a verbal meeting discussion or remained unresolved in the written record.",
+  "decision_logic": "When a test lab must wire a customer-specific connector setup from a manual alone, and ambiguity remains (e.g., multiple same-colored cables with unclear distinct functions), the lab should proactively confirm with the product's manufacturer before relying on the wiring for test execution, rather than guessing.",
+  "final_recommendation": "When the test lab itself is uncertain about customer-specific hardware wiring derived from a manual, send the customer the lab's own connector/cable/terminal mapping for explicit sign-off, and follow up on any unanswered ambiguous points (such as identically-colored cables) to ensure they don't remain unresolved in the written record before relying on that wiring for further test execution.",
+  "risk_if_done_wrong": "If incorrect wiring at the CSD (CID/Meter) cable due to this unresolved cable-identification ambiguity were used for testing, the DUT could remain non-operational or produce incorrect RF measurements, further delaying the test schedule.",
+  "bluetooth_tags": [
+    "DUT CSD wiring verification",
+    "CID Meter cable",
+    "test sample not operating",
+    "RF test setup troubleshooting",
+    "Alps Alpine"
+  ],
+  "search_aliases": [
+    "DUT not operating during test setup",
+    "CSD CID Meter cable wiring",
+    "green cable black cable CSD connector difference",
+    "Radio Law Test Operation manual wiring table"
+  ],
+  "qualification_stage": "Test execution setup",
+  "confidence": "medium"
+}

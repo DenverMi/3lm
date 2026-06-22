@@ -2,6 +2,7 @@
   "source_thread": "thread_0149",
   "case_id": "thread_0149_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — custom GATT-based profile",
   "customer_question": "Our product uses a 'GATT Base Profile.' Does it require SIG PTS testing? We are not sure whether it is a standard SIG profile or a proprietary profile.",
   "question_variants": [
@@ -15,8 +16,22 @@
   "decision_logic": "The boundary between testable and non-testable profiles is the UUID type: 16-bit = SIG standard profile = PTS test required. 128-bit = proprietary profile = no SIG test. This is a hard rule with no exceptions.",
   "final_recommendation": "Ask customers to identify the UUID of any profile listed on their RFQ. 16-bit UUID → include in PTS test scope. 128-bit UUID → exclude from scope and note as proprietary.",
   "risk_if_done_wrong": "Incorrectly including a proprietary 128-bit profile in the PTS test scope wastes testing cost. Incorrectly excluding a 16-bit SIG profile means the product is not fully qualified and may fail SIG review.",
-  "bluetooth_tags": ["GATT", "profile", "UUID", "16-bit UUID", "128-bit UUID", "proprietary profile", "PTS test", "standard profile"],
-  "search_aliases": ["proprietary profile no test", "128-bit UUID test required", "GATT base profile certification", "SIG standard vs proprietary profile"],
+  "bluetooth_tags": [
+    "GATT",
+    "profile",
+    "UUID",
+    "16-bit UUID",
+    "128-bit UUID",
+    "proprietary profile",
+    "PTS test",
+    "standard profile"
+  ],
+  "search_aliases": [
+    "proprietary profile no test",
+    "128-bit UUID test required",
+    "GATT base profile certification",
+    "SIG standard vs proprietary profile"
+  ],
   "qualification_stage": "Scoping / Quoting",
   "confidence": "high"
 }

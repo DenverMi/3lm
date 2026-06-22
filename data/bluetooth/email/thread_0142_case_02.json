@@ -2,6 +2,7 @@
   "source_thread": "thread_0142",
   "case_id": "thread_0142_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "module",
   "customer_question": "We have a derivative product (expansion model) that uses the same module and Host Stack as our already-certified product. Do we need to pay another Qualification Fee to add it?",
   "question_variants": [
@@ -14,8 +15,21 @@
   "decision_logic": "1. Confirm the derivative product uses the identical module QDID and Host Stack as the already-certified product.\n2. If yes → use 'Manage Submitted Products' in SIG Launchstudio to add the new product model → no additional Qualification Fee.\n3. If module or Host Stack differs → new Design registration and Qualification Fee required.",
   "final_recommendation": "When a customer has multiple product models sharing the same Bluetooth configuration, always advise them to use 'Manage Submitted Products' for derived models to avoid unnecessary Qualification Fees.",
   "risk_if_done_wrong": "Starting a full new Design registration for a derivative product when it could be added for free via 'Manage Submitted Products' wastes the customer's Qualification Fee (¥150K–¥250K) unnecessarily.",
-  "bluetooth_tags": ["derivative-product", "expansion-model", "Manage-Submitted-Products", "Product-List", "SIG-Launchstudio", "no-additional-fee"],
-  "search_aliases": ["derivative product Bluetooth certification free", "expansion model same module host stack", "Manage Submitted Products add product", "Product List add model no fee", "derived product same QDID"],
+  "bluetooth_tags": [
+    "derivative-product",
+    "expansion-model",
+    "Manage-Submitted-Products",
+    "Product-List",
+    "SIG-Launchstudio",
+    "no-additional-fee"
+  ],
+  "search_aliases": [
+    "derivative product Bluetooth certification free",
+    "expansion model same module host stack",
+    "Manage Submitted Products add product",
+    "Product List add model no fee",
+    "derived product same QDID"
+  ],
   "qualification_stage": "post-certification / product management",
   "confidence": "high"
 }

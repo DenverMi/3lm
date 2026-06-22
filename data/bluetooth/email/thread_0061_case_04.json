@@ -1,0 +1,24 @@
+{
+  "source_thread": "thread_0061",
+  "case_id": "thread_0061_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Can we perform a DN-combination (Include) registration covering specific subsystems ourselves in the registration site, instead of commissioning your full registration-agency service, and if so what are the exact steps?",
+  "question_variants": [
+    "Can you give us self-service steps to combine two DNs into one registration?",
+    "What Layer Selection and ICS Selection settings do we need for a combination registration?",
+    "What should the Consistency Check show if we've done the combination steps correctly?",
+    "Do we need a Test Coverage Waiver entry for this combination registration, and what goes in it?"
+  ],
+  "actual_issue": "The customer wanted to perform a DN-combination (Include) registration themselves in the registration site, rather than commissioning the consultant's full registration-agency service, and needed a concrete procedure rather than a general policy answer.",
+  "plain_english_explanation": "Normally, combining two existing certifications into one new registration requires case-by-case judgment calls that are essentially the same work as a full paid registration service, so the default answer is to request that full service. As a one-off favor given the ongoing relationship, the consultant instead wrote out the literal click-by-click steps the customer could follow themselves in the registration website to combine the two DNs, adjust the settings, run the automated check, and proceed to the test plan and documentation pages.",
+  "consultant_answer": "Self-service combination registration normally requires the same case-by-case handling as the full agency service, because the correct settings depend on the specific Included designs and the registered product's supported functions. As an exception, the consultant provided this procedure: (1) Include the two target DNs and click 'Modify or Add to this set of Design'; (2) click 'Save and go to Layer Selection'; (3) on the Layer Selection page, uncheck HCI and UHCI under Core Layers, and uncheck all LE Audio Spec protocols/profiles, then click 'Save and go to ICS Selection'; (4) on ICS Selection, uncheck Core-layer ICS item 12/1 (the consultant's first message said to uncheck ICS 10/1 and described running Consistency Check at that point, but this was corrected in the following message: 10/1 should remain checked, and it is 12/1 that must be unchecked), click [Consistency Check], confirm the result shows the expected BB and GAP items (a specific exclusion/prerequisite pair documented in the thread), enter the appropriate Test Coverage Waiver value in the Test Coverage Waiver(s) field, then click 'Save and go to Test Plan and Documentation' and complete the remaining pages as prompted.",
+  "decision_logic": "Self-service combination registration is only offered as a goodwill exception to an established customer, since the correct Layer/ICS settings genuinely depend on the specific combination of Included designs and the product's supported functions -- the same judgment a paid agency registration would apply. Step-by-step instructions involving specific ICS item numbers must be treated as provisional until confirmed correct, since a transposed digit changes which capability is excluded from the registration.",
+  "final_recommendation": "Follow the corrected procedure: uncheck HCI/UHCI and all LE Audio Spec items in Layer Selection, then in ICS Selection uncheck Core-layer ICS 12/1 (leaving 10/1 checked), run Consistency Check and confirm it returns only the documented BB and GAP items, enter the Test Coverage Waiver value, and proceed through Test Plan and Documentation. Treat any future self-service registration instructions involving specific ICS numbers as needing confirmation before acting on them.",
+  "risk_if_done_wrong": "Following the original, uncorrected instruction (unchecking ICS 10/1 instead of 12/1) would exclude the wrong subsystem capability from the registration, producing an incorrect Consistency Check result and an invalid registration outcome.",
+  "bluetooth_tags": ["Include", "combination registration", "Layer Selection", "ICS Selection", "Consistency Check", "Test Coverage Waiver", "Core Layers"],
+  "search_aliases": ["self-service Include two DNs", "Layer Selection uncheck HCI UHCI", "ICS Selection uncheck Core 12/1", "Consistency Check expected BB GAP result", "Test Coverage Waiver entry combination registration", "registration site step by step Include"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

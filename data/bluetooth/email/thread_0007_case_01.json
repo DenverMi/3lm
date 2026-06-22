@@ -1,48 +1,33 @@
 {
-    "source_thread": "thread_0007",
-    "cases": [
-        {
-            "case_id": "thread_0007_case_01",
-            "iut_type": "BLE smart lock key",
-            "customer_question": "Can a Core-Host Design Number that supports Channel Sounding be combined with a Core-Controller Design Number that does not support Channel Sounding?",
-            "question_variants": [
-                "Why does GAP-LL inter-layer inconsistency occur with Channel Sounding settings?",
-                "Can CS-enabled Host and CS-disabled Controller QDIDs be combined?",
-                "How do we resolve GAP-LL consistency check errors for Channel Sounding?",
-                "Can a CS-supported Connect SDK Host be used with a non-CS controller?",
-                "Which Design Number combination avoids Channel Sounding inconsistency?"
-            ],
-            "actual_issue": "The customer attempted to combine a Core-Host design declaring Channel Sounding support with a Core-Controller design that did not support Channel Sounding, causing GAP-LL inter-layer consistency check failures during Bluetooth qualification.",
-            "plain_english_explanation": "Bluetooth qualification checks whether all included Bluetooth layers declare compatible features. In this case, the Host layer said Channel Sounding was supported while the Controller layer said it was not. Because the two layers disagreed, the SIG consistency check rejected the registration.",
-            "consultant_answer": "The consultant explained that the referenced Core-Host Design Number was derived from a subset design but still had GAP ICS items for Channel Sounding enabled. Since the selected Core-Controller design did not support Channel Sounding, the GAP-LL inter-layer dependency check failed and the combination could not be newly registered using a normal modified design flow. The consultant advised that a non-Channel-Sounding Host design would be required to avoid the inconsistency and suggested confirming with the supplier whether a CS-disabled Connect SDK Host registration existed for the newer SDK version.",
-            "decision_logic": "Bluetooth qualification consistency checks require feature support declarations across GAP and LL layers to match. If a Host layer declares Channel Sounding support while the linked Controller layer does not, the inter-layer dependency validation fails and the design combination becomes invalid for standard qualification reuse.",
-            "final_recommendation": "Use a Host Design Number whose ICS declarations match the Controller's Channel Sounding capability, or obtain a supplier-provided CS-disabled Host registration for the desired SDK version before proceeding with qualification.",
-            "risk_if_done_wrong": "If incompatible Host and Controller designs are combined, the consistency check will fail, preventing successful qualification registration and potentially forcing redesign, alternate QDID selection, or additional qualification work.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "DN",
-                "ICS",
-                "consistency check",
-                "GAP",
-                "LL",
-                "Channel Sounding"
-            ],
-            "search_aliases": [
-                "GAP-LL inconsistency",
-                "Channel Sounding mismatch",
-                "CS supported host",
-                "CS unsupported controller",
-                "inter-layer dependency error",
-                "ICS inconsistency",
-                "QDID combination invalid",
-                "Connect SDK Host mismatch",
-                "Channel Sounding YES NO mismatch",
-                "Core Host Core Controller mismatch"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0007",
+  "case_id": "thread_0007_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Shibutani Corporation), Nordic nRF52805 module, Channel Sounding GAP/LL Consistency Check inconsistency",
+  "customer_question": "Our product doesn't support Channel Sounding (CS), so we want to reference a Nordic Connect SDK Host Design Number that doesn't claim CS support, paired with our existing Core-Controller QDID. We found that the only non-CS Design Number available for nRF52805 uses an older SDK version (3.0.0) rather than the newer 3.1.x we'd prefer — can we use the newer SDK and still register cleanly, or are we stuck with the older one? And if even the newer SDK's Design Numbers all claim CS support causing a mismatch with our non-CS controller, what's our path forward?",
+  "question_variants": [
+    "Can a newer Connect SDK version (3.1.x) be used with a CS-unsupported Core-Controller QDID without inconsistency?",
+    "If no actually non-CS-claiming Design Number exists for the newer SDK, how do we register at all?"
+  ],
+  "actual_issue": "The customer wanted to use a newer Nordic Connect SDK Host version for their CS-unsupported product, but every Design Number found under that newer SDK version line (including a Subset DN with some features removed) still claimed Channel Sounding GAP support, creating a cross-layer inconsistency with their CS-unsupported Core-Controller QDID — and no actual non-CS-claiming registration existed under that newer SDK version at all, confirmed via a direct search of SIG's registration database by company and product type.",
+  "plain_english_explanation": "Checking SIG's registration database directly (filtering by company name and product type) confirmed that no Connect SDK Host registration under the 3.1.x version line — including a Subset DN with some features stripped out — actually omits Channel Sounding GAP support; every available option in that newer SDK line still claims CS capability, which conflicts with the customer's CS-unsupported Core-Controller QDID and produces a Consistency Check Invalid. Since no clean reference combination exists, the practical path forward is to select the desired combination anyway and proceed through registration using the 'Combine Unmodified Designs' option, which doesn't modify the ICS and, in this specific combination, allows registration without any additional test requirement despite carrying forward the underlying cross-layer inconsistency. This is presented as the equivalent-validity option compared to a fully clean reference combination — the customer's registration remains just as valid even though the ICS technically still reflects an inherited inconsistency, since the consistency problem stems entirely from the referenced design's own characteristics rather than anything about the actual product being registered.",
+  "consultant_answer": "We checked SIG's registration database directly and confirmed that no Connect SDK Host registration under the 3.1.x version line — including a Subset DN with reduced features — actually omits Channel Sounding GAP support, so every option in that newer SDK line will conflict with your CS-unsupported Core-Controller QDID. Since no clean reference combination currently exists, the practical path is to select this combination anyway and register using the 'Combine Unmodified Designs' option, which doesn't modify the ICS and, for this specific combination, allows registration with no additional test requirement, even though the inherited cross-layer inconsistency carries forward into your registration's ICS. Your registration's validity is fully equivalent to a clean-reference registration in this case, since the inconsistency originates entirely from the referenced design, not from anything about your actual product.",
+  "decision_logic": "When no clean reference combination exists for a desired SDK version due to an inherent feature mismatch (here, every available Design Number claiming a feature the product doesn't actually support), check whether 'Combine Unmodified Designs' happens to avoid triggering any additional test requirement for that specific combination, and if so, treat the resulting registration as equally valid despite the inherited ICS inconsistency, since the inconsistency originates from the reference design rather than the actual product.",
+  "final_recommendation": "When a customer's desired SDK version has no clean reference combination available due to a feature mismatch, verify directly against SIG's registration database whether any alternative actually exists before concluding none does, and when none does exist, reassure the customer that an inherited-inconsistency registration via 'Combine Unmodified Designs' (when it avoids additional test requirements) carries equal certification validity.",
+  "risk_if_done_wrong": "A customer might mistakenly believe an inherited ICS inconsistency invalidates their registration's certification status, or might delay their project indefinitely searching for a clean reference combination that doesn't actually exist for their desired SDK version.",
+  "bluetooth_tags": [
+    "Channel Sounding GAP mismatch",
+    "Connect SDK Host no non-CS Design Number available",
+    "Combine Unmodified Designs equivalent validity",
+    "Nordic nRF52805",
+    "Shibutani Corporation"
+  ],
+  "search_aliases": [
+    "no CS unsupported Design Number for newer SDK",
+    "Channel Sounding GAP Consistency Check error",
+    "Combine Unmodified Designs same validity as clean registration",
+    "Nordic Connect SDK 3.1.x CS support"
+  ],
+  "qualification_stage": "Pre-registration feasibility check",
+  "confidence": "high"
 }

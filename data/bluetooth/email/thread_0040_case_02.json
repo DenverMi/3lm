@@ -1,49 +1,33 @@
 {
-    "source_thread": "thread_0040",
-    "cases": [
-        {
-            "case_id": "thread_0040_case_02",
-            "iut_type": "OEM or rebranded Bluetooth product",
-            "customer_question": "If the seller or brand owner changes while the Bluetooth design stays the same, does the new selling company need its own Bluetooth qualification?",
-            "question_variants": [
-                "Does a rebranded Bluetooth product need a new qualification?",
-                "Can a new seller use the existing QDID only?",
-                "If the manufacturer stays the same but the brand changes, is qualification required?",
-                "Does an OEM customer need its own Bluetooth SIG listing?",
-                "Can a supplier qualify products on behalf of customers?",
-                "Does changing the sales company require Bluetooth qualification?"
-            ],
-            "actual_issue": "Clarification of Bluetooth SIG qualification responsibility for rebranded or OEM products when the sales company changes.",
-            "plain_english_explanation": "The thread discusses whether a company selling a Bluetooth product under its own brand can rely on another company’s qualification. Bluetooth SIG qualification responsibility belongs to the company selling or branding the product, not necessarily the manufacturer. Even if the hardware is identical, a new selling company must complete its own qualification process.",
-            "consultant_answer": "Bluetooth SIG requires the company selling or branding the Bluetooth product to become a SIG member and complete qualification. Whether the manufacturer changes or not, each selling company must complete qualification registration for products sold under its own brand. Manufacturing company information is not part of the mandatory qualification registration, so changing manufacturers alone does not force a new qualification if the Bluetooth design is unchanged. However, a new sales entity or rebranding scenario still requires qualification by the selling company.",
-            "decision_logic": "Qualification responsibility is tied to the branded selling entity, not the physical manufacturer. A supplier or ODM cannot complete qualification on behalf of another company’s branded product.",
-            "final_recommendation": "Each company selling or rebranding the Bluetooth product should complete its own Bluetooth SIG qualification using the existing qualified design where applicable.",
-            "risk_if_done_wrong": "A company selling Bluetooth products without its own qualification may violate Bluetooth SIG licensing and trademark requirements, leading to enforcement actions, blocked product sales, or invalid branding usage.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "QDID",
-                "OEM",
-                "rebrand",
-                "member",
-                "trademark",
-                "Product List"
-            ],
-            "search_aliases": [
-                "rebrand qualification",
-                "OEM Bluetooth qualification",
-                "new seller qualification",
-                "sales company qualification",
-                "brand owner qualification",
-                "supplier cannot qualify for customer",
-                "rebranding existing QDID",
-                "Bluetooth SIG member requirement",
-                "OEM reuse scenario",
-                "selling company responsibility"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0040",
+  "case_id": "thread_0040_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Pre-registration consulting (Move Corporation), Bluetooth registration tied to selling company name, not manufacturer -- and its divergence from Japan radio-law rules",
+  "customer_question": "If the manufacturer changes but the selling company stays the same (final certified product unchanged), is anything different? What if the selling company changes but the manufacturer stays the same? What if both change?",
+  "question_variants": [
+    "Does Bluetooth registration even record manufacturer information at all?",
+    "If the manufacturer changes, does the existing QDID become unusable, requiring a brand-new registration?"
+  ],
+  "actual_issue": "The customer was trying to understand which combination of manufacturer-change and selling-company-change scenarios would trigger a new Bluetooth registration requirement, since the rules differ significantly from Japan's radio-law (construction-design certification) regime, which the customer was more familiar with.",
+  "plain_english_explanation": "Bluetooth SIG requires that the company selling/branding a Bluetooth product (the company whose name appears on the product nameplate) be the one holding a SIG membership and completing the Qualification process -- this requirement, from Bluetooth SIG's own 'Do I Need to Qualify?' documentation, applies whether a company sells under its own brand or rebrands an OEM/ODM-sourced product, and applies regardless of whether it's a new sale or a continuation of existing sales. Critically, registration under a manufacturer's name is not even an option -- only the selling/branding company's registration is required, and that registration does not record manufacturer information at all. This means: if only the manufacturer changes (the selling company and the certified product stay the same), no new Bluetooth registration is needed at all, since manufacturer identity isn't part of what's registered -- the existing QDID/registration remains valid regardless of who manufactures the product. If the selling company changes (with or without a manufacturer change), a new registration under the new selling company's name is required, since registration is fundamentally tied to brand identity, not manufacturing identity. This differs sharply from Japan's radio-law construction-design certification, where a manufacturer change does require re-application, since that regime's rules track manufacturing identity rather than brand identity.",
+  "consultant_answer": "Bluetooth SIG requires the company selling/branding the product (whose name is on the nameplate) to hold a SIG membership and complete registration -- this applies whether you brand it yourself or rebrand an OEM/ODM product, and whether it's a new sale or continued sale. Registration under a manufacturer's name isn't even an option, and the registration itself doesn't record manufacturer information at all. So: if only the manufacturer changes (selling company and certified product unchanged), no new registration is needed -- manufacturer identity isn't part of what's registered. If the selling company changes (with or without a manufacturer change too), a new registration under the new selling company's name is required, since registration tracks brand identity, not manufacturing identity. This is different from Japan's radio-law certification, which does require re-application on a manufacturer change, since that regime tracks manufacturing identity instead.",
+  "decision_logic": "Bluetooth SIG registration validity depends entirely on the selling/branding company's identity, never the manufacturer's -- a manufacturer change alone never triggers a new Bluetooth registration requirement, while any selling company change always does, regardless of whether the manufacturer also changed. This is a different axis than Japan's radio-law regime, which tracks manufacturing identity and does require re-application on manufacturer change.",
+  "final_recommendation": "When a customer asks about manufacturer or brand changes affecting Bluetooth registration, explicitly distinguish Bluetooth SIG's brand-identity-based rule from Japan's radio-law manufacturer-identity-based rule, since customers familiar with one regime often assume the other follows the same logic.",
+  "risk_if_done_wrong": "A customer assuming Bluetooth registration tracks manufacturer identity (the same way radio-law certification does) might unnecessarily pursue a new Bluetooth registration when only the manufacturer changed, or might fail to register a new selling company's brand when it should have, believing the existing manufacturer-linked registration still covered it.",
+  "bluetooth_tags": [
+    "registration tied to selling company not manufacturer",
+    "manufacturer change does not require new Bluetooth registration",
+    "selling company change always requires new registration",
+    "differs from Japan radio law manufacturer based rule",
+    "Move Corporation"
+  ],
+  "search_aliases": [
+    "does manufacturer change require new Bluetooth registration",
+    "Bluetooth registration tracks brand not manufacturer",
+    "Do I Need to Qualify selling company requirement",
+    "difference between Bluetooth SIG and radio law manufacturer rules"
+  ],
+  "qualification_stage": "Pre-registration general consulting",
+  "confidence": "high"
 }

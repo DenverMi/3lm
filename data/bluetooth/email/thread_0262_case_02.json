@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0262",
+  "case_id": "thread_0262_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product registration (Alinco, module XE1134), ICS Consistency Check failure after Submission",
+  "customer_question": "I submitted my registration even though the ICS items showed errors, and now I've received a message saying my submission requires additional review due to remaining ICS inconsistencies, and the project page won't let me edit anything anymore. Is there a way to redo the registration?",
+  "question_variants": [
+    "How do I fix ICS Consistency Check errors like Grouping Invalid and Dependency Invalid after they've already been submitted?",
+    "The project is locked under SIG review — can I get it back to make corrections?"
+  ],
+  "actual_issue": "The customer mistakenly proceeded through Submission despite unresolved ICS Consistency Check errors (involving HCI Mandatory-dependency rules and other cross-item exclusions), which placed the project into a manually-reviewed, uneditable 'under review' state with Bluetooth SIG, and the customer needed a way to regain editing access to fix the underlying ICS issues.",
+  "plain_english_explanation": "Once a project is submitted with remaining ICS inconsistencies, it enters a locked, SIG-manually-reviewed state (with up to a 10-business-day response window) during which the applicant cannot make any further edits. The only way to regain editing access at this stage is to explicitly request that Bluetooth SIG's BQA (Bluetooth Qualification Administrator) team return the project to its pre-submission state, using a specific email request (not a web form) with a precise subject line and body explaining that the project was accidentally submitted with remaining ICS corrections needed. It's critical to use this specific 'Project Return' request and not the unrelated 'Product Listing Error Correction' process (which is actually for requesting deletion of an already-listed sales model from the Product List) — submitting a deletion-style request instead would mean forfeiting the registration fee entirely, since it's a fundamentally different and far more consequential action than simply asking for the project to be reopened for correction.",
+  "consultant_answer": "Since the project was submitted with remaining ICS errors, it's now locked under SIG's manual review and can't be edited directly. The way to regain editing access is to email Bluetooth SIG's BQA team requesting a 'Project Return,' using this exact template: Subject 'Project Return Request D0xxxx' (replace with your actual DID), and a body explaining the project was accidentally submitted with remaining ICS corrections still needed. Please do NOT use the 'Product Listing Error Correction' process you found on the website — that's for requesting deletion of an already-listed sales model and would mean forfeiting your registration fee entirely. Once BQA returns the project, re-import it, leave the TCRL version as originally referenced (don't update it), uncheck any unnecessary 'Extra' layers in Layer Selection, confirm zero Invalid items in ICS Selection, and then proceed to the Review page to resubmit.",
+  "decision_logic": "When a registration project becomes locked due to a premature submission with unresolved ICS errors, the correct recovery path is a direct email request to BQA for project return rather than any self-service web form, and any process resembling 'deletion' or 'error correction' targeting an already-listed product must be carefully distinguished from a simple project return, since the former carries the serious consequence of forfeiting the paid registration fee.",
+  "final_recommendation": "When advising a customer whose registration project has become locked after a premature submission, provide the exact BQA email request template needed for recovery, and explicitly warn against any web-form-based 'error correction' or deletion process that could be mistaken for the same fix but actually forfeits the registration fee.",
+  "risk_if_done_wrong": "Submitting a 'Product Listing Error Correction' or design deletion request instead of a proper Project Return request could result in the customer permanently forfeiting their paid Bluetooth SIG registration fee for a mistake that was actually recoverable through the correct, no-cost BQA request process.",
+  "bluetooth_tags": [
+    "ICS Consistency Check Grouping Invalid Dependency Invalid",
+    "submission locked under SIG review",
+    "BQA Project Return request",
+    "Product Listing Error Correction warning",
+    "registration fee forfeiture risk",
+    "Alinco"
+  ],
+  "search_aliases": [
+    "how to undo Bluetooth SIG submission with ICS errors",
+    "project under review cannot edit",
+    "BQA Project Return Request email template",
+    "Product Listing Error Correction vs Project Return"
+  ],
+  "qualification_stage": "Registration execution / error recovery",
+  "confidence": "high"
+}

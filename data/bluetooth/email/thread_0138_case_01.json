@@ -2,6 +2,7 @@
   "source_thread": "thread_0138",
   "case_id": "thread_0138_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "IoT/industrial device",
   "customer_question": "We are a first-time Bluetooth certification customer (gas meter product). What exactly do we need to do and deliver? What does the Bluetooth logo usage look like, and how long does the certification remain valid?",
   "question_variants": [
@@ -17,8 +18,25 @@
   "decision_logic": "1. Confirm proxy registration scope covers Qualification Workspace work, not just fee payment.\n2. Explain Compliance Folder requirement and retention period.\n3. Direct customer to SIG brand guide for logo files.\n4. Provide Spec Withdrawal date for their Core Spec version.\n5. Confirm no recurring fees.",
   "final_recommendation": "For first-time customers, provide a structured onboarding explanation covering all five points above before starting the project. Document and confirm their understanding of the Compliance Folder retention obligation.",
   "risk_if_done_wrong": "If the customer believes the fee alone is sufficient and no registration work is needed, the certification will never be completed. If the Compliance Folder is not prepared or retained, the customer may fail a SIG audit and have their certification revoked.",
-  "bluetooth_tags": ["first-time-customer", "Compliance-Folder", "SIG-Qualification-Fee", "Bluetooth-logo", "Spec-Withdrawal", "certification-validity", "proxy-registration", "no-recurring-fees"],
-  "search_aliases": ["first time Bluetooth certification what to do", "Compliance Folder what is it", "Bluetooth logo usage rules", "Bluetooth 5.0 withdrawal date February 2032", "SIG fee proxy registration work", "Bluetooth certification expires when", "recurring fees after registration"],
+  "bluetooth_tags": [
+    "first-time-customer",
+    "Compliance-Folder",
+    "SIG-Qualification-Fee",
+    "Bluetooth-logo",
+    "Spec-Withdrawal",
+    "certification-validity",
+    "proxy-registration",
+    "no-recurring-fees"
+  ],
+  "search_aliases": [
+    "first time Bluetooth certification what to do",
+    "Compliance Folder what is it",
+    "Bluetooth logo usage rules",
+    "Bluetooth 5.0 withdrawal date February 2032",
+    "SIG fee proxy registration work",
+    "Bluetooth certification expires when",
+    "recurring fees after registration"
+  ],
   "qualification_stage": "pre-registration / customer onboarding",
   "confidence": "high"
 }

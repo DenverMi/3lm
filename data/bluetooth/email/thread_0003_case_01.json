@@ -1,42 +1,32 @@
 {
-    "source_thread": "thread_0003",
-    "cases": [
-        {
-            "case_id": "thread_0003_case_01",
-            "iut_type": "module-based product",
-            "customer_question": "Can I avoid IOPT testing when reusing a reference design if I do not modify profiles or ICS items?",
-            "question_variants": [
-                "Is IOPT testing required if I reuse profiles without changes?",
-                "Can I skip IOPT if I don't change ICS items?",
-                "When does IOPT apply under QPRD v4?",
-                "Do unchanged profiles still require IOPT testing?",
-                "How to avoid IOPT testing in qualification?"
-            ],
-            "actual_issue": "Understanding updated IOPT applicability under QPRD v4 when reusing profiles without modifying ICS items.",
-            "plain_english_explanation": "IOPT testing checks interoperability for certain higher-layer features. Under newer rules, not all reused features automatically require IOPT anymore. If you reuse features exactly as-is without changing them, you may not need to run those tests.",
-            "consultant_answer": "Under QPRD v4, the rule for IOPT generation changed. Previously, inheriting profiles from a referenced design triggered IOPT automatically. Now, IOPT is only required for profiles where ICS items have been added, removed, or modified after referencing. If a profile is reused without any ICS changes or is removed entirely from the design, IOPT is not generated for that profile.",
-            "decision_logic": "IOPT requirement is triggered by ICS modifications to X2Core layers after referencing a design; no ICS change → no IOPT.",
-            "final_recommendation": "Ensure that reused profiles are either unchanged or removed entirely. Avoid modifying ICS items to eliminate IOPT test requirements.",
-            "risk_if_done_wrong": "If ICS changes are made unintentionally, IOPT tests will be required, leading to additional testing cost, time, and potential delays.",
-            "bluetooth_tags": [
-                "IOPT",
-                "QPRD v4",
-                "ICS",
-                "profile",
-                "qualification",
-                "reuse"
-            ],
-            "search_aliases": [
-                "IOPT requirement QPRD v4",
-                "IOPT when ICS unchanged",
-                "skip IOPT Bluetooth",
-                "profile reuse no IOPT",
-                "X2Core IOPT trigger",
-                "ICS modification IOPT"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0003",
+  "case_id": "thread_0003_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Panasonic Automotive Systems), dual-mode registration inheriting many profiles, IOPT test scope under QPRDv4",
+  "customer_question": "We were told at our Teams meeting that IOPT testing is imposed on all profiles inherited from our reference design. We're now hearing the rule may have changed — does IOPT testing still apply to every inherited profile, or only some of them?",
+  "question_variants": [
+    "Has the IOPT test generation rule for inherited profiles changed recently?",
+    "Do we still need IOPT testing for profiles we keep unchanged from the reference design?"
+  ],
+  "actual_issue": "The customer had been told in an earlier meeting that all profiles inherited from a reference design would be subject to IOPT testing, which would have created a substantial test burden given how many profiles the reference design covered, and needed updated guidance once Allion learned the underlying certification rule had since changed.",
+  "plain_english_explanation": "Effective July 21, 2025, Bluetooth SIG's certification rules updated to QPRDv4, which revised how Test Plans are generated for 'registration option 2b' (referencing an existing design and adding new layers/profiles on top): IOPT testing is no longer automatically imposed on every profile inherited from the reference design. Instead, IOPT is now only generated for profiles whose ICS items were actually added, removed, or changed after inheriting them — meaning inherited profiles that are either deleted entirely from the new registration, or kept exactly as inherited without any ICS modification, are no longer subject to IOPT testing at all. This is a meaningfully more favorable policy than what was explained at the earlier meeting (under the old rule), so any registration plan should be re-evaluated to take advantage of this relaxed requirement.",
+  "consultant_answer": "Yes, the rule changed: effective July 21, 2025 under QPRDv4, IOPT testing is no longer automatically imposed on every profile inherited from your reference design. It's now only required for profiles whose ICS items were actually added, removed, or changed after inheriting them — profiles you either delete entirely or keep completely unchanged from the reference no longer need IOPT testing at all. This is more favorable than what we discussed at our earlier meeting under the old rule, so please reconsider your registration plan with this in mind — for the profiles you intend to keep in your registration, please confirm whether you plan to leave them with their inherited ICS unchanged or modify them, since that determines whether IOPT applies.",
+  "decision_logic": "IOPT test generation for inherited profiles now depends specifically on whether that profile's ICS was modified after inheritance (added/removed/changed items) — profiles left fully unchanged or fully deleted no longer trigger IOPT under the post-July-2025 QPRDv4 rule, a meaningful relaxation from the prior blanket rule.",
+  "final_recommendation": "When a significant certification rule change occurs (like QPRDv4's IOPT generation policy update), proactively re-contact customers who received guidance under the old rule, since the new policy can substantially reduce their expected test scope and cost.",
+  "risk_if_done_wrong": "Failing to inform the customer about this rule relaxation could result in them unnecessarily budgeting for or running IOPT tests on inherited-but-unmodified profiles that no longer require testing under the current rule.",
+  "bluetooth_tags": [
+    "QPRDv4 July 2025 IOPT generation rule change",
+    "inherited profile ICS unchanged no IOPT",
+    "registration option 2b Test Plan generation",
+    "Panasonic Automotive Systems"
+  ],
+  "search_aliases": [
+    "does IOPT apply to all inherited profiles",
+    "QPRDv4 IOPT rule change July 2025",
+    "inherited profile ICS unchanged no test needed",
+    "registration option 2b Test Plan"
+  ],
+  "qualification_stage": "Pre-quotation test scoping",
+  "confidence": "high"
 }

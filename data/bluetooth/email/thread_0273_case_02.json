@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0273",
+  "case_id": "thread_0273_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Derivative keyboard model (Topre R4H series), combined USB/WHQL/Bluetooth certification scope for series addition",
+  "customer_question": "For adding new models to our already-certified R4H keyboard series (same core functionality, differing only in model name and keymap), which of the previously-required tests are still needed — specifically, is USB Chapter9 testing required, and is WHQL testing still required even though nothing major changed?",
+  "question_variants": [
+    "Is USB Chapter9 testing required again for a derivative-series addition, or only for new certifications?",
+    "Why would WHQL testing still be required if the new model only differs in name and keymap?"
+  ],
+  "actual_issue": "The customer received seemingly conflicting guidance from two different Allion contacts about whether USB Chapter9 testing was needed for this series addition, and separately wanted to understand why WHQL testing couldn't simply be skipped for what seemed like a minimal change (model name and keymap only).",
+  "plain_english_explanation": "USB Chapter9 testing is only required for new certifications — since this is an addition to an already-certified series rather than a first-time certification, USB Chapter9 testing is not required, and IOP (interoperability) test results from the prior R4HA testing can be reused directly. WHQL certification, however, works differently: because even minor hardware or software changes can potentially affect driver compatibility or device behavior under Windows, WHQL testing is required again for each new model added to a series, regardless of how small the apparent difference is — in this case, just one additional model needed WHQL testing for both its Bluetooth and USB interfaces.",
+  "consultant_answer": "USB Chapter9 testing is only required for new certifications, not for additions to an already-certified series — so it's not needed here, and your prior R4HA IOP results can be reused directly. WHQL works differently, though: because even minor hardware/software changes can affect driver compatibility or device behavior under Windows, WHQL testing is required again for each new model added to the series regardless of how small the difference seems — so your one additional model will need WHQL testing for both its Bluetooth and USB interfaces.",
+  "decision_logic": "USB Chapter9 testing requirement is tied to whether the certification is a first-time/new certification (required) versus a series addition (not required, since already covered); WHQL testing requirement, by contrast, applies per new model regardless of certification history, since driver/compatibility behavior can be affected by even minor differences between models.",
+  "final_recommendation": "When advising on combined Bluetooth/USB/WHQL certification scope for a series addition, clearly separate the different rules governing each test type (USB Chapter9 tied to new-vs-addition status, WHQL required per model regardless) rather than letting a customer conflate them based on a single 'is this a new certification or not' framing.",
+  "risk_if_done_wrong": "Conflating USB Chapter9's new-certification-only rule with WHQL's per-model requirement could lead a customer to either run unnecessary Chapter9 testing or skip a required WHQL test for a new model, risking either wasted cost or an incomplete certification record.",
+  "bluetooth_tags": [
+    "USB Chapter9 new certification only",
+    "WHQL required per model regardless of change size",
+    "IOP result reuse from prior testing",
+    "Topre R4H series addition"
+  ],
+  "search_aliases": [
+    "is USB Chapter9 needed for series addition",
+    "why is WHQL needed for minor model change",
+    "can IOP test results be reused for new model"
+  ],
+  "qualification_stage": "Derivative model / series addition scoping",
+  "confidence": "high"
+}

@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0110",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This single internal message (2024-09-02) from an Allion consultant ([PERSON]) to a colleague ([PERSON]) provides answers to relay to a customer ([COMPANY], contact [PERSON]) regarding two SIG registration questions. The first concerns whether selecting 'Complete the Submission' permanently locks an additional model's registration content. The second concerns a deprecation warning on an existing registration (D063816) containing the soon-to-be-discontinued GLS 1.0 profile, and its planned 2025/2/1 invalidation (Withdrawal).",
     "all_questions_found": [
       "If 'Complete the Submission' is selected when finalizing an additional model registration, does that mean no further corrections or changes can be made to that registration?",

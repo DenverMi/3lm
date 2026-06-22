@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0062",
+  "case_id": "thread_0062_case_07",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "What product documentation do we need to prepare for the compliance folder after registration Submission is complete?",
+  "question_variants": [
+    "What materials should we gather for the post-registration compliance package?",
+    "What documents are needed to build the CR-R compliance folder?",
+    "Besides the registration documents, what product materials do you need from us?"
+  ],
+  "actual_issue": "After the registration was brought to the pre-Submission Review stage, the customer needed to know what product-specific documentation to gather so the consultant could assemble and deliver the post-registration compliance folder (CR-R).",
+  "plain_english_explanation": "Once a Bluetooth registration is actually submitted, the consultant puts together a compliance package that combines the official registration paperwork with several pieces of product documentation supplied by the customer. The customer needs to gather these specific materials in advance so the package can be assembled as soon as the registration completes.",
+  "consultant_answer": "Once the Receipt Number is issued and the registration reaches the page just before Submission, the customer should review the Review-page content to confirm it matches their intent before instructing Submission. After Submission completes, the consultant will assemble and CR-R-ize a compliance folder combining the documents generated during the registration process with the following customer-supplied product materials: (1) the operation manual (Bluetooth-related section), (2) the product's block diagram, (3) the product's outline/dimensional drawing, and (4) the antenna datasheet, including its radiation gain pattern.",
+  "decision_logic": "The compliance folder for a completed registration requires both the registration-process-generated documentation and a fixed set of customer-supplied product materials (operation manual Bluetooth section, block diagram, outline drawing, antenna datasheet with radiation gain pattern); gathering these in parallel with the Submission review avoids delaying compliance-folder delivery after the registration completes.",
+  "final_recommendation": "Review the pre-Submission Review page for accuracy, then prepare and supply the operation manual's Bluetooth section, the product block diagram, the product outline drawing, and the antenna datasheet (with radiation gain pattern) so the compliance folder can be assembled immediately after registration Submission completes.",
+  "risk_if_done_wrong": "Failing to prepare the required product documentation in advance of Submission completing would delay assembly and delivery of the post-registration compliance folder.",
+  "bluetooth_tags": ["listing", "declaration", "compliance folder", "CR-R", "Submission"],
+  "search_aliases": ["compliance folder documents checklist", "CR-R post registration package", "antenna datasheet radiation gain pattern requirement", "Review page before Submission"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

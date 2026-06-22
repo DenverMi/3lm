@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0172",
+  "case_id": "thread_0172_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Unspecified (internal operational thread)",
+  "customer_question": "When does registration proceed after SIG confirms payment receipt?",
+  "question_variants": [
+    "How soon after SIG payment confirmation can we proceed with the product registration?",
+    "SIG sent a payment receipt notification. What happens next and when?"
+  ],
+  "actual_issue": "Internal Allion coordination: confirming the timing between SIG payment receipt confirmation and the actual registration proxy work.",
+  "plain_english_explanation": "Once SIG confirms payment received (issues the Receipt Number / RN), the proxy registrant can proceed with registration the next business day. The RN is the key that unlocks the registration portal's submission step.",
+  "consultant_answer": "Registration can proceed the business day after SIG's payment receipt (RN issuance) is confirmed. No additional waiting is required after the RN is received.",
+  "decision_logic": "The RN is the gate for SIG portal submission. Once the RN is in hand, registration work — if already prepared in parallel — can be completed the following business day.",
+  "final_recommendation": "Prepare all registration content (ICS, test reports, TCW numbers, product details) in parallel with the payment process so that registration can be completed immediately after the RN is received.",
+  "risk_if_done_wrong": "Waiting until after the RN is received to begin preparing registration content adds unnecessary days to the timeline.",
+  "bluetooth_tags": [
+    "RN",
+    "Receipt Number",
+    "SIG payment",
+    "registration timing",
+    "proxy registration"
+  ],
+  "search_aliases": [
+    "SIG payment received registration timing",
+    "Receipt Number when to register",
+    "RN registration next day",
+    "SIG payment to registration timeline"
+  ],
+  "qualification_stage": "Registration / SIG payment",
+  "confidence": "low"
+}

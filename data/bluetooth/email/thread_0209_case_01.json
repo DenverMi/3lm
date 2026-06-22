@@ -1,0 +1,35 @@
+{
+  "source_thread": "thread_0209",
+  "case_id": "thread_0209_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Powered Speaker, Premium Audio Company / Onkyo GX10)",
+  "customer_question": "A shared document link was provided for registration confirmation materials, but Allion cannot access it — the link is restricted to a specific named email account (yukihiro.nakano). How should this be resolved?",
+  "question_variants": [
+    "Cloud document sharing link is restricted to a specific email address — how do we give Allion access?",
+    "The registration confirmation document link only works for a specific user ID — what should the customer do?",
+    "How should a customer share files with Allion for the registration process?"
+  ],
+  "actual_issue": "Premium Audio Company shared a registration confirmation document (代行登録内容確認書) via a cloud storage link. The link was configured to allow access only to the named account 'yukihiro.nakano', making it inaccessible to Allion's email address. This blocked the start of the registration proxy process.",
+  "plain_english_explanation": "When customers use cloud storage links (e.g., OneDrive, Google Drive, SharePoint) to share documents with Allion, they must ensure the sharing settings allow access to Allion's email address or are set to 'anyone with the link.' If the link is restricted to a specific named user, only that user can open the file. The customer must update the sharing settings to add Allion's email or change to a broader sharing permission.",
+  "consultant_answer": "The customer must update the sharing settings on the cloud document link to allow access by Allion's email address (not just the named user). The customer did this by adding Allion's email to the sharing permission and re-sending the link. Once accessible, the registration documentation was downloaded and the process proceeded normally.",
+  "decision_logic": "Cloud document access permissions must explicitly include the recipient's email. Named-user-only sharing settings block all other users regardless of the URL. Resolution requires the document owner to update sharing settings.",
+  "final_recommendation": "When requesting documents via cloud link from customers, proactively instruct them to share with Allion's email address or set sharing to 'anyone with the link.' This prevents delays at the registration kickoff stage.",
+  "risk_if_done_wrong": "Inaccessible documents delay the registration process, potentially cascading into DID expiration risk or product launch delays.",
+  "bluetooth_tags": [
+    "document sharing",
+    "cloud link access",
+    "registration confirmation document",
+    "Compliance Folder",
+    "Powered Speaker",
+    "Onkyo GX10"
+  ],
+  "search_aliases": [
+    "cloud link access permission SIG registration",
+    "document sharing restricted email",
+    "registration confirmation document access",
+    "Allion document sharing setup"
+  ],
+  "qualification_stage": "Pre-registration / document collection",
+  "confidence": "high"
+}

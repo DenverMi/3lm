@@ -1,7 +1,8 @@
 {
   "source_thread": "thread_0134",
   "case_id": "thread_0134_case_03",
-  "source_type": "internal_consulting",
+  "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "HID device",
   "customer_question": "During PTS profile testing, the test result shows FAIL. The test seems to start but fails mid-way. What is the likely cause and fix? Also, for a keyboard with multiple Bluetooth pairing slots, the PTS keeps failing - is the multi-slot configuration causing the issue?",
   "question_variants": [
@@ -11,11 +12,21 @@
   ],
   "actual_issue": "During PTS (Profile Tuning Suite) profile testing for a Bluetooth keyboard ([COMPANY] Topre), the tester experienced repeated FAIL results. Two root causes were identified: (1) The test sample (DUT) was not in Connectable Mode at the time of the test. If the DUT is not in Connectable Mode, PTS cannot establish a connection within the timeout period, resulting in a connection failure and FAIL result. Fix: restart the DUT and ensure it is in Connectable Mode before starting each test item. (2) The keyboard had 4 Bluetooth pairing slots (each slot has its own BT address). When the DUT's BT address changed between the PTS setup phase and the execution phase (e.g., due to slot switching), PTS could not match the device and failed. Fix: ensure the BT address used during PTS setup remains consistent throughout testing (e.g., always use the same slot).",
   "plain_english_explanation": "PTS (Profile Tuning Suite) is the Bluetooth SIG's official test tool for profile conformance testing. It communicates with the product (DUT) by establishing a Bluetooth connection. Two common failure modes exist: (1) Connectable Mode: the DUT must be in Bluetooth 'Connectable' state (advertising and accepting connection requests). If the DUT enters sleep mode, times out, or is not configured to be connectable, PTS cannot connect and the test fails. (2) Multi-slot address change: some Bluetooth devices (like a keyboard that supports pairing with 4 devices simultaneously) have different BT addresses for each pairing slot. If the DUT's active BT address changes between PTS configuration and test execution (e.g., the keyboard switches to a different slot), PTS looks for the originally configured address and fails. The tester must ensure the DUT stays on the same slot and same BT address throughout a test run.",
-  "consultant_answer": "⇒はいOKです。[OKをクリックで進む件について] ⇒4.が出て5.に至るのはテストサンプルがConnectable Modeになっていないか、何らかの原因でTime out時間内にConnectionに失敗したため、Time out後に5.が表示されるものと思います。テストサンプルを再起動後、数回繰り返しても同じ症状でしたらConnectable Mode設定を行って試験を繰り返してください。[多スロットキーボードについて:] 昨日FAILしていた件の原因は、DUTのキーボードがスロットを4つ持っていて、それぞれにアドレスがあり、そのアドレスが設定時と実行時で変わっていたためでした。(Yes, clicking OK is correct. The FAIL after step 4 occurs because the test sample is not in Connectable Mode or the connection failed within the timeout period. Restart the test sample; if the same symptom persists after several retries, configure the Connectable Mode setting and retry. [Multi-slot]: The cause of yesterday's FAILs was that the DUT keyboard has 4 slots each with its own address, and the address changed between setup and execution.)",
+  "consultant_answer": "Yes, clicking OK is correct. The FAIL after step 4 occurs because the test sample is not in Connectable Mode, or the connection failed within the timeout period. Restart the test sample; if the same symptom persists after several retries, configure the Connectable Mode setting and retry. Regarding the multi-slot keyboard: the cause of yesterday's FAILs was that the DUT keyboard has 4 slots each with its own address, and the address changed between setup and execution.",
   "decision_logic": "When PTS test FAIL occurs during BLE/BT profile testing: (1) First check Connectable Mode - verify the DUT is advertising and accepting connections. Restart the DUT and retry. (2) For multi-slot or multi-address Bluetooth devices, verify that the BT address used during PTS setup matches the address used during test execution. Configure the DUT to stay on the same slot/address throughout testing. (3) Check if the DUT is disconnecting prematurely (User Disconnect in logs) vs. timing out - these have different causes and fixes.",
   "final_recommendation": "When testing multi-slot Bluetooth keyboards or other multi-address BT devices in PTS: (1) Always confirm the DUT is in Connectable Mode before each test item; (2) Identify and lock the DUT to a single BT address/slot before starting PTS configuration; (3) Check PTS logs for 'User Disconnect' entries vs. timeout entries to distinguish premature disconnection from Connectable Mode failure.",
   "risk_if_done_wrong": "Not identifying Connectable Mode or multi-slot address issues early leads to wasted test time and inconclusive results. Misdiagnosing a connection failure as a profile conformance failure could lead to incorrect firmware change requests.",
-  "bluetooth_tags": ["profile test", "PTS", "Connectable Mode", "HID", "keyboard", "multi-slot", "BT address", "FAIL", "HOGP"],
+  "bluetooth_tags": [
+    "profile test",
+    "PTS",
+    "Connectable Mode",
+    "HID",
+    "keyboard",
+    "multi-slot",
+    "BT address",
+    "FAIL",
+    "HOGP"
+  ],
   "search_aliases": [
     "PTS test FAIL Connectable Mode keyboard",
     "PTS connection timeout Connectable Mode not set",

@@ -1,46 +1,33 @@
 {
-    "source_thread": "thread_0046",
-    "cases": [
-        {
-            "case_id": "thread_0046_case_02",
-            "iut_type": "Linux Bluetooth host implementation",
-            "customer_question": "Can a company reuse another company's Bluetooth SIG qualified BlueZ Host Subsystem QDID without a direct business relationship?",
-            "question_variants": [
-                "Can we reference another company's BlueZ QDID?",
-                "Is it allowed to reuse a third-party Host Subsystem QDID?",
-                "Can we use an existing BlueZ qualification from another listing owner?",
-                "Can a customer inherit another company's qualified BlueZ stack registration?",
-                "Can we avoid testing by using someone else's Host Subsystem QDID?"
-            ],
-            "actual_issue": "The customer wanted to avoid extensive BlueZ qualification testing by referencing an existing qualified BlueZ Host Subsystem QDID from another company without having a formal vendor or licensing relationship.",
-            "plain_english_explanation": "A Bluetooth qualification listing cannot simply be copied from another company unless there is a legitimate relationship allowing reuse of the qualified design. Even if the technical implementation looks similar, improper QDID reuse can later be challenged by the original listing owner and may create compliance problems.",
-            "consultant_answer": "The consultant explained that although a new listing could technically reference another company's BlueZ Host Subsystem QDID, doing so without a valid supplier or licensing relationship was not recommended. The original Listing Owner could notice the unauthorized reuse and request cancellation of the dependent listing through the Bluetooth SIG. The consultant instead recommended purchasing a legitimately qualified Bluetooth stack from an authorized vendor or distributor so the QDID reuse relationship would be formally supported and compliant.",
-            "decision_logic": "Bluetooth qualification reuse depends on legitimate ownership or supplier relationships tied to the referenced qualified design. Unauthorized reuse of another company's QDID creates compliance and listing ownership risks even if the technical implementation appears compatible.",
-            "final_recommendation": "Do not reuse unrelated third-party BlueZ QDIDs. Instead, obtain a qualified Bluetooth stack through an authorized vendor relationship and use the vendor-supported QDID reference path.",
-            "risk_if_done_wrong": "Improper QDID reuse can lead to listing cancellation requests, qualification invalidation, compliance disputes, forced redesign of the qualification strategy, and costly retesting or re-registration.",
-            "bluetooth_tags": [
-                "QDID",
-                "qualification",
-                "reuse",
-                "Host Subsystem",
-                "BlueZ",
-                "listing"
-            ],
-            "search_aliases": [
-                "unauthorized QDID reuse",
-                "third-party Host Subsystem",
-                "BlueZ QDID reuse",
-                "listing owner complaint",
-                "invalid qualification reuse",
-                "reuse without supplier relationship",
-                "Host Subsystem QDID",
-                "SIG listing cancellation",
-                "qualified stack vendor",
-                "Bluetooth stack licensing"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0046",
+  "case_id": "thread_0046_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Referencing an unrelated third party's already-registered QDID without their knowledge/consent (revocation risk), and the real-world risk profile of implementing raw open-source BlueZ versus buying a certified commercial stack",
+  "customer_question": "BlueZ has many existing SIG registrations from other companies -- can we just reference another (unrelated) company's already-registered Host Subsystem QDID for our own new registration?",
+  "question_variants": [
+    "If using raw, unmodified open-source BlueZ as our Host Stack, what's the realistic pass rate, cost, and timeline for certification testing?",
+    "Are there commercial vendors who sell an already-certified BlueZ-based stack that can be referenced directly?"
+  ],
+  "actual_issue": "The customer wanted to shortcut their registration by referencing another, unrelated company's existing BlueZ-based Host Subsystem QDID (found via SIG's public registration database) rather than going through their own certification testing -- and separately needed a realistic picture of what testing raw, unmodified open-source BlueZ would actually involve.",
+  "plain_english_explanation": "Referencing another, unrelated company's existing registered QDID for your own new registration is technically possible to file, but is not recommended: once filed, anyone who later searches that QDID (including the original Listing Owner) will see your company's registration appear in the results alongside theirs. If the original Listing Owner notices and objects, they can request SIG to revoke your registration, since you have no business relationship or permission from them to reference their registration. So while the filing itself might formally succeed, it carries an ongoing revocation risk that makes it inadvisable. Separately, implementing raw, unmodified open-source BlueZ as a Host Stack carries substantial real-world risk: based on past similar engagements, an as-implemented open-source BlueZ stack has historically passed only about 60% of the required intermediate-layer tests (L2CAP, GAP, SDP, BNEP/RFCOMM, SPP, etc.) on the first attempt, with the remaining 40% requiring fix-and-retest cycles (and some requiring a second round of fixes and retesting). Because these are intermediate-layer protocol tests, they require an ADB debugger setup and an on-site engineer at the test lab (in Allion's case, Taiwan) who can operate the DUT via ADB and communicate with lab engineers in English or Chinese. In one such past engagement (where the customer's Chinese subsidiary handled development and could communicate smoothly in Chinese with the Taiwan lab engineers), the full process -- including fix cycles -- took about 3 months and cost in the several-million-yen range. Some set-maker engagements have even been abandoned partway through due to this difficulty. The recommended alternative is to purchase an already-certified BlueZ-based stack from a commercial Japanese vendor/distributor, which allows legitimately referencing that vendor's own registered QDID without any revocation risk. Known vendors/distributors include Toshiba Information Systems, Ubiquitous AI Corporation (OpenSynergy's Japan distributor), Grape Systems (IVT's Japan distributor), Himiko Solutions (also an IVT distributor), Hit Corporation (Workaround GmbH's Japan distributor), and Atmark Techno (Design Gateway's Japan distributor).",
+  "consultant_answer": "Technically you could file a new registration referencing another company's existing QDID, but we don't recommend it -- if that company's Listing Owner later notices your registration appearing alongside theirs in a search and you have no relationship or permission from them, they can request SIG to revoke your registration. As for raw open-source BlueZ: based on past experience, it typically passes only about 60% of required intermediate-layer tests on the first attempt, requiring fix-and-retest cycles, an ADB debugger setup, and an on-site bilingual engineer at the test lab -- in one past case this took about 3 months and cost in the several-million-yen range, and some customers have abandoned the effort partway through. We'd recommend instead purchasing an already-certified BlueZ-based stack from a commercial vendor (we can provide a list of Japanese distributors), which lets you legitimately reference their registered QDID without any revocation risk.",
+  "decision_logic": "When a customer considers referencing an unrelated third party's existing registered QDID without a business relationship or permission, explain the revocation risk this creates rather than just confirming technical feasibility; and when a customer is considering implementing raw open-source BlueZ, proactively share the realistic pass-rate, cost, and timeline risk profile based on past engagements, then offer the certified-commercial-stack alternative as a lower-risk path.",
+  "final_recommendation": "When a customer proposes either referencing an unrelated company's QDID or implementing raw open-source BlueZ, lead with the real-world risk profile (revocation risk for the former; pass-rate/cost/timeline risk for the latter) rather than just confirming technical feasibility, and proactively offer the certified-commercial-stack-vendor list as the lower-risk alternative.",
+  "risk_if_done_wrong": "Referencing an unrelated company's QDID without permission risks a future registration revocation once noticed; committing to raw open-source BlueZ without understanding the realistic pass-rate and cost risk could result in missed production schedules or abandoned development, as has happened in past set-maker engagements.",
+  "bluetooth_tags": [
+    "referencing unrelated company QDID revocation risk",
+    "raw open source BlueZ low pass rate cost timeline risk",
+    "certified BlueZ stack vendor list Japan distributors",
+    "ADB debugger bilingual engineer intermediate layer test",
+    "Sharp BlueZ projector"
+  ],
+  "search_aliases": [
+    "can I reference another company's QDID without permission",
+    "raw open source BlueZ certification pass rate",
+    "BlueZ certified stack vendor Japan",
+    "risk of referencing unrelated registered QDID"
+  ],
+  "qualification_stage": "Host stack sourcing and certification risk assessment",
+  "confidence": "high"
 }

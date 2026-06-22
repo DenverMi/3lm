@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0166",
+  "case_id": "thread_0166_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Smart TV with Bluetooth (Sony, A2DP + AVRCP + DI)",
+  "customer_question": "In the SIG registration portal, there is a field 'Design available for other Members to use.' If we set this to 'No,' what exactly does it restrict? Can our own company's members still reference this design?",
+  "question_variants": [
+    "What does 'Design available for other Members to use' control in the SIG portal?",
+    "If I set 'Design available for other Members' to No, can my own company still include this design in their products?",
+    "We want to prevent external companies from referencing our design. Can we do that without blocking our own subsidiaries?"
+  ],
+  "actual_issue": "Sony is about to finalize their product registration and wants to understand the exact access control implication of the 'Design available for other Members to use' field on the SIG portal. They want to allow their own internal Sony members to include the design while blocking third-party companies.",
+  "plain_english_explanation": "The 'Design available for other Members to use' field in the SIG portal controls whether other SIG member companies (outside your own organization) can reference your Design Number (DN) in their own product registrations. Setting it to 'No' means external SIG members cannot include your design in their registrations. However, members within the same SIG member organization (Sony companies sharing the same SIG membership) can still reference the design regardless of this setting. Setting it to 'Yes' (the default) makes the design publicly accessible to any SIG member.",
+  "consultant_answer": "Setting 'Design available for other Members to use' to 'No' prevents external SIG member companies from including your design in their product registrations. Members within your own company (same SIG membership organization) are not affected by this restriction and can still include the design. This is the correct setting if you want to keep your design private from other companies.",
+  "decision_logic": "SIG's design sharing feature is intended for cases where companies want to allow partners or customers to build products on their qualified design. Setting it to 'No' is a reasonable default for proprietary designs where the qualifying company does not intend to offer their qualified design for third-party use.",
+  "final_recommendation": "If Sony does not intend to allow external companies to reference their design, set this field to 'No.' This setting has no effect on Sony's own registrations or on registrations by other Sony group companies under the same SIG membership.",
+  "risk_if_done_wrong": "Setting to 'Yes' (default) when the design should be private allows any SIG member to reference Sony's design in their own product registrations, which may not be desirable for competitive or IP reasons.",
+  "bluetooth_tags": [
+    "Design available for other Members",
+    "SIG portal",
+    "design sharing",
+    "access control",
+    "registration settings",
+    "internal visibility"
+  ],
+  "search_aliases": [
+    "Design available other Members to use setting",
+    "SIG design sharing setting No",
+    "prevent third party include my design SIG",
+    "SIG portal internal visibility",
+    "design access control SIG registration"
+  ],
+  "qualification_stage": "Registration / SIG portal settings",
+  "confidence": "high"
+}

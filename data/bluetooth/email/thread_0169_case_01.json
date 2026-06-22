@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0169",
+  "case_id": "thread_0169_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Embedded Linux device, i.MX8MP SoC with modified AOSP Fluoride Bluetooth Host Stack (NECPF/NEC Platform)",
+  "customer_question": "Our product modifies Google's open-source AOSP Fluoride Bluetooth stack. Can we reference Google's existing QDID for our product registration, since we're using the same base code?",
+  "question_variants": [
+    "We use Android's Bluetooth stack with minor modifications. Can we use Google's QDID?",
+    "We built on AOSP open source. Do we need our own qualification, or can we reference the original?",
+    "We customized the Fluoride Host Stack. Can we still use the Component QDID from the upstream project?"
+  ],
+  "actual_issue": "The customer is using the AOSP Fluoride Host Stack on their embedded Linux product (i.MX8MP), but has made modifications to it. They want to know if they can reference Google's QDID for the Host Subsystem, or if modifications require a separate qualification.",
+  "plain_english_explanation": "A QDID represents qualification of a specific, fixed implementation — the exact code that was tested. If you change even one line of the Host Stack, it is no longer the same implementation and the QDID does not cover it. This is true even for open-source code. Google's QDID was issued for Google's unmodified implementation. Once you modify the code, you own a different implementation and must qualify it separately to obtain your own QDID.",
+  "consultant_answer": "No. A QDID covers the specific implementation that was qualified. Any modification to the Host Stack — even a small change — makes it a different implementation. You cannot reference Google's QDID. You will need to qualify your modified Host Stack and obtain your own QDID for it.",
+  "decision_logic": "SIG qualification is tied to a specific, verified implementation. The QDID is not a license for 'similar' implementations or derivatives — it is tied to the exact design that was tested. Modification breaks the identity between your implementation and the qualified design. 'Based on open source' does not create an exception; the test is whether the actual code is identical to what was qualified.",
+  "final_recommendation": "Conduct a new qualification of the modified Fluoride Host Stack at a SIG-authorized BQTF lab to obtain your own QDID. Do not reference Google's or any other company's QDID for a modified implementation.",
+  "risk_if_done_wrong": "Using another company's QDID for a modified implementation constitutes a non-compliant product registration. If discovered in an audit, the registration could be invalidated and the company could face SIG membership consequences.",
+  "bluetooth_tags": [
+    "QDID",
+    "Host Subsystem",
+    "AOSP Fluoride",
+    "open source Host Stack",
+    "Host Stack modification",
+    "qualification scope"
+  ],
+  "search_aliases": [
+    "modified AOSP QDID",
+    "Fluoride Host Stack QDID",
+    "can I use Google's QDID",
+    "modified open source qualification",
+    "Host Stack modification new QDID"
+  ],
+  "qualification_stage": "planning",
+  "confidence": "high"
+}

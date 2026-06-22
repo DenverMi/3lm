@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0027",
+  "thread_analysis": {
+    "thread_summary": "Internal Allion Japan lab-troubleshooting thread (Itsuo Sakai, Kousuke Nakayama) for Toytec's RF PHY test, dated October 2024. This thread substantially overlaps with thread_0028 (the broader customer-facing Toytec engagement), documenting the same underlying RF PHY DTM command-response troubleshooting incident -- COM port assignment errors, confusion between the customer's 'preparation' vs. 'test operation method' document sections, and an interfering FCC_assist tool -- from a more internal, lab-engineer-focused angle. Refer to thread_0028's case files for the customer-facing narrative and final root-cause resolution (the FCC_assist1.0.4.exe tool conflicting with the COM port InterLab needed).",
+    "all_questions_found": [
+      "What does an 'Unable to open COM8' error during DTM pre-test setup indicate, and is SkipCommand a valid workaround? (see thread_0027_case_01)",
+      "(Duplicated in thread_0028) The customer's sample document contains a 'test operation method' section meant for radio-law/FCC testing, not SIG DTM testing -- see thread_0028's case files for the fuller resolution, including the FCC_assist1.0.4.exe tool conflict that was the ultimate root cause.",
+      "(Administrative, not separately cased) Test Plan file delivery to the lab -- routine project administration."
+    ],
+    "key_technical_discussion": "This thread's standalone contribution (case_01) is the specific 'Unable to open COM8' diagnostic detail and the explicit caution against using SkipCommand as an invalid workaround. The fuller technical resolution of this same incident (the FCC_assist1.0.4.exe tool occupying the COM port InterLab needed) is documented in thread_0028.",
+    "key_decision_logic": "See thread_0027_case_01 and thread_0028's case files for the fuller picture.",
+    "risk_if_done_wrong": "See thread_0027_case_01.",
+    "consulting_mistake": "See thread_0028's analysis for the fuller account of the root-cause discovery process and the lab's own acknowledged initial mistake.",
+    "consulting_takeaway": "This thread is a partial, more-internal capture of the same incident documented more completely in thread_0028 -- when two thread captures cover the same underlying incident, treat the more complete one as authoritative and cross-reference rather than duplicating case content."
+  }
+}

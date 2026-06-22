@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0034",
+  "thread_analysis": {
+    "thread_summary": "Single-message internal consulting thread (Itsuo Sakai, Kentaro Taniguchi) reviewing and refining draft reply wording for a new inquiry from Yaman, regarding whether Bluetooth product registration is required when a product doesn't display the Bluetooth logo. The thread is purely about wordsmithing the official answer before it's sent.",
+    "all_questions_found": [
+      "Is Bluetooth registration required even when the product doesn't display the Bluetooth logo? (see thread_0034_case_01)"
+    ],
+    "key_technical_discussion": "The thread's single technical point (case_01) establishes that registration obligation is tied to bringing a Bluetooth product to market under one's own brand, independent of logo display, and that this should be substantiated by citing Bluetooth SIG's own 'Do I Need to Qualify?' documentation rather than asserted without a source.",
+    "key_decision_logic": "See thread_0034_case_01.",
+    "risk_if_done_wrong": "See thread_0034_case_01 -- a customer skipping registration under the mistaken belief that avoiding the logo exempts them could later face compliance enforcement.",
+    "consulting_mistake": "None identified -- this thread is purely an internal pre-send wording review.",
+    "consulting_takeaway": "When explaining a compliance obligation to a customer, cite the authoritative source (Bluetooth SIG's own documentation) directly rather than asserting the rule unsupported."
+  }
+}

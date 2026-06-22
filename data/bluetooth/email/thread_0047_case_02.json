@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0047",
+  "case_id": "thread_0047_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Root cause of the July 2024 registration system overhaul -- why the new system subjects the entire referenced registration hierarchy (not just new design portions) to Consistency Check",
+  "customer_question": "I understand Bluetooth SIG's rules changed significantly starting in July 2024 -- is there a consolidated resource (document or webpage) summarizing what changed from the previous system?",
+  "question_variants": [
+    "Why does the new registration system require testing referenced existing registrations' layers, when the old system didn't?",
+    "Is there a typical pattern for predicting what test requirements a given new registration will trigger under the new system?"
+  ],
+  "actual_issue": "The customer wanted to understand the full scope of Bluetooth SIG's July 2024 registration system overhaul, both in terms of available reference documentation and the underlying reason for the most consequential change: the expansion of Consistency Check to cover previously-excluded referenced existing registrations.",
+  "plain_english_explanation": "The new registration system's concepts and policies are explained in three reference resources: (1) the QPRDv3 document itself, (2) an archived SIG webinar titled 'Introduction to the New Bluetooth Qualification Process and Tool,' and (3) a Frequently Asked Questions page on SIG's site. However, the SPECIFIC test requirements that any individual new registration will actually trigger vary enormously case by case, depending on the particular ICS of the referenced registrations, the registration category, and whether overlapping layers exist -- even a registered BQTF testing facility had not yet been able to consolidate this into a clean, predictable typology as of this point, and was still working through it case by case. The root cause of why lower-layer test requirements newly arise under the current system traces back to a specific compatibility gap: under the old Launch Studio system, Consistency Check only covered the NEW design portion of a registration -- any combined existing End Product, Controller Subsystem, Host Subsystem, or Profile Subsystem references were excluded from the check entirely. However, starting with Core Specification v6.0, cases emerged where implementations satisfying only the older v4.0 BLE lower-layer's Mandatory feature set did not actually function correctly in combination with newer-spec layers. To proactively catch this kind of incompatibility before it could surface in deployed products, the new registration system was forced to make the ENTIRE registration hierarchy -- including the Core Layer of any referenced existing registration -- subject to Consistency Check, rather than just the new design portion. This explanation was provided directly by a SIG certification representative who visited the consultant's BQTF facility on August 1st.",
+  "consultant_answer": "For background documentation, see QPRDv3 itself, SIG's archived webinar 'Introduction to the New Bluetooth Qualification Process and Tool,' and SIG's FAQ page. As for why this changed: under the old system, Consistency Check only covered the new design portion of a registration, excluding any referenced existing registrations entirely. But starting with Core Specification v6.0, some implementations that only satisfied the older v4.0 BLE lower-layer's Mandatory features turned out not to actually function correctly with newer layers -- so the new system now subjects the ENTIRE registration hierarchy, including referenced existing registrations' Core Layer, to Consistency Check, to catch this kind of incompatibility proactively. We got this explanation directly from a SIG representative who visited our facility. That said, the specific test requirements any individual registration will trigger still vary enormously case by case -- even we haven't been able to consolidate a clean predictive pattern yet.",
+  "decision_logic": "When a customer asks why the post-2024 registration system requires testing previously-exempt referenced existing registrations, explain the root cause (a v6.0+ compatibility gap with older v4.0-Mandatory-only BLE lower-layer implementations) rather than just describing the symptom (expanded test scope), and be honest that predicting exact test requirements for any given registration still requires case-by-case analysis rather than a clean general rule.",
+  "final_recommendation": "When educating a customer about the scope of the July 2024 registration overhaul, point them to the three official reference resources (QPRDv3, the SIG webinar archive, the FAQ page) while also explaining the underlying compatibility-gap root cause directly, since this context helps customers understand why their specific registration's test requirements may be unpredictable rather than appearing arbitrary.",
+  "risk_if_done_wrong": "A customer who doesn't understand the underlying compatibility-gap rationale for the new system might perceive its expanded test requirements as arbitrary or excessive, reducing their confidence in the registration process or causing them to push back unnecessarily against legitimately-required testing.",
+  "bluetooth_tags": [
+    "root cause July 2024 registration overhaul",
+    "Core Specification v6.0 compatibility gap v4.0 Mandatory lower layer",
+    "Consistency Check now covers entire referenced hierarchy",
+    "QPRDv3 SIG webinar FAQ reference resources",
+    "Silex Technology"
+  ],
+  "search_aliases": [
+    "why did Bluetooth SIG registration system change July 2024",
+    "QPRDv3 webinar FAQ reference documentation",
+    "why does new system test referenced existing registrations",
+    "Core Spec v6.0 compatibility issue with v4.0 lower layer"
+  ],
+  "qualification_stage": "General education on post-2024 registration system rationale",
+  "confidence": "high"
+}

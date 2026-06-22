@@ -1,45 +1,33 @@
 {
-    "source_thread": "thread_0018",
-    "cases": [
-        {
-            "case_id": "thread_0018_case_01",
-            "iut_type": "",
-            "customer_question": "When the same profile test item appears in both lab-executed and customer-executed test evidence, which result should be listed in the Bluetooth profile test report, and is regeneration needed?",
-            "question_variants": [
-                "Which duplicate profile test result should be used in the report?",
-                "Should the lab result or customer result be prioritized when both cover the same test case?",
-                "Do we need to delete the unused duplicate test item and regenerate the report?",
-                "How should overlapping PTS/profile test evidence be handled in the final report?"
-            ],
-            "actual_issue": "A Bluetooth profile test report contained overlapping evidence for the same HFP test item from both the lab and the customer, with different execution versions. The reviewer needed to decide which evidence to keep in the report and whether removing the other item required report regeneration.",
-            "plain_english_explanation": "The same Bluetooth profile test case had been performed by both the test lab and the customer. Because the report should contain evidence the lab can stand behind and should avoid unnecessary regeneration work, the consultant advised using the lab-executed result. The unused customer-executed duplicate did not need to drive a report regeneration if the lab-executed item could be listed cleanly.",
-            "consultant_answer": "The consultant instructed the team to list the lab-executed test item because the lab can take responsibility for that evidence and because using it avoids the need to regenerate the report. The answer resolves the duplicate-evidence problem by prioritizing accountable lab evidence over customer-executed evidence when both cover the same item.",
-            "decision_logic": "When duplicate Bluetooth profile test evidence exists for the same test item, prefer the evidence executed by the reporting lab if that evidence is valid, because the lab can be responsible for it and it avoids unnecessary report regeneration.",
-            "final_recommendation": "Use the lab-executed HFP profile test result in the report and avoid regenerating the report solely to remove the duplicate customer-executed item.",
-            "risk_if_done_wrong": "Using customer-executed evidence when equivalent lab-executed evidence is available may reduce report accountability and can create unnecessary report editing or regeneration work. Leaving unclear duplicate evidence may also cause review comments and delay final report approval.",
-            "bluetooth_tags": [
-                "qualification",
-                "profile",
-                "test report",
-                "PTS",
-                "HFP",
-                "test evidence",
-                "report review"
-            ],
-            "search_aliases": [
-                "duplicate test evidence",
-                "lab executed result",
-                "customer executed result",
-                "profile test report",
-                "HFP duplicate item",
-                "report regeneration",
-                "PTS report review",
-                "overlapping test logs",
-                "test evidence priority"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0018",
+  "case_id": "thread_0018_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Profile test report internal QA review (DensoTen project)",
+  "customer_question": "(Internal) During second-level review of a profile test report, several issues were found: a test item (HFP/HF/ACC) was performed both by Allion and by the customer with different PTS tool versions, and only one is referenced in the report — which one should take precedence? Should the non-referenced version's data be deleted and the report regenerated? Also, several test dates in the report don't match the underlying test logs (off by exactly one month), and some profile version numbers in the report (MAP, PBAP) don't match what's marked True in the test logs.",
+  "question_variants": [
+    "When the same test item is performed redundantly by both the lab and the customer with different tool versions, which result should the official report use?",
+    "Do discrepancies between report dates/version numbers and the underlying test logs need to be corrected before finalizing?"
+  ],
+  "actual_issue": "A second-level reviewer found that the draft profile test report for a DensoTen project contained an unresolved conflict between Allion's own and the customer's redundantly-performed test results for the same test item (using different tool versions), along with several apparent date and version-number discrepancies between the report's stated values and the underlying raw test logs.",
+  "plain_english_explanation": "When a test item has been performed by both Allion and the customer with different tool versions, the report should reference whichever result the reviewer can take full ownership and responsibility for — generally Allion's own directly-performed result — rather than defaulting to whichever happens to be currently referenced; if the non-selected version's data isn't needed in the final report, the related content should be removed and the report regenerated to ensure internal consistency. Separately, every date and version-number value appearing in a finalized report must be independently verified against the underlying raw test logs before report finalization, since reviewers identified multiple date discrepancies (consistently off by exactly one month, suggesting a systematic data-entry error) and at least two profile version-number mismatches (MAP and PBAP) that needed correction to ensure the report accurately reflects the actual testing performed.",
+  "consultant_answer": "Please record in the report whichever version of the test item Allion can take full responsibility for, and if the other version's content isn't going to be used, remove it and regenerate the report for consistency.",
+  "decision_logic": "When a test report references a result that Allion did not directly produce (or that conflicts with a result Allion did produce), the report should prioritize whichever result Allion can stand fully behind, and any unused redundant test data should be removed via regeneration rather than left inconsistently referenced; separately, every date and version field in a draft report must be cross-checked against the underlying raw test logs as a standard second-level review step, since systematic data-entry errors (like a consistent one-month date offset) can otherwise go unnoticed.",
+  "final_recommendation": "Establish a standard second-level report review checklist that explicitly includes cross-checking every date and version-number field against raw test logs, and define a clear precedence rule (lab-performed results take priority for which the lab can take responsibility) for any test item performed redundantly by both the lab and the customer.",
+  "risk_if_done_wrong": "Submitting a final report with unresolved redundant-test-result conflicts or unverified date/version discrepancies could result in a certification record that doesn't accurately reflect the actual testing performed, creating a problem if the report is ever audited or challenged.",
+  "bluetooth_tags": [
+    "redundant test result precedence",
+    "report regeneration after data removal",
+    "test report date version discrepancy review",
+    "second level QA review checklist",
+    "Denso Ten"
+  ],
+  "search_aliases": [
+    "which test result takes precedence customer vs lab",
+    "report regenerate after removing redundant test data",
+    "test report date mismatch QA review",
+    "second level report review checklist"
+  ],
+  "qualification_stage": "Internal report QA review",
+  "confidence": "high"
 }

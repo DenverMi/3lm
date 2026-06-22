@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0288",
+  "case_id": "thread_0288_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Secom Corporation security device), Compliance Folder document scope for multi-model project",
+  "customer_question": "We're told the Compliance Folder needs an operation manual, block diagram, and outline drawing — but do we need a separate set of these documents for every model we eventually register, or just once? For example, can the manual and block diagram be shared across similar models while only the outline drawing differs per model? And how detailed does the block diagram actually need to be — can a generic diagram for similar-use devices be reused?",
+  "question_variants": [
+    "Are Compliance Folder documents required per model or just for the initial representative model?",
+    "How detailed does the block diagram need to be, and can a generic one be reused across similar devices?"
+  ],
+  "actual_issue": "The customer was planning an initial registration covering one representative model with multiple similar models to be added later for free, and needed to know the actual document burden: whether each individual document type (manual, block diagram, outline drawing) needed separate per-model preparation, or could be consolidated, and how much detail the block diagram specifically required.",
+  "plain_english_explanation": "Compliance Folder document requirements scale with how many models are actually listed in the Product List at initial registration time — if only one representative model is listed first (which is what determines the registration fee, since additional models can be added for free afterward), then only that single model's operation manual, block diagram, and outline drawing are needed for the Compliance Folder; if multiple models were listed together at initial registration instead, documents for all of them would be required. Regarding the block diagram's level of detail, Allion shared a publicly available block diagram from an existing registered product (a USB Bluetooth Audio Receiver) as a reference example of the expected level of detail, implying that a reasonably generic diagram appropriate to the device's actual function is acceptable rather than requiring exhaustive internal engineering detail.",
+  "consultant_answer": "Document requirements scale with how many models you actually list in the Product List at initial registration — if you list just one representative model first (which is the standard approach, since additional similar models can be added for free afterward), you'll only need that single model's operation manual, block diagram, and outline drawing. If you listed multiple models together at initial registration instead, you'd need documents for all of them. As for the block diagram's level of detail, here's a publicly available block diagram from an existing registered product (a USB Bluetooth Audio Receiver) as a reference — a reasonably generic diagram appropriate to your device's function, not exhaustive internal engineering detail, should be sufficient.",
+  "decision_logic": "Compliance Folder document scope is determined by how many models are actually listed in the Product List at the time of initial registration, not by how many models the customer ultimately plans to develop — listing fewer models initially (with free derivative additions later) minimizes the immediate documentation burden.",
+  "final_recommendation": "When a customer plans a multi-model product line, recommend listing only a single representative model at initial registration to minimize immediate Compliance Folder documentation burden, with derivative models added for free later, and provide a concrete reference example to calibrate expected block diagram detail level.",
+  "risk_if_done_wrong": "Listing multiple models together at initial registration when only one was actually necessary would unnecessarily multiply the Compliance Folder documentation burden; providing an overly detailed or overly vague block diagram without a reference example could lead to repeated back-and-forth revisions.",
+  "bluetooth_tags": [
+    "Compliance Folder document scope per model",
+    "representative model initial registration",
+    "block diagram detail level reference example",
+    "multi-model product line documentation",
+    "Secom"
+  ],
+  "search_aliases": [
+    "do Compliance Folder documents need separate set per model",
+    "how detailed should block diagram be",
+    "block diagram reference example USB Bluetooth Audio Receiver",
+    "representative model registration document scope"
+  ],
+  "qualification_stage": "Pre-registration documentation planning",
+  "confidence": "high"
+}

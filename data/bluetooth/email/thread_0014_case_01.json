@@ -1,48 +1,31 @@
 {
-    "source_thread": "thread_0014",
-    "cases": [
-        {
-            "case_id": "thread_0014_case_01",
-            "iut_type": "medical bed accessory",
-            "customer_question": "Can multiple products with only application-level software differences and the same Bluetooth stack/protocol be added under the same Bluetooth qualification listing?",
-            "question_variants": [
-                "Can derived products reuse the same Bluetooth qualification?",
-                "Can multiple products using the same Bluetooth module be added without additional qualification fees?",
-                "Do application-only firmware changes require a new Bluetooth qualification?",
-                "Can products with identical Bluetooth stacks share one Product List entry?",
-                "Can we register several variants as derived products under one Design?"
-            ],
-            "actual_issue": "Determining whether multiple products using the same Bluetooth module and unchanged Bluetooth stack/protocol can reuse an existing qualified design and be added as derived products without additional qualification fees.",
-            "plain_english_explanation": "The products use the same Bluetooth implementation and only differ in application behavior or product usage. Since the Bluetooth-related functionality is unchanged, the products can usually share the same Bluetooth qualification basis. Additional product variants can be added to the Product List instead of creating completely separate Bluetooth designs.",
-            "consultant_answer": "If the Bluetooth stack and protocol implementation remain unchanged, the products can be treated as derived products under the same base registration. Additional products can be added to the Product List without additional qualification fees. The consultant also confirmed that products with different end uses can still use different Product Names while sharing the same underlying Design. Additional same-module products were accepted as no-cost additions through Product List updates.",
-            "decision_logic": "Bluetooth qualification reuse is permitted when the Bluetooth-compliant portion, stack behavior, and protocol implementation are unchanged. Application-layer-only differences that do not affect the ICS or Bluetooth functionality do not require creation of a new Bluetooth design.",
-            "final_recommendation": "Reuse the existing qualified design and register the additional products as Product List entries under the same Design. Use unique Product Names for each marketed product while keeping the Bluetooth implementation unchanged.",
-            "risk_if_done_wrong": "Incorrectly treating unchanged products as separate new designs may create unnecessary qualification work, fees, and administrative overhead. Conversely, reusing a design after modifying Bluetooth-related behavior could create non-compliant listings or audit issues.",
-            "bluetooth_tags": [
-                "qualification",
-                "Product List",
-                "design reuse",
-                "module",
-                "listing",
-                "QDID",
-                "DN",
-                "derived product"
-            ],
-            "search_aliases": [
-                "same Bluetooth stack reuse",
-                "application-only firmware change",
-                "derived product registration",
-                "Product List addition",
-                "same module multiple products",
-                "reuse existing design",
-                "no Bluetooth stack changes",
-                "multi-product qualification",
-                "shared Bluetooth implementation",
-                "free additional registration"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0014",
+  "case_id": "thread_0014_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Products (Paramount Bed, 6 products sharing one Bluetooth module/stack but serving very different purposes)",
+  "customer_question": "We want to register 6 products that share the same Bluetooth module and don't differ in stack/protocol, but they serve very different purposes (a bed control switch, a diaper-attached sensor, etc.). Can each of these have its own distinct Product Name even though they'll share one registration?",
+  "question_variants": [
+    "Can products with very different physical uses but the same Bluetooth stack share one registration while keeping distinct names?",
+    "Does sharing a Design Name force all products to share the same Product Name too?"
+  ],
+  "actual_issue": "The customer had multiple physically and functionally distinct products (serving entirely different use cases despite sharing identical Bluetooth module/stack implementation) and needed to confirm the registration site could accommodate distinct, accurately-descriptive names for each individual product rather than forcing a single generic name across all of them.",
+  "plain_english_explanation": "A registration requires exactly one overarching Design Name, but the individual entries within that registration's Product List can each carry their own distinct Product Name — so even though these 6 products share one Bluetooth registration (since their stack/protocol implementation is identical), each can still be labeled with a name that accurately reflects its own specific use case (e.g., a bed control switch product can have a different Product Name than a diaper-attached sensor product) within that single registration's Product List.",
+  "consultant_answer": "Yes — your registration needs one overarching Design Name, but the individual Product List entries within that registration can each have their own distinct Product Name. So even though these 6 products share one Bluetooth registration, each can still be labeled with a name reflecting its own specific use case in the Product List.",
+  "decision_logic": "Design Name and Product Name serve different registration-site purposes: Design Name is the single overarching identifier for the shared Bluetooth implementation, while Product Name entries within the Product List can be individually customized per actual product, even when many distinct products share one underlying registration.",
+  "final_recommendation": "When a customer registers multiple functionally distinct products sharing identical Bluetooth implementation, clarify that Product Name flexibility exists at the individual Product List entry level, separate from the single shared Design Name, so each product can carry an accurately descriptive name.",
+  "risk_if_done_wrong": "A customer mistakenly believing all products sharing one registration must use the identical name could end up with confusingly generic or inaccurate product labeling across functionally very different items.",
+  "bluetooth_tags": [
+    "multiple Product Names one Design Name",
+    "shared Bluetooth registration distinct product uses",
+    "Product List individual naming flexibility",
+    "Paramount Bed"
+  ],
+  "search_aliases": [
+    "can different products share registration with different names",
+    "Product Name flexibility within shared Design Name",
+    "registering multiple distinct use products one stack"
+  ],
+  "qualification_stage": "Registration form preparation",
+  "confidence": "high"
 }

@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0180",
+  "thread_analysis": {
+    "thread_summary": "Hosiden (BLE wireless unit, coin battery LR41) requested a quote for Bluetooth SIG certification and national radio certifications (Japan, EU, US). Three issues arose: (1) the brief product description was insufficient to quote — an RFQ form was sent; (2) the provided QDID covers RF PHY only (including CTE), which is insufficient for Core-Complete End Product registration without a Host/LL Component QDID; (3) Allion cannot measure Transmitting CTE, so that scope was declined. Ultimately the scope was reduced to RF PHY 1M only at ¥400,000. National radio certifications were referred to partner SGS Japan.",
+    "all_questions_found": [
+      "Can Allion quote Bluetooth SIG certification from a brief product description?",
+      "Is the customer's QDID (RF PHY only) sufficient for Core-Complete product registration?",
+      "Can Allion test Transmitting Constant Tone Extensions?",
+      "Can Allion handle Japan, EU, and US radio regulatory certification?",
+      "What is the cost for RF PHY 1M only testing?"
+    ],
+    "key_technical_discussion": "RF PHY-only QDID (v5.4, covering 1M/2M/Coded/CTE) is not sufficient for Core-Complete End Product registration. A Host/LL Component QDID (covering LL, L2CAP, GAP, GATT, ATT, SM) must be combined with it. Additionally, Allion's test system cannot measure Transmitting CTE, making that scope unavailable. Scope was reduced to RF PHY 1M only. National radio certifications (TELEC/RED/FCC) are handled by Allion's partner SGS Japan.",
+    "key_decision_logic": "Core-Complete = all core protocol layers must be covered by qualified QDID(s). RF PHY alone covers only the physical layer. When a lab cannot test a specific capability in the QDID (CTE here), that scope must be declined or the QDID ICS must be reduced via Subset DN. Scope reduction was agreed: RF PHY 1M only, ¥400,000.",
+    "risk_if_done_wrong": "Attempting to register with only an RF PHY QDID for a Core-Complete product will fail at the SIG Consistency Check. Including CTE in the test scope without a lab that can measure it means missing required test evidence and a rejection at submission.",
+    "consulting_mistake": "None identified in this thread.",
+    "consulting_takeaway": "Always verify: (1) whether all required Bluetooth core layers are covered by the available QDID(s) before quoting, (2) whether the test lab can support all capabilities listed in the QDID ICS. If the QDID includes CTE and the lab cannot test it, proactively decline that scope or recommend a Subset DN before quoting."
+  }
+}

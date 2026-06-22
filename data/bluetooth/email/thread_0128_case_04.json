@@ -2,6 +2,7 @@
   "source_thread": "thread_0128",
   "case_id": "thread_0128_case_04",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "sensor",
   "customer_question": "The quote request form listed our Controller/Host Stack as Nordic SoftDevice S140 v6.1.1, but we're actually using v7.2.0 - and there's no Component registration for S140 7.2.0 on the Bluetooth SIG site. How should we proceed with registration referencing the correct stack version?",
   "question_variants": [
@@ -11,11 +12,22 @@
   ],
   "actual_issue": "The customer realized that the SoftDevice version they actually use is Nordic S140 v7.2.0, not the v6.1.1 originally provided to Allion, and a search of the Bluetooth SIG site found no Component registration for S140 7.2.0 - though they found an End Product registration named 'nRF52 Series with SD140 v7.2.0'. Allion confirmed the customer's understanding was correct: that End Product registration (QDID:138767) references QDID:[ID] (LL/S140) and QDID:[ID] (Host/S140), which were originally registered at S140/7.0.1, with versions 7.2.0 and 7.3.0 subsequently added to that registration's own Product List - meaning the referenced LL/S140/7.0.1 and Host/S140/7.0.1 QDIDs represent functionality common to 7.0.1, 7.2.0, and 7.3.0. Allion therefore changed the QDIDs referenced in the new registration from the ones originally listed in the quote request form to these QDIDs (renumbering one from [ID] to [ID] and the other to 136227), advanced the registration to the review page, and provided a screenshot for the customer to re-check.",
   "plain_english_explanation": "Bluetooth Component certifications (e.g., for a chipset's Link Layer and Host stack at a specific SoftDevice/firmware version) aren't necessarily re-registered for every minor version update. Instead, an End Product registration that uses a newer SoftDevice version (here, 7.2.0) can reference Component QDIDs that were originally registered at an earlier version (7.0.1) if that End Product's own Product List has since been updated to also list the newer versions (7.2.0, 7.3.0) as covered by the same underlying Component functionality. So when a customer's actual SoftDevice version has no directly-matching Component QDID, the correct approach is to find an existing End Product registration that lists the customer's exact version in its Product List, and trace back to the Component QDIDs that registration references (at whatever version they were originally registered) - those are the QDIDs the new registration should reference, since they represent the functionality shared across all the versions in that End Product's Product List.",
-  "consultant_answer": "ご認識通りQDID:138767としてQDID:[ID](LL/S140)とQDID:[ID](Host/S140)を参照したEnd Product登録があり、登録ページは S140/7.0.1でまず登録されて、その中のProduct Listに7.2.0と7.3.0が追記されています。言い換えれば参照先のQDID:[ID](LL/S140/7.0.1)とQDID:[ID](Host/S140/7.0.1)は7.2.0と7.3.0に共通の機能であることを意味しています。そこで見積依頼書記載のQDID:[ID]→[ID]、QDID:[ID]→136227に変更して再度登録を進めて登録確定直前のReviewページのイメージコピーを取得しましたので添付します。 (As you understood, there is an End Product registration QDID:138767 that references QDID:[ID] (LL/S140) and QDID:[ID] (Host/S140); the registration was originally made at S140/7.0.1, and 7.2.0 and 7.3.0 have since been added to its Product List. In other words, the referenced QDID:[ID] (LL/S140/7.0.1) and QDID:[ID] (Host/S140/7.0.1) represent functionality common to 7.0.1, 7.2.0, and 7.3.0. So we've changed the QDIDs from those in the quote request form to QDID:[ID]->[ID] and QDID:[ID]->136227, and proceeded with the registration; attached is the review page screenshot just before final confirmation.)",
+  "consultant_answer": "As you understood, there is an End Product registration QDID:138767 that references QDID:[ID] (LL/S140) and QDID:[ID] (Host/S140); the registration was originally made at S140/7.0.1, and 7.2.0 and 7.3.0 have since been added to its Product List. In other words, the referenced QDID:[ID] (LL/S140/7.0.1) and QDID:[ID] (Host/S140/7.0.1) represent functionality common to 7.0.1, 7.2.0, and 7.3.0. So we've changed the QDIDs from those in the quote request form to the v7.0.1-based QDIDs, and proceeded with the registration; attached is the review page screenshot just before final confirmation.",
   "decision_logic": "When a customer's actual SoftDevice/firmware version has no directly-matching Component QDID on the Bluetooth SIG site, search for an End Product registration whose Product List includes the customer's exact version, and identify the Component QDIDs that End Product registration references (at their originally-registered version). Use those Component QDIDs as the references for the new registration, since the End Product's expanded Product List indicates those QDIDs' functionality is shared across all listed versions including the customer's.",
   "final_recommendation": "Before finalizing component QDID references in a new registration, verify the customer's actual module/SoftDevice version against the Bluetooth SIG site; if no direct Component registration exists for that exact version, locate an End Product registration whose Product List covers that version and trace back to the Component QDIDs it references (regardless of their originally-registered version number), and use those as the correct references.",
   "risk_if_done_wrong": "Referencing Component QDIDs based on an incorrect or outdated SoftDevice version (e.g., the originally-provided 6.1.1 instead of the actual 7.2.0) could result in a registration that doesn't accurately represent the certified functionality of the product as actually shipped, potentially causing inconsistencies during the registration's consistency checks or misrepresenting the qualified configuration.",
-  "bluetooth_tags": ["qualification", "component", "QDID", "SoftDevice", "Controller Stack", "Host Stack", "End Product", "Product List", "registration", "module"],
+  "bluetooth_tags": [
+    "qualification",
+    "component",
+    "QDID",
+    "SoftDevice",
+    "Controller Stack",
+    "Host Stack",
+    "End Product",
+    "Product List",
+    "registration",
+    "module"
+  ],
   "search_aliases": [
     "SoftDevice version mismatch component QDID registration",
     "End Product Product List multiple SoftDevice versions",

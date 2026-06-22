@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0181",
+  "case_id": "thread_0181_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Ricoh Imaging BLE product (SoC with RF PHY test)",
+  "customer_question": "The ICS we submitted declared BLE Class 2, but the RF PHY test result shows Class 1 measurement. Which one is correct, and what do we do?",
+  "question_variants": [
+    "Test result shows Class 1 but ICS says Class 2 — conflict resolution?",
+    "ICS Power Class declaration doesn't match the test measurement — which takes precedence?",
+    "Do we need to re-test if the measured RF class differs from the ICS declaration?"
+  ],
+  "actual_issue": "The customer submitted an ICS declaring the product as BLE Class 2. The RF PHY test results came back showing Class 1 output level. Allion flagged the discrepancy and asked the customer to confirm which class is actually correct for their hardware. If Class 1 is truly the correct hardware output, then: (1) the ICS must be corrected from Class 2 to Class 1, and (2) the test result at Class 1 level is a Pass — no re-test is needed.",
+  "plain_english_explanation": "The ICS Power Class declaration must match the actual measured output of the hardware. When there is a discrepancy, the physical measurement is the ground truth, not the ICS entry. If the hardware truly outputs at Class 1 level, the ICS must be corrected to declare Class 1, and the test result showing Class 1 is valid and counts as a Pass. Conversely, if the intended class is Class 2 and the hardware is accidentally outputting Class 1, the firmware must be corrected to reduce output to Class 2 range and re-test.",
+  "consultant_answer": "The ICS Power Class must match the actual hardware output. The test result (Class 1) is the authority on what the hardware actually outputs. If Class 1 is the correct hardware behavior, correct the ICS from Class 2 to Class 1 and the test result is a Pass — no re-test needed. If the hardware should be Class 2, fix the firmware and re-test. The customer confirmed Class 1 was correct, so the ICS was updated and the test was accepted as Pass.",
+  "decision_logic": "Test measurement = ground truth for RF Power Class. ICS Class declaration must match test result. If ICS was wrong (declared Class 2 but hardware is Class 1), correct the ICS — test result at Class 1 is valid. If hardware was accidentally at wrong class, fix firmware and re-test.",
+  "final_recommendation": "During pre-test ICS review, confirm RF Power Class with the hardware engineer before submitting. When a class discrepancy surfaces during testing, resolve it immediately: determine which (ICS or hardware) reflects the true design intent, then either correct the ICS or fix the firmware accordingly.",
+  "risk_if_done_wrong": "Leaving a mismatch between ICS class declaration and actual measured output is a qualification integrity violation. The SIG requires the registered ICS to accurately reflect the product's actual implementation.",
+  "bluetooth_tags": [
+    "RF Power Class",
+    "Class 1",
+    "Class 2",
+    "ICS correction",
+    "BLE",
+    "test result",
+    "ICS discrepancy"
+  ],
+  "search_aliases": [
+    "ICS Class 2 but test measures Class 1",
+    "RF power class mismatch test result ICS",
+    "BLE class discrepancy ICS measurement",
+    "RF PHY test class mismatch fix",
+    "ICS power class test result conflict"
+  ],
+  "qualification_stage": "Testing / ICS Configuration",
+  "confidence": "high"
+}

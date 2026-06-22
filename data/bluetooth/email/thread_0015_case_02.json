@@ -1,49 +1,32 @@
 {
-    "source_thread": "thread_0015",
-    "cases": [
-        {
-            "case_id": "thread_0015_case_02",
-            "iut_type": "wireless networking device",
-            "customer_question": "Can a Link Layer supporting AoA/AoD be combined with an RF PHY QDID that does not support AoA/AoD?",
-            "question_variants": [
-                "Can AoA/AoD-capable Link Layer reuse a non-AoA RF PHY QDID?",
-                "Why does AoA/AoD mismatch cause IDL errors?",
-                "Can TCW waive AoA/AoD inter-layer inconsistencies?",
-                "Is a mixed AoA/AoD QDID combination allowed?",
-                "How do I resolve AoA/AoD RF PHY compatibility errors?"
-            ],
-            "actual_issue": "A Bluetooth qualification design attempted to combine a Link Layer QDID supporting AoA/AoD with an RF PHY QDID lacking AoA/AoD support, causing fatal inter-layer dependency inconsistencies that could not be waived using TCW.",
-            "plain_english_explanation": "Bluetooth layers must agree on supported features. If the Link Layer claims advanced direction-finding features like AoA/AoD, the RF PHY layer must also support the related requirements. When the feature support does not match, the qualification system detects incompatibilities and blocks the design combination.",
-            "consultant_answer": "The consultant explained that the selected Link Layer supported AoA/AoD while the referenced RF PHY qualification did not. This mismatch generated multiple fatal IDL errors between RF PHY and LL capabilities. The consultant explicitly stated that these inconsistencies were not eligible for resolution through TCW. As a workaround, the consultant recommended using a prepared subset Design Number that excluded AoA/AoD and Class 1 support, allowing the combination to pass without the fatal IDL inconsistencies and enabling qualification with TCW.",
-            "decision_logic": "AoA/AoD capabilities must remain consistent across dependent Bluetooth layers. TCW cannot be used to waive prohibited inter-layer dependency mismatches involving incompatible RF PHY and Link Layer feature support.",
-            "final_recommendation": "Use a subset DN that removes unsupported AoA/AoD and incompatible features before combining the RF PHY and Link Layer designs. Validate inter-layer dependency consistency before qualification submission.",
-            "risk_if_done_wrong": "Using incompatible AoA/AoD feature combinations can make the design unqualifiable and force redesign or re-selection of QDIDs late in the qualification process.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "AoA",
-                "AoD",
-                "RF PHY",
-                "Link Layer",
-                "IDL",
-                "TCW",
-                "subset DN"
-            ],
-            "search_aliases": [
-                "AoA mismatch",
-                "AoD mismatch",
-                "RF PHY unsupported",
-                "LL feature inconsistency",
-                "fatal IDL",
-                "TCW not allowed",
-                "subset DN workaround",
-                "direction finding mismatch",
-                "RF PHY and LL conflict",
-                "AoA AoD compatibility"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0015",
+  "case_id": "thread_0015_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Allied Telesis GEN2 device), Wireless Gecko Link Layer/Host AoA/AoD mismatch",
+  "customer_question": "We'd like to register referencing this specific QDID combination (a Wireless Gecko Link Layer and Host based on Core Specification 5.4, plus our RF PHY QDID) — is the cost and test duration you previously quoted still accurate for this combination?",
+  "question_variants": [
+    "Can this exact QDID combination be registered as proposed?",
+    "If not, is there an alternative within the same product family that works?"
+  ],
+  "actual_issue": "The customer proposed a specific Link Layer/Host QDID combined with their own RF PHY QDID, not realizing that the Link Layer QDID's AoA/AoD direction-finding capability didn't match their actual RF PHY's lack of AoA/AoD support, which would produce a fatal cross-layer inconsistency ineligible for a Test Case Waiver.",
+  "plain_english_explanation": "The proposed Link Layer QDID supports AoA/AoD (direction-finding) functionality, but the customer's actual RF PHY QDID does not support AoA/AoD — this mismatch produces numerous cross-layer inconsistencies that fall outside what a Test Case Waiver can excuse, making this exact combination unregisterable. However, the same underlying 'Wireless Gecko Link Layer and Host based on Core Specification 5.4' registration has many pre-defined Subset DNs available — narrower-capability variants of the same base registration — including one that is both AoA/AoD-incapable and Class 1-incapable, matching the customer's actual RF PHY capability. Referencing this specific Subset DN instead of the full-capability QDID avoids the fatal inconsistency entirely and allows registration to proceed via Test Case Waiver, at the same previously-quoted cost.",
+  "consultant_answer": "Your proposed Link Layer QDID supports AoA/AoD direction-finding, but your actual RF PHY QDID doesn't — this mismatch produces inconsistencies that a Test Case Waiver can't excuse, so this exact combination can't be registered as proposed. However, the same base registration ('Wireless Gecko Link Layer and Host based on Core Specification 5.4') has a Subset DN available that's both AoA/AoD-incapable and Class 1-incapable, matching your actual RF PHY capability — referencing that Subset DN instead avoids the inconsistency and lets registration proceed via Test Case Waiver, at the same cost we previously quoted.",
+  "decision_logic": "When a proposed Link Layer/Host QDID claims a capability (like AoA/AoD) that the paired RF PHY QDID doesn't actually support, check whether the same base registration offers a narrower-capability Subset DN matching the actual RF PHY capability, rather than concluding the registration is blocked entirely.",
+  "final_recommendation": "When a customer proposes a specific QDID combination, verify capability alignment between Link Layer/Host and RF PHY components (not just whether each individually exists), and proactively search for matching Subset DNs under the same base registration when a capability mismatch is found.",
+  "risk_if_done_wrong": "Proceeding with the proposed full-capability QDID without checking for the AoA/AoD mismatch would produce a registration blocked by inconsistencies ineligible for TCW, forcing a costly do-over once discovered; failing to search for the matching Subset DN could lead to concluding the registration was impossible entirely.",
+  "bluetooth_tags": [
+    "AoA AoD capability mismatch Link Layer RF PHY",
+    "Subset DN matching actual RF PHY capability",
+    "Wireless Gecko Link Layer Host Core Spec 5.4",
+    "TCW ineligible inconsistency",
+    "Allied Telesis"
+  ],
+  "search_aliases": [
+    "AoA AoD mismatch Link Layer RF PHY registration blocked",
+    "Subset DN without AoA AoD Class 1",
+    "Wireless Gecko Subset DN selection"
+  ],
+  "qualification_stage": "Pre-registration feasibility check",
+  "confidence": "high"
 }

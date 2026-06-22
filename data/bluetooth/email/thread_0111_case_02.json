@@ -2,6 +2,7 @@
   "source_thread": "thread_0111",
   "case_id": "thread_0111_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "adapter",
   "customer_question": "For the compliance folder, the antenna radiation pattern diagram is unavailable - can TELEC certification documents be used as a substitute?",
   "question_variants": [
@@ -16,7 +17,11 @@
   "decision_logic": "The compliance folder requires an antenna radiation pattern diagram as part of the antenna datasheet. If the antenna manufacturer's datasheet does not include this diagram, documentation from an existing TELEC certification for the same antenna/product can be substituted, since it covers equivalent radiation characteristic information.",
   "final_recommendation": "If the antenna radiation pattern diagram is unavailable from the antenna datasheet, provide the relevant TELEC certification documentation for the same antenna as a substitute for the compliance folder.",
   "risk_if_done_wrong": "Without a substitute for the missing antenna radiation pattern diagram, compliance folder creation could stall while the customer searches for documentation that may not be obtainable from the antenna manufacturer.",
-  "bluetooth_tags": ["qualification", "declaration", "test report"],
+  "bluetooth_tags": [
+    "qualification",
+    "declaration",
+    "test report"
+  ],
   "search_aliases": [
     "antenna radiation pattern diagram missing",
     "TELEC certification substitute documentation",

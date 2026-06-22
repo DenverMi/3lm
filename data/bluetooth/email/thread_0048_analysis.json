@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0048",
+  "thread_analysis": {
+    "thread_summary": "Seahonence Corporation (contact Gaku Murayama) inquires with Allion (Masaya Iida, Itsuo Sakai) in March 2026 about End Product registration cost for a new Bluetooth-output sensor under development. The thread is a standard inbound quote request and response, with no customer-side confusion or distinct technical question to extract as a case.",
+    "all_questions_found": [
+      "(Standard quote request, not cased) Rough estimate of End Product registration proxy cost for a new sensor product -- answered with the standard two-scenario fee breakdown (antenna-integrated/connector module vs. SoC-on-board/antenna-external module requiring RF PHY testing), consistent with quote patterns already documented extensively elsewhere in this corpus."
+    ],
+    "key_technical_discussion": "This thread confirms the Qualification Fee has reached its previously-scheduled increase to $12,000 (effective March 1, 2026, as referenced in earlier threads), now reflected in a live quote dated March 13, 2026. It also shows a third RF PHY test pricing tier not previously observed in this level of detail: 1M-only at ¥400,000 versus a combined 1M+2M+Coded PHY tier at ¥900,000, extending the previously-documented 1M vs. 1M+2M cost distinction.",
+    "key_decision_logic": "Not applicable -- no distinct customer question requiring case-specific decision logic; standard quote-tier information only.",
+    "risk_if_done_wrong": "Not applicable.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "Quote templates should be kept current with scheduled fee changes (the Qualification Fee increase to $12,000 is now confirmed live as of March 2026) and should account for the full range of RF PHY test scope tiers, including the Coded PHY combination, when scoping a new product's likely cost."
+  }
+}

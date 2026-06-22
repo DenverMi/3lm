@@ -2,6 +2,7 @@
   "source_thread": "thread_0144",
   "case_id": "thread_0144_case_04",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "IoT/commercial device",
   "customer_question": "We want to include an RF PHY QDID in our Core-Complete registration together with the Controller Subsystem and Host Subsystem QDIDs. Is this possible without triggering a GAP test requirement?",
   "question_variants": [
@@ -14,8 +15,24 @@
   "decision_logic": "1. RF PHY QDID included in Core-Complete → Consistency Check flags GAP modification requirement → GAP test required (typically not feasible for set maker).\n2. RF PHY QDID omitted → relaxed check for Controller+Host Subsystem combination → no test, registration proceeds.\n3. Choose omit-RF-PHY path for set makers without Host Stack source code access.\n4. Document that RF PHY evidence is not in the registration record (gray area, currently accepted).",
   "final_recommendation": "For set makers who cannot run a full GAP PTS test, advise omitting the RF PHY QDID from the Core-Complete registration and using the Controller Subsystem + Host Subsystem path only. Document the trade-off and the gray area status.",
   "risk_if_done_wrong": "Attempting to include the RF PHY QDID without being able to run the required GAP test will block the registration indefinitely. Proceeding with the omit-RF-PHY path without documenting the gray area may cause customer confusion or audit risk if SIG tightens the rule in the future.",
-  "bluetooth_tags": ["RF-PHY-QDID", "Core-Complete", "GAP-ICS", "Consistency-Check", "GAP-PTS-test", "relaxed-check", "Controller-Subsystem", "Host-Subsystem", "QPRDv3.0"],
-  "search_aliases": ["RF PHY QDID Core Complete GAP test required", "omit RF PHY QDID registration", "GAP ICS modification triggered RF PHY", "relaxed Consistency Check Controller Host Subsystem", "no GAP test RF PHY omitted"],
+  "bluetooth_tags": [
+    "RF-PHY-QDID",
+    "Core-Complete",
+    "GAP-ICS",
+    "Consistency-Check",
+    "GAP-PTS-test",
+    "relaxed-check",
+    "Controller-Subsystem",
+    "Host-Subsystem",
+    "QPRDv3.0"
+  ],
+  "search_aliases": [
+    "RF PHY QDID Core Complete GAP test required",
+    "omit RF PHY QDID registration",
+    "GAP ICS modification triggered RF PHY",
+    "relaxed Consistency Check Controller Host Subsystem",
+    "no GAP test RF PHY omitted"
+  ],
   "qualification_stage": "design registration",
   "confidence": "high"
 }

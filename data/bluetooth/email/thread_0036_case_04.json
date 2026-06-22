@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0036",
+  "case_id": "thread_0036_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Qualification Workspace ICS Selection tool issue -- dual Core Specification version checkboxes (Controller showing both v5.3/v5.4, Host showing both v5.3/v6.0) blocking Consistency Check, plus the inherited-layer Test Plan output nuance",
+  "customer_question": "After selecting referenced DNs in 'Specified the Design' and proceeding to 'ICS Selection,' the CORE section shows both Core v5.3 and v5.4 checked for Controller, and both v5.3 and v6.0 checked for Host -- Consistency Check won't pass. Touching the CORE checkbox unlocks many other Layers. Is there a way to resolve this without that cascade?",
+  "question_variants": [
+    "Why does the Qualification Workspace tool show multiple Core Specification versions checked simultaneously when combining multiple referenced QDIDs?",
+    "Even when a layer's ICS is inherited from a referenced QDID, does the Test Plan still list test items for it?"
+  ],
+  "actual_issue": "When the customer combined multiple referenced QDIDs (each implicitly supporting different Core Specification version ranges) in the Qualification Workspace, the ICS Selection screen's CORE section ended up with two Core version checkboxes simultaneously checked for both the Controller and Host layers, which blocked Consistency Check from passing, and any attempt to directly adjust the CORE checkbox cascaded into unlocking numerous other layers' settings, making a direct fix impractical via guesswork.",
+  "plain_english_explanation": "The consultant resolved this by requesting the customer's actual Export Project file (since this kind of Consistency Check failure is highly case-specific and difficult to diagnose purely through email back-and-forth) and finding the fix through direct trial-and-error in his own copy of the project. The resolution was: (1) in Layer Selection, remove the HCI and UHCI layers entirely; (2) in ICS Selection, within the Core layer, remove the specific ICS items 12/1, 1/53, and 2/53. Performing these two removals resolves the dual-Core-version conflict to an 'All ICS inconsistencies are resolved' state. After that, the customer could update the A2DP/AVRCP ICS as needed, confirm No Invalid in Consistency Check, and proceed to the Test Plan and Declaration page to download the Test Plan. One important related nuance the consultant flagged: even though RF and RF PHY layers were being inherited (Included) from a prior registration's QDID rather than newly declared, the generated Test Plan still lists RF/RF PHY as test items requiring evidence -- inheriting a layer's ICS does not make the Workspace tool omit it from the Test Plan output. The customer needed to prepare and upload the RF/RF PHY test report from that prior registration as the evidence satisfying those Test Plan line items, rather than assuming the inheritance alone would suffice without any uploaded evidence.",
+  "consultant_answer": "This kind of Consistency Check failure is hard to resolve over email -- please export your current trial Project (zip-compressed) and send it to me so I can find the exact fix by trial and error. [After receiving the file:] From this state, first remove the HCI and UHCI layers in Layer Selection, then in ICS Selection's Core layer, remove items 12/1, 1/53, and 2/53. This resolves the dual-Core-version conflict to 'All ICS inconsistencies are resolved.' After that, update your A2DP/AVRCP ICS, confirm No Invalid, and download the Test Plan. Note that even though RF/RF PHY is being inherited from your prior QDID rather than newly declared, the Test Plan will still list test items for it -- please prepare that prior registration's RF/RF PHY report to upload as the satisfying evidence.",
+  "decision_logic": "When a customer's Qualification Workspace ICS Selection shows multiple Core Specification version checkboxes simultaneously checked across Controller and Host layers (from combining multiple referenced QDIDs with different supported version ranges), and directly touching the CORE checkbox cascades into unlocking unrelated layers, request the customer's Export Project file to diagnose and resolve via direct trial-and-error rather than attempting a remote, email-based fix -- and regardless of the specific fix, remember that any layer satisfied via QDID inheritance still appears as a Test Plan line item requiring uploaded evidence, not an automatic exemption.",
+  "final_recommendation": "When a customer reports a complex, tool-specific Consistency Check failure that resists remote diagnosis, request their Export Project file early rather than attempting multiple rounds of email-based guesswork, and always remind customers that ICS-inherited layers still require evidence upload in the Test Plan rather than being silently omitted.",
+  "risk_if_done_wrong": "Attempting to resolve a complex multi-layer Consistency Check failure purely through email description could waste significant time on both sides, while assuming an inherited layer is automatically exempted from the Test Plan without uploading evidence could result in an incomplete registration submission.",
+  "bluetooth_tags": [
+    "Qualification Workspace dual Core version checkbox conflict",
+    "Layer Selection remove HCI UHCI fix",
+    "ICS Selection remove specific Core items",
+    "inherited layer still appears in Test Plan needs evidence upload",
+    "Sony TV FY26"
+  ],
+  "search_aliases": [
+    "Qualification Workspace Core v5.3 v5.4 both checked Consistency Check fails",
+    "how to fix dual Core Specification version conflict",
+    "inherited QDID layer still shows in Test Plan",
+    "Export Project file troubleshooting Consistency Check"
+  ],
+  "qualification_stage": "Registration setup tool troubleshooting (Qualification Workspace)",
+  "confidence": "high"
+}

@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0185",
+  "case_id": "thread_0185_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Cable TV set-top box (Panasonic Connect, RTL8852 combo module)",
+  "customer_question": "Is there a cost difference between referencing a 'Component' QDID versus a 'Controller Subsystem' QDID for the new registration system?",
+  "question_variants": [
+    "Component vs Controller Subsystem QDID — is there a price difference?",
+    "Post-July 2024: does using a Component QDID cost more or less than Controller Subsystem?",
+    "The chip QDID is listed as Component — does that change the registration fee?"
+  ],
+  "actual_issue": "Customer recalled being told previously that the QDID category (Component, Controller Subsystem, End Product) affected the registration cost. Under the new QPRDv3.0 system (post-July 1, 2024), this distinction has changed.",
+  "plain_english_explanation": "Under the old system, Component and Controller Subsystem QDID categories were treated differently. Under the new QPRDv3.0 system (effective July 1, 2024), the Component category was effectively merged/aligned with Controller Subsystem — both are now treated identically for registration purposes. There is no cost difference between referencing a QDID registered as 'Component' versus one registered as 'Controller Subsystem', as long as they cover the same protocol layers. The registration cost is now determined by whether you use Single-Design (¥150,000) or Multi-Design (¥250,000) reference.",
+  "consultant_answer": "Since July 1, 2024, the new QPRDv3.0 system abolished the cost distinction between Component and Controller Subsystem QDID categories. Both are now treated identically — there is no difference in registration fee whether the referenced QDID is labeled 'Component' or 'Controller Subsystem'. The relevant cost factor for the End Product registration is Single-Design vs. Multi-Design.",
+  "decision_logic": "QPRDv3.0 (post-July 2024) unified Component and Controller Subsystem treatment. A QDID labeled 'Component' on the SIG website can be referenced exactly the same way as one labeled 'Controller Subsystem'. This change simplifies registration and removes a source of confusion from the old system.",
+  "final_recommendation": "Do not factor the Component vs. Controller Subsystem distinction into registration cost calculations for projects using the post-July 2024 QPRDv3.0 system. Focus instead on the number of QDID references needed (Single-Design vs. Multi-Design) to determine registration cost.",
+  "risk_if_done_wrong": "Quoting based on the old system's Component vs. Controller Subsystem distinction would result in an incorrect cost estimate. Proactively clarify to customers asking about the old distinction that it no longer applies under QPRDv3.0.",
+  "bluetooth_tags": [
+    "Component QDID",
+    "Controller Subsystem",
+    "QPRDv3.0",
+    "registration fee",
+    "July 2024",
+    "End Product registration"
+  ],
+  "search_aliases": [
+    "Component vs Controller Subsystem QPRDv3",
+    "QDID category cost difference post-2024",
+    "Component QDID registration fee",
+    "QPRDv3.0 category change",
+    "Controller Subsystem Component same cost"
+  ],
+  "qualification_stage": "Pre-registration / Scoping",
+  "confidence": "high"
+}

@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0013",
+  "case_id": "thread_0013_case_09",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Koizumi Lighting, multiple lamp models), bulk free derivative registration for approximately 150 product part numbers via SIG-designated Excel import",
+  "customer_question": "Now that our main registration is finalized, could you walk us through how to register all of our lighting product part numbers (approximately 150) as additional derivative models?",
+  "question_variants": [
+    "Is there a bulk import method for registering many derivative models at once, rather than entering each one individually?",
+    "What exactly do we need to fill in on the provided Excel template before following the registration procedure?"
+  ],
+  "actual_issue": "The customer needed to register a very large number (around 150) of additional product part numbers as free derivative models under their now-finalized main registration, and wanted a practical method for doing this in bulk rather than one at a time through the standard registration site interface.",
+  "plain_english_explanation": "The lab provided two items: a step-by-step procedure document (PDF) and a large-scale derivative-model bulk-import Excel template designated by Bluetooth SIG for this purpose. The customer's task was to first populate the Excel template starting from row 3 onward with the information for each model they wanted to add as a derivative. Then, following the procedure document's steps, the customer needed to skip step (3) specifically, and instead -- at the point in the Product Details screen described by the procedure -- use the 'click here to specify location for SIG-designated Excel sheet' control to upload the populated Excel file, before continuing with the procedure document's step (4) onward as normal. This bulk-upload mechanism allows many derivative models to be registered from a single Excel file rather than requiring the registration site's standard one-at-a-time entry flow.",
+  "consultant_answer": "We've attached the step-by-step procedure document along with the large-scale derivative-model Excel template designated by Bluetooth SIG for bulk registration. First, fill in your derivative models' information starting from row 3 of the Excel sheet. Then follow the procedure document's steps, but skip step (3) -- instead, at the Product Details screen, use the 'click here to specify location for SIG-designated Excel sheet' control to upload your populated Excel file, then continue with step (4) onward as normal.",
+  "decision_logic": "When a customer needs to register a large number of derivative product models under an already-finalized main registration, use the SIG-designated bulk Excel import mechanism rather than the standard one-at-a-time registration site flow, since the bulk template is specifically designed to handle large-scale derivative additions efficiently.",
+  "final_recommendation": "When a customer anticipates needing to register many derivative models (tens or hundreds), proactively offer the bulk Excel import procedure rather than letting them default to the standard one-at-a-time registration flow, and be precise about which step in the standard procedure document gets replaced by the bulk-upload action (in this case, skipping step 3 in favor of the Excel-upload control).",
+  "risk_if_done_wrong": "A customer attempting to register ~150 derivative models one at a time through the standard site flow, unaware of the bulk Excel import option, would spend significantly more time and effort than necessary.",
+  "bluetooth_tags": [
+    "bulk derivative model registration",
+    "SIG-designated Excel import template",
+    "ProductImportTemplate.xlsx",
+    "large-scale free derivative registration",
+    "skip step 3 use Excel upload control",
+    "Koizumi Lighting"
+  ],
+  "search_aliases": [
+    "how to register many derivative models at once",
+    "bulk Excel import Bluetooth SIG registration",
+    "ProductImportTemplate skip step procedure",
+    "registering 150 product part numbers as derivatives"
+  ],
+  "qualification_stage": "Post-registration bulk derivative addition",
+  "confidence": "high"
+}

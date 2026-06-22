@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0225",
+  "case_id": "thread_0225_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (IDEAL company)",
+  "customer_question": "If we pay the Declaration Fee in USD via wire transfer, what exchange rate is applied, and when is that rate determined?",
+  "question_variants": [
+    "When is the USD/JPY exchange rate fixed for our wire transfer payment?",
+    "Is the exchange rate based on the day of actual payment or some earlier date?"
+  ],
+  "actual_issue": "The customer needed to understand exactly when the exchange rate for their USD-denominated Declaration Fee wire transfer would be determined, for budgeting/accounting purposes.",
+  "plain_english_explanation": "The exchange rate applied is the TTS (Telegraphic Transfer Selling) rate as of the last business day of the month prior to when the formal quotation is issued — not the rate on the day the customer actually executes the wire transfer.",
+  "consultant_answer": "The applicable exchange rate is the TTS rate as of the last business day of the month before the formal quotation is issued, not the rate at the time you actually make the payment.",
+  "decision_logic": "Exchange-rate determination for USD-denominated invoicing is locked to the quotation issuance timing convention (prior month-end TTS), independent of the customer's actual payment execution date.",
+  "final_recommendation": "When quoting USD-denominated fees, proactively state which exchange rate and timing convention will be used so customers can budget accurately and aren't surprised by a rate different from the day they wire funds.",
+  "risk_if_done_wrong": "Customers assuming the payment-day exchange rate applies could miscalculate their actual cost or expect a different invoiced amount than what is billed.",
+  "bluetooth_tags": [
+    "TTS exchange rate",
+    "USD wire transfer",
+    "Declaration Fee",
+    "IDEAL company"
+  ],
+  "search_aliases": [
+    "exchange rate timing wire transfer",
+    "TTS rate quotation",
+    "when is forex rate fixed SIG fee"
+  ],
+  "qualification_stage": "Pre-payment / fee quotation",
+  "confidence": "high"
+}

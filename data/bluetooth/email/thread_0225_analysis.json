@@ -1,0 +1,19 @@
+{
+  "source_thread": "thread_0225",
+  "thread_analysis": {
+    "thread_summary": "IDEAL company (Satoru Sanada) engages Allion across a long single continuous thread covering multiple stages of a Bluetooth SIG registration: scope clarification (optional accessory exclusion), fee/payment mechanics (exchange rate timing, wire transfer delegation pros/cons, Invoice/Qualification Number assignment for third-party payment), Step 3 documentation (antenna datasheet substitution), and final registration steps (component test exemption, Review Page, Compliance Folder document collection).",
+    "all_questions_found": [
+      "Does an optional Bluetooth-unrelated resin cover/case accessory need to be included in registration scope?",
+      "When is the exchange rate determined for a USD-denominated Declaration Fee wire transfer?",
+      "Can the Step 3 antenna datasheet be a copy of the relevant page from the BLE module's own spec sheet?",
+      "What are the pros and cons of delegating the Declaration Fee wire transfer to Allion versus self-transfer?",
+      "If a different company will actually wire the registration fee, who gets the Qualification Number and how does the Invoice process work?",
+      "Is a test sample submission required if the relevant components already passed prior testing?"
+    ],
+    "key_technical_discussion": "Registration scope excludes Bluetooth-unrelated accessories; USD fee exchange rates are fixed to the TTS rate as of the month-end prior to quotation issuance, not the payment date; antenna datasheet requirements can be satisfied by a BLE module spec sheet excerpt containing radiation gain characteristics; Declaration Fee wire transfer can be self-executed or delegated to Allion (+¥100,000, ~3 weeks) depending on the customer's USD transfer capability and invoicing needs; Qualification Number assignment follows whichever company's account generated the Invoice, regardless of who actually pays; pre-existing passing test results exempt customers from new test sample submission.",
+    "key_decision_logic": "Each procedural question is resolved by matching the specific requirement's underlying purpose (Bluetooth relevance, technical content presence, payment capability, account ownership, prior test validity) rather than applying a blanket rule, allowing flexible but consistent application across a long multi-stage engagement.",
+    "risk_if_done_wrong": "Misapplying any of these procedural rules (scope, exchange rate timing, document substitution, payment delegation, Invoice/Qualification Number assignment, test sample exemption) could create unnecessary cost, delay, or registration ownership confusion for the customer.",
+    "consulting_mistake": "None identified — Allion provided accurate, consistent answers to each distinct procedural question across this extended engagement.",
+    "consulting_takeaway": "Long single-customer threads often contain many small but genuinely distinct procedural questions spanning different registration stages (scope, payment, documentation, final steps); each should be extracted as its own case rather than merged, since they address different rules and would otherwise be hard to retrieve individually."
+  }
+}

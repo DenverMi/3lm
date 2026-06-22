@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0226",
+  "case_id": "thread_0226_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Smart Door Controller, antenna-connector module, Fulltech via Houdy)",
+  "customer_question": "We're considering using BT 5.0's 2M PHY in the future. Would that require a separate (new) application from this current registration?",
+  "question_variants": [
+    "If we later want to use BT 5.0 2M PHY, do we need a brand-new SIG registration?",
+    "Does enabling an optional PHY feature later require its own application?"
+  ],
+  "actual_issue": "Houdy/Fulltech asked whether a future product using BT 5.0's 2M PHY feature would require an entirely separate, new SIG application, distinct from the current Smart Door Controller registration.",
+  "plain_english_explanation": "Because this registration implements a certified, antenna-connector module exempt from RF PHY testing, and references that module's QDID, all of the PHY features the module supports — 1M, 2M, and Coded — are automatically carried over to the customer's new registration. Any future product using these already-supported optional features (like 2M PHY) can be added free as a derivative product to this registration's Product List, with no separate new application required.",
+  "consultant_answer": "Since this registration implements an antenna-connector module exempt from RF PHY testing, by referencing that module's QDID, the 1M, 2M, and Coded PHY features it supports are automatically inherited by your new registration. Future products using these already-supported optional features can be added for free as derivative products to this registration's Product List — no separate (new) application is required.",
+  "decision_logic": "RF PHY feature inheritance follows from referencing a certified module's QDID — whatever PHY features that module's QDID declares become automatically available to the new registration, including options like 2M PHY, without separate testing or application, as long as the underlying module and Host Stack remain unchanged.",
+  "final_recommendation": "When a customer asks about future feature use (e.g., 2M PHY), check what PHY options the referenced module's QDID already declares — if already covered, reassure the customer that free derivative addition applies rather than a new registration.",
+  "risk_if_done_wrong": "If the customer mistakenly files a brand-new registration for a feature already covered by the inherited module QDID, they would incur unnecessary cost and effort.",
+  "bluetooth_tags": [
+    "2M PHY",
+    "derivative product",
+    "PHY feature inheritance",
+    "antenna connector exemption",
+    "Smart Door Controller",
+    "Fulltech"
+  ],
+  "search_aliases": [
+    "future 2M PHY use new application needed",
+    "PHY feature inherited from module QDID",
+    "derivative product free addition PHY option"
+  ],
+  "qualification_stage": "Post-registration / future feature planning",
+  "confidence": "high"
+}

@@ -1,46 +1,23 @@
 {
-    "source_thread": "thread_0106",
-    "cases": [
-        {
-            "case_id": "thread_0106_case_01",
-            "iut_type": "nRF53-based Zephyr product",
-            "customer_question": "Can a product using Zephyr on an nRF53 device qualify by reusing existing Zephyr Controller and Host Subsystem qualifications, and when is additional qualification required?",
-            "question_variants": [
-                "Can Zephyr OS products use existing Zephyr QDIDs for qualification?",
-                "Can I declare against Zephyr Controller and Host Subsystems?",
-                "Do I need new testing if my product uses Zephyr and no SIG profile?",
-                "How do I qualify an nRF53 product running Zephyr OS?",
-                "When is a Profile Subsystem required with Zephyr-based products?"
-            ],
-            "actual_issue": "Determining whether a Zephyr-based Bluetooth implementation can reuse existing qualified Controller and Host Subsystems through declaration or whether additional Profile Subsystem qualification evidence is required.",
-            "plain_english_explanation": "A product can often reuse existing Bluetooth-qualified software building blocks instead of creating a new qualification. The key question is whether the product stays within the scope of those qualified components and whether it implements any Bluetooth SIG-defined profiles. Profile functionality can create additional qualification obligations.",
-            "consultant_answer": "Existing Zephyr Controller Subsystem and Zephyr Host Subsystem qualifications can be referenced for products using Zephyr on nRF53 devices. If the implementation uses only proprietary functionality or does not implement SIG-defined profiles, declaration using the existing subsystem qualifications is possible. If SIG-defined profiles are implemented, a Profile Subsystem qualification supported by appropriate profile test evidence must be added and combined with the subsystem references.",
-            "decision_logic": "Qualification reuse is allowed when the product implementation remains within the scope of the qualified Zephyr Controller and Host Subsystems. Implementation of SIG-defined profiles introduces additional qualification scope requiring profile-level qualification evidence.",
-            "final_recommendation": "Verify whether any SIG-defined profiles are implemented. If not, pursue declaration using the existing qualified Zephyr Controller and Host Subsystems. If profiles are implemented, create the required Profile Subsystem qualification and combine it with the subsystem references.",
-            "risk_if_done_wrong": "Using declaration-only qualification when SIG-defined profiles are implemented can result in an incomplete or invalid qualification approach. Missing required profile qualification evidence may create registration and compliance issues.",
-            "bluetooth_tags": [
-                "qualification",
-                "declaration",
-                "QDID",
-                "controller",
-                "host",
-                "profile",
-                "Zephyr",
-                "reuse"
-            ],
-            "search_aliases": [
-                "Zephyr Controller Subsystem",
-                "Zephyr Host Subsystem",
-                "nRF53 qualification",
-                "declaration registration",
-                "profile subsystem required",
-                "reuse existing QDID",
-                "SIG profile qualification",
-                "Zephyr Bluetooth certification"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0106",
+  "case_id": "thread_0106_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "There's a yellow warning mark on Design Details in the Submission Requirements section of our Review Page -- is this a problem we need to fix before Submission?",
+  "question_variants": [
+    "Does the Design Details warning mean something is wrong with our registration?",
+    "Can we proceed to Submission despite this warning mark?",
+    "Why does this warning appear when our registration doesn't include a Host layer?"
+  ],
+  "actual_issue": "A yellow warning mark appeared on Design Details within the Submission Requirements section of the Review Page, and it needed to be clarified whether this indicated a problem requiring correction or was simply an expected notice given the registration's scope.",
+  "plain_english_explanation": "Not every warning icon on a registration review screen means something is actually wrong -- some are just informational flags about the kind of registration you're doing. Here, the warning simply reflected that this particular registration doesn't include a software/host layer, which is normal for this kind of registration and doesn't need to be fixed before submitting.",
+  "consultant_answer": "The yellow warning mark shown on Design Details in the Submission Requirements is simply an alert that this registration does not include a Host layer -- it is not an actual problem, and the registration is accepted as-is if Submission proceeds.",
+  "decision_logic": "A yellow warning mark on Design Details that reflects only the registration's lack of a Host layer is an informational notice, not a blocking issue, and does not require correction before Submission.",
+  "final_recommendation": "When a Design Details warning mark appears for a registration that intentionally does not include a Host layer (such as a Controller-only or Component-only registration), confirm with the customer that this is expected and proceed to Submission without treating it as a defect.",
+  "risk_if_done_wrong": "Treating this informational warning as a defect requiring correction could cause unnecessary delay or rework on a registration that is otherwise ready to submit.",
+  "bluetooth_tags": ["Design Details", "Submission Requirements", "Host layer", "warning mark"],
+  "search_aliases": ["yellow warning Design Details no Host layer", "Submission Requirements warning not a problem", "Controller only registration warning mark"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0081",
+  "case_id": "thread_0081_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "communications terminal",
+  "customer_question": "Our registration covers three differently-named products. Since the registration site uses the first Product Name entered as the 'Design Name,' what should we actually put there?",
+  "question_variants": [
+    "Will one of our three product names automatically become the registration's Design Name?",
+    "Should we use a unified or generic name instead of a single product's name as the Design Name?",
+    "What name should represent all three of our products in the registration?"
+  ],
+  "actual_issue": "A registration covering three distinctly-named products that share the same module and host stack would, by the registration site's own mechanics, take its 'Design Name' from whichever Product Name happened to be entered first -- which did not represent all three products well, and a deliberate choice of Design Name was needed.",
+  "plain_english_explanation": "The registration system automatically uses whichever product name you type in first as the formal internal name for the whole registration, even if that registration actually covers several different products. If those products don't share one obvious common name, just letting the system default to the first one entered could end up mislabeling the whole registration, so it's worth deliberately choosing a name that better represents the group, or simply matching the customer's own internal naming for the underlying platform.",
+  "consultant_answer": "Because of how the registration site works, whichever Product Name is entered first into the Product List becomes the registration's 'Design Name.' Since this registration covers three separate, individually-named products, a unified or generic name should be entered as the Design Name instead of defaulting to one specific product's name -- candidate examples were suggested for the customer's consideration. The customer resolved this by noting that the current/existing model is internally referred to as 'Communications Terminal,' and adopted that as the Product Name (Design Name) for the registration.",
+  "decision_logic": "Since the registration site derives the 'Design Name' from the first Product List entry, a registration covering multiple distinctly-named products should not be left to default to whichever name happens to be entered first; a unified name representing the group -- such as an existing internal platform name already used by the customer -- should be deliberately chosen instead.",
+  "final_recommendation": "When a single registration will cover multiple distinctly-named products, proactively propose and agree on a unified Design Name (ideally one already used internally by the customer for the shared platform) rather than letting the registration site default to whichever product name is entered first.",
+  "risk_if_done_wrong": "Allowing the registration site to default the Design Name to whichever product name is entered first, without considering that the registration covers multiple distinctly-named products, could result in a registration record that inaccurately represents the products it actually covers.",
+  "bluetooth_tags": ["Design Name", "Product List", "Product Name", "registration"],
+  "search_aliases": ["Design Name defaults to first Product List entry", "unified Design Name multiple products", "choose generic name multi-product registration", "registration site Design Name mechanics"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

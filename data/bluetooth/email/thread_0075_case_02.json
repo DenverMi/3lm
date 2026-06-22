@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0075",
-    "cases": [
-        {
-            "case_id": "thread_0075_case_02",
-            "iut_type": "controller",
-            "customer_question": "Can a Subset ID be used to work around a capability mismatch in a referenced Bluetooth component registration under the new qualification system?",
-            "question_variants": [
-                "Can I include a Subset ID in a new registration?",
-                "Can a Subset ID remove LE Class 1 support from a component?",
-                "Subset-based workaround for qualification inconsistency",
-                "Can a modified subset registration be reused?",
-                "Does Subset ID inclusion still work after the qualification system update?"
-            ],
-            "actual_issue": "The team investigated whether a Subset ID could be used to create a modified view of an existing component registration and then include that subset in a new qualification flow. Testing showed that the intended inclusion path was not supported.",
-            "plain_english_explanation": "A potential workaround was to create a modified subset of an existing Bluetooth component qualification and reuse it in a new registration. However, the qualification system behavior prevented that subset from being included in the desired way. As a result, the workaround was not viable.",
-            "consultant_answer": "After verification in the qualification system, the consultant confirmed that the relevant Subset ID could not be included in the new registration flow. Therefore, creating a subset that changes the capability declaration would not solve the qualification problem. The proper path is to obtain a new component qualification with the correct capability settings rather than relying on a subset-based workaround.",
-            "decision_logic": "A workaround is only valid if the resulting design artifact can actually be referenced by the qualification system. Since the Subset ID could not be included in the target registration flow, it could not be used to resolve the capability mismatch.",
-            "final_recommendation": "Do not rely on a Subset ID workaround. Obtain a new component registration or updated qualification from the component owner that directly reflects the required capability declaration.",
-            "risk_if_done_wrong": "Project planning may proceed based on an unsupported qualification path, resulting in rework, qualification delays, and the need to redesign the registration strategy later.",
-            "bluetooth_tags": [
-                "qualification",
-                "Subset ID",
-                "QDID",
-                "component",
-                "reuse",
-                "listing"
-            ],
-            "search_aliases": [
-                "Subset ID include failure",
-                "Subset not reusable",
-                "qualification system change",
-                "subset workaround invalid",
-                "component registration update",
-                "cannot include subset",
-                "new qualification system",
-                "subset design limitation"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0075",
+  "case_id": "thread_0075_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "We're registering the Bluetooth module that goes into a vehicle being built by another company. Is registering just the module enough for Bluetooth SIG compliance, or does the vehicle itself need to be registered as the final product?",
+  "question_variants": [
+    "Does the car itself need its own Bluetooth registration, separate from our module?",
+    "Is module-level registration sufficient if the module ends up inside someone else's end product?",
+    "Who is actually responsible for registering the final product in a multi-tier automotive supply chain?"
+  ],
+  "actual_issue": "The customer was registering an embedded automotive Bluetooth module destined for a vehicle program with a separate OEM (Volvo) and its own software development team, and it needed to be clarified whether registering the module alone satisfies Bluetooth SIG's requirements, or whether the vehicle itself, as the actual final product, is what should be registered.",
+  "plain_english_explanation": "Bluetooth certification is meant to cover the product that actually reaches the market and gets used by end customers -- not just an internal component buried inside it. When a Bluetooth module is built into something bigger, like a car, and that bigger product is what's actually sold, the certification is technically supposed to follow the finished product, not stop at the module level. Whether and how to handle that across a multi-company supply chain is a business decision for the companies involved, but it's important they're aware of the expectation.",
+  "consultant_answer": "Bluetooth certification, properly applied, requires the final product to be the one registered as the End Product. Registering only the embedded module (UXC) does not, by itself, fully satisfy this requirement when the module is destined for integration into a larger final product -- in this case, a vehicle being built by a separate OEM (Volvo) with its own software development organization. How this gets resolved across the supply chain is ultimately up to the OEM (Volvo), but the point needed to be raised as a message to convey to them.",
+  "decision_logic": "Bluetooth SIG registration is intended to attach to a product's actual final, as-sold form; when a registered module is only a component destined for integration into a larger final product built by a different company, registering the module alone does not necessarily complete the compliance picture, and the question of whether and how the final product gets its own registration needs to be raised with the party responsible for that final product, even though resolving it is their decision.",
+  "final_recommendation": "When registering a component (such as an embedded automotive module) that will be integrated into a larger final product built by a different company, proactively flag to the customer that the final product is, in principle, what should carry its own Bluetooth SIG registration, and let the responsible party (here, the OEM) decide how to handle that across the supply chain.",
+  "risk_if_done_wrong": "Assuming that registering the embedded module alone fully satisfies Bluetooth SIG compliance, without raising the final-product registration question with the responsible OEM, risks leaving the actual end product (the vehicle) without the registration it may be expected to carry.",
+  "bluetooth_tags": ["End Product", "final product registration", "listing", "automotive", "module"],
+  "search_aliases": ["module registration vs final product registration", "vehicle as Bluetooth end product", "OEM responsible for final product certification", "component level registration not sufficient"],
+  "qualification_stage": "planning",
+  "confidence": "medium"
 }

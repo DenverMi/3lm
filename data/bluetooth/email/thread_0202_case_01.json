@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0202",
+  "case_id": "thread_0202_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (incorporating certified module with integrated antenna)",
+  "customer_question": "The original LAPIS component QDID for the ROHM MK71511 module has expired (over 3 years old). Can we still use it for registration, or is there an alternative?",
+  "question_variants": [
+    "What do we do when the module's original QDID has passed its 3-year validity period?",
+    "The LAPIS QDID for our nRF52811 module is expired — how do we register?",
+    "Can an expired/deprecated QDID be referenced for new registration?"
+  ],
+  "actual_issue": "Teraoka Seiko (寺岡精工) wanted to register a product using the ROHM MK71511 module (based on Nordic nRF52811 chip with SoftDevice S112). The original LAPIS module QDID had exceeded its 3-year validity period and could not be used for a new registration. Nordic had prepared End Product QDIDs for S112, S113, and S140 as successors.",
+  "plain_english_explanation": "Bluetooth SIG Component QDIDs have a 3-year validity window. After that period, they cannot be referenced in new product registrations. When a module's original QDID expires, you need to identify a valid successor QDID. In this case, Nordic Semiconductor provided End Product QDIDs for each SoftDevice variant (S112, S113, S140) that can be used as the reference for a Declaration-type registration instead of the expired LAPIS QDID.",
+  "consultant_answer": "The expired LAPIS QDID cannot be used for new registration. Use Nordic's End Product QDID corresponding to the SoftDevice version implemented (S112, S113, or S140). This results in a Declaration registration — no RF testing is needed since the module is already certified. Cost: ¥100,000 declaration registration support fee + DID fee (USD 9,600 paid by customer directly to SIG).",
+  "decision_logic": "When the original module QDID is expired or deprecated, a valid successor QDID must be found. The module chipset vendor (Nordic in this case) typically provides updated QDIDs as successors. Since both the module controller and the Host Stack have valid certified QDIDs, the registration is a simple Declaration — no new testing required.",
+  "final_recommendation": "When a customer's module QDID is expired, check the chip vendor's current valid QDIDs (not the module maker's QDID, which may have lapsed). Confirm the SoftDevice/stack version the customer is implementing, then identify the matching vendor QDID for Declaration registration.",
+  "risk_if_done_wrong": "Using an expired QDID in a new registration would be rejected by the SIG portal. Missing the correct SoftDevice variant (S112 vs S113 vs S140) would require a correction.",
+  "bluetooth_tags": [
+    "QDID expiry",
+    "Declaration registration",
+    "Nordic SoftDevice",
+    "nRF52811",
+    "ROHM MK71511",
+    "Component QDID validity",
+    "LAPIS"
+  ],
+  "search_aliases": [
+    "expired QDID",
+    "QDID 3 year validity",
+    "QDID expired replacement",
+    "Nordic End Product QDID",
+    "Declaration registration no test"
+  ],
+  "qualification_stage": "Pre-registration / QDID identification",
+  "confidence": "high"
+}

@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0252",
+  "case_id": "thread_0252_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "General registration feasibility guidance (Seiko Solutions, exploring alternative controller/host stack options)",
+  "customer_question": "As our internal discussions continue, other candidate options may come up. Just in case, can you tell us the cases where a new registration would NOT be possible?",
+  "question_variants": [
+    "What are the disqualifying conditions for a new Bluetooth registration?",
+    "How can we evaluate future candidate controller/host stack combinations for registration feasibility?"
+  ],
+  "actual_issue": "The customer wanted a general framework for assessing registration feasibility for any future candidate hardware combination they might consider, rather than relying on case-by-case answers each time a new option came up.",
+  "plain_english_explanation": "Rather than listing every possible disqualifying scenario (which would be impractically numerous and case-specific), Allion reframed the question as a positive checklist: a new registration is possible whenever all four of the following conditions are met — the controller and host stack to be implemented in the product already have their own QDID/DN registrations; the referenced QDID/DN registration is not subject to Withdrawal as of the registration date; the referenced controller/host stack's Core Specification doesn't differ significantly from what's actually being implemented; and the referenced QDID/DN registration doesn't contain any fatal cross-layer inconsistency. Allion offered to verify any specific candidate combination against these four conditions using a trial Qualification Workspace project once the customer identified one.",
+  "consultant_answer": "There are too many specific disqualifying scenarios to list exhaustively, so it's more useful to frame this as what makes a new registration possible: all of the following need to be true — (1) the controller and host stack you're implementing already have their own QDID/DN registrations; (2) the referenced QDID/DN isn't subject to Withdrawal as of your registration date; (3) the referenced controller/host stack's Core Specification doesn't differ significantly from what you're actually implementing; (4) the referenced QDID/DN doesn't contain any fatal cross-layer inconsistency. Once you have a specific candidate combination in mind, let us know and we'll verify it against these conditions using a trial project.",
+  "decision_logic": "Rather than enumerating disqualifying edge cases, registration feasibility is best communicated as a positive checklist of required conditions that can be applied consistently to any future candidate combination, with an offer to verify specific cases via a trial project rather than relying on abstract rules alone.",
+  "final_recommendation": "When customers ask for a general 'what disqualifies registration' framework to evaluate future options themselves, provide the inverse positive-condition checklist instead of attempting to enumerate disqualifying scenarios, and offer concrete trial-project verification once specific candidates are identified.",
+  "risk_if_done_wrong": "Attempting to exhaustively list disqualifying scenarios could give a customer false confidence that any scenario not explicitly listed is automatically safe, when the actual determining factors (QDID/DN registration status, spec compatibility, cross-layer consistency) need case-by-case verification regardless.",
+  "bluetooth_tags": [
+    "registration feasibility checklist",
+    "QDID DN registration prerequisite",
+    "Withdrawal status check",
+    "cross-layer inconsistency check",
+    "Seiko Solutions"
+  ],
+  "search_aliases": [
+    "what makes a Bluetooth registration not possible",
+    "conditions for new Bluetooth SIG registration",
+    "how to check if controller host stack combination can be registered"
+  ],
+  "qualification_stage": "Pre-registration feasibility planning",
+  "confidence": "high"
+}

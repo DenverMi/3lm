@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0176",
+  "case_id": "thread_0176_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "IoT device using Espressif module (Teraoka Seiko)",
+  "customer_question": "After entering a TCW for an inherited ICS inconsistency, the Review Page ICS Form shows a yellow warning. Will this prevent approval? How long does SIG take to approve after we confirm submission?",
+  "question_variants": [
+    "TCW is entered and we see a yellow mark on the ICS Form. Is this blocking approval?",
+    "How many business days does it take for SIG to approve a submission that has a TCW?",
+    "After we confirm the registration, how long until we get the approval notification?"
+  ],
+  "actual_issue": "After entering the TCW number for inherited ICS inconsistencies from the Espressif module's QDIDs, the Review Page shows a yellow warning on the ICS Form. The customer wants to know if this will block approval and how long approval takes.",
+  "plain_english_explanation": "The yellow warning on the ICS Form after entering a TCW is expected and normal — it means 'there is a known, waived inconsistency here' and is not a rejection trigger. SIG staff reviews the submission manually after it is confirmed. The review typically takes 1–5 US business days (not calendar days — weekends and US public holidays don't count). After the review, SIG sends an approval notification email to the Listing Owner.",
+  "consultant_answer": "The yellow warning on the ICS Form is the correct and expected state when a TCW has been applied. It does not block approval. SIG typically completes their manual review within 1–5 US business days after submission is confirmed. You will receive an email notification when approved.",
+  "decision_logic": "TCW-covered inconsistencies are pre-approved by SIG through the waiver mechanism. The yellow indicator acknowledges their presence without blocking the registration. The 1–5 business day window reflects SIG's manual review workload, not technical processing time.",
+  "final_recommendation": "After confirming the registration with the TCW entered, wait 1–5 US business days for the SIG approval email. Do not resubmit or modify the registration during this period.",
+  "risk_if_done_wrong": "Resubmitting or modifying a submission that is already under SIG review resets the review clock and can delay the approval notification.",
+  "bluetooth_tags": [
+    "TCW",
+    "yellow warning",
+    "ICS Form",
+    "Review Page",
+    "SIG approval",
+    "approval timeline",
+    "US business days",
+    "SIG review"
+  ],
+  "search_aliases": [
+    "TCW yellow warning approval timeline",
+    "SIG review 1-5 business days",
+    "yellow ICS Form after TCW",
+    "how long SIG approval after submission",
+    "TCW approval notification SIG"
+  ],
+  "qualification_stage": "Registration / SIG submission review",
+  "confidence": "high"
+}

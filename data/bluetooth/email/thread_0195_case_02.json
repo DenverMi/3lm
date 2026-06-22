@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0195",
+  "case_id": "thread_0195_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alinco BR/EDR + BLE transceiver (IC change)",
+  "customer_question": "We referenced a QDID with Bluetooth Core version 5.2, but entered version 5.3 in the Core version field. Is this a problem?",
+  "question_variants": [
+    "Core version in registration does not match the referenced QDID version — which to use?",
+    "Can we register at a higher Bluetooth Core version than the QDID we reference?",
+    "What Core version do we enter when QDIDs with different versions are combined?"
+  ],
+  "actual_issue": "Allion entered Bluetooth Core version 5.3 in the registration, but the referenced Controller QDID is version 5.2. The registration must use the lowest Core version among all referenced QDIDs. Entering v5.3 when the QDID is v5.2 is an error — the registration does not accurately reflect the capabilities of the referenced components.",
+  "plain_english_explanation": "When you combine multiple QDIDs to create an End Product registration, the Bluetooth Core version for the registration must be the lowest (oldest) Core version among all the QDIDs you reference. This is because the product's Bluetooth compliance can only be claimed up to the capabilities of its least-advanced component. If one QDID is version 5.2, you cannot claim version 5.3 compliance for the combination — the registration must say version 5.2.",
+  "consultant_answer": "Change the Core version in the registration from v5.3 to v5.2 to match the lowest version among the referenced QDIDs. Using a higher Core version than what the referenced QDIDs support is an error — the SIG registration must reflect the actual maximum compliance level of the component combination.",
+  "decision_logic": "Core version rule: Core version in End Product registration = minimum Core version across all referenced QDIDs. If QDID A is v5.2 and QDID B is v5.3, the registration must use v5.2. This also affects which IOPT test items are applicable.",
+  "final_recommendation": "Before finalizing the registration, always identify the lowest Core version among all referenced QDIDs and use that as the registration's Core version. Do not assume the latest Core version is acceptable.",
+  "risk_if_done_wrong": "Registering at a higher Core version than the referenced QDIDs support misrepresents the product's compliance level. This is a qualification error that could be challenged by the SIG.",
+  "bluetooth_tags": [
+    "Core version",
+    "Bluetooth version",
+    "QDID version",
+    "registration error",
+    "minimum version",
+    "End Product",
+    "compliance level"
+  ],
+  "search_aliases": [
+    "Core version mismatch QDID registration",
+    "Bluetooth version registration lowest QDID",
+    "v5.2 vs v5.3 registration Core version",
+    "Core version rule multiple QDID reference",
+    "minimum Core version registration"
+  ],
+  "qualification_stage": "Registration / Configuration",
+  "confidence": "high"
+}

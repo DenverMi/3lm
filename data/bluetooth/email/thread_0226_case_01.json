@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0226",
+  "case_id": "thread_0226_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Smart Door Controller, antenna-connector module, Fulltech via Houdy)",
+  "customer_question": "On the quote request form, we couldn't find an applicable entry for 'RF PHY Optional Function (5.0 and later).' What should we do about this field?",
+  "question_variants": [
+    "We left RF PHY Optional Function blank because no item seemed to apply — is that a problem?",
+    "Do we need to declare RF PHY Optional Function info if our module doesn't support 5.0+ features?"
+  ],
+  "actual_issue": "Houdy (on behalf of Fulltech, a Smart Door Controller / SDC manufacturer) found no applicable selection for 'RF PHY Optional Function (5.0 and later)' on the quote request form and asked Allion how to proceed.",
+  "plain_english_explanation": "Because the module being implemented in this product has an antenna connector, the product is exempt from RF PHY testing. Since RF PHY exemption applies, the customer doesn't need to provide RF PHY Optional Function information at all — leaving it blank is correct.",
+  "consultant_answer": "Since the implemented module has an antenna connector, this registration is exempt from RF PHY testing, so this information is not needed.",
+  "decision_logic": "RF PHY Optional Function declaration is only relevant when RF PHY testing is in scope. Antenna-connector modules are exempt from RF PHY testing (the module's own certification already covers RF performance up to the connector), so the field is simply not applicable.",
+  "final_recommendation": "When a quote request form field appears not applicable to the customer, check first whether the module type (antenna connector vs. integrated antenna) makes that test category exempt altogether, rather than assuming missing information.",
+  "risk_if_done_wrong": "If RF PHY exemption status weren't confirmed and the field were left blank in error, the registration could later face Consistency Check failures or be flagged as incomplete.",
+  "bluetooth_tags": [
+    "RF PHY Optional Function",
+    "antenna connector exemption",
+    "Smart Door Controller",
+    "Fulltech",
+    "Houdy"
+  ],
+  "search_aliases": [
+    "RF PHY Optional Function blank quote form",
+    "antenna connector RF PHY exemption",
+    "SDC Bluetooth SIG registration"
+  ],
+  "qualification_stage": "Pre-registration / quote form clarification",
+  "confidence": "high"
+}

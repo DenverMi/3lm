@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0182",
+  "case_id": "thread_0182_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth module product (Pyke Crystal)",
+  "customer_question": "How should we handle the Compliance Folder when the required product documentation is not yet ready?",
+  "question_variants": [
+    "Can we submit the Compliance Folder with placeholder files?",
+    "What if product documents are not ready at the time of registration completion?",
+    "Is it acceptable to deliver a Compliance Folder with temporary TBD files?"
+  ],
+  "actual_issue": "Registration was completed (published April 2, ~4 months before this email) but required Compliance Folder documents (operation manual, block diagram, outline drawing, antenna datasheet) were still not submitted by the customer. Allion's job was functionally complete but the service could not be marked as finished without delivering the Compliance Folder.",
+  "plain_english_explanation": "The Compliance Folder must be created and retained by the Listing Owner (per QPRDv3). When customer documents are slow to arrive, Allion proposes delivering an 'interim' Compliance Folder on a CD-R formatted for file addition (Windows 'appendable' format) with TBD placeholder PDF files. Once the customer has the real documents, they can overwrite the placeholder files on the CD-R and finalize it themselves. The CD-R must be held by the Listing Owner and retained for 1 year after the last model in the Product List is discontinued.",
+  "consultant_answer": "Allion offered to create and deliver an interim Compliance Folder CD-R with TBD placeholder files for any documents not yet available. The CD-R is formatted as Windows 'appendable' so the customer can overwrite the placeholder PDFs with the real files once ready, then finalize (close) the CD-R. The Listing Owner keeps the CD-R and must retain it for 1 year after the last listed product is discontinued. The Compliance Folder is required to be presented if SIG requests an audit.",
+  "decision_logic": "The Compliance Folder is a retention obligation, not a submission obligation — it does not need to be submitted to SIG before or after registration. It must exist in the Listing Owner's possession and be presentable if audited. An interim CD-R with placeholder files is a practical solution when customer documentation is delayed — it allows Allion to close the service ticket while giving the customer a clear path to completing the folder themselves.",
+  "final_recommendation": "If Compliance Folder documents are delayed, request permission to deliver an interim CD-R with TBD placeholder files. Format the disc as Windows 'appendable' so the customer can overwrite with real files later. Keep the Listing Owner informed that they must finalize and retain the CD-R for 1 year after the last listed product is discontinued.",
+  "risk_if_done_wrong": "If no Compliance Folder is ever created and SIG conducts an audit, the Listing Owner would be unable to present the required documentation, potentially resulting in qualification revocation.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "CD-R",
+    "QPRDv3",
+    "Listing Owner",
+    "audit",
+    "placeholder files",
+    "product documentation"
+  ],
+  "search_aliases": [
+    "Compliance Folder placeholder",
+    "interim compliance folder CD-R",
+    "compliance folder documents not ready",
+    "TBD compliance folder",
+    "compliance folder audit retention"
+  ],
+  "qualification_stage": "Post-registration / Compliance",
+  "confidence": "high"
+}

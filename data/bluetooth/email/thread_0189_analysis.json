@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0189",
+  "thread_analysis": {
+    "thread_summary": "Alps Alpine 27BRD Bluetooth module (BR/EDR + BLE) registration for DENSO. Multi-Design registration. Process: ICS alignment, RF Class check, profile version verification during Review. Two profile version issues resolved: (1) HFP input as 1.7.2 but should be 1.8 (corrected); (2) HID tested under 1.1.1 but registered at 1.1.2 (acceptable due to identical test items and no deprecation of 1.1.1). Product name with trailing period ('XXXXX.' 7 chars) accepted by the portal. Registration submitted successfully using Invoice R078102.",
+    "all_questions_found": [
+      "Review page shows HFP 1.7.2 but test report is 1.8 — which is correct?",
+      "HID was tested under version 1.1.1, but we entered 1.1.2 — is this acceptable?",
+      "Can the product name include a trailing period (e.g., 'XXXXX.' 7 characters)?"
+    ],
+    "key_technical_discussion": "HFP version 1.7.2 was an input error — the actual tested version is 1.8 and the registration must reflect the test report. For HID, both version 1.1.1 and 1.1.2 share identical test items in the applicable TCRL package, and 1.1.1 is not yet deprecated, making it acceptable to register at 1.1.2 for a longer compliance lifespan. SIG portal accepted a product name with a trailing period without issue.",
+    "key_decision_logic": "Profile version in Qualification Workspace must match the test report (HFP correction is mandatory). Minor profile version increment is acceptable if test items are identical. Newer version preferred for longer qualification validity.",
+    "risk_if_done_wrong": "Registering a profile version that does not match the test report — particularly when test items differ — is a compliance falsification risk and could trigger a qualification challenge. Always verify test items are identical before registering at a higher version than tested.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "During the Review Page verification step, always cross-check the profile versions entered in Qualification Workspace against the actual test reports. If a minor version increment is being used, explicitly confirm the test items are identical between both versions before approving."
+  }
+}

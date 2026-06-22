@@ -1,43 +1,23 @@
 {
-    "source_thread": "thread_0076",
-    "cases": [
-        {
-            "case_id": "thread_0076_case_03",
-            "iut_type": "",
-            "customer_question": "What is a TCW and when can it be used during Bluetooth SIG registration?",
-            "question_variants": [
-                "Meaning of TCW in Bluetooth SIG",
-                "TCW number shown instead of Yes/No",
-                "How do TCWs resolve registration issues?",
-                "Inter-Layer Dependencies TCW",
-                "When is a TCW required?"
-            ],
-            "actual_issue": "The customer encountered TCW identifiers in the registration system and needed to understand their purpose in the qualification workflow.",
-            "plain_english_explanation": "TCWs are Bluetooth SIG mechanisms related to unresolved inter-layer dependency conditions within the qualification system. They provide a controlled path for submission when a dependency issue is attributable to the SIG side and requires review.",
-            "consultant_answer": "The consultant explained that TCWs are associated with Inter-Layer Dependencies. When a dependency issue cannot be resolved through normal qualification processing and the issue is attributable to the SIG-side dependency framework, an applicable TCW may be entered to allow submission subject to review and approval.",
-            "decision_logic": "TCWs are exception-handling mechanisms used only for specific dependency situations recognized by the Bluetooth SIG qualification process.",
-            "final_recommendation": "Review the applicable Inter-Layer Dependencies guidance and use a TCW only when the qualification issue matches an approved TCW condition.",
-            "risk_if_done_wrong": "Misunderstanding TCWs can lead to incorrect submission planning, unresolved dependency issues, and delays in registration review.",
-            "bluetooth_tags": [
-                "TCW",
-                "qualification",
-                "Inter-Layer Dependencies",
-                "listing",
-                "declaration"
-            ],
-            "search_aliases": [
-                "TCW meaning",
-                "Inter-Layer Dependencies",
-                "TCW submission",
-                "qualification exception",
-                "dependency resolution",
-                "TCW approval",
-                "Bluetooth SIG TCW",
-                "registration dependency issue"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0076",
+  "case_id": "thread_0076_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "Before our registration is submitted, is there a way to check exactly what a third party will see when they look up our listing -- which fields show and which don't?",
+  "question_variants": [
+    "Can we preview the public-facing version of our registration before Submission?",
+    "How do we know which Review Page fields become publicly visible?",
+    "Is there a tool to simulate the third-party view of our listing?"
+  ],
+  "actual_issue": "The customer wanted to verify, before Submission, exactly which fields of their registration would be publicly visible to a third party once published, but no direct preview tool existed for this in the current registration system.",
+  "plain_english_explanation": "There's no built-in 'preview as the public would see it' button before a registration is filed -- the registrant can only see an internal review screen at that stage. The practical way to figure out what will actually be visible later is to look at another company's listing that has already been published in the same style, and compare its visible fields against the field names on your own review screen.",
+  "consultant_answer": "After registration Submission, the Listing Owner can view the registration page even before its designated public-disclosure date, but before Submission, only the Review Page is visible -- there is no direct preview of the eventual third-party-facing view. The practical method is to look at another company's already-published QPRDv3.0 registration of a comparable type (for example, one referencing a single DN, similar to the customer's own registration) and cross-reference its publicly visible content against the Review Page's field names to determine which items will be shown to third parties.",
+  "decision_logic": "Since no direct preview of the public-facing listing exists before Submission, the way to infer which Review Page fields become publicly visible is to compare an already-published listing of a comparable registration type against the Review Page's own field names, rather than assuming a feature exists to simulate this directly.",
+  "final_recommendation": "When a customer asks to preview their listing's public-facing appearance before Submission, explain that no such direct preview exists, and instead point them to an already-published comparable registration to cross-reference against their own Review Page fields.",
+  "risk_if_done_wrong": "Assuming a direct preview tool exists, or guessing at which fields will be publicly visible without cross-referencing a comparable published listing, could lead the customer to submit content they did not realize would become publicly visible.",
+  "bluetooth_tags": ["Review Page", "QPRDv3.0", "public listing visibility", "Listing Owner", "Submission"],
+  "search_aliases": ["preview public view of registration before Submission", "Listing Owner early access before disclosure date", "compare published QPRDv3.0 listing fields", "which fields are publicly visible registration"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

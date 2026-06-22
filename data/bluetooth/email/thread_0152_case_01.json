@@ -2,6 +2,7 @@
   "source_thread": "thread_0152",
   "case_id": "thread_0152_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — USB PD product with Bluetooth module",
   "customer_question": "Our product uses USB Power Delivery (USB PD) and the voltage changes from 5V to 9V after USB PD negotiation. How should we prepare the RF test sample so the test lab can monitor the DC input voltage during testing?",
   "question_variants": [
@@ -15,8 +16,21 @@
   "decision_logic": "USB PD voltage negotiation requires the actual USB PD charger to supply the voltage transition. Fixed DC supplies bypass this negotiation and may result in incorrect operating voltage or product malfunction during RF testing. The relay board + measurement leads solution preserves the authentic power path while enabling voltage monitoring.",
   "final_recommendation": "For all USB PD products, include the AC adapter as part of the RF test sample package and prepare a relay board with GND/VBUS measurement leads. Confirm this with the customer before sample shipment.",
   "risk_if_done_wrong": "If the customer sends only the product without the AC adapter, or substitutes a fixed DC supply, the test lab cannot properly power the device during RF testing. This causes test delays, requires sample return/re-shipment, and may produce invalid RF test results.",
-  "bluetooth_tags": ["USB PD", "RF test", "sample preparation", "voltage monitoring", "relay board", "AC adapter", "VBUS"],
-  "search_aliases": ["USB PD RF test sample preparation", "relay board voltage measurement RF test", "USB Power Delivery test AC adapter", "DC input USB PD substitute"],
+  "bluetooth_tags": [
+    "USB PD",
+    "RF test",
+    "sample preparation",
+    "voltage monitoring",
+    "relay board",
+    "AC adapter",
+    "VBUS"
+  ],
+  "search_aliases": [
+    "USB PD RF test sample preparation",
+    "relay board voltage measurement RF test",
+    "USB Power Delivery test AC adapter",
+    "DC input USB PD substitute"
+  ],
   "qualification_stage": "Test Sample Preparation / RF Testing",
   "confidence": "high"
 }

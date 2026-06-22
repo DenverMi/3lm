@@ -1,47 +1,32 @@
 {
-    "source_thread": "thread_0058",
-    "cases": [
-        {
-            "case_id": "thread_0058_case_01",
-            "iut_type": "module",
-            "customer_question": "A product currently listed with one BLE module is being changed to a replacement BLE module. Does this require a new Bluetooth SIG registration, and are there restrictions on how many product models can be included in the registration?",
-            "question_variants": [
-                "Can I keep the existing Bluetooth registration if I replace the BLE module?",
-                "Does changing to a substitute BLE module require a new SIG qualification?",
-                "Can multiple product models be included when registering a product that uses a replacement BLE module?",
-                "What is the correct Bluetooth qualification path after an end-of-life BLE module replacement?",
-                "Do I need a new declaration when the Bluetooth module changes but the product family stays the same?"
-            ],
-            "actual_issue": "Determining the correct Bluetooth SIG qualification and listing approach when an existing qualified product is redesigned to use a different BLE module.",
-            "plain_english_explanation": "The Bluetooth-qualified part of the product changed because the BLE module was replaced. Even if the end product name remains the same, the Bluetooth qualification basis is different. The registration must therefore be handled as a new qualification activity rather than simply reusing the previous listing unchanged.",
-            "consultant_answer": "A BLE module replacement changes the qualified Bluetooth design being relied upon, so the product should be processed through a new Bluetooth SIG registration workflow. The initial registration requires creation of a new qualification submission and supporting compliance documentation. At least one model is registered in the initial process, and additional variants can be managed afterward through the product-listing process. Review-page validation, member-record verification, and compliance-folder preparation are part of completing the qualification package.",
-            "decision_logic": "The deciding factor is whether the Bluetooth implementation being qualified has changed. Replacing the BLE module changes the underlying qualified Bluetooth design, so the existing registration cannot simply be reused without a new qualification submission and associated listing activities.",
-            "final_recommendation": "Create a new Bluetooth SIG qualification submission for the product using the replacement BLE module, prepare the required compliance-folder evidence and qualification inputs, complete the initial registration, and then add any additional product variants through the appropriate listing process.",
-            "risk_if_done_wrong": "Treating the module replacement as an unchanged qualification can result in an incorrect Bluetooth SIG listing, qualification non-compliance, administrative rework, and delays while registration records and supporting documentation are corrected.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "module",
-                "BLE",
-                "design change",
-                "compliance folder",
-                "TCW"
-            ],
-            "search_aliases": [
-                "BLE module replacement",
-                "replacement module qualification",
-                "new SIG registration required",
-                "module change listing",
-                "Bluetooth design change",
-                "new qualification submission",
-                "product listing variant",
-                "compliance folder preparation",
-                "review page verification",
-                "TCW question"
-            ],
-            "qualification_stage": "post-launch change",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0058",
+  "case_id": "thread_0058_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Review Page interpretation -- previewing public visibility before Submission, the precise meaning of a TCW ID shown instead of Yes/No, and blank auto-populated Member Detail fields",
+  "customer_question": "Is there a way to confirm how our registration will appear to third parties once public, since some Review Page items may or may not actually be publicly displayed? Also, what does it mean that a field shows a TCW ID number (e.g., ES-25636) instead of a simple Yes/No? And are blank fields like Company City a problem?",
+  "question_variants": [
+    "Is there a public preview mode for a registration before Submission?",
+    "Does a TCW reference always indicate a problem the registrant caused?"
+  ],
+  "actual_issue": "The customer, working with SIG's redesigned registration system for the first time, had three distinct points of confusion while reviewing their Review Page before finalizing: whether the page accurately represented what would become publicly visible, what a TCW reference number actually meant, and whether blank Member Detail fields would block registration.",
+  "plain_english_explanation": "There is no formal public-preview feature before Submission -- after Submission, the Listing Owner can view the registration page even before the public disclosure date, but before Submission only the Review Page (an internal confirmation view, not necessarily an exact mirror of what becomes public) is viewable. The practical way to infer what will actually be publicly visible is to look at OTHER companies' already-published registrations with a similar structure (e.g., a single-DN-referenced registration matching your own registration's shape) and cross-reference their publicly displayed fields against the Review Page's field names. Regarding TCW: it stands for Test Case Waiver, and per SIG's 'Inter-Layer Dependencies' Help & Support page, it specifically applies when an Inter-Layer Dependency conflict that is SIG's OWN responsibility (i.e., baked into the referenced existing QDID combination, not something the registrant introduced) cannot otherwise be resolved -- entering the corresponding TCW ID number allows Submission to proceed (after SIG's confirmation/approval) despite the otherwise-unresolved dependency conflict. This is different from a registrant-caused inconsistency that the registrant could fix by editing their own ICS. Finally, regarding blank Member Detail fields (like Company City): these fields are auto-populated from the company's Member registration database and are not editable during the product registration process itself -- based on past experience, having them blank does not block a new product registration from completing. To actually fix them, the company's designated Primary Contact individual needs to separately request a correction to the company address in the Member registration database, outside of the product registration flow.",
+  "consultant_answer": "There's no formal public preview before Submission -- after Submission, you (as Listing Owner) can view the page even before the public disclosure date, but beforehand only the Review Page is visible. To get a sense of what will actually be public, look at other companies' already-published registrations with a similar structure and compare their displayed fields against your Review Page's field names. TCW stands for Test Case Waiver -- see the 'Inter-Layer Dependencies' Help & Support page; in short, it applies when an Inter-Layer Dependency conflict that's SIG's own responsibility (built into the referenced QDID combination) can't otherwise be resolved, and entering the TCW ID lets Submission proceed after SIG's approval. And blank Member Detail fields like Company City are auto-populated from the Member database, not editable here, and don't block registration -- to fix them, have your Primary Contact request a correction to the Member registration database separately.",
+  "decision_logic": "When a customer asks how to verify what will become publicly visible before Submission, point them to comparing already-published similar-structure registrations against the Review Page rather than claiming a formal preview exists; when a TCW ID appears instead of Yes/No, explain it specifically denotes a SIG-side inter-layer dependency conflict resolved via waiver, not a registrant-caused error; and reassure customers that blank, auto-populated Member Detail fields don't block registration, directing any correction request to the Primary Contact's separate Member-database update process.",
+  "final_recommendation": "When a customer working with the redesigned registration system raises Review Page confusion, proactively explain the absence of a formal public preview (with the comparable-registration workaround), clarify TCW's specific SIG-side-fault scope, and distinguish Member Detail auto-populated fields (harmless if blank, fixed via a separate process) from the registrant's own ICS/Product List content.",
+  "risk_if_done_wrong": "A customer might delay Submission unnecessarily worrying about blank Member Detail fields, or might misunderstand a TCW reference as indicating a registrant-caused defect requiring their own remediation when it actually reflects a SIG-side inter-layer dependency already accounted for via the waiver process.",
+  "bluetooth_tags": [
+    "Review Page public visibility preview workaround",
+    "TCW Test Case Waiver SIG side inter-layer dependency",
+    "blank Member Detail fields auto populated harmless",
+    "Sharp NOKE BLE module"
+  ],
+  "search_aliases": [
+    "how to preview what is publicly visible before Bluetooth registration Submission",
+    "what does TCW ID number mean Bluetooth registration",
+    "is blank Company City field a problem SIG registration",
+    "Inter-Layer Dependencies TCW explanation"
+  ],
+  "qualification_stage": "Pre-Submission Review Page interpretation",
+  "confidence": "high"
 }

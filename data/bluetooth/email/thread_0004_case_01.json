@@ -1,42 +1,32 @@
 {
-    "source_thread": "thread_0004",
-    "cases": [
-        {
-            "case_id": "thread_0004_case_01",
-            "iut_type": "",
-            "customer_question": "Can we provide antenna gain values including cable loss, and should the loss be based on the product cable or measurement cable for Bluetooth RF testing?",
-            "question_variants": [
-                "Is it acceptable to submit antenna + cable loss instead of antenna-only gain?",
-                "Can total RF path loss be used when antenna-only data is unavailable?",
-                "Should cable loss in RF test documentation refer to product cable or measurement cable?",
-                "What value should be entered if antenna gain alone is not measured?",
-                "For Bluetooth RF test plans, can we use measurement cable loss values?"
-            ],
-            "actual_issue": "How to correctly report antenna-related RF parameters when standalone antenna gain is unavailable, specifically whether combined antenna and cable loss values are acceptable and which cable loss (product vs measurement setup) should be used.",
-            "plain_english_explanation": "The customer does not have a clean antenna-only measurement and instead has a combined value that includes cable loss. They are unsure if this is acceptable for Bluetooth RF testing and which cable’s loss should be documented. This matters because incorrect RF parameters can affect test validity and interpretation.",
-            "consultant_answer": "It is acceptable to provide a combined value that includes both antenna and cable loss when antenna-only data is not available. For the purpose of RF test documentation and planning, the loss value should be based on the measurement setup cable rather than the product’s internal antenna cable. If BLE test mode details are not yet finalized, the value can be temporarily marked as TBD and updated later.",
-            "decision_logic": "RF test documentation prioritizes practical measurement conditions. When antenna-only gain is unavailable, total path loss is acceptable as long as it reflects the actual test setup. Measurement cable loss is preferred because it directly impacts conducted RF test accuracy.",
-            "final_recommendation": "Submit the combined antenna + cable loss value using the measurement cable loss. Mark any unknown parameters (e.g., BLE test mode details) as TBD and update them once finalized.",
-            "risk_if_done_wrong": "Using incorrect cable loss (e.g., product cable instead of measurement cable) can lead to inaccurate RF test results, potential test failures, or the need to repeat RF testing due to inconsistent or non-representative data.",
-            "bluetooth_tags": [
-                "RF",
-                "RF PHY",
-                "testing",
-                "test plan",
-                "antenna",
-                "measurement setup"
-            ],
-            "search_aliases": [
-                "antenna gain with cable loss",
-                "RF cable loss measurement vs product cable",
-                "Bluetooth RF test antenna value",
-                "conducted RF loss input",
-                "antenna gain unavailable workaround",
-                "RF test setup cable loss"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0004",
+  "case_id": "thread_0004_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine UXC10, automotive infotainment module for Volvo), RF/RF PHY test setup antenna and cable loss value",
+  "customer_question": "We don't have a value for the antenna alone, so the figure we're providing includes cable loss as well -- is that acceptable? Also, is this cable loss value for the product's own antenna cable, or for the measurement cable? Our attached file currently lists the measurement cable's loss value. Also, we're still finalizing the BLE test mode, so please leave that as TBD for now.",
+  "question_variants": [
+    "Can we provide a combined antenna-plus-cable-loss figure instead of an antenna-only value?",
+    "Should the path loss figure reflect the product's own antenna cable or the lab's measurement cable?"
+  ],
+  "actual_issue": "The customer needed to confirm whether a combined antenna-plus-cable-loss value (rather than an antenna-only value) was acceptable for RF test path loss compensation purposes, and needed clarification on which specific cable's loss value was being requested (the product's own antenna cable versus the lab's measurement cable), while also flagging that the BLE test mode configuration was still undecided.",
+  "plain_english_explanation": "For RF test path loss compensation, a combined antenna-plus-connection-cable total value is acceptable when an antenna-only value isn't available -- the lab doesn't require the two figures to be separated. The specific cable loss value needed is the measurement cable's loss (i.e., the cable used to connect the DUT to the test system for measurement purposes), not the product's own internal antenna cable -- which is what the customer had already filled in by default, confirming their assumption was correct. The BLE test mode being left as TBD pending the customer's internal decision was acceptable, to be filled in once determined.",
+  "consultant_answer": "Yes, a combined antenna-plus-connection-cable total value is fine -- we don't need the antenna-only figure separated out. And yes, the loss value needed is for the measurement cable, not the product's own antenna cable, so what you've already filled in is correct. Leaving the BLE test mode as TBD for now is fine -- just let us know once it's decided.",
+  "decision_logic": "When a customer cannot provide an antenna-only loss value, accept a combined antenna-plus-cable total figure for RF test path loss compensation purposes, and clarify explicitly which specific cable (product's own antenna cable vs. the measurement/connection cable used for testing) the requested loss value refers to, since this ambiguity is a common point of confusion when a test sample documentation template doesn't specify.",
+  "final_recommendation": "When requesting cable/antenna loss values from a customer for RF test setup, proactively specify whether an antenna-only or combined figure is acceptable, and explicitly clarify which physical cable (product's internal antenna cable vs. the lab's measurement/connection cable) the requested value refers to, to avoid customers guessing or providing the wrong figure.",
+  "risk_if_done_wrong": "If the wrong cable's loss value were used in path loss compensation calculations, RF test measurement results could be inaccurately compensated, potentially producing incorrect Pass/Fail determinations.",
+  "bluetooth_tags": [
+    "RF test path loss compensation",
+    "antenna cable loss vs measurement cable loss",
+    "combined antenna and cable loss value",
+    "Alps Alpine UXC10",
+    "Volvo automotive infotainment"
+  ],
+  "search_aliases": [
+    "antenna only loss value not available combined ok",
+    "measurement cable loss vs product antenna cable loss",
+    "RF test path loss compensation cable value clarification"
+  ],
+  "qualification_stage": "RF test setup / test plan preparation",
+  "confidence": "medium"
 }

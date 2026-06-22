@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0256",
+  "case_id": "thread_0256_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product retest requiring per-test-case firmware swapping (DensoTen)",
+  "customer_question": "Our retest plan requires swapping in a different firmware fix for each individual failing test case (since each fix targets a specific test case and replaces the prior one). Is this an acceptable approach for Bluetooth certification testing, and is there an additional cost for the extra lab effort this requires?",
+  "question_variants": [
+    "Is testing each failing test case with its own dedicated firmware fix an acceptable certification methodology?",
+    "Does swapping firmware repeatedly per test case create any certification validity concern?"
+  ],
+  "actual_issue": "The customer's troubleshooting approach required loading a different, test-case-specific firmware update onto the DUT for each individual failing test case (since later updates would replace and invalidate earlier ones), and Allion needed to assess whether this was actually compatible with how Bluetooth certification testing is meant to be conducted, before agreeing to support it operationally.",
+  "plain_english_explanation": "Bluetooth certification testing is fundamentally meant to validate a single, final mass-production firmware specification — Allion flagged that repeatedly swapping in a different, test-case-specific firmware fix for each individual failing item is an irregular departure from that normal practice, since it means no single firmware version is actually being tested against the complete set of test cases at once. Despite this irregularity, Allion agreed to proceed pragmatically given the practical constraints of the retest situation, while requiring the lab-side effort of performing repeated firmware updates (roughly 5-10 minutes per swap) to be billed as an additional cost beyond the original testing scope, and an internal check (with Sakai) on whether this approach could still validly support certification overall before fully committing to it.",
+  "consultant_answer": "We want to flag that Bluetooth certification testing is meant to validate a single, final mass-production firmware specification — swapping in a different test-case-specific firmware fix for each failing item, where each update replaces and invalidates the prior one, is an irregular departure from that normal practice. We're checking internally whether this approach can still validly support certification before fully committing. If we do proceed this way, the repeated firmware update work (about 5-10 minutes per swap) will need to be billed as additional cost beyond your original testing scope.",
+  "decision_logic": "Per-test-case firmware swapping during retest should be explicitly flagged as a departure from certification testing's mass-production-specification premise, with the certification body completing an internal validity check before committing to support it operationally, and any additional lab effort required should be billed separately from the original scope.",
+  "final_recommendation": "When a customer's retest plan involves repeatedly swapping firmware per individual failing test case, proactively flag this as a departure from standard certification testing practice, complete an internal validity assessment before fully committing, and quote the additional lab effort as a separate cost item.",
+  "risk_if_done_wrong": "Proceeding with per-test-case firmware swapping without first validating whether this approach genuinely supports a valid certification outcome could risk producing a registration that doesn't actually correspond to any single, coherent firmware specification ever fully tested as a whole.",
+  "bluetooth_tags": [
+    "per test case firmware swap retest",
+    "mass production specification certification testing",
+    "irregular retest methodology",
+    "additional cost lab effort",
+    "DensoTen"
+  ],
+  "search_aliases": [
+    "is swapping firmware per test case acceptable for certification",
+    "mass production spec Bluetooth certification testing requirement",
+    "additional cost for repeated firmware updates during retest"
+  ],
+  "qualification_stage": "Test execution / retest planning",
+  "confidence": "medium"
+}

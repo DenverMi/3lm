@@ -2,6 +2,7 @@
   "source_thread": "thread_0149",
   "case_id": "thread_0149_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product",
   "customer_question": "When should we register with the SIG? Our product is planned to launch in September. Can we register before the product is commercially available?",
   "question_variants": [
@@ -15,8 +16,19 @@
   "decision_logic": "The 90-day advance window protects customers from being caught by new SIG qualification rules introduced after their registration date. Registering ~3 months before launch minimizes exposure to mid-process rule changes.",
   "final_recommendation": "Register approximately 3 months before the planned product launch date. Use the 90-day advance Submission Date feature to set the date forward if needed.",
   "risk_if_done_wrong": "Waiting until the last minute before launch risks encountering new SIG Consistency Check rules that require rework. New rules only apply to registrations created after the rule effective date, so early registration avoids this risk.",
-  "bluetooth_tags": ["registration timing", "Submission Date", "90-day advance", "SIG qualification", "product launch"],
-  "search_aliases": ["advance registration SIG", "register before launch", "SIG 90 days advance", "registration timing product launch"],
+  "bluetooth_tags": [
+    "registration timing",
+    "Submission Date",
+    "90-day advance",
+    "SIG qualification",
+    "product launch"
+  ],
+  "search_aliases": [
+    "advance registration SIG",
+    "register before launch",
+    "SIG 90 days advance",
+    "registration timing product launch"
+  ],
   "qualification_stage": "Registration Planning",
   "confidence": "high"
 }

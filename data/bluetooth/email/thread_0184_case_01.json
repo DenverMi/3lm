@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0184",
+  "case_id": "thread_0184_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "OM Digital Solutions camera (WICED/Infineon Bluetooth module, HFP)",
+  "customer_question": "The profile QDID previously used for HFP registration is now deprecated. Can we still register without performing HFP PTS testing?",
+  "question_variants": [
+    "HFP profile QDID is deprecated — how do we register without new PTS testing?",
+    "Can we find an alternative Profile Subsystem QDID that includes HFP to avoid re-testing?",
+    "Past registration used HFP QDID that is now retired — what are our options?"
+  ],
+  "actual_issue": "OM Digital Solutions uses a Bluetooth module (WICED/Infineon/Cypress SDK). The previously used Profile Subsystem QDID that included HFP is now deprecated (廃止バージョン). The customer wants to register the new model without performing HFP PTS testing, but the old QDID cannot be referenced.",
+  "plain_english_explanation": "Bluetooth SIG requires profile test reports unless you reference a valid (non-deprecated) Profile Subsystem QDID that already covers those profiles. When the previously used HFP QDID is deprecated, you cannot reference it. However, if there is another valid (non-deprecated) Profile Subsystem QDID from the same or a successor SDK that includes HFP, you can reference that instead — avoiding the need for a new HFP PTS test report. Allion identified that Infineon (Cypress' successor) registered an 'AIROC Bluetooth Audio Profile Package' QDID that includes HFP 1.8 and is still valid.",
+  "consultant_answer": "The old WICED Audio Package Profile Subsystem QDID is deprecated and cannot be referenced. All subsequent WICED-era Profile registrations also contain deprecated HFP versions. However, Infineon's AIROC Bluetooth Audio Profile Package QDID (registered after Infineon took over Cypress) includes HFP 1.8 and is currently valid. By referencing this QDID along with the module QDID, the registration can proceed without uploading a new HFP PTS test report.",
+  "decision_logic": "When a previously used Profile Subsystem QDID is deprecated, search for a valid successor QDID from the same chipset/SDK lineage that covers the required profiles. If found and it is valid (not deprecated), it can be referenced in the new product registration, exempting those profile tests. This is the same mechanism as the original registration — exemption via QDID reference, not via test report.",
+  "final_recommendation": "Identify whether the chipset/module vendor has a current valid Profile Subsystem QDID that covers the required profiles (HFP in this case). Reference the valid QDID in the product registration to exempt those profile tests. Do not attempt to reference deprecated QDIDs — the SIG portal will reject them.",
+  "risk_if_done_wrong": "Attempting to reference a deprecated Profile Subsystem QDID will fail — the SIG portal will not allow it. Without a valid QDID reference, HFP PTS testing would be mandatory.",
+  "bluetooth_tags": [
+    "HFP",
+    "Profile Subsystem QDID",
+    "deprecated QDID",
+    "WICED",
+    "Infineon",
+    "Cypress",
+    "AIROC",
+    "profile test exemption"
+  ],
+  "search_aliases": [
+    "deprecated profile QDID workaround",
+    "HFP QDID deprecated alternative",
+    "Infineon AIROC profile QDID",
+    "WICED profile QDID expired",
+    "profile test exemption via QDID reference"
+  ],
+  "qualification_stage": "Registration / Test Planning",
+  "confidence": "high"
+}

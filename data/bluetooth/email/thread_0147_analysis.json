@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0147",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "AlpsAlpine 27BRD project thread (1792 lines). Covers full test execution lifecycle: RF PHY test (pass), RF test (pass), and profile tests for OPP and AVRCP (initial fail, root cause found, re-test pass). Three key technical/administrative findings: (1) A&W Bluetooth Stack 5.4 Host QDID combined with v5.2 Controller QDID generated 16 IDL Consistency Check errors due to spec version mismatch — resolved by switching to A&W v5.2 Host Stack QDID; (2) SIG Launchstudio login field changed from Username to Email Address; (3) Compliance Folder document list for End Product confirmed (operation manual, block diagram, outline drawing, antenna data sheet with radiation gain). Customer also requested early invoice issuance before work completion, which Allion accommodated.",
     "all_questions_found": [
       "Why do we see 16 IDL errors when combining A&W Bluetooth Stack 5.4 QDID with a v5.2 Controller QDID?",

@@ -2,6 +2,7 @@
   "source_thread": "thread_0112",
   "case_id": "thread_0112_case_03",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "",
   "customer_question": "On the registration Review Page, a Submission Requirement item shows a yellow warning due to a Consistency Check 'Invalid' that can't be resolved - is it OK to proceed with submission?",
   "question_variants": [
@@ -16,7 +17,13 @@
   "decision_logic": "A yellow/orange Consistency Check 'Invalid' warning on the Review Page's Submission Requirements does not necessarily block submission - if the inconsistency originates from SIG's own referenced registration data (SIG-caused) and is covered by an SIG-allowed Test Case Waiver (TCW), the customer can proceed with Submission. SIG staff then review and approve the submission (1-5 business days), with approval confirmed via email notification.",
   "final_recommendation": "If a Consistency Check 'Invalid' warning appears on the Review Page and is determined to be SIG-caused and covered by an applicable TCW, proceed with Submission; expect SIG approval and email notification within 1-5 business days.",
   "risk_if_done_wrong": "If the customer were to delay or avoid Submission due to this warning without recognizing it as an SIG-caused issue covered by TCW, the registration process could be unnecessarily stalled.",
-  "bluetooth_tags": ["qualification", "consistency check", "TCW", "listing", "declaration"],
+  "bluetooth_tags": [
+    "qualification",
+    "consistency check",
+    "TCW",
+    "listing",
+    "declaration"
+  ],
   "search_aliases": [
     "Consistency Check Invalid yellow warning Review Page",
     "Submission Requirement warning SIG-caused",

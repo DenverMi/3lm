@@ -1,44 +1,24 @@
 {
-    "source_thread": "thread_0064",
-    "cases": [
-        {
-            "case_id": "thread_0064_case_01",
-            "iut_type": "toilet sensor",
-            "customer_question": "When rebranding and reselling an unchanged Bluetooth product acquired from another company, how should Bluetooth SIG listing be handled and when must the listing be completed?",
-            "question_variants": [
-                "Can we reuse the previous company's Bluetooth SIG qualification for an acquired product?",
-                "Do we need a new Bluetooth SIG registration after a business transfer?",
-                "When must Bluetooth SIG listing be completed before product launch?",
-                "Can an inherited Bluetooth product be listed under a new brand?",
-                "What is the qualification approach for a product acquisition with no design changes?"
-            ],
-            "actual_issue": "A company acquired an existing Bluetooth product and wanted to continue selling the same design under its own brand while relying on the predecessor's qualification assets and determining the correct Bluetooth SIG listing timing.",
-            "plain_english_explanation": "The product design did not change, but ownership and branding changed. The company needed to know whether it could reuse existing Bluetooth qualification assets and when the Bluetooth SIG listing had to be completed. The key concern was remaining compliant while avoiding unnecessary requalification work.",
-            "consultant_answer": "The consultant confirmed that the inherited qualification information and compliance documentation could be reused for the unchanged product. Bluetooth SIG listing must be completed before the product is publicly disclosed to third parties, not merely before sales begin. Public disclosure includes activities such as press releases, exhibitions, website publication, or distribution of marketing materials. Qualification fee payment must be completed before the registration operation is performed.",
-            "decision_logic": "An unchanged inherited design can continue using existing qualification assets, but Bluetooth SIG compliance requires the product to be listed before public disclosure. The trigger is public visibility of the Bluetooth product rather than the commercial sales date.",
-            "final_recommendation": "Reuse the inherited qualification assets and compliance documentation where applicable, complete qualification fee payment, and ensure Bluetooth SIG listing is completed before any public announcement, marketing activity, or product disclosure.",
-            "risk_if_done_wrong": "The product could be publicly disclosed before Bluetooth SIG listing is completed, creating a compliance issue and potentially delaying launch activities until registration is finalized.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "reuse",
-                "compliance folder",
-                "product transfer",
-                "declaration"
-            ],
-            "search_aliases": [
-                "acquired product qualification",
-                "rebranded Bluetooth product",
-                "business transfer listing",
-                "reuse existing qualification",
-                "public disclosure before listing",
-                "Bluetooth SIG listing timing",
-                "inherited compliance folder",
-                "unchanged design reuse"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0064",
+  "case_id": "thread_0064_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "The Invoice for our Bluetooth SIG registration was issued under a different staff member's account name than the one we expected -- does the registration need to use that same account, or can we have it done under a different name, and how?",
+  "question_variants": [
+    "Does our SIG Receipt Number only work with the account that issued the Invoice?",
+    "Can we get the registration done under a different employee's account name instead?",
+    "What's needed to move a Receipt Number to a different account?",
+    "Why couldn't we log in with the credentials given for the registration confirmation document?"
+  ],
+  "actual_issue": "The Invoice for the customer's Bluetooth SIG registration was issued under the consultant's standard internal account name (rather than a name the customer expected), and it needed to be clarified whether the registration could proceed under that account, or whether the customer's preferred named account could be used instead, including what that would require.",
+  "plain_english_explanation": "Bluetooth SIG ties a registration's payment receipt to the specific account that paid for it. If the consultant invoices under their usual internal account, the actual registration also has to be done under that same account -- you can't pay under one account and register under another without formally transferring the receipt first. The customer can either accept registering under the consultant's existing account, or go through the extra step of setting up a new account and having Bluetooth SIG transfer the receipt to it.",
+  "consultant_answer": "Registration has historically been performed under the consultant's standard named account, which is why the Invoice was issued under that name. The login account used to issue the Invoice must match the login account used to perform the registration, because the Receipt Number is tied to that account and cannot be used for registration under a different one. If the customer is fine with registration proceeding under the existing account, the consultant can continue immediately. If the customer instead wants registration under a different named account, that account must first be created with valid login credentials, and then a Transfer Request must be submitted to Bluetooth SIG to move the Receipt Number from the existing account to the new one, after which agency registration could proceed. The consultant recommended proceeding under the existing account for simplicity, and the customer agreed.",
+  "decision_logic": "A Bluetooth SIG Receipt Number is bound to the specific account that was used to issue the corresponding Invoice/payment; registering under a different account requires first creating that account and then formally transferring the Receipt Number to it via a SIG Transfer Request, which adds time and steps compared to simply proceeding under the account already tied to the Invoice.",
+  "final_recommendation": "Confirm with the customer whether they will accept registration proceeding under the account already tied to the Invoice; if so, proceed immediately. If a different named account is required, have the customer (or the responsible individual) create that account first, then submit a Transfer Request to Bluetooth SIG to move the Receipt Number before performing the registration.",
+  "risk_if_done_wrong": "Attempting to perform the registration under an account different from the one that issued the Invoice, without first completing a SIG Transfer Request, would leave the Receipt Number unusable for that registration and stall the process.",
+  "bluetooth_tags": ["Receipt Number", "Invoice", "Transfer Request", "agency registration", "listing"],
+  "search_aliases": ["Receipt Number tied to invoicing account", "SIG account mismatch registration", "Transfer Request move Receipt Number", "register under different account name"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0235",
+  "case_id": "thread_0235_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Atago, contact Jun Osuga)",
+  "customer_question": "Where should the product specification documents be stored — at our company or at Allion's? Is it correct that these documents are only needed by the time of a SIG audit (which has no determined date)?",
+  "question_variants": [
+    "Who is responsible for storing product spec documents — us or Allion?",
+    "Do we only need to have the documents ready by the time of an eventual audit, whenever that happens?"
+  ],
+  "actual_issue": "The customer wanted to understand who bears document storage responsibility post-registration and on what timeline, since they assumed they could prepare documentation only if and when an audit was actually announced.",
+  "plain_english_explanation": "Registration is already complete, and the product can be announced or sold starting from the public registration date. The party responsible for storing the Compliance Folder documentation is the Listing Owner — in this case, the customer, not Allion. Because SIG doesn't specify an exact start date for when storage must begin, Allion's guidance is to treat it as needing to be stored 'promptly after registration,' not merely held in reserve until an audit is eventually announced. The fixed, clearly defined rule is the retention end date: the documentation must be kept for one year after the last Product-List-listed model stops being sold, ready to present if SIG audits. Audits themselves are infrequent, generally triggered only by SIG suspicion about a registration or a third-party violation report.",
+  "consultant_answer": "Registration is complete, so you can announce or sell the product from the public registration date onward. The storage obligation belongs to you, the Listing Owner — not to Allion. While SIG doesn't specify an exact start date for storage, please treat it as needing to be stored promptly after registration, not just prepared by the time of some future audit. What is clearly defined is the retention end point: keep the documentation for one year after the last listed model stops being sold, in case of a SIG audit. Audits themselves are rare, typically triggered only when SIG has specific suspicion about a registration or receives a violation report.",
+  "decision_logic": "Documentation storage responsibility always rests with the registration's Listing Owner; the absence of a SIG-specified storage start date should be treated as an instruction to store promptly, not as license to delay preparation until an audit notice arrives, since audits can occur without advance warning.",
+  "final_recommendation": "When customers ask about documentation timing obligations, correct any assumption that storage can be deferred until an audit is announced, and clearly state who (the Listing Owner) bears that responsibility.",
+  "risk_if_done_wrong": "If the customer treated documentation as only needed once an audit was announced, they could find themselves unable to produce required Compliance Folder materials in time during an actual audit, since audits arrive without significant advance notice.",
+  "bluetooth_tags": [
+    "Compliance Folder storage responsibility",
+    "Listing Owner obligation",
+    "documentation retention timing",
+    "SIG audit trigger conditions",
+    "Atago"
+  ],
+  "search_aliases": [
+    "who stores Compliance Folder documents",
+    "when must compliance documentation be ready",
+    "SIG audit trigger conditions",
+    "Listing Owner storage obligation"
+  ],
+  "qualification_stage": "Post-registration documentation",
+  "confidence": "high"
+}

@@ -1,41 +1,23 @@
 {
-    "source_thread": "thread_0101",
-    "cases": [
-        {
-            "case_id": "thread_0101_case_01",
-            "iut_type": "payment terminal",
-            "customer_question": "Should a product using a qualified MDBT42V module be registered using the Bluetooth v4.2 qualification or the successor Bluetooth v5.0 qualification?",
-            "question_variants": [
-                "Can a product based on MDBT42V use the v5.0 registration?",
-                "Should I choose the older or newer module qualification?",
-                "Is Bluetooth v5.0 registration allowed when the module also has a v4.2 qualification?",
-                "Which module qualification should be referenced for registration?",
-                "What is the recommended qualification version for a reused module?"
-            ],
-            "actual_issue": "Selecting the most appropriate qualification reference when a Bluetooth module has both an older qualification registration and a newer successor qualification registration available for reuse.",
-            "plain_english_explanation": "Some Bluetooth modules have multiple qualified registrations corresponding to different Bluetooth specification versions. A product using the module may be eligible to reference either qualification. Choosing the newer qualified registration can provide a more current qualification basis when permitted by the implementation.",
-            "consultant_answer": "The consultant identified that the module had both a Bluetooth v4.2 qualification and a successor Bluetooth v5.0 qualification. Because the customer's product was eligible to use the newer registration path, the consultant recommended using the v5.0 qualification reference rather than the older v4.2 registration.",
-            "decision_logic": "When multiple valid qualification references exist for the same module, preference should be given to the newer eligible qualification registration if it accurately represents the implementation and is accepted for the intended registration path.",
-            "final_recommendation": "Evaluate all available module qualification references and use the newest eligible qualification registration that correctly matches the product implementation.",
-            "risk_if_done_wrong": "Selecting an outdated qualification reference may limit future flexibility and result in use of a less current qualification basis when a newer valid option is available.",
-            "bluetooth_tags": [
-                "qualification",
-                "module",
-                "QDID",
-                "reuse",
-                "listing"
-            ],
-            "search_aliases": [
-                "module v4.2 vs v5.0",
-                "successor qualification",
-                "newer QDID reuse",
-                "MDBT42V qualification",
-                "qualification version selection",
-                "module registration choice"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "medium",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0101",
+  "case_id": "thread_0101_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "payment terminal",
+  "customer_question": "Our quote request listed the MDBT42V module -- there seem to be both v4.2 and v5.0 registrations for it. Which should we use?",
+  "question_variants": [
+    "Should we register under the newer v5.0 version instead of v4.2?",
+    "Does it matter which version registration we reference for this module?",
+    "Can we just stick with v4.2 if we prefer?"
+  ],
+  "actual_issue": "The customer's quote-request form referenced the MDBT42V module, which has both an older (v4.2) and a newer (v5.0) registration available, and it needed to be decided which version registration the customer's product registration should reference.",
+  "plain_english_explanation": "Some chip modules have been registered more than once over time as the Bluetooth spec has been updated, leaving an older and a newer registration record to choose from for the same physical module. The newer one is generally suggested as the better default choice, but the customer is free to use the older one instead if they prefer.",
+  "consultant_answer": "The customer was informed that MDBT42V has both a v4.2 registration and a successor v5.0 registration, and that registering under v5.0 is possible and recommended. The customer ultimately chose to proceed with the v4.2 registration instead.",
+  "decision_logic": "When a module has both an older and a newer registration version available, the newer version is the generally recommended default, but the final choice of which version to reference remains the customer's decision.",
+  "final_recommendation": "When a module has multiple registration versions available, recommend the newer version as the default while respecting the customer's right to choose an older version if they prefer it.",
+  "risk_if_done_wrong": "Not explicitly stated in the thread beyond the recommendation itself; no specific risk of using the older version was detailed.",
+  "bluetooth_tags": ["MDBT42V", "module version", "registration version choice"],
+  "search_aliases": ["module has both v4.2 and v5.0 registration", "recommend newer module registration version", "customer chooses older module version"],
+  "qualification_stage": "planning",
+  "confidence": "medium"
 }

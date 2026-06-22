@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0248",
+  "case_id": "thread_0248_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE peripheral device selection guidance (medical device project, via Shinko Shoji)",
+  "customer_question": "We want to implement several Bluetooth profiles (BLP, HRP, HTP, HOGP, GLP, CGMP, GHSP) on our BLE module acting as a central device, and need to run interoperability/communication tests against general commercially available peripheral devices for each profile. How should we go about selecting which market-available device/model supports each given profile?",
+  "question_variants": [
+    "How do we find commercially available peripheral devices that support a specific Bluetooth profile for interoperability testing?",
+    "Can you recommend specific manufacturer/model examples for each of our target profiles?"
+  ],
+  "actual_issue": "The customer (via reseller Shinko Shoji) was in early product planning for a medical-device-related BLE central device supporting multiple GATT profiles, and needed a practical method (plus concrete examples) for identifying real peripheral products to use as test counterparts for each profile, since the requirements were still not finalized.",
+  "plain_english_explanation": "To find commercially available products supporting a specific Bluetooth profile, use the Bluetooth SIG's official product search site's 'Advanced Search' feature, filtering by the profile of interest. Prioritize results from Japanese companies if any exist; if none do, use whatever overseas manufacturer's model comes up instead. For the profiles requested, Allion identified: OMRON blood pressure monitor for BLP/HRP, OMRON Fingertip Pulse Oximeter for HTP/HOGP, OMRON Blood glucose monitor for GLP, several Sinocare Inc. continuous glucose monitor models (SE201/SP201/SZ202/SC402) and a General Life Biotechnology Co. product for CGMP, and no registered products at all for GHSP.",
+  "consultant_answer": "Use the Bluetooth SIG's official product search site's Advanced Search feature, filtering by each profile, and prioritize Japanese-company results where available (falling back to overseas vendor models otherwise). Based on that search: BLP/HRP — OMRON blood pressure monitor; HTP/HOGP — OMRON Fingertip Pulse Oximeter; GLP — OMRON Blood glucose monitor; CGMP — Sinocare Inc. (models SE201, SP201, SZ202, SC402) or General Life Biotechnology Co.; GHSP — no registered products were found for this profile.",
+  "decision_logic": "When a customer needs real-world interoperability test counterparts for a Bluetooth profile, the SIG's own public product registration database (searchable by profile) is the authoritative source for identifying qualified, commercially available devices, with no guarantee that every profile will have a matching registered product.",
+  "final_recommendation": "For peripheral/counterpart device selection requests, search the Bluetooth SIG's official product database by profile rather than relying on general market research, and be upfront when a given profile has no registered products available.",
+  "risk_if_done_wrong": "Recommending an arbitrary or unverified device as a test counterpart (rather than one confirmed via the SIG's own registered-product database) could risk selecting a device that isn't actually SIG-qualified for that profile, undermining the validity of any interoperability testing performed against it.",
+  "bluetooth_tags": [
+    "BLE peripheral device selection",
+    "GATT profile interoperability testing",
+    "Bluetooth SIG product search Advanced Search",
+    "BLP HRP HTP HOGP GLP CGMP GHSP",
+    "medical device",
+    "Shinko Shoji"
+  ],
+  "search_aliases": [
+    "how to find Bluetooth SIG qualified products by profile",
+    "peripheral device for profile interoperability test",
+    "OMRON blood pressure monitor BLP",
+    "GHSP no registered products"
+  ],
+  "qualification_stage": "Pre-development / planning",
+  "confidence": "high"
+}

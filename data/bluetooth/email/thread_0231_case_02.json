@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0231",
+  "case_id": "thread_0231_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alinco DUT SoC, RF PHY logo test power class classification",
+  "customer_question": "Our measured average output power across the band (around 8.6 to 9.2 dBm) is under 10 dBm, but the IXIT file marks this DUT as supporting LE Power Class 1, which requires output power in the 10-20 dBm range. Since the DUT doesn't meet that range, should we wait for Alinco to update the firmware or hardware to raise the output power above 10dBm before continuing the test?",
+  "question_variants": [
+    "Does this DUT actually qualify as LE Power Class 1 given its measured output power?",
+    "Should we pause testing and wait for a firmware/output-power fix from the vendor?"
+  ],
+  "actual_issue": "The test lab measured output power below the 10dBm minimum required for LE Power Class 1 declared on the IXIT, and initially planned to pause testing and request the customer (via Alinco) update the DUT's firmware or hardware to raise output power, rather than question whether the Power Class 1 declaration itself was appropriate.",
+  "plain_english_explanation": "The DUT's SoC was originally qualified under Bluetooth Core Specification v5.2, a version that did not yet define the LE Power Class 1 category at all. Since Power Class 1 wasn't a defined classification at the time of that underlying SoC qualification, the DUT cannot properly be treated as a Power Class 1 device regardless of its actual measured output power — the correct fix isn't to wait for a firmware update to raise output power above 10dBm, but to change the test configuration to 'Non-power class 1' and re-run the RF PHY test under the originally attached test plan with that corrected setting.",
+  "consultant_answer": "This SoC was qualified under Core Specification v5.2, which didn't yet define the LE Power Class 1 category — so this DUT shouldn't be treated as Power Class 1 regardless of its measured output power. Please don't wait for a firmware update to raise the output power; instead, set the test configuration to 'Non-power class 1' and restart the RF PHY testing using the attached test plan with that setting.",
+  "decision_logic": "When a measured output power doesn't meet a declared Power Class threshold, first check whether the underlying SoC's original qualification Core Specification version even defines that Power Class category — if it predates the category's introduction, correct the test configuration's power class setting rather than treating the mismatch as a hardware/firmware deficiency to be fixed.",
+  "final_recommendation": "Before requesting a customer make a firmware or hardware change to meet a declared power class threshold, verify whether the underlying chip's original Core Specification qualification version actually defines that power class category at all, since an outdated qualification can make the declared class inapplicable regardless of measured performance.",
+  "risk_if_done_wrong": "Requesting an unnecessary firmware update to artificially raise output power could cost the customer significant time and engineering effort to solve a problem that was actually a test-configuration mismatch, not a real product deficiency; it also risks pushing the customer toward a higher power class than their SoC was ever designed or qualified to support.",
+  "bluetooth_tags": [
+    "LE Power Class 1 classification",
+    "output power below threshold",
+    "Core Specification v5.2 no Power Class definition",
+    "Non-power class 1 test setting",
+    "Alinco",
+    "RF PHY test"
+  ],
+  "search_aliases": [
+    "LE Power Class 1 requirement 10dBm",
+    "Core Spec v5.2 no power class defined",
+    "Non-power class 1 test configuration",
+    "output power below Power Class 1 threshold"
+  ],
+  "qualification_stage": "Test execution",
+  "confidence": "high"
+}

@@ -2,6 +2,7 @@
   "source_thread": "thread_0135",
   "case_id": "thread_0135_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "industrial/commercial device",
   "customer_question": "The RFQ form was filled in as BR/EDR/BLE, but the module being used is BLE-only. Which scope should we register?",
   "question_variants": [
@@ -14,8 +15,19 @@
   "decision_logic": "1. Confirm the module's Bluetooth feature set from its datasheet (BLE-only vs. Classic+BLE).\n2. Register only the features the module actually supports.\n3. If the RFQ entry is wrong, correct it before starting the provisional project — otherwise the ICS structure will be wrong from the beginning.",
   "final_recommendation": "When receiving an RFQ, always confirm the module's Bluetooth mode (BLE-only vs. Classic+BLE) from the datasheet. If unclear, ask the customer before building a provisional project.",
   "risk_if_done_wrong": "Building a provisional project with the wrong scope (BR/EDR for a BLE-only module) produces irreconcilable ICS errors and requires starting over.",
-  "bluetooth_tags": ["BLE-only", "BR/EDR", "ICS", "registration-scope", "module-spec"],
-  "search_aliases": ["BLE only vs BR/EDR registration scope", "Bluetooth 5.0 BLE only module", "wrong scope on RFQ correction", "Classic BLE registration difference"],
+  "bluetooth_tags": [
+    "BLE-only",
+    "BR/EDR",
+    "ICS",
+    "registration-scope",
+    "module-spec"
+  ],
+  "search_aliases": [
+    "BLE only vs BR/EDR registration scope",
+    "Bluetooth 5.0 BLE only module",
+    "wrong scope on RFQ correction",
+    "Classic BLE registration difference"
+  ],
   "qualification_stage": "pre-registration / quoting",
   "confidence": "high"
 }

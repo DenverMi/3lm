@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0166",
+  "case_id": "thread_0166_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Smart TV with Bluetooth (Sony, A2DP + AVRCP + DI)",
+  "customer_question": "We are re-registering our TV for an OS version update. The wireless module and RF specifications have not changed. Can we reuse the RF and RF PHY test reports from our previous registration?",
+  "question_variants": [
+    "Our new product is an OS update of our previously certified TV. RF specs are unchanged. Can we reuse old RF test reports?",
+    "We only updated the software — the radio hardware is the same. Do we need to redo RF testing?",
+    "Our RF module and RF performance are identical to the previously registered product. Is RF re-testing required?"
+  ],
+  "actual_issue": "Sony is registering a new product listing (OS version update of a previously certified TV). The wireless module and all RF specifications are identical to the previously certified product. They want to know if they can reuse the existing RF/RF PHY test reports from the earlier registration.",
+  "plain_english_explanation": "SIG product registration requires RF and RF PHY test reports as evidence that the product's radio meets Bluetooth specification. If the wireless module, RF circuit, and all RF-related specifications are completely unchanged from a previously registered product, the existing test reports can be reused for the new registration — no repeat RF testing is needed. However, this requires careful comparison to confirm that the Controller QDID's relevant ICS items (especially power class) match between the old and new registration. If there is any ICS difference in the RF domain, reuse may not be straightforward.",
+  "consultant_answer": "Yes, if the wireless module and RF specifications are truly unchanged, the RF/RF PHY test reports from the previous registration can be reused. Before confirming this, verify that the Controller Subsystem QDID's RF-related ICS items (especially output power class entries) match between the old and new registration. Any difference in these ICS items requires investigation.",
+  "decision_logic": "RF test scope is determined by the product's RF characteristics, not by its software version. An OS update that does not touch the RF hardware, module, or firmware does not change the RF test requirement — the same test reports remain valid evidence. However, if there is any ICS difference in the referenced QDIDs between the old and new registration, additional verification is needed to confirm the reports are still applicable.",
+  "final_recommendation": "Compare the Controller Subsystem QDID and its RF-related ICS items (especially LL power class and RF PHY power class entries) between the old registration and the new one. If they match, reuse the reports. If any ICS difference is found, investigate whether a Subset DN with matching ICS is available to allow report reuse without additional testing.",
+  "risk_if_done_wrong": "Reusing RF test reports when RF ICS items differ between the old and new QDIDs could result in submitting reports that do not accurately reflect the new registration's declared RF characteristics. SIG's review process might catch this discrepancy.",
+  "bluetooth_tags": [
+    "RF test report reuse",
+    "OS update re-registration",
+    "RF PHY",
+    "Controller QDID",
+    "ICS comparison",
+    "test report reuse"
+  ],
+  "search_aliases": [
+    "reuse RF test report OS update",
+    "RF test report old registration reuse",
+    "unchanged RF module reuse test report",
+    "SIG registration OS version update RF test",
+    "previous certification RF reuse"
+  ],
+  "qualification_stage": "Pre-registration / test scope determination",
+  "confidence": "high"
+}

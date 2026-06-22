@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0226",
+  "thread_analysis": {
+    "thread_summary": "Houdy (小山内大輔), submitting on behalf of Fulltech, requested a quote for Bluetooth SIG registration of a Smart Door Controller (SDC) — a device attached to automatic doors that communicates with a smartphone app over Bluetooth to control door opening/closing, supporting accessibility services ('Mirairo Door' speed/audio guidance, and 'FT Smart Key' app-as-key). The thread covers: a quote form question about RF PHY Optional Function (resolved via antenna-connector exemption), guidance on official Bluetooth logo usage for packaging/pamphlets, and a forward-looking question about whether future use of BT 5.0's 2M PHY would require a new application.",
+    "all_questions_found": [
+      "What should we put for RF PHY Optional Function (5.0 and later) since no item seemed to apply?",
+      "Where do we get the correct Bluetooth logo to use on packaging/pamphlets?",
+      "Does future use of BT 5.0 2M PHY require a separate new application?"
+    ],
+    "key_technical_discussion": "Antenna-connector module exemption removes the need to declare RF PHY Optional Function. PHY features (1M, 2M, Coded) supported by the referenced module's QDID are automatically inherited by the new registration and can be used by future derivative products at no extra cost. Bluetooth logo usage must rely on SIG's official distributed logo files.",
+    "key_decision_logic": "Module certification type (antenna connector vs. integrated antenna) determines RF PHY test/declaration applicability and what PHY features are inherited by downstream registrations and their derivatives.",
+    "risk_if_done_wrong": "Unnecessary new registrations could be filed for features already covered by the inherited module QDID; using unofficial logo files could create trademark compliance issues.",
+    "consulting_mistake": "None identified — Allion proactively volunteered the official logo file and clearly explained PHY feature inheritance and exemption logic.",
+    "consulting_takeaway": "Proactively supply the official Bluetooth logo file set when customers mention branding plans, and clearly explain PHY feature inheritance from a referenced module's QDID when customers ask about future feature use."
+  }
+}

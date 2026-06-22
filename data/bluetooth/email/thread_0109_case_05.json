@@ -2,6 +2,7 @@
   "source_thread": "thread_0109",
   "case_id": "thread_0109_case_05",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "module",
   "customer_question": "What value should we enter for 'Testing Voltage' in the RF test questionnaire, especially for a product that uses USB PD and negotiates from 5V to 9V?",
   "question_variants": [
@@ -17,7 +18,13 @@
   "decision_logic": "Testing Voltage = the actual DC voltage supplied to the test sample during the test, determined as follows: for a fixed-output external AC adapter, use the adapter's rated DC output (via extracted power leads); for a USB-PD or other negotiated-voltage product, send the adapter with the sample and have the lab measure and record the actual delivered DC voltage, again via extracted power leads.",
   "final_recommendation": "For the USB-PD product, ship the AC adapter together with the test sample, and prepare ~20cm power leads (+/-) extracted from the product's power input/board pattern so the lab can measure and record the actual supply voltage in the test report.",
   "risk_if_done_wrong": "Entering the product's AC rating (e.g., 100-240V) or assuming a fixed adapter DC output as the Testing Voltage for a USB-PD product would misrepresent the actual operating condition during the RF test, potentially invalidating the test result or requiring the test to be redone with correct setup.",
-  "bluetooth_tags": ["RF", "RF PHY", "test report", "module", "qualification"],
+  "bluetooth_tags": [
+    "RF",
+    "RF PHY",
+    "test report",
+    "module",
+    "qualification"
+  ],
   "search_aliases": [
     "Testing Voltage definition RF test",
     "USB PD product RF test voltage",

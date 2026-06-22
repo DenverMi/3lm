@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0232",
+  "case_id": "thread_0232_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Future derivative model registration (Sharp, same stack, different inch-size models)",
+  "customer_question": "Going forward, when registering inch-size-variant models that use the same stack, is the TCRL version that applied at our original registration locked in for future derivative additions, or would later additions need to handle a newer TCRL version? Also, if additional testing is needed, can you estimate the cost, and would it be typical for the stack holder (Toshiba) to already have completed TCRL2025-1 testing — or does the TCRL2025-1 error we saw mean their testing/registration wasn't actually complete?",
+  "question_variants": [
+    "Does the TCRL version used for the original registration carry over to future derivative-model additions, or does it update?",
+    "Why did we get a TCRL2025-1 error if the stack holder already completed testing/registration under an earlier TCRL version?"
+  ],
+  "actual_issue": "The customer wanted to plan ahead for adding future inch-size-variant models under the same stack, and was confused about why a newer TCRL version produced a Consistency Check error on a host stack ICS that had presumably already been validated by the stack holder (Toshiba) at an earlier TCRL version.",
+  "plain_english_explanation": "Once a registration is complete, the TCRL version used at that time is locked in for that registration's Product List — future derivative-model additions under the same registration don't update to a newer TCRL version, and derivative additions don't go through a Consistency Check at all. Separately, when SIG updates the TCRL version, ICS items can be added or existing Consistency Check rules can be revised, which can cause ICS content that passed cleanly under an older TCRL version to fail under the newer one. Since the existing registration referenced by the customer must have had zero Consistency Check errors at the time it was registered (otherwise it couldn't have been registered), the most likely explanation for the new TCRL2025-1 error is that the TCRL version update itself introduced a new check that exposed an issue in the host stack's ICS — not that the stack holder's original testing/registration was incomplete.",
+  "consultant_answer": "Once your registration is complete, the TCRL version at registration time is fixed for that registration's Product List going forward — future derivative-model additions stay on that locked TCRL version and don't go through a Consistency Check at all. Regarding the TCRL2025-1 error: when a TCRL version updates, new ICS items or revised Consistency Check rules can surface errors in ICS content that passed cleanly under an older version. Since the existing registration you referenced must have had zero errors at its own registration time, the TCRL version update — not incomplete testing/registration on the stack holder's part — is the most likely cause of the new error.",
+  "decision_logic": "TCRL version lock-in applies per registration at the time of that registration, with no automatic re-validation for later derivative additions; conversely, a Consistency Check error appearing only after a TCRL version update should be attributed to the rule update itself rather than assumed to indicate a flaw in a previously-clean registration.",
+  "final_recommendation": "When customers ask whether a newer TCRL version retroactively affects an existing or derivative registration, clarify that the original registration's TCRL version is locked in, and when explaining unexpected post-update Consistency Check errors, attribute them to the rule update rather than implying a fault in the original stack holder's testing.",
+  "risk_if_done_wrong": "Incorrectly suggesting the stack holder's original testing was incomplete could create unwarranted distrust toward a third-party stack vendor; failing to clarify TCRL version lock-in could cause a customer to unnecessarily worry about future derivative additions being blocked by newer TCRL rules.",
+  "bluetooth_tags": [
+    "TCRL version lock-in",
+    "derivative model TCRL version",
+    "TCRL update Consistency Check error",
+    "host stack ICS error",
+    "Sharp",
+    "Toshiba stack"
+  ],
+  "search_aliases": [
+    "does TCRL version update affect derivative registration",
+    "why did TCRL2025-1 cause new Consistency Check error",
+    "TCRL version locked at registration time"
+  ],
+  "qualification_stage": "Future registration planning",
+  "confidence": "high"
+}

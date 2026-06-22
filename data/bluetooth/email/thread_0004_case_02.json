@@ -1,41 +1,38 @@
 {
-    "source_thread": "thread_0004",
-    "cases": [
-        {
-            "case_id": "thread_0004_case_02",
-            "iut_type": "",
-            "customer_question": "Is a questionnaire required for IOPT testing if ICS has already been submitted?",
-            "question_variants": [
-                "Do we need to fill out an IOPT questionnaire if ICS is already provided?",
-                "Is an additional questionnaire required for interoperability testing?",
-                "Can ICS replace the need for IOPT questionnaire?",
-                "Are there extra forms needed for IOPT beyond ICS?",
-                "Is ICS sufficient for IOPT preparation?"
-            ],
-            "actual_issue": "Clarification on documentation requirements for IOPT testing, specifically whether a separate questionnaire is needed when ICS has already been provided.",
-            "plain_english_explanation": "The customer is unsure if they need to fill out another form for interoperability testing. They already submitted the ICS, which describes the product’s Bluetooth features. They want to avoid redundant documentation.",
-            "consultant_answer": "No additional questionnaire is required for IOPT testing if the ICS has already been provided. The ICS contains the necessary feature and configuration information used to generate the IOPT test plan.",
-            "decision_logic": "IOPT test requirements and test plan generation are driven by the ICS. If ICS is complete and submitted, it fulfills the input requirement for interoperability testing preparation.",
-            "final_recommendation": "Proceed with IOPT testing using the submitted ICS. Do not prepare or submit any अतिरिक्त questionnaire unless specifically requested by the test lab.",
-            "risk_if_done_wrong": "Unnecessary effort preparing redundant documentation, potential confusion, and delays in test preparation if teams assume additional forms are required.",
-            "bluetooth_tags": [
-                "IOPT",
-                "ICS",
-                "testing",
-                "qualification",
-                "test plan"
-            ],
-            "search_aliases": [
-                "IOPT questionnaire required",
-                "ICS sufficient for IOPT",
-                "Bluetooth interoperability documentation",
-                "IOPT input requirements",
-                "ICS vs questionnaire Bluetooth",
-                "IOPT preparation forms"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0004",
+  "case_id": "thread_0004_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine UXC10, Qualcomm SoC), Enhanced Power Control feature disabled by firmware initialization affecting RF test result interpretation",
+  "customer_question": "(Internal flag raised by the lab, to be confirmed with the vendor:) The Qualcomm SoC in this product supports Enhanced Power Control, but the product's power-on initialization routine disables this feature, so the DUT reports 'Enhanced Power Control not supported' to the tester. Can you confirm with the OEM (Volvo, referred to as 'V company') whether this is the intended product specification?",
+  "question_variants": [
+    "Should RF testing proceed treating Enhanced Power Control as unsupported, given it's disabled at the firmware level even though the chipset supports it?",
+    "Could the firmware-level disabling of a chipset-supported feature be unintentional rather than an actual product specification choice?"
+  ],
+  "actual_issue": "The product's underlying Qualcomm SoC was chipset-capable of Enhanced Power Control, but the product's own firmware initialization routine disabled this feature, causing the DUT to report it as unsupported to the RF tester -- creating a question of whether RF testing should proceed on that unsupported basis, or whether this firmware behavior might not reflect the OEM's actual intended product specification and should be flagged before finalizing test results.",
+  "plain_english_explanation": "Since the DUT's actual behavior (as observed by the tester) was to report Enhanced Power Control as unsupported -- regardless of the underlying chipset's raw capability -- RF testing was correctly conducted treating Enhanced Power Control as non-supported, since testing should reflect the product's actual configured behavior, not its chipset's theoretical maximum capability. However, because this came from a firmware initialization choice rather than a hardware limitation, it was worth proactively confirming with the OEM that disabling this feature was indeed an intentional product specification decision, rather than an unintended firmware oversight that the OEM might want to revisit before the test results and registration evidence were finalized.",
+  "consultant_answer": "We conducted RF testing treating Enhanced Power Control as non-supported, since that's what your DUT actually reports to the tester regardless of the underlying chipset's raw capability -- testing should reflect the product's actual configured behavior. That said, since this comes from a firmware initialization choice rather than a hardware limitation, please confirm with Volvo that disabling this feature is indeed their intended product specification, in case it was an unintended firmware oversight they'd want to revisit before we finalize on this basis.",
+  "decision_logic": "RF testing should always be conducted based on the product's actual observed/configured behavior as reported to the tester, not the underlying chipset's theoretical maximum capability; however, when a feature is disabled via firmware configuration rather than hardware limitation, proactively flag this to the OEM/customer to confirm it's an intentional specification choice, since firmware-level decisions are more likely to be incidental or revisable than hardware constraints.",
+  "final_recommendation": "When a chipset-capable feature is observed as disabled at the firmware level during RF testing, test according to the product's actual observed behavior, but always flag the firmware-level (versus hardware-level) origin of the limitation to the customer for confirmation, since this distinction matters for whether the limitation might still change before final product release.",
+  "risk_if_done_wrong": "If the firmware-level disabling of Enhanced Power Control turned out to be an unintended oversight rather than an intentional specification choice, the OEM might later want to enable it, requiring the RF test results and registration evidence based on the 'non-supported' configuration to be redone.",
+  "follow_up_escalation": "Roughly two weeks after the initial flag, the OEM (relaying questions originally raised by Qualcomm itself) pushed back asking the lab to substantiate its claim with documentation: (1) what document showed the SoC (QCA6698AQ) actually supports Enhanced Power Control, and (2) what log evidence showed the firmware's initialization routine was the one disabling it. The lab's answers were necessarily indirect rather than direct proof: for (1), it pointed to a different QDID's registered ICS on the SIG site (View ICS showing the RF table's EPC item as YES) as evidence the chipset itself supports EPC, plus a documented precedent from a related prior project (HM26, same QCA6698AQ chipset) where the OEM's submitted ICS said EPC:YES but the actual RF test result came back 'Not Support,' which was traced at the time to that OEM's own initialization routine disabling it -- the same pattern observed here. For (2), the lab was explicit that it has no means to inspect the customer's implementation source code or internal logs (the test sample's software is a black box to the lab), so its claim was an inference from the RF test system's own log output (the EPC test case log was attached as the closest available evidence), not a direct log capture of the firmware's initialization routine itself.",
+  "bluetooth_tags": [
+    "Enhanced Power Control disabled by firmware",
+    "chipset capability vs configured behavior",
+    "RF test reflects actual DUT behavior",
+    "Alps Alpine UXC10",
+    "Volvo OEM specification confirmation",
+    "Qualcomm SoC",
+    "evidence by precedent not direct log proof",
+    "black box DUT firmware"
+  ],
+  "search_aliases": [
+    "Enhanced Power Control reported unsupported despite chipset support",
+    "RF test actual behavior vs chipset capability",
+    "firmware disables feature confirm OEM intentional",
+    "OEM asks lab to prove EPC support claim",
+    "lab cannot access DUT firmware source black box"
+  ],
+  "qualification_stage": "RF test execution / result interpretation",
+  "confidence": "medium"
 }

@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0006",
+  "case_id": "thread_0006_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging camera), Bluetooth profile test scoping, basic ICS terminology",
+  "customer_question": "What is 'DIS ICS'? We don't understand what this term refers to or what we're being asked to provide.",
+  "question_variants": [
+    "What does ICS mean in the context of the DIS profile test?",
+    "Who within our organization is supposed to fill out this DIS ICS document?"
+  ],
+  "actual_issue": "The customer, unfamiliar with Bluetooth SIG qualification terminology, did not understand what an ICS (Implementation Conformance Statement) document was or who within their organization needed to complete it for the DIS (Device Information Service) profile test.",
+  "plain_english_explanation": "An ICS is a Bluetooth SIG-defined functional declaration statement for a profile or protocol, describing exactly which optional and mandatory features of that profile/protocol the implementation supports. For the DIS profile specifically, the customer needed to have the engineering team (whether internal or an external subcontractor) that actually implemented DIS in their product fill out the attached ICS form, since only the people who built the DIS implementation would know which specific features were included.",
+  "consultant_answer": "ICS stands for Implementation Conformance Statement — it's a Bluetooth SIG-defined functional declaration form for a specific profile or protocol. For your DIS profile test, please have whichever team or outside engineering group implemented DIS in your product fill out the attached ICS form, since they're the ones who know exactly which DIS features your implementation supports.",
+  "decision_logic": "When a customer is unfamiliar with core Bluetooth SIG qualification terminology like ICS, provide a plain definition and direct them to route the request to the specific engineering team that implemented the relevant profile, since ICS completion requires implementation-level knowledge that sales or project-management contacts typically don't have.",
+  "final_recommendation": "For customers new to Bluetooth SIG qualification, proactively explain ICS terminology in plain language at first mention rather than assuming familiarity, and clarify that ICS forms must be routed to the implementing engineering team rather than completed by a non-technical project contact.",
+  "risk_if_done_wrong": "Assuming a customer understands ICS terminology without explanation could result in the form being filled out incorrectly by someone without implementation-level knowledge, requiring rework once the actual implementing engineers are eventually looped in.",
+  "bluetooth_tags": [
+    "ICS basic definition",
+    "DIS profile",
+    "Implementation Conformance Statement explainer",
+    "Ricoh Imaging",
+    "customer unfamiliar with terminology"
+  ],
+  "search_aliases": [
+    "what is ICS Bluetooth",
+    "what is DIS ICS",
+    "who fills out ICS form",
+    "Implementation Conformance Statement explanation for new customer"
+  ],
+  "qualification_stage": "Test plan preparation",
+  "confidence": "high"
+}

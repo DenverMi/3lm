@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0274",
+  "case_id": "thread_0274_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product derivative model (Nippon Seiki sensor unit), Model Number reuse across design revisions",
+  "customer_question": "Our new sensor unit (Sensor 4) is also effectively a design-change version of a previously registered unit, but we don't change the Model Number between the old and new design — so the Product List won't visually show any distinction between pre-change and post-change versions of that same listed Model Number. Is that a problem, or do we need to register something differently to account for this?",
+  "question_variants": [
+    "Does reusing the same Model Number for both the old and new design versions cause a registration conflict?",
+    "Do we need to do anything extra if the Product List can't visually distinguish design revisions under one Model Number?"
+  ],
+  "actual_issue": "The customer's internal change-management practice didn't introduce a new Model Number for a design revision of an existing registered product, raising concern about whether the Bluetooth Product List's inability to visually distinguish the pre- and post-change versions under that single Model Number would create a compliance gap.",
+  "plain_english_explanation": "A genuine duplicate Model Number conflict (the kind that would actually cause the registration server to reject an addition) doesn't apply here, since this is a design revision treated as a derivative addition, not a literal duplicate entry attempt. What actually matters for Bluetooth SIG compliance purposes is whether the Model Number printed on the product's label or referenced on the company's website can be found by searching the SIG product registration database — Bluetooth SIG monitors the market and websites, searches for Model Numbers it encounters, and sends a registration warning notice to the selling company if no match is found. As long as the labeled Model Number does appear as a match in the registration search (which it would here, since it's already listed), there's no issue, even though the Product List itself doesn't visually distinguish between the pre- and post-revision designs under that same Model Number. The customer should specifically avoid the reverse situation: a labeled Model Number that does NOT appear in the registration search at all.",
+  "consultant_answer": "There's no registration conflict here, since this is a derivative design revision, not a literal duplicate registration attempt. What actually matters for compliance is whether the Model Number printed on your product or website can be found by searching the SIG registration database — SIG monitors the market and sends a warning notice to companies whose found Model Numbers don't show up in a registration search. Since your Model Number is already listed and searchable, you're fine, even though the Product List itself won't visually distinguish the pre- and post-revision versions under that same Model Number. Just make sure you never end up in the reverse situation — a labeled Model Number that doesn't appear in the registration search at all.",
+  "decision_logic": "Bluetooth SIG compliance for a given Model Number is determined by whether that Model Number is findable via the registration site's search function when checked against real-world product labels or marketing materials, not by whether the Product List internally distinguishes between successive design revisions sharing the same Model Number.",
+  "final_recommendation": "When a customer worries about Model Number reuse across design revisions, reframe the concern around the actual compliance risk (searchability of the labeled Model Number in the registration database) rather than the Product List's internal visual representation, and clearly flag the specific failure mode to avoid (an unsearchable labeled Model Number).",
+  "risk_if_done_wrong": "Misunderstanding this as a registration-conflict problem could lead a customer to unnecessarily create new Model Numbers for every minor design revision; conversely, failing to ensure the labeled Model Number stays searchable in the registration database could result in a genuine SIG compliance warning if the company ever shipped a Model Number that wasn't actually registered.",
+  "bluetooth_tags": [
+    "Model Number reuse design revision",
+    "SIG market surveillance Model Number search",
+    "Product List visual distinction not required",
+    "registration warning notice trigger",
+    "Nippon Seiki"
+  ],
+  "search_aliases": [
+    "does reusing Model Number cause registration conflict",
+    "SIG checks Model Number searchable on website",
+    "what triggers SIG registration warning notice"
+  ],
+  "qualification_stage": "Derivative model registration practice",
+  "confidence": "high"
+}

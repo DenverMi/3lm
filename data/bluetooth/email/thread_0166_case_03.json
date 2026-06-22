@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0166",
+  "case_id": "thread_0166_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Smart TV with Bluetooth (Sony, A2DP + AVRCP)",
+  "customer_question": "One test case in our PTS report passed with an older PTS version but fails with the current latest version. The chip vendor says it may be a PTS tool bug, not a DUT issue. Can we submit the test report from the older version for that one case, while using the newer version's reports for all other cases?",
+  "question_variants": [
+    "Can different test cases in the same profile use different PTS versions in the submitted test reports?",
+    "One AVRCP test case passes in an older PTS version but fails in the new one. Can I split the test reports?",
+    "Is it acceptable to submit a mix of test reports from two different PTS versions for the same profile?"
+  ],
+  "actual_issue": "During AVRCP profile testing for Sony's TV, one specific test case (AVRCP/TG/MCN/CB) passed with an older PTS version (ETS 11.5.0.5) but fails with a newer version. The chip vendor suspects the failure is a PTS tool bug. Sony wants to know if they can submit reports from two different PTS versions — the older version for the problematic test case and the current version for all others.",
+  "plain_english_explanation": "SIG accepts test reports from different PTS versions for the same profile registration as long as the overall evidence covers all required test cases. If a test case fails in the newer PTS version due to a known tool bug, but passed in an older version where the test logic was correct, using the older version's report for that specific test case is valid. The resulting submission will contain a mix of PTS version reports, which SIG accepts.",
+  "consultant_answer": "Yes, it is acceptable to split test reports across two PTS versions. Submit the older PTS version's report as evidence for the test case that is affected by the PTS bug, and use the current version's reports for all other test cases. SIG accepts this as valid evidence. The combined set of reports must cover all required test cases.",
+  "decision_logic": "SIG's requirement is that all required test cases have been tested and the DUT passed. The PTS version is a tool for generating evidence, not a required constant across all test cases. If a newer PTS version introduced a bug that causes false failures, using an older version's evidence for that specific case is a pragmatic and accepted approach. The key is that all required test cases are covered by some version's report.",
+  "final_recommendation": "For any test case where the newer PTS version produces a suspected false failure (and the older version produced a pass), use the older version's Generate Report output for that case. Document which PTS version was used for which test cases. Ensure all required test cases are covered across the combined set of reports before submitting.",
+  "risk_if_done_wrong": "Submitting only the failing newer-version report for a PTS-bug-affected test case would cause a test failure that needs to be debugged or retested — wasting time when the older version's pass is sufficient evidence. Not documenting the mixed-version approach may create confusion during SIG review.",
+  "bluetooth_tags": [
+    "PTS version",
+    "mixed PTS report",
+    "test report split",
+    "PTS bug",
+    "AVRCP",
+    "profile test evidence",
+    "SIG submission"
+  ],
+  "search_aliases": [
+    "different PTS versions same profile submission",
+    "mixed PTS report acceptable SIG",
+    "PTS bug older version pass",
+    "split test reports two PTS versions",
+    "PTS tool bug false failure older version"
+  ],
+  "qualification_stage": "Testing / PTS profile test evidence",
+  "confidence": "high"
+}

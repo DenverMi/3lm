@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0222",
+  "case_id": "thread_0222_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Powered Speaker, Premium Audio Company)",
+  "customer_question": "Instead of registering via a Multi-Design combined registration, can we instead register by referencing the DID of an already-certified product that has the same configuration as ours, and what are the cost and risk differences if we do this?",
+  "question_variants": [
+    "Is it possible to reference an existing certified product's DID for our registration instead of combining multiple designs?",
+    "Are there risks to referencing another company's certified DID if our configuration matches?"
+  ],
+  "actual_issue": "The customer wanted to reduce registration cost/effort by referencing an already-certified product's DID that shared the same configuration as their own product, rather than going through a Multi-Design combined registration.",
+  "plain_english_explanation": "Referencing another company's already-certified DID is only valid if (a) that registration belongs to the customer's actual OEM/ODM supplier, and (b) a real supply/trading relationship exists between the customer and that supplier. Simply sharing the same underlying SoC, module, or Host Stack as an unrelated certified product is not sufficient grounds to reference its DID. If the relationship is valid, the cost is the same ¥150,000 Single-Design reference rate as referencing the actual SoC/module/Host Stack directly, with no difference in certification effect or restrictions. If there's no genuine supply relationship, referencing the DID risks the real Listing Owner discovering and reporting unauthorized use to SIG, which can lead to revocation of the new registration.",
+  "consultant_answer": "Referencing an already-certified DID is acceptable only if it is your OEM/ODM supplier's own base-product registration and an actual supply relationship exists between your companies — not merely because the configuration happens to match. If valid, the cost is ¥150,000 (same Single-Design rate as referencing the SoC/module/Host Stack directly), with no difference in certification effect. If invalid, you risk the real Listing Owner reporting unauthorized reference use, which can revoke your registration.",
+  "decision_logic": "DID-reference registrations require a genuine commercial supply relationship between the referencing company and the referenced registration's Listing Owner; configuration similarity alone does not establish eligibility, and using it without a valid relationship creates legal/revocation risk.",
+  "final_recommendation": "Before proposing a DID-reference registration to reduce cost, always confirm whether the customer has an actual supply relationship with the referenced registration's Listing Owner — do not approve the approach based on configuration match alone.",
+  "risk_if_done_wrong": "Unauthorized DID referencing without a supply relationship can be reported by the legitimate Listing Owner to SIG, resulting in registration revocation for the referencing company.",
+  "bluetooth_tags": [
+    "OEM/ODM reference registration",
+    "DID reference",
+    "supply relationship requirement",
+    "Single-Design fee",
+    "Premium Audio Company"
+  ],
+  "search_aliases": [
+    "reference existing certified DID",
+    "OEM ODM registration risk",
+    "can I reuse another company's QDID",
+    "unauthorized DID reference revocation"
+  ],
+  "qualification_stage": "Pre-registration / registration method selection",
+  "confidence": "high"
+}

@@ -2,6 +2,7 @@
   "source_thread": "thread_0134",
   "case_id": "thread_0134_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "HID device",
   "customer_question": "Our previous Bluetooth keyboard registration (2021) only required HOGP testing. Why does the new registration for the same type of product now require BAS, DIS, and HIDS testing in addition to HOGP?",
   "question_variants": [
@@ -11,11 +12,23 @@
   ],
   "actual_issue": "A customer ([COMPANY] Topre) comparing their 2021 keyboard Bluetooth registration (which required only HOGP profile test) to the current 2025 registration found that the new registration requires 4 profile tests: HOGP, BAS, DIS, and HIDS. The consultant explained: the HOGP specification itself has not changed. However, since July 1, 2024, the SIG registration system's ICS consistency check rules were updated with reinforced inter-layer inconsistency detection. Under the new system, HOGP-Device role requires that BAS (Battery Service), DIS (Device Information Service), and HIDS (Human Interface Device Service) be tested as mandatory cascade requirements ('芋づる式' - chain-linked). The 2021 keyboard registration did not require these because the check rules at that time had a gap/deficiency that failed to detect this dependency. Under the new system, a HOGP device registration without BAS, DIS, and HIDS being tested (at minimum mandatory level) is no longer accepted.",
   "plain_english_explanation": "The Bluetooth SIG periodically tightens how it checks that a product's declared capabilities (ICS) are internally consistent and that dependent profiles are properly supported. The HOGP (HID Over GATT Profile) specification requires that a HID Device implement certain GATT services: Battery Service (BAS), Device Information Service (DIS), and HID Service (HIDS). Prior to July 2024, the SIG registration system's consistency checking had a gap that allowed HOGP registration without mandating BAS/DIS/HIDS testing. After July 1, 2024, these cascade requirements are now properly enforced: any HOGP registration must include at minimum the mandatory test items from BAS, DIS, and HIDS. This effectively increases the profile test scope from 1 profile to 4 profiles for any HOGP HID device registered from July 2024 onward.",
-  "consultant_answer": "昨年7月1日以降の新登録制度でチェックルールが見直され、特に階層間不整合の検出強化作業が随時行われて、従来より芋づる式に必要な試験項目が増えています。HOGP仕様書は従来から変わっていませんが、下図の要求が御社の2021年登録のKey BoardではBAS、DIS、HIDSが不要(チェックルールの不備？)であったが新制度では必須になりました。このためプロファイル試験は4プロファイルが対象となります。(Under the new registration system since July 1 of last year, check rules were revised and inter-layer inconsistency detection has been progressively reinforced, resulting in chain-linked increase in required test items compared to before. The HOGP specification itself has not changed, but BAS, DIS, and HIDS that were not required in your 2021 keyboard registration (possibly due to check rule deficiency) are now mandatory under the new system. Therefore, 4 profiles are now subject to profile testing.)",
+  "consultant_answer": "Under the new registration system since July 1 of last year, check rules were revised and inter-layer inconsistency detection has been progressively reinforced, resulting in a chain-linked increase in required test items compared to before. The HOGP specification itself has not changed, but BAS, DIS, and HIDS, which were not required in your 2021 keyboard registration (possibly due to a check rule deficiency), are now mandatory under the new system. Therefore, 4 profiles are now subject to profile testing.",
   "decision_logic": "When quoting Bluetooth profile tests for HOGP HID devices under the post-July 2024 registration system: (1) Do not rely on prior registrations' test scope as a reference - prior registrations may have had check rule gaps; (2) Mandatory profile test scope for HOGP HID Device = HOGP + BAS + DIS + HIDS (4 profiles); (3) Test at minimum the mandatory ICS items for BAS/DIS/HIDS; (4) If the customer wants additional non-mandatory features, those ICS items can be added with corresponding test items; (5) Quote 4-profile test (¥400,000 in this thread).",
   "final_recommendation": "Always quote HOGP keyboard/HID device registrations under the post-July 2024 rules as a 4-profile test: HOGP + BAS + DIS + HIDS. Do not let customers assume the test scope matches their 2021 or earlier registration. Proactively inform customers that the new registration system may reveal cascade dependencies that were not present in prior registrations.",
   "risk_if_done_wrong": "Quoting only HOGP testing (as in 2021) for a post-July 2024 HOGP device registration would result in an incomplete quote. The SIG registration system would reject or flag the registration without BAS/DIS/HIDS, leading to additional unquoted test work and potential project delays.",
-  "bluetooth_tags": ["qualification", "HOGP", "HID", "BAS", "DIS", "HIDS", "profile test", "cascade", "post-2024", "ICS", "inter-layer"],
+  "bluetooth_tags": [
+    "qualification",
+    "HOGP",
+    "HID",
+    "BAS",
+    "DIS",
+    "HIDS",
+    "profile test",
+    "cascade",
+    "post-2024",
+    "ICS",
+    "inter-layer"
+  ],
   "search_aliases": [
     "HOGP post-July 2024 BAS DIS HIDS mandatory cascade test",
     "HOGP keyboard 4 profiles required new registration system",

@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0253",
+  "case_id": "thread_0253_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging), post-registration output power correction",
+  "customer_question": "We discovered our product's BLE data-communication output power is unintentionally higher than our own specification (10dBm actual vs. 0dBm spec'd; advertising output is correctly at 0dBm). We're planning a fix to lower the data-communication output down to the specified 0dBm. Does this change require a new SIG certification retest?",
+  "question_variants": [
+    "Does correcting an output power discrepancy require re-running the certified RF test?",
+    "Is lowering output power within our registered Power Class considered a design change requiring retest?"
+  ],
+  "actual_issue": "The customer found a real-world deviation between their product's actual BLE data-communication output power and their own internal specification, and needed to know whether fixing this discrepancy (by lowering the output) would trigger a mandatory SIG retest obligation before they could ship the corrected product.",
+  "plain_english_explanation": "The certified-tester output value confirmation tied to this product's SIG registration (Class 2) has already been completed and remains valid, because lowering the data-communication output level from 10dBm to 0dBm stays within the Class 2 test specification's allowed range (greater than -10dBm and less than 10dBm) — meaning this isn't treated as a design change that falls outside the originally certified configuration, but rather a correction that stays within the already-certified, allowable radiated power range. As a result, a formal retest using the certified tester isn't mandatory, as long as the customer can independently confirm via their own spectrum analyzer or equivalent equipment that the corrected output is actually at 0dBm as intended. A retest would only become necessary if the customer's own internal design review or shipping-approval process specifically requires a certified-tester measurement report as part of its sign-off criteria.",
+  "consultant_answer": "The certified-tester output confirmation tied to your registration (Class 2) remains valid — lowering your data-communication output from 10dBm to 0dBm stays within the Class 2 test specification's allowed range (greater than -10dBm, less than 10dBm), so this isn't a design change outside your certified configuration. A formal retest isn't mandatory; you can confirm the corrected 0dBm output yourselves using your own spectrum analyzer. A retest would only be needed if your internal design review or shipping-approval process specifically requires a certified-tester measurement report.",
+  "decision_logic": "A power output correction that moves the device further within (rather than outside) its already-certified Power Class range doesn't require retest, since it remains a permissible operating point within the originally tested and certified configuration; retest necessity in such cases is driven by the customer's own internal sign-off requirements rather than by SIG's certification rules.",
+  "final_recommendation": "When a customer reports correcting an output power discrepancy that moves the device further within its already-certified Power Class range, confirm that no retest is required by SIG rules, while noting that the customer's own internal quality/shipping-approval process might still independently require a certified measurement report.",
+  "risk_if_done_wrong": "Requiring an unnecessary retest for an output correction that stays within the already-certified range would impose needless cost and delay; conversely, failing to flag that internal design-review processes might still want a certified report could leave the customer's own quality sign-off requirements unmet.",
+  "bluetooth_tags": [
+    "output power correction retest necessity",
+    "Class 2 allowed range deviation",
+    "design change vs allowable range correction",
+    "spectrum analyzer self verification",
+    "Ricoh Imaging"
+  ],
+  "search_aliases": [
+    "does lowering output power need retest",
+    "Class 2 output power allowed range -10dBm to 10dBm",
+    "output power correction within certified range no retest needed"
+  ],
+  "qualification_stage": "Post-registration product correction",
+  "confidence": "high"
+}

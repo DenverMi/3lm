@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0220",
+  "case_id": "thread_0220_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Secom Corporation security device)",
+  "customer_question": "Why did the proxy registration fee in the revised quote change from ¥150,000 (Single-Design reference) to ¥250,000 (Multi-Design reference)?",
+  "question_variants": [
+    "Is this fee increase an error, or is there a reason for the change?"
+  ],
+  "actual_issue": "The customer's original quote listed the proxy registration fee as ¥150,000 under a Single-Design reference classification, but a later revised quote changed it to ¥250,000 under a Multi-Design reference classification, without an immediately obvious explanation.",
+  "plain_english_explanation": "Bluetooth SIG's registration site was renewed in July 2024. Right after the renewal, a bug in the new site caused the registration to initially be misclassified as Single-Design reference. Once the bug was fixed, it became clear that the registration actually referenced two existing designs (identified as D044153 and D047621) as listed on the customer's quote request form, which correctly classifies it as Multi-Design reference — a higher-fee category. The fee change reflects this correction, not an arbitrary increase.",
+  "consultant_answer": "This isn't an error — Bluetooth SIG's registration site was renewed in July 2024, and a bug in the new site initially caused us to classify your registration as Single-Design reference (¥150,000). Once the bug was resolved, we found that your quote request form actually references two existing designs (D044153 and D047621), which correctly classifies this as Multi-Design reference (¥250,000). The revised quote reflects this correction.",
+  "decision_logic": "Proxy registration fee tier (Single-Design vs Multi-Design reference) is determined by how many existing designs are being referenced in the registration, not by the registration site's initial (possibly buggy) classification; corrections should be communicated transparently with the underlying cause explained.",
+  "final_recommendation": "When a fee classification changes due to a tooling bug fix rather than a quoting mistake, proactively explain the bug and the underlying design-reference count driving the correct classification, to avoid the customer assuming an unjustified price increase.",
+  "risk_if_done_wrong": "Failing to explain a fee reclassification clearly could lead the customer to believe the price increase is arbitrary or an error, damaging trust in the quote.",
+  "bluetooth_tags": [
+    "Single-Design vs Multi-Design reference",
+    "SIG site bug",
+    "proxy registration fee change",
+    "Secom"
+  ],
+  "search_aliases": [
+    "why did proxy registration fee increase",
+    "Single-Design Multi-Design reference fee difference",
+    "SIG new site bug design classification"
+  ],
+  "qualification_stage": "Pre-quotation / quote revision",
+  "confidence": "high"
+}

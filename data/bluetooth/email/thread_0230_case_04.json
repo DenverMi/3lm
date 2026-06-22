@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0230",
+  "case_id": "thread_0230_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Set-top box (STB) ICS profile-requirement review (Panasonic Connect)",
+  "customer_question": "On our profile-requirement worksheet: (1) Is 'Bluetooth Network Encapsulation Protocol — needed for PAN support, otherwise not needed' referring to Personal Area Network, i.e. whether we're sharing an internet connection over Bluetooth? (2) What exactly is the 'HOGP-Host role' that triggers a Scan Parameters Profile requirement — we couldn't find a definition of it via web search? (3) Can you give STB-relevant usage examples where this would apply?",
+  "question_variants": [
+    "Does Bluetooth Network Encapsulation Protocol only matter for sharing internet access over Bluetooth (PAN)?",
+    "What does 'HOGP-Host role' mean in the ICS, since it's not a documented term we could find?",
+    "What STB use cases would require Scan Parameters Profile / HOGP Host support?"
+  ],
+  "actual_issue": "The customer's engineering team was working through a profile-by-profile applicability worksheet for their STB and got stuck on two ICS items whose terminology and underlying scope weren't clear from public documentation or web search.",
+  "plain_english_explanation": "Bluetooth Network Encapsulation Protocol support is required whenever a device sends or receives TCP/IP packets over Bluetooth — this covers PAN-style internet-connection sharing but isn't limited to internet use specifically; any TCP/IP traffic over Bluetooth triggers the requirement. 'HOGP-Host role' is shorthand for the two Host-side ICS items listed for HOGP: 'HOGP Report Host' and 'HOGP Boot Host.' More precisely, a device that supports at least one of those two Host roles must also support the Scan Parameters Profile. For STB use cases: a generic HOGP keyboard or mouse used as STB input, or a dedicated HOGP remote control, requires the STB side to implement HOGP Report Host. HOGP Boot Host applies to devices (typically PCs) needing BIOS-level keyboard/mouse support — a role less relevant to a typical STB.",
+  "consultant_answer": "Yes, that's right — Bluetooth Network Encapsulation Protocol is needed whenever you send or receive TCP/IP packets over Bluetooth, which covers PAN-style internet sharing but isn't limited to internet use only. 'HOGP-Host role' refers collectively to the two ICS Host items 'HOGP Report Host' and 'HOGP Boot Host' — precisely, supporting at least one of those requires also supporting Scan Parameters Profile. For STB examples: using a generic HOGP keyboard/mouse, or a dedicated HOGP remote control, as STB input requires your STB to implement HOGP Report Host. HOGP Boot Host is for BIOS-level keyboard/mouse support, typically relevant to PCs rather than STBs.",
+  "decision_logic": "ICS cross-dependencies (like Scan Parameters Profile being required for any HOGP Host role support) are best explained by mapping the customer's worksheet shorthand back to the exact ICS item names and their precise dependency wording, rather than assuming the customer can infer it from general web searches.",
+  "final_recommendation": "When customers struggle with ICS terminology that doesn't map cleanly to public search results (like an informal 'HOGP-Host' shorthand), translate it back to the exact ICS item names and provide concrete product-category usage examples to ground the abstract dependency rule.",
+  "risk_if_done_wrong": "Misunderstanding which dependent profiles (like Scan Parameters Profile) are triggered by a chosen role could result in an incomplete ICS declaration and a registration that doesn't match the product's actual required support.",
+  "bluetooth_tags": [
+    "Bluetooth Network Encapsulation Protocol",
+    "PAN profile",
+    "HOGP Report Host",
+    "HOGP Boot Host",
+    "Scan Parameters Profile dependency",
+    "STB use case",
+    "Panasonic Connect"
+  ],
+  "search_aliases": [
+    "what is HOGP Host role",
+    "Scan Parameters Profile requirement HOGP",
+    "Bluetooth Network Encapsulation Protocol PAN",
+    "HOGP Report Host vs Boot Host"
+  ],
+  "qualification_stage": "Pre-certification ICS scoping",
+  "confidence": "high"
+}

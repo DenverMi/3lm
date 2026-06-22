@@ -1,0 +1,12 @@
+{
+  "source_thread": "thread_0165",
+  "thread_analysis": {
+    "thread_summary": "Short internal Allion thread (1 message, 2 emails nested) between Nakayama and Sakai regarding the Bluetooth SIG's invitation to sponsor/present at the Bluetooth Tokyo Seminar 2025 (held October 16). Nakayama asks Sakai whether he is willing to be the presenter. Sakai explains the sponsorship/presentation slot mechanics from the prior year (a free certification-related presentation slot was given to MCPC's Bluetooth committee, which Sakai arranged to be filled by BQTF Representative Tanaka) and recommends that Tanaka again update his 2023 presentation materials and present in 2025, to avoid giving the impression that Allion's Bluetooth certification business is run only by senior staff.",
+    "all_questions_found": [],
+    "key_technical_discussion": "No Bluetooth technical or certification content. The thread is purely an internal staffing and public-relations decision about who should represent Allion as a presenter at an industry seminar.",
+    "key_decision_logic": "Sakai's reasoning: SIG offers certification-information presentation slots to companies/associations; last year this was used to feature a younger BQTF representative (Tanaka) rather than senior staff, for company image reasons; the same approach is recommended for this year's seminar.",
+    "risk_if_done_wrong": "",
+    "consulting_mistake": "",
+    "consulting_takeaway": "Not applicable — this thread contains no customer-facing certification question or technical issue; it is internal seminar-staffing logistics. No case file warranted."
+  }
+}

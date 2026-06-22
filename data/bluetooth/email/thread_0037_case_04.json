@@ -1,44 +1,33 @@
 {
-    "source_thread": "thread_0037",
-    "cases": [
-        {
-            "case_id": "thread_0037_case_04",
-            "iut_type": "BLE module-based product",
-            "customer_question": "Can the antenna datasheet required for Bluetooth qualification be taken directly from the BLE module specification?",
-            "question_variants": [
-                "Is the module datasheet acceptable as antenna evidence?",
-                "What antenna document is required for compliance folder submission?",
-                "Can we reuse the BLE module antenna specification pages?",
-                "Do we need a separate antenna report?",
-                "What antenna information must be submitted?"
-            ],
-            "actual_issue": "Bluetooth qualification compliance documentation requires antenna information including radiation gain characteristics, and existing module documentation may be acceptable if it contains the required information.",
-            "plain_english_explanation": "The customer wanted to know whether they could submit pages from the BLE module specification instead of creating a separate antenna document. The consultant confirmed this was acceptable as long as the documentation included antenna radiation gain characteristics. This reduced the need for additional custom documentation.",
-            "consultant_answer": "The consultant confirmed that the antenna datasheet requirement could be satisfied using the relevant section of the BLE module specification document, provided that the submitted pages included radiation gain characteristic information.",
-            "decision_logic": "The qualification documentation requirement is based on the presence of required antenna technical information, not the document source itself. Existing module specifications are acceptable if they contain the necessary RF characteristic data.",
-            "final_recommendation": "Submit the relevant BLE module specification pages as the antenna datasheet evidence if they include antenna radiation gain characteristics and related RF details.",
-            "risk_if_done_wrong": "Incomplete antenna evidence may delay compliance folder completion or trigger requests for additional technical documentation.",
-            "bluetooth_tags": [
-                "qualification",
-                "antenna",
-                "RF",
-                "documentation",
-                "compliance folder",
-                "module"
-            ],
-            "search_aliases": [
-                "antenna datasheet requirement",
-                "radiation gain characteristic",
-                "module specification reuse",
-                "antenna document acceptance",
-                "BLE module antenna data",
-                "RF documentation",
-                "antenna compliance evidence",
-                "module datasheet acceptable"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0037",
+  "case_id": "thread_0037_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (IDEAL Corporation device, Nordic S132-based SoftDevice), registration detail page shows a different SoftDevice version (S140) than what the customer specified",
+  "customer_question": "On the registration site's detail page, the Included Design is described as 'S140 xxxx' -- but what we actually used, as stated in our quotation request, is S132-based Controller Stack and Host Stack. Tracing the S140 QDID/DN's link does show an S132-based module listed as a subset, so I don't think it's wrong, but is this just how it works?",
+  "question_variants": [
+    "Why would a registration reference a different (parent) QDID than the one the customer actually specified?",
+    "Does this kind of substitution affect the registration's validity or accuracy?"
+  ],
+  "actual_issue": "The customer noticed their registration's displayed 'Included Design' referenced a different SoftDevice version (S140) than the one they had actually specified in their quotation request (S132), and wanted confirmation this was correct rather than a registration error.",
+  "plain_english_explanation": "Since the registration system update effective July 1, 2024 (referred to internally as 'QPRD v3'), a structural change took effect: the new system can still reference QDIDs created under the prior system, but it can no longer reference legacy Subset IDs directly. Since the customer's specified S132 Link Layer and Host Stack were themselves registered as Subset IDs (subsets of the broader S140 registration), they could not be referenced directly under the current system -- so the registration instead referenced the original parent QDID that those Subset IDs were derived from (the S140-labeled registration), which is why the registration detail page displays 'S140 xxxx' rather than 'S132.' This is correct and not an error: tracing the S140 QDID/DN's links does show the S132-based module listed as a subset of it, confirming the underlying technical content the customer intended is still accurately represented -- the customer simply ended up seeing the broader parent registration's label rather than the specific subset label they were expecting, since the system can no longer reference the subset's own ID directly.",
+  "consultant_answer": "You're right that this isn't an error. Since the registration system update on July 1, 2024, the new system can still reference QDIDs created under the old system, but it can no longer reference legacy Subset IDs directly. Your specified S132 Link Layer and Host Stack were themselves registered as Subset IDs of the broader S140 registration, so they couldn't be referenced directly anymore -- the registration instead references that original parent QDID (S140), which is why you see 'S140 xxxx' on the detail page. Tracing that QDID's links does show your S132-based module listed as a subset, confirming everything is accurately represented underneath -- you're just seeing the parent registration's label instead of the specific subset label you expected. Apologies for not explaining this proactively when we reviewed the Review page together.",
+  "decision_logic": "When a customer's intended reference is itself registered as a legacy Subset ID, the post-July-2024 registration system substitutes the original parent QDID that the subset was derived from, since direct Subset ID references are no longer supported -- this produces a registration detail page showing the parent's label rather than the specific subset the customer specified, which is correct as long as the subset is still traceable from the parent QDID's links, and should be proactively explained to the customer rather than left for them to notice and question later.",
+  "final_recommendation": "When a customer's specified reference turns out to be a legacy Subset ID requiring substitution with its parent QDID, proactively explain this substitution and what the customer will see on the registration detail page during the Review page confirmation step, rather than waiting for the customer to notice the discrepancy themselves and ask.",
+  "risk_if_done_wrong": "Without proactive explanation, a customer noticing their registration shows a different SoftDevice version label than what they specified could reasonably suspect a registration error, creating unnecessary concern and follow-up communication that a brief upfront explanation would have avoided.",
+  "bluetooth_tags": [
+    "Included Design shows parent QDID not subset label",
+    "post 2024 system substitutes parent QDID for Subset ID",
+    "S140 vs S132 SoftDevice registration display",
+    "proactively explain substitution at Review stage",
+    "IDEAL Corporation"
+  ],
+  "search_aliases": [
+    "why does registration show different SoftDevice version than specified",
+    "Included Design S140 instead of S132",
+    "parent QDID substituted for legacy Subset ID",
+    "is substituted QDID registration still accurate"
+  ],
+  "qualification_stage": "Post-registration detail page clarification",
+  "confidence": "high"
 }

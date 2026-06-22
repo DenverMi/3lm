@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0169",
+  "case_id": "thread_0169_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Embedded Linux device, i.MX8MP SoC (NECPF/NEC Platform)",
+  "customer_question": "Our product uses a Host Stack from one vendor and a Controller from a different vendor. Is this a problem for SIG product registration?",
+  "question_variants": [
+    "We combine a third-party Bluetooth Host Stack with a Bluetooth Controller chip from a different manufacturer. Is this acceptable?",
+    "Our Host QDID and Controller QDID are from different companies. Can we still register a product using both?"
+  ],
+  "actual_issue": "The customer (NEC Platform) is building a product that combines a Host Stack QDID from one vendor and a Controller QDID from a different vendor. They are uncertain whether SIG allows this kind of cross-vendor QDID combination in a product registration.",
+  "plain_english_explanation": "SIG product registration allows referencing multiple QDIDs from different companies as long as each layer (Host and Controller) is properly covered. The Host QDID and Controller QDID do not need to come from the same manufacturer. What matters is that the combined layers pass SIG's inter-layer consistency check (ICS cross-layer validation). Using a Host from Company A and a Controller from Company B is completely normal and supported.",
+  "consultant_answer": "Yes, this is perfectly acceptable. SIG product registration supports referencing QDIDs from different companies for different layers. You would reference the Host Subsystem QDID and Controller Subsystem QDID separately in a Multi-Design registration. The SIG portal will then check cross-layer ICS consistency between them.",
+  "decision_logic": "SIG's design is layered (Host, Controller, etc.), and each layer can be independently qualified and referenced. A product that combines a qualified Host stack from Vendor A and a qualified Controller from Vendor B simply references both QDIDs. This is the intended model for products that integrate third-party qualified components from different sources.",
+  "final_recommendation": "Proceed with Multi-Design product registration referencing both the Host Subsystem QDID and the Controller Subsystem QDID separately. Verify that the combined ICS does not produce cross-layer inconsistencies before submitting.",
+  "risk_if_done_wrong": "No risk in combining QDIDs from different vendors — this is a supported and common configuration. The risk is in failing to check cross-layer ICS consistency after combining the two QDIDs, which could result in submission rejection.",
+  "bluetooth_tags": [
+    "Multi-Design",
+    "Host Subsystem QDID",
+    "Controller Subsystem QDID",
+    "cross-vendor combination",
+    "product registration",
+    "ICS cross-layer"
+  ],
+  "search_aliases": [
+    "different vendor Host Controller QDID",
+    "cross-vendor Bluetooth qualification",
+    "Host Stack and Controller different companies",
+    "Multi-Design different manufacturers"
+  ],
+  "qualification_stage": "planning",
+  "confidence": "high"
+}

@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0219",
+  "case_id": "thread_0219_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (smart communication unit with embedded antenna, Bluetooth V4.2 smart module, Seiko Solutions)",
+  "customer_question": "What level of completeness does the test hardware need? Does it need a production-equivalent case and labels, or can bare board-plus-antenna be used for testing/registration?",
+  "question_variants": [
+    "Is an enclosure/casing required for the RF test sample, or is a bare PCB with antenna sufficient?",
+    "Can we submit a non-cased prototype for test and registration purposes?"
+  ],
+  "actual_issue": "Seiko Solutions asked what physical completeness level the test sample needed to reach — full production-equivalent unit (case, labels) or simply a bare board with antenna — since their hardware schedule was uncertain.",
+  "plain_english_explanation": "Testing can be performed without an enclosure, as long as the Bluetooth transmit/receive function itself is equivalent to the mass-production version. Cases, labels, and other cosmetic/mechanical elements are not required for RF testing purposes.",
+  "consultant_answer": "If the Bluetooth transmit/receive function is equivalent to mass production, testing can be carried out without an enclosure (no case needed).",
+  "decision_logic": "RF/RF PHY test validity depends on the radio performance of the actual transmit/receive circuitry, not on cosmetic completeness. As long as the RF chain (board, antenna, module) matches what will ship, the absence of a case or label does not affect test validity.",
+  "final_recommendation": "When customers worry about hardware readiness for testing, clarify that only RF-functional completeness matters, not mechanical/cosmetic completeness — this can relieve unnecessary schedule pressure.",
+  "risk_if_done_wrong": "If a customer unnecessarily delays testing waiting for a fully cased production unit, they lose schedule time without functional benefit to the test result.",
+  "bluetooth_tags": [
+    "test sample completeness",
+    "RF test prototype requirements",
+    "no enclosure needed",
+    "Seiko Solutions"
+  ],
+  "search_aliases": [
+    "does RF test need full enclosure",
+    "bare board antenna test sufficient Bluetooth",
+    "test sample requirements SIG registration"
+  ],
+  "qualification_stage": "Pre-registration / test sample preparation",
+  "confidence": "high"
+}

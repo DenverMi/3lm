@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0253",
+  "thread_analysis": {
+    "thread_summary": "This thread is a fuller, later-stage capture of the same Ricoh Imaging Company (contact Hirokazu Maeda) Bluetooth certification project already documented in thread_0259 — the same dual-mode-QDID-forced-into-LE-only-via-SW-disable issue and the same TCW (Test Case Waiver) for a stale-ICS-item Submission warning, carried through to TCW approval, Compliance Folder delivery (July 8, 2025), and a new follow-up message (July 10, 2025) where the customer discovered and corrected an output power discrepancy post-registration.",
+    "all_questions_found": [
+      "(Already documented in thread_0259_case_01) Why is the registration dual-mode when the product is LE-only, and what does the TCW warning mean?",
+      "Does correcting an output power discrepancy (lowering data-communication output to match spec) require a SIG retest? (see thread_0253_case_01)"
+    ],
+    "key_technical_discussion": "Beyond the duplicated dual-mode/TCW content (see thread_0259_case_01 for the full record), this thread's new contribution clarifies that an output power correction remaining within the already-certified Power Class range doesn't require a SIG retest, with retest necessity instead driven by the customer's own internal quality/shipping-approval requirements.",
+    "key_decision_logic": "See thread_0253_case_01 for the new decision logic; the dual-mode/TCW content follows the same logic as thread_0259_case_01.",
+    "risk_if_done_wrong": "See thread_0253_case_01; for the duplicated content, see thread_0259_case_01.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "This thread reinforces thread_0259's dual-mode/TCW lessons and adds a new one: when a customer reports a post-registration output power correction, check whether the corrected value stays within the already-certified Power Class range before requiring a retest, and clarify that any further certified-measurement report need would stem from the customer's own internal sign-off process rather than SIG's rules."
+  }
+}

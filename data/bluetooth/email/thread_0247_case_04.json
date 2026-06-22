@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0247",
+  "case_id": "thread_0247_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Teraoka Seiko printer, AX210 antenna-connector module + Windows 11)",
+  "customer_question": "For the Compliance Folder document we need to submit — the 'operation manual (Bluetooth portion)' — what should it actually contain? Should it describe the pairing operation, or describe what kind of device our product connects to over Bluetooth and how it's used? Also, are these four submitted documents kept off the public SIG website?",
+  "question_variants": [
+    "What level of detail or content should the Bluetooth-portion operation manual include?",
+    "Do the four Compliance Folder documents stay private and unpublished on the SIG site?"
+  ],
+  "actual_issue": "The customer was preparing the Compliance Folder operation manual document and was unsure whether it should focus on the pairing procedure itself or on describing the broader use case of what devices the product connects to, and separately wanted confirmation about the document's confidentiality/non-publication status.",
+  "plain_english_explanation": "For a peripheral-type device like this printer, the operation manual should be framed from the perspective of the counterpart device pairing with and then printing through the product: a step-by-step procedure document listing, in order, the pairing operations and the resulting screens/steps leading up to printing. The four Compliance Folder documents (operation manual, block diagram, outline drawing, antenna documentation) are not uploaded to or published on the SIG website at all — they're retained by the customer's own company until one year after the last listed model in the Product List stops being sold, to be presented only if SIG sends an audit notice.",
+  "consultant_answer": "For a peripheral device like your printer, think of the operation manual from the counterpart device's perspective: a step-by-step procedure document listing the pairing operations and subsequent screens/steps in order, leading up to printing. And yes, all four of these documents stay private — they're not uploaded to or published on the SIG website. You retain them yourselves until one year after the last listed model in your Product List stops being sold, and only need to present them if SIG sends an audit notice.",
+  "decision_logic": "Compliance Folder operation manual content should be framed around the actual interoperation use case (counterpart device's pairing-to-function workflow) rather than a generic Bluetooth settings description, and all four Compliance Folder documents remain customer-retained and non-public regardless of document type.",
+  "final_recommendation": "When customers ask what to include in the Bluetooth-portion operation manual, give a concrete framing example tailored to their device's actual use case (e.g., peripheral pairing-to-function workflow) rather than a generic description, and proactively reconfirm the non-publication/retention status of all Compliance Folder documents.",
+  "risk_if_done_wrong": "Submitting an operation manual that only describes generic pairing settings without the actual end-to-end use-case workflow could leave the Compliance Folder document inadequate if ever reviewed during a SIG audit; failing to clarify non-publication status could cause unnecessary customer concern about exposing internal product documentation publicly.",
+  "bluetooth_tags": [
+    "Compliance Folder operation manual content",
+    "Bluetooth portion documentation guidance",
+    "non-public document retention",
+    "printer peripheral pairing workflow",
+    "Teraoka Seiko"
+  ],
+  "search_aliases": [
+    "what should Bluetooth operation manual contain",
+    "are Compliance Folder documents public",
+    "operation manual pairing procedure example printer"
+  ],
+  "qualification_stage": "Post-registration documentation",
+  "confidence": "high"
+}

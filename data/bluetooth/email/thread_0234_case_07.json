@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0234",
+  "case_id": "thread_0234_case_07",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (OM Digital Solutions headset), Compliance Folder document scope (4-item submission)",
+  "customer_question": "Regarding the four pieces of Compliance Folder information requested: (1) will this information be made public? (2) Can the operation manual be a design document — specifically, the connection-transition-diagram document we previously submitted? (3) Is the antenna data sheet mandatory — since we don't have gain-characteristic data from the original developer, can we instead excerpt from the BT module's own specification sheet? (4) We're still checking with the original developer about disclosing the block diagram and outline drawing — please give us more time.",
+  "question_variants": [
+    "Will our Compliance Folder submission be publicly disclosed?",
+    "Can we reuse an existing design document as the operation manual?",
+    "Can the antenna data sheet be a module-datasheet excerpt instead of a dedicated gain-characteristic document?"
+  ],
+  "actual_issue": "The customer, preparing the four required Compliance Folder documents, had several scope and substitution questions because some required information either wasn't directly available from the original product developer or seemed redundant with documents already submitted earlier in the process.",
+  "plain_english_explanation": "Compliance Folder information is not publicly disclosed — by certification rule, the applicant must retain a complete documentation set demonstrating conformance to the certification requirements for one year after the last Product-List-listed model stops being sold, presenting it only if Bluetooth SIG conducts an audit. For the operation manual, a previously submitted design document (a connection-transition-diagram resource) is acceptable, since it addresses the product's operation method, which is what's actually required — there's no need for a separate, newly authored Bluetooth-specific manual. For the antenna data sheet, since the customer didn't have access to dedicated gain-characteristic documentation from the original developer, an excerpt from the BT module's own specification/datasheet is an acceptable substitute. The block diagram and outline drawing questions, pending the original developer's disclosure decision, were acknowledged as needing more time without objection.",
+  "consultant_answer": "(1) No, this information is not made public — by certification rule, you retain it for one year after the last listed model stops selling, presenting it only if SIG audits your registration. (2) Yes, the connection-transition-diagram design document you previously submitted is acceptable as the operation manual, since it addresses the product's operation method. (3) Yes, an excerpt from the BT module's own specification sheet is an acceptable substitute for a dedicated antenna gain-characteristic document. (4) Understood — please take the time you need to confirm disclosure of the block diagram and outline drawing with the original developer.",
+  "decision_logic": "Compliance Folder document requirements can often be satisfied by reusing existing design or vendor documentation as long as it substantively addresses the required content (operation method, antenna characteristics) rather than requiring newly authored, certification-specific documents from scratch — and document confidentiality status should be proactively clarified whenever a customer raises concerns about disclosing internal product information.",
+  "final_recommendation": "When customers raise concerns about document availability or reuse for Compliance Folder submission, default toward accepting substantively equivalent existing documentation (design documents, vendor datasheets) rather than insisting on newly authored materials, and always clarify the non-public, audit-only nature of these documents upfront to address confidentiality concerns proactively.",
+  "risk_if_done_wrong": "Insisting on newly authored, certification-specific documents when substantively equivalent existing materials are available would create unnecessary customer effort and delay; failing to clarify the non-public retention rule could cause unwarranted customer hesitation about submitting sensitive product information.",
+  "bluetooth_tags": [
+    "Compliance Folder public disclosure status",
+    "operation manual design document reuse",
+    "antenna datasheet module specification substitute",
+    "block diagram developer disclosure pending",
+    "OM Digital Solutions"
+  ],
+  "search_aliases": [
+    "are Compliance Folder documents public",
+    "can existing design document be used as operation manual",
+    "antenna gain characteristic data not available substitute",
+    "block diagram developer permission needed"
+  ],
+  "qualification_stage": "Post-registration / Compliance Folder preparation",
+  "confidence": "high"
+}

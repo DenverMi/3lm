@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0057",
+  "case_id": "thread_0057_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "RF PHY test results remain valid across Host-layer (SDK/firmware) changes because RF PHY testing only exercises layers at or below HCI -- and a registration-structuring strategy that lets an existing full RF PHY test report be reused wholesale by making the hardware-identical product the base new registration",
+  "customer_question": "The model we actually ran RF PHY testing on previously was '3KR1' (not the model name we initially gave you, which was actually registered as 3KR1's derivative). Our new model will be a firmware-only change to 3KR1 (same hardware, new SDK). Since 3KR1 already passed RF PHY testing, can RF PHY testing be skipped entirely for it this time? And since the new model changes the SDK, won't a fresh RF PHY test be needed on actual hardware running the new firmware? Also, is the 'RF PHY 2-item test' you mentioned the same '1M/2M PHY' 2 items as before, or an excerpt of 2 items from what was previously a full test?",
+  "question_variants": [
+    "Does a firmware/SDK change ever require re-running RF PHY testing if the hardware is unchanged?",
+    "How can an existing full RF PHY test report be reused for a new registration instead of re-testing?"
+  ],
+  "actual_issue": "The customer had a firmware-only-changed new model (identical hardware to an already-tested model '3KR1', but with a different SDK) and a separate new model with minor hardware differences, and wanted to know whether the existing RF PHY test report could be reused for the firmware-changed model, and whether an SDK/firmware change at the Host layer could ever require re-running RF PHY testing.",
+  "plain_english_explanation": "RF PHY testing only exercises layers at or below HCI (the Host Controller Interface) -- it does not depend on Host-layer content at all. This means that even if the Host layer changes (such as switching the SDK/firmware from SoftDevice S332 to nRF Connect SDK v2.8.0), there is no need to re-run RF PHY testing, as long as the underlying RF hardware itself is unchanged. This principle enabled a registration-structuring strategy: define the new registration's hardware basis as the existing, already-RF-PHY-tested model (3KR1) combined with the new SDK firmware, and treat the actual new model (which has a minor hardware design change relative to 3KR1) as a derivative of THAT registration, requiring only the cheaper RF PHY 2-item confirmatory test (transmit power, receive sensitivity) rather than a full RF PHY test. Structured this way, the existing model's full RF PHY 1M/2M PHY test report can be reused wholesale for the new registration, while only the genuinely new hardware variant needs the lighter 2-item confirmatory test.",
+  "consultant_answer": "RF PHY testing only exercises layers at or below HCI, so a Host-layer change like an SDK/firmware migration doesn't require re-running RF PHY testing, as long as the RF hardware itself hasn't changed -- 3KR1's existing RF PHY test report remains valid even with the new SDK. Here's how to structure it: define the new registration's hardware basis as 3KR1 plus the new SDK firmware, and treat your actual new model (with its minor hardware change) as a derivative of that registration, needing only the RF PHY 2-item confirmatory test. This lets us reuse 3KR1's full 1M/2M PHY report wholesale, and the new model just needs the lighter 2-item test.",
+  "decision_logic": "When a customer has an existing, already-RF-PHY-tested product and a new model that changes either the SDK/firmware (Host layer) or makes a minor hardware change, determine whether RF hardware itself changed -- if not, the existing RF PHY report remains valid regardless of Host-layer changes. When structuring a registration involving both an SDK migration and a hardware-different model, define the registration basis using the hardware-identical-to-tested product (even with new firmware) so the existing full RF PHY report can be reused, and scope the actual new hardware variant as its derivative requiring only the lighter 2-item confirmatory test.",
+  "final_recommendation": "When a customer is migrating SDKs on a hardware-unchanged product while also planning a separate hardware-varied model, proactively suggest structuring the new registration around the hardware-identical product first to maximize reuse of existing RF PHY test reports, rather than letting the customer assume any SDK or model change requires fresh full RF PHY testing.",
+  "risk_if_done_wrong": "Assuming an SDK/firmware migration requires re-running RF PHY testing, or failing to structure the registration to reuse an existing full RF PHY report, could result in unnecessary duplicate RF PHY testing costs for hardware that hasn't actually changed.",
+  "bluetooth_tags": [
+    "RF PHY test only exercises HCI and below layers",
+    "Host layer SDK firmware change does not invalidate RF PHY report",
+    "reuse existing RF PHY report by structuring registration around hardware-identical product",
+    "Shimano SW-UT600 3KR1 Nordic"
+  ],
+  "search_aliases": [
+    "does SDK change require re-running RF PHY test",
+    "RF PHY test HCI layer dependency",
+    "how to reuse existing RF PHY test report for new registration",
+    "3KR1 firmware change RF PHY test"
+  ],
+  "qualification_stage": "RF PHY test reuse and registration structuring strategy",
+  "confidence": "high"
+}

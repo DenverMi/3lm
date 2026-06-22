@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0032",
+  "case_id": "thread_0032_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Japan Radio Law (Giteki) certification exemption for products incorporating an already-certified module -- scope, nameplate display rule, and the OEM/ODM limitation",
+  "customer_question": "If the chip used in our finished product already has Japan's Radio Law certification, is re-certification for the finished product unnecessary? An online article says reusing a Giteki-certified wireless module or product means the final product doesn't need re-certification -- does it matter if the chip's model number differs from the actual sold product's model number?",
+  "question_variants": [
+    "Can a bare chip/SoC itself hold Japan's Radio Law certification, or does it need to be part of a module?",
+    "Does the module-reuse certification exemption apply even when a different company manufactured and certified the module, and we're selling an OEM/ODM product under our own brand?"
+  ],
+  "actual_issue": "The customer found general online guidance suggesting that reusing a Giteki-certified wireless module or product exempts the final product from needing its own separate Japan Radio Law certification, and wanted to confirm this applied to their specific situation -- including whether a bare chip (rather than a module) could itself hold the certification, and whether the exemption still applied if they were selling an OEM/ODM product manufactured and certified by a different company under their own brand name.",
+  "plain_english_explanation": "A bare chip (SoC) alone cannot obtain Japan's Radio Law construction design certification or technical standards conformity certification -- these certifications can only be granted to an antenna-integrated module that has the necessary functions of a complete transceiver. So when a customer refers to 'the chip' having this certification, what's actually certified is an antenna-integrated module built around that chip, not the chip itself. Japan's revised Radio Law, Article 38-7 paragraph 2, states that a person who, in the course of business, handles a product incorporating Compliance-Indicated Radio Equipment may affix to that product the same indication as the one affixed to the Compliance-Indicated Radio Equipment incorporated within it. In practice, this means: by displaying on the final product's equipment nameplate the same certification mark, the circled-R symbol, and the certification number that were assigned to the certified module incorporated into the product, the final product itself is exempted from needing its own separate radio-law certification -- and there is no requirement to display the module's own model number or the module manufacturer's name on the product's nameplate. However, this exemption has an important limitation that general online guidance sometimes glosses over: the Radio Law provision specifically covers 'products incorporating Compliance-Indicated Radio Equipment' -- it does NOT extend to a scenario where a different company both manufactured AND obtained certification for a module, and the selling company is now selling that OEM/ODM product under its OWN brand nameplate. Customers relying on general guidance about 'reusing a certified module or product' should be cautious about this distinction, since it could lead them to incorrectly assume exemption applies to an OEM/ODM arrangement when it may not.",
+  "consultant_answer": "A bare chip (SoC) by itself cannot hold Japan's Radio Law certification -- only an antenna-integrated module with full transceiver functionality can. Assuming you mean such a module: Japan's Radio Law Article 38-7(2) allows displaying the same certification mark, circled-R, and certification number on your final product's nameplate that were assigned to the certified module incorporated within it, exempting the final product from its own separate certification -- no need to show the module's own model number or manufacturer name. But be careful: this only covers products that genuinely incorporate Compliance-Indicated Radio Equipment -- it does not apply to an OEM/ODM product manufactured and certified by a different company that you're now selling under your own brand nameplate, even though some general online guidance describes the exemption more broadly than the actual legal provision allows.",
+  "decision_logic": "When a customer asks whether reusing a Giteki-certified component exempts their final product from Japan Radio Law certification, first clarify that only an antenna-integrated module (not a bare chip) can hold the certification, then confirm the product genuinely and directly incorporates that certified module (display via nameplate marking is sufficient, no need to show module model/manufacturer) -- but flag that this exemption does not cover OEM/ODM scenarios where a different company manufactured and certified the module and the customer is selling it under their own separate brand.",
+  "final_recommendation": "When a customer cites general online guidance about module-reuse certification exemptions, verify against the actual Radio Law provision (Article 38-7(2)) rather than the general guidance's framing, and specifically probe whether their scenario is a genuine incorporated-module case or an OEM/ODM rebrand scenario, since the exemption's actual legal scope is narrower than commonly-circulated summaries suggest.",
+  "risk_if_done_wrong": "A company relying on general online guidance might incorrectly assume their OEM/ODM rebranded product is exempt from Japan Radio Law certification when it legally is not, exposing them to non-compliance risk under Japan's domestic radio regulations (separate from any Bluetooth SIG certification requirement).",
+  "bluetooth_tags": [
+    "Japan Radio Law Giteki module certification exemption",
+    "Article 38-7 nameplate marking exemption",
+    "chip cannot be certified only antenna-integrated module",
+    "OEM ODM rebrand not covered by exemption",
+    "Elematec smart tracker"
+  ],
+  "search_aliases": [
+    "does reusing Giteki certified module exempt final product",
+    "Japan Radio Law Article 38-7 certification exemption",
+    "can a bare chip get Giteki certification",
+    "OEM ODM product radio law certification exemption limitation"
+  ],
+  "qualification_stage": "Adjacent regulatory regime (Japan Radio Law) certification scoping",
+  "confidence": "high"
+}

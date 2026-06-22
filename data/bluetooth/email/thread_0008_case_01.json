@@ -1,48 +1,32 @@
 {
-    "source_thread": "thread_0008",
-    "cases": [
-        {
-            "case_id": "thread_0008_case_01",
-            "iut_type": "BLE peripheral device",
-            "customer_question": "When using a pre-qualified Bluetooth SoC and host/controller stack, which additional qualification tests are still required for a product implementing BAS and DIS?",
-            "question_variants": [
-                "Do BAS and DIS still require PTS testing when Core is already qualified?",
-                "Can Core protocol testing be skipped when reusing qualified Nordic QDIDs?",
-                "What testing remains when using pre-qualified nRF52832 designs?",
-                "Are RF PHY tests still required when integrating a SoC directly?",
-                "Does using a certified module eliminate RF PHY testing?"
-            ],
-            "actual_issue": "The customer needed to determine the remaining Bluetooth qualification obligations when reusing existing qualified Core Host and Controller designs while implementing BAS and DIS services on a product using nRF52832.",
-            "plain_english_explanation": "The Bluetooth chip and protocol stack were already qualified, so the customer wanted to know which tests could be reused and which still had to be performed. The consultant clarified that Core protocol testing could be reused from existing QDIDs, but RF PHY testing was still required when directly integrating the SoC. BAS and DIS profile testing also still needed to be performed using PTS.",
-            "consultant_answer": "The consultant explained that the referenced Core Protocol QDIDs and Design Numbers already covered Core specification qualification for the implemented host and controller stack, so additional Core protocol testing was not required. However, because the customer directly implemented the SoC rather than a pre-qualified module, RF PHY testing for 1 Mbps and 2 Mbps modes was still required. The consultant further clarified that BAS and DIS profile qualification remained necessary and that customer-generated PTS reports for those services were acceptable for registration support.",
-            "decision_logic": "Bluetooth Core qualification reuse only applies to the referenced qualified layers. Direct SoC integration creates a new RF implementation requiring RF PHY validation, while implemented GATT services such as BAS and DIS still require profile-level qualification evidence.",
-            "final_recommendation": "Reuse the existing qualified Core Host and Controller designs, perform RF PHY testing for the implemented PHY modes if directly integrating the SoC, and submit BAS/DIS PTS reports for profile qualification.",
-            "risk_if_done_wrong": "If RF PHY or profile qualification requirements are incorrectly assumed to be covered by existing QDIDs, the Bluetooth listing may be incomplete, rejected during review, or require late-stage retesting and documentation correction.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "RF PHY",
-                "PTS",
-                "BAS",
-                "DIS",
-                "profile",
-                "reuse"
-            ],
-            "search_aliases": [
-                "BAS DIS PTS required",
-                "Core qualification reuse",
-                "nRF52832 RF PHY test",
-                "direct SoC integration",
-                "module reuse exemption",
-                "1M 2M RF PHY",
-                "Core Host Controller reuse",
-                "Bluetooth service qualification",
-                "PTS report submission",
-                "RF PHY testing required"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0008",
+  "case_id": "thread_0008_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Shimano cycling computer/peripheral), self-administered PTS testing scope confirmation",
+  "customer_question": "We're developing a product using an already Bluetooth-registered radio chip, and plan to extract and self-test in-house only the items not already covered by that chip's registration, before submitting our report to you. Our product supports BAS and DIS as its only SIG-standard services (no SIG-defined profiles like Cycling Power Profile, no LE Audio/Mesh/Traditional Profiles), using LE Secure Connections Pairing as a change from our past models. Since the Core Specification is already tested via the chip's registered ICS, is our understanding correct that we only need to self-test the BAS/DIS items?",
+  "question_variants": [
+    "Is Core Protocol testing fully exempted by referencing the chip's existing registration?",
+    "Do we only need to self-test BAS and DIS specifically, or is anything else required?"
+  ],
+  "actual_issue": "The customer wanted to confirm, before investing effort in self-administered PTS testing, that their understanding of which test items were already covered by the chip's existing registration (exempting Core Protocol layers) versus which items genuinely needed to be self-tested (BAS and DIS) was accurate.",
+  "plain_english_explanation": "Core Protocol layers are exempted from testing by referencing the chip's existing Host Subsystem and Controller Subsystem registrations (specifically, an NCS Host v2.8.0 registration and a corresponding LE Core-Controller registration). However, if the radio chip itself is implemented as a bare SoC, RF PHY testing covering the 1Mbps and 2Mbps modes that chip's QDID supports is still required; if instead the customer implements the chip via a packaged module (such as a Kaga FEI module built around the same chip), referencing that module's own QDID/DN would exempt RF PHY testing entirely. Separately, the customer's understanding that DIS and BAS profile testing must be self-administered (since these aren't covered by the chip's Core Protocol registration) was confirmed as correct.",
+  "consultant_answer": "Yes, your Core Protocol layers are exempted by referencing the chip's existing Host Subsystem (NCS Host v2.8.0) and Controller Subsystem registrations. However, if you implement the chip as a bare SoC, RF PHY testing for the 1Mbps and 2Mbps modes that QDID supports is still required — if you instead implement it via a packaged module (like one from Kaga FEI built on the same chip), referencing that module's own QDID/DN would exempt RF PHY testing entirely. Your understanding that DIS and BAS profile testing need to be self-administered is correct, since these aren't covered by the chip's Core Protocol registration.",
+  "decision_logic": "Test scope for a product implementing an already-registered radio chip should be broken down by layer: Core Protocol exemption via the chip's Host/Controller registration applies regardless of bare-SoC vs. module implementation, but RF PHY test exemption specifically depends on whether a packaged module's own QDID/DN can be referenced instead of the bare chip's.",
+  "final_recommendation": "When confirming a customer's self-test scope assumption, explicitly verify each layer separately (Core Protocol via chip registration, RF PHY depending on bare-chip vs. module implementation, and profile-layer items needing self-testing) rather than giving a single blanket confirmation.",
+  "risk_if_done_wrong": "Confirming the customer's self-test scope assumption without checking the bare-chip-vs-module distinction for RF PHY exemption could leave the customer believing RF PHY testing was unnecessary when implementing the chip directly as an SoC.",
+  "bluetooth_tags": [
+    "self administered PTS test scope confirmation",
+    "Core Protocol exemption chip registration",
+    "bare SoC vs module RF PHY exemption",
+    "BAS DIS profile self test",
+    "Shimano"
+  ],
+  "search_aliases": [
+    "which items need self testing with registered chip",
+    "Core Protocol exempt via Host Controller registration",
+    "bare SoC vs module RF PHY test exemption"
+  ],
+  "qualification_stage": "Pre-test scoping",
+  "confidence": "high"
 }

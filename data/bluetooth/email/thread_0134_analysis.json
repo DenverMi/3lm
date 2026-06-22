@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0134",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This thread (June–August 2025) covers the full lifecycle of a Bluetooth SIG certification for [COMPANY] Topre's new R4H series Bluetooth HID keyboard family (4 models: R4HA, R4HB, R4HC, R4HD). Key topics: (1) Quote scope clarification - HOGP test is mandatory for a keyboard certification to be meaningful (without it, the certification covers only 'profile-less product'); (2) Post-July 2024 cascade profile requirements - HOGP now mandates BAS, DIS, HIDS testing (4 profiles total, ¥400,000), whereas the 2021 registration required only HOGP; (3) Representative model selection - only 1 of 4 keyboard models is tested, others added to Product List; (4) PTS test FAIL troubleshooting - Connectable Mode not set, and multi-slot BT keyboard with per-slot BT addresses causing address mismatch between setup and execution; (5) PTS FAIL root cause - firmware missing BAS Battery Level, DIS PnP ID and other GATT characteristics required by post-July 2024 rules; (6) Bluetooth test independence from parallel WHQL certification. The thread also included quote evolution: initial ¥400,000 (proxy + CF, no profile test based on empty BLE Profile field in RFQ), then ¥800,000 after customer requested HOGP test inclusion (4 profiles + proxy + CF), then updated to include SIG payment remittance proxy.",
     "all_questions_found": [
       "Can we get Bluetooth SIG certification without HOGP profile testing? What does the certification cover if we skip HOGP?",

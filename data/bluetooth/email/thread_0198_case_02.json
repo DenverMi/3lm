@@ -1,0 +1,40 @@
+{
+  "source_thread": "thread_0198",
+  "case_id": "thread_0198_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "NEC Platforms communications terminal (BR/EDR + BLE, module + Host Stack combination)",
+  "customer_question": "We tried combining our module QDID with Google Fluoride 1.4 and Fluoride 1.5 QDIDs in the registration portal, but both produce fatal GAP/GATT Consistency Check Invalids. We also checked Fluoride 1.6 — same result. What do we do?",
+  "question_variants": [
+    "Google Fluoride 1.4/1.5/1.6 QDID + module QDID produces GAP/GATT Invalid — why?",
+    "Host Stack QDID generates Consistency Check failures that cannot be resolved — what is the alternative?",
+    "Which Fluoride QDID is compatible with our module for Bluetooth SIG registration?"
+  ],
+  "actual_issue": "NEC Platforms tested combining their module QDID with Google LLC's Fluoride 1.4, 1.5, and 1.6 QDIDs in a trial Qualification Workspace project. All three versions generated the same set of fatal GAP and GATT Consistency Check Invalids that cannot be cleared without modification. The Invalids indicate that the Host Stack QDIDs (Fluoride 1.4/1.5/1.6 as registered by Google) lack required GAP ICS entries (25/5, 35/5, 25/6, 35/6) when GATT 7/5 and 7/6 are supported. Additionally, GATT 4/25 is not supported when required by GATT 1/2 and 4/15/4/16/4/22 conditions.",
+  "plain_english_explanation": "Google's Fluoride 1.4, 1.5, and 1.6 QDIDs as listed in the SIG database were registered with ICS entries that the SIG's Consistency Check rules have since expanded. The Invalids are internal to the Fluoride QDID itself — they exist because the SIG added new GAP/GATT ICS check rules after these Fluoride versions were registered. These Invalids cannot be resolved by the customer since the QDID is owned by Google; they cannot modify it. As a result, these Google Fluoride QDIDs cannot be used as the Host Stack reference. The solution is to find an alternative Host Stack QDID (a different Fluoride build registered by a different company, a BlueZ QDID, or a proprietary Host Stack) that passes Consistency Check when combined with the customer's module.",
+  "consultant_answer": "Google Fluoride 1.4/1.5/1.6 QDIDs cannot be used for NEC Platforms' registration because they generate unresolvable GAP/GATT Consistency Check Invalids in combination with the module QDID. These Invalids exist within the Fluoride QDIDs themselves (the SIG added check rules after these were registered). NEC Platforms must find an alternative Host Stack QDID — either a different Fluoride version (not Google LLC's) or a custom/alternative Host Stack. NEC Platforms ultimately used their own customized AOSP Fluoride 1.5 build, which is registered under a separate QDID and does not have these Invalids.",
+  "decision_logic": "When a Host Stack QDID generates unresolvable Invalids in a trial Qualification Workspace, the QDID owner must be approached for a fix — or an alternative QDID must be found. 'Unresolvable' means: the Invalid stems from the QDID's own ICS definitions, not from the customer's configuration. In this case, Google's Fluoride QDIDs have internal ICS issues that postdate their registration. NEC Platforms' own custom Fluoride 1.5 (separate QDID) did not have this problem.",
+  "final_recommendation": "Before committing to a Host Stack QDID, always perform a trial Consistency Check in a temporary Qualification Workspace project to verify the QDID + module combination produces Invalid=0. This catches legacy Host Stack QDID incompatibilities before any fees are paid.",
+  "risk_if_done_wrong": "Selecting an incompatible Host Stack QDID wastes significant time and may require restarting the registration with a different QDID after fees have been paid. Paying the SIG Qualification Fee before verifying QDID compatibility is a costly mistake.",
+  "bluetooth_tags": [
+    "Fluoride",
+    "Google",
+    "Host Stack QDID",
+    "Consistency Check",
+    "GAP",
+    "GATT",
+    "Invalid",
+    "QDID incompatibility",
+    "AOSP",
+    "NEC Platforms"
+  ],
+  "search_aliases": [
+    "Google Fluoride QDID GAP GATT invalid",
+    "Fluoride 1.5 consistency check failure",
+    "host stack QDID unresolvable invalid",
+    "GAP 25/5 35/5 missing QDID",
+    "GATT 4/25 mandatory invalid host stack"
+  ],
+  "qualification_stage": "Pre-registration / QDID Selection",
+  "confidence": "high"
+}

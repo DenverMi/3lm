@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0250",
+  "case_id": "thread_0250_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (NEC Platforms Communications Terminal), profile test scope determination against a referenced Profile Subsystem",
+  "customer_question": "Our desired ICS items for HID, SPP, PAN, BNEP, HOGP, and ScPP mostly match what's already included by referencing the module and Fluoride 1.5, but there are some gaps (and HID11 isn't covered at all). How do we figure out exactly which profiles actually need PTS testing, rather than testing everything from scratch? And is there an easier way to check this than the ICS Export/Import method?",
+  "question_variants": [
+    "Which specific profiles need new PTS testing versus which can just inherit the reference registration's ICS?",
+    "Is there a simpler way to compare ICS content than exporting and importing project files?"
+  ],
+  "actual_issue": "The customer needed an efficient way to determine exactly which profiles required new testing versus which could simply inherit already-covered ICS support from the referenced module-plus-Fluoride-1.5 combination, to avoid unnecessary testing while still meeting any non-negotiable specific ICS requirements.",
+  "plain_english_explanation": "When Including the module and Fluoride 1.5 together, most of the desired profiles (HID, SPP, PAN, BNEP, HOGP, ScPP) are already covered, closely matching the customer's own desired ICS items, with only some gaps. The efficient approach is: for any ICS items where the difference between the inherited (Fluoride 1.5) value and the customer's desired value genuinely doesn't matter to the product's actual functionality, simply accept and reuse the inherited ICS value as-is — no testing needed for those. Only for ICS items where the customer has a firm, non-negotiable requirement that the inherited value doesn't satisfy should the inherited content be removed and a new test report submitted as evidence instead. In this case, HID11 wasn't covered by Fluoride 1.5 at all, so it specifically required a new PTS test report as evidence. Separately, rather than the more cumbersome method of exporting an ICS file and importing it into someone's own Qualification Workspace to compare manually, a simpler approach is to log into the registration site directly and view the specific QDID's own registration detail page, which displays its supported profiles and ICS content directly.",
+  "consultant_answer": "For your desired ICS items: wherever the inherited value from the module-plus-Fluoride-1.5 combination differs from what you wanted but the difference genuinely doesn't matter to your product, just accept and reuse the inherited value — no testing needed there. Only for ICS items where you have a firm, non-negotiable requirement not met by the inherited value should we remove that inherited content and submit a new test report as evidence — in your case, that's HID11, which Fluoride 1.5 doesn't cover at all, so it needs a PTS test report. Also, rather than exporting an ICS file and importing it into someone's Qualification Workspace to compare, it's much simpler to just log into the registration site directly and view the specific QDID's registration detail page, which shows its supported profiles and ICS content directly.",
+  "decision_logic": "Test scope for a registration referencing an existing Profile Subsystem should be minimized by accepting inherited ICS values wherever the gap between inherited and desired values doesn't affect actual product functionality, reserving new testing only for genuinely non-negotiable gaps — and ICS comparison should be done via the registration site's direct QDID detail view rather than the more cumbersome export/import method.",
+  "final_recommendation": "When scoping PTS testing for a registration referencing an existing Profile Subsystem, explicitly walk through each desired ICS item to classify it as 'gap doesn't matter, reuse inherited value' versus 'non-negotiable gap, needs new test report,' and recommend the direct QDID detail page view as a simpler ICS comparison method than export/import.",
+  "risk_if_done_wrong": "Testing every ICS item from scratch without first checking which gaps actually matter would waste significant cost and schedule; conversely, blindly accepting all inherited ICS values without checking for non-negotiable functional gaps (like HID11 in this case) could result in a registration that doesn't actually support a feature the product needs.",
+  "bluetooth_tags": [
+    "profile test scope minimization",
+    "inherited ICS value reuse",
+    "non-negotiable ICS gap requiring test report",
+    "QDID registration detail page ICS view",
+    "HID11 not covered",
+    "NEC Platforms"
+  ],
+  "search_aliases": [
+    "how to determine which profiles need testing",
+    "reuse inherited ICS value no test needed",
+    "simpler way to compare ICS than export import",
+    "HID11 not covered by Fluoride 1.5"
+  ],
+  "qualification_stage": "Test scope planning",
+  "confidence": "high"
+}

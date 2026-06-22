@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0239",
+  "case_id": "thread_0239_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Paramount Bed restroom/toilet usage sensor)",
+  "customer_question": "Looking at the Review Page image you sent before final confirmation, some fields in the Company Details section appear blank. Is that a problem?",
+  "question_variants": [
+    "Why are some Company Details fields blank on the Review Page?",
+    "Will blank Company Details fields block registration confirmation?"
+  ],
+  "actual_issue": "The customer noticed unfilled fields in the Company Details section of the pre-confirmation Review Page screenshot and wanted reassurance before approving final registration.",
+  "plain_english_explanation": "The Company Details section of the Review Page is automatically populated from the company's SIG member registration database and cannot be added to or edited during the registration operation itself. This is normal and has not caused any problem in past registrations, even when some fields appear blank.",
+  "consultant_answer": "Those blank fields in the Company Details section are automatically pulled from your member registration database and can't be edited during the registration process itself. This kind of blank field has never caused a problem in our past registrations, so it's fine to proceed.",
+  "decision_logic": "Review Page fields sourced from the member database (rather than the current registration's editable inputs) cannot be corrected within the registration flow, and their being blank is a database-population matter, not a registration-validity issue.",
+  "final_recommendation": "When customers flag blank fields on a Review Page, first determine whether the field is auto-populated from account/member data versus directly editable in the current registration, and reassure accordingly rather than treating every blank field as a defect to fix.",
+  "risk_if_done_wrong": "Unnecessarily delaying registration confirmation while trying to 'fix' an auto-populated, non-editable field would waste time without any compliance benefit.",
+  "bluetooth_tags": [
+    "Review Page Company Details blank field",
+    "member registration database auto-populated fields",
+    "Paramount Bed"
+  ],
+  "search_aliases": [
+    "Review Page blank field normal",
+    "Company Details auto populated SIG registration",
+    "is blank field on review page a problem"
+  ],
+  "qualification_stage": "Pre-Submission review",
+  "confidence": "high"
+}

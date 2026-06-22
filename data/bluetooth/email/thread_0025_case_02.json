@@ -1,49 +1,34 @@
 {
-    "source_thread": "thread_0025",
-    "cases": [
-        {
-            "case_id": "thread_0025_case_02",
-            "iut_type": "module",
-            "customer_question": "How can a Bluetooth module supplier create a reusable Design Number while minimizing testing and avoiding Host-layer qualification problems?",
-            "question_variants": [
-                "How do we create a reusable DN for OEM customers?",
-                "Can we qualify only the controller portion of the module?",
-                "How can downstream OEMs reuse our Bluetooth qualification?",
-                "Is a Core Controller qualification sufficient for module reuse?",
-                "Can RF PHY-only testing be used for a reusable module design?",
-                "How do we avoid Host stack issues in QPRDv3?"
-            ],
-            "actual_issue": "The company needed a qualification strategy that would provide a reusable Design Number for downstream OEM customers without inheriting problematic Host-layer ICS inconsistencies and associated protocol testing obligations.",
-            "plain_english_explanation": "The company wanted other customers to reuse its Bluetooth qualification in their own products. However, the existing full Bluetooth stack combination caused qualification problems. By narrowing the qualification scope to the controller portion of the design and performing the required radio testing, the company could still create a reusable design for customers while avoiding unnecessary upper-layer qualification work.",
-            "consultant_answer": "The consultant proposed qualifying the SoC-based implementation as a Core Controller design rather than forcing a complete Host and Controller combination through the new consistency checks. This approach isolates the reusable Bluetooth-compliant portion of the implementation and limits required testing to the applicable RF PHY and lower-layer scope. The resulting Design Number can then be referenced by downstream OEM customers in their own qualification submissions.",
-            "decision_logic": "A reusable DN does not require qualification of unnecessary upper protocol layers if the module is positioned and qualified as a Controller-focused design. By limiting qualification scope to implemented compliant layers and avoiding incompatible Host dependencies, the design can pass consistency validation while remaining reusable for downstream products.",
-            "final_recommendation": "Qualify the module as a Core Controller design with the required RF PHY testing and publish the resulting reusable DN for downstream OEM qualification reuse.",
-            "risk_if_done_wrong": "If the module is qualified using an unnecessarily broad Host-plus-Controller architecture, the project may incur avoidable protocol testing, qualification delays, additional debugging work, and downstream reuse complications. Failing to structure the design correctly could also prevent OEM customers from cleanly referencing the resulting qualification artifacts.",
-            "bluetooth_tags": [
-                "qualification",
-                "DN",
-                "module",
-                "reuse",
-                "RF PHY",
-                "controller",
-                "QDID",
-                "QPRDv3"
-            ],
-            "search_aliases": [
-                "reusable DN strategy",
-                "Core Controller qualification",
-                "OEM DN reuse",
-                "module-only qualification",
-                "RF PHY testing only",
-                "avoid Host qualification",
-                "controller design reuse",
-                "downstream qualification reuse",
-                "QPRDv3 module strategy",
-                "controller-focused design"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0025",
+  "case_id": "thread_0025_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Registration database DN display behavior for 'Combine unmodified Designs' (old Declaration-equivalent) registrations, and the SoC End Product vs. Subsystem-combination distinction for DN eligibility",
+  "customer_question": "If we register by directly reusing an existing design ('Combine unmodified Designs') without a Design Number being assigned, does showing 'Default'/'Details' in the DN field cause any downsides or problems? Is it OK for Bluetooth certification purposes to re-brand using only a QDID starting with 'Q30'?",
+  "question_variants": [
+    "How does a registration combining multiple existing QDID/DNs actually display in the SIG database search results?",
+    "Does a registration always fail to get a DN when reusing an existing design unmodified?"
+  ],
+  "actual_issue": "After trialing a 'reuse existing design unmodified' registration, the customer noticed the Receipt Number showed a warning icon and the DN field appeared as 'Default'/'Details' rather than a normal-looking Design Number, and asked whether this indicated a problem or limitation.",
+  "plain_english_explanation": "For a short period after the new registration site launched on July 1, 2024, any registration equivalent to the old Declaration registration (Including an existing QDID/DN without editing its ICS) uniformly displayed 'Details' in the DN field, showing only the Included QDID/DN alongside it -- giving the visual impression that no DN was assigned at all. The site's behavior has since changed: if only one QDID/DN is Included, the display remains as before (no DN assigned), but if two or more QDID/DNs are Included together, the site now assigns a genuine Design Number -- prefixed with 'Q30' (denoting QPRDv3.0, the post-July-2024 registration framework) -- to the combined ICS of those Included designs, and displays it alongside the Included QDID/DNs (visible by following the 'Details' link/icon to the detail page). This Q30-prefixed DN carries exactly the same legal/certification effect as a pre-2024-style QDID, and other companies can Include it in their own downstream product registrations for test-exemption purposes, just as they could with an older QDID. One important related rule: this DN-assignment behavior specifically applies to registrations that combine multiple subsystem-level QDIDs (e.g., Controller Subsystem + Host Subsystem); if the SoC is instead registered directly as a complete End Product, no DN is assigned at all. Module sellers supplying components to downstream set-makers should therefore deliberately choose an SoC + Host Stack combination capable of DN assignment (i.e., register via Subsystem combination, not as an End Product), so their downstream customers retain the ability to Include their registration's DN.",
+  "consultant_answer": "Showing 'Details' in the DN field doesn't indicate no DN exists -- it's just the new site's display quirk for unmodified-design reuse registrations. If you Include two or more existing QDID/DNs together, the site does assign a real Design Number (prefixed 'Q30', meaning QPRDv3.0) to the combined design, visible via the Details link, and it has exactly the same legal effect as an older-style QDID -- other companies can Include it in their own registrations just like before. (If you Include only one QDID/DN, no DN gets assigned, same as before.) One important caveat: this only works because you happened to Include both a Controller Subsystem and a Host Subsystem -- if your SoC were instead registered as a complete End Product, no DN would be assigned at all. Since you sell modules to set-makers, I'd recommend continuing to choose SoC + Host Stack combinations that can receive a DN, for your downstream customers' benefit.",
+  "decision_logic": "When a registration combining existing QDID/DNs without modification shows 'Details' or 'Default' in the DN field, check whether two or more QDID/DNs were Included -- if so, a genuine Q30-prefixed DN with full legal equivalence to a pre-2024 QDID has been assigned and is visible via the Details link; if only one QDID/DN was Included, no DN is assigned. Module/component sellers should register via Subsystem-combination paths (not as a complete End Product) to ensure their registration remains DN-eligible for downstream customers' benefit.",
+  "final_recommendation": "When a customer is alarmed by a 'Details'/'Default' DN display after an unmodified-design-reuse registration, reassure them this is a cosmetic site-display quirk rather than a registration deficiency, and explain the underlying Q30-prefixed DN's full legal equivalence; for component/module sellers specifically, proactively recommend Subsystem-combination registration (rather than End Product registration) to preserve DN eligibility for downstream OEM customers.",
+  "risk_if_done_wrong": "A customer unaware of this display behavior might mistakenly conclude their registration failed to obtain a usable DN and either abandon a viable registration path or, conversely, a module seller who registers as an End Product without realizing it forfeits DN assignment could unintentionally limit their downstream customers' ability to Include their registration.",
+  "bluetooth_tags": [
+    "DN Details Default display new registration site",
+    "Q30 prefix QPRDv3.0 DN legal equivalence",
+    "Combine unmodified Designs DN assignment rule",
+    "End Product vs Subsystem combination DN eligibility",
+    "Hosiden wristband wearable"
+  ],
+  "search_aliases": [
+    "why does DN show Details instead of number",
+    "Q30 QDID Bluetooth SIG meaning",
+    "does combining unmodified designs get a DN",
+    "End Product registration no DN assigned",
+    "Default DN field Bluetooth registration"
+  ],
+  "qualification_stage": "Post-trial registration result interpretation",
+  "confidence": "high"
 }

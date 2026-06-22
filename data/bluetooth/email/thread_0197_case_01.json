@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0197",
+  "case_id": "thread_0197_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth product (not publicly sold, industrial/B2B use)",
+  "customer_question": "Our product is not publicly sold, so there is no operation manual. Is the Compliance Folder still required? If so, what can we submit in place of an operation manual?",
+  "question_variants": [
+    "Product not sold to public — is a Compliance Folder still required?",
+    "No operation manual exists for our product — what can we use as a substitute?",
+    "Is the Compliance Folder mandatory even for B2B-only or internal-use products?"
+  ],
+  "actual_issue": "The customer's product is not sold to the general public (B2B or internal-use only), so they do not have an operation manual. They questioned whether the Compliance Folder requirement applies to their product, and if so, what document can substitute for the missing operation manual.",
+  "plain_english_explanation": "The Compliance Folder requirement under QPRDv3 is unconditional — it applies to all registered Bluetooth products regardless of whether they are publicly sold. The Compliance Folder is a set of documents that prove the product's Bluetooth implementation matches what was registered. It is retained by the Listing Owner (typically for 1 year post-discontinuation) and must be produced on SIG request. For non-public products without an operation manual, product specification documents, engineering drawings, or internal technical documentation that describes the Bluetooth functionality can substitute for the operation manual portion of the Compliance Folder.",
+  "consultant_answer": "Yes, the Compliance Folder is required even for products not publicly sold. QPRDv3 requires a Compliance Folder for all Bluetooth SIG registrations. For the operation manual substitute: provide product specification documents or engineering documentation that describes the product's Bluetooth function and usage. These are accepted by the SIG as a substitute when no consumer-facing operation manual exists.",
+  "decision_logic": "QPRDv3 Compliance Folder requirement is unconditional — 'publicly sold' is not a prerequisite. The operation manual component is the one most often unavailable for B2B/internal products; product specs or engineering documents are the standard substitute.",
+  "final_recommendation": "Always require a Compliance Folder regardless of product sales channel. When an operation manual does not exist, ask the customer for any internal product documentation (specifications, technical manuals, engineering drawings) that can substitute. The Compliance Folder must include: (1) operation manual or spec substitute, (2) block diagram, (3) outline drawing, (4) antenna datasheet with radiation gain characteristics.",
+  "risk_if_done_wrong": "Not preparing a Compliance Folder is a QPRDv3 compliance violation. If the SIG requests the Compliance Folder and it cannot be produced, the SIG may revoke the product's Bluetooth qualification.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "QPRDv3",
+    "operation manual",
+    "B2B product",
+    "non-public product",
+    "document substitute",
+    "Listing Owner"
+  ],
+  "search_aliases": [
+    "Compliance Folder required non-public product",
+    "operation manual substitute Compliance Folder",
+    "QPRDv3 Compliance Folder mandatory",
+    "B2B product Bluetooth registration Compliance Folder",
+    "no operation manual SIG registration"
+  ],
+  "qualification_stage": "Post-registration / Compliance Documentation",
+  "confidence": "high"
+}

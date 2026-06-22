@@ -1,46 +1,24 @@
 {
-    "source_thread": "thread_0066",
-    "cases": [
-        {
-            "case_id": "thread_0066_case_01",
-            "iut_type": "",
-            "customer_question": "Why does QC.BluetoothLE_DirectMode.exe fail to place the DUT into DTM (Direct Test Mode), and how should the COM port connections be configured?",
-            "question_variants": [
-                "DTM mode enable error in QC.BluetoothLE_DirectMode.exe",
-                "Cannot enter Bluetooth LE Direct Test Mode",
-                "Which COM port should be assigned to the DUT and tester?",
-                "Direct Test Mode tool reports error after Enable",
-                "How should tester and DUT serial ports be connected for DTM?"
-            ],
-            "actual_issue": "Incorrect or incomplete serial-port connectivity and COM-port assignment during Bluetooth LE Direct Test Mode setup caused the DTM tool to fail when enabling communication with the DUT.",
-            "plain_english_explanation": "The test setup could not enter Direct Test Mode because the PC, tester, and DUT serial connections were not fully verified. The discussion focused on whether the DUT and tester were connected to different COM ports and whether the required USB-to-Serial connection existed so the PC could detect the virtual COM port. Without the correct wiring and port mapping, the DTM tool cannot communicate with the device.",
-            "consultant_answer": "The reported baud-rate changes and tool settings were not identified as the primary cause. The consultant focused on physical and logical serial connectivity. The DUT was reported as connected to COM3, but the tester connection status and COM-port mapping remained unclear. The consultant explained that the tester virtual COM port must be recognized by the external PC, which requires the USB-to-Serial connection to be present. The consultant also checked whether the DUT and tester were mistakenly assigned to the same COM port and requested confirmation of separate port assignments and connection screenshots. The final guidance was that replying to the customer with the DUT connection as COM3 was acceptable, while additionally verifying the tester-side virtual COM-port connection.",
-            "decision_logic": "DTM communication depends on the PC recognizing the tester's virtual COM port and on correct separation and assignment of DUT and tester serial interfaces. If the USB-to-Serial path is not connected or the COM-port mapping is incorrect, the DTM enable operation can fail regardless of application settings.",
-            "final_recommendation": "Verify that the tester's USB-to-Serial cable is connected to the external PC, confirm that the virtual COM port is visible in the operating system, ensure the DUT and tester use the correct and distinct COM-port assignments, connect the required serial crossover cable, and then retry DTM enablement.",
-            "risk_if_done_wrong": "The DUT cannot be placed into Direct Test Mode, RF or DTM-based testing cannot proceed, troubleshooting effort increases, and qualification testing may be delayed due to an unresolved test setup issue.",
-            "bluetooth_tags": [
-                "DTM",
-                "Direct Test Mode",
-                "COM port",
-                "test setup",
-                "serial connection",
-                "Bluetooth LE",
-                "tester"
-            ],
-            "search_aliases": [
-                "DTM enable error",
-                "QC.BluetoothLE_DirectMode.exe failure",
-                "COM3 DUT connection",
-                "virtual COM port not detected",
-                "USB serial connection missing",
-                "tester COM port issue",
-                "Direct Test Mode setup",
-                "DUT tester port mapping",
-                "QUTS connection problem"
-            ],
-            "qualification_stage": "testing",
-            "confidence": "medium",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0066",
+  "case_id": "thread_0066_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "We're getting COM port errors (COM4 Open ERROR, access denied) trying to connect our external PC to the DUT for DTM-mode testing through InterLab's Automation Explore -- what's wrong with our setup, and what should the working configuration look like?",
+  "question_variants": [
+    "Why can't our external PC recognize the virtual COM port for the tester connection?",
+    "Do we need a USB-Serial converter cable connected to the external PC's USB port specifically?",
+    "What COM port and baud rate settings should Automation Explore use to confirm RF PHY commands are working?",
+    "How do we know our DTM-mode connection through InterLab is actually working?"
+  ],
+  "actual_issue": "An external PC intended to drive DTM-mode commands to a DUT via InterLab's Automation Explore tool was failing to recognize the relevant virtual COM port, producing COM4 Open ERROR and access-denied errors, and it needed to be determined whether this was a cabling/configuration problem and what the correct end-to-end setup should be.",
+  "plain_english_explanation": "To control a test device in a special radio test mode from an external PC through the lab's automation tool, several physical cable connections have to be in place -- a USB-to-serial converter cable on the PC side, and a cross cable on the device side. If any of these aren't actually plugged in, the PC simply can't see the virtual COM port it needs, which produces exactly the kind of connection errors seen here. Once everything is properly connected, the lab's tool can be configured with the right port and speed settings to confirm communication is working.",
+  "consultant_answer": "The DUT itself should be connected on COM3. For the external PC's connection to be recognized, the USB-Serial converter cable's RS232C side must actually be connected to the external PC -- without that physical connection, the external PC cannot recognize the virtual COM port at all, which explains why COM4 Open ERROR and COM4 access-denied errors were occurring: the USB-Serial converter cable was not yet connected to the external PC's USB port (the team had a cross cable still pending, which was a separate, expected gap). Once the cross cable is obtained and the RF test is complete, connect everything and retry. Once the DTM-mode-entry app was confirmed working, the next step was to use InterLab's Automation Explore to configure the external PC's USB-Serial converter cable COM# setting at 9600bps, first selecting the HCI-Serial interface, and to verify success by checking whether the RF PHY command confirmation displays green.",
+  "decision_logic": "COM-port recognition failures on an external PC connecting to a DUT through a lab automation tool should first be checked against the physical cabling chain (USB-Serial converter cable to the PC's USB port, cross cable to the DUT side) before suspecting a software or DUT problem, since a missing cable connection alone fully explains COM-open and access-denied errors; once cabling is complete, the correct verification is the automation tool's COM port/baud-rate/interface configuration confirming a green (success) indicator on RF PHY command communication.",
+  "final_recommendation": "Verify the full physical cabling chain (USB-Serial converter cable into the external PC's USB port, cross cable to the DUT side) before treating COM port errors as a software issue. Once cabling is complete and the DTM-mode app is confirmed working, configure InterLab's Automation Explore with the correct COM port and 9600bps baud rate, select the HCI-Serial interface, and confirm the RF PHY command check shows green before proceeding with testing.",
+  "risk_if_done_wrong": "Treating COM port open/access-denied errors as a DUT or software fault instead of a missing cable connection wastes troubleshooting time and delays reaching the actual RF PHY test setup verification step.",
+  "bluetooth_tags": ["DUT mode", "DTM", "InterLab", "Automation Explore", "COM port", "RF PHY", "test setup"],
+  "search_aliases": ["COM4 Open ERROR access denied", "USB-Serial converter cable not connected", "Automation Explore HCI-Serial 9600bps", "RF PHY command confirmation green", "virtual COM port DTM mode external PC"],
+  "qualification_stage": "testing",
+  "confidence": "high"
 }

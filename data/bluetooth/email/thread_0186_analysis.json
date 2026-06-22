@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0186",
+  "thread_analysis": {
+    "thread_summary": "Panasonic wireless lighting control product (nRF52 SoC with Nordic SoftDevice). Two branches: (1) An additional product variant uses SoftDevice S113 instead of S140. Since S140 is a superset of S113, no additional RF PHY test is needed and the S113 variant can be added as a derivative product at no extra RF test cost. (2) The customer confirmed S113 7.0.1 for both Host and LL layers. Allion provided the registration plan: RF PHY (2M) test required (¥700,000), Multi-Design registration (¥250,000), Compliance Folder (¥150,000). Also clarified: DTM (Direct Test Mode) must be implemented in the product firmware for RF PHY testing of a bare SoC product.",
+    "all_questions_found": [
+      "Adding S113 variant to existing S140 registration — is additional RF PHY test required?",
+      "Is Direct Test Mode (DTM) required in the product firmware for RF PHY testing?",
+      "How is DTM implemented for nRF52 SoftDevice products?"
+    ],
+    "key_technical_discussion": "S140 ⊇ S113 (superset relationship) means S113 variants inherit S140 test coverage — no new RF test needed. For bare SoC products (non-module), DTM is mandatory for RF PHY testing. DTM uses HCI commands at the RF PHY/LL layer and does not require the full application stack. Nordic provides a Direct Test Mode app sample for nRF52.",
+    "key_decision_logic": "SoftDevice superset relationship: if the currently registered SoftDevice is a functional superset of the new variant's version, derivative registration is sufficient — no new RF test. DTM requirement: any SoC-based product undergoing RF PHY testing must implement DTM; without it, RF PHY testing is impossible.",
+    "risk_if_done_wrong": "Unnecessarily quoting RF test for S113 when S140 is already registered adds unjustified cost. Failing to implement DTM before the RF PHY test session results in wasted lab time and DUT return.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "For Nordic SoftDevice products, always check the superset/subset relationship between SoftDevice versions when evaluating re-test requirements. Clearly communicate DTM requirements to customers before the RF test session — DTM implementation is the customer's responsibility and must be verified before the DUT ships to the lab."
+  }
+}

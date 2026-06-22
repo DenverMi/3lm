@@ -1,46 +1,24 @@
 {
-    "source_thread": "thread_0061",
-    "cases": [
-        {
-            "case_id": "thread_0061_case_03",
-            "iut_type": "",
-            "customer_question": "How can a qualification update proceed when consistency-check errors appear after combining a new Host/Profile qualification with an existing Controller qualification?",
-            "question_variants": [
-                "Why does the consistency check fail after updating Host and Profile layers?",
-                "Can RF/RF PHY layer selection avoid consistency-check errors?",
-                "How do I resolve Host/Profile and Controller layer mismatches?",
-                "What should be removed when LE Audio related consistency errors appear?",
-                "How can TCWs be used during qualification consistency resolution?"
-            ],
-            "actual_issue": "Combining a newly qualified Host/Profile design with an existing Controller design produced consistency-check errors related to layer and feature dependencies. The qualification needed to be restructured to remove unsupported functionality and satisfy the Bluetooth SIG validation process.",
-            "plain_english_explanation": "When Bluetooth layers from different qualifications are combined, the Bluetooth SIG tools verify that the declared features match each other. New Host/Profile functionality can expose requirements that the existing Controller path does not satisfy. The solution is to create a compatible subset design and remove unsupported layers or features rather than forcing incompatible combinations.",
-            "consultant_answer": "The consultant provided a procedure that removes specific layers and feature selections, including LE Audio related protocol/profile selections, performs a new consistency check, and then proceeds using the applicable waiver process for the remaining expected findings. The approach relies on creating a compatible subset of the included designs instead of modifying the unchanged Controller qualification. This avoids unnecessary exposure to additional qualification conflicts while allowing the update registration to proceed.",
-            "decision_logic": "Consistency validation is driven by the declared ICS capabilities and layer relationships. Removing unsupported layers and features creates a design that accurately reflects the implemented functionality and satisfies consistency requirements more safely than forcing incompatible feature combinations.",
-            "final_recommendation": "Create a subset design that excludes unsupported layers and feature selections, rerun the consistency check, and use the approved waiver process only for the remaining expected findings identified during review.",
-            "risk_if_done_wrong": "The qualification may fail consistency validation, additional testing requirements may be generated, or incompatible feature declarations may remain in the design hierarchy, resulting in qualification delays and rework.",
-            "bluetooth_tags": [
-                "consistency check",
-                "ICS",
-                "subset design",
-                "TCW",
-                "host",
-                "profile",
-                "qualification",
-                "layer selection"
-            ],
-            "search_aliases": [
-                "consistency check failure",
-                "subset design needed",
-                "layer mismatch",
-                "Host Profile Controller conflict",
-                "LE Audio dependency",
-                "remove unsupported features",
-                "ICS consistency resolution",
-                "TCW qualification path"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0061",
+  "case_id": "thread_0061_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Our chipset vendor created a Subset DN that removes a feature our product no longer supports (Power Class 1 in one case, AoA/AoD in another). Does that Subset DN actually resolve the inter-layer consistency concern we'd previously raised, and can we still use our existing RF/RF PHY test report as evidence under it?",
+  "question_variants": [
+    "Does removing Power Class 1 support via a vendor Subset DN clear our earlier consistency concern?",
+    "Will a Subset DN with AoA/AoD support deleted let us keep using our existing test report?",
+    "Can the vendor's feature-removal Subset DN be verified before we commit to using it?",
+    "Is a Subset DN safe to register against, or will it still fail Consistency Check?"
+  ],
+  "actual_issue": "The customer's products supported chipset features (Power Class 1 on one product, AoA/AoD on another) that were no longer applicable, creating a risk of inter-layer Consistency Check failure between the chipset's RF/RF PHY layer and the rest of the design. The chipset vendor responded by issuing Subset DNs with those features removed, but it was not yet confirmed whether registering against the Subset DN would actually resolve the consistency exposure or still allow reuse of the existing RF/RF PHY test report.",
+  "plain_english_explanation": "Sometimes a chip supports more features than a finished product actually uses, and if those extra features don't line up correctly with the other certified parts, the registration can fail an automated consistency check. The chip vendor can issue a trimmed-down version of their certification (a 'Subset') that removes the unused feature. Before relying on that trimmed-down version, the consultant ran it through a test registration to make sure it would actually pass the consistency check and that the original test report could still be used as proof.",
+  "consultant_answer": "The consultant created a temporary/dummy project in their own Qualification Workspace to register against each vendor Subset DN before the customer committed to it. For the Power Class 1 removal (Subset DN against QCA66988-based QDID, for HM26): confirmed no LL-RF PHY inter-layer inconsistency around Class 1, and that any other inter-layer items were the same Test Case Waiver (TCW) items already applicable to the related QDID -- meaning the existing RF/RF PHY test report can be used as evidence for the Controller (Controller Subsystem) registration under this Subset DN without issue. For the AoA/AoD removal (QCA6595-based QDID, for HM23): after the vendor confirmed completion, the consultant similarly created a temporary project and confirmed the consistency problem was resolved.",
+  "decision_logic": "A vendor's feature-removal Subset DN should not be assumed to resolve a consistency concern just because the unsupported feature was deleted from its ICS; it must be verified by running a temporary registration project through the actual Consistency Check before committing, confirming both that no new inter-layer inconsistency is introduced and that any remaining flagged items are already-covered TCW items rather than new failures.",
+  "final_recommendation": "Before relying on a vendor's feature-removal Subset DN, build a temporary project in the certification Workspace using that Subset DN and run Consistency Check to confirm there is no new inter-layer inconsistency and that the existing RF/RF PHY test report can still serve as registration evidence; only proceed with the real registration once this is confirmed.",
+  "risk_if_done_wrong": "Registering directly against a vendor's feature-removal Subset DN without first verifying it in a temporary project risks an inter-layer Consistency Check failure surfacing only after the real registration is underway, and risks losing the ability to reuse the existing RF/RF PHY test report as evidence.",
+  "bluetooth_tags": ["Subset DN", "Power Class", "AoA", "AoD", "Consistency Check", "TCW", "Controller Subsystem", "RF PHY", "QDID"],
+  "search_aliases": ["Power Class 1 removed Subset DN", "AoA AoD removed Subset DN", "vendor subset DN consistency check verification", "temporary Workspace project before registration", "reuse RF PHY report under Subset DN"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

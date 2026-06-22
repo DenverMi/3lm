@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0101",
+  "case_id": "thread_0101_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "payment terminal",
+  "customer_question": "Our company changed its name in 2023 -- do we need to go through the SIG name-change procedure before this registration (which we want completed by mid-April) can proceed?",
+  "question_variants": [
+    "Should we update our company name with SIG before registering?",
+    "Will registering under our old company name cause problems later?",
+    "What does the SIG company name-change process actually involve?"
+  ],
+  "actual_issue": "The customer's company had undergone an official name change in 2023, and the registration they wanted completed by a specific deadline (mid-April) was still associated with the old company name in the SIG member database, raising the question of whether the formal SIG name-change procedure needed to be completed first.",
+  "plain_english_explanation": "If a company has officially renamed itself since it first joined Bluetooth SIG, its membership record still shows the old name until a formal update is filed. That update takes its own time and paperwork, so if a registration needs to happen quickly, it's better to just register under the old name now and handle the official renaming afterward -- once it's done, it automatically updates everything tied to that membership, including past registrations.",
+  "consultant_answer": "Since the quote request indicated a desire for registration completion by mid-April, the recommendation was to avoid the company name-change procedure for now, complete the registration under the old company name, and handle the name-change procedure afterward. Existing registrations are automatically updated by reference to the Member company database once the name-change procedure is completed. The SIG name-change procedure itself is documented under 'How can I Change my Company's Name with the Bluetooth SIG?', requiring a copy of the company registration certificate and submission of Form 3100.",
+  "decision_logic": "When a customer's company has undergone a name change and a registration is time-sensitive, complete the registration under the old company name first rather than delaying for the formal SIG name-change procedure, since existing registrations automatically update once the Member company database reflects the new name following that procedure.",
+  "final_recommendation": "For a time-sensitive registration where the customer's company has undergone a name change not yet reflected with SIG, register under the old company name first and process the formal SIG name-change procedure (company registration certificate plus Form 3100) afterward, since past registrations will update automatically.",
+  "risk_if_done_wrong": "Insisting on completing the formal SIG name-change procedure before proceeding with a time-sensitive registration could cause the customer to miss their desired completion date unnecessarily.",
+  "bluetooth_tags": ["company name change", "Member database", "Form 3100", "registration"],
+  "search_aliases": ["SIG company name change procedure Form 3100", "register under old company name first", "existing registrations update automatically after name change", "company registration certificate name change"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

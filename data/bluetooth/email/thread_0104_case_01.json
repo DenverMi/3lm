@@ -1,47 +1,23 @@
 {
-    "source_thread": "thread_0104",
-    "cases": [
-        {
-            "case_id": "thread_0104_case_01",
-            "iut_type": "module",
-            "customer_question": "Can a product that replaces an EOL Bluetooth module with a successor module reuse the successor module's existing qualified design and avoid profile testing?",
-            "question_variants": [
-                "Can we reuse the module's existing DID/DN for qualification?",
-                "Does changing to a successor Bluetooth module require profile testing?",
-                "Can a new module with a different chipset use Single Design qualification?",
-                "Is Bluetooth SIG requalification required after a module replacement?",
-                "Can existing profile coverage be reused from the replacement module?"
-            ],
-            "actual_issue": "A product is migrating from an obsolete Bluetooth module to a successor module with a different chipset and needs to determine whether Bluetooth profile testing must be repeated or whether qualification can be based on the successor module's existing qualified design.",
-            "plain_english_explanation": "Replacing a Bluetooth module does not automatically mean all Bluetooth testing must be repeated. If the replacement module already supports all Bluetooth profiles used by the product and has an existing qualified design, profile testing may not be required. The remaining qualification work depends on how the module is integrated into the product.",
-            "consultant_answer": "The successor module's qualified design was reviewed against the product's supported profiles. Because the replacement module already included all profiles used by the existing product, profile testing was determined to be unnecessary. Qualification could proceed using a design-reuse approach based on the successor module's existing qualification, subject to evaluation of RF requirements and completion of the registration process.",
-            "decision_logic": "When the replacement module's qualified design fully covers the Bluetooth profile functionality used by the product, profile qualification evidence can be reused. The determining factor is profile coverage equivalence rather than the fact that the chipset changed.",
-            "final_recommendation": "Verify that the replacement module's qualified design covers all Bluetooth profiles implemented by the product and proceed with qualification using the existing qualified design rather than repeating profile testing.",
-            "risk_if_done_wrong": "Failure to verify profile coverage may result in unnecessary profile testing, added qualification effort, increased cost, and schedule delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "module",
-                "QDID",
-                "DN",
-                "profile",
-                "reuse",
-                "Single Design"
-            ],
-            "search_aliases": [
-                "module replacement qualification",
-                "successor module reuse",
-                "QDID reuse",
-                "DN reuse",
-                "profile test not required",
-                "Single Design qualification",
-                "EOL module replacement",
-                "qualified design reuse",
-                "module migration",
-                "profile coverage check"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0104",
+  "case_id": "thread_0104_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Our Bluetooth module reached EOL, so we're switching to a successor module with a different chip. We want to keep using our existing Declaration ID (DID/DN) -- what would this cost and what testing is actually needed?",
+  "question_variants": [
+    "Do we need profile testing again if we switch to this successor module?",
+    "Does RF testing depend on whether the successor module has a built-in or external antenna?",
+    "Does the successor module's existing registration have any issues we should know about before we reference it?"
+  ],
+  "actual_issue": "The customer's product used a Bluetooth module that reached EOL and needed to be replaced with a successor module using a different chip, with the customer wanting to preserve continuity with the existing Declaration ID, and it needed to be determined what testing (profile and RF) was actually required for this transition, as well as whether the successor module's own registration carried any inherited issues.",
+  "plain_english_explanation": "When swapping in a replacement Bluetooth module after the old one is discontinued, you don't necessarily need to redo all the testing from scratch. If the new module's own certification already covers the same features (profiles) the product currently supports, that part doesn't need retesting. Whether you need a radio test depends on how the new module handles its antenna -- modules with a built-in or plug-in antenna usually skip this, while one needing an external antenna typically doesn't. It's also worth knowing upfront if the new module's own certification record carries some old, leftover technical quirks from when it was first registered years ago -- these don't stop you from using it, but it's good to know they'll show up in your registration too.",
+  "consultant_answer": "If the successor module D065231 (QDID referenced) is implemented, the profiles currently supported by the existing WX-PS200 registration are already included in that QDID, so profile testing is not required. Whether RF testing is needed depends on the successor module's antenna handling: (1) if the successor module has a built-in antenna or an antenna connector, the quote is for agency registration support (Single Design reference) and compliance folder preparation only, with a separate Qualification Fee wire transfer; (2) if the successor module is an external-antenna type, RF full-item testing is additionally required. Separately, the referenced D065231 QDID, when checked against the current registration site's Consistency Check rules (based on the current TCRL), shows several inter-layer consistency findings -- Mandatory dependency rules spanning BB, L2CAP, LL, and LMP, tied to HFP and GAP items -- carried forward from when this QDID was originally registered under the prior system. Even though these findings exist, the new registration is still permitted to proceed; there is no practical obstacle, but the customer's own new registration under their company name will also inherit this same module's inter-layer consistency findings, and they should be aware of this in advance.",
+  "decision_logic": "For an EOL module replacement where registration continuity is desired, profile testing is unnecessary if the successor module's QDID already covers the existing product's supported profiles, and RF testing necessity is determined by the successor module's antenna configuration (built-in/connector antenna exempts it; external antenna requires it). An older module QDID's inherited inter-layer consistency findings from its original registration do not block a new registration referencing it, but should be disclosed to the customer in advance since the new registration will carry forward the same findings.",
+  "final_recommendation": "When quoting an EOL module replacement with registration-continuity requirements, check the successor module's QDID against the existing product's supported profiles to scope profile testing, check its antenna configuration to scope RF testing, and proactively disclose any inherited inter-layer consistency findings from the successor module's original registration before the customer commits.",
+  "risk_if_done_wrong": "Assuming full profile or RF testing is required without checking the successor module's QDID coverage and antenna configuration would lead to over-quoting. Failing to disclose inherited inter-layer consistency findings in advance could surprise the customer when the same findings appear in their own registration.",
+  "bluetooth_tags": ["EOL module replacement", "Declaration ID continuity", "antenna configuration", "Inter-Layer Dependency", "profile testing exemption"],
+  "search_aliases": ["EOL module replacement keep existing Declaration ID", "successor module QDID covers existing profiles", "antenna built-in vs external RF test requirement", "old QDID inherited inter-layer consistency findings", "Mandatory dependency rules carried forward registration"],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
 }

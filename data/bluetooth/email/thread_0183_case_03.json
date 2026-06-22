@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0183",
+  "case_id": "thread_0183_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alps Alpine HM23 (Qualcomm-based, Android 14 update)",
+  "customer_question": "The Qualcomm Controller QDID has an LL ICS item for LE Power Class 1 that conflicts with the RF PHY ICS. How do we resolve this ICS inconsistency for the product registration?",
+  "question_variants": [
+    "LL Power Class 1 inconsistency with RF PHY ICS — how to fix?",
+    "Controller QDID has Class 1 in LL but RF report is Class 2 — how to proceed?",
+    "How do we get Qualcomm to fix the RF/LL Power Class ICS mismatch?"
+  ],
+  "actual_issue": "The Qualcomm Controller QDID's LL ICS declares support for LE Power Class 1 (LL 9/11). The product's RF PHY test report is Class 2. This creates an inter-layer ICS inconsistency (RF PHY 1/15:NO combined with LL 9/11:YES = Invalid) that blocks product registration.",
+  "plain_english_explanation": "When combining a Controller QDID and Host QDID for product registration, the SIG portal runs a Consistency Check across all layers. If the Controller's LL ICS declares Power Class 1 (LL 9/11:YES) but the product's RF PHY ICS says Class 2 (RF PHY 1/15:NO), the check fails with an inconsistency. The fix is NOT to change the ICS yourself — the QDID ICS is fixed. Instead, the QDID Listing Owner (Qualcomm) must create a Subset DN from the Controller QDID that removes Class 1 support (sets LL 9/11:NO). Once Qualcomm provides this Subset DN, reference it instead of the original QDID.",
+  "consultant_answer": "Request Qualcomm to create a Subset DN from the Controller QDID with LL 9/11 (LE Power Class 1) set to NO. Once Qualcomm provides the Subset DN, use it in the product registration instead of the original QDID. Allion verified in their workspace that using the Subset DN resolves the RF/LL Power Class inconsistency and the registration can proceed.",
+  "decision_logic": "ICS in an existing QDID cannot be modified by the product registrant. The only way to adjust ICS at the QDID level is for the Listing Owner to create a Subset DN with the corrected ICS. The product registrant must request this change from the QDID Listing Owner. After the Subset DN is created, use it in the product registration — the Consistency Check will then pass.",
+  "final_recommendation": "Contact the QDID Listing Owner (Qualcomm) with a clear request: 'Please create a Subset DN from QDID [ID] with LL 9/11 (LE Power Class 1) set to NO.' Verify the Subset DN resolves the inconsistency by testing in your Qualification Workspace before proceeding to actual registration.",
+  "risk_if_done_wrong": "Without the Subset DN, the Consistency Check will always fail on RL Power Class 1 vs. RF PHY Class 2 inconsistency, and the registration cannot proceed to Submission.",
+  "bluetooth_tags": [
+    "LL",
+    "Power Class 1",
+    "RF PHY",
+    "ICS inconsistency",
+    "Subset DN",
+    "Qualcomm",
+    "Controller QDID",
+    "Consistency Check"
+  ],
+  "search_aliases": [
+    "Power Class 1 LL inconsistency",
+    "RF PHY Class 2 LL Class 1 conflict",
+    "Qualcomm Subset DN Power Class",
+    "LL 9/11 NO Subset DN",
+    "controller QDID ICS mismatch Power Class"
+  ],
+  "qualification_stage": "Registration / ICS Consistency",
+  "confidence": "high"
+}

@@ -1,45 +1,34 @@
 {
-    "source_thread": "thread_0013",
-    "cases": [
-        {
-            "case_id": "thread_0013_case_03",
-            "iut_type": "lighting device",
-            "customer_question": "What is the ICS for a DIS profile qualification and can a regulatory test report be used instead?",
-            "question_variants": [
-                "What is a Bluetooth ICS document?",
-                "Can RF certification reports replace Bluetooth ICS documents?",
-                "How do we prepare the DIS ICS?",
-                "Which document defines supported profile features for testing?",
-                "Why is the ICS required for Bluetooth testing?"
-            ],
-            "actual_issue": "The customer did not understand the purpose of the Bluetooth SIG ICS document and attempted to use unrelated regulatory certification reports instead of the required Bluetooth qualification ICS documentation.",
-            "plain_english_explanation": "Bluetooth qualification testing requires a formal document called an ICS that lists which Bluetooth features and options the product supports. Regulatory RF reports from certification labs are not substitutes for Bluetooth qualification ICS documents. The ICS is used to generate the Bluetooth test plan and determine which tests are required.",
-            "consultant_answer": "The consultant explained that the ICS is a Bluetooth SIG-defined document used to specify supported profile features and options. It is essential for generating the qualification test plan. The submitted TUV regulatory reports were unrelated to the Bluetooth ICS requirement. The consultant instructed the customer to complete the official SIG ICS form by marking supported mandatory and optional DIS profile capabilities.",
-            "decision_logic": "Bluetooth qualification testing depends on accurate ICS declarations because test plans and required test cases are generated from ICS selections. Regulatory RF approvals and non-SIG reports do not define Bluetooth profile capabilities and therefore cannot replace ICS documentation.",
-            "final_recommendation": "Obtain the official Bluetooth SIG ICS form for the implemented profile, complete all mandatory and supported optional feature selections accurately, and submit the ICS for test plan generation.",
-            "risk_if_done_wrong": "Using incorrect or incomplete ICS information can generate invalid test plans, missing required test cases, failed consistency checks, or incorrect qualification submissions.",
-            "bluetooth_tags": [
-                "ICS",
-                "DIS",
-                "PTS",
-                "test plan",
-                "profile",
-                "qualification",
-                "IXIT"
-            ],
-            "search_aliases": [
-                "DIS ICS",
-                "Bluetooth ICS form",
-                "ICS versus RF report",
-                "profile capability declaration",
-                "SIG ICS template",
-                "test plan generation",
-                "mandatory ICS items",
-                "Bluetooth qualification ICS"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0013",
+  "case_id": "thread_0013_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Koizumi Lighting BLE lamp), DIS profile test sample requirements",
+  "customer_question": "For the DIS profile test, is our current prototype acceptable as the test sample? Safety and performance are equivalent to the final product, but the nameplate isn't laser-engraved -- only a sticker version is available right now. Is that acceptable? Also, is the GX53 socket needed? And is our lamp on/off control smartphone app (currently only an alpha version) required for the test?",
+  "question_variants": [
+    "Does the DIS profile test require the final production-level nameplate, or is a sticker placeholder acceptable?",
+    "Do we need to provide an AC plug/socket along with the lamp test sample?",
+    "Is the smartphone control app needed for DIS profile testing, or is the lamp's DIS implementation tested independently of any companion app?"
+  ],
+  "actual_issue": "The customer needed to confirm the minimum acceptable test sample condition for DIS profile testing before shipping a sample, specifically around prototype-vs-final nameplate status, socket/power-supply accessories, and whether a companion control app needed to be provided alongside the lamp.",
+  "plain_english_explanation": "DIS profile testing is acceptable on a prototype with a temporary (sticker) nameplate, as long as safety and performance are equivalent to the final product -- a laser-engraved final nameplate is not required. For power supply, the test lab does need an AC plug and cord with the GX53 socket attached to the sample so the lamp can be powered during testing. The companion smartphone control app (used for ON/OFF control) is not required for DIS profile testing -- DIS is tested directly against the lamp's own implementation, independent of any companion app, so an alpha-only app version poses no issue.",
+  "consultant_answer": "A prototype with a sticker (non-laser-engraved) nameplate is fine for DIS testing, as long as safety and performance match the final product. For power, please include an AC plug and cord with the GX53 socket attached so we can power the sample during testing. The companion control app isn't needed -- DIS testing is done directly against the lamp's own implementation, so your alpha-only app version is not an issue.",
+  "decision_logic": "Profile test sample acceptability is based on functional and safety equivalence to the final product, not cosmetic/labeling finish (like nameplate engraving method); accessory requirements (like a powered socket) are driven by what the test lab physically needs to power and operate the sample, not by the product's full accessory ecosystem (like a companion app), which is irrelevant unless the profile under test directly depends on it.",
+  "final_recommendation": "When scoping test sample requirements with a new customer, separate clearly between (a) what level of finish/cosmetic completeness is required (often more flexible than customers assume) and (b) what physical accessories the lab needs to actually power/operate the sample, and explicitly clarify that companion apps are generally irrelevant to profile-level PTS testing unless the profile itself depends on app-side behavior.",
+  "risk_if_done_wrong": "A customer assuming a fully finished, laser-engraved nameplate sample is required could unnecessarily delay shipping a test sample while waiting for final production parts, when an early prototype would have sufficed.",
+  "bluetooth_tags": [
+    "DIS profile test sample requirements",
+    "prototype acceptable nameplate sticker",
+    "GX53 socket AC power requirement",
+    "companion app not required for profile test",
+    "Koizumi Lighting"
+  ],
+  "search_aliases": [
+    "can prototype be used for DIS profile test",
+    "does test sample need final nameplate",
+    "is companion app required for Bluetooth profile test",
+    "AC socket needed for lamp test sample"
+  ],
+  "qualification_stage": "Test sample preparation",
+  "confidence": "high"
 }

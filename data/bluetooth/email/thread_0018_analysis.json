@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0018",
+  "thread_analysis": {
+    "thread_summary": "An internal Allion report-review thread (Kousuke Nakayama, Kei Tanaka, Itsuo Sakai) covering second-level QA review of a DensoTen profile test report, surfacing a redundant-test-result precedence question (Allion vs. customer-performed testing with different tool versions) and multiple date/version-number discrepancies between the draft report and underlying raw test logs.",
+    "all_questions_found": [
+      "When the same test item is performed redundantly by both lab and customer with different tool versions, which result takes precedence, and should unused data be removed via report regeneration? Are date/version discrepancies between report and logs something that needs correction? (see thread_0018_case_01)"
+    ],
+    "key_technical_discussion": "This thread documents Allion's internal report-QA process, establishing that lab-owned, fully-defensible results should take precedence over redundant customer-performed results when both exist for the same test item, and that systematic discrepancies (like a consistent one-month date offset) can be caught through careful second-level cross-checking against raw test logs.",
+    "key_decision_logic": "See thread_0018_case_01.",
+    "risk_if_done_wrong": "See thread_0018_case_01.",
+    "consulting_mistake": "The draft report contained multiple uncaught date and version-number discrepancies before second-level review caught them — a reminder that systematic data-entry errors can persist through an initial reviewer pass and require dedicated cross-checking against raw logs to catch.",
+    "consulting_takeaway": "Internal report QA processes should explicitly include cross-checking every date and version field against raw test logs, and should define a clear precedence rule for redundant test results performed by multiple parties, to prevent inconsistent or inaccurate final certification reports from being issued."
+  }
+}

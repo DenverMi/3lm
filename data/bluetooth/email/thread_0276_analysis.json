@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0276",
+  "thread_analysis": {
+    "thread_summary": "Persol AVC Technology Co., Ltd. (relayed internally by Kazunao Ishiyama, original inquiry from Hidenobu Hamada on behalf of an end customer) inquires with Allion (Itsuo Sakai) about Bluetooth certification cost for a BLE beacon using a Kaga FEI module and Nordic nRFConnect SDK, combined with a question about locking in the current Qualification Fee rate ahead of a March 2026 price increase given the project's actual May 2026 prototype timeline.",
+    "all_questions_found": [
+      "What's the certification cost estimate, and can the current Qualification Fee rate be locked in despite the prototype timeline falling after the price increase? (see thread_0276_case_01)"
+    ],
+    "key_technical_discussion": "Module/SDK-based test exemption logic (antenna-built-in module exempts RF PHY, SDK's registered QDID profile coverage exempts matching profile testing, proprietary profiles untested) combines with the Qualification Fee's one-year validity-from-payment rule to let a customer lock in a pre-increase rate well ahead of their actual product timeline.",
+    "key_decision_logic": "See thread_0276_case_01.",
+    "risk_if_done_wrong": "See thread_0276_case_01.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "When customers ask about avoiding an announced fee increase, always frame the answer around the fee's actual validity window from payment date rather than the increase date itself, since early payment often comfortably covers a project timeline that falls well after the increase takes effect."
+  }
+}

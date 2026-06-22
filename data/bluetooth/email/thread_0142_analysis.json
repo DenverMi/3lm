@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0142",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "AlpsAlpine 27BRD module registration compliance folder delivery thread. Two key issues: (1) Profile version mismatches found — HFP 1.7.2 should be 1.8 (consultant input error, corrected before Submission); HID 1.1.1 upgraded to 1.1.2 per TCRL pkg101 (same test items, longer certification life); (2) Customer asked about adding expansion/derivative models — confirmed free via 'Manage Submitted Products' for identical module QDID + Host Stack.",
     "all_questions_found": [
       "HFP version shows 1.7.2 but should be 1.8 — can this be corrected before Submission?",

@@ -1,44 +1,33 @@
 {
-    "source_thread": "thread_0037",
-    "cases": [
-        {
-            "case_id": "thread_0037_case_03",
-            "iut_type": "BLE product",
-            "customer_question": "Are non-Bluetooth accessories or cosmetic options required to be included in Bluetooth SIG qualification?",
-            "question_variants": [
-                "Do optional accessories need Bluetooth qualification?",
-                "Must a plastic cover accessory be included in the listing?",
-                "Are non-Bluetooth options part of the qualification scope?",
-                "Do cosmetic product variants affect Bluetooth qualification?",
-                "Can unrelated accessories be excluded from qualification?"
-            ],
-            "actual_issue": "Non-Bluetooth accessories and product options that do not affect the Bluetooth implementation do not need to be included in the Bluetooth qualification scope.",
-            "plain_english_explanation": "The customer asked whether an optional resin cover accessory had to be included in the Bluetooth qualification. The consultant clarified that accessories unrelated to Bluetooth functionality are outside the qualification scope. Cosmetic or non-communication-related options generally do not require separate qualification treatment.",
-            "consultant_answer": "The consultant explained that optional resin covers and other accessories unrelated to Bluetooth functionality do not need to be included in the Bluetooth SIG registration. The qualification scope only needs to cover the Bluetooth-related implementation and features.",
-            "decision_logic": "Bluetooth qualification scope is determined by the Bluetooth-compliant implementation and related features. Accessories or industrial design changes that do not affect Bluetooth behavior are outside the qualification scope.",
-            "final_recommendation": "Exclude purely cosmetic or non-Bluetooth accessories from the qualification scope unless they change Bluetooth hardware, RF behavior, firmware, or declared Bluetooth functionality.",
-            "risk_if_done_wrong": "The customer may unnecessarily expand the qualification scope, increase administrative complexity, or spend time preparing documentation for unrelated accessories.",
-            "bluetooth_tags": [
-                "qualification",
-                "scope",
-                "accessory",
-                "module",
-                "reuse",
-                "listing"
-            ],
-            "search_aliases": [
-                "optional accessory qualification",
-                "non Bluetooth accessory",
-                "plastic cover qualification",
-                "cosmetic change Bluetooth",
-                "industrial design change",
-                "Bluetooth unrelated option",
-                "qualification scope exclusion",
-                "accessory outside qualification"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0037",
+  "case_id": "thread_0037_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth SIG Declaration fee Invoice/Qualification Number account binding rule, and a valid cross-company payment workaround",
+  "customer_question": "When obtaining the Invoice for the Bluetooth SIG registration fee payment, does it matter whose account is used to get it, versus which company actually sends the wire transfer money?",
+  "question_variants": [
+    "If a different company pays the registration fee on our behalf, will the Qualification Number still be credited to our account correctly?",
+    "What happens if the Invoice is obtained under the wrong company's account?"
+  ],
+  "actual_issue": "The customer needed to understand a critical, easy-to-get-wrong rule: the Invoice for the Bluetooth SIG Declaration fee must be obtained while logged into the specific account of the company under whose name the product will actually be registered -- and wanted to confirm whether a different company could still be the one to actually send the USD wire transfer funds without breaking this requirement.",
+  "plain_english_explanation": "The Invoice used to pay the Bluetooth SIG Declaration fee must always be obtained by logging into the web portal as the account holder of the company under whose name the registration will actually be filed -- this is non-negotiable, because the resulting Qualification Number cannot be transferred between different SIG member companies after the fact, and an Invoice obtained under the wrong account becomes permanently unusable (unrefundable, expiring after one year) if the mismatch isn't caught. However, this rule only governs whose account the Invoice must be obtained under -- it does not require that the same company be the one to actually send the wire transfer funds. A valid workaround exists: if Company A is the actual registrant, but Company B will be paying the fee on Company A's behalf, Company A's account holder logs in and obtains the Invoice under their own account as normal, then simply forwards that Invoice file (e.g., by email) to Company B, who can then use their own bank to perform the actual USD wire transfer. Regardless of which company's bank account the money physically comes from, the resulting Qualification Number is still correctly credited to Company A's account, since the Invoice itself -- not the originating bank account of the payment -- is what determines where the Qualification Number is attributed.",
+  "consultant_answer": "The Invoice must always be obtained by logging in as the account holder of the company that will actually be the registrant -- this is critical, since the Qualification Number can't be transferred between different member companies afterward, and an Invoice obtained under the wrong account becomes unusable (unrefundable, expiring in a year) if not caught in time. That said, this only governs whose account the Invoice is obtained under -- it doesn't require that same company to send the actual wire transfer. If a different company will be paying on your behalf, your account holder still obtains the Invoice under your own account as normal, then just forwards that Invoice file to the paying company, who sends the funds from their own bank. Regardless of whose bank account the money comes from, the Qualification Number still gets correctly credited to your account, since it's tied to the Invoice itself, not the payment's originating bank account.",
+  "decision_logic": "Bluetooth SIG Declaration fee Invoice acquisition is strictly tied to the account of the intended registrant company and cannot be corrected after the fact via cross-company transfer -- but the entity that physically sends the USD wire transfer funds is unconstrained, since Qualification Number attribution follows the Invoice (and thus the account it was obtained under), not the originating bank account of the payment. This decoupling allows a valid workaround: the registrant company obtains its own Invoice, then forwards it to whichever third party will actually make the payment.",
+  "final_recommendation": "Proactively explain this Invoice-account-binding rule to every customer before they obtain their Invoice, especially when there's any possibility a third party (parent company, distributor, accounting-services vendor) might handle the actual payment -- and clarify the valid workaround (forward the Invoice file, let the third party pay) so customers don't mistakenly think the Invoice itself must be obtained by whoever is paying.",
+  "risk_if_done_wrong": "If a customer mistakenly has a different (non-registrant) company's account holder obtain the Invoice -- perhaps assuming that company should get it since it's the one paying -- the resulting Qualification Number would be tied to the wrong company's account, becoming permanently unusable and unrefundable after one year once the registrant company tries to use it.",
+  "bluetooth_tags": [
+    "Invoice must be obtained under registrant company account",
+    "Qualification Number cannot transfer between companies",
+    "cross-company payment workaround forward Invoice file",
+    "unrefundable after one year if wrong account",
+    "IDEAL Corporation"
+  ],
+  "search_aliases": [
+    "whose account to use for SIG Declaration fee Invoice",
+    "can different company pay Bluetooth SIG registration fee",
+    "Qualification Number tied to wrong account unusable",
+    "forward Invoice file to third party for payment"
+  ],
+  "qualification_stage": "Pre-registration payment process",
+  "confidence": "high"
 }

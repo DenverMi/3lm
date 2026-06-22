@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0004",
+  "case_id": "thread_0004_case_07",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine UXC10), DUT physical return request before RF PHY test for configuration file update",
+  "customer_question": "Once RF testing is complete but before RF PHY testing begins, could you send the DUT back to us first? We need to rewrite part of a configuration file for RF PHY testing, and since there's no version-number-based way to confirm whether an update was actually applied, we need physical possession of the unit to do this update ourselves.",
+  "question_variants": [
+    "Why can't the configuration update be done remotely or by sending a file to the lab to apply?",
+    "Does this physical DUT return-and-update cycle delay the overall RF PHY test schedule?"
+  ],
+  "actual_issue": "The customer needed the DUT physically returned to them between the RF test phase and the RF PHY test phase so they could apply a configuration file change themselves, specifically because they had no reliable remote way (such as a version number) to confirm the update had actually taken effect if performed by the lab on their behalf.",
+  "plain_english_explanation": "Because the customer lacked a way to verify a configuration update was correctly applied other than doing it themselves and visually/physically confirming it, a DUT round-trip (lab to customer and back) was the simplest way to ensure the update was genuinely in place before RF PHY testing proceeded, rather than relying on the lab to apply an update with no independent confirmation method available.",
+  "consultant_answer": "Understood -- we can return the DUT to you after RF testing completes so you can apply the configuration update yourselves before RF PHY testing begins, given there's no version-based way to confirm the update otherwise.",
+  "decision_logic": "When a customer cannot independently verify whether a configuration or firmware update was correctly applied (e.g., no version number or other observable marker), having the customer perform the update directly via physical possession of the sample is more reliable than the lab applying an update on the customer's behalf with no verification mechanism, even though it costs an extra shipping round-trip in the schedule.",
+  "final_recommendation": "When a customer requests a mid-test DUT return for a configuration update, accommodate it and build the round-trip time into the schedule, rather than offering to apply the update on their behalf, if they've indicated there's no reliable way to confirm the update took effect remotely.",
+  "risk_if_done_wrong": "If the lab applied the configuration update on the customer's behalf without a reliable verification method, there would be no way to confirm whether RF PHY testing was actually conducted against the updated configuration or the stale one, risking invalid test results.",
+  "bluetooth_tags": [
+    "DUT physical return mid-test",
+    "configuration update no version tracking",
+    "RF PHY test prerequisite update",
+    "Alps Alpine UXC10"
+  ],
+  "search_aliases": [
+    "return DUT before RF PHY test for update",
+    "no version number to confirm config update applied",
+    "customer wants to apply firmware update themselves mid-test"
+  ],
+  "qualification_stage": "RF PHY test scheduling / sample handling",
+  "confidence": "medium"
+}

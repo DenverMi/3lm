@@ -1,48 +1,32 @@
 {
-    "source_thread": "thread_0045",
-    "cases": [
-        {
-            "case_id": "thread_0045_case_01",
-            "iut_type": "module-based end product",
-            "customer_question": "Can a company complete Bluetooth SIG qualification for a product that uses an existing qualified Bluetooth module, and what account and documentation requirements apply?",
-            "question_variants": [
-                "How do we qualify an end product using a pre-qualified Bluetooth module?",
-                "Can we reuse an existing Bluetooth module qualification for our product?",
-                "Does the product owner need its own Bluetooth SIG qualification listing?",
-                "What documents are required for a declaration-style qualification?",
-                "Can the qualification be submitted under another company's Bluetooth SIG account?"
-            ],
-            "actual_issue": "The customer needed to complete a Bluetooth SIG end-product qualification using an existing qualified Bluetooth module while ensuring the correct member account ownership, documentation package, and declaration workflow were used.",
-            "plain_english_explanation": "Using a pre-qualified Bluetooth module does not automatically qualify the final product. The company selling the final product still needs to complete its own Bluetooth SIG qualification steps and submit the product under the correct Bluetooth SIG member account. Proper documentation and included design references must be prepared so the qualification can be approved without unnecessary retesting.",
-            "consultant_answer": "The consultant explained that the qualification could proceed as an end-product declaration using the existing qualified Bluetooth module rather than creating a fully new Bluetooth design qualification. The final product still required qualification ownership under the company marketing the product, so the correct Bluetooth SIG member account and fee entitlement had to be aligned before submission. Required compliance folder evidence included Bluetooth operation descriptions, block diagrams, mechanical information, and antenna-related documentation supporting the embedded module implementation. The consultant also clarified that consistency check issues could be corrected through ICS adjustments before final submission.",
-            "decision_logic": "A final product using a pre-qualified Bluetooth module can often reuse the module qualification path if the implementation does not materially change the qualified Bluetooth design. However, Bluetooth SIG rules still require the final product owner to complete qualification under its own membership and maintain sufficient compliance evidence.",
-            "final_recommendation": "Complete the qualification as an end-product declaration using the existing qualified module references, verify the submission is owned by the correct Bluetooth SIG member account, resolve ICS consistency issues before submission, and prepare the required compliance folder documentation.",
-            "risk_if_done_wrong": "Submitting under the wrong Bluetooth SIG account could prevent completion because qualification ownership and fee entitlement would not align correctly. Missing or inconsistent compliance documentation could delay approval, trigger additional review, or create future audit exposure. Incorrect reuse handling could also lead to unnecessary redesign qualification work or avoidable retesting.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "module",
-                "reuse",
-                "ICS",
-                "consistency check",
-                "declaration",
-                "QDID"
-            ],
-            "search_aliases": [
-                "module reuse qualification",
-                "end product declaration",
-                "Bluetooth SIG account ownership",
-                "QDID reuse",
-                "ICS consistency issue",
-                "qualification under correct member",
-                "module-based listing",
-                "compliance folder documentation",
-                "reuse existing Bluetooth design",
-                "declaration qualification path"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0045",
+  "case_id": "thread_0045_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Account mismatch blocking Submission -- the Receipt Number is tied to whichever account originally obtained the Invoice, which can become inconsistent with the account named in the registration confirmation document if internal account changes occur",
+  "customer_question": "(Internal process issue, surfaced to the customer.) When I tried to perform Submission using the account specified in the proxy registration confirmation document, it logged in as a different person ('Shiro Koike') than the account that actually had the registration fee assigned ('Shunji Konishi'), and this new account has no fee credited to it -- Submission is now blocked. How is this resolved?",
+  "question_variants": [
+    "Can the account designation in a registration confirmation document silently become stale relative to which account actually holds the paid Qualification Fee credit?",
+    "What operation moves a Receipt Number from one account to another?"
+  ],
+  "actual_issue": "Between the date a trial Review Page was generated (using one customer account, 'Shunji Konishi,' which had the Qualification Fee's Receipt Number assigned to it) and the later date Submission was actually attempted, the account that the customer's own confirmation document specified had changed to a different person ('Shiro Koike') -- and since that newer account had no Receipt Number assigned to it, Submission could not proceed, despite the Review Page itself having been successfully generated and confirmed by the customer just before this discovery.",
+  "plain_english_explanation": "The Qualification Fee's Receipt Number is tied to the specific SIG account that originally obtained the Invoice for that payment -- not to whichever account happens to be named in the customer's registration confirmation document at any given moment. If a customer's internal account designation changes between the time a trial Review Page is generated and the time Submission is actually attempted (for example, due to personnel changes or an internal account substitution that isn't communicated back to the registration support team), Submission will fail because the currently-specified account has no fee credit assigned to it, even though the originally-designated account does. The resolution is to perform SIG's account Transfer operation, moving the Receipt Number from the original fee-holding account to whichever account the customer now wants to use for Submission -- this requires confirming the original account's current login identity so the Transfer can be properly directed.",
+  "consultant_answer": "There's a problem: on the date I advanced your registration to the Review Page, the Qualification Fee's Receipt Number was assigned to the account 'Shunji Konishi.' But when I just tried to perform Submission using the account specified in your confirmation document, it logged in as 'Shiro Koike' instead, which has no fee credit assigned -- so Submission can't proceed. I'll perform a Transfer operation to move the Receipt Number over, so please confirm Shunji Konishi's current account details.",
+  "decision_logic": "When Submission unexpectedly fails due to an account having no Receipt Number assigned, check whether the account specified in the registration confirmation document has changed since the Invoice/Receipt Number was originally obtained -- if so, resolve via SIG's account Transfer operation to move the Receipt Number to the currently-intended account, rather than assuming the fee itself was lost or never paid.",
+  "final_recommendation": "Before attempting Submission, re-verify that the account named in the customer's registration confirmation document still matches the account that actually holds the Receipt Number, especially if significant time has passed since the Invoice was obtained or if the customer's organization may have undergone internal account or personnel changes in the interim.",
+  "risk_if_done_wrong": "Attempting Submission without verifying account-Receipt-Number alignment could result in a blocked Submission discovered only at the last step, requiring an account Transfer operation and additional back-and-forth before registration can actually complete.",
+  "bluetooth_tags": [
+    "Receipt Number tied to specific account not confirmation document",
+    "account mismatch blocks Submission",
+    "SIG account Transfer operation resolution",
+    "Global Electronics"
+  ],
+  "search_aliases": [
+    "Submission fails account has no Receipt Number",
+    "registration confirmation document account changed",
+    "how to transfer Receipt Number between SIG accounts",
+    "Qualification Fee assigned to wrong account"
+  ],
+  "qualification_stage": "Submission-stage account and payment verification",
+  "confidence": "high"
 }

@@ -1,46 +1,33 @@
 {
-    "source_thread": "thread_0024",
-    "cases": [
-        {
-            "case_id": "thread_0024_case_02",
-            "iut_type": "host subsystem",
-            "customer_question": "Under QPRDv3 Qualification Workspace, when adding HID11 to an existing referenced design, is testing limited to HID11-related IOPT cases or does the combined referenced profile set require broader IOPT testing?",
-            "question_variants": [
-                "Does adding HID11 require all IOPT tests from the included profiles?",
-                "How does QPRDv3 change Profile Subsystem qualification testing?",
-                "Can HID11 qualification use only HID-related IOPT cases?",
-                "What IOPT scope is generated for Include QDID registrations in Qualification Workspace?",
-                "Does Option 2 profile combination trigger full interoperability testing?"
-            ],
-            "actual_issue": "Understanding how QPRDv3 Qualification Workspace handles interoperability testing for new designs that include existing qualified designs plus added profiles.",
-            "plain_english_explanation": "The customer believed only the newly added HID11 profile and related interoperability tests would need testing. The consultant explained that under the newer QPRDv3 and Qualification Workspace process, adding a new profile to an included existing design causes the entire combined profile set to become part of the interoperability test scope. This is different from older PRDv2.3 Launch Studio behavior.",
-            "consultant_answer": "The consultant clarified that under PRDv2.3 Launch Studio, the customer's assumption would previously have been correct. However, under QPRDv3/v4 Qualification Workspace there is no registration method equivalent to adding a Profile Subsystem plus existing DN/QDID while limiting interoperability testing to only the added profile. Instead, Qualification Workspace combines the referenced profiles and newly added profile into one integrated design scope. As a result, the referenced profiles inherited from the included QDID also generate required IOPT test cases, and the added HID11 profile generates both profile tests and ICS-linked test items. The consultant listed the resulting required IOPT cases inherited from the referenced profiles.",
-            "decision_logic": "QPRDv3 Qualification Workspace generates testing obligations from the complete combined design represented by the included DN/QDID plus new profile additions. Interoperability requirements are based on the final integrated ICS and profile combination, not only the incremental added profile.",
-            "final_recommendation": "Generate the official Qualification Workspace Test Plan and execute all generated IOPT and profile test cases for the full combined design, including inherited profiles from the referenced DN/QDID and the newly added HID11 functionality.",
-            "risk_if_done_wrong": "Limiting testing to only HID11-related cases may leave mandatory Qualification Workspace test items incomplete, causing registration failure, rejected evidence, or rework after submission.",
-            "bluetooth_tags": [
-                "qualification",
-                "QPRDv3",
-                "Qualification Workspace",
-                "IOPT",
-                "HID11",
-                "QDID",
-                "DN",
-                "profile"
-            ],
-            "search_aliases": [
-                "QPRDv3 IOPT scope",
-                "Qualification Workspace Include QDID",
-                "HID11 interoperability testing",
-                "Profile Subsystem testing",
-                "combined design IOPT",
-                "Launch Studio difference",
-                "included QDID test plan",
-                "Option 2a IOPT"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0024",
+  "case_id": "thread_0024_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine HM2-series device), self-testing workflow with lab-verified Test Plan and file format requirements for PTS evidence review",
+  "customer_question": "We'd like to run the PTS testing ourselves in-house using the Test Plan and ICS you've already confirmed, then have you review the resulting evidence rather than shipping samples to you -- is this acceptable, and what exactly do you need from us to verify it properly?",
+  "question_variants": [
+    "Is a .pts file alone sufficient to prove which QDID was actually referenced (Included) in a self-run test?",
+    "Why does the lab need the full exported project file rather than just the individual test plan and report files?"
+  ],
+  "actual_issue": "The customer wanted to self-test using their own facilities (since they already had the necessary equipment and test plan) rather than shipping samples to the lab, and needed to establish exactly what file format and verification process would let the lab confirm the self-generated PTS evidence was valid registration evidence -- while an initial attempt to submit just the .pts file proved insufficient for the lab to verify the QDID references used.",
+  "plain_english_explanation": "The agreed self-test workflow was: the customer requests a Test Plan and ICS confirmation from the lab first (verified against the lab's own 'shadow' trial project to ensure consistency), the customer then runs PTS testing in-house using that confirmed Test Plan, sends the lab the resulting evidence, the lab reviews it (re-testing anything that failed or was missing, on the customer's side, if issues are found), and once everything passes, the lab proceeds with the registration submission. For the evidence file format specifically, a bare .pts file alone was not sufficient, since it didn't show which DN/QDID had actually been Included/referenced during the test -- the lab instead needed the full Project Export file (a .bqw file) generated via the testing software's Export Project function, which does preserve that Include/reference information. Since major email servers (including Outlook) block .bqw file attachments outright, the customer needed to zip-compress the file before sending it as an email attachment.",
+  "consultant_answer": "Yes, self-testing is fine -- the agreed workflow is: we confirm your Test Plan and ICS against our own shadow trial project first, you run PTS testing in-house using that confirmed Test Plan, send us the resulting evidence, we review it (and ask you to re-test anything that failed or was missed), and once everything passes, we proceed with registration. One correction on the evidence file: a bare .pts file alone isn't enough, since it doesn't show which DN/QDID you actually Included/referenced during the test -- we need the full Project Export file (a .bqw file, via your testing software's Export Project function) instead. Since most email servers (including Outlook) block .bqw attachments, please zip-compress it before sending.",
+  "decision_logic": "When verifying a customer's self-run PTS evidence, a bare .pts test result file is insufficient to confirm which QDID/DN reference was actually used during testing -- the full exported project file (.bqw) is required to verify this, and since this file type is commonly blocked by email servers, customers should be told upfront to zip-compress it before sending.",
+  "final_recommendation": "When agreeing to a self-test workflow, specify the exact required evidence file format (full Project Export, not just the bare test result file) and the email-delivery workaround (zip compression) upfront, rather than discovering the format insufficiency only after the customer has already submitted the wrong file type.",
+  "risk_if_done_wrong": "Accepting a bare .pts file as sufficient evidence without verifying the actual Included QDID/DN reference could result in registration evidence that doesn't actually correspond to the intended reference, while not warning about the .bqw email-blocking issue upfront would cause a wasted submission round-trip.",
+  "bluetooth_tags": [
+    "self-test workflow lab verification",
+    "bare pts file insufficient need Project Export bqw",
+    "Outlook blocks bqw attachment zip compress",
+    "shadow trial project Test Plan ICS confirmation",
+    "Alps Alpine HM2"
+  ],
+  "search_aliases": [
+    "can customer self-test and submit evidence for review",
+    "pts file vs bqw Project Export file difference",
+    "why does pts file not show Included QDID",
+    "Outlook blocks bqw file attachment"
+  ],
+  "qualification_stage": "Self-test workflow and evidence verification",
+  "confidence": "high"
 }

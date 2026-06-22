@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0195",
+  "thread_analysis": {
+    "thread_summary": "Alinco BR/EDR + BLE transceiver re-registration after IC change. Sub-contractor (Wireless Technology/Cresgo Wireless) prepared PTS test reports. Two registration configuration errors identified and corrected by Allion: (1) RF Class entered as Class 1 (RF 1/1:YES) — caused LMP 31/1 Mandatory Consistency Check failure because the referenced Controller QDID requires Power Control when Class 1 is declared. Solution: change to Class 2 (RF 1/1:NO). (2) Core version entered as v5.3 instead of the correct v5.2 (lowest version among all referenced QDIDs). IOPT test items also required: IOPT/SR/COD, IOPT/BAS/SR, IOPT/HFP/HF/SDPR, IOPT/HFP/HF/CGSIT, IOPT/SPP/DEVA/CGSIT, IOPT/SPP/DEVB/SDPR.",
+    "all_questions_found": [
+      "RF Class 1 entry causes LMP 31/1 Mandatory error — what is the correct RF Class?",
+      "Core version was entered as v5.3 but referenced QDID is v5.2 — which version to use?",
+      "What IOPT test items are required for this registration?"
+    ],
+    "key_technical_discussion": "Two independent ICS configuration errors in one registration. The RF Class error stems from the conditional dependency between RF 1/1 (TX Power Class) and LMP 31/1 (Power Control): Class 1 declaration at the LL layer triggers a Power Control mandatory requirement that the device does not implement. The Core version error is a straightforward data entry mistake — the minimum QDID version rule is fundamental. Both errors must be corrected before submission.",
+    "key_decision_logic": "RF Class 2 (RF 1/1:NO) is required when the referenced QDID's LMP 31/1 is Mandatory and the product does not implement Power Control. Core version = lowest version among all referenced QDIDs — always verify this explicitly.",
+    "risk_if_done_wrong": "Incorrect RF Class creates an unresolvable Consistency Check failure blocking submission. Incorrect Core version misrepresents the product's Bluetooth compliance level — both are qualification integrity issues.",
+    "consulting_mistake": "Allion initially entered Core version v5.3 instead of v5.2 — this was caught and corrected before submission. The RF Class issue appears to have been caught during ICS configuration review. Both errors were corrected prior to submission.",
+    "consulting_takeaway": "Before finalizing ICS configuration for any BR/EDR product: (1) explicitly check for LMP 31/1 conditionality when declaring RF Power Class — Class 1 mandates Power Control; (2) always verify Core version = minimum version among all referenced QDIDs. Add these as mandatory checklist items in the pre-submission review."
+  }
+}

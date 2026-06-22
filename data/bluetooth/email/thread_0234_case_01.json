@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0234",
+  "case_id": "thread_0234_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Headset device with HFP (Hands-Free Profile) implementation (OM Digital Solutions)",
+  "customer_question": "Our DUT isn't being recognized by PTS during HFP testing — it doesn't show up via a 'Find My Bluetooth Device' app search, Paging connection attempts time out after about 41 seconds, and the Bluetooth address we see varies each time we try. We can pair and use the headset normally outside of PTS. What's going wrong, and how do we resolve this?",
+  "question_variants": [
+    "Why doesn't PTS recognize our DUT even though normal pairing/use works fine?",
+    "Why does the DUT's Bluetooth address appear different each time, and why does Paging time out?",
+    "Can our team verify this independently, or does it require Allion's specific test setup?"
+  ],
+  "actual_issue": "The customer's HFP-implementing headset DUT worked normally for real-world pairing and voice communication, but consistently failed to respond to PTS test commands (undiscoverable via address search, failed Paging connections), and extended remote troubleshooting (sharing test logs, manual operation steps, address-detection results) over several days failed to pinpoint the root cause.",
+  "plain_english_explanation": "After multiple rounds of remote troubleshooting — checking DUT menu operation steps, running independent Bluetooth-address-discovery checks with a separate phone app, and analyzing PTS Paging failure logs (which pointed to either an address mismatch or a DUT implementation that only responds to Paging from a specific known counterpart device) — the issue couldn't be conclusively diagnosed through remote, log-based communication alone. Since this kind of DUT-side protocol-level behavior is effectively a black box to anyone without direct, hands-on access to the device and matching test equipment, the recommended path forward was an in-person session at Allion's Bluetooth lab, with both the customer and their hardware/firmware development partner attending together, so the actual test setup and DUT behavior could be observed directly and the issue narrowed down collaboratively in real time rather than through further rounds of remote log exchange.",
+  "consultant_answer": "Given how many rounds of remote troubleshooting we've already gone through without pinpointing the cause, a Teams call would still leave everyone except your development partner looking at a black-box DUT. We'd like to invite your development partner (required) and you to visit our Bluetooth lab in person for about 3 hours, so we can observe the actual test setup and DUT behavior directly and work through the issue together in real time. Please share a few candidate date/time options.",
+  "decision_logic": "When DUT-side protocol behavior can't be conclusively diagnosed after multiple rounds of remote log-and-description-based troubleshooting, escalate to an in-person session with all technically relevant parties (including any third-party hardware/firmware development partner) physically present with the test equipment, rather than continuing indefinitely over remote calls where the DUT remains effectively unobservable to the lab.",
+  "final_recommendation": "When PTS test failures resist diagnosis through remote troubleshooting rounds involving logs, screenshots, and described manual steps, proactively propose an in-person lab session with all relevant technical parties (including external development partners) rather than continuing remote troubleshooting indefinitely.",
+  "risk_if_done_wrong": "Continuing indefinite remote troubleshooting without direct hands-on access to the DUT and test equipment could waste significant time without resolving the underlying issue, especially when the actual development/firmware expertise resides with a third-party partner not directly visible to the test lab.",
+  "bluetooth_tags": [
+    "PTS test DUT not recognized",
+    "HFP Paging connection failure",
+    "Bluetooth address inconsistency",
+    "in person lab troubleshooting session",
+    "OM Digital Solutions"
+  ],
+  "search_aliases": [
+    "PTS cannot find DUT",
+    "Paging connection timeout HFP test",
+    "DUT Bluetooth address changes each time",
+    "in person lab visit test troubleshooting"
+  ],
+  "qualification_stage": "Test execution",
+  "confidence": "high"
+}

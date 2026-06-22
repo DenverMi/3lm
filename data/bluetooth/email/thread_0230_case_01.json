@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0230",
+  "case_id": "thread_0230_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Set-top box (STB) with shared Wi-Fi/Bluetooth chip, multiple profiles (Panasonic Connect)",
+  "customer_question": "If our current prototype (running on a prior-generation SoC/SDK while the target SoC is still in development) demonstrates keyboard, mouse, and voice transmission working, and we plan to advertise keyboard/mouse support but not A2DP — without disabling or capping the A2DP function — is it acceptable to skip A2DP certification? And if there's a different, easier-to-implement way to disable/cap a feature than registering SDP records or GATT UUIDs, is that an acceptable substitute? To put it another way: as long as the feature simply doesn't run, is testing unnecessary regardless of how that's achieved?",
+  "question_variants": [
+    "Can we skip certifying a feature we don't advertise but also don't disable?",
+    "Is there an alternative to SDP record/GATT UUID registration for disabling an unadvertised feature?",
+    "Is the rule simply 'if a feature doesn't run, no certification is needed,' regardless of method?"
+  ],
+  "actual_issue": "The customer wanted to minimize Bluetooth certification scope for their STB by not certifying A2DP, and was probing whether simply not advertising/marketing a working feature (without actually disabling it) was sufficient, and whether any disabling method would suffice if so.",
+  "plain_english_explanation": "Whether or not a feature is advertised in marketing materials makes no difference to certification requirements — what matters is whether the feature is actually capable of running. If a feature is not disabled or capped and remains functional, it requires certification regardless of whether the company advertises it. The standard way to properly disable/cap a feature so it doesn't require certification is by removing or not registering its SDP records or GATT UUIDs; no other method was identified that achieves a true Bluetooth-spec-compliant disablement, so any other approach would likely fail to meet Bluetooth's required behavior rather than provide a valid alternative path to skip testing.",
+  "consultant_answer": "Whether or not you advertise a feature makes no difference — if the feature isn't disabled and can still function, A2DP certification is required regardless of marketing claims. The correct way to disable/cap a feature so it doesn't need certification is by not registering its SDP records and GATT UUIDs; we're not aware of any other method that achieves proper Bluetooth-spec-compliant disablement, so other approaches would likely fail to meet the Bluetooth specification rather than provide a valid shortcut around testing.",
+  "decision_logic": "Certification requirements track actual functional capability, not marketing claims; a feature is only exempt from certification if it is genuinely disabled at the protocol level (SDP record/GATT UUID removal), since this is the only verified compliant disablement method.",
+  "final_recommendation": "When customers ask whether avoiding marketing claims about a working feature exempts it from certification, clearly state that functional capability — not advertising — determines certification scope, and point to SDP/GATT UUID de-registration as the recommended (and only known reliable) disablement method.",
+  "risk_if_done_wrong": "Shipping a product with a functional-but-unadvertised, uncertified feature exposes the company to non-compliance risk, since SIG certification scope is based on actual capability rather than marketing claims.",
+  "bluetooth_tags": [
+    "A2DP certification scope",
+    "feature capping requirement",
+    "SDP record GATT UUID disablement",
+    "advertised vs functional feature",
+    "Panasonic Connect",
+    "STB"
+  ],
+  "search_aliases": [
+    "do we need to certify unadvertised but working feature",
+    "how to disable Bluetooth profile to avoid certification",
+    "SDP record GATT UUID capping method"
+  ],
+  "qualification_stage": "Pre-certification scoping",
+  "confidence": "high"
+}

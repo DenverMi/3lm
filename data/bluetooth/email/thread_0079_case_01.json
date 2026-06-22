@@ -1,46 +1,23 @@
 {
-    "source_thread": "thread_0079",
-    "cases": [
-        {
-            "case_id": "thread_0079_case_01",
-            "iut_type": "BLE product using a module and host stack",
-            "customer_question": "Because the Bluetooth qualification process changed on July 1, 2024 and the implementation uses a newer SDK rather than older SoftDevice implementations, is additional measurement or testing required?",
-            "question_variants": [
-                "Do the July 2024 Bluetooth SIG qualification changes require testing for this BLE product?",
-                "Is measurement required when using this BLE module and host stack?",
-                "Does switching from older SoftDevice implementations to a newer SDK create extra qualification tests?",
-                "Why is testing not included in the quotation?",
-                "Can this product proceed by registration support without measurement?"
-            ],
-            "actual_issue": "Determining whether the product qualification path requires new Bluetooth testing or can proceed without measurement based on the selected module, stack, and qualification approach.",
-            "plain_english_explanation": "The customer was concerned that a policy change might automatically trigger extra testing. The consultant confirmed that, for this implementation, testing and measurement were not required. The practical issue was to avoid adding unnecessary test work when the Bluetooth design basis did not require it.",
-            "consultant_answer": "The consultant answered that testing and measurement were not required for both concerns raised: the July 1, 2024 qualification-process change and the fact that the implementation used a newer SDK rather than older SoftDevice implementations used by other companies. The quotation therefore appropriately focused on registration support and compliance-folder creation rather than measurement services.",
-            "decision_logic": "The decision turns on whether the specific Bluetooth implementation and qualification route create additional test obligations. In this thread, the consultant concluded that the module/stack situation did not require measurement, so the qualification could proceed without adding test items.",
-            "final_recommendation": "Proceed with the registration-support path without adding measurement or test work, while continuing to prepare the required registration and compliance-folder materials.",
-            "risk_if_done_wrong": "If handled too conservatively, the customer could pay for unnecessary measurement and delay the registration. If handled too casually without confirming the implementation basis, the qualification route could be chosen incorrectly.",
-            "bluetooth_tags": [
-                "qualification",
-                "testing",
-                "module",
-                "host",
-                "LE",
-                "reuse",
-                "declaration",
-                "compliance folder"
-            ],
-            "search_aliases": [
-                "July 2024 qualification change",
-                "measurement not required",
-                "testing not required",
-                "BLE module reuse",
-                "new SDK no extra testing",
-                "registration support no testing",
-                "qualification without measurement",
-                "module and host stack"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0079",
+  "case_id": "thread_0079_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "We don't have finalized versions of the compliance folder documents yet -- can we submit drafts, a reused diagram, or simple photos instead, and replace them later?",
+  "question_variants": [
+    "Can we use a draft operation manual since our spec isn't finalized yet?",
+    "Can we substitute the module's own block diagram for our product block diagram?",
+    "Can scaled photos of the product stand in for a formal outline drawing?"
+  ],
+  "actual_issue": "The customer had not yet finalized several of the product documents needed for the compliance folder (operation manual, product block diagram, product outline drawing) and needed to know what level of fidelity or formality was acceptable, given that the underlying product specification was still in development.",
+  "plain_english_explanation": "The compliance folder needs certain product documents, but they don't have to be the polished, final versions before the registration can move forward. A rough draft of the manual, the module's own diagram standing in for a dedicated product diagram, and simple photos with a ruler in frame instead of a formal technical drawing are all acceptable, on the understanding that anything still in draft form gets swapped out for the final version later.",
+  "consultant_answer": "For the operation manual, the document does not need to be at the level of what ships with the product -- a draft manuscript or even memo-level document is acceptable. For the product block diagram, if the customer doesn't have one ready, the module's own block diagram (taken from the module's datasheet) can be reused in its place. For the product outline drawing, a front-view and side-view photograph of the actual product with a ruler or scale included alongside it is acceptable in place of a formal dimensional drawing. When the customer subsequently submitted a draft operation manual PDF (with the product specification not yet finalized, on the understanding it would be replaced later), the module's own block diagram, and photographs for the outline requirement, all three were accepted as sufficient to build the compliance folder.",
+  "decision_logic": "Compliance folder documents are accepted at a practical, not necessarily final, level of fidelity: a draft or memo-level operation manual, a reused module-level block diagram in place of a dedicated product diagram, and simple scaled photographs in place of a formal outline drawing are all acceptable substitutes when the customer's own finalized materials are not yet available, with replacement expected once final versions exist.",
+  "final_recommendation": "When a customer cannot yet provide finalized compliance folder documents, offer the practical substitutes that are generally acceptable: a draft or memo-level operation manual, the module's own block diagram in place of a dedicated product diagram, and scaled front/side photographs in place of a formal outline drawing, with the expectation that finalized versions will replace drafts later.",
+  "risk_if_done_wrong": "Insisting on fully finalized compliance documents before proceeding would unnecessarily delay compliance folder assembly and registration closeout in situations where acceptable, lower-fidelity substitutes would have sufficed.",
+  "bluetooth_tags": ["compliance folder", "operation manual", "block diagram", "outline drawing", "listing"],
+  "search_aliases": ["draft operation manual acceptable compliance folder", "module block diagram substitute product diagram", "scaled photos instead of outline drawing", "compliance folder document flexibility"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

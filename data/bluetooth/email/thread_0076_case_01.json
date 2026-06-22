@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0076",
-    "cases": [
-        {
-            "case_id": "thread_0076_case_01",
-            "iut_type": "BLE module",
-            "customer_question": "If an existing qualified product replaces its BLE module with a different module, is a new Bluetooth SIG registration required even when the product name and model remain unchanged?",
-            "question_variants": [
-                "BLE module replacement qualification impact",
-                "Does an EOL module replacement require a new SIG registration?",
-                "Can an existing listing be reused after changing the BLE module?",
-                "Same product name but different Bluetooth module",
-                "New registration required for alternate BLE module?"
-            ],
-            "actual_issue": "A product previously registered with Bluetooth SIG was redesigned to use a replacement BLE module after the original module reached end-of-life. The question was whether the existing registration could continue to be used.",
-            "plain_english_explanation": "Bluetooth qualification is tied to the Bluetooth implementation used in the product, not only to the commercial product name. Replacing the Bluetooth module changes the qualified Bluetooth design basis. Even if the marketed product remains the same, the qualification path may require a new registration.",
-            "consultant_answer": "The consultant confirmed that replacing the BLE module requires a new Bluetooth SIG registration. The qualification should be processed as a new registration based on the replacement module and its referenced qualified designs, even though the product branding and model family remain unchanged.",
-            "decision_logic": "Bluetooth SIG registration validity is determined by the qualified Bluetooth implementation and referenced designs. A module replacement changes the implementation basis and therefore cannot automatically inherit the previous registration.",
-            "final_recommendation": "Treat the BLE module replacement as a new Bluetooth SIG registration project and prepare the required qualification and registration documentation using the replacement module's qualification references.",
-            "risk_if_done_wrong": "Continuing to rely on the previous registration could leave the updated product associated with an incorrect qualification basis and create declaration or compliance issues.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "module",
-                "BLE",
-                "design change",
-                "registration"
-            ],
-            "search_aliases": [
-                "BLE module replacement",
-                "module EOL qualification",
-                "new SIG registration",
-                "same product different module",
-                "listing reuse not allowed",
-                "qualification basis changed",
-                "replacement Bluetooth module",
-                "new declaration required"
-            ],
-            "qualification_stage": "post-launch change",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0076",
+  "case_id": "thread_0076_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "The BLE module we previously registered with has become EOL, so we switched to an alternative module from a different vendor. Our product's name and model number aren't changing -- does this still require a brand-new SIG registration?",
+  "question_variants": [
+    "Do we need to re-register just because we swapped to a replacement BLE module?",
+    "Since our product name/model is unchanged, can we skip a new registration?",
+    "Does an EOL-driven module substitution count as a new design for SIG purposes?"
+  ],
+  "actual_issue": "A previously-registered product's BLE module reached end-of-life and was replaced with an alternative module from a different chip vendor; although the end product's commercial name and model designation remained unchanged, it needed to be confirmed whether this module substitution required an entirely new Bluetooth SIG registration.",
+  "plain_english_explanation": "Bluetooth certification is tied to the actual radio module and chip design inside a product, not to the product's brand name or model number. If the part that actually handles Bluetooth gets swapped out for a different one -- even as a routine like-for-like replacement when the original part is discontinued -- that's a different design from SIG's point of view and needs its own new registration, even though nothing about the product's name changes for customers.",
+  "consultant_answer": "Yes, as the customer themselves recognized, a new registration is required. The quote was based on the new module being an antenna-embedded module, and proceeded as a new registration referencing the new module as a Single Design, with agency registration support and compliance folder preparation as separate line items, plus a separate Qualification Fee payable directly to SIG.",
+  "decision_logic": "Bluetooth SIG registration is tied to the underlying module/Controller design actually used in the product, not to the product's commercial name or model number; substituting the Bluetooth module -- even a routine EOL-driven, like-for-like replacement -- changes the design being certified and therefore requires a new registration, regardless of whether the end product's branding changes.",
+  "final_recommendation": "Treat any Bluetooth module substitution, including an EOL-driven replacement with no change to the end product's name or model, as requiring a new SIG registration referencing the new module's design.",
+  "risk_if_done_wrong": "Assuming the existing registration still applies because the end product's name is unchanged would leave the actual shipped product, now using a different Bluetooth module, without valid certification for that hardware.",
+  "bluetooth_tags": ["EOL module replacement", "new registration", "Single Design", "module substitution"],
+  "search_aliases": ["BLE module EOL replacement requires new registration", "product name unchanged but module changed", "alternative module new SIG registration", "module substitution certification impact"],
+  "qualification_stage": "planning",
+  "confidence": "high"
 }

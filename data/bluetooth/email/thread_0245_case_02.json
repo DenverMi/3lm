@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0245",
+  "case_id": "thread_0245_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "General service-scope inquiry (PC manufacturer, new to Bluetooth certification, existing HDMI compliance customer)",
+  "customer_question": "If we ask your company to handle Bluetooth certification, what level of support can we expect to receive? We assume QDID testing and report creation is similar to the HDMI compliance support you've already provided us — but your website also mentions 'consulting' in addition to product testing. What does that consulting support actually involve?",
+  "question_variants": [
+    "What's included in your Bluetooth certification support, beyond testing and reporting?",
+    "What does the 'consulting' service mentioned on your website mean in practice?"
+  ],
+  "actual_issue": "The customer was new to Bluetooth SIG certification (already a member-procedure-in-progress) and an existing HDMI compliance customer, and wanted a concrete picture of the full scope of support available before formally engaging Allion for Bluetooth certification.",
+  "plain_english_explanation": "The engagement starts with the customer filling out a quote request form to whatever extent they can at that stage, from which Allion determines the necessary tests and provides a cost estimate. If testing is required, Allion provides a memo describing any minor product modifications needed for RF/RF PHY testing, and communicates sample requirements if profile testing is needed. If any test items fail, Allion sends the failure logs along with remediation advice. Allion also performs registration as a proxy, and if the registration site's consistency-check feature flags inconsistencies that block registration as-is, Allion researches and proposes alternative approaches to resolve them. After registration completes, if Bluetooth SIG conducts an audit of the registration and an audit notice arrives, Allion provides ongoing behind-the-scenes support to help the customer respond.",
+  "consultant_answer": "Please fill out the attached quote request form with whatever details you can provide at this stage — we'll use that to determine the necessary tests and provide a cost estimate. If testing is needed, we'll send a memo on any minor product modifications required for RF/RF PHY testing, and let you know the sample requirements if profile testing applies. If any test items don't pass, we'll send you the logs along with advice on how to address them. We also handle proxy registration, and if the registration site's consistency-check flags issues that block registration, we'll research and propose workarounds. After registration, if SIG ever issues an audit notice for your registration, we'll provide behind-the-scenes support to help you respond.",
+  "decision_logic": "Service-scope explanations for new-to-Bluetooth customers should walk through the full engagement lifecycle in order (quoting, testing/sample logistics, fail-item remediation, proxy registration with consistency-check troubleshooting, and post-registration audit support) rather than giving an abstract description of 'consulting.'",
+  "final_recommendation": "When a customer asks what 'consulting' support means in the abstract, translate it into the concrete lifecycle stages where Allion provides judgment-based help (test scope determination, fail-item remediation advice, consistency-check workarounds, audit response support), since this is more useful than a generic description.",
+  "risk_if_done_wrong": "A vague answer about 'consulting' could leave a new customer unclear on what proactive support they're actually paying for, particularly around fail-item remediation and audit response, which are exactly the points where unexpected costs or delays tend to arise.",
+  "bluetooth_tags": [
+    "Bluetooth certification service scope",
+    "consulting support explained",
+    "quote request form process",
+    "fail item remediation advice",
+    "audit support",
+    "SORD"
+  ],
+  "search_aliases": [
+    "what does Bluetooth certification consulting include",
+    "service scope new Bluetooth certification customer",
+    "what happens if test fails",
+    "post-registration audit support"
+  ],
+  "qualification_stage": "Pre-engagement / sales inquiry",
+  "confidence": "high"
+}

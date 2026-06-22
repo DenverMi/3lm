@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0266",
+  "case_id": "thread_0266_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth SoC registered as Controller Subsystem (Hoshiden module), RF PHY test scope",
+  "customer_question": "Your quote includes RF PHY testing for both 1M and 2M PHY modes (¥700,000), but our module only actually implements BLE 1M mode. Can the test scope and cost be reduced to just 1M?",
+  "question_variants": [
+    "Can RF PHY test scope be limited to only the PHY modes our module actually implements?",
+    "Why does our SoC need RF PHY testing at all if it's already registered as a Controller Subsystem?"
+  ],
+  "actual_issue": "The customer wanted to reduce RF PHY testing cost by limiting scope to only the PHY mode (1M) their module actually implements, rather than the broader 1M+2M scope initially quoted, and separately needed to understand why RF PHY testing was required at all given their SoC's existing Controller Subsystem registration.",
+  "plain_english_explanation": "This SoC, despite technically being the kind of component that should be registered under SIG's Component registration category, is instead registered as a Controller Subsystem — which means the new registration site doesn't require an uploaded RF PHY test report for it, but a real RF PHY test confirmation (run on the module or end-product board where the SoC is actually implemented) is still required as supporting evidence. Since the registration approach being used here keeps the existing registration's ICS unchanged (an Include-without-modification, Declaration-equivalent approach), the customer's own registration can't change the inherited ICS to mark 2M PHY as Not Supported even if that's accurate — meaning the cost reduction can't come from editing the ICS itself. However, since the actual confirmation testing is run against the module's real implementation (not the inherited ICS declaration), if the module genuinely only implements 1M PHY, the RF PHY test itself can simply be scoped to 1M only, since there's no actual 2M functionality to confirm — bringing the cost down to the 1M-only test fee.",
+  "consultant_answer": "Your SoC is registered as a Controller Subsystem rather than under SIG's Component category, so the registration site doesn't require an RF PHY test report upload, but a real RF PHY test confirmation against the actual module/board implementation is still required. Since you're using an Include-without-modification (Declaration-equivalent) registration approach, you can't change the inherited ICS to mark 2M PHY as Not Supported, even though that's accurate for your module. That said, since the actual test confirms your real implementation rather than the inherited ICS declaration, if your module genuinely only implements 1M PHY, we can simply scope the RF PHY test itself to 1M only — bringing the cost down to ¥400,000 for the 1M-only test.",
+  "decision_logic": "RF PHY test scope reduction for a module with limited PHY mode implementation should be based on the actual test confirmation scope (what the real hardware implements) rather than attempting to edit an inherited, Include-without-modification ICS declaration, since the latter isn't editable under this registration approach but the former can still be appropriately scoped to match reality.",
+  "final_recommendation": "When a customer asks to reduce RF PHY test scope under an Include-without-modification registration approach, clarify that the inherited ICS itself can't be edited, but the actual confirmation test can still be scoped to only the PHY modes genuinely implemented in the hardware, achieving the desired cost reduction through the test scope rather than the registration declaration.",
+  "risk_if_done_wrong": "Assuming RF PHY test scope could only be reduced by editing the registration's ICS (which isn't possible under this approach) could lead to incorrectly concluding that the full 1M+2M test was unavoidable, when scoping the actual confirmation test to match real hardware capability was the correct path to the cost reduction.",
+  "bluetooth_tags": [
+    "RF PHY test scope reduction",
+    "SoC Controller Subsystem registration RF PHY required",
+    "Include unmodified ICS cannot be edited",
+    "1M only PHY mode test cost reduction",
+    "Hoshiden"
+  ],
+  "search_aliases": [
+    "can RF PHY test scope be reduced to 1M only",
+    "why does Controller Subsystem registered SoC need RF PHY test",
+    "Include unmodified registration cannot edit ICS"
+  ],
+  "qualification_stage": "Quotation / test scoping",
+  "confidence": "high"
+}

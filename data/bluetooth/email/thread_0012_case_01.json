@@ -1,47 +1,35 @@
 {
-    "source_thread": "thread_0012",
-    "cases": [
-        {
-            "case_id": "thread_0012_case_01",
-            "iut_type": "module",
-            "customer_question": "Can the product be qualified as Bluetooth Class 1 when combining the selected Qualcomm controller stack and host stack QDIDs?",
-            "question_variants": [
-                "Can RF be registered as Class 1?",
-                "Why does the consistency check fail for RF Class 1?",
-                "How do we resolve the RF/LMP invalid dependency error?",
-                "Can RF PHY be Class 1 while RF remains Class 2?",
-                "Which ICS settings allow the design to pass consistency check?"
-            ],
-            "actual_issue": "The selected controller and host stack combination produced an inter-layer dependency inconsistency during Bluetooth SIG consistency check when RF was configured as Class 1.",
-            "plain_english_explanation": "The product combined existing Bluetooth designs, but the selected Class 1 RF settings conflicted with mandatory lower-layer requirements. The Bluetooth qualification system detected that enabling RF Class 1 required an additional LMP capability that was not present. The consultant verified which ICS combinations would remove the inconsistency and still allow the desired RF PHY behavior.",
-            "consultant_answer": "The consultant imported the referenced QDIDs into a draft project and executed the Bluetooth SIG consistency check using the requested RF and RF PHY ICS settings. The result showed that RF PHY configured as Class 1 did not create LL inconsistencies, but RF configured as Class 1 triggered an ILD error requiring an additional mandatory LMP feature. The consultant concluded that the design could not proceed with RF:Class 1 using the current included design combination. A later Qualcomm controller stack modification resolved the inconsistency and allowed RF:Class 1 and RF PHY:Class 1 to coexist without invalid dependencies, provided RF/RF PHY testing passes.",
-            "decision_logic": "Bluetooth SIG consistency check validates inter-layer dependencies across included QDIDs and ICS selections. If RF Class 1 is enabled, the related mandatory LMP capability must also be supported. When the included controller stack lacks the required dependency, the design cannot proceed until either the ICS selections are changed or the underlying included design is modified.",
-            "final_recommendation": "Run consistency check using the exact included QDIDs and intended ICS settings before qualification. If RF Class 1 causes ILD invalid errors, either use RF:Class 2 with RF PHY:Class 1 or update the controller stack design so the required LMP dependencies are satisfied before testing and listing.",
-            "risk_if_done_wrong": "If the RF and LMP dependencies are not aligned, the Bluetooth SIG consistency check will fail and the qualification cannot proceed to submission. Incorrect ICS selections can also lead to failed RF/RF PHY planning, retesting, and project delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "ICS",
-                "consistency check",
-                "ILD",
-                "RF",
-                "RF PHY",
-                "QDID",
-                "Class 1"
-            ],
-            "search_aliases": [
-                "RF Class 1 invalid",
-                "ICS consistency check failed",
-                "If RF supported then LMP mandatory",
-                "RF PHY Class 1",
-                "ILD mismatch",
-                "QDID combination invalid",
-                "RF Class 2 workaround",
-                "LMP dependency error",
-                "controller stack inconsistency"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0012",
+  "case_id": "thread_0012_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alinco XE1177, Qualcomm chipset), BlueTest3/TRBI200 RF test setup and connection troubleshooting",
+  "customer_question": "In the BlueTest3 User Guide's 'Make a new connection' step, which Transport option should we select -- only USB and DEBUG are actually selectable, others are grayed out. Also, after successfully entering DUT mode, running an RF receiver test command fails with 'Establish connection to OUT: ERROR Connection to OUT: failed' -- what else should we check?",
+  "question_variants": [
+    "Why does BlueTest3 only allow USB or DEBUG as Transport options for our setup?",
+    "What does an 'Establish connection to OUT' failure after a successful DUT mode entry actually indicate?"
+  ],
+  "actual_issue": "The customer's internal test engineer, new to the BlueTest3/TRBI200 tooling for Qualcomm-chipset RF testing, needed guidance on which Transport setting to use for their specific physical USB connection type, and needed help diagnosing a connection failure that occurred after DUT mode was successfully entered but before RF test commands could execute.",
+  "plain_english_explanation": "Transport selection in BlueTest3 should be based on which physical interface actually connects the test sample to the PC -- standard USB versus a vendor-specific Debugger-type USB connection -- rather than an arbitrary choice; since only two options were selectable in this setup, the correct one corresponds to whichever physical interface is actually wired between the DUT and PC. Separately, an 'Establish connection to OUT' failure occurring after a successful DUT-mode entry indicates that the test sample's RF signal path is not electrically connected to the InterLab system's RF cable, even though the serial/DUT-mode control signal path is working fine. To diagnose this, a useful side-check is to keep the sample in DUT mode and try detecting it directly via a smartphone's Bluetooth scan near the sample: if the sample's BD Address is detected, the sample is genuinely in DUT mode and broadcasting correctly, which narrows the fault down to the RF cable connection -- in particular, a common cause is the sample's SMA-connector cable not being properly soldered (or having a cold/lifted solder joint) to the antenna pattern on the board, which would explain why the control/serial path works but the RF path does not.",
+  "consultant_answer": "Choose the Transport option that matches your sample's actual physical connection to the PC -- standard USB or a vendor-specific Debugger-type USB -- rather than guessing; if only two options are selectable, the correct one matches whichever interface is genuinely wired up. For the 'Establish connection to OUT' failure after a successful DUT-mode entry: that means your sample's RF path isn't electrically connected to our RF cable, even though the serial/control path is fine. To confirm, try a smartphone Bluetooth scan near the sample while it's in DUT mode -- if its BD Address shows up, the sample is genuinely broadcasting, which points to the SMA-connector cable not being properly soldered (or having a lifted solder joint) to the board's antenna pattern as the likely cause.",
+  "decision_logic": "When a DUT enters test/DUT mode successfully (serial/control path confirmed working) but RF-path-dependent commands fail to establish a connection to the tester, isolate the fault to the RF/antenna hardware path rather than the control/software path; a smartphone-based Bluetooth scan while the DUT is in DUT mode is a fast, tool-independent way to confirm whether the sample is genuinely broadcasting, which helps distinguish a software/DUT-mode issue from a physical RF connection (e.g., cold solder joint) issue.",
+  "final_recommendation": "When onboarding a customer's test engineer to BlueTest3/TRBI200 tooling for the first time, proactively explain that Transport selection should match the actual physical USB interface wired to the sample, and provide the smartphone-scan diagnostic trick early as a standard first troubleshooting step whenever DUT mode succeeds but RF connection fails, to quickly localize the fault to the RF/antenna hardware path.",
+  "risk_if_done_wrong": "Without the smartphone-scan diagnostic step, the customer's engineer might assume the failure is software/configuration-related and spend significant time reconfiguring BlueTest3 settings, when the actual fault was a hardware soldering defect on the RF path.",
+  "bluetooth_tags": [
+    "BlueTest3 Transport selection",
+    "Establish connection to OUT error",
+    "TRBI200 RF test setup",
+    "SMA connector cold solder joint diagnosis",
+    "smartphone Bluetooth scan DUT mode check",
+    "Alinco XE1177",
+    "Qualcomm chipset"
+  ],
+  "search_aliases": [
+    "BlueTest3 Transport USB or DEBUG",
+    "Establish connection to OUT failed BlueTest3",
+    "DUT mode successful but RF test fails",
+    "diagnose antenna solder joint Bluetooth test"
+  ],
+  "qualification_stage": "RF test execution setup / troubleshooting",
+  "confidence": "high"
 }

@@ -1,0 +1,40 @@
+{
+  "source_thread": "thread_0185",
+  "case_id": "thread_0185_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Cable TV set-top box (Panasonic Connect, LE Audio)",
+  "customer_question": "What is required for LE Audio product registration? What QDID registration type and which protocols/profiles must be included?",
+  "question_variants": [
+    "What registration type is needed for LE Audio?",
+    "What protocols and profiles must be included for LE Audio certification?",
+    "Does LE Audio require a special type of Bluetooth SIG registration?"
+  ],
+  "actual_issue": "Customer is planning a product with LE Audio support and needs to understand what Bluetooth SIG registration requirements this imposes beyond standard Classic/BLE registration.",
+  "plain_english_explanation": "LE Audio is not just a profile add-on — it requires the product's Host stack to be registered at a level that includes all the 'Generic Framework' protocols and profiles that LE Audio depends on. Specifically, the quote for LE Audio registration assumes the product has an X2Core (Core-Complete with LE Audio) or Core-Host (Host Subsystem) QDID that includes the Generic Framework: PACS (Published Audio Capabilities Service), ASCS (Audio Stream Control Service), BASS (Broadcast Audio Scan Service), MCS (Media Control Service), TBS (Telephone Bearer Service), and others. Without this foundation, LE Audio profiles cannot be registered.",
+  "consultant_answer": "LE Audio registration requires an X2Core or Core-Host QDID that includes the Generic Framework protocols (PACS, ASCS, BASS, MCS, TBS, etc.). A basic Core registration without these LE Audio-specific services is insufficient for LE Audio product registration. The pricing estimate assumes this prerequisite QDID exists. If the Host stack only has a basic BLE or dual-mode QDID without the Generic Framework, LE Audio registration cannot proceed.",
+  "decision_logic": "LE Audio is a separate Bluetooth protocol suite with mandatory underlying service requirements. The SIG registration system enforces these dependencies — without the Generic Framework services in the referenced QDID, LE Audio profiles cannot be added to the product registration. This is different from Classic profiles like A2DP or HFP which have simpler prerequisites.",
+  "final_recommendation": "Before committing to LE Audio registration, confirm the Host stack QDID explicitly includes the Generic Framework (PACS, ASCS, BASS, MCS, TBS). If not, LE Audio registration is not possible without obtaining a new Host QDID that includes these services.",
+  "risk_if_done_wrong": "Quoting or planning for LE Audio registration without verifying the Generic Framework in the Host QDID will lead to a dead end at registration — the product cannot be registered as LE Audio capable without this foundation.",
+  "bluetooth_tags": [
+    "LE Audio",
+    "X2Core",
+    "Core-Host",
+    "Generic Framework",
+    "PACS",
+    "ASCS",
+    "BASS",
+    "MCS",
+    "TBS",
+    "Host QDID"
+  ],
+  "search_aliases": [
+    "LE Audio registration requirements",
+    "Generic Framework LE Audio",
+    "PACS ASCS BASS MCS TBS required",
+    "X2Core LE Audio",
+    "LE Audio Host QDID prerequisites"
+  ],
+  "qualification_stage": "Pre-registration / Scoping",
+  "confidence": "high"
+}

@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0147",
+  "case_id": "thread_0147_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product — BR/EDR+BLE (Head Unit / AVN, 19AVN profile test build)",
+  "customer_question": "Our AVRCP/CT/MCN/CB profile test is FAILing. The test requires a music file with metadata large enough to trigger fragmentation, but we don't have one — where should we get it and where should we place it for the test?",
+  "question_variants": [
+    "AVRCP/CT/MCN/CB test FAIL — how do we trigger metadata fragmentation for this test?",
+    "We need a music file over 512KB of metadata for the AVRCP test — how do we provide/place it?",
+    "Why does the AVRCP CT/MCN/CB test require a large metadata music file?"
+  ],
+  "actual_issue": "The AVRCP/CT/MCN/CB test case requires metadata fragmentation (Fragment) behavior to be exercised, which only occurs when the music file used in the test has metadata exceeding 512KB. The customer's pre-test verification had used a standard file and passed, but Allion's lab encountered a FAIL because the necessary large-metadata file was not supplied. The customer had a suitable file but needed instructions on where to place it for the test to pick it up.",
+  "plain_english_explanation": "Some AVRCP sub-tests only properly exercise the protocol's fragmentation logic when the test music file's metadata is large enough (over 512KB) to require splitting across multiple Bluetooth packets. Without such a file, the test cannot validate fragmentation handling, leading to an inconclusive or failing result. The customer had a large-metadata file ready but needed to know exactly where to copy it so the test procedure would use it.",
+  "consultant_answer": "Allion explained that the AVRCP/CT/MCN/CB test cannot complete without a music file containing more than 512KB of metadata, since fragmentation only triggers above that size. The customer was asked to specify where to place their candidate file; Allion's engineering team needed to confirm the exact target location/filename expected by the test procedure for the file to be used correctly during re-test.",
+  "decision_logic": "AVRCP metadata-fragmentation test cases require a test asset (a music file) that meets a specific technical precondition (>512KB metadata) before the relevant code path can be exercised. If a FAIL trace shows the precondition wasn't met (e.g., file too small or wrong placement), the fix is procedural (correct file + correct path), not a DUT defect.",
+  "final_recommendation": "Before running AVRCP/CT/MCN/CB-type fragmentation tests, confirm the customer has a music file with metadata over 512KB ready, and provide exact file-placement instructions (target folder/filename) as part of the initial test kickoff materials, not only after a FAIL.",
+  "risk_if_done_wrong": "Without the correctly sized and placed metadata file, the AVRCP fragmentation test cannot pass, causing a false FAIL that consumes lab cycles and delays the certification schedule while the missing precondition is diagnosed.",
+  "bluetooth_tags": [
+    "AVRCP",
+    "CT",
+    "MCN",
+    "CB",
+    "metadata fragmentation",
+    "PTS test",
+    "test FAIL",
+    "profile test"
+  ],
+  "search_aliases": [
+    "AVRCP fragmentation test FAIL",
+    "512KB metadata music file AVRCP",
+    "AVRCP CT MCN CB test setup",
+    "metadata fragment test file placement"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "medium"
+}

@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0206",
+  "case_id": "thread_0206_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (IVI / In-Vehicle Infotainment, Denso Ten)",
+  "customer_question": "What are the exact requirements for the antenna radiation gain data in the Compliance Folder? Does it need 360-degree coverage and both average and peak values? And are all four Compliance Folder documents uploaded to and registered on the SIG portal?",
+  "question_variants": [
+    "For the antenna datasheet, is ±180 degrees (full 360) required or is ±100 degrees (200 degrees) sufficient?",
+    "Does the antenna data need to include both peak and average radiation gain values?",
+    "Are Compliance Folder documents uploaded to and visible on the Bluetooth SIG website?",
+    "Does Allion combine all Compliance Folder documents into a single file?"
+  ],
+  "actual_issue": "Denso Ten asked detailed questions about the antenna radiation gain data requirements for the Compliance Folder: specifically whether a ±100° (200°) average measurement was sufficient vs. a full ±180° (360°) sweep, and whether peak values were needed in addition to average. They also asked whether the four Compliance Folder documents would be uploaded to the SIG portal and whether Allion would consolidate them into a single document.",
+  "plain_english_explanation": "For the Compliance Folder's antenna datasheet, a partial sweep (±100° = 200° range) showing average radiation gain values is acceptable — full 360° is not required. Peak values are not mandatory either; average is sufficient. For the outline drawing (external dimensions), a formal engineering drawing with dimension lines is not required — a document showing length × width × height measurements in some form, or three-view photographs taken at scale, is acceptable. Regarding privacy: the Compliance Folder documents are NOT uploaded to or displayed on the Bluetooth SIG website. The customer retains them privately and presents them only if SIG requests an audit. Allion compiles all the documents into one consolidated package (CD-R) for the customer.",
+  "consultant_answer": "Antenna radiation gain: average gain data over ±100° (200° range) in the product's primary orientation is acceptable — ±180° (360°) is not required, and peak values are not needed. Outline drawing: dimension information must be present (e.g., length × width × height), but it does not need formal engineering drawing format — scale photos or simple dimension annotations are acceptable. Compliance Folder privacy: the four documents (operation manual, block diagram, outline drawing, antenna datasheet) are NOT registered on the SIG portal and are not publicly visible. Allion compiles them with the certification documents from the registration process into one linked package on a CD-R and delivers it to the customer.",
+  "decision_logic": "SIG Compliance Folder requirements specify that antenna documentation should include radiation gain characteristics but do not mandate a specific angular range or full 360° sweep. The intent is to provide evidence of antenna performance. Partial directional data is acceptable. The Compliance Folder is a private retention document — not a public disclosure.",
+  "final_recommendation": "When discussing antenna data requirements with customers, reassure them that partial sweep data (±100°, average gain) is sufficient. For customers concerned about disclosing proprietary designs, emphasize that the Compliance Folder is never published on the SIG portal — it is retained privately by the Listing Owner.",
+  "risk_if_done_wrong": "If customers believe full 360° sweep data is required, they may delay the process unnecessarily to obtain measurements they don't need. If customers think the documents are publicly visible, they may refuse to share sensitive design documents.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "antenna radiation gain",
+    "outline drawing",
+    "SIG portal privacy",
+    "CD-R",
+    "dimensions",
+    "Denso Ten"
+  ],
+  "search_aliases": [
+    "antenna radiation gain compliance folder",
+    "360 degree antenna data SIG",
+    "compliance folder documents public",
+    "outline drawing requirements SIG",
+    "antenna datasheet partial sweep"
+  ],
+  "qualification_stage": "Post-registration / Compliance Folder preparation",
+  "confidence": "high"
+}

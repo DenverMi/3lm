@@ -2,6 +2,7 @@
   "source_thread": "thread_0143",
   "case_id": "thread_0143_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "module",
   "customer_question": "We need to confirm the Review page before Submission. Also, is a model name with a trailing period (e.g., '19AVNJ.') acceptable for SIG registration?",
   "question_variants": [
@@ -14,8 +15,19 @@
   "decision_logic": "1. After any correction to the Qualification Workspace, re-capture the Review page and re-send to customer.\n2. Wait for explicit customer confirmation ('OK, please submit') before submitting.\n3. Model names with trailing periods are acceptable — no change required.",
   "final_recommendation": "After any correction, always re-send the updated Review page for customer confirmation. Do not submit based on prior approval if changes were made. Trailing periods in model names are not a reason to delay or modify.",
   "risk_if_done_wrong": "Submitting without re-confirming the Review page after corrections risks submitting incorrect information that the customer never approved. Changing an acceptable model name unnecessarily introduces additional delays.",
-  "bluetooth_tags": ["Review-page", "Submission", "model-name", "pre-submission-confirmation", "AlpsAlpine"],
-  "search_aliases": ["Review page confirmation before submission", "model name trailing period SIG acceptable", "re-confirm review page after correction", "Qualification Workspace review screenshot"],
+  "bluetooth_tags": [
+    "Review-page",
+    "Submission",
+    "model-name",
+    "pre-submission-confirmation",
+    "AlpsAlpine"
+  ],
+  "search_aliases": [
+    "Review page confirmation before submission",
+    "model name trailing period SIG acceptable",
+    "re-confirm review page after correction",
+    "Qualification Workspace review screenshot"
+  ],
   "qualification_stage": "pre-submission review",
   "confidence": "high"
 }

@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0036",
+  "case_id": "thread_0036_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "PTS test item Category designation (Category D) -- determining which persistently-failing test items are actually mandatory for registration",
+  "customer_question": "(Internal status update, not a direct customer question.) One A2DP test item was withdrawn by the customer, and another non-passing item is showing as Category D -- does that mean it's actually not required for registration?",
+  "question_variants": [
+    "If a PTS test item keeps failing and can't easily be resolved, is there a way to check whether it's actually mandatory?",
+    "What does a Category D designation mean for a Bluetooth profile test item?"
+  ],
+  "actual_issue": "A specific A2DP test item (A2DP/SRC/SUS) was not passing, and rather than continuing to troubleshoot it indefinitely, the consultant checked its Category designation in the Test Plan and found it was Category D -- meaning testing for that specific item is not actually mandatory for registration purposes, which resolved the open item without requiring further debugging.",
+  "plain_english_explanation": "Bluetooth SIG's Test Plan assigns each test item a Category designation indicating whether it's mandatory for a given registration. A test item with a Category D designation is not required to be tested or passed for registration purposes, regardless of whether the implementation under test would actually pass or fail it. When a persistently non-passing test item is encountered and troubleshooting isn't converging on a quick fix, checking the item's Category designation in the Test Plan can resolve the open item immediately if it turns out to be non-mandatory -- avoiding wasted further debugging effort on a test result that doesn't actually block registration.",
+  "consultant_answer": "The other non-passing item (A2DP/SRC/SUS) is Category D, which means it isn't actually required for registration -- so with that and the customer's withdrawn item accounted for, A2DP testing is complete.",
+  "decision_logic": "When a persistently non-passing PTS test item resists quick resolution, check its Category designation in the Test Plan before continuing to troubleshoot -- a Category D (or other non-mandatory category) designation means the item doesn't need to pass for registration purposes, resolving the open item without further debugging effort.",
+  "final_recommendation": "Before investing significant troubleshooting time into a stubbornly failing test item, check its Test Plan Category designation, since some items are not actually mandatory for registration and the failure may be a non-issue.",
+  "risk_if_done_wrong": "Spending excessive troubleshooting time and lab resources chasing a fix for a test item that turns out to be non-mandatory wastes effort that could be redirected to genuinely blocking issues.",
+  "bluetooth_tags": [
+    "PTS Test Plan Category D non-mandatory",
+    "test item category designation registration requirement",
+    "Sony TV FY26 A2DP AVRCP"
+  ],
+  "search_aliases": [
+    "what does Category D mean Bluetooth test item",
+    "is failing PTS test item actually required",
+    "Test Plan category mandatory vs optional"
+  ],
+  "qualification_stage": "Profile test execution and scope resolution",
+  "confidence": "medium"
+}

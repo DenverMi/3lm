@@ -1,46 +1,35 @@
 {
-    "source_thread": "thread_0022",
-    "cases": [
-        {
-            "case_id": "thread_0022_case_03",
-            "iut_type": "module-based audio product",
-            "customer_question": "Can HFP profile testing be avoided by reusing an existing qualified module and profile subsystem QDID?",
-            "question_variants": [
-                "Do we need HFP PTS testing if the module is already qualified?",
-                "Can we reuse an existing HFP QDID?",
-                "How can we avoid uploading HFP test reports?",
-                "Can an older qualified HFP profile subsystem still be referenced?",
-                "Is there a way to complete SIG registration without new HFP testing?"
-            ],
-            "actual_issue": "The originally referenced HFP Profile Subsystem QDID used a deprecated or unusable HFP version, preventing direct reuse for qualification. A different active Profile Subsystem QDID containing valid HFP 1.8 support had to be identified to avoid new HFP testing.",
-            "plain_english_explanation": "The customer wanted to avoid modifying firmware or running additional HFP qualification tests because the product already used a qualified Bluetooth module. However, the previously used profile registration was no longer usable due to specification lifecycle rules. The consultant identified a newer compatible Profile Subsystem registration that could legally support the product registration without requiring new HFP test reports.",
-            "consultant_answer": "The consultant explained that the earlier product registration referenced a module plus a Profile Subsystem containing HFP, which previously allowed HFP testing to be waived. However, the originally referenced HFP registration had become unusable because it contained an obsolete HFP version and could no longer be referenced in the current qualification process. After researching alternatives, the consultant found an active Infineon AIROC Bluetooth Audio Profile Package registration containing HFP 1.8 AG/HF support. By combining the existing module registration with this active Profile Subsystem QDID, the product could be registered without uploading new HFP PTS reports. The customer accepted this approach, and the planned profile testing was cancelled.",
-            "decision_logic": "Existing qualified designs and profile subsystem registrations can be reused only if they remain valid under current Bluetooth qualification rules. Deprecated or withdrawn profile versions cannot always be referenced, so an active compatible QDID or DN must be used.",
-            "final_recommendation": "Reuse the existing module qualification together with an active HFP 1.8 Profile Subsystem QDID that is still accepted by the current Bluetooth qualification system, and complete registration using the referenced qualified designs instead of performing new HFP testing.",
-            "risk_if_done_wrong": "Using obsolete or unreferenceable QDIDs can block qualification submission, force unexpected testing, require firmware changes, or delay product release.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "reuse",
-                "HFP",
-                "Profile Subsystem",
-                "listing",
-                "deprecated specification"
-            ],
-            "search_aliases": [
-                "reuse HFP QDID",
-                "Profile Subsystem reuse",
-                "deprecated HFP version",
-                "active HFP 1.8 QDID",
-                "avoid HFP PTS testing",
-                "module qualification reuse",
-                "registration without test report",
-                "obsolete QDID reference",
-                "AIROC Bluetooth Audio Profile Package"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0022",
+  "case_id": "thread_0022_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (OM Digital Solutions device), Compliance Folder document requirements and acceptable substitutes",
+  "customer_question": "A few questions about the Compliance Folder: is the information in these 4 document items made public? Can our existing connection-flow design document serve as the operation manual? Is an antenna datasheet with radiation gain pattern mandatory, given we don't have one from the module's developer -- can an excerpt from the module's own specification sheet substitute? And separately, the Review page lists Serial Port Profile (SPP) even though our model doesn't implement it -- shouldn't that be removed?",
+  "question_variants": [
+    "Is the Compliance Folder ever shown to the public or only kept for audit purposes?",
+    "Does HFP's own specification require SPP support even if the product doesn't use SPP as a standalone feature?"
+  ],
+  "actual_issue": "The customer had several practical questions about what the Compliance Folder requires and whether existing internal documents could substitute for the formally-requested items, plus a concern that the registration Review page listed a profile (SPP) the product doesn't actually implement as a standalone feature.",
+  "plain_english_explanation": "The Compliance Folder is never published publicly -- per the qualification program's own rules, the registrant must retain a complete set of documents demonstrating the registration's conformance for one year after the final listed model is discontinued, to be produced only if Bluetooth SIG conducts an audit. For the operation manual item, an existing design document is acceptable as long as it actually describes the product's operating procedure -- in this case, a previously-submitted connection-flow diagram document that referenced the product's Bluetooth operation was confirmed acceptable. For the antenna datasheet item, if no separate gain-pattern document is available from the module's developer, an excerpt from the Bluetooth module's own specification sheet is an acceptable substitute. On the SPP question: HFP's own specification requires SPP and FCOMM support as part of the underlying Host Stack that HFP depends on -- so a Host Stack reference that includes SPP alongside HFP is expected and correct, not a registration error, even if the product's user-facing feature set doesn't surface SPP as a distinct capability.",
+  "consultant_answer": "The Compliance Folder is never published -- per the qualification rules, you just need to retain the full document set for one year after your last listed model is discontinued, to produce only if Bluetooth SIG audits you. Your existing connection-flow design document is fine as the operation manual, since it does describe the product's Bluetooth operation. For the antenna datasheet, an excerpt from your Bluetooth module's own specification sheet is an acceptable substitute if no separate gain-pattern document exists. On SPP: HFP's own specification requires SPP and FCOMM as part of its underlying Host Stack dependency, so having SPP listed alongside HFP is expected and correct -- not something to remove, even though your product doesn't expose SPP as a standalone feature.",
+  "decision_logic": "Compliance Folder documents are retained privately for audit purposes only, never published; existing internal design documents can substitute for formally-requested items (operation manual, antenna datasheet) as long as they substantively cover the required content; and when a Host Stack reference lists a profile (like SPP) that isn't part of the product's user-facing features, check whether the primary profile being registered (like HFP) actually depends on it at the specification level before assuming it's a listing error.",
+  "final_recommendation": "When a customer questions why a seemingly-unused profile appears in their registration's Host Stack reference, check the primary profile's own specification for underlying dependencies before treating it as an error to remove, and proactively clarify Compliance Folder confidentiality and acceptable document substitutes to reduce back-and-forth on document gathering.",
+  "risk_if_done_wrong": "Removing a dependency profile (like SPP) from a Host Stack reference because it doesn't appear as a user-facing feature, without checking whether the primary profile's specification actually requires it, could create an invalid or incomplete registration.",
+  "bluetooth_tags": [
+    "Compliance Folder confidentiality one year retention",
+    "existing design document as operation manual",
+    "antenna datasheet excerpt from module spec acceptable",
+    "HFP requires SPP FCOMM dependency",
+    "Host Stack reference includes dependency profiles",
+    "OM Digital Solutions"
+  ],
+  "search_aliases": [
+    "is Compliance Folder published publicly",
+    "can existing design document be operation manual",
+    "antenna datasheet substitute module specification excerpt",
+    "why does HFP registration include SPP",
+    "HFP specification requires SPP FCOMM"
+  ],
+  "qualification_stage": "Compliance Folder document gathering / Review page confirmation",
+  "confidence": "high"
 }

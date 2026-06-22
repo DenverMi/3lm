@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0275",
+  "case_id": "thread_0275_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine integrated module), automatic PHY mode switching scope determination",
+  "customer_question": "Our integrated module's Bluetooth chip automatically switches between 1M, 2M, and Coded PHY modes depending on conditions, but the manufacturer says the exact switching trigger is chip-controlled and hard to predict precisely. Since the integrated module only actually communicates with our vital sensor and location beacon (both 1M-only), does the module still need RF PHY testing for 2M and Coded modes?",
+  "question_variants": [
+    "Does theoretical chip-level multi-mode support require testing all modes, even if real communication partners only use 1M?",
+    "What if the integrated module could also negotiate with other devices like smartphones at higher PHY modes?"
+  ],
+  "actual_issue": "The customer's integrated module's Bluetooth chip supported automatic PHY mode switching (1M/2M/Coded) at a low level, but the actual deployed use case only involved communication with two other in-house products that exclusively used 1M mode, raising the question of whether the full multi-mode capability still needed to be tested despite not being exercised in practice.",
+  "plain_english_explanation": "RF PHY test scope should be based on which modes the product actually uses in its real deployment, not which modes the underlying chip is theoretically capable of supporting. If the integrated module's only real communication partners (the vital sensor and the location beacon) exclusively use 1M mode, then the module's RF PHY test only needs to cover 1M, even though the chip itself can support 2M and Coded — those untested modes simply shouldn't be claimed or supported in the product's actual ICS declaration. However, if the integrated module could also communicate with other counterpart devices (such as a smartphone) capable of negotiating a higher PHY mode, and the module's negotiation behavior would actually agree to use 2M or Coded with such a counterpart, then those modes would need testing too — the key test for whether a mode needs testing is whether the product would actually use it in any real negotiation scenario, not just whether the underlying chip is theoretically capable of it.",
+  "consultant_answer": "Test scope should track which modes the product actually uses in real deployment, not what the chip is theoretically capable of. If your integrated module's only real communication partners (the vital sensor and location beacon) exclusively use 1M mode, your RF PHY test only needs to cover 1M — the chip's other theoretical modes (2M, Coded) simply shouldn't be claimed in your product's ICS declaration. But if your module could also negotiate with other counterpart devices (like a smartphone) and would actually agree to use 2M or Coded in that negotiation, those modes would need testing too. The deciding factor is whether the product would actually use a mode in any real negotiation scenario, not just whether the chip can theoretically support it.",
+  "decision_logic": "RF PHY test scope is determined by actual usage in real deployment scenarios (including any realistic negotiation with other counterpart device types), not by the underlying chip's full theoretical capability — a mode that's chip-capable but never actually negotiated or used in practice doesn't need to be tested or claimed.",
+  "final_recommendation": "When a customer's product has chip-level capability beyond what its actual deployment requires, scope the RF PHY test to actual real-world usage (including realistic negotiation scenarios with all relevant counterpart device types) rather than the chip's full theoretical mode support, and explicitly clarify that untested modes shouldn't be claimed in the ICS.",
+  "risk_if_done_wrong": "Testing and claiming PHY modes the product never actually uses would waste unnecessary test cost; conversely, failing to consider realistic negotiation scenarios with other counterpart device types (like smartphones) could result in an incomplete test scope if the product would, in practice, actually use an untested mode in some scenarios.",
+  "bluetooth_tags": [
+    "RF PHY test scope actual usage vs chip capability",
+    "automatic PHY mode switching",
+    "negotiation scenario test scope determination",
+    "untested mode not claimed in ICS",
+    "Alps Alpine integrated module"
+  ],
+  "search_aliases": [
+    "does chip capable mode need testing if unused",
+    "RF PHY test scope real deployment usage",
+    "automatic mode switching test scope determination"
+  ],
+  "qualification_stage": "Pre-quotation test scoping",
+  "confidence": "high"
+}

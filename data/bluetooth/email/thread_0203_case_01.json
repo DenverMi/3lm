@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0203",
+  "case_id": "thread_0203_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth module under RF PHY test (Alps Alpine UXC, Qualcomm chipset)",
+  "customer_question": "The connection diagram provided does not show how the RF test system controls the DUT for DTM (Direct Test Mode). How should the DUT be connected to the RF PHY test system?",
+  "question_variants": [
+    "Is the USB Serial control connection required in addition to the RF cable for Bluetooth RF PHY testing?",
+    "The customer's connection diagram only shows RF cable connections — is there a missing control path?",
+    "What is the correct wiring between DUT, PC running QDART, and the RF PHY test system for DTM mode?"
+  ],
+  "actual_issue": "Alps Alpine (ALAP) provided a connection diagram for Bluetooth RF PHY testing of their UXC module (Qualcomm chipset). The diagram only showed the RF connection path (from the radio regulation test for FCC/TELEC/RED) and was missing the mandatory USB Serial control path required to enter and operate DTM (Direct Test Mode). Without the control path, the RF PHY test system cannot send DTM commands to the DUT.",
+  "plain_english_explanation": "Bluetooth RF PHY testing (the test required for Bluetooth SIG certification) is different from open-loop radio regulatory tests (FCC/TELEC). For SIG RF PHY tests, the DUT must be placed in DTM (Direct Test Mode) where it responds to specific commands from the test system. This requires a dedicated serial control connection — typically USB Serial (UART via USB) — from the DUT to the PC running the QDART software. The RF cable connects the DUT to the RF test system. The PC running QDART also connects to the RF test system via RS232/GPIB. All three connections are necessary: RF cable (DUT↔RF test system), USB Serial (DUT↔PC), and RS232/GPIB (PC↔RF test system). The customer's diagram (from FCC testing) had only the RF cable and was missing the USB Serial control path.",
+  "consultant_answer": "The Bluetooth RF PHY DTM test requires three connections: (1) RF cable between DUT and RF PHY test system (for measuring RF performance), (2) USB Serial connection between DUT and PC running QDART (for sending DTM mode commands to DUT — this is 'Serial over USB' using a USB conversion harness), (3) RS232/GPIB connection between PC running QDART and the RF PHY test system (for controlling the test equipment). The initial connection diagram from the customer was for open-loop regulatory tests (FCC/TELEC) and lacked the USB Serial control path. This must be added to the test setup diagram.",
+  "decision_logic": "Bluetooth SIG RF PHY tests use DTM, which requires bi-directional serial control of the DUT. This is fundamentally different from open-loop regulatory RF tests where the DUT transmits freely. Qualcomm chipsets specifically use QDART on the PC side to manage DTM mode. The USB Serial connection is the bridge between QDART commands and the DUT's DTM firmware.",
+  "final_recommendation": "When reviewing a customer's connection diagram for Bluetooth RF PHY testing, always verify the USB Serial (UART) control path from DUT to the test PC is present. If the customer's diagram appears to be from a regulatory (FCC/TELEC) test, it likely lacks this control path. Request an updated diagram and provide the correct three-path connection description.",
+  "risk_if_done_wrong": "If the USB Serial control path is missing, the lab cannot enter DTM mode on the DUT, and RF PHY testing cannot proceed. This delays the entire certification timeline.",
+  "bluetooth_tags": [
+    "RF PHY test",
+    "DTM",
+    "Direct Test Mode",
+    "QDART",
+    "USB Serial",
+    "connection diagram",
+    "Qualcomm",
+    "UXC"
+  ],
+  "search_aliases": [
+    "RF PHY DTM connection",
+    "USB Serial DTM test",
+    "QDART connection",
+    "Bluetooth RF test setup",
+    "DTM missing control path"
+  ],
+  "qualification_stage": "RF PHY testing",
+  "confidence": "high"
+}

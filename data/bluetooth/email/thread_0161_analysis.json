@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0161",
+  "thread_analysis": {
+    "thread_summary": "Technosite/Kokuyo thread for the 'Otona Yaruki Pen' BLE pen device — a derivative of the already-qualified 'Shukudai Yaruki Pen' using the same SoC and Host Stack. Customer wants to register the new pen as a free derivative product using Bluetooth SIG's self-registration mechanism. However, the SIG portal changed in July 2024 (QPRDv3.0 transition), making prior instruction manuals Allion had given customers obsolete. Allion offered either updated instructions for free self-registration or paid proxy service (¥100,000). Customer successfully self-registered using updated instructions.",
+    "all_questions_found": [
+      "How do we register the new pen as a free derivative product using the same SoC/Host Stack as the already-qualified 'Shukudai Yaruki Pen'?",
+      "Has the derivative product self-registration procedure changed? Our instructions don't match the current portal."
+    ],
+    "key_technical_discussion": "Derivative product free registration: when a product reuses the same QDID component + Host Stack as an already-registered product, the customer can register the new product at no additional Qualification Fee by using the SIG portal's 'Manage Submitted Products' → 'Create Derivative' path. After the July 2024 QPRDv3.0 portal update, the on-screen workflow and UI for this process changed significantly, making all prior instruction manuals inaccurate.",
+    "key_decision_logic": "Allion must maintain up-to-date self-registration instruction manuals for customers following portal updates. The derivative product free registration right exists regardless of portal changes — only the procedure changed, not the entitlement. Offering the option to self-register (free) vs. proxy (¥100,000) lets the customer choose based on their comfort level with the portal.",
+    "risk_if_done_wrong": "A customer following outdated instructions will be unable to self-register and may abandon the attempt, miss the registration opportunity, or pay for proxy service unnecessarily. Providing outdated materials also damages customer trust in Allion's guidance.",
+    "consulting_mistake": "The risk is proactive: Allion should have proactively updated instruction manuals for all customers when the July 2024 portal change occurred, rather than waiting for customers to discover the discrepancy. This could affect any customer Allion had previously given derivative registration instructions to.",
+    "consulting_takeaway": "After any SIG portal update, Allion must immediately review and update all customer-facing instruction materials for derivative product registration. Customers who received prior instructions should be notified proactively."
+  }
+}

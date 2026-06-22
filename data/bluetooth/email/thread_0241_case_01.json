@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0241",
+  "case_id": "thread_0241_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (DensoTen upper-model HMI/IVI unit) referencing a Murata Bluetooth module",
+  "customer_question": "Our preliminary ICS check found that the Murata module we're implementing has an inherent cross-layer inconsistency in its own registration (RFPHY(1/15) Class 1: NO conflicting with LL(9/11) Class 1: YES). If we proceed with our product registration as-is, won't fixing this by changing LL(9/11) to NO trigger an LL-layer test requirement? How do we register without forcing that retest?",
+  "question_variants": [
+    "Why does the module's own registration contain an internal RFPHY/LL inconsistency?",
+    "What are our options to register without triggering an LL-layer test requirement?"
+  ],
+  "actual_issue": "A preliminary ICS check in the Qualification Workspace, run ahead of the customer's actual product registration, revealed that the referenced Murata module's own existing SIG registration already contained an internal RFPHY/LL cross-layer inconsistency, which would force an LL-layer test requirement if the customer tried to resolve it by editing their own product registration's ICS directly.",
+  "plain_english_explanation": "The module's own registration claims RFPHY item (1/15) Class 1 is Not Supported, while simultaneously claiming LL item (9/11) Class 1 is Supported — a direct logical inconsistency, since LL(9/11) is excluded whenever RFPHY(1/15) isn't supported. If the customer's product registration tries to fix this by changing LL(9/11) from Supported to Not Supported within their own registration's ICS, the new registration system will respond by generating an additional LL-layer Test Plan, requiring real RF testing the customer never intended to need. Since the inconsistency originates in the module vendor's (Murata's) own registration, not the customer's, the only real fix is to have Murata resolve it at the source: either by submitting an ICS Error Correction Request to SIG to change their original registration's LL(9/11) from Supported to Not Supported, or — if that correction request is rejected because other existing registrations already reference the LL(9/11): Supported value — by having Murata publish an entirely new, corrected registration that doesn't carry this inconsistency, for the customer to reference instead.",
+  "consultant_answer": "This inconsistency exists in Murata's own module registration, not in your product registration, so it has to be fixed at the source. Please urgently ask Murata to either submit an ICS Error Correction Request to SIG to change their registration's LL(9/11) from Supported to Not Supported, or — if SIG rejects that correction because other existing registrations already reference the current LL(9/11): Supported value — have Murata publish a new, corrected registration without this inconsistency, which you can then reference in your own product registration instead. Either path avoids triggering an LL-layer test requirement on your side.",
+  "decision_logic": "When a Consistency Check failure originates from an inconsistency baked into a referenced module vendor's own existing registration (rather than the customer's product-specific ICS choices), the fix must come from the vendor correcting or republishing their registration, since editing the inconsistency away within the customer's own registration would incorrectly trigger a real test requirement for what is actually the vendor's registration defect.",
+  "final_recommendation": "Before a customer attempts to resolve an ICS Consistency Check error by editing their own registration, trace whether the inconsistency actually originates in a referenced vendor module's registration — if so, escalate to the vendor for an SIG correction request or republished registration rather than absorbing an unnecessary test requirement on the customer's side.",
+  "risk_if_done_wrong": "If the customer had directly edited their own ICS to resolve a vendor-originated inconsistency, they would have triggered an unnecessary full LL-layer test requirement, incurring significant unplanned cost and schedule delay for a defect that wasn't actually theirs to fix.",
+  "bluetooth_tags": [
+    "module registration inherent ICS inconsistency",
+    "RFPHY LL Class 1 mismatch",
+    "ICS Error Correction Request",
+    "vendor republished registration",
+    "Murata module",
+    "DensoTen"
+  ],
+  "search_aliases": [
+    "module own registration has Consistency Check error",
+    "ICS Error Correction Request SIG",
+    "avoid LL test requirement vendor module inconsistency",
+    "RFPHY Class 1 LL Class 1 mismatch"
+  ],
+  "qualification_stage": "Pre-registration ICS feasibility check",
+  "confidence": "high"
+}

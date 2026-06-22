@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0217",
+  "case_id": "thread_0217_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (fire-extinguisher-shaped AR controller, Nihon Bousai Gijutsu Center / Japan Disaster Prevention Technology Center)",
+  "customer_question": "Can a single Bluetooth SIG registration have multiple Listing Owner/Contacts designated at once, so that more than one person can manage it (to avoid a single point of failure if the original registrant becomes unavailable)?",
+  "question_variants": [
+    "Is it possible to assign multiple people as Listing Owner/Contact for one registration?",
+    "How do we transfer Listing Owner responsibility to someone else without losing the ability to manage the registration ourselves?"
+  ],
+  "actual_issue": "The customer (a one-person registrant) wanted multiple people able to manage their Bluetooth SIG registration long-term, to avoid risk if the current registrant became unavailable (e.g., due to illness or departure) for future related procedures years down the line.",
+  "plain_english_explanation": "Currently, only one person (whoever actually performed Submission) can be the Listing Owner/Contact for a given registration — multiple simultaneous Listing Owners aren't supported. However, since July 1, 2024, the SIG portal supports an easier self-service Listing Owner transfer: log into the portal, go to 'Manage Submitted Products,' click the 'Change Contact' icon next to the registration to transfer, enter the new owner's email address, and click 'Initiate Change.' This sends a transfer notification to that email, and clicking the agreement link in that email completes the transfer — a much simpler process than the old method of requesting a manual transfer from an SIG staff member.",
+  "consultant_answer": "Assigning multiple simultaneous Listing Owner/Contacts to one registration is currently not possible — only the person who performed Submission holds that role. However, since July 1, 2024, you can self-service transfer via the SIG portal's 'Manage Submitted Products' page: click 'Change Contact' next to the relevant registration, enter the new owner's email, and click 'Initiate Change.' The new owner receives an email and completes the transfer by agreeing via the link inside it.",
+  "decision_logic": "Bluetooth SIG's registration system assigns single-person ownership per registration by design; redundancy/succession planning must be achieved either through this transfer mechanism or by sharing login credentials, not through simultaneous multi-owner assignment.",
+  "final_recommendation": "For customers worried about single-point-of-failure risk in registration management, explain both the self-service Change Contact transfer process and the option of sharing login credentials among trusted staff, rather than implying multi-owner support exists.",
+  "risk_if_done_wrong": "If a sole Listing Owner becomes unavailable and no transfer or credential-sharing arrangement was set up in advance, the company could lose the ability to manage existing registrations or add derivative products.",
+  "bluetooth_tags": [
+    "Listing Owner",
+    "Change Contact",
+    "Manage Submitted Products",
+    "succession planning",
+    "Nihon Bousai Gijutsu Center"
+  ],
+  "search_aliases": [
+    "multiple Listing Owners one registration",
+    "transfer Listing Owner SIG portal",
+    "Change Contact Manage Submitted Products",
+    "Bluetooth SIG registration succession"
+  ],
+  "qualification_stage": "Post-registration / account management",
+  "confidence": "high"
+}

@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0214",
+  "thread_analysis": {
+    "thread_summary": "Internal consulting thread (handled via Toshitaka Mochizuki, customer Miki Pulley / 三木プーリ) walking through a multi-step compliance question chain: a development subcontractor builds a coupling component (Part A) containing a BLE module, and Miki Pulley assembles it into a finished prototype coupling intended for lending/trial to interested customers. The thread progressively explores: whether long-term paid rental still qualifies as exempt evaluation loan, whether avoiding the word 'Bluetooth' on the label avoids certification, whether charging separately for engineer dispatch while keeping the device loan free preserves the exemption, and what counts as 'public disclosure' for trade-show exhibition.",
+    "all_questions_found": [
+      "Does a long-term, paid (subscription-style) rental of evaluation equipment still qualify for the free-loan SIG certification exemption?",
+      "If we avoid writing 'Bluetooth' on the device, does that exempt it from certification?",
+      "If the device loan is free but we charge for engineer dispatch/installation, is certification still unnecessary?",
+      "What exactly counts as 'public disclosure' for the development prototype exemption, and can we exhibit without mentioning Bluetooth?"
+    ],
+    "key_technical_discussion": "The free-loan exemption for evaluation equipment hinges strictly on whether money changes hands for the Bluetooth device itself, not on labeling tricks or bundled paid services. Public disclosure is defined by reach to an unspecified, uncontrolled audience — generic non-technical trade show descriptions paired with controlled, customer-specific technical disclosure during private trials remain within the exemption.",
+    "key_decision_logic": "Compensation for the Bluetooth product itself (not adjacent services) is the deciding factor for the free-loan exemption. Audience controllability and technical specificity of disclosure is the deciding factor for the public-disclosure exemption. Labeling omissions alone do not change either exemption's applicability.",
+    "risk_if_done_wrong": "Misreading either exemption boundary (charging for the device itself while believing it's still 'free', or explicitly disclosing Bluetooth functionality at a public trade show) would expose Miki Pulley to a compliance gap discoverable by SIG audit.",
+    "consulting_mistake": "None identified — Allion's consultant (Sakai, via Sakai/Mochizuki) consistently and correctly applied the relevant exemption boundaries across all four follow-up questions, while appropriately deferring the final compliance judgment call to the customer's own legal/IP department.",
+    "consulting_takeaway": "When a customer is probing the edges of certification exemptions (free-loan and development-prototype), answer each specific scenario precisely rather than giving a blanket answer, and consistently point back to the underlying principle (no payment for the Bluetooth device itself; no disclosure to an uncontrolled audience) so customers can self-assess future scenarios."
+  }
+}

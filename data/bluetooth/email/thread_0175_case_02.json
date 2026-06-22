@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0175",
+  "case_id": "thread_0175_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE product using Silicon Laboratories module, proprietary GATT profile (Go Co., Ltd.)",
+  "customer_question": "We use a standard GATT base with a proprietary profile. The customer assumed that because the module is listed as a 'Component (Tested)' in SIG, additional testing including profile testing is required. Is profile testing required for proprietary profiles?",
+  "question_variants": [
+    "We implement a proprietary Bluetooth profile on top of standard GATT. Do we need to do profile testing?",
+    "Our product uses a custom application profile, not a SIG-standard profile. Is profile test required?",
+    "The SIG site shows our module as Component (Tested). Does that mean we need to do our own testing including profiles?"
+  ],
+  "actual_issue": "Go Co., Ltd. is using a Silicon Laboratories BGM210P BLE module (listed as 'Component (Tested)' on SIG) and implementing a proprietary GATT-based profile. They initially believed that 'Component (Tested)' meant additional testing including application profile testing would be required.",
+  "plain_english_explanation": "A module listed as 'Component (Tested)' means the core Bluetooth protocol layers (LL, L2CAP, GAP, GATT, ATT, SM) have been qualified and can be referenced to exempt those layers from re-testing in your product registration. Profile testing is only required for Bluetooth SIG standard profiles (HFP, A2DP, HID, etc.) — not for proprietary profiles or custom GATT services. If your product implements only generic GATT plus your own custom services (no SIG-standard profiles), no profile testing is needed.",
+  "consultant_answer": "Profile testing is only required when implementing SIG-defined standard profiles. Proprietary profiles (custom GATT services and characteristics) do not require profile testing. Your product would be fully test-exempt: protocol layers are covered by the Component QDID reference, and no SIG profile test is needed for custom services. Additionally, if using the module's integrated antenna, RF PHY testing is also exempt.",
+  "decision_logic": "SIG's test requirements are based on the declared profile and protocol implementation scope. Standard profiles (those listed in the SIG test requirements database) require evidence; proprietary profiles are outside SIG's test scope. 'Component (Tested)' status means the protocol stack is already qualified — the product registration references that qualification and is exempted from protocol testing.",
+  "final_recommendation": "If your product uses only standard GATT base + proprietary services and no SIG-standard profiles, declare no SIG-standard profile in the registration. This eliminates all profile testing requirements. Confirm this at the quoting stage by reviewing the product's profile implementation list.",
+  "risk_if_done_wrong": "Incorrectly declaring a SIG-standard profile when only a proprietary service is implemented would trigger unnecessary profile tests. Conversely, omitting a SIG-standard profile that is actually implemented would result in a registration that does not reflect the product's actual Bluetooth implementation.",
+  "bluetooth_tags": [
+    "proprietary profile",
+    "GATT",
+    "SIG standard profile",
+    "test exempt",
+    "Component Tested",
+    "profile test exemption",
+    "BLE module"
+  ],
+  "search_aliases": [
+    "proprietary profile profile test required",
+    "custom GATT profile test exempt",
+    "Component Tested module no additional test",
+    "proprietary service no SIG profile test",
+    "GATT custom service test requirement"
+  ],
+  "qualification_stage": "Pre-registration / test scope determination",
+  "confidence": "high"
+}

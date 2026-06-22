@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0097",
+  "thread_analysis": {
+    "thread_summary": "[COMPANY] registers an automatic-door Bluetooth peripheral (SDC), which communicates with a smartphone to open and close the door. The thread follows the standard Review Page confirmation and compliance folder document checklist flow across several registration ID re-issuances, with one substantive clarification: since the registered device itself has no operations of its own (a smartphone-controlled BLE peripheral), the compliance folder's 'operation manual (Bluetooth section)' requirement is satisfied by the companion smartphone app's own manual rather than a separate document about the device itself.",
+    "all_questions_found": [
+      "Does the Review Page content look correct, and should Submission proceed?",
+      "What product documentation is needed for the compliance folder, beyond what the registration process itself generates?",
+      "Since the registered device (SDC) has no operations of its own and is controlled entirely via a smartphone app, what should be provided to satisfy the 'operation manual (Bluetooth section)' requirement -- a diagram of how the smartphone and device communicate, or the app's own instruction manual?"
+    ],
+    "key_technical_discussion": "The thread clarifies that for a BLE peripheral device with no operations of its own -- one that is entirely controlled via a companion smartphone app -- the compliance folder's 'operation manual (Bluetooth section)' requirement can be satisfied by the companion app's own instruction manual, as long as that manual describes the registered device as the counterpart peripheral, rather than requiring a separate document specifically about the registered device's own operation.",
+    "key_decision_logic": "When a registered BLE peripheral has no operations of its own because it is controlled entirely through a companion smartphone app, the compliance folder's operation manual requirement should be satisfied using the app's own instruction manual (which references the registered device as its counterpart peripheral), rather than requiring the customer to produce a document describing operations the device itself does not have.",
+    "risk_if_done_wrong": "Insisting that the customer produce a dedicated operation manual for a device that has no operations of its own would create an impossible or artificial documentation requirement; failing to recognize that the companion app's manual satisfies this requirement could unnecessarily delay compliance folder completion.",
+    "consulting_mistake": "",
+    "consulting_takeaway": "For headless BLE peripheral devices controlled entirely via a companion app, accept the app's own instruction manual as satisfying the compliance folder's 'operation manual' requirement, rather than expecting a document describing operations the device itself does not perform. The remaining process details in this thread (Review Page confirmation before Submission, the compliance folder document checklist, and registration ID handling) follow patterns already documented in detail elsewhere (e.g., thread_0064, thread_0084, thread_0092)."
+  }
+}

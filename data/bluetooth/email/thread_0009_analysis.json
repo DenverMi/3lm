@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0009",
+  "thread_analysis": {
+    "thread_summary": "Silex Technology (contact Tetsuya Kuwana, R&D Center), acting as an intermediary module vendor for an end customer referred to as 'P Company,' works with Allion (Masaya Iida, Itsuo Sakai) on Bluetooth SIG certification spanning June 2023 through March 2025. The thread documents a long-running relationship covering registration timeline/disclosure-date planning, a credential-sharing-policy accommodation (live Teams screen-share registration support), a significant HOGP Host role dependency dispute resolved in the customer's favor (confirming a post-July-2024 site migration bug), and a scheduled TCRL2024-1 test item addition (effective December 28, 2024) requiring proactive timeline management.",
+    "all_questions_found": [
+      "Is the new registration site's HOGP Host dependency requirement (DIS/HIDS/BAS/ScPS) a genuine spec rule or a site bug, given spec wording and iPhone 15 Listing precedent? (see thread_0009_case_01)",
+      "Is the current HOGP/ScPP test report sufficient given a delayed registration timeline crossing the TCRL2024-1 effective date? (see thread_0009_case_02)",
+      "Can registration support proceed without the end customer disclosing their login credentials? (see thread_0009_case_03)",
+      "(Resolved, minor) Can the TCRL2024-1 additional test items be submitted as a separate report rather than combined with the original? Yes. Does completing registration with a Publish date set before 12/27 protect against future test requirement increases for derivative additions too? Yes.",
+      "(Not clearly resolved in the visible record) Is it acceptable to register an initial product version without HOGP functionality enabled, planning to enable it via a later firmware update using the same unchanged Bluetooth stack?"
+    ],
+    "key_technical_discussion": "This thread's standout technical contribution is the HOGP Host dependency dispute (case_01), where the customer's careful specification-wording analysis and real-world Listing precedent (iPhone 15) correctly identified a post-July-2024 registration site migration bug, later confirmed once the site stabilized. The TCRL2024-1 scheduled test item addition (case_02) demonstrates that test report sufficiency must be evaluated against the TCRL version in effect at actual registration time, not testing time, with a registration completed before the cutover permanently locking in the prior, lighter requirement even for future derivative additions.",
+    "key_decision_logic": "See thread_0009_case_01 through thread_0009_case_03 for the specific decision logic.",
+    "risk_if_done_wrong": "See thread_0009_case_01 through thread_0009_case_03 for specific risks.",
+    "consulting_mistake": "The question of whether an initial product version could ship without HOGP functionality enabled (to be added later via firmware update, same Bluetooth stack) does not appear to have received an explicit, clearly-resolved written answer in the visible portion of this thread — worth flagging as a documentation gap if it recurs.",
+    "consulting_takeaway": "When a customer presents a well-reasoned, evidence-backed challenge to a registration site's behavior (especially around a major system migration), take it seriously and re-verify rather than assuming the newest behavior is automatically correct; and when a registration timeline shifts due to external factors, proactively check for scheduled TCRL updates whose effective dates might fall within the new timeline."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "source_thread": "thread_0231",
+  "case_id": "thread_0231_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alinco DUT, RF PHY logo test at Allion HQ (Taiwan) lab",
+  "customer_question": "The DUT won't power on properly (auto powers off when the power switch is released, even after the documented 3-second hold), requires a USB driver to connect, and after installing the driver and following setup steps, the DUT still fails LE HCI commands with errors like 'Failed call to teGetBuildId' and 'BLE TEST TX failed.' What's going on, and how do we get this working?",
+  "question_variants": [
+    "Why does the DUT auto power off and fail to stay on for testing?",
+    "Why do LE HCI test commands fail even after installing the correct driver?",
+    "Could a firmware update or different hardware be needed to fix this?"
+  ],
+  "actual_issue": "Allion's Taiwan HQ lab engineer (Leo Chou) was setting up an Alinco DUT for Bluetooth RF PHY logo testing and encountered a sequence of hardware/connection issues — power-on behavior not matching documentation, missing driver, and then persistent LE HCI command failures — that blocked test execution from starting.",
+  "plain_english_explanation": "Initial DUT power-on confusion was addressed by referring to the official test sample setup documentation and clarifying that the DUT actually continues operating internally even when its status LED appears off. After installing the required USB driver, LE HCI command failures persisted; this was eventually traced to the USB cable being used rather than the driver or DUT itself — switching from the DUT's included USB cable to a different, specifically recommended cable (per guidance from the device manufacturer, Alinco) resolved the connection errors, with Windows 10 PCs reported as less error-prone for this setup than other configurations.",
+  "consultant_answer": "Refer to the attached test sample setup documentation — the DUT actually keeps operating internally even when its LED appears off, so don't rely on the LED as a power-state indicator. For the LE HCI command failures, this turned out to be a USB cable issue rather than a driver or DUT problem: please try a different USB cable (not the one included with the DUT) — Alinco specifically recommended a particular cable, and a Windows 10 PC tends to be less error-prone for this setup.",
+  "decision_logic": "When a DUT shows USB-connection-dependent test command failures despite a correctly installed driver, check the USB cable itself (not just the driver or DUT) as a potential root cause before escalating to a firmware or hardware fix with the device vendor.",
+  "final_recommendation": "When troubleshooting DUT connection issues during RF PHY test setup, verify the official documentation's actual indicator behavior (e.g., LED state vs. real power state) and treat the USB cable as a distinct potential failure point, separate from drivers and firmware, especially when the vendor has a specific cable recommendation.",
+  "risk_if_done_wrong": "Without identifying the USB cable as the actual root cause, the team could have unnecessarily escalated to the device vendor for a firmware fix or DUT replacement, delaying the customer's (Alps Alpine's) test completion timeline.",
+  "bluetooth_tags": [
+    "DUT power-on troubleshooting",
+    "USB driver LE HCI command failure",
+    "USB cable root cause",
+    "RF PHY test setup",
+    "Alinco",
+    "Allion HQ Taiwan lab"
+  ],
+  "search_aliases": [
+    "DUT auto power off test setup",
+    "LE HCI command failed teGetBuildId",
+    "USB cable causing BLE test failure",
+    "Windows 10 less error prone DUT testing"
+  ],
+  "qualification_stage": "Test execution setup",
+  "confidence": "high"
+}

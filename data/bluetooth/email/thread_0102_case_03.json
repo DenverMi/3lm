@@ -1,43 +1,23 @@
 {
-    "source_thread": "thread_0102",
-    "cases": [
-        {
-            "case_id": "thread_0102_case_03",
-            "iut_type": "module",
-            "customer_question": "Does the 'TCW used for Consistency Check error' message on the review page prevent qualification submission?",
-            "question_variants": [
-                "TCW used for Consistency Check error meaning",
-                "Can I submit with a TCW warning?",
-                "Is the review page error a blocker?",
-                "Consistency Check TCW message",
-                "Qualification review page warning"
-            ],
-            "actual_issue": "The qualification review page displayed a warning indicating that a Test Case Waiver was involved in Consistency Check processing, creating concern about whether submission was allowed.",
-            "plain_english_explanation": "A warning appeared during final qualification review. The customer needed to know whether the registration could still be submitted or whether the warning indicated a qualification failure. The issue was understanding the meaning of the message rather than correcting a technical problem.",
-            "consultant_answer": "The consultant explained that the warning reflected the use of an accepted Test Case Waiver within the qualification process. The message did not prevent submission and the registration could proceed to Submission despite the warning being displayed.",
-            "decision_logic": "A review-page warning associated with an accepted TCW does not automatically indicate qualification failure. If the waiver has been accepted within the qualification workflow, submission may still be permitted.",
-            "final_recommendation": "Verify that the TCW is properly incorporated into the qualification record and proceed with submission if the review page allows advancement.",
-            "risk_if_done_wrong": "Treating the warning as a hard failure can unnecessarily delay qualification submission and project completion.",
-            "bluetooth_tags": [
-                "qualification",
-                "TCW",
-                "consistency check",
-                "submission",
-                "review page"
-            ],
-            "search_aliases": [
-                "TCW warning",
-                "Consistency Check error message",
-                "review page warning",
-                "Test Case Waiver accepted",
-                "submission allowed",
-                "qualification review",
-                "TCW used message",
-                "Workspace review page"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0102",
+  "case_id": "thread_0102_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "We've noticed Bluetooth SIG's rules changed significantly since July -- is there a summary explaining what changed and why we're now seeing lower-layer test requirements we didn't see before?",
+  "question_variants": [
+    "Why does our registration now require testing on layers we thought were already covered?",
+    "What actually changed in the registration system in July 2024?",
+    "Why didn't the old Launch Studio system require this kind of testing?"
+  ],
+  "actual_issue": "The customer noticed that the registration system had changed substantially since July 2024 and was experiencing new lower-layer test requirements for registration scenarios that previously did not require them, and wanted to understand the underlying reason for this change.",
+  "plain_english_explanation": "Until recently, the certification system only double-checked the brand-new part of a registration for consistency, and simply trusted that any existing, already-registered pieces being referenced (like a controller or host stack from an earlier registration) were fine as-is. But newer versions of the Bluetooth spec introduced situations where the old baseline-level radio behavior on its own isn't actually enough to make things work correctly, so the certification system had to start re-checking the entire chain of referenced pieces, not just the new part -- which is why combinations that used to pass through cleanly can now trigger new lower-layer testing.",
+  "consultant_answer": "General orientation materials exist for the new registration system: the QPRDv3 document, an SIG-produced webinar archive titled 'Introduction to the New Bluetooth Qualification Process and Tool,' and a Frequently Asked Questions page. However, the specific test requirements for any individual new registration vary widely depending on the referenced design's ICS, registration category, and presence of layer overlap, and no clean categorical pattern has yet been established -- it remains largely case-by-case. The root cause of new lower-layer test requirements, per an SIG certification representative who visited this BQTF on August 1: under the previous Launch Studio system, Consistency Check applied only to the new design portion, with combined existing End Product, Controller Subsystem, Host Subsystem, and Profile Subsystem references excluded from that check. Starting with Core Spec v6.0, scenarios emerged where the old v4.0 LE lower-layer Mandatory feature set alone is not sufficient for correct operation, so ahead of that, the new registration system was forced to extend Consistency Check to the entire referenced registration hierarchy, including Core Layers, rather than just the new design portion.",
+  "decision_logic": "The post-July-2024 registration site's extension of Consistency Check to the entire referenced Core Layer hierarchy (rather than only the new design portion, as under the prior Launch Studio system) stems from Core Spec v6.0 and later introducing scenarios where the older v4.0 LE lower-layer Mandatory feature set is insufficient on its own; this systemic change, not a flaw in any specific registration, explains why previously-clean combination scenarios can now trigger new lower-layer test requirements.",
+  "final_recommendation": "When a customer asks why the registration system now requires testing on layers that previously passed without issue, explain that this is a deliberate systemic change tied to Core Spec v6.0 and later (extending Consistency Check to the full referenced hierarchy, not just the new design), rather than an error specific to their registration, and point them to QPRDv3, the SIG's New Qualification Process webinar, and the FAQ page for general orientation.",
+  "risk_if_done_wrong": "Treating a new lower-layer test requirement as a mistake or an isolated problem with the specific registration, rather than recognizing it as a systemic consequence of the July 2024 Consistency Check scope expansion, could lead to wasted effort trying to 'fix' something that is actually expected behavior under the current rules.",
+  "bluetooth_tags": ["Consistency Check", "Launch Studio", "Core Spec v6.0", "QPRDv3", "Core Layer", "registration system change"],
+  "search_aliases": ["why lower layer test requirement appeared after July 2024", "Launch Studio Consistency Check new design only", "Core Spec v6.0 LE lower layer Mandatory insufficient", "SIG explanation new registration system Core Layer check"],
+  "qualification_stage": "planning",
+  "confidence": "high"
 }

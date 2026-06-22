@@ -1,46 +1,34 @@
 {
-    "source_thread": "thread_0022",
-    "cases": [
-        {
-            "case_id": "thread_0022_case_01",
-            "iut_type": "audio recorder",
-            "customer_question": "Why does the Bluetooth SIG consistency check reject the submitted HFP ICS when many mandatory items are marked NO?",
-            "question_variants": [
-                "Do HFP ICS items with Status M have to be YES?",
-                "Why is the consistency check showing Invalid items?",
-                "Can we leave unsupported mandatory HFP items as NO?",
-                "How do we fix Invalid=0 issues in the Bluetooth ICS?",
-                "Why is the qualification site blocking submission?"
-            ],
-            "actual_issue": "The submitted HFP ICS did not satisfy mandatory and conditional requirements defined by the Bluetooth specification, causing the Bluetooth SIG consistency check to fail and preventing qualification submission.",
-            "plain_english_explanation": "The Bluetooth qualification system checks whether the feature selections in the ICS are logically valid. If a feature marked as mandatory in the specification is set to NO, the submission becomes invalid. Conditional items must also be enabled when related features are selected.",
-            "consultant_answer": "The consultant explained that ICS entries marked with Status M are mandatory and must always be set to YES. Items marked with conditional statuses such as C1 must also be enabled when their dependency conditions are met. The consultant used the Bluetooth SIG registration site's consistency check to identify all invalid ICS combinations and produced a corrected HFP v1.8 ICS set that achieved Invalid=0. The corrected ICS generated a 136-item test plan for qualification.",
-            "decision_logic": "Bluetooth qualification tools enforce mandatory and conditional ICS dependencies. Any M or satisfied Cx requirement set to NO causes the consistency check to fail and blocks submission until the ICS is corrected or a valid waiver exists.",
-            "final_recommendation": "Correct the ICS so that all mandatory and conditionally required HFP items are enabled, regenerate the test plan, and verify the implementation supports the resulting feature set before testing or submission.",
-            "risk_if_done_wrong": "The qualification workspace consistency check will fail, the submission cannot proceed, and the generated test plan may not match the actual implementation, causing test failures, rework, and qualification delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "ICS",
-                "consistency check",
-                "HFP",
-                "PTS",
-                "profile",
-                "test plan"
-            ],
-            "search_aliases": [
-                "ICS Invalid=0",
-                "mandatory ICS item NO",
-                "HFP ICS inconsistency",
-                "Bluetooth consistency check failed",
-                "ICS conditional dependency",
-                "Status M must be YES",
-                "Cx dependency failure",
-                "qualification workspace invalid",
-                "HFP v1.8 ICS"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0022",
+  "case_id": "thread_0022_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (OM Digital Solutions device, HFP headset profile), PTS test fails to detect DUT despite Bluetooth ON and pairing attempted",
+  "customer_question": "We've turned Bluetooth ON and started pairing on our device as instructed, but the PTS test software still doesn't recognize/detect our DUT -- what could be wrong? We've also tried a free 'Find My Bluetooth Device' app, which detected our device's address only once, inconsistently, and the address seems to change each time.",
+  "question_variants": [
+    "Could a specific target Bluetooth address (bdAddr) being wrong, rather than the DUT itself, explain a Paging connection failure?",
+    "Is a live, in-person troubleshooting session more effective than a remote Teams call for this kind of DUT-side issue?"
+  ],
+  "actual_issue": "PTS software consistently failed to detect or successfully page-connect to the customer's DUT during HFP profile testing, despite the customer following the documented Bluetooth-ON and pairing procedure, and an independent free smartphone app used to detect the DUT's Bluetooth address inconsistently showed a different address each time it succeeded, which itself only happened once.",
+  "plain_english_explanation": "Detailed log analysis showed PTS was attempting a Paging connection to a specific Bluetooth device address (bdAddr) and consistently failing after about 41 seconds with a Page Timeout ('Failed to send BR/EDR ACL Connection Request') -- meaning the connection attempt was reaching the right protocol step but never getting a response. This created an either/or diagnostic split: either the target bdAddr being paged was simply the wrong address for this DUT, or the DUT's own Paging response behavior was faulty -- and there was also a third possibility raised, that the DUT's implementation might only respond to Paging from a specific, pre-known counterpart device rather than any general pager. Since this required examining the DUT's actual behavior directly rather than describing it over a remote call, and the customer's own outsourced firmware developer held the deepest technical knowledge of the DUT's internals (making it effectively a black box to everyone else on a Teams call), the most effective resolution path was an in-person session at the lab with both the customer and their outsourced developer present, rather than continuing to iterate over remote calls and emailed log excerpts.",
+  "consultant_answer": "Our logs show PTS attempting a Paging connection to a specific Bluetooth address, consistently timing out after about 41 seconds with a Page Timeout -- so either that specific target address is simply wrong for your DUT, or your DUT's own Paging response isn't working as expected, possibly even a design where it only responds to a specific known counterpart rather than any general pager. Given this needs hands-on diagnosis of your DUT's actual behavior, and your outsourced developer holds the deepest knowledge of its internals, we'd like to invite both you and your developer to our lab in person (about 3 hours) rather than continuing over Teams, where the DUT remains a black box to anyone without that internal knowledge.",
+  "decision_logic": "When a PTS connection failure log shows a specific protocol-level failure (e.g., a Paging timeout at a known step) rather than a complete absence of any DUT response, narrow the diagnosis to either a wrong target address or a DUT-side response defect rather than treating it as a generic 'DUT not detected' problem; and when a persistent DUT-side issue requires deep internal knowledge that only the customer's own developer holds, prefer an in-person session with that developer present over continued remote/Teams troubleshooting, since the DUT is otherwise a black box to other participants.",
+  "final_recommendation": "When PTS testing repeatedly fails to connect to a DUT despite the customer following the documented procedure, analyze the failure log for the specific protocol step and timing involved (e.g., Paging timeout) to narrow the diagnostic hypothesis, and escalate to an in-person session with the customer's own firmware developer present once remote troubleshooting stalls, rather than continuing indefinitely over calls and email.",
+  "risk_if_done_wrong": "Continuing to troubleshoot a DUT-side Paging response defect purely over remote calls and emailed logs, without the developer who actually understands the DUT's internals present, could prolong the issue indefinitely without ever reaching the actual root cause.",
+  "bluetooth_tags": [
+    "PTS test DUT not detected",
+    "Paging connection timeout 41 seconds",
+    "wrong bdAddr vs DUT Paging defect",
+    "in-person troubleshooting with developer",
+    "Find My Bluetooth Device detection inconsistent",
+    "OM Digital Solutions"
+  ],
+  "search_aliases": [
+    "PTS software cannot detect DUT",
+    "Paging timeout Failed to send BR EDR ACL Connection Request",
+    "Bluetooth address changes each detection attempt",
+    "in person troubleshooting session with firmware developer"
+  ],
+  "qualification_stage": "Profile PTS test execution troubleshooting",
+  "confidence": "medium"
 }

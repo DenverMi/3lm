@@ -1,0 +1,40 @@
+{
+  "source_thread": "thread_0163",
+  "case_id": "thread_0163_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE module / End Product (Global Denshi, BlueNRG-M2SA ceramic chip antenna)",
+  "customer_question": "Does Japanese consumption tax apply to the Bluetooth SIG Qualification Fee when Allion pays it as a proxy?",
+  "question_variants": [
+    "Is there consumption tax on the Qualification Fee if Allion pays it on our behalf?",
+    "Why does Allion charge consumption tax on the SIG fee if SIG itself doesn't charge tax?",
+    "If we wire the fee directly to SIG, is Japanese consumption tax added?",
+    "What is the tax treatment of the Bluetooth SIG Qualification Fee payment?"
+  ],
+  "actual_issue": "The Bluetooth SIG Qualification Fee is a USD payment to SIG (a US organization). When Allion pays this fee as a proxy on behalf of a Japanese customer, Japanese consumption tax (消費税) applies to Allion's invoice for the recovered payment. The customer wants to understand why tax applies and whether it can be avoided.",
+  "plain_english_explanation": "When Allion pays the Bluetooth SIG Qualification Fee on a customer's behalf, Allion is performing a domestic (Japan-based) service by acting as a payment intermediary. Under Japanese tax law, when Allion invoices the customer for reimbursement of the fee it paid (立替金 — advance payment recovery), this is treated as a domestic taxable transaction and Japanese consumption tax (currently 10%) is added to Allion's invoice. If the customer instead wires the USD fee directly to the Bluetooth SIG (bypassing Allion as payment proxy), no Japanese consumption tax applies — because the transaction is then directly between the Japanese customer and a foreign organization. USD wire proxy is an optional service Allion offers, not a required condition of the registration proxy service.",
+  "consultant_answer": "When Allion acts as payment proxy for the SIG Qualification Fee, Japanese consumption tax applies to Allion's invoice to the customer — because Allion's reimbursement billing is a domestic taxable transaction (立替金). If the customer wishes to avoid Japanese consumption tax on this fee, they can wire the USD Qualification Fee directly to Bluetooth SIG themselves, bypassing Allion's payment proxy service. The USD payment proxy is optional and does not affect whether Allion can handle the registration.",
+  "decision_logic": "Japanese consumption tax applies to domestic service transactions. Allion's advance payment recovery (立替金) for the SIG fee is classified as a domestic taxable service. Direct customer payment to SIG is an international transaction not subject to Japanese consumption tax. The customer can choose either path depending on their tax and workflow preferences.",
+  "final_recommendation": "Inform customers that Japanese consumption tax applies to the SIG Qualification Fee when billed through Allion's proxy payment service. Offer the option to wire directly to SIG if the customer wants to avoid domestic consumption tax on this item. Clarify this at the quotation stage.",
+  "risk_if_done_wrong": "If the customer is not informed of the consumption tax in advance, they may dispute the invoice or be surprised by a higher-than-expected total cost.",
+  "bluetooth_tags": [
+    "consumption tax",
+    "Qualification Fee",
+    "proxy payment",
+    "Japanese tax",
+    "立替金",
+    "USD wire",
+    "payment proxy"
+  ],
+  "search_aliases": [
+    "consumption tax qualification fee",
+    "japanese tax bluetooth SIG fee",
+    "proxy payment tax",
+    "wire directly to SIG no tax",
+    "立替金 消費税",
+    "qualification fee tax treatment",
+    "allion payment proxy tax"
+  ],
+  "qualification_stage": "pre-registration",
+  "confidence": "high"
+}

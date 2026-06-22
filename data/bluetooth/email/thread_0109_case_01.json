@@ -2,6 +2,7 @@
   "source_thread": "thread_0109",
   "case_id": "thread_0109_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "",
   "customer_question": "Can we use another company's already-certified Host Subsystem QD-ID (e.g., a BlueZ-based registration) when registering our own product?",
   "question_variants": [
@@ -17,7 +18,15 @@
   "decision_logic": "A product registration that references a component QD-ID (e.g., Host Subsystem) is only safe long-term if your company has a legitimate right to reference that QD-ID - either because you own it, or because you obtained it properly (e.g., purchased a certified stack from its vendor/distributor, who permits referencing their QD-ID). Referencing an unrelated party's QD-ID without permission creates a visibility link that the QD-ID owner can use to get your registration cancelled.",
   "final_recommendation": "Do not reference a third party's certified Host Subsystem QD-ID without their permission. Instead, purchase a BlueZ-based (or other) Host Subsystem stack from a licensed stack vendor/distributor, who will permit you to legitimately reference their certified QD-ID in your registration.",
   "risk_if_done_wrong": "The initial registration may go through, but if the actual owner/Listing Owner of the referenced QD-ID discovers the unauthorized reference, they can request the SIG to cancel the registration, resulting in lost certification and the need to redo the registration correctly.",
-  "bluetooth_tags": ["qualification", "listing", "QDID", "Host Subsystem", "BlueZ", "declaration", "reuse"],
+  "bluetooth_tags": [
+    "qualification",
+    "listing",
+    "QDID",
+    "Host Subsystem",
+    "BlueZ",
+    "declaration",
+    "reuse"
+  ],
   "search_aliases": [
     "QDID reuse without permission",
     "borrow another company's QDID",

@@ -1,0 +1,40 @@
+{
+  "source_thread": "thread_0198",
+  "case_id": "thread_0198_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "NEC Platforms communications terminal (3 models, same BT chip + Fluoride 1.5 Host Stack)",
+  "customer_question": "We have 3 models with the same Bluetooth chip and Host Stack (Fluoride 1.5). Can we register them together? What name should we use for the registration? The ICS must align to Fluoride 1.5 features — is that OK even if individual models don't have all features?",
+  "question_variants": [
+    "Multiple models with same BT chip and Host Stack — can they share one registration?",
+    "How to choose a Design Name when registering multiple product models together?",
+    "Can ICS be set to the Host Stack's capabilities (Fluoride 1.5) rather than each model's specific feature set?"
+  ],
+  "actual_issue": "NEC Platforms has 3 product models that all use the same Bluetooth chip and the same Host Stack (Fluoride 1.5, a customized AOSP Fluoride). The company decided internally to align all models' ICS to Fluoride 1.5 capabilities (not to the individual model's specific implemented features). All 3 models can be registered together in one Product List. The first product entered in the Product List becomes the 'Design Name' — this name appears on the SIG public database and represents all products in the registration.",
+  "plain_english_explanation": "When multiple products share the same Bluetooth chip and Host Stack, they can be listed under a single SIG registration by entering them all into the Product List (no additional cost for adding multiple products to the same registration). The ICS for the registration reflects the Host Stack (Fluoride 1.5) capabilities, which is acceptable — this is common practice when a company standardizes on one Host Stack across products. The key constraint: the first product entered in the Product List automatically becomes the 'Design Name' for the entire registration — this name appears publicly. If you want a unified, model-neutral name (e.g., 'Communications Terminal'), enter that as the first product, not a model-specific name.",
+  "consultant_answer": "Yes, all 3 models can be registered in one Product List under a single registration at no additional cost. The ICS aligned to Fluoride 1.5 is acceptable when all models use the same Host Stack — this is standard practice. Design Name advice: the first product entered in the Product List becomes the Design Name. Use a generic, unified name (e.g., 'Communications Terminal') as the first entry rather than a model-specific name, so the Design Name represents the full product family rather than just one model. Profile test exemption is provided through the referenced Fluoride 1.5 QDID.",
+  "decision_logic": "Product List = one registration covers all models with same chip and Host Stack. ICS = Host Stack capabilities (acceptable when all models use the same stack). Design Name = first entry in Product List — choose carefully, use a unified generic name. Profile test exemption via QDID reference to Fluoride 1.5.",
+  "final_recommendation": "When registering multiple models with the same Bluetooth implementation, always pre-plan the Product List entry order. The first entry becomes the Design Name for the entire registration and appears on the SIG public database. Use a unified product family name as the first entry. For each additional model, add it to the same Product List at no extra cost.",
+  "risk_if_done_wrong": "If a model-specific name is entered first, it becomes the Design Name for the entire registration — all other models in the family will be publicly associated with that one model's name, which may be confusing or commercially undesirable.",
+  "bluetooth_tags": [
+    "Product List",
+    "Design Name",
+    "multiple models",
+    "NEC Platforms",
+    "Fluoride",
+    "AOSP",
+    "Host Stack",
+    "ICS alignment",
+    "profile exemption",
+    "QDID reference"
+  ],
+  "search_aliases": [
+    "multiple models one registration Product List",
+    "Design Name first product list entry",
+    "Fluoride 1.5 ICS alignment SIG",
+    "NEC AOSP registration multiple models",
+    "product list Design Name rule SIG"
+  ],
+  "qualification_stage": "Registration / Product List Configuration",
+  "confidence": "high"
+}

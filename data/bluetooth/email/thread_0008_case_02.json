@@ -1,47 +1,32 @@
 {
-    "source_thread": "thread_0008",
-    "cases": [
-        {
-            "case_id": "thread_0008_case_02",
-            "iut_type": "BLE peripheral device",
-            "customer_question": "Can Bluetooth behavior be temporarily modified during PTS testing if the changes do not affect the evaluated qualification items?",
-            "question_variants": [
-                "Can advertising timing be extended during PTS tests?",
-                "Can Random Static Address be used instead of RPA for testing?",
-                "Is it acceptable to force BAS notifications during PTS?",
-                "Can test-only behavior changes be used for PTS convenience?",
-                "Are temporary test configuration changes allowed during profile qualification?"
-            ],
-            "actual_issue": "The customer wanted to know whether temporary behavioral modifications made only to simplify PTS testing were acceptable during Bluetooth qualification.",
-            "plain_english_explanation": "PTS testing can sometimes be difficult with normal product behavior, so the customer proposed temporary test-only settings. The consultant confirmed that certain changes were acceptable because they did not alter the Bluetooth features being qualified. The important point was that the modified behavior still represented the same qualified functionality.",
-            "consultant_answer": "The consultant confirmed that several proposed temporary test configurations were acceptable because they did not affect the qualification scope of the evaluated services and profiles. Approved examples included periodically changing BAS Battery Level notifications to trigger Notify behavior, changing from Random Resolvable Private Address to Random Static Address to simplify tester connectivity, and extending advertisement duration during testing.",
-            "decision_logic": "Bluetooth qualification focuses on validating implemented protocol and profile behavior. Temporary test configurations are acceptable if they do not alter the underlying qualified functionality or invalidate the declared feature set.",
-            "final_recommendation": "Use temporary test-only configurations when necessary to stabilize or simplify PTS execution, provided the changes do not modify the actual qualified Bluetooth feature set or profile behavior.",
-            "risk_if_done_wrong": "If temporary test modifications alter qualified functionality rather than only improving test execution, the resulting PTS evidence may no longer represent the shipping implementation and could create qualification validity issues.",
-            "bluetooth_tags": [
-                "qualification",
-                "PTS",
-                "BAS",
-                "DIS",
-                "testing",
-                "GATT",
-                "LE"
-            ],
-            "search_aliases": [
-                "PTS test workaround",
-                "temporary test configuration",
-                "Random Static Address for PTS",
-                "BAS Notify testing",
-                "advertising interval extension",
-                "PTS connectivity adjustment",
-                "test-only behavior change",
-                "RPA to static address",
-                "profile test setup",
-                "PTS execution support"
-            ],
-            "qualification_stage": "testing",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0008",
+  "case_id": "thread_0008_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Shimano), test setup modifications unrelated to evaluated items",
+  "customer_question": "We're planning to test with a few deliberate behavior modifications that differ from real product operation: triggering BAS Battery Level Notify changes on a different schedule than the real device would (since real battery level doesn't change during testing), switching from Random Resolvable Private Address to Random Static Address to make PTS connection easier, and extending the advertising window duration beyond what the real product uses (which normally ends quickly). Since none of these relate to what's actually being evaluated, is this acceptable?",
+  "question_variants": [
+    "Can BAS Battery Level Notify timing be artificially triggered for test convenience?",
+    "Is switching address type or extending advertising duration for test convenience acceptable?"
+  ],
+  "actual_issue": "The customer wanted to confirm that several practical test-convenience modifications to the DUT's behavior, none of which related to the actual profile items being evaluated (BAS/DIS), wouldn't be considered improper test conditions that could invalidate the results.",
+  "plain_english_explanation": "Test setup modifications that don't affect the actual functionality being evaluated are acceptable — artificially triggering a Battery Level Notify event on a convenient schedule (rather than waiting for genuine battery level changes), temporarily switching from a Random Resolvable Private Address to a Random Static Address to simplify the tester's connection process, and extending the advertising window duration to give the tester more time to connect are all changes to test convenience/setup rather than to the profile functionality actually being tested, so they don't compromise the validity of the BAS/DIS test results.",
+  "consultant_answer": "Yes, all three of these are fine — artificially triggering the Battery Level Notify on a convenient schedule, switching to a Random Static Address to simplify connection, and extending the advertising window are all test-convenience adjustments unrelated to the actual BAS/DIS functionality being evaluated, so they don't affect the validity of your results.",
+  "decision_logic": "Test setup modifications are acceptable as long as they don't alter the actual functionality of the specific profile items being evaluated — changes purely for test convenience (timing, addressing, connection window) are distinct from changes to the tested functionality itself.",
+  "final_recommendation": "When a customer proposes test-convenience modifications, evaluate each one specifically against whether it affects the actual functionality being tested, rather than assuming any deviation from real product behavior is automatically disqualifying.",
+  "risk_if_done_wrong": "Disallowing reasonable test-convenience modifications unrelated to the evaluated functionality could force customers into unnecessarily difficult or time-consuming test setups (e.g., waiting for genuine battery level changes) without any actual benefit to test validity.",
+  "bluetooth_tags": [
+    "test convenience modification acceptable",
+    "BAS Battery Level Notify artificial trigger",
+    "Random Static Address test connection ease",
+    "advertising window extension test",
+    "Shimano"
+  ],
+  "search_aliases": [
+    "can we modify test setup for convenience",
+    "BAS Notify timing change for testing",
+    "Random Static Address vs Resolvable Private Address test"
+  ],
+  "qualification_stage": "Pre-test setup confirmation",
+  "confidence": "high"
 }

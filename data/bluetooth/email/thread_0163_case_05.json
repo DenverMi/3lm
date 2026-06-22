@@ -1,0 +1,40 @@
+{
+  "source_thread": "thread_0163",
+  "case_id": "thread_0163_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE module / End Product (Global Denshi, BlueNRG-M2SA ceramic chip antenna)",
+  "customer_question": "How long must the Compliance Folder be retained? And can we register a second product for free using the same Bluetooth module?",
+  "question_variants": [
+    "How long do we need to keep the Compliance Folder after the product is discontinued?",
+    "What is the Compliance Folder retention period?",
+    "Can we add a second product to our SIG registration for free if it uses the same module?",
+    "How does the free derivative product additional registration work?"
+  ],
+  "actual_issue": "Two related questions: (1) how long does the customer need to retain the Compliance Folder after stopping commercial sales; and (2) whether a second product using the same Bluetooth module and Host Stack can be registered for free as a derivative product.",
+  "plain_english_explanation": "Compliance Folder retention: QPRDv3 requires that the Compliance Folder be retained for at least 1 year after the product is no longer sold commercially. If SIG requests an audit, the company must be able to produce it. (In practice, according to Sakai, no Allion customer has ever been audited in the company's history.) Free derivative product registration: If a customer has already qualified a Bluetooth product using a specific module + Host Stack combination, they can register a second product that uses the same module and Host Stack at no additional Qualification Fee cost. This is done by the customer themselves on the SIG portal under 'Manage Submitted Products.' The customer identifies their existing qualified product, selects 'Create Derivative,' and adds the new product. Allion can provide instructions or handle this as a paid proxy service if the customer prefers.",
+  "consultant_answer": "(1) Compliance Folder retention period: 1 year after the end of commercial sales of the product. (2) Derivative product free registration: A second product using the same module + Host Stack can be registered for free by the customer via 'Manage Submitted Products' on the SIG portal. Allion provides instructions or can handle as a paid proxy.",
+  "decision_logic": "Compliance Folder retention is a QPRDv3 obligation — the 1-year period applies from the end of commercial sales. The free derivative product registration is a SIG benefit for companies reusing the same qualified Bluetooth design — no additional Qualification Fee is charged because the Bluetooth design has already been qualified.",
+  "final_recommendation": "Inform customers of the 1-year retention requirement when delivering the Compliance Folder. Also proactively inform customers that any future products using the same module + Host Stack can be registered for free — many customers are unaware of this benefit.",
+  "risk_if_done_wrong": "Failing to retain the Compliance Folder for the required period creates audit risk. Failing to inform customers of the free derivative registration leads them to pay unnecessary Qualification Fees for second products that could have been registered at no cost.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "retention period",
+    "QPRDv3",
+    "derivative product registration",
+    "free registration",
+    "Manage Submitted Products",
+    "Bluetooth SIG audit"
+  ],
+  "search_aliases": [
+    "compliance folder retention period",
+    "how long keep compliance folder",
+    "1 year after sales compliance folder",
+    "derivative product free registration",
+    "second product same module free",
+    "manage submitted products",
+    "free additional product registration"
+  ],
+  "qualification_stage": "post-registration",
+  "confidence": "high"
+}

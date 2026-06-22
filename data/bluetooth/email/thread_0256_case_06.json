@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0256",
+  "case_id": "thread_0256_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product profile retest billing policy (DensoTen)",
+  "customer_question": "Our other certification programs (USB, WiFi) charge a single fee good through a Pass, with no extra cost for retests within a 3-month validity window. Your Bluetooth quote says the test fee is a 'one-time amount' with additional retest costs billed separately — does that mean any single Fail triggers extra charges for Bluetooth, unlike your other certification programs? Also, can you clarify the cost for the additional non-standard log capture (DLT logs) we requested?",
+  "question_variants": [
+    "Does Bluetooth certification have a less forgiving retest billing policy than USB/WiFi certification?",
+    "Why is there an additional charge for the DLT log capture service we requested?"
+  ],
+  "actual_issue": "The customer compared Bluetooth certification's quote language (a 'one-time' test fee with separately billed retests) unfavorably against their other certification programs' pass-inclusive pricing, and also needed clarification on why a specific additional log-capture request was being billed separately.",
+  "plain_english_explanation": "Bluetooth RF testing passes on the first attempt over 90% of the time, and even when Profile testing produces Fail results, the typical 'initial test, fix Fail items, retest, fix remaining Fails, re-retest' cycle has historically been completed without additional billing in past projects, despite the quote technically stating a 'one-time amount' for liability reasons. In this specific engagement, though, Fail and Inconclusive results occurred unusually broadly across all profiles tested, exceeding the typical 2-retest-cycle volume, which is why additional billing became necessary for further retests beyond that point. Separately, the standard Bluetooth certification deliverable is the PTS log (Pass, Fail, Inconclusive) generated as a natural byproduct of running PTS as the tester — capturing additional, more detailed diagnostic logs (like DLT logs) via other means for non-Pass items falls outside that standard scope and is treated as separate design-verification work requiring its own quotation, which is why a distinct charge applies for that specific request.",
+  "consultant_answer": "In practice, Bluetooth RF testing passes on the first attempt over 90% of the time, and Profile test Fail items have historically been resolved within an initial-test-plus-two-retest cycle without additional billing, even though our quote technically states a 'one-time amount' for liability reasons. In this case specifically, Fail/Inconclusive results occurred far more broadly across all profiles than that typical pattern, which is why additional cost applies beyond the first two retest rounds. Separately, the standard Bluetooth certification deliverable is the PTS log (Pass/Fail/Inconclusive) generated naturally from running PTS as the tester — capturing the additional DLT logs you requested falls outside that standard scope and counts as separate design-verification work, which is why it's billed separately at ¥200,000.",
+  "decision_logic": "Bluetooth certification retest billing follows an informal practice-based allowance (typically covering an initial test plus two retest cycles without extra charge) rather than a contractually guaranteed unlimited-retest-until-Pass model like other certification programs, and any request for non-standard diagnostic logging beyond the basic PTS Pass/Fail/Inconclusive deliverable is treated as separately billable design-verification work.",
+  "final_recommendation": "When customers compare Bluetooth certification billing unfavorably against other certification programs' pass-inclusive pricing, explain the practice-based retest allowance and its volume basis clearly, and consistently apply the established distinction between standard PTS log deliverables and separately billable non-standard diagnostic logging work.",
+  "risk_if_done_wrong": "Failing to clearly explain the practice-based (not contractual) nature of the retest allowance could create a dispute when retest volume genuinely exceeds typical levels and additional billing becomes necessary; inconsistently applying the PTS-log-vs-design-verification billing boundary could create unpredictable customer expectations across different engagements.",
+  "bluetooth_tags": [
+    "Bluetooth certification retest billing policy",
+    "one time test fee quote language",
+    "PTS log vs design verification billing boundary",
+    "DLT log capture additional cost",
+    "DensoTen"
+  ],
+  "search_aliases": [
+    "Bluetooth certification retest cost policy",
+    "why is Bluetooth retest billed differently than WiFi USB",
+    "DLT log capture additional charge",
+    "PTS log standard deliverable vs design verification"
+  ],
+  "qualification_stage": "Billing / retest cost clarification",
+  "confidence": "high"
+}

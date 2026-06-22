@@ -1,46 +1,23 @@
 {
-    "source_thread": "thread_0102",
-    "cases": [
-        {
-            "case_id": "thread_0102_case_02",
-            "iut_type": "module",
-            "customer_question": "Can multiple products using the same Bluetooth implementation be registered under the same qualification listing?",
-            "question_variants": [
-                "Can multiple products share one Bluetooth qualification?",
-                "Can I add product variants after qualification?",
-                "Can multiple devices be placed in the Product List?",
-                "Can derived products reuse the same listing?",
-                "Can customers reference the same qualified design?"
-            ],
-            "actual_issue": "The customer wanted to know whether multiple products using the same module, stack, and Bluetooth functionality could be covered through a single qualification and whether downstream products could reuse the resulting qualification.",
-            "plain_english_explanation": "Several products shared the same Bluetooth implementation. The customer wanted to avoid repeating qualification work for every product variant. The question was whether additional products could be attached to the qualified design after the main registration was completed.",
-            "consultant_answer": "The consultant clarified that products are not added directly to the subsystem qualification itself. Instead, after the qualification is completed, additional products with the same Bluetooth implementation can be added through the Product List mechanism. The resulting qualification can also be referenced by downstream products that use the qualified design.",
-            "decision_logic": "When multiple products share the same Bluetooth implementation and qualification basis, they can be represented as additional products associated with the completed qualification record rather than requiring separate qualification projects.",
-            "final_recommendation": "Complete the primary qualification first, then add qualifying product variants through the Product List process and allow downstream products to reference the resulting qualification where applicable.",
-            "risk_if_done_wrong": "Misunderstanding Product List usage can lead to unnecessary duplicate qualification projects, additional administrative effort, and redundant registrations.",
-            "bluetooth_tags": [
-                "qualification",
-                "Product List",
-                "listing",
-                "reuse",
-                "QDID",
-                "RN"
-            ],
-            "search_aliases": [
-                "add product",
-                "Product List reuse",
-                "multiple product variants",
-                "derived product registration",
-                "same Bluetooth implementation",
-                "reuse qualification",
-                "additional products",
-                "listing management",
-                "RN Product List",
-                "shared qualification"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0102",
+  "case_id": "thread_0102_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "We have several product variants that all use the same module and stack -- can they all be registered under the one Host Subsystem DID we're creating?",
+  "question_variants": [
+    "Can multiple of our products share a single Host Subsystem registration ID?",
+    "Do we need a separate DID for each product variant using the same module?",
+    "How do we cover several same-module product variants without registering each separately?"
+  ],
+  "actual_issue": "The customer had several product variants that all used the same module and Bluetooth stack, and wanted to know whether they could all be registered under the single Host Subsystem DID being created for this engagement, rather than requiring separate registrations.",
+  "plain_english_explanation": "Strictly speaking, a single registration record itself doesn't hold multiple separate products bundled into it -- but that's not really the practical concern. What actually matters is whether several product variants using identical Bluetooth hardware and software can all be covered without paying for and completing a brand-new registration each time, and the answer to that practical question is yes, through a simple free add-on process available once the first registration is done.",
+  "consultant_answer": "Strictly speaking, a single Host Subsystem DID cannot have multiple products registered into it directly -- registering to the Product List applies to the 'new Host Subsystem + combined Controller Subsystem registration' as a whole, not the Host Subsystem portion alone. However, interpreting the question as asking whether products sharing the same module and stack, with the same Bluetooth functionality, can be added to the new registration's Product List: yes. Once the new registration is complete, it appears in the registrant's Listing Manage page list, with an 'Add Product' link on the far right of that entry. From that link, derivative products can be added to the Product List for free at any time through a simple web operation, and the corresponding procedure documentation is delivered at the completion of the engagement.",
+  "decision_logic": "While a single Host Subsystem DID does not itself hold multiple registered products directly, the practical goal of covering multiple product variants that share the same module and stack is achieved through the free, self-service 'Add Product' mechanism on the registrant's Listing Manage page, available once the initial registration is complete.",
+  "final_recommendation": "When a customer asks whether multiple same-module/stack product variants can be covered without registering each separately, clarify that the DID itself doesn't hold multiple products directly, but that the free 'Add Product' self-service mechanism on the Listing Manage page achieves the same practical outcome once the initial registration is complete.",
+  "risk_if_done_wrong": "Telling a customer that multiple products can be registered directly into one Host Subsystem DID, without clarifying the actual mechanism (the separate, free Product List addition process), could create confusion about how to actually add their product variants.",
+  "bluetooth_tags": ["Host Subsystem", "Product List", "Add Product", "derivative model", "Listing Manage"],
+  "search_aliases": ["multiple products one Host Subsystem DID", "Add Product link Listing Manage page", "same module stack product variants free addition", "Product List addition after registration"],
+  "qualification_stage": "planning",
+  "confidence": "high"
 }

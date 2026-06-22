@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0189",
+  "case_id": "thread_0189_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alps Alpine 27BRD Bluetooth module (DENSO product)",
+  "customer_question": "The product name (software environment name) includes a trailing period, e.g., 'XXXXX.' (7 characters including the period). Is this accepted in the SIG registration portal?",
+  "question_variants": [
+    "Can a product name end with a period in the SIG registration?",
+    "Trailing period in the model/product name — is it accepted in SIG portal?",
+    "Product name has punctuation at the end — will the SIG portal reject it?"
+  ],
+  "actual_issue": "The customer wants to use a software environment name that includes a trailing period (full stop) as part of the name, such as 'XXXXX.' (7 characters including the period at the end). They are concerned the SIG portal might reject the name or treat the period as invalid punctuation in a product name field.",
+  "plain_english_explanation": "The SIG registration portal accepts product names that end with a period (full stop). There is no technical restriction that prevents trailing periods in the product name or software environment name field. The customer requested to keep the name as-is (ending with a period) to align it with their Wi-Fi software environment name, and Allion confirmed there is no registration issue with this format.",
+  "consultant_answer": "A trailing period in the product name is accepted in the SIG registration portal. There are no known restrictions on trailing punctuation in the product name field. The customer's preferred name ending with a period can be used as-is.",
+  "decision_logic": "SIG portal product name field does not restrict trailing periods. Names with periods, parentheses, slashes, and similar characters are generally accepted. If uncertain about a specific character, a trial entry in the Qualification Workspace can verify before the formal submission.",
+  "final_recommendation": "When customers ask about unconventional characters in product names, advise that a test entry in the Qualification Workspace is the definitive way to verify portal acceptance before committing to the name.",
+  "risk_if_done_wrong": "Unnecessary name changes to avoid a trailing period could misalign the registered product name with the company's internal naming conventions and other certifications (e.g., Wi-Fi), creating administrative inconsistency.",
+  "bluetooth_tags": [
+    "product name",
+    "model name",
+    "trailing period",
+    "SIG portal",
+    "registration field",
+    "product naming",
+    "Qualification Workspace"
+  ],
+  "search_aliases": [
+    "product name trailing period SIG",
+    "product name period punctuation SIG portal",
+    "can product name have period SIG registration",
+    "special characters product name Bluetooth SIG",
+    "product name format SIG portal"
+  ],
+  "qualification_stage": "Registration / Product Information",
+  "confidence": "high"
+}

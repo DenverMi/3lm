@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0137",
+  "case_id": "thread_0137_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "IoT/embedded",
+  "customer_question": "How do we obtain the SIG registration fee Invoice so we can proceed with payment, and which account should be used to generate it?",
+  "question_variants": [
+    "What are the steps to generate a Bluetooth SIG Qualification Fee Invoice?",
+    "Which account (ours or the agent's) should log in to create the Invoice?",
+    "How do we set the Quantity, Payment Method, PO, and Attn fields when creating the Invoice?"
+  ],
+  "actual_issue": "To proceed with the certification service provider's (Allion's) USD remittance proxy for the SIG Qualification Fee, the customer first needs to generate and submit an Invoice from the Bluetooth SIG site. The consultant provided the exact procedure: (1) the person responsible for the Bluetooth logo certification registration logs into the SIG site using the account belonging to the company under whose name the registration will be filed (not the agent's account); (2) on the relevant page, click 'Pay Product Qualification Fee' in the top right; (3) in the resulting dialog, the fee amount is auto-filled based on membership class - set Quantity to 1, set Payment Method to Invoice, leave PO blank, and enter the agent's contact name and company (e.g., 'Masaya Iida (Allion Japan Inc.)') in the Attn field, then click Create Invoice; (4) submit the resulting PDF by email to the certification service provider.",
+  "plain_english_explanation": "Before Bluetooth SIG will accept the Qualification Fee payment, the registrant needs to generate an official Invoice document from the SIG website itself - this isn't something the certification service provider can create on the customer's behalf. The login used to create this Invoice must be the account associated with the company that will actually own the registration, not the consultant's or agent's account. When filling out the Invoice creation form, the Attn field should name the agent who is managing the proxy payment (so the invoice is addressed correctly for that purpose), while PO is left blank and Quantity is set to 1. Once created, the customer downloads the Invoice as a PDF and forwards it to the certification service provider, who uses it to complete the USD remittance to SIG.",
+  "consultant_answer": "The person responsible for the Bluetooth logo certification registration should log into the SIG site using the account of the company under whose name the registration will be filed, then open the relevant page and click 'Pay Product Qualification Fee' in the top right. In the dialog that opens, the fee amount auto-fills based on membership class - set Quantity to 1 and Payment Method to Invoice, leave PO blank, and enter the proxy registration agent's name and company in the Attn field (e.g., the certification service provider's contact and company name), then click Create Invoice. Submit the resulting PDF by email to the certification service provider.",
+  "decision_logic": "When a customer asks how to generate the SIG Qualification Fee Invoice for a proxy remittance: (1) confirm they are logging in with the account belonging to the company that will own the registration, not the agent's account; (2) walk through the exact dialog fields - Quantity=1, Payment Method=Invoice, PO=blank, Attn=the proxy agent's name and company; (3) have them email the resulting PDF to the certification service provider to trigger the remittance process.",
+  "final_recommendation": "Provide customers with the exact step-by-step Invoice-creation procedure (login as the registering company, Pay Product Qualification Fee, Quantity 1, Payment Method Invoice, PO blank, Attn = agent's name and company, Create Invoice, submit PDF) rather than assuming they already know the SIG site's payment workflow.",
+  "risk_if_done_wrong": "If the customer logs in with the wrong account or fills out the Invoice fields incorrectly (e.g., wrong Attn name, wrong Payment Method), the Invoice may not match the proxy remittance arrangement, delaying the SIG fee payment and the overall registration timeline.",
+  "bluetooth_tags": [
+    "qualification",
+    "Qualification Fee",
+    "Invoice",
+    "SIG payment",
+    "proxy registration",
+    "remittance"
+  ],
+  "search_aliases": [
+    "SIG Qualification Fee Invoice creation steps",
+    "Pay Product Qualification Fee button",
+    "Invoice Payment Method PO Attn fields SIG",
+    "which account creates SIG Invoice registering company",
+    "USD remittance proxy Invoice submission"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

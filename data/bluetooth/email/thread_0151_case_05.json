@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0151",
+  "case_id": "thread_0151_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product — BR/EDR+BLE using third-party SoC/module and host stack",
+  "customer_question": "What are the preconditions for your quoted support fee, and what host stack profile support is required for our product?",
+  "question_variants": [
+    "What assumptions is your estimate based on regarding our module and host stack?",
+    "Does our host stack need to support AVCTP, AVDTP, and GADTP?",
+    "What is included in the initial PTS/profile test quote, and what payment terms apply for a new customer?"
+  ],
+  "actual_issue": "Before issuing the initial cost estimate, the consultant set two explicit preconditions on the customer's implementation module and host stack: (1) the module/host stack must be an already-certified, registered design with no ICS inconsistencies, and (2) the host stack must include AVCTP, AVDTP, and GADTP (profile-layer protocols required for A2DP/AVRCP support). The customer confirmed precondition (2) was met; precondition (1) turned out not to be met, which triggered the ICS-inconsistency discussion (see related case on Combine Unmodified Design). The initial quote also specified that because this was a new customer relationship with no prior transaction history, payment must be made in advance, and that quoted figures were tax-exclusive with USD converted to JPY at the TTS rate as of the last business day of the month before the formal quote is issued.",
+  "plain_english_explanation": "Before quoting a Bluetooth certification project, the consulting firm needs to confirm the customer's chosen chip/module and host stack already have clean certification (no unresolved Invalids) and support the specific protocol layers the product profile needs (here, AVCTP/AVDTP/GADTP for audio profiles like A2DP/AVRCP). These preconditions directly determine what the quote includes (e.g., whether profile testing is needed) and are reconfirmed before final pricing. For new customers with no billing history, the firm requires payment up front.",
+  "consultant_answer": "The quote assumes the customer's module/host stack is (1) already certified and registered with a clean ICS (no Invalids), and (2) the host stack includes AVCTP, AVDTP, and GADTP support. The customer confirmed (2). Initial quote (contingent on these assumptions) was: PTS test (A2DP, AVRCP, IOPT) JPY 300,000; registration support (Multi-Design reference) JPY 250,000; USD wire transfer handling fee JPY 100,000; Qualification Fee $6,000 (converted to JPY at the TTS rate as of month-end before the formal quote, applicable if registering under the NTT Sonority, Inc. name). All figures are tax-exclusive. Because the customer had no prior transaction history with the firm, payment must be made in advance.",
+  "decision_logic": "Quote validity is conditioned on the customer's component meeting stated technical preconditions. If a precondition is not met (e.g., the ICS turns out to have inconsistencies), the quote and recommended registration method must be revisited — this is exactly what happened next in this thread, leading to the Combine Unmodified Design solution and a revised quote without the PTS profile test fee.",
+  "final_recommendation": "Always state explicit technical preconditions (clean ICS, required host-stack protocol support) before quoting, and treat the quote as contingent on those preconditions being verified. For new customers, require advance payment and clearly state currency conversion terms (TTS rate, tax-exclusive) in the quote.",
+  "risk_if_done_wrong": "Quoting without verifying ICS cleanliness or required host-stack protocol support can lead to a quote that omits necessary test items (or includes unnecessary ones) once the actual component status is confirmed, requiring a revised quote and possible schedule delay.",
+  "bluetooth_tags": [
+    "quoting preconditions",
+    "AVCTP",
+    "AVDTP",
+    "GADTP",
+    "host stack",
+    "ICS inconsistency",
+    "PTS test",
+    "Qualification Fee",
+    "payment terms"
+  ],
+  "search_aliases": [
+    "host stack AVCTP AVDTP GADTP requirement",
+    "quote preconditions ICS clean",
+    "Qualification Fee TTS rate conversion",
+    "new customer advance payment quote",
+    "PTS test A2DP AVRCP IOPT quote"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
+}

@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0220",
+  "case_id": "thread_0220_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Secom Corporation security device)",
+  "customer_question": "On the proxy registration confirmation form, what does the UserName/Password field refer to — is it our SIG account? Also, is it fine if devices we plan to add later aren't listed on this initial registration?",
+  "question_variants": [
+    "Whose credentials should be entered in the confirmation form's UserName/Password field?",
+    "Is it a problem to omit future planned devices from the current registration?"
+  ],
+  "actual_issue": "The customer needed clarification on two points of the proxy registration confirmation document before submitting it: what account credentials were being requested, and whether leaving out future devices would cause any issue.",
+  "plain_english_explanation": "The UserName/Password field on the proxy registration confirmation form refers to the customer's own Bluetooth SIG account, because Allion performs the registration operations by logging into the SIG site as the customer. As a precaution, the customer should change their SIG account password from My Page after registration completes. Separately, not listing future planned devices on the initial registration is not a problem — after the initial registration is confirmed, the customer can add derivative models for free anytime via simple web operations on their own My Page, following a 'free additional product registration' procedure document that Allion delivers as part of the completed engagement deliverables.",
+  "consultant_answer": "Yes, the UserName/Password field refers to your own Bluetooth SIG account — we log in as you to perform the proxy registration. As a precaution, please change your SIG account password from My Page once registration is complete. Also, it's fine not to list future planned devices on the initial registration; once registration is confirmed, you can add derivative models for free anytime via simple web operations on your own My Page, using the 'free additional product registration' procedure document we'll deliver as part of our completed deliverables.",
+  "decision_logic": "Proxy registration requires the customer's own SIG account credentials because the registering party performs the action as the customer, not as a third party; future device additions don't need to be pre-declared since the free derivative-model registration mechanism is available anytime post-registration via self-service web operations.",
+  "final_recommendation": "When customers ask about credential-sharing requirements for proxy registration services, clearly explain why their own account login is needed and recommend a post-registration password change as a security precaution.",
+  "risk_if_done_wrong": "Failing to clarify the credential requirement could create customer hesitation or security concerns about sharing SIG account access; failing to explain the self-service derivative-model registration process could lead customers to believe all future products must be listed upfront, causing unnecessary registration delays.",
+  "bluetooth_tags": [
+    "proxy registration confirmation form",
+    "SIG account credential sharing",
+    "password change precaution",
+    "derivative model free registration",
+    "Secom"
+  ],
+  "search_aliases": [
+    "proxy registration UserName Password meaning",
+    "is SIG account login needed for proxy registration",
+    "do future devices need to be listed upfront",
+    "free derivative model registration procedure"
+  ],
+  "qualification_stage": "Registration execution",
+  "confidence": "high"
+}

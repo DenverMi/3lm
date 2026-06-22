@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0160",
+  "thread_analysis": {
+    "thread_summary": "Long Topre keyboard thread (with PFU OEM context). Contains four distinct technical cases: (1) SIG registration must be under the brand/label owner (PFU), not the OEM manufacturer (Topre) — if PFU won't share credentials, Allion prepares a documentation package for PFU to self-register; (2) The registered Bluetooth Core Specification version cannot be changed retroactively — changing from 4.2 to 5.0 requires a brand new registration with a new $11,040 fee (same test reports reusable); (3) Adding key codes (e.g., Mute key) to a certified keyboard does not require re-registration if the original ICS did not specify or restrict key types; (4) Changing module manufacturer from Taiyo Yuden to Kaga FEI with the same QDID does not require re-registration.",
+    "all_questions_found": [
+      "Which company must register the product — the OEM manufacturer (Topre) or the brand owner (PFU)?",
+      "Can we change the registered Bluetooth Core Specification version from 4.2 to 5.0 without a new registration?",
+      "Does adding a Mute key to an already-certified keyboard require re-registration?",
+      "We are changing the module manufacturer from Taiyo Yuden to Kaga FEI but the QDID is the same — is re-registration needed?"
+    ],
+    "key_technical_discussion": "Brand owner registration rule: SIG requires the registered company name to match the product's commercial label. The OEM manufacturer is not the correct registrant if a different company's brand is on the product. Spec version immutability: The Core Specification version field in a SIG registration is locked post-submission. Core Spec is part of the qualification scope and cannot be retroactively changed. Key code changes: HID key codes are application-layer content within the HID profile — changing or adding them does not change the Bluetooth protocol behavior or profile ICS. Module substitution with same QDID: QDID identifies the qualified design, not the specific manufacturer. Same QDID = same design = no impact on product registration.",
+    "key_decision_logic": "The overarching principle is that SIG qualification is tied to: (1) the brand/label owner as registrant, (2) the specific Core Spec version, (3) the Bluetooth protocol and profile ICS scope, and (4) the QDID reference. Changes that do not affect any of these four elements do not require re-registration.",
+    "risk_if_done_wrong": "Registering under the wrong company: non-compliant record, potential invalidation. Wrong spec version: non-compliant record, requires $11,040 new registration to correct. Unnecessary re-registration for key codes or same-QDID module swap: wasted $11,040 fee and weeks of delay.",
+    "consulting_mistake": "None identified in this thread. The consultant (Sakai) correctly answered all four questions.",
+    "consulting_takeaway": "For product changes after qualification, always evaluate which of the four qualifying elements (brand, spec version, ICS scope, QDID) are affected. Only changes touching those elements require re-registration. This framework prevents both non-compliance and unnecessary re-registration costs."
+  }
+}

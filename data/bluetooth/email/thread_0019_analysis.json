@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0019",
+  "thread_analysis": {
+    "thread_summary": "Teraoka Seiko Co., Ltd. (contact Hideaki Haraguchi) continues its long-running Bluetooth certification relationship with Allion (Masaya Iida, Itsuo Sakai), covering a new Espressif-module-based registration (requiring a Host+Controller Subsystem Multi-Design combination since the module isn't Component-registered, following the same pattern documented in thread_0247/thread_0264) through to Compliance Folder delivery, plus a distinct post-certification question about changing a Service UUID from 16-bit standard to 128-bit custom format.",
+    "all_questions_found": [
+      "Does switching a Service UUID from 16-bit standard to 128-bit custom affect existing SIG certification, and is a change application needed? (see thread_0019_case_01)",
+      "(Already documented pattern, see thread_0247/thread_0264) Why does this module require a Host+Controller Subsystem Multi-Design combination rather than a simple Component reference, and why is the registration support fee higher as a result?"
+    ],
+    "key_technical_discussion": "Beyond the duplicated module-registration-structure content (see thread_0247 and thread_0264 for that pattern), this thread's new contribution clarifies that switching a Service UUID to 128-bit custom format reclassifies the profile as proprietary, removing any SIG declaration or testing obligation for that change.",
+    "key_decision_logic": "See thread_0019_case_01 for the new decision logic; the module registration structure content follows the same logic already documented in thread_0247 and thread_0264.",
+    "risk_if_done_wrong": "See thread_0019_case_01.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "This thread adds a useful precedent to the established Teraoka Seiko relationship: post-certification Service UUID format changes (16-bit standard to 128-bit custom) require no SIG action at all, since they reclassify the affected profile as proprietary — a question worth proactively addressing for any customer planning similar UUID changes on already-certified products."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0014",
+  "thread_analysis": {
+    "thread_summary": "Paramount Bed Co., Ltd. (contact Daiki Nomiyama) works with Allion (Itsuo Sakai, Masaya Iida) on a new Bluetooth SIG registration covering an initial set of products plus 6 additional products sharing the same Bluetooth module but serving very different purposes (bed control switches, diaper-attached sensors), spanning Product Name/Design Name flexibility for differently-purposed products and a bulk derivative-model addition processed via an Excel Product Import Template, through to final Submission and Product List completion (7 models registered, with derivative additions ongoing).",
+    "all_questions_found": [
+      "Can multiple functionally distinct products sharing one Bluetooth registration each have their own Product Name? (see thread_0014_case_01)",
+      "How is a bulk addition of 6 derivative models sharing the same module handled, and is it free? (see thread_0014_case_02)",
+      "(Raised but no explicit written resolution located) Does setting 'Internal Visibility' to 'Yes' on the registration restrict visibility to only the same member company's users, excluding other companies?"
+    ],
+    "key_technical_discussion": "This thread demonstrates registration flexibility for customers with multiple functionally distinct products sharing identical Bluetooth implementation (distinct Product Names under one Design Name) and an efficient Excel-based bulk derivative-model addition mechanism for larger batches of related products.",
+    "key_decision_logic": "See thread_0014_case_01 and thread_0014_case_02.",
+    "risk_if_done_wrong": "See thread_0014_case_01 and thread_0014_case_02.",
+    "consulting_mistake": "The customer's question about the 'Internal Visibility' setting's actual scope (whether 'Yes' restricts visibility to same-member-company users only) doesn't appear to have received an explicit written answer in this thread before the customer proceeded — a minor documentation gap worth flagging if this setting recurs in future engagements.",
+    "consulting_takeaway": "For customers with multiple functionally distinct products sharing identical Bluetooth implementation, proactively explain the Design-Name-vs-Product-Name flexibility, and offer the Excel Product Import Template for any bulk derivative-model addition request to streamline processing at scale while confirming it remains free under the standard policy."
+  }
+}

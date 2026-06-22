@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0159",
+  "case_id": "thread_0159_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "payment terminal (Flight Solutions)",
+  "customer_question": "Does the registration become publicly visible immediately once confirmed, or can we choose a later display/publication date?",
+  "question_variants": [
+    "When does our product listing become public after registration is confirmed?",
+    "Can we delay the public display date of our SIG listing?",
+    "The proxy registration confirmation form has a display start date field — what does it control?"
+  ],
+  "actual_issue": "The proxy registration content confirmation form the customer submitted listed '3. Display start date of registration' (登録の表示開始日) as the then-current month (April 2025). The consultant inferred from this that the customer wanted the listing to go public immediately upon registration confirmation, but flagged that the customer should speak up if they instead wanted a future publication date.",
+  "plain_english_explanation": "When you register a product on the Bluetooth SIG portal, you can choose whether the listing becomes publicly visible immediately once registration is confirmed, or on a specific future date you select. The registration confirmation form has a field for this display/publication start date. If a customer fills in the current month without further comment, the consultant will assume they want immediate publication upon confirmation. Customers who want to delay public visibility (e.g., to align with a product launch date) need to explicitly specify a future date.",
+  "consultant_answer": "Because the confirmation form's 'display start date' field was filled in with the current month (April 2025), the consultant assumed the customer wanted the listing published immediately upon registration confirmation. The consultant explicitly invited the customer to follow up if they instead wanted to set a future publication date.",
+  "decision_logic": "The SIG registration form's display/publication start date field determines when a confirmed registration becomes publicly visible on the SIG listing. A date matching the current month, with no further customer comment, is read as a request for immediate publication upon confirmation. Any customer wanting delayed publication must specify a future date explicitly.",
+  "final_recommendation": "When preparing a registration confirmation form, always confirm with the customer whether they want immediate public listing upon confirmation or a specific future display date — do not assume based on the form's default or pre-filled date without checking if it reflects deliberate customer intent.",
+  "risk_if_done_wrong": "If a customer actually wanted a delayed public listing (e.g., to coincide with a product launch) but the consultant proceeds with immediate publication, the product becomes publicly associated with Bluetooth qualification before the customer is ready, potentially causing premature disclosure of an unreleased product.",
+  "bluetooth_tags": [
+    "display start date",
+    "publication date",
+    "registration confirmation",
+    "proxy registration",
+    "SIG listing visibility",
+    "registration timing"
+  ],
+  "search_aliases": [
+    "registration display start date",
+    "delay public listing SIG",
+    "publication date Bluetooth registration",
+    "future display date registration",
+    "when does SIG listing go public"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "medium"
+}

@@ -1,46 +1,34 @@
 {
-    "source_thread": "thread_0022",
-    "cases": [
-        {
-            "case_id": "thread_0022_case_02",
-            "iut_type": "audio recorder",
-            "customer_question": "Why does the DUT fail HFP PTS connection and paging tests even though it works with normal Bluetooth headsets?",
-            "question_variants": [
-                "PTS cannot discover the DUT",
-                "Why does Paging timeout occur during HFP testing?",
-                "Why does the DUT not respond to PTS paging requests?",
-                "Why is the DUT visible only intermittently in Bluetooth scans?",
-                "Can PTS testing fail even if headset pairing works normally?"
-            ],
-            "actual_issue": "The DUT did not reliably respond to Bluetooth discovery and paging requests during PTS HFP testing, suggesting discoverability, paging response, BD_ADDR, or implementation behavior problems specific to the qualification environment.",
-            "plain_english_explanation": "The product appeared to work with normal headsets, but the Bluetooth qualification tools could not reliably detect or connect to it. Qualification testing requires predictable Bluetooth behavior, including discoverability and paging responses. Intermittent visibility or restricted paging behavior can cause automated PTS testing to fail.",
-            "consultant_answer": "The consultant observed that PTS paging attempts resulted in BR/EDR ACL connection request failures and page timeouts after approximately 41 seconds. The DUT was inconsistently discoverable and sometimes showed changing addresses during scanning. The consultant suspected either an incorrect BD_ADDR, improper paging response behavior, or an implementation that only responds to specific peers. Additional investigation was requested, including verification using a Bluetooth scanning app, confirmation of pairing procedures, and participation from the development partner because the DUT implementation details were effectively a black box to the test lab.",
-            "decision_logic": "Bluetooth qualification testing requires stable discoverability, paging response behavior, and proper interaction with standardized test systems such as PTS. Consumer interoperability alone is insufficient if the DUT does not behave correctly under qualification test procedures.",
-            "final_recommendation": "Verify the DUT's actual Bluetooth address, ensure discoverable and pairing modes operate consistently, reproduce behavior using scanning tools and PTS, and involve the firmware or module supplier to investigate paging and connection handling during qualification testing.",
-            "risk_if_done_wrong": "PTS and interoperability testing can fail repeatedly, leading to debugging delays, additional lab work, potential firmware changes, and missed qualification or launch schedules.",
-            "bluetooth_tags": [
-                "PTS",
-                "HFP",
-                "BR/EDR",
-                "paging",
-                "discoverability",
-                "test failure",
-                "qualification"
-            ],
-            "search_aliases": [
-                "PTS cannot find DUT",
-                "Page Timeout",
-                "Failed to send BR/EDR ACL Connection Request",
-                "HFP paging failure",
-                "Bluetooth discoverability issue",
-                "PTS connection timeout",
-                "DUT not responding to paging",
-                "intermittent BD_ADDR detection",
-                "Find My Bluetooth Device"
-            ],
-            "qualification_stage": "test failure",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0022",
+  "case_id": "thread_0022_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (OM Digital Solutions device, EZ-BT WICED Module With Mesh), HFP PTS test avoidance when a previously-used exemption reference becomes deprecated",
+  "customer_question": "Is HFP PTS testing actually required this time? For a past model, we recall being able to register using just the module's own certification number (referencing its QDID) without needing to run our own test -- can we use the same approach again, since we'd strongly prefer not to make firmware changes just to pass a test?",
+  "question_variants": [
+    "If the previously-used exemption reference is no longer usable, is there definitely no other way to avoid running the test?",
+    "Does the chipset vendor's current SDK correspond to a different, currently-valid Profile Subsystem registration than the one used previously?"
+  ],
+  "actual_issue": "The customer wanted to avoid running HFP PTS testing (and any associated firmware changes) by referencing the module's existing Bluetooth SIG registration, the same approach used successfully for a past model -- but the specific Profile Subsystem QDID referenced for that past model's HFP exemption had since become deprecated, meaning it could no longer be referenced for a new registration.",
+  "plain_english_explanation": "For the customer's prior model, HFP testing was exempted by referencing a Profile Subsystem QDID (a 'WICED Audio Package' Profile registration) alongside the module's own End Product registration. However, that exact same Profile Subsystem QDID was registered against a now-deprecated HFP version, making it unusable as a reference for a brand-new registration. Searching further WICED-line Profile Subsystem registrations turned up only further deprecated-HFP-version registrations -- but since Infineon (which absorbed Cypress, the WICED line's original owner) later unified the WICED SDK with its own AIROC SDK line, a more recent Profile Subsystem registration named 'AIROC Bluetooth Audio Profile Package' was found, which does include a currently-valid HFP version (HFP 1.8, both AG and HF roles) under its own QDID. Since the customer's current Infineon SDK appeared to correspond to this newer AIROC-branded registration, referencing this Profile Subsystem QDID (combined with the module's own End Product registration, just as the prior model had done) allowed the new registration to proceed without uploading any HFP PTS test report at all -- avoiding both the test and any associated firmware changes.",
+  "consultant_answer": "The Profile Subsystem QDID that exempted HFP testing for your prior model is now registered against a deprecated HFP version, so it can't be referenced for this new registration. The good news: Infineon (which absorbed Cypress, the WICED line's original owner) later unified the WICED and AIROC SDKs, and registered a newer Profile Subsystem under the name 'AIROC Bluetooth Audio Profile Package' that includes a currently-valid HFP version (HFP 1.8, both AG and HF) -- your current Infineon SDK appears to correspond to this. If you agree, we'll register referencing this Profile Subsystem QDID alongside your module's End Product registration, the same approach as your prior model, without needing to upload any HFP PTS report.",
+  "decision_logic": "When a previously-successful test-exemption reference (a Profile Subsystem QDID) becomes unusable because it's registered against a now-deprecated profile version, search for a more recent registration from the same chipset vendor lineage (accounting for corporate acquisitions and SDK rebranding, such as Cypress into Infineon and WICED unifying with AIROC) that includes a currently-valid version of the same profile, rather than concluding the exemption path is no longer available.",
+  "final_recommendation": "When a customer requests reusing a previous registration's test-exemption strategy, verify the specific reference QDID is still valid (not deprecated) before assuming the same approach will work, and proactively search for a vendor-lineage successor registration if it isn't, since SDK rebranding and corporate acquisitions can shift which QDID currently covers a given chipset's capabilities.",
+  "risk_if_done_wrong": "Assuming a previously-successful exemption reference remains valid without checking could result in submitting a registration referencing a deprecated QDID, which would be rejected or invalid, while failing to search for a successor registration would have unnecessarily forced the customer into running the test and modifying firmware.",
+  "bluetooth_tags": [
+    "Profile Subsystem QDID deprecated HFP version",
+    "AIROC Bluetooth Audio Profile Package successor registration",
+    "Infineon Cypress WICED SDK unification",
+    "HFP PTS test exemption via module reference",
+    "avoid firmware change for test",
+    "OM Digital Solutions"
+  ],
+  "search_aliases": [
+    "previous HFP exemption reference now deprecated",
+    "find successor Profile Subsystem QDID after SDK rebrand",
+    "AIROC Bluetooth Audio Profile Package HFP 1.8",
+    "avoid HFP PTS test without firmware change"
+  ],
+  "qualification_stage": "Pre-registration test exemption scoping",
+  "confidence": "high"
 }

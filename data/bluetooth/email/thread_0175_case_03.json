@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0175",
+  "case_id": "thread_0175_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE product using Silicon Laboratories BGM210P series module (Go Co., Ltd.)",
+  "customer_question": "After placing the order (including dollar remittance proxy and registration proxy), how long does it take to complete Bluetooth SIG registration, and what documents are needed for the compliance folder?",
+  "question_variants": [
+    "Is it correct that registration completes about 1 month after placing the order?",
+    "What is the schedule and what documents are required after the order is placed?",
+    "How long after our remittance is received by SIG will registration be complete?",
+    "What documents are needed to build the compliance folder?"
+  ],
+  "actual_issue": "After ordering registration proxy + dollar remittance proxy services, the customer needed a concrete schedule breakdown (from order to completed, deliverable registration) and a list of documents required to build the compliance folder, because they had an internal target to complete acceptance (registration) within a specific month.",
+  "plain_english_explanation": "Once the customer places the order, Allion remits payment to Bluetooth SIG on the customer's behalf. It takes about 3 weeks from Allion's remittance until the funds arrive at SIG. Once SIG confirms receipt, Allion can complete the registration submission within 1-3 business days. After registration is complete (which equals SIG certification being obtained), Allion builds a compliance folder, which takes another 1-3 business days once all required documents (Bluetooth-related operation manual, product block diagram, product outline drawing, and antenna documentation including radiated gain characteristics) have been submitted. The compliance folder is delivered on CD-R, and invoicing happens after the customer's acceptance inspection.",
+  "consultant_answer": "From order to completed registration takes about 1 month when the work includes both dollar remittance proxy and registration proxy. Specifically: after Allion sends payment, allow about 3 weeks for the funds to reach Bluetooth SIG; once SIG confirms receipt, registration proxy submission takes 1-3 business days and registration completion equals SIG certification. After that, the compliance folder (requiring the operation manual covering the Bluetooth portion, product block diagram, product outline drawing, and antenna documentation with radiated gain characteristics) takes a further 1-3 business days to prepare once all documents are in hand, and is delivered on CD-R.",
+  "decision_logic": "The critical path is SIG's payment confirmation turnaround (~3 weeks), not Allion's internal processing (which is only 1-3 business days at each of the registration and compliance-folder steps). Customers targeting a specific acceptance/registration date must back-calculate from the ~3-week remittance confirmation window, not from Allion's faster internal steps.",
+  "final_recommendation": "When quoting or scheduling registration-proxy-plus-remittance work, tell the customer up front: order -> Allion remits -> allow ~3 weeks for SIG to confirm receipt -> registration completes in 1-3 business days -> compliance folder in a further 1-3 business days once documents are submitted. Total is approximately 1 month. Get the operation manual, block diagram, outline drawing, and antenna gain documentation submitted as early as possible since they are off the remittance critical path but still gate the compliance folder.",
+  "risk_if_done_wrong": "If the customer assumes Allion's fast 1-3 business day internal steps represent the whole timeline and ignores the ~3-week SIG remittance confirmation window, they will set an unrealistic acceptance/registration deadline and may miss internal procurement or fiscal-period deadlines.",
+  "bluetooth_tags": [
+    "registration timeline",
+    "remittance proxy",
+    "compliance folder",
+    "registration proxy",
+    "SIG payment confirmation",
+    "operation manual",
+    "antenna documentation"
+  ],
+  "search_aliases": [
+    "how long from order to registration complete",
+    "SIG remittance confirmation timeline",
+    "compliance folder required documents",
+    "registration proxy schedule",
+    "dollar remittance proxy turnaround time",
+    "1 month registration timeline"
+  ],
+  "qualification_stage": "planning",
+  "confidence": "high"
+}

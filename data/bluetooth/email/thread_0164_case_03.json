@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0164",
+  "case_id": "thread_0164_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "non-consumer Bluetooth product (ACCESS — enterprise/internal use)",
+  "customer_question": "Our product is not sold to the general public, so we don't have an operation manual. Is the Compliance Folder still required? What can we use in place of an operation manual?",
+  "question_variants": [
+    "Is a Compliance Folder required for a product that is not commercially sold?",
+    "We have no user manual — what substitutes for the operation manual in the Compliance Folder?",
+    "Our product is for internal enterprise use only — does it still need a Compliance Folder?",
+    "Can a specification document serve as the operation manual for Bluetooth compliance?"
+  ],
+  "actual_issue": "The customer's product is not sold to the general public (it appears to be an enterprise/internal device). They do not have a user-facing operation manual. They question why a Compliance Folder is required and what to submit in place of the operation manual.",
+  "plain_english_explanation": "The Compliance Folder is required by Bluetooth SIG's QPRDv3 for all registered products — regardless of whether the product is sold publicly or used only internally. The SIG compliance obligation applies to any Bluetooth-equipped product that was registered, not only those sold in retail. For the 'Operation Manual (Bluetooth part)' entry in the Compliance Folder: if no formal user manual exists (because the product is not sold publicly), a specification document or technical document describing how the product uses Bluetooth is acceptable as a substitute. The key requirement is that some document describes the Bluetooth functionality of the product.",
+  "consultant_answer": "The Compliance Folder is required regardless of whether the product is sold commercially or used only for internal enterprise purposes — QPRDv3 mandates it for all registered products. For the operation manual: if no formal user manual exists, a product specification document or any internal technical document describing how the product uses Bluetooth is an acceptable substitute.",
+  "decision_logic": "QPRDv3 does not distinguish between consumer products and enterprise/internal products — the compliance obligation applies to all registered products. The operation manual requirement is about documenting Bluetooth functionality, not about consumer-facing documentation. Any document that describes how the product uses Bluetooth satisfies the intent.",
+  "final_recommendation": "Inform customers that the Compliance Folder is required regardless of product type or sales channel. When they lack a user manual, ask them to provide any specification document, technical note, or internal documentation that describes the product's Bluetooth usage. This satisfies the operation manual requirement.",
+  "risk_if_done_wrong": "Failing to create or retain a Compliance Folder for enterprise/internal products leaves the company non-compliant with SIG requirements, even if audit risk is historically low.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "operation manual substitute",
+    "QPRDv3",
+    "non-consumer product",
+    "enterprise device",
+    "Bluetooth documentation",
+    "compliance requirement"
+  ],
+  "search_aliases": [
+    "compliance folder non-consumer product",
+    "operation manual alternative specification",
+    "compliance folder enterprise device",
+    "Bluetooth compliance folder required always",
+    "specification as operation manual",
+    "internal device compliance folder"
+  ],
+  "qualification_stage": "post-registration",
+  "confidence": "high"
+}

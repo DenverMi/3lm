@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0064",
+  "case_id": "thread_0064_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "The Review Page we received has some blank fields under Company Details -- is that a problem, and can it be fixed?",
+  "question_variants": [
+    "Why are some Company Details fields blank on the Review Page?",
+    "Can we edit the blank Company Details section before Submission?",
+    "Will blank Company Details fields cause our registration to fail?"
+  ],
+  "actual_issue": "The customer noticed blank fields in the Company Details section of the pre-Submission Review Page and was unsure whether this was an error that needed to be fixed before the registration could be finalized.",
+  "plain_english_explanation": "Some of the company information shown on the final review screen comes automatically from Bluetooth SIG's own membership records, not from anything entered during the registration itself, so it can't be edited or filled in as part of registering. Past experience shows that leaving these particular fields blank doesn't cause any problem with completing the registration.",
+  "consultant_answer": "The blank items in the Review Page's Company Details section are automatically pulled from the membership registration database and cannot be added to or edited as part of the registration operation. Similar blanks have occurred before without causing any problem with completing the certification registration.",
+  "decision_logic": "Fields on the Review Page that are sourced from the membership database rather than entered during registration cannot be edited within the registration process, and blank values in those specific fields should not be treated as registration-blocking errors based on prior experience.",
+  "final_recommendation": "Proceed with Submission despite blank, database-sourced Company Details fields on the Review Page; do not attempt to edit them within the registration workflow, since they are outside the registrant's control and have not historically affected registration outcomes.",
+  "risk_if_done_wrong": "Treating non-editable, database-sourced blank fields as an error requiring correction could cause unnecessary delay in finalizing a registration that would otherwise complete normally.",
+  "bluetooth_tags": ["Review Page", "Company Details", "listing", "Submission"],
+  "search_aliases": ["Review Page Company Details blank", "membership database auto-populated fields", "blank fields registration not a problem"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "medium"
+}

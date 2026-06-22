@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0200",
+  "thread_analysis": {
+    "thread_summary": "Ricoh Imaging (customer contact: Maeda) inquiry about registering a new model that uses the same Bluetooth module and Host Stack as an already-registered product. Short thread. Answer: derivative products with identical Bluetooth hardware and software can be added to the existing registration's Product List at no cost via Manage Submitted Products in My Page on the SIG portal. Allion provided a procedure guide document (派生製品の追加Product登録手順書). No testing, no new SIG fee, no new Allion service fee required.",
+    "all_questions_found": [
+      "New model with same BT module and Host Stack — new registration or add to existing?"
+    ],
+    "key_technical_discussion": "Derivative product addition is a free, self-service process within the SIG portal. The eligibility condition is strict: same Bluetooth module AND same Host Stack. This prevents customers from adding products with different Bluetooth implementations to an existing registration without proper qualification.",
+    "key_decision_logic": "Same module + same Host Stack = derivative product eligible for free Product List addition. Process: Manage Submitted Products in SIG My Page.",
+    "risk_if_done_wrong": "Unnecessary new registration for what is clearly a derivative product wastes thousands of dollars in fees.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "At the start of any new registration inquiry, ask: 'Does this product use exactly the same Bluetooth module and Host Stack as any product you've already registered?' If yes, the derivative product path saves both the customer and Allion time and money. Keep the derivative product guide document (手順書) readily available to share."
+  }
+}

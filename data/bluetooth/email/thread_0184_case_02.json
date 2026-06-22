@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0184",
+  "case_id": "thread_0184_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "OM Digital Solutions camera (HFP, BR/EDR)",
+  "customer_question": "PTS testing started but the DUT is not being recognized by the PTS software — the Bluetooth address is not detected or keeps changing. How do we troubleshoot this?",
+  "question_variants": [
+    "PTS software cannot find the DUT — how to troubleshoot BR/EDR device discovery?",
+    "Bluetooth address keeps changing during PTS test — what is wrong?",
+    "DUT does not respond to Paging from PTS — is it a BD address or connection mode issue?"
+  ],
+  "actual_issue": "HFP PTS testing for OM Digital Solutions camera: the PTS software cannot establish a connection to the DUT. The BD address detected by a smartphone app is inconsistent (changes each scan). When PTS attempts to page the DUT using the BD address, it receives Page Timeout errors after 41 seconds, indicating the DUT is not responding to the Paging attempt from an unknown connection initiator.",
+  "plain_english_explanation": "In Bluetooth PTS testing, the test tool (PTS) needs to establish a BR/EDR connection to the DUT using its Bluetooth Device Address (BD address). If the DUT uses a random or address-rotation scheme, or if BR/EDR connection is only enabled in a specific mode (headset pairing mode), the DUT may not respond to PTS Paging. The customer's camera required the user to go to MENU → Bluetooth → Headset → Pairing to enter pairing mode. Without this step, the DUT ignores PTS Paging.",
+  "consultant_answer": "The DUT (camera) requires manual entry into Bluetooth pairing mode via the menu before it will respond to connection attempts. Steps: (1) MENU → Bluetooth → On/Off → On; (2) MENU → Bluetooth → Headset → Pairing. Only in this state will the DUT respond to PTS Paging. Also, if the BD address is inconsistent (changing between scans), confirm the correct BD address from the product's Device Information menu (MENU → DeviceMenu → DeviceInformation → Bluetooth). Once the correct BD address and pairing mode are confirmed, PTS should be able to connect.",
+  "decision_logic": "BR/EDR DUT connection issues in PTS are often caused by: (1) DUT not in connectable/pairable mode, (2) incorrect BD address used, (3) DUT only responds to trusted/paired devices. For consumer products with a user-operated pairing flow, the test operator must manually trigger the pairing mode before PTS can connect. Always confirm the exact BD address from the product's own display before starting PTS.",
+  "final_recommendation": "Before starting HFP PTS testing on a consumer product: (1) enable Bluetooth on the DUT, (2) manually trigger pairing mode via the product menu, (3) confirm the BD address from the product's information screen, (4) configure PTS with that exact address. If the BD address appears to change (BLE random addressing vs. BR/EDR fixed address), confirm which address the PTS should use for BR/EDR paging.",
+  "risk_if_done_wrong": "If the DUT is not in pairing mode or the wrong BD address is used, PTS will fail all connection attempts, generating Page Timeout errors. This wastes test time and delays the registration schedule.",
+  "bluetooth_tags": [
+    "PTS testing",
+    "HFP",
+    "BR/EDR",
+    "Paging",
+    "BD address",
+    "pairing mode",
+    "DUT connection",
+    "Page Timeout"
+  ],
+  "search_aliases": [
+    "PTS cannot connect DUT",
+    "BD address not detected PTS",
+    "Paging Page Timeout PTS test",
+    "BR/EDR pairing mode required for PTS",
+    "DUT not responding PTS paging"
+  ],
+  "qualification_stage": "BQTF Testing",
+  "confidence": "high"
+}

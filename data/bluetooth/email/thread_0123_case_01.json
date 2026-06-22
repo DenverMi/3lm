@@ -2,6 +2,7 @@
   "source_thread": "thread_0123",
   "case_id": "thread_0123_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "speaker",
   "customer_question": "Before you finalize our Bluetooth SIG product registration, can we review what will be submitted? And once it's finalized, can we view the registration details ourselves before the public release date?",
   "question_variants": [
@@ -15,7 +16,15 @@
   "decision_logic": "Before performing the final confirmation step of a proxy Bluetooth SIG registration, advance to the review page, capture its content, and have the customer verify it. Only perform final confirmation after explicit customer sign-off. After finalization, share the My Page URL so the customer's account holders can independently verify the registration, noting that this is viewable pre-publication.",
   "final_recommendation": "For proxy registrations, always obtain customer sign-off on the review page screenshot before final confirmation, and after confirming, point the customer to the My Page URL for independent verification (available even before public release).",
   "risk_if_done_wrong": "Finalizing a proxy registration without customer review could result in errors (e.g., wrong QDID references, product details) going live without the customer's knowledge, requiring a more cumbersome correction process after the fact.",
-  "bluetooth_tags": ["qualification", "listing", "registration", "review page", "proxy registration", "My Page", "declaration"],
+  "bluetooth_tags": [
+    "qualification",
+    "listing",
+    "registration",
+    "review page",
+    "proxy registration",
+    "My Page",
+    "declaration"
+  ],
   "search_aliases": [
     "SIG registration review page customer confirmation",
     "proxy registration final confirmation sign-off",

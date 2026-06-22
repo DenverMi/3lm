@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0026",
+  "case_id": "thread_0026_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Adding new HID key codes to an already-certified Bluetooth keyboard registration without re-application",
+  "customer_question": "For a Bluetooth-certified keyboard device, is it correct that a minor change like adding a key code sent via Bluetooth doesn't require re-application? Specifically: the multimedia key's ReportDescriptor already exists, and Vol Up/Down keys were already registered, but we want to add a Mute key.",
+  "question_variants": [
+    "Does the registration's declared content limit which specific keys are supported?",
+    "If adding a key code results in a new model name being issued, what's the correct way to register that?"
+  ],
+  "actual_issue": "The customer wanted to add a new HID key code (a Mute key) to an already Bluetooth-certified keyboard that already supported other multimedia keys (Vol Up/Down) via an existing ReportDescriptor, and asked whether this minor functional addition required formal re-application to SIG.",
+  "plain_english_explanation": "The existing registration's declared content does not include information that limits which specific key types are supported -- so a change that simply adds a key code (using an already-existing ReportDescriptor structure) does not require re-application to Bluetooth SIG. The registration's certification scope is based on the underlying HID profile/protocol support, not an enumerated list of specific key codes. However, if the key-code addition results in a newly-issued model name (e.g., because the product is now sold under a different model designation), that new model needs to be added to the Product List -- which can be done via the free 'Qualify Additional Products' button on the Product List page, rather than a full new registration.",
+  "consultant_answer": "Since the registration's declared content doesn't include information limiting which specific keys are supported, adding the Mute key code doesn't require re-application. If this change results in a new model name being issued, just use the 'Qualify Additional Products' button on the Product List page to add that model -- no full re-registration needed.",
+  "decision_logic": "When a customer asks whether adding a new key code (or similar minor functional addition) to an already-certified HID device requires re-application, check whether the existing registration's declared ICS/profile content enumerates or limits specific supported keys -- if it doesn't, the addition doesn't require re-application; if a new model name results from the change, use the free Qualify Additional Products addition rather than a new registration.",
+  "final_recommendation": "When a customer asks about a minor functional addition to an already-certified device, check the registration's actual declared scope (rather than assuming every functional change requires re-application) and clarify the free Product List addition path for any resulting new model name.",
+  "risk_if_done_wrong": "A customer might unnecessarily pay for and undergo a full re-registration for a minor key-code addition that doesn't actually require it, or conversely, fail to register a genuinely new model name that does need to be added to the Product List.",
+  "bluetooth_tags": [
+    "adding HID key code no re-application needed",
+    "ReportDescriptor existing keys",
+    "Qualify Additional Products free addition",
+    "Topre RC1 keyboard"
+  ],
+  "search_aliases": [
+    "does adding a keyboard key require Bluetooth re-certification",
+    "HID key code addition re-application Bluetooth SIG",
+    "Qualify Additional Products new model name"
+  ],
+  "qualification_stage": "Post-registration minor functional change scoping",
+  "confidence": "high"
+}

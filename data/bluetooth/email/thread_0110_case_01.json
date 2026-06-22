@@ -2,6 +2,7 @@
   "source_thread": "thread_0110",
   "case_id": "thread_0110_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "",
   "customer_question": "After selecting 'Complete the Submission' to finalize an additional model registration, does this mean we can no longer make any corrections or changes to that registration?",
   "question_variants": [
@@ -16,7 +17,11 @@
   "decision_logic": "Direct in-place editing of an added model's registration is not possible once 'Complete the Submission' has been executed. The only path to correcting the registration is: (1) confirm the model's Publish Date has not yet passed, (2) request SIG to delete the additional registration, (3) after SIG executes the deletion, submit a new additional model registration with the corrected content.",
   "final_recommendation": "If a correction is needed for an additional model registration after 'Complete the Submission', and the model's Publish Date hasn't passed yet, request deletion of that additional registration from SIG, then resubmit a new additional model registration with the corrected details.",
   "risk_if_done_wrong": "If the customer assumes corrections are possible after 'Complete the Submission' without going through the delete-and-re-register process, or if they wait until after the Publish Date to attempt a correction, the registration content could remain incorrect with no available remedy via this method.",
-  "bluetooth_tags": ["listing", "declaration", "qualification"],
+  "bluetooth_tags": [
+    "listing",
+    "declaration",
+    "qualification"
+  ],
   "search_aliases": [
     "Complete the Submission irreversible",
     "additional model registration correction",

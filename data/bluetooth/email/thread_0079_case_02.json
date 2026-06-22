@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0079",
-    "cases": [
-        {
-            "case_id": "thread_0079_case_02",
-            "iut_type": "BLE product using a module and host stack",
-            "customer_question": "What documents are acceptable for the Bluetooth compliance folder after registration?",
-            "question_variants": [
-                "Can a draft user manual be used for the compliance folder?",
-                "Can the module block diagram be reused for the product block diagram?",
-                "Are photos with a ruler acceptable as the external dimension drawing?",
-                "Does the compliance folder need final production-level documents?",
-                "What materials are needed for a Bluetooth compliance folder?"
-            ],
-            "actual_issue": "Determining acceptable practical evidence for a Bluetooth compliance folder when final product documentation is not yet complete.",
-            "plain_english_explanation": "The compliance folder did not require polished final packaging-level documents at this stage. A draft or memo for the Bluetooth manual content was accepted, the module datasheet block diagram could be used, and scaled product photos could substitute for formal mechanical drawings. The goal was to create audit-ready evidence without blocking completion on unfinished document formatting.",
-            "consultant_answer": "The consultant requested three product-information items: the Bluetooth portion of the operating manual, the product block diagram, and the product external dimension drawing. The consultant stated that the manual could be a draft or memo, the block diagram could be taken from the module datasheet, and the exterior drawing could be replaced by photos showing the product with a scale from multiple views. After the customer supplied draft materials and photos, the consultant accepted them for compliance-folder creation.",
-            "decision_logic": "The compliance folder needs enough product evidence to support the Bluetooth qualification record, but the thread shows that practical substitutes are acceptable when they clearly document the Bluetooth content, block structure, and external dimensions.",
-            "final_recommendation": "Prepare the compliance folder using the available Bluetooth manual draft, module-based block diagram, and scaled multi-view product photos, then replace or update materials later if needed.",
-            "risk_if_done_wrong": "Waiting for fully finalized documents could delay completion unnecessarily. Providing no supporting evidence could leave the compliance folder incomplete for a future audit request.",
-            "bluetooth_tags": [
-                "compliance folder",
-                "qualification",
-                "module",
-                "documentation",
-                "audit",
-                "listing"
-            ],
-            "search_aliases": [
-                "compliance folder documents",
-                "draft user manual accepted",
-                "module block diagram",
-                "external dimension photos",
-                "scaled product photos",
-                "Bluetooth manual draft",
-                "audit evidence",
-                "product documentation"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0079",
+  "case_id": "thread_0079_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "Now that our compliance folder has been delivered, how long do we need to keep it, and what is it actually for?",
+  "question_variants": [
+    "Is there a retention period for the compliance folder after registration?",
+    "What happens if Bluetooth SIG asks to see our compliance folder?",
+    "Has any of your other clients actually been audited by Bluetooth SIG?"
+  ],
+  "actual_issue": "After the compliance folder was delivered and registration completed, the customer needed to understand how long the folder needed to be retained and under what circumstances it would actually be needed.",
+  "plain_english_explanation": "The compliance folder isn't just a one-time deliverable to file away -- it has to be kept on hand for a defined period after the product stops being sold, in case Bluetooth SIG ever decides to audit the registration. It's compared to keeping a vehicle's inspection certificate: you need it on hand to prove compliance if asked, even though most people never actually get asked. As reassurance, none of this consultant's other registration-support clients have ever actually faced an audit.",
+  "consultant_answer": "The compliance folder should be retained for one year after the end of sales of the product(s) listed in the registration's Product List, to be presented if and when Bluetooth SIG conducts an audit -- comparable to a vehicle's roadworthiness inspection certificate, which exists to be shown if requested rather than used day to day. None of the consultant's prior registration-support clients have actually experienced an SIG audit, offered as reassurance.",
+  "decision_logic": "A completed compliance folder is not merely a delivery artifact; it carries an ongoing retention obligation -- one year past the registered product's end of sales -- specifically tied to the possibility of a Bluetooth SIG audit, even though such audits have not been observed in this consultant's client history.",
+  "final_recommendation": "Advise customers to retain their compliance folder for at least one year after the registered product's end of sales, explaining that its purpose is to be available in case of a Bluetooth SIG audit, while noting that such audits have not occurred among this consultant's registration-support clients to date.",
+  "risk_if_done_wrong": "Discarding the compliance folder before the one-year post-end-of-sales retention period elapses would leave the customer unable to respond if Bluetooth SIG were to request it during an audit.",
+  "bluetooth_tags": ["compliance folder", "retention period", "audit", "listing"],
+  "search_aliases": ["compliance folder retention period one year", "Bluetooth SIG audit compliance folder", "how long keep compliance folder after end of sales"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

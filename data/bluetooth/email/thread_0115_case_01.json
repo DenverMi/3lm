@@ -2,6 +2,7 @@
   "source_thread": "thread_0115",
   "case_id": "thread_0115_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "",
   "customer_question": "The A2DP/SNK/SYN test case isn't available in PTS and can't be executed - since it's Test Case Category D, is it acceptable to leave it un-executed?",
   "question_variants": [
@@ -15,7 +16,13 @@
   "decision_logic": "If a test case is categorized as Category D (non-mandatory) per the ICS/test plan, and PTS does not provide an executable test for it, it can be excluded from the test report without issue.",
   "final_recommendation": "For test cases missing from PTS, check the test case category in the ICS/test plan; if it is Category D (non-mandatory), exclude it from the report as out of scope.",
   "risk_if_done_wrong": "Treating a mandatory test case as exempt simply because PTS lacks it could leave a required test unperformed and undocumented in the final report, risking certification issues; conversely, unnecessarily trying to force-execute a non-mandatory test that PTS can't run wastes time.",
-  "bluetooth_tags": ["profile test", "PTS", "test case category", "A2DP", "qualification"],
+  "bluetooth_tags": [
+    "profile test",
+    "PTS",
+    "test case category",
+    "A2DP",
+    "qualification"
+  ],
   "search_aliases": [
     "Category D test case not in PTS",
     "A2DP SNK SYN test case unavailable",

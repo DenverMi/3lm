@@ -1,47 +1,37 @@
 {
-    "source_thread": "thread_0006",
-    "cases": [
-        {
-            "case_id": "thread_0006_case_01",
-            "iut_type": "digital camera",
-            "customer_question": "How can we pre-check whether the Bluetooth RF test interface is working correctly before official RF/RF PHY qualification testing?",
-            "question_variants": [
-                "How do we verify UART to HCI command conversion before testing?",
-                "How can we confirm DTM communication before Bluetooth RF testing?",
-                "What commands must respond correctly for RF PHY testing readiness?",
-                "Can AutomationExplorer be used to validate RF test connectivity?",
-                "What is the minimum pretest check before sending samples to a BQTF?"
-            ],
-            "actual_issue": "The customer needed a practical method to verify that the DUT correctly responds to Bluetooth RF PHY Direct Test Mode commands before formal qualification testing.",
-            "plain_english_explanation": "Before official Bluetooth RF testing starts, the test system must be able to communicate correctly with the product. The consultant explained how to use a PC utility to confirm that the required RF test commands respond properly. This does not guarantee a pass result, but it confirms the device is testable and avoids wasted lab time.",
-            "consultant_answer": "The consultant explained that AutomationExplorer can be used to confirm proper response behavior for RF PHY DTM and RF DUT test commands. For Serial Two-Wire configuration, Reset, LE Reset, LE Transmitter Test, LE Receiver Test, and LE TestEnd must all respond successfully and show green status. This validation confirms that UART-to-HCI command conversion and basic RF test communication are functioning. The consultant also clarified that the available AutomationExplorer version only supports legacy 1M PHY verification because the tool was never updated for Bluetooth 5.0 PHY modes.",
-            "decision_logic": "RF/RF PHY testing requires correct DTM command communication between the DUT and the qualification test system. If the required HCI test commands do not respond correctly, formal testing cannot proceed. Basic command responsiveness is therefore a prerequisite for qualification testing readiness.",
-            "final_recommendation": "Run AutomationExplorer in Serial Two-Wire mode and confirm successful responses for Reset, LE Reset, LE Transmitter Test, LE Receiver Test, and LE TestEnd before shipping samples for qualification testing.",
-            "risk_if_done_wrong": "If DTM communication is not validated in advance, qualification testing may fail to start, causing schedule delays, wasted lab reservations, and additional debugging effort during the booked test window.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "DTM",
-                "HCI",
-                "testing",
-                "pre-test review",
-                "LE"
-            ],
-            "search_aliases": [
-                "AutomationExplorer",
-                "DTM precheck",
-                "UART to HCI validation",
-                "LE Transmitter Test",
-                "LE Receiver Test",
-                "RF PHY command check",
-                "Serial Two-Wire",
-                "RF test communication",
-                "DTM command response",
-                "HCI RF test mode"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0006",
+  "case_id": "thread_0006_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging camera), USB-IF certification scope, combined USB/DisplayPort/Bluetooth evaluation engagement",
+  "customer_question": "Is there a standalone 'PD-only' logo certification we could get for just the PD-enabled mode, without needing to also test and pass the DP-enabled mode? Our product can run in either a PD-enabled/DP-disabled mode or a PD-disabled/DP-enabled mode, and we'd prefer to certify only one.",
+  "question_variants": [
+    "Can we test only the PD Sink-only pattern and obtain PD logo certification on that basis alone?",
+    "If we obtain UFP pass but DFP fails (or vice versa), is partial logo certification possible on the passing mode alone?"
+  ],
+  "actual_issue": "The customer wanted to limit USB-IF certification scope and cost by certifying only one of their product's two operating modes (PD-enabled/DP-disabled vs. PD-disabled/DP-enabled), assuming a standalone 'PD-only' certification existed or that passing one mode alone would be sufficient for logo certification.",
+  "plain_english_explanation": "There is no standalone 'PD-only' logo certification — only the single USB logo certification exists, which requires USB communication tests, the PD test, the Type-C Functional test, and the IOP test, with the exact required subset determined by the product's declared specification. For a product with two distinct operating modes (e.g., PD-enabled/DP-disabled and PD-disabled/DP-enabled), both modes must be tested and BOTH must pass in order to obtain USB logo certification — passing only one mode does not yield certification, even if the product defaults to that mode and the other mode is only reachable via a user-initiated switch. As an alternative for a customer who wants to limit scope, Allion can run a 'partial test' that is not aimed at full USB logo certification: it tests only the customer's chosen subset (e.g., just the PD-enabled/DP-disabled mode) and reports results, but does not result in logo certification. Separately, an IEC 62680 Conformity Notice — a different organization's attestation of conformity to IEC 62680 (which closely mirrors the USB-IF PD/Type-C specs) — is obtainable via PD/Type-C testing alone, without the USB communication/Source Power tests, but this is explicitly not equivalent to USB logo certification.",
+  "consultant_answer": "There's no standalone PD-only logo certification — only the single USB logo certification exists, and it requires USB communication tests, PD test, Type-C Functional test, and IOP test as determined by your product specification. Since your product has two distinct modes, both must be tested and BOTH must pass to get USB logo certification; passing only one mode (even if it's the default mode) does not yield certification. If you'd rather limit scope, we can run a partial test on just your chosen mode, but that won't result in logo certification — only a results report. Alternatively, an IEC 62680 Conformity Notice from a separate organization is available via PD/Type-C testing alone, but it is not equivalent to USB logo certification.",
+  "decision_logic": "USB-IF logo certification is an all-or-nothing designation per the product's full declared specification: every operating mode the product supports (as declared) must be tested, and all of them must pass — there is no mechanism to certify only a subset of declared modes, and no separate 'PD-only' certification track exists. A reduced-scope 'partial test' (results report only, no logo) or a separate-body IEC 62680 Conformity Notice are the only ways to limit scope, and neither yields USB-IF logo certification.",
+  "final_recommendation": "When a customer wants to limit certification scope to a single operating mode, clarify upfront that USB logo certification requires every declared mode to pass, with no partial-mode certification option; then offer the no-logo partial test or the separate-body IEC 62680 Conformity Notice as scope-limited alternatives, making clear neither is equivalent to USB-IF logo certification.",
+  "risk_if_done_wrong": "A customer believing a single passing mode is sufficient for logo certification would be surprised to learn their product cannot display the USB-IF logo until every declared mode is tested and passes, potentially requiring late-stage additional testing and certification delay.",
+  "bluetooth_tags": [
+    "USB-IF certification",
+    "no standalone PD-only certification",
+    "dual-mode UFP DFP both must pass",
+    "Type-C Functional test",
+    "IOP test",
+    "partial test no logo",
+    "IEC 62680 Conformity Notice",
+    "Ricoh Imaging"
+  ],
+  "search_aliases": [
+    "is there a PD-only USB certification",
+    "can one mode pass and still get USB logo",
+    "dual mode USB-C certification scope",
+    "partial USB test no logo certification",
+    "IEC 62680 Conformity Notice vs USB-IF logo"
+  ],
+  "qualification_stage": "Pre-test scoping / quotation",
+  "confidence": "high"
 }

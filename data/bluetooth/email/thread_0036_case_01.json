@@ -1,48 +1,33 @@
 {
-    "source_thread": "thread_0036",
-    "cases": [
-        {
-            "case_id": "thread_0036_case_01",
-            "iut_type": "TV",
-            "customer_question": "Can an existing Bluetooth-qualified TV platform reuse prior RF and lower-layer qualification assets after an OS version update while limiting new testing to updated profiles?",
-            "question_variants": [
-                "Can we reuse existing RF/RF-PHY reports for an OS update?",
-                "Does an Android or OS version change require full Bluetooth requalification?",
-                "Can prior QDID layers be inherited without retesting?",
-                "How do we avoid LL retesting when only profile versions changed?",
-                "Can A2DP and AVRCP updates be qualified independently?"
-            ],
-            "actual_issue": "The product reused an existing Bluetooth hardware platform and previously qualified Design, but updated software and profile versions created uncertainty about whether full lower-layer retesting would be triggered under QPRDv3/QPRDv4.",
-            "plain_english_explanation": "The customer changed software and some Bluetooth profile versions on an existing TV platform but did not change the radio hardware. They wanted to avoid repeating expensive Bluetooth testing that had already been completed for the previous product generation. The key challenge was selecting the correct Qualification Workspace approach so that only the changed Bluetooth functions required new testing.",
-            "consultant_answer": "The consultant determined that RF and RF-PHY reports could be reused because the hardware and RF behavior were unchanged. The recommended approach was to create a compatible subset or modified Design using the existing qualification assets while limiting ICS changes to the layers that truly changed. The consultant explained that modifying A2DP and AVRCP profile versions would still trigger profile-level testing and report uploads, but unnecessary LL and RF retesting could be avoided if lower-layer ICS settings remained unchanged and consistent. The consultant also emphasized maintaining consistency-check compliance and minimizing inter-layer dependency impacts.",
-            "decision_logic": "Bluetooth qualification scope is driven by ICS changes, layer inheritance, inter-layer dependencies, and TCRL applicability. If RF and lower-layer implementations remain unchanged, existing evidence can be reused, but profile version changes requiring ICS modifications generate mandatory testing for the modified layers.",
-            "final_recommendation": "Reuse the previously qualified RF and lower-layer Design assets, create a subset or compatible Design in Qualification Workspace, modify only the required A2DP and AVRCP profile layers, and execute only the resulting mandatory profile-level testing.",
-            "risk_if_done_wrong": "Incorrect Design inheritance or unnecessary ICS modifications could trigger large-scale lower-layer test plans, including approximately 300 LL-related upload requirements. Improper layer selection could also force unnecessary RF, RF-PHY, or interoperability testing, increasing qualification cost and schedule risk.",
-            "bluetooth_tags": [
-                "qualification",
-                "reuse",
-                "ICS",
-                "A2DP",
-                "AVRCP",
-                "RF PHY",
-                "profile",
-                "subset design"
-            ],
-            "search_aliases": [
-                "subset design needed",
-                "reuse RF PHY reports",
-                "A2DP AVRCP profile update",
-                "avoid LL retest",
-                "ICS modification impact",
-                "Qualification Workspace inheritance",
-                "TV Bluetooth qualification",
-                "profile-only retest",
-                "lower layer reuse",
-                "Option 2b subset"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0036",
+  "case_id": "thread_0036_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "OS-version-only re-listing (Sony TV) -- RF/RF PHY ICS discrepancy between old and new referenced QDID combination, resolved by switching to a matching SoC Subset variant",
+  "customer_question": "This registration is a re-listing of a 3-year-old registration, triggered purely by an OS version upgrade -- no wireless module or RF spec change. We believe the RF/RF PHY test report from the original registration can be reused -- is that correct?",
+  "question_variants": [
+    "If nothing about the wireless hardware changed, can the entire prior registration just be carried forward without any new analysis?",
+    "If the new Controller Subsystem QDID doesn't exactly match the old one's RF/RF PHY parameters, what are the options?"
+  ],
+  "actual_issue": "The customer assumed that since no wireless module or RF specification had changed, the prior registration's RF/RF PHY test report could simply be reused as-is for the new OS-version-driven re-listing. However, a layer-by-layer comparison between the original registration and the new registration's referenced Controller Subsystem QDID revealed a genuine RF/RF PHY ICS discrepancy (a Power Class-related item differed between 'NO' and 'YES'), meaning the new QDID combination wasn't a perfect match even though the underlying intent was an unchanged re-listing.",
+  "plain_english_explanation": "Yes, the RF/RF PHY test report can be reused as long as the wireless module and RF specification are genuinely unchanged -- but this must be verified explicitly rather than assumed, by comparing the new registration's referenced QDID against the original registration's actual RF/RF PHY ICS line items. In this case, the comparison revealed a real mismatch: LL item 9/15 (Power Class 1) and RF item 1/1 (Power Class 1) were declared 'NO' in the original registration but 'YES' in the newly-referenced QDID. Fixing this by directly editing the LL layer's ICS to match would be technically possible, but under the post-July-2024 registration system, any LL ICS edit triggers a full LL Test Plan with roughly 300 test items requiring lab testing and report upload -- making this approach impractical in terms of both cost and timeline. Compounding the problem, the new QDID combination itself also had its own inter-layer inconsistency, and resolving that via ICS edits in a trial Project surfaced yet further new-layer test requirements. The practical solution was to use a different Subset variant of the same SoC: the chipset offers four Subset variants, and one of them shares the same RF/RF PHY Class (Class 2) as the original registration's referenced component, and combining that specific Subset with the rest of the registration does not produce any inter-layer inconsistency. Switching the referenced QDID to that matching Subset avoided both the expensive LL retest and the inter-layer inconsistency problem simultaneously.",
+  "consultant_answer": "Yes, if the wireless module and RF spec are genuinely unchanged, the RF/RF PHY test report can be reused -- but we checked this explicitly rather than assuming it, and found a real discrepancy: the new QDID combination's Power Class declaration (LL 9/15, RF 1/1) doesn't match your original registration. Editing the LL ICS to fix this directly would trigger a ~300-item LL Test Plan under the current system, which isn't practical. Instead, we recommend switching to a specific Subset variant of the same SoC (one of four available) that shares the same RF/RF PHY Class as your original registration and doesn't produce an inter-layer inconsistency when combined -- this avoids both the expensive retest and the consistency problem.",
+  "decision_logic": "When a customer assumes an OS-version-only re-listing means the prior RF/RF PHY test report and referenced QDID combination carry forward unchanged, explicitly verify the new registration's referenced QDID against the original registration's RF/RF PHY ICS line items rather than taking the 'nothing changed' assumption at face value -- a discrepancy may exist even without any actual hardware change, and if found, check whether an alternative SoC Subset variant matches the original RF/RF PHY Class before resorting to a costly direct LL ICS edit.",
+  "final_recommendation": "For any registration framed as a 'simple' re-listing or carryover, run an explicit RF/RF PHY ICS comparison between the old and new referenced components before assuming the prior test report and reference structure can be reused unchanged, and check for alternative component Subset variants that might avoid both retest cost and inter-layer inconsistency if a mismatch is found.",
+  "risk_if_done_wrong": "Assuming an OS-version-only re-listing requires no RF/RF PHY verification could result in a registration with an undetected ICS mismatch, or alternatively, discovering the mismatch late could force a costly ~300-item LL retest under time pressure if the Subset-switching alternative isn't considered.",
+  "bluetooth_tags": [
+    "OS version only re-listing RF RFPHY reuse verification",
+    "RF RF PHY ICS discrepancy Power Class mismatch",
+    "LL ICS edit triggers 300 item Test Plan post-2024",
+    "SoC Subset variant matching RF PHY Class",
+    "Sony TV FY26"
+  ],
+  "search_aliases": [
+    "can RF PHY report be reused for OS version only relisting",
+    "Power Class mismatch new QDID combination",
+    "LL ICS edit triggers full retest post 2024",
+    "SoC Subset variant avoids inter-layer inconsistency"
+  ],
+  "qualification_stage": "Pre-registration component reference verification",
+  "confidence": "high"
 }

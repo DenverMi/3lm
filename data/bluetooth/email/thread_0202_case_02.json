@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0202",
+  "case_id": "thread_0202_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Printer with Intel AX210NGW BT module + Windows Host)",
+  "customer_question": "We want to use a Windows 10 Host QDID for our printer Bluetooth registration. After the July 1, 2024 SIG portal update, is this still possible?",
+  "question_variants": [
+    "Can Windows 10 QDIDs still be referenced for new Bluetooth SIG registrations after July 1, 2024?",
+    "Why can't we use the Windows 10 Host QDID we found on the SIG portal?",
+    "All Windows 10 QDIDs seem to have an HID 1.1 profile listed — can we remove it via Layer Selection?"
+  ],
+  "actual_issue": "After the July 1, 2024 Bluetooth SIG Qualification Workspace update (transition to QPRDv3), Allion discovered that ALL Windows 10 Host Subsystem QDIDs contain the deprecated HID 1.1 profile. Crucially, this deprecated profile cannot be removed via Layer Selection in the new registration flow — it is locked in. As a result, no Windows 10 Host QDID can be used for any new registration after July 1, 2024. The customer had been planning to use a Windows 10 QDID and had to pivot to Windows 11.",
+  "plain_english_explanation": "The SIG portal update on July 1, 2024 introduced stricter rules around deprecated profiles. Windows 10 contains an outdated Bluetooth HID profile (HID 1.1) that was deprecated by the SIG. In the old Launch Studio system, this could sometimes be worked around via Layer Selection (selectively excluding certain layers/profiles). But in the new Qualification Workspace (QPRDv3), this workaround no longer works — the deprecated HID 1.1 is locked into every Windows 10 QDID and cannot be deselected. Therefore, any new product registration that references a Windows 10 Host QDID will fail validation. Windows 11 QDIDs do not have this problem and can still be used normally.",
+  "consultant_answer": "After July 1, 2024, ALL Windows 10 Host Subsystem QDIDs (regardless of which Windows 10 version — Ver1803, Ver1809, Ver1903, Ver2024) are blocked for new registrations because they all contain the deprecated HID 1.1 profile that cannot be removed via Layer Selection. The only solution is to switch to Windows 11. Windows 11 Host QDIDs remain valid and can be used for new registrations without this issue.",
+  "decision_logic": "QPRDv3 disallows registration when a referenced QDID contains a deprecated profile, even if the end product does not use that profile. The Layer Selection mechanism in the old Launch Studio allowed exclusion of unused layers, but this mechanism no longer overrides deprecated profile blocks in Qualification Workspace. Since all Windows 10 QDIDs have HID 1.1 locked in, none can pass the new validation. Windows 11 QDIDs were created without HID 1.1 and are unaffected.",
+  "final_recommendation": "When a customer plans to use a Windows-based Host for their Bluetooth product, always confirm they are using Windows 11. Any Windows 10-based registration plan must be immediately redirected to Windows 11. Verify this at the initial scoping stage — do not wait until the registration attempt to discover the block.",
+  "risk_if_done_wrong": "Proceeding with a Windows 10 QDID wastes time and effort. The registration will fail at the Qualification Workspace validation stage. Customer may experience significant project delays if they discover this late in the process.",
+  "bluetooth_tags": [
+    "Windows 10 QDID",
+    "Windows 11 QDID",
+    "HID 1.1 deprecated",
+    "QPRDv3",
+    "Layer Selection",
+    "Host Subsystem",
+    "Qualification Workspace",
+    "July 1 2024 update"
+  ],
+  "search_aliases": [
+    "Windows 10 QDID blocked",
+    "HID 1.1 deprecated",
+    "deprecated profile registration",
+    "Windows QDID Layer Selection",
+    "QPRDv3 deprecated profile lock"
+  ],
+  "qualification_stage": "Pre-registration / QDID selection",
+  "confidence": "high"
+}

@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0021",
+  "case_id": "thread_0021_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Compliance Folder antenna documentation requirement for an antenna-integrated module, satisfied via a reused prior-case report",
+  "customer_question": "The module we're actually using is the antenna-integrated ESP32-S3-WROOM-1 (I mistakenly wrote '-1U,' the connector variant, in an earlier email) -- since the antenna is built into the module, can we skip providing the antenna documentation (radiation gain pattern) item for the Compliance Folder?",
+  "question_variants": [
+    "Does an antenna-integrated module's Compliance Folder still need a radiation gain pattern document?",
+    "If the customer can't easily obtain the antenna documentation, is there any alternative?"
+  ],
+  "actual_issue": "The customer assumed that because their actual module variant has the antenna built directly into the module (rather than requiring an external antenna), the Compliance Folder's antenna documentation requirement (including a radiation gain pattern) would not apply -- but this requirement applies regardless of whether the antenna is integrated or external.",
+  "plain_english_explanation": "Antenna documentation, including a radiation gain pattern chart, is a mandatory Compliance Folder item even for products using an antenna-integrated module -- the requirement is not limited to external-antenna designs. However, in this specific case, the consultant already had on file a pattern antenna gain characteristic measurement report previously submitted by the same module manufacturer for this exact module variant (ESP32-S3-WROOM-1) from an earlier, unrelated project -- and offered to reuse that existing report for the customer's Compliance Folder, meaning the customer did not need to separately obtain or submit antenna documentation themselves this time.",
+  "consultant_answer": "Antenna documentation (including a radiation gain pattern) is still required for the Compliance Folder even with an antenna-integrated module -- that requirement isn't limited to external-antenna designs. That said, we already have on file a gain characteristic measurement report submitted by this same module manufacturer for the ESP32-S3-WROOM-1 from an earlier project -- if that's acceptable, we can reuse it for your Compliance Folder, so you won't need to submit anything yourself for this particular item.",
+  "decision_logic": "Compliance Folder antenna documentation requirements apply regardless of whether a module's antenna is integrated or external -- but when the lab already holds a previously-submitted, manufacturer-sourced antenna report for the exact same module variant from an unrelated prior project, that report can be reused to satisfy the requirement without requiring fresh submission from the current customer.",
+  "final_recommendation": "When a customer assumes an antenna-integrated module exempts them from Compliance Folder antenna documentation, clarify that the requirement still applies, but proactively check whether a prior project already has a reusable manufacturer-sourced report for the exact same module variant before asking the customer to obtain one themselves.",
+  "risk_if_done_wrong": "Telling a customer their antenna-integrated module exempts them from Compliance Folder antenna documentation would leave the Compliance Folder incomplete, potentially causing issues if a SIG audit were to occur later.",
+  "bluetooth_tags": [
+    "Compliance Folder antenna documentation always required",
+    "antenna integrated module still needs gain pattern",
+    "reuse prior project manufacturer report",
+    "ESP32-S3-WROOM-1",
+    "JUST.WILL"
+  ],
+  "search_aliases": [
+    "does antenna integrated module need radiation gain pattern",
+    "Compliance Folder antenna documentation requirement",
+    "reuse manufacturer antenna report from prior project"
+  ],
+  "qualification_stage": "Compliance Folder document gathering",
+  "confidence": "medium"
+}

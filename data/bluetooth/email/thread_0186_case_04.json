@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0186",
+  "case_id": "thread_0186_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Panasonic wireless lighting control product (nRF52, SoftDevice S113 v7.0.1)",
+  "customer_question": "Now that the new model uses SoftDevice S113 v7.0.1 for both Host and Link Layer, what is the registration plan and combined cost to register this product, referencing the existing RF PHY and Host/LL component QDIDs?",
+  "question_variants": [
+    "What test scope and cost is needed to register the S113-based product variant?",
+    "Given S113 7.0.1 on both Host and LL, what is the registration plan?",
+    "What is the combined quote for adding this nRF52 S113 model to Bluetooth SIG registration?"
+  ],
+  "actual_issue": "After the customer confirmed that the new product variant uses SoftDevice S113 version 7.0.1 for both the Host and Link Layer, Allion needed to define the registration plan: which new RF test is required versus which existing component QDIDs can be referenced and exempted from re-test, and the resulting combined cost.",
+  "plain_english_explanation": "Once the exact SoftDevice version (S113 7.0.1) was confirmed for both Host and Link Layer, Allion worked out the registration plan: a new RF PHY (2M) test is required and must be uploaded as evidence; the existing RF PHY component QDID and a separate nRF52 S113 v7.0.1 Host/LL component QDID can be referenced so that LL, L2CAP, GAP, GATT, ATT, and SM testing is exempted (inherited from those existing qualified components). The customer must also pay for registration support (Multi-Design) and creation of the compliance folder, plus separately remit the SIG registration fee in USD (Adopter or Associate tier).",
+  "consultant_answer": "Based on the confirmed S113 7.0.1 Host/LL configuration, the registration plan is: (1) perform the required RF PHY (2M) test and upload the report as evidence; (2) reference the existing RF PHY component QDID and the nRF52 S113 v7.0.1 component QDID so that LL, L2CAP, GAP, GATT, ATT, and SM are exempted from re-test by inheritance. Combined quote: RF PHY test (required, 2M) ¥700,000; registration support service (Multi-Design reference) ¥250,000; compliance folder creation fee ¥150,000. In addition, the applicant must separately remit the SIG registration fee in USD (Adopter $12,000 / Associate $6,000, depending on membership level) directly to the SIG. The customer should fill in and return the attached Estimate Request Form annotated per this registration plan.",
+  "decision_logic": "Once the SoftDevice version for both Host and LL is confirmed, determine which protocol layers are already covered by existing qualified component QDIDs (these can be referenced/exempted) versus which layer requires fresh testing (RF PHY here, because the new model's antenna/RF configuration was not previously tested at 2M). Combine the new required test cost with standard registration support and compliance folder fees to produce a full quote, and remind the customer that SIG registration fees are paid separately and directly to the SIG in USD.",
+  "final_recommendation": "Confirm the exact SoftDevice version on both Host and Link Layer before finalizing a registration plan. Structure the quote as: new required RF test(s) + registration/Multi-Design support fee + compliance folder fee, and clearly separate this from the SIG's own USD registration fee (Adopter/Associate), which the applicant pays directly to SIG. Have the customer complete the Estimate Request Form annotated with the agreed plan before submitting for a formal quote.",
+  "risk_if_done_wrong": "If the registration plan does not correctly distinguish which layers are exempted via existing component QDIDs versus which require new testing, the quote could omit a required test (causing a failed Consistency Check at submission) or charge for tests that are not actually needed.",
+  "bluetooth_tags": [
+    "registration plan",
+    "Multi-Design",
+    "Compliance Folder",
+    "RF PHY 2M",
+    "Component QDID",
+    "S113",
+    "nRF52",
+    "SIG registration fee"
+  ],
+  "search_aliases": [
+    "Bluetooth registration plan quote nRF52",
+    "Multi-Design registration support cost",
+    "Compliance Folder creation fee",
+    "SIG Adopter Associate registration fee USD",
+    "combined RF PHY test and component exemption quote",
+    "S113 7.0.1 Host LL registration"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "medium"
+}

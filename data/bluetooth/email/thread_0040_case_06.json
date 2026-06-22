@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0040",
+  "case_id": "thread_0040_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Move Corporation headphone), registration cost scoping and Declaration fee payment process clarification",
+  "customer_question": "We're moving forward with registering a headphone product -- we'll prepare the 'measurement data' ourselves. Beyond the $11,040 fee, what other costs should we expect? Also, must the Receipt Number be obtained before anything else can proceed, and can we pay the SIG fee directly without going through a certification body? How long after payment does the Receipt Number get issued?",
+  "question_variants": [
+    "If a SoC/module is already qualified, does 'measurement data' refer to raw RF test results or something else?",
+    "Is there a mandatory order between obtaining the Receipt Number and other registration steps?"
+  ],
+  "actual_issue": "The customer, planning to register a headphone product using an already-qualified SoC/module, used the term 'measurement data' ambiguously, and needed clarification on what specific evidence was actually required, what it would cost beyond the SIG fee, the payment mechanics for the Declaration fee, and the sequencing/timing of the Receipt Number issuance.",
+  "plain_english_explanation": "For a headphone product using an already-qualified Bluetooth SoC/module (selected specifically to avoid needing fresh RF-level retesting), the 'measurement data' the customer planned to prepare almost certainly refers to a profile PTS (Profile Test Suite) test report, which must be uploaded during product registration -- this is distinct from raw RF measurement data, since RF-level testing isn't needed when the underlying SoC/module is already qualified, but profile-level PTS testing is still required separately. Beyond the $11,040 Declaration fee, the consulting costs are a proxy registration support fee (¥250,000, referencing the existing module qualification) and a Compliance Folder creation fee (¥150,000). On the payment process: the Declaration fee payment is, in principle, always a direct bank wire transfer from the applicant company to Bluetooth SIG -- it cannot be routed indirectly through a certification body instead. As for sequencing, the Receipt Number does not have to be the very first step taken -- it simply needs to be obtained at some point before the registration is finalized, so other preparatory steps can proceed in parallel. Once payment is sent and the corresponding account information entered, the Receipt Number is issued promptly: typically, once the wire-transfer-handling bank actually executes the dollar transfer, the Receipt Number is generated on the Invoice-holder's account by the next morning, accompanied by an automatic payment-received notification email to the Invoice holder.",
+  "consultant_answer": "Since your headphone's Bluetooth SoC/module is already qualified, 'measurement data' almost certainly means a profile PTS test report that needs to be uploaded at product registration -- RF-level retesting isn't needed given the qualified module, but profile-level PTS testing still is. Beyond the $11,040 SIG fee, our costs are ¥250,000 for proxy registration support (referencing the existing module qualification) and ¥150,000 for Compliance Folder creation. On payment: the Declaration fee is always a direct bank wire transfer from you to Bluetooth SIG -- it can't be routed through us or another certification body instead. On timing: the Receipt Number doesn't have to be your very first step -- it just needs to happen before registration is finalized, so other prep work can run in parallel. Once your bank actually sends the wire transfer, the Receipt Number typically appears on your account by the next morning, along with an automatic payment confirmation email.",
+  "decision_logic": "When a customer uses an ambiguous term like 'measurement data' in the context of an already-qualified SoC/module, infer they likely mean the profile PTS test report (the actual remaining evidence requirement) rather than raw RF data, and confirm explicitly; the Bluetooth SIG Declaration fee must always be paid via direct bank transfer from the applicant to SIG, with no indirect routing option, and Receipt Number issuance is fast (next-business-day) once the transfer is actually executed, with no strict requirement that it be obtained before other preparatory steps.",
+  "final_recommendation": "When a customer plans to register a product using an already-qualified module, proactively clarify that 'measurement data' likely refers to a profile PTS report rather than RF data, and provide the complete payment process picture (direct-transfer-only requirement, flexible sequencing, and next-business-day Receipt Number turnaround) in one response to avoid multiple follow-up questions.",
+  "risk_if_done_wrong": "A customer assuming 'measurement data' meant they needed to commission raw RF testing (unnecessary for an already-qualified module) could over-budget or over-scope their preparation; a customer assuming the Declaration fee could be routed through the certification body would be surprised to learn a direct bank transfer is mandatory.",
+  "bluetooth_tags": [
+    "measurement data means profile PTS report for qualified module",
+    "Declaration fee must be direct bank transfer to SIG",
+    "Receipt Number issuance next business day",
+    "Receipt Number not necessarily first step",
+    "Move Corporation headphone"
+  ],
+  "search_aliases": [
+    "what does measurement data mean for qualified module registration",
+    "can SIG Declaration fee be paid through certification body",
+    "how long until Receipt Number issued after payment",
+    "is Receipt Number required before other registration steps"
+  ],
+  "qualification_stage": "Pre-registration scoping / payment process",
+  "confidence": "high"
+}

@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0205",
+  "case_id": "thread_0205_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (incorporating Nordic S132-based module)",
+  "customer_question": "The SIG registration screen shows 'S140 xxxx' as the Included Design, but we actually used S132. The S132 QDID appears to be a subset of the S140 QDID — is the registration correct?",
+  "question_variants": [
+    "Why does the SIG registration show S140 as the included design when we specified S132?",
+    "Can a Subset ID be used directly for QPRDv3 registration, or must the parent QDID be used?",
+    "We wanted to reference the S132 Subset ID but Allion used the S140 parent QDID instead — is this right?"
+  ],
+  "actual_issue": "IDEAL company's product used a Nordic S132 SoftDevice stack. The estimate request specified S132 Subset IDs for the Controller Stack and Host Stack. However, after QPRDv3 took effect on July 1, 2024, Subset IDs created under the old qualification system can no longer be directly referenced in new registrations — only their parent QDIDs can be used. Allion registered using the parent S140 QDIDs (which have S132 as a subset), resulting in the SIG portal showing 'S140 xxxx' as the Included Design. The customer noticed this discrepancy and asked for clarification.",
+  "plain_english_explanation": "Before July 1, 2024, Bluetooth SIG had a system where manufacturers could create 'Subset IDs' — child entries derived from a parent QDID that limited the declared features to a subset. These Subset IDs were registered and usable in product registrations. After July 1, 2024 (QPRDv3 update), the rule changed: new registrations can reference old-system parent QDIDs, but they cannot reference old-system Subset IDs. So if a customer's module used an S132-specific Subset ID derived from an S140 QDID, the S132 Subset ID itself cannot be referenced. Instead, Allion must use the parent S140 QDID. The SIG portal then shows S140 as the referenced design. Since S132 is a subset of S140, the registration is technically correct — it just appears to reference a broader QDID than the exact version used.",
+  "consultant_answer": "The registration is correct. QPRDv3 (effective July 1, 2024) prohibits new registrations from referencing old-system Subset IDs. When the customer specified S132 Subset IDs, Allion correctly substituted the parent S140 QDIDs, which encompasses the S132 subset. The SIG portal shows 'S140 xxxx' because that is the actual QDID used for the registration. This is the correct and only compliant approach under QPRDv3. Allion apologized for not clarifying this substitution during the Review Page confirmation step.",
+  "decision_logic": "QPRDv3 rule: new registrations can reference QDIDs from the old system but NOT Subset IDs from the old system. When a customer's module references a Subset ID, the parent QDID must be identified and used instead. Since the S132 Subset derives from the S140 QDID, S140 is the correct reference. The end product is covered because S132 functionality is a declared subset of S140.",
+  "final_recommendation": "When reviewing a customer's specification sheet or estimate request and you see Subset IDs (IDs that are clearly derived/subset entries rather than primary QDIDs), proactively identify the parent QDIDs and explain the QPRDv3 Subset ID restriction to the customer before proceeding with registration. Do not wait for the customer to notice the discrepancy after the Review Page is submitted.",
+  "risk_if_done_wrong": "If a Subset ID is mistakenly referenced in a QPRDv3 registration, the registration will fail or be rejected. If not explained to the customer, they may question the validity of their registration.",
+  "bluetooth_tags": [
+    "Subset ID",
+    "QPRDv3",
+    "parent QDID",
+    "Nordic S132",
+    "Nordic S140",
+    "July 1 2024 update",
+    "old system QDID"
+  ],
+  "search_aliases": [
+    "Subset ID QPRDv3",
+    "cannot reference Subset ID",
+    "old system Subset ID registration",
+    "Nordic S132 S140 QDID",
+    "Included Design S140 vs S132"
+  ],
+  "qualification_stage": "Registration / QDID identification",
+  "confidence": "high"
+}

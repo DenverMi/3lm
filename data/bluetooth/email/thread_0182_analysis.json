@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0182",
+  "thread_analysis": {
+    "thread_summary": "Pyke Crystal Bluetooth product registration was completed (published April 2) but the Compliance Folder documents were delayed for over 4 months. Allion proposed delivering an interim Compliance Folder CD-R with TBD placeholder PDFs (in Windows 'appendable' format), allowing the customer to overwrite the placeholder files with real documents once ready and finalize the disc themselves. The Listing Owner (Suzuki) must retain the CD-R for 1 year after the last listed product is discontinued and present it if SIG requests an audit.",
+    "all_questions_found": [
+      "Customer documents for Compliance Folder are delayed — what is the practical path forward?",
+      "Can we deliver the Compliance Folder with placeholder files?",
+      "Can the customer overwrite files on the delivered CD-R?"
+    ],
+    "key_technical_discussion": "The Compliance Folder is a QPRDv3 requirement: it must be created promptly after registration and held by the Listing Owner. It does not need to be submitted to SIG proactively — only presented if audited. To close the service engagement when customer documents are late, Allion created an interim CD-R formatted as Windows 'appendable' with placeholder TBD PDF files. The customer can overwrite the placeholder files with real PDFs and finalize (close) the CD-R using any Windows 10/11 PC with a CD/DVD drive.",
+    "key_decision_logic": "The Compliance Folder is a retention document, not a submission. An interim version with placeholders is acceptable for closing the service ticket. The customer takes responsibility for replacing placeholders with real files before any SIG audit.",
+    "risk_if_done_wrong": "If placeholder files are never replaced with real documents and SIG audits, the Listing Owner has an incomplete Compliance Folder. However, in practice Allion notes no customer has ever been audited by SIG.",
+    "consulting_mistake": "None identified. The interim CD-R approach is a reasonable practical solution for delayed customer documents.",
+    "consulting_takeaway": "When Compliance Folder documents are delayed long after registration, proactively propose the interim CD-R solution to close the service engagement. Communicate clearly that the Listing Owner must replace placeholder files and retain the finalized CD-R for 1 year post-discontinuation."
+  }
+}

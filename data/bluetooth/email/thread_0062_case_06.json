@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0062",
+  "case_id": "thread_0062_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "In our registration quote request, does 'HID' refer to the same test item as 'HID11,' and was HOGP correctly removed because it isn't implemented, rather than left out by mistake?",
+  "question_variants": [
+    "Should we read 'HID' in the quote request as 'HID11'?",
+    "Why was HOGP removed from the quote request -- is that intentional?",
+    "Did we both confirm the same understanding about HOGP not being implemented?"
+  ],
+  "actual_issue": "A revised registration quote request omitted HOGP and used the unqualified label 'HID,' and it needed to be confirmed whether 'HID' in the quote request should be understood as the specific 'HID11' test item already used for completed testing, and whether HOGP's removal correctly reflected that the profile is not implemented in the product (rather than being an accidental omission).",
+  "plain_english_explanation": "Registration quote requests sometimes use a general profile name that doesn't exactly match the more specific test item label actually used during testing, and a profile that's missing from a quote could mean either 'we decided not to support that profile' or 'someone forgot to include it.' Here, both sides confirmed that 'HID' in the document means the same thing as the specific 'HID11' test already completed, and that HOGP being absent was a deliberate, previously-agreed removal because the product doesn't implement it -- not an oversight.",
+  "consultant_answer": "Per prior instruction, testing for the 'HID' designation was completed as 'HID11,' so the quote request's 'HID' label should be read as referring to HID11 when proceeding with registration. Separately, HOGP was intentionally removed from both the test items and the quote request because, per earlier correspondence, HOGP is not implemented in the product -- its absence in the revised quote request is a deliberate carry-forward of that earlier removal, not a new omission needing explanation. The consultant confirmed this combination had already been verified in a temporary registration Workspace project with no Invalid or similar issues, and that agency registration would proceed once the customer's payment to Bluetooth SIG was scheduled.",
+  "decision_logic": "When a quote request uses a profile label that doesn't exactly match the specific test item already completed, or omits a profile relative to an earlier version of the document, treat the discrepancy as needing explicit confirmation of intent (terminology mapping, or deliberate non-implementation) rather than assuming either an error or a correct match, since both produce the same visible symptom (a name not appearing as expected) but require different responses.",
+  "final_recommendation": "Proceed with registration treating 'HID' as referring to the completed HID11 test item, and treat HOGP's absence from the quote request as a confirmed, intentional non-implementation rather than an omission needing further test items or cost.",
+  "risk_if_done_wrong": "Misreading 'HID' versus 'HID11' as different test items, or assuming HOGP's absence was an accidental omission rather than a confirmed non-implementation, could lead to registering against the wrong test item or unnecessarily adding test items/cost for a profile the product does not actually implement.",
+  "bluetooth_tags": ["HID", "HOGP", "profile", "quote request", "listing"],
+  "search_aliases": ["HID vs HID11 quote request", "HOGP not implemented removed from quote", "profile naming mismatch registration quote"],
+  "qualification_stage": "pre-test review",
+  "confidence": "medium"
+}

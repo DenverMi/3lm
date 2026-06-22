@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0235",
+  "case_id": "thread_0235_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Atago, contact Jun Osuga)",
+  "customer_question": "We're trying to view the registration content at the URL you gave us, logged in under two different accounts (ohsuga and itakura), but we keep getting an HTTP ERROR 404. Are we doing something wrong?",
+  "question_variants": [
+    "Why do we get HTTP 404 when trying to view the registration page?",
+    "Are we using the URL correctly, with the right login state?"
+  ],
+  "actual_issue": "The customer was attempting to view their pre-publication registration details using a shared URL, but consistently received an HTTP 404 error regardless of which of their two accounts they used or how they entered the URL (separate tab vs. same tab as login).",
+  "plain_english_explanation": "An HTTP 404 error when viewing the registration URL means the browser is not actually in a logged-in state when that URL is accessed — the page only renders correctly if the SIG account holder is already logged in before navigating to the URL. If a user is properly logged in, the page header displays specific account information at the top right; if that indicator is absent, the session isn't actually authenticated even if login was attempted.",
+  "consultant_answer": "The HTTP 404 error you're seeing happens because the browser isn't in a logged-in state when that URL is accessed. Please confirm you see the expected account indicator in the top-right of the page after logging in — if it's not there, you're not actually authenticated yet, which is why the registration page returns a 404 instead of displaying. Once properly logged in, the URL will display the registration content normally.",
+  "decision_logic": "Pre-publication registration pages require active, verified login state (confirmed via a visible account indicator) rather than just attempting login beforehand; a 404 in this context indicates an authentication state problem, not a broken or incorrect URL.",
+  "final_recommendation": "When customers report a 404 or similar access error on a registration URL, first verify whether they have a visibly confirmed logged-in session (not just an attempted login) before troubleshooting the URL itself.",
+  "risk_if_done_wrong": "Without correctly diagnosing this as a login-state issue, troubleshooting could waste time chasing a non-existent URL or account problem instead of confirming the simple authentication state check.",
+  "bluetooth_tags": [
+    "registration page HTTP 404",
+    "SIG account login state",
+    "pre-publication registration viewing",
+    "Atago"
+  ],
+  "search_aliases": [
+    "registration URL HTTP 404 error",
+    "SIG login state verification",
+    "why cant I see my registration page"
+  ],
+  "qualification_stage": "Post-registration / pre-publication",
+  "confidence": "high"
+}

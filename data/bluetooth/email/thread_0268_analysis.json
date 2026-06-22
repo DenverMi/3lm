@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0268",
+  "thread_analysis": {
+    "thread_summary": "Purgatio Corporation (contact Yoshihiko Muroyama), maker of a Bluetooth app-connected humidifying air purifier using an Espressif ESP32-C3-WROOM-02 module, contacts Allion (Masaya Iida, with technical guidance from Itsuo Sakai) after receiving a compliance warning directly from Bluetooth SIG for never having registered their product. The thread covers correcting the customer's misconception that registration is only needed for logo display, identifying the company's existing SIG Adopter status and the module's referenceable Controller/Host Subsystem QDIDs, and independently correcting an inaccurate SIG support response the customer received after submitting their own Corrective Action Plan (CAP).",
+    "all_questions_found": [
+      "Do we need SIG registration even without displaying the logo, and what's the urgent remediation path? (see thread_0268_case_01)",
+      "Is SIG support's claim that our QDID was withdrawn and a Host layer is missing actually accurate? (see thread_0268_case_02)"
+    ],
+    "key_technical_discussion": "This thread illustrates both a common compliance misconception (registration tied to logo display rather than actual Bluetooth use) triggering reactive SIG enforcement, and the importance of independently verifying even official certification-body support responses against the live registration database, since support staff responses can themselves be technically inaccurate.",
+    "key_decision_logic": "Both cases follow a verify-before-acting principle: confirming the actual registration trigger (Bluetooth use, not logo intent) before remediation planning, and confirming SIG's own support claims against the live registration database before redirecting the customer to their supplier.",
+    "risk_if_done_wrong": "See thread_0268_case_01 and thread_0268_case_02.",
+    "consulting_mistake": "None identified — Allion's independent verification of the SIG support response prevented an unnecessary supplier detour during an already time-pressured compliance remediation.",
+    "consulting_takeaway": "Post-market compliance warnings from Bluetooth SIG often stem from the same root misconception (assuming registration is only required for logo use), and any technical claims relayed from SIG's own support channel during CAP remediation should be independently verified against the live registration database rather than accepted at face value, since support responses can themselves contain inaccuracies that send customers on unnecessary detours."
+  }
+}

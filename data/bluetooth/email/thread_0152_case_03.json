@@ -1,0 +1,41 @@
+{
+  "source_thread": "thread_0152",
+  "case_id": "thread_0152_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product — Linux-based product with BlueZ Host Subsystem + Controller Subsystem module",
+  "customer_question": "We plan to implement BlueZ as our Host Subsystem. Can we reference another (unrelated) company's already-certified BlueZ Host Subsystem QDID in our own product registration instead of testing our own stack?",
+  "question_variants": [
+    "Can we use a third party's certified Host Subsystem QDID if we have no business relationship with them?",
+    "Is it acceptable to cite someone else's BlueZ QDID to skip protocol/profile testing?",
+    "What is the risk of referencing an unrelated company's certified Component in our registration?",
+    "If we implement open-source BlueZ ourselves, what pass rate and test scope should we expect?",
+    "Which BlueZ stack vendors offer registration-ready, pre-certified Host Subsystem stacks?"
+  ],
+  "actual_issue": "The customer wanted to implement BlueZ as the Host Subsystem for a Linux-based product and asked whether they could simply reference an unrelated third party's already-certified BlueZ Host Subsystem QDID (e.g., a QDID obtained by a stack vendor's own testing) in their own new registration, to avoid running protocol/profile tests themselves. The consultant explained this is technically possible to submit but carries a serious takedown risk, and separately explained what is actually required if the customer implements open-source BlueZ directly (ADB-based protocol/profile testing, ~60% first-pass rate) versus purchasing a registration-ready stack from a vendor.",
+  "plain_english_explanation": "You cannot freely reuse someone else's certified Bluetooth component (QDID) in your own product registration unless you have a business/licensing relationship with them. If you reference an unrelated company's QDID, your new registration will show up whenever that QDID is searched, and the original owner (the Listing Owner) may notice and ask Bluetooth SIG to cancel your registration. So although the registration might go through on paper, it is at risk of being revoked later. If you instead implement raw open-source BlueZ yourself without vendor support, you must run protocol/profile-layer tests (L2CAP, GAP, SDP, etc.) which require an ADB debugger setup and an on-site engineer at the test lab who can communicate in English or Chinese. Historical pass rate for raw open-source BlueZ on a first attempt was about 60%, with the remaining 40% needing rework and retesting, and total test cost was in the low millions of yen (JPY) in a past case. The safer and proven path is to purchase a registration-ready BlueZ-based stack from a vendor who already holds a valid, properly-licensed certified QDID for that stack — several named distributors/vendors of such stacks exist in Japan.",
+  "consultant_answer": "Referencing an unrelated third party's certified Host Subsystem QDID without a business relationship is not recommended: although a new registration citing that QDID can technically be submitted, it will appear under that QDID's search results, the original Listing Owner may notice, and could request SIG to cancel the registration — making this approach risky despite being superficially possible. If the customer implements raw open-source BlueZ themselves (without a vendor's certified stack), protocol/profile-layer testing (L2CAP, GAP, SDP, etc.) is required, which needs an ADB debugger integration and an on-site DUT operator at the test lab fluent in English or Chinese. Historically, raw open-source BlueZ implementations had roughly a 60% first-pass rate, with the remaining ~40% requiring rework and retest (sometimes multiple rounds), and total test costs reached the low millions of yen in a past case; some set-maker projects abandoned development partway through. The recommended path is to purchase a registration-ready BlueZ-based stack from a Japan-based stack vendor/distributor (e.g., Toshiba Information Systems, distributors for OpenSynergy, IVT, Workaround GmbH, Design Gateway) who holds a legitimately licensed, certified QDID — this allows referencing the vendor's QDID properly and avoids the takedown risk and the high rework rate of raw open-source implementation.",
+  "decision_logic": "Reusing another company's certified Component QDID without a licensing/business relationship is technically possible to submit but creates an ownership/Listing Owner conflict that can result in SIG-initiated cancellation after the fact — so it is not advisable purely on registration mechanics. Implementing the underlying open-source stack without vendor support pushes the qualification burden onto protocol/profile-layer testing, which has historically high failure/rework rates and added lab logistics (ADB debugger, bilingual on-site engineer). Purchasing a vendor's registration-ready, properly licensed stack avoids both the cancellation risk and the high rework rate.",
+  "final_recommendation": "Do not reference an unrelated company's certified Host Subsystem QDID without a licensing relationship. Either purchase a registration-ready BlueZ-based stack from an established vendor/distributor with a legitimately held QDID, or budget for protocol/profile-layer testing (with ADB debugger setup and bilingual on-site presence) and expect a meaningful chance of rework if implementing raw open-source BlueZ directly.",
+  "risk_if_done_wrong": "If a customer registers citing an unrelated company's certified QDID without permission, the Listing Owner of that QDID may notice the unauthorized reference and request Bluetooth SIG to cancel the registration, invalidating the customer's qualification after the fact. If implementing raw open-source BlueZ without adequate stack maturity, the customer risks failing roughly 40% of protocol/profile test items on first attempt, requiring costly rework, retesting, and schedule delays; some projects have been abandoned mid-development as a result.",
+  "bluetooth_tags": [
+    "BlueZ",
+    "Host Subsystem",
+    "QDID reuse",
+    "Listing Owner",
+    "Component registration",
+    "protocol profile testing",
+    "ADB debugger",
+    "stack vendor"
+  ],
+  "search_aliases": [
+    "reuse third party QDID host subsystem",
+    "BlueZ certified stack registration risk",
+    "Listing Owner cancel registration",
+    "open source BlueZ pass rate",
+    "ADB debugger protocol test bluetooth",
+    "BlueZ stack vendor recommendation"
+  ],
+  "qualification_stage": "planning",
+  "confidence": "high"
+}

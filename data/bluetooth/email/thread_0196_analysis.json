@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0196",
+  "thread_analysis": {
+    "thread_summary": "Panasonic Automotive Systems (PAS) product registration (submitted January 6, 2026). Two post-registration issues: (1) Product Publication Date was set to January 1 (already past) — customer corrected to April 1 via SIG HP before final Submission to prevent immediate public listing. (2) Customer asked whether an official downloadable certificate exists — Allion explained the SIG certificate was discontinued ~10 years ago and that SDoC.pdf in the Compliance Folder is the modern equivalent. Compliance Folder documents were received and CD-R delivered.",
+    "all_questions_found": [
+      "Product Publication Date has already passed — can we update it?",
+      "Is there an official downloadable Bluetooth SIG certificate?"
+    ],
+    "key_technical_discussion": "Publication Date is user-controlled and can be updated at any time in the SIG HP portal before public listing. The Bluetooth SIG certificate (previously a signed PDF issued by the SIG) was discontinued approximately 10 years ago. SDoC.pdf (Statement of Conformity, SIG-generated) is the current industry-accepted proof of Bluetooth qualification and is included in every Compliance Folder.",
+    "key_decision_logic": "Publication Date: verify the date is in the future before submission; update immediately if it has already passed. Certificate inquiry: SDoC.pdf is the definitive answer — reference the SIG's historical change when explaining.",
+    "risk_if_done_wrong": "Failing to update a past Publication Date results in immediate public product listing, violating pre-launch confidentiality requirements. Not providing SDoC.pdf as the certificate equivalent may leave customers unable to fulfill third-party audit or import documentation requirements.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "Add a pre-submission checklist item: 'Is the Product Publication Date set to a future date?' Also, prepare a standard customer FAQ response for the certificate question: 'The official SIG certificate was discontinued ~10 years ago. SDoC.pdf in your Compliance Folder is the accepted equivalent.'"
+  }
+}

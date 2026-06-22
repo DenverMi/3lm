@@ -1,43 +1,23 @@
 {
-    "source_thread": "thread_0064",
-    "cases": [
-        {
-            "case_id": "thread_0064_case_02",
-            "iut_type": "toilet sensor",
-            "customer_question": "Which model names must be listed in the Bluetooth SIG Product List when a product has multiple commercial product codes and can wildcard series names be used?",
-            "question_variants": [
-                "Do all product variants need to be listed in the Product List?",
-                "Can I register only the Bluetooth unit model instead of all catalog models?",
-                "Can Bluetooth SIG Product List use a series name?",
-                "Are wildcard model names allowed in Bluetooth SIG registration?",
-                "How should Product List model names match product labeling?"
-            ],
-            "actual_issue": "The product had multiple commercial model codes derived from accessory combinations while the Bluetooth-equipped unit itself had a single internal identifier. The customer needed to determine which names must appear in the Bluetooth SIG Product List.",
-            "plain_english_explanation": "Bluetooth SIG expects the registered model names to match what customers see on the product. If multiple model numbers appear on the product label, they may all need to be represented in the listing. Generic series names cannot be used to cover unspecified models.",
-            "consultant_answer": "If only the Bluetooth unit identifier appears on the product nameplate, that identifier alone can be listed. If multiple commercial product codes are displayed or co-labeled on the product, those model codes must also be represented in the Product List. Bluetooth SIG requires consistency between the physical product labeling and the registered Product List entry. Wildcard-based series registration is not allowed.",
-            "decision_logic": "The determining factor is the actual model identifier shown on the product. Bluetooth SIG requires alignment between product labeling and Product List entries, and therefore does not permit open-ended wildcard series names.",
-            "final_recommendation": "Review the physical product labeling and register the exact model identifiers that appear on the product. Do not use wildcard or series-style naming conventions to represent future or unspecified products.",
-            "risk_if_done_wrong": "A mismatch between product labeling and the Bluetooth SIG Product List can create qualification compliance issues and require correction of listing information.",
-            "bluetooth_tags": [
-                "listing",
-                "product list",
-                "model name",
-                "qualification",
-                "declaration"
-            ],
-            "search_aliases": [
-                "Product List model name",
-                "wildcard model prohibited",
-                "series registration not allowed",
-                "label and Product List match",
-                "multiple model codes listing",
-                "Bluetooth model naming",
-                "product nameplate rule",
-                "listing model consistency"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0064",
+  "case_id": "thread_0064_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "Before you finalize our registration Submission, will we get to review and confirm the content first, and can we request wording changes before it's submitted?",
+  "question_variants": [
+    "Do we get to see the registration before it's finalized?",
+    "Will Submission only happen after we say it's OK?",
+    "Can we request text corrections to the Review Page before final Submission?"
+  ],
+  "actual_issue": "The customer needed assurance that the registration would not be finalized (Submitted) without their prior review and explicit approval, and that any requested corrections to the registration content would be applied before that final step.",
+  "plain_english_explanation": "Before a Bluetooth registration is permanently submitted, the customer gets a chance to look at exactly what's about to be filed -- as an image of the final review screen -- and can ask for wording to be fixed. Only after the customer gives the go-ahead does the consultant actually click the button that locks in the registration.",
+  "consultant_answer": "The consultant proceeds with the registration operation using the content from the registration confirmation document, then takes an image copy of the Review Page immediately before final registration confirmation and sends it to the customer by email for review. Final registration confirmation is only performed after receiving the customer's explicit instruction to proceed. When the customer subsequently requested specific wording corrections to the Review Page content, those corrections were applied before the final confirmation operation was performed.",
+  "decision_logic": "Final Submission of a SIG registration should not be executed until the customer has reviewed an image of the pre-Submission Review Page and explicitly instructed the consultant to proceed, and any wording corrections the customer requests at that stage should be incorporated before Submission is finalized.",
+  "final_recommendation": "Share a Review Page screenshot with the customer ahead of final Submission, apply any requested wording corrections, and only execute the final Submission action after receiving the customer's explicit confirmation.",
+  "risk_if_done_wrong": "Finalizing Submission without customer review risks submitting incorrect content (such as wording the customer would have wanted corrected) to Bluetooth SIG, which is difficult or impossible to revise after the fact.",
+  "bluetooth_tags": ["Review Page", "Submission", "registration confirmation", "listing"],
+  "search_aliases": ["Review Page confirmation before Submission", "customer approval before final registration", "wording correction Review Page", "Submission only after instruction"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

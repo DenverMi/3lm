@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0244",
+  "case_id": "thread_0244_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BT-module-equipped wafer temperature measurement unit + USB dongle receiver (Sony Semiconductor Solutions)",
+  "customer_question": "We need both Bluetooth SIG certification and various countries' radio-type regulatory certifications for our product. Can your company handle both, and how does the process work for each?",
+  "question_variants": [
+    "Does Allion provide both Bluetooth SIG certification and global radio law certification services?",
+    "How is the global regulatory certification process organized if you don't directly perform all of it?"
+  ],
+  "actual_issue": "The customer's initial web-form inquiry covered both Bluetooth SIG logo certification and multi-country radio-type regulatory certification together, and needed to understand which parts Allion directly provides versus which parts would involve a different organization.",
+  "plain_english_explanation": "Allion is a Bluetooth SIG-accredited certification body (BQTF, BQC) and directly provides Bluetooth SIG certification testing and registration proxy support. However, Allion does not itself perform the testing or registration procedures for individual countries' radio-type regulatory certifications (e.g., FCC, CE, KC, etc.) — that work is handled by Allion's partner company, SGS Japan. Allion can still serve as the customer's single point of contact for the radio-law certification work, coordinating with SGS Japan on the customer's behalf, while handling the Bluetooth SIG portion directly itself.",
+  "consultant_answer": "We're a Bluetooth SIG-accredited certification body (BQTF, BQC) and provide Bluetooth SIG certification testing and registration proxy support directly. For the various countries' radio-type regulatory certifications, we don't perform that testing/registration ourselves — our partner company, SGS Japan, provides that. We're happy to serve as your single point of contact for that work too, coordinating with SGS Japan on your behalf, while handling the Bluetooth SIG side directly ourselves.",
+  "decision_logic": "Service scope should be explicitly divided by certification type: Bluetooth SIG certification stays in-house (Allion's accredited-body role), while other countries' radio-type regulatory certifications are routed through a named partner (SGS Japan), with Allion offering single-point-of-contact coordination as a value-add rather than performing that work itself.",
+  "final_recommendation": "When a customer's inquiry spans both Bluetooth SIG certification and broader regulatory certification, clarify upfront which parts are performed directly versus outsourced to a named partner, and offer single-point-of-contact coordination so the customer doesn't need to manage multiple vendor relationships separately.",
+  "risk_if_done_wrong": "Without this upfront clarification, a customer might assume one company handles the entire global certification process directly, leading to confusion later about responsibility, NDA scope, and information-sharing requirements once a third party (SGS) becomes involved.",
+  "bluetooth_tags": [
+    "Bluetooth SIG vs radio law certification scope",
+    "BQTF BQC accredited body",
+    "SGS Japan partner",
+    "single point of contact coordination",
+    "Sony Semiconductor Solutions"
+  ],
+  "search_aliases": [
+    "does Allion do radio law certification",
+    "Bluetooth SIG accredited body BQTF BQC",
+    "SGS Japan partner certification",
+    "point of contact for multiple certifications"
+  ],
+  "qualification_stage": "Pre-engagement inquiry",
+  "confidence": "high"
+}

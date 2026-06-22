@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0230",
+  "case_id": "thread_0230_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Internal billing policy decision (Panasonic Connect product-specification consulting)",
+  "customer_question": "(Internal) Panasonic Connect sent a detailed spreadsheet asking us to confirm their profile-by-profile applicability assessment for their STB. Can we answer this, and if we can, should we charge separately for it rather than treating it as included in standard certification support?",
+  "question_variants": [
+    "Should detailed product-specification applicability review be billed separately from certification testing support?"
+  ],
+  "actual_issue": "Iida asked Sakai whether Allion should answer a detailed customer worksheet about which Bluetooth profiles their STB needed, and whether this kind of judgment-heavy work should be a separate paid service rather than bundled into standard certification support, given the effort involved.",
+  "plain_english_explanation": "Sakai distinguished between two categories of customer question: whether a given configuration can be registered/certified (something Allion can answer with full responsibility, since it's about SIG process mechanics) versus whether a particular product feature should or shouldn't be implemented (something that is fundamentally the customer's own product-design decision, since Allion isn't the design owner). Because the spreadsheet review fell into the second category — general reference commentary on profile applicability rather than a definitive certification-process answer — Sakai decided it should be provided for free this time, on the basis that charging for this kind of advice would imply taking on design-decision responsibility that Allion isn't positioned to bear.",
+  "consultant_answer": "We can answer it — I've added comments to column F of the spreadsheet for the items marked 'unclear' or '?'. If it's about whether something can be registered/certified, we can answer that with full responsibility. But a question about the customer's own product specification is fundamentally their design team's decision to make, not ours. We gave general reference opinions this time, but since charging for this kind of advice would imply taking on responsibility we're not positioned to bear, please treat this round as a free, no-charge response.",
+  "decision_logic": "Distinguish between certification-process questions (Allion's area of responsibility, answerable definitively) and product-design-decision questions (the customer's own responsibility); only the latter, when answered as a courtesy reference opinion rather than a definitive recommendation, should be treated as free to avoid implying liability Allion doesn't intend to take on.",
+  "final_recommendation": "When customers ask detailed product-specification questions that blur into their own design decisions, decide whether to charge based on whether you're giving a definitive recommendation (implying liability) versus a general reference opinion (no liability) — and be explicit internally about which category a given answer falls into before deciding on billing.",
+  "risk_if_done_wrong": "Charging for general reference opinions on product-design questions could create an expectation of liability for outcomes Allion doesn't control; failing to ever charge for substantial spreadsheet-review effort could set an unsustainable precedent of unpaid design consulting work.",
+  "bluetooth_tags": [
+    "billing policy product specification advice",
+    "design decision vs certification process distinction",
+    "free reference opinion",
+    "internal consulting judgment",
+    "Panasonic Connect"
+  ],
+  "search_aliases": [
+    "should we charge for product spec consulting advice",
+    "certification process vs design decision responsibility",
+    "free reference opinion policy"
+  ],
+  "qualification_stage": "Internal service-scope/billing decision",
+  "confidence": "medium"
+}

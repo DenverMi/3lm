@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0030",
+  "thread_analysis": {
+    "thread_summary": "Nippon Seimitsu Sokki Co., Ltd. (contact Hidenori Kondo, referred by Okamoto Musen Denki), a new customer, engages Allion (Itsuo Sakai, Masaya Iida) for Bluetooth SIG registration of a KAGA FEI-module-based blood pressure monitor, spanning February-March 2025. The thread covers a legacy Subset ID QDID reference restriction (resolved via an alternative same-SoftDevice-version reference), a free derivative registration question for an entirely different future device type (pulse oximeter) with a forward-looking Design Name recommendation, and standard registration finalization steps.",
+    "all_questions_found": [
+      "Can a legacy 'subset of' QDID reference still be used under the post-July-2024 registration system, and is there an alternative if not? (see thread_0030_case_01)",
+      "Can a completely different future device type (pulse oximeter) be added as a free derivative using the same module/QDID, and what Design Name strategy accommodates this? (see thread_0030_case_02)",
+      "(Administrative, not separately cased) Confirmation that the customer's specific registration option ('Option 2b') would not incur additional cost or schedule delay, verified via a trial-project check before quoting -- a useful internal QA habit but not a distinct generalizable case beyond what's already documented in similar pre-quote verification patterns elsewhere."
+    ],
+    "key_technical_discussion": "The thread's most valuable technical content is case_01's resolution of a legacy Subset ID reference restriction by finding a same-SoftDevice-version alternative QDID, preserving the customer's intended registration outcome despite the system change. Case_02 clarifies that free derivative registration eligibility hinges on shared module/Host Stack, not product category similarity, with a practical Design Name strategy implication.",
+    "key_decision_logic": "See thread_0030_case_01 and case_02.",
+    "risk_if_done_wrong": "See individual case files; case_01's risk is stalling the customer's registration unnecessarily by reporting only the restriction without finding the alternative; case_02's risk is a poorly-chosen Design Name causing confusion once a different device category is added later.",
+    "consulting_mistake": "No consulting-side mistakes identified in the visible record -- the consultant proactively verified the chosen registration option against a trial project before quoting, avoiding a potential cost/schedule surprise.",
+    "consulting_takeaway": "When a legacy reference mechanism is no longer valid under a registration system change, search for a same-underlying-version alternative rather than simply reporting the restriction; and when scoping free derivative registration, clarify that eligibility depends on shared module/Host Stack rather than product category, recommending a forward-looking Design Name when multiple future device types are anticipated."
+  }
+}

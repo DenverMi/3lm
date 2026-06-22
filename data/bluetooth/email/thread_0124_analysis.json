@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0124",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This internal thread (February 18-20, 2025) tracks review of an RF test report for ALPS Alpine (project [ID], Test Result: PASS). Sakai first corrects inconsistent packet-type abbreviations in the report to match the log files. A second reviewer, Tanaka, then flags that the TRM/CA/[ID] test item was tested at both Max Power and Min Power but the report table only showed the Max Power row, requesting a Min Power row be added. Sakai confirms the root cause: when ICS 1/4 Power Control is YES, TRM/CA requires an additional Min Power measurement, which was missed because the report was created by overwriting a past template without re-checking this ICS setting. Sakai issues a corrected report and instructs the team to check ICS 1/4 Power Control:YES/NO whenever reusing a past RF report as a template. Tanaka confirms the corrected report has no issues, and Ushiroebisu places the final report and PDF on the project server.",
     "all_questions_found": [
       "(Internal) Is this RF test report for ALPS Alpine complete and correct, including consistent packet-type naming matching the log files?",

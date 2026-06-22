@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0234",
+  "case_id": "thread_0234_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (OM Digital Solutions headset), Review Page SPP inclusion question",
+  "customer_question": "This model doesn't implement Serial Port Profile (SPP) — shouldn't its listing be removed from the Review Page registration content?",
+  "question_variants": [
+    "Why does our registration include SPP when our product doesn't use it?",
+    "Can SPP be removed from the registration since we don't implement it?"
+  ],
+  "actual_issue": "The customer reviewed their pre-Submission Review Page and flagged what they believed was an incorrect inclusion of Serial Port Profile, since their actual product implementation doesn't use SPP.",
+  "plain_english_explanation": "Looking at the HFP specification, SPP and FCOMM are actually required as part of implementing HFP itself — the referenced Host Stack registration's inclusion of SPP and a related item alongside HFP reflects this specification dependency, not an error. In other words, SPP appears in the registration not because the product separately implements SPP as its own standalone feature, but because HFP itself depends on it as an underlying requirement.",
+  "consultant_answer": "Looking at the HFP specification, SPP and FCOMM are required as part of implementing HFP itself — so the referenced Host Stack's inclusion of SPP alongside HFP reflects this specification dependency, not an error in your registration. It's there because HFP depends on it, not because your product separately implements SPP as a standalone feature.",
+  "decision_logic": "Before removing an ICS item a customer believes is unnecessary, check whether it's actually a specification-mandated dependency of another profile the product does implement (like SPP being a prerequisite for HFP), rather than assuming any item not directly used by the product is an error.",
+  "final_recommendation": "When a customer questions why a profile or protocol item they don't think they use appears in their registration, check the implemented profile's specification for hidden dependencies before agreeing to remove it.",
+  "risk_if_done_wrong": "Removing an ICS item that's actually a specification-mandated dependency of an implemented profile (like SPP for HFP) could create a new Consistency Check failure or produce an inaccurate registration that doesn't reflect the actual required underlying support.",
+  "bluetooth_tags": [
+    "SPP HFP dependency",
+    "Serial Port Profile required for HFP",
+    "Review Page ICS question",
+    "FCOMM dependency",
+    "OM Digital Solutions"
+  ],
+  "search_aliases": [
+    "why does HFP require SPP",
+    "can SPP be removed from registration",
+    "FCOMM HFP dependency"
+  ],
+  "qualification_stage": "Pre-Submission Review Page confirmation",
+  "confidence": "high"
+}

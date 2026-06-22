@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0095",
+  "case_id": "thread_0095_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "We can't log in with the account info we sent you, and it turns out that account belonged to an employee who has since left the company. We've created a new account -- how do we get the registration fee moved over to it?",
+  "question_variants": [
+    "Why doesn't our submitted login work anymore?",
+    "Can we just switch to a brand-new account partway through registration?",
+    "How do we move the Qualification Fee Receipt Number to our new account?"
+  ],
+  "actual_issue": "The login credentials the customer initially provided for registration failed, and investigation revealed the account belonged to an employee who had since left the company and had been deactivated; the customer created a new account to use instead, but the Qualification Fee's Receipt Number was attached to the old (departed employee's) account, which had originally been used to obtain the Invoice, and needed to be moved to the new account before registration could proceed.",
+  "plain_english_explanation": "Sometimes the account originally used to set up a company's certification work belongs to a specific employee, and if that person leaves, the account can become unusable or get deactivated, breaking the login the consultant was given. Switching to a new account fixes the login problem, but the actual payment record for the certification fee is still tied to the old account, so it has to be formally transferred over to the new one -- which requires the email tied to the old account to approve the move.",
+  "consultant_answer": "When login failed with the originally-submitted credentials, the consultant provided a troubleshooting sequence: (1) use Bluetooth SIG's 'Get Username' feature with the account's email address to retrieve the registered username and try it with the submitted password; (2) if 'No Username found' is returned, create a new account via a provided URL; (3) if the account is registered under a different email/password combination, first reset the account via a provided URL, then proceed to step (2). The customer discovered that the originally-submitted account had been registered by an employee who had since left the company and had been deactivated; since using a departed employee's ID would cause various complications, the customer created a new account under their own name and submitted a revised registration confirmation document. However, the Qualification Fee's Receipt Number was found to be attached to the account that had originally obtained the Invoice (the departed employee's account), not the new account, so it could not be exercised from the new account directly. The consultant performed a Transfer Request, and the email associated with the old account received a Bluetooth SIG notification with a link to 'Accept' the transfer, which the customer completed.",
+  "decision_logic": "When a registration's originally-provided login account fails, follow SIG's Get Username / account creation / reset troubleshooting sequence to diagnose the cause; if the account turns out to belong to a departed employee and a new account must be used instead, check whether the Qualification Fee's Receipt Number is still attached to the old account (since it would be, if that account was used to obtain the Invoice) and resolve the mismatch via a SIG Transfer Request, accepted via the email associated with the old account.",
+  "final_recommendation": "When a registration's login fails, walk through the Get Username / account creation / reset troubleshooting sequence before assuming new credentials need to be requested from scratch. If switching to a new account due to an employee departure, check whether the Qualification Fee's Receipt Number is still attached to the old account and resolve the mismatch via a SIG Transfer Request accepted through that old account's associated email.",
+  "risk_if_done_wrong": "Continuing to use a departed employee's deactivated account would create ongoing access and continuity problems; switching to a new account without addressing the Receipt Number's attachment to the old account would leave the Qualification Fee inaccessible from the new account, blocking registration.",
+  "bluetooth_tags": ["account migration", "departed employee", "Get Username", "Transfer Request", "Receipt Number"],
+  "search_aliases": ["account belongs to departed employee deactivated", "Get Username troubleshooting login failure", "switch to new account mid-registration", "Transfer Request Receipt Number old account to new account"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

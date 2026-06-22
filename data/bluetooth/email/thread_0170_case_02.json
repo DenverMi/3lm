@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0170",
+  "case_id": "thread_0170_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE keyboard (Silex Technology / PFU)",
+  "customer_question": "Can we create a Subset DN from the base QDID that our registered design references, even though that QDID belongs to another SIG member company?",
+  "question_variants": [
+    "We want to create a Subset from a QDID that belongs to a different company. Is this allowed?",
+    "Can a Subset DN be created from any QDID, regardless of which company owns it?",
+    "Our design includes a QDID from another vendor. Can we still use the Subset DN feature?"
+  ],
+  "actual_issue": "The customer wants to create a Subset DN (a free derivative design registration) from an existing base design. However, the base design includes QDIDs from other SIG member companies (third-party QDIDs), which creates a restriction on Subset creation.",
+  "plain_english_explanation": "The Bluetooth SIG allows a QDID owner to create a 'Subset DN' — a restricted version of their design that disables certain features. Creating a Subset is free. However, there is a key restriction: you can only create a Subset from a design that you own entirely. If your design includes (references) QDIDs that belong to other SIG member companies, you cannot create a Subset from that combined design. The restriction exists because a Subset would need to modify the inherited ICS from those third-party QDIDs, which the Listing Owner doesn't control.",
+  "consultant_answer": "No. You cannot create a Subset DN from a design that includes QDIDs from other SIG member companies. The Subset creation restriction applies specifically when the base design incorporates third-party QDIDs. If you need a restricted version of the combined design, you would need to work with the QDID owners to create Subsets at the individual QDID level first.",
+  "decision_logic": "SIG's Subset DN feature is scoped to designs that are fully under the creator's control. When a design references external QDIDs, those layers belong to other members, and the Subset creator does not have authority to modify or restrict ICS items in those layers. SIG enforces this restriction to prevent unauthorized modification of other members' qualified implementations.",
+  "final_recommendation": "If a Subset is needed, check whether the base QDID you want to Subset is one that you (or your company) own entirely, without including any third-party QDIDs. If third-party QDIDs are involved, contact those QDID owners and ask them to create a Subset of their design first, then reference the new Subset QDID in your product registration.",
+  "risk_if_done_wrong": "Attempting to create a Subset from a design with third-party QDIDs will be blocked by the SIG portal. Understanding this restriction before designing the qualification strategy prevents wasted time and unexpected registration blockers.",
+  "bluetooth_tags": [
+    "Subset DN",
+    "QDID",
+    "cross-member restriction",
+    "Listing Owner",
+    "SIG design registration",
+    "QPRDv3"
+  ],
+  "search_aliases": [
+    "Subset DN cross member restriction",
+    "Subset DN from another company QDID",
+    "cannot create Subset DN third party",
+    "Subset DN restriction SIG member",
+    "free Subset creation limitation"
+  ],
+  "qualification_stage": "Pre-registration / QDID selection",
+  "confidence": "high"
+}

@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0203",
+  "case_id": "thread_0203_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth module under BLE RF PHY test (Alps Alpine UXC, Qualcomm chipset)",
+  "customer_question": "The lab does not have the QUTS Status App. The customer (Alps Alpine) told us that QRCT can also be used to check QUTS status and enter BLE DTM mode. Is this correct?",
+  "question_variants": [
+    "Can QRCT be used instead of QUTS Status App to enter BLE DTM mode on a Qualcomm chipset?",
+    "The lab cannot find QUTS Status App — where is it located, and is QRCT a substitute?",
+    "How do we enter BLE Direct Test Mode on a Qualcomm device when the test setup uses QRCT?"
+  ],
+  "actual_issue": "For BLE RF PHY testing of an Alps Alpine UXC module (Qualcomm chipset), the test procedure required QUTS Status App to enter BLE DTM mode. Allion's lab did not have QUTS Status App. Alps Alpine's engineer suggested QRCT (Qualcomm Radio Calibration Tool) could be used instead to check QUTS and enter DTM mode. Allion's lab followed this suggestion but was unable to configure BLE DTM mode via QRCT. The correct answer is that QRCT cannot substitute for QUTS Status App — QUTS is bundled with the QRCT installer and should be located at a specific path on the PC.",
+  "plain_english_explanation": "Qualcomm chipsets use a specific tool called QUTS Status App to enter BLE DTM (Direct Test Mode) for RF PHY testing. QRCT (Qualcomm Radio Calibration Tool) is a different tool used for Classic Bluetooth RF calibration. They are not interchangeable for this purpose. However, QUTS Status App is distributed bundled with the QRCT installer package (via Qualcomm Package Manager / QPM), so if QRCT was installed on the PC, QUTS Status App should also be present — just in a different directory. The app should be at: C:\\Program Files (x86)\\Qualcomm\\QUTSStatusApp\\QUTSStatusApp.exe.",
+  "consultant_answer": "QRCT cannot confirm QUTS state or enter BLE DTM mode — this is a different function from what QRCT provides. QUTS Status App is required for BLE DTM mode on Qualcomm chipsets. If QRCT was installed via QPM (Qualcomm Package Manager), QUTS Status App should be bundled with the same installation. Check: C:\\Program Files (x86)\\Qualcomm\\QUTSStatusApp\\QUTSStatusApp.exe. If it does not exist, the lab will need to obtain QUTS Status App from Qualcomm (requires a Qualcomm account/contract). Also note: the lab must have appropriate Qualcomm credentials since Qualcomm tools authenticate with Qualcomm servers on startup.",
+  "decision_logic": "QUTS Status App and QRCT are separate Qualcomm tools distributed together but serving different functions. QRCT handles Classic BT radio testing; QUTS handles LE (BLE) radio mode control. Allion does not have a Qualcomm account, so tools must be obtained via the customer (Alps Alpine), who has a Qualcomm relationship. The QUTS app location is predictable if QRCT was properly installed via QPM.",
+  "final_recommendation": "For BLE RF PHY testing on Qualcomm chipsets, confirm QUTS Status App is available before starting. If only QRCT is present, check the expected install path for QUTS. If absent, escalate to the customer's Qualcomm contact — the lab cannot directly obtain Qualcomm tools without a Qualcomm ID/contract.",
+  "risk_if_done_wrong": "Attempting BLE DTM with the wrong tool (QRCT) will fail to enter DTM mode. This delays BLE RF PHY testing. If the lab incorrectly reports to the customer that QRCT works and then fails, trust is damaged and timeline is extended.",
+  "bluetooth_tags": [
+    "BLE DTM",
+    "QUTS Status App",
+    "QRCT",
+    "Qualcomm",
+    "BLE RF PHY test",
+    "DTM mode",
+    "UXC",
+    "Alps Alpine"
+  ],
+  "search_aliases": [
+    "QUTS Status App BLE DTM",
+    "QRCT BLE DTM mode",
+    "Qualcomm BLE test tool",
+    "QUTS app location path",
+    "Bluetooth BLE RF PHY Qualcomm"
+  ],
+  "qualification_stage": "BLE RF PHY testing",
+  "confidence": "high"
+}

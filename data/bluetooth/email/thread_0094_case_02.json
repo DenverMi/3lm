@@ -1,48 +1,23 @@
 {
-    "source_thread": "thread_0094",
-    "cases": [
-        {
-            "case_id": "thread_0094_case_02",
-            "iut_type": "BLE module-based product",
-            "customer_question": "How should inter-layer consistency errors be resolved when combining multiple Bluetooth qualification references in a Multi-Design declaration?",
-            "question_variants": [
-                "Why does my Multi-Design declaration fail consistency checks?",
-                "How do I resolve LL and RF PHY ICS mismatches?",
-                "What should I do when AoA/AoD features cause declaration inconsistencies?",
-                "Can I edit the LL ICS to eliminate qualification conflicts?",
-                "When is a subset design required for Multi-Design qualification?"
-            ],
-            "actual_issue": "Combining multiple qualification references created LL-to-RF PHY consistency-check failures involving AoA, AoD, and Isochronous capability declarations.",
-            "plain_english_explanation": "The selected qualification references did not declare the same Bluetooth capabilities, causing qualification-system consistency errors. Although manually changing the ICS appears possible, doing so would trigger extensive new testing obligations. The preferred solution is to obtain a subset qualification design from the original qualification owner that already removes the unsupported features.",
-            "consultant_answer": "The consultant identified multiple inter-layer inconsistencies between included qualification references, specifically involving AoA, AoD, and Isochronous functionality. Directly modifying the LL ICS would create extensive Link Layer testing requirements. Instead, the consultant recommended obtaining a subset design from the qualification owner with the affected LL ICS items changed from supported to unsupported. The customer later confirmed that Silicon Labs provided alternative qualification references that eliminated the inconsistency.",
-            "decision_logic": "Qualification references must remain internally consistent across protocol layers. When included designs expose unsupported features, a qualification-owner-generated subset design preserves consistency without triggering new testing obligations.",
-            "final_recommendation": "Use an approved subset design or alternative qualification reference from the original listing owner that aligns capability declarations across all included layers before completing the Multi-Design declaration.",
-            "risk_if_done_wrong": "Editing the LL ICS directly can generate hundreds of additional Link Layer test requirements and significantly increase qualification effort. Unresolved consistency-check failures can prevent successful product registration.",
-            "bluetooth_tags": [
-                "qualification",
-                "Multi-Design",
-                "ICS",
-                "consistency check",
-                "AoA",
-                "AoD",
-                "Isochronous",
-                "subset design"
-            ],
-            "search_aliases": [
-                "LL RFPHY mismatch",
-                "ICS inconsistency",
-                "AoA AoD conflict",
-                "Isochronous mismatch",
-                "subset DN required",
-                "Multi-Design error",
-                "consistency check failed",
-                "LL ICS modification",
-                "qualification subset design",
-                "inter-layer inconsistency"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0094",
+  "case_id": "thread_0094_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "We've listed the module-level documents (circuit diagram, PCB layout, parts list, IC datasheet, RF test report) we think are needed -- is that the right scope, and is it limited to just the Bluetooth module rather than the whole product?",
+  "question_variants": [
+    "Do registration documents need to cover just the Bluetooth module, or the entire product?",
+    "Is our module-level document list sufficient for Bluetooth Logo certification?",
+    "What documents does the whole-product registration actually require?"
+  ],
+  "actual_issue": "The customer assumed the documentation needed for Bluetooth registration would be limited to the embedded Bluetooth module itself (circuit diagram, PCB layout, parts list, IC datasheet, etc.), but the actual requirement covers the product as a whole, not just the module.",
+  "plain_english_explanation": "It's a natural assumption that since only the Bluetooth module is being certified, only documents about that module would be needed. But Bluetooth Logo certification is actually about the finished product the module is built into, so the documentation needed describes the whole product -- how to use it, what it looks like, and its antenna characteristics -- not detailed engineering documents about the module component itself.",
+  "consultant_answer": "Bluetooth Logo certification requires free member registration plus the following documents covering the product as a whole, not just the Bluetooth module portion: the product's operation manual, the product's block diagram, the product's outline drawing, the antenna's outline drawing, and the antenna's gain/radiation characteristics diagram.",
+  "decision_logic": "Bluetooth registration documentation requirements apply to the finished product as a whole, not to the embedded Bluetooth module's own engineering documentation (such as circuit diagrams, PCB layouts, or parts lists), which are not part of what is actually required.",
+  "final_recommendation": "When a customer proposes module-level engineering documents for registration, clarify that the actual requirement is whole-product documentation (operation manual, product block diagram, product outline drawing, antenna outline drawing, and gain/radiation characteristics diagram) rather than module-specific technical documents.",
+  "risk_if_done_wrong": "Submitting only module-level engineering documents, as the customer initially assumed was needed, would not satisfy the actual whole-product documentation requirement for Bluetooth Logo certification.",
+  "bluetooth_tags": ["compliance folder", "registration documentation", "whole product", "antenna outline drawing"],
+  "search_aliases": ["registration documents whole product not just module", "module level documents insufficient registration", "antenna outline drawing gain characteristics requirement"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

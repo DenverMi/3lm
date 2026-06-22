@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0210",
+  "case_id": "thread_0210_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (incorporating End Product Core-Complete module with PCB antenna)",
+  "customer_question": "Is the Qualification Fee wire-transfer-proxy support taxable, and what exchange rate is used? Also, what exactly is included in Allion's 'response to questions about certification rules' service item and the 'post-registration SIG inquiry support' service item — does the latter mean SIG market surveillance/audits?",
+  "question_variants": [
+    "Is the SIG Qualification Fee proxy payment service subject to consumption tax?",
+    "What USD-to-JPY exchange rate is used when Allion handles the SIG fee wire transfer, and when is it fixed?",
+    "What does Allion's 'investigate and answer questions about certification rules' support item actually cover?",
+    "Does 'post-registration SIG inquiry support' mean Allion handles Bluetooth SIG market audits on our behalf?"
+  ],
+  "actual_issue": "GUGEN asked Allion to itemize and clarify several of the five numbered support/service items in the original quote: whether the Qualification Fee wire-transfer proxy service is taxable and what exchange rate applies, what is actually included when Allion 'investigates and answers questions about certification rules,' and whether 'post-registration SIG inquiry support' refers to Bluetooth SIG market surveillance audits and what kind of support would be provided if so.",
+  "plain_english_explanation": "When Allion handles the wire transfer of the SIG Qualification Fee on the customer's behalf, that proxy service is a taxable service (subject to Japanese consumption tax), and the USD amount is converted to JPY using the TTS (telegraphic transfer selling) rate as of the end of the month prior to the formal quotation being issued — not a rate fixed at time of order or payment. For the 'certification rule question' support item, this means that if the customer has questions about Bluetooth certification rules during the project, Allion will investigate and answer them as part of the standard service scope, as long as the investigation is straightforward (more complex investigations could potentially be billed separately, though this was not explicitly stated as a hard rule). For 'post-registration SIG inquiry support,' this is reactive, not proactive — Allion does not monitor or audit the customer's products on the SIG's behalf. Rather, if the Bluetooth SIG itself contacts the customer (e.g., for a market compliance audit) after registration, the customer can ask Allion for help, and Allion will provide draft responses, advice, and support in handling that specific SIG inquiry.",
+  "consultant_answer": "Yes, the wire-transfer proxy service for the Qualification Fee is taxable. Using an assumed rate of 1 USD = 145 JPY: Qualification Fee $11,040 × ¥145 = ¥1,600,800; wire-transfer proxy fee ¥100,000; subtotal ¥1,700,800; total ¥1,870,880 (tax included). The actual USD-JPY conversion uses the TTS rate as of the end of the month prior to the formal quotation (not a fixed rate). On the support scope: 'investigate and answer questions about certification rules' means that if the customer raises questions or uncertainties about certification requirements, Allion will look into them and respond as part of the engagement, when the investigation required is straightforward. 'Post-registration SIG inquiry support' refers to the scenario where the Bluetooth SIG itself contacts the customer about the registered product (e.g., a market audit) — Allion does not perform proactive market surveillance, but if such an inquiry occurs, the customer can contact Allion for draft response content and handling advice. Allion does not have a separate fixed checklist/document describing this support scope in greater detail.",
+  "decision_logic": "Wire-transfer proxy services for the SIG fee are treated as a normal taxable consulting service, with USD conversion locked at the TTS rate as of the prior month-end at the time the formal quotation is issued (not order date or payment date). The 'support' line items in Allion's standard 5-point service description are deliberately broad; when a prospective client asks for specifics, the practical answer is: minor rules clarification is included, and SIG-initiated post-registration inquiries are handled reactively on request, with no separate documented scope or fixed deliverable list.",
+  "final_recommendation": "When prospective clients ask for itemized detail behind broad service-line descriptions like 'rules consultation' or 'post-registration SIG inquiry support,' clarify with concrete examples (as done here) rather than relying on the short bullet-point description alone, since customers evaluating multiple vendors often need this level of detail to compare offerings.",
+  "risk_if_done_wrong": "Vague service-scope descriptions left unclarified could lead to customer expectations of proactive market surveillance or unlimited technical consultation that Allion does not actually provide, creating friction later if the customer believes more support was included than was actually offered.",
+  "bluetooth_tags": [
+    "Qualification Fee taxable",
+    "TTS rate",
+    "wire transfer proxy",
+    "service scope",
+    "post-registration SIG inquiry",
+    "market audit support",
+    "consumption tax"
+  ],
+  "search_aliases": [
+    "Qualification Fee tax wire transfer",
+    "TTS rate SIG fee conversion",
+    "Allion certification rules support scope",
+    "post registration SIG inquiry support meaning",
+    "Bluetooth SIG market audit support"
+  ],
+  "qualification_stage": "Pre-registration / commercial terms",
+  "confidence": "high"
+}

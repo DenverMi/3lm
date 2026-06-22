@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0256",
+  "case_id": "thread_0256_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product profile testing (DensoTen, BT profile retest), PTS version regression behavior",
+  "customer_question": "The same test case is giving different Pass/Fail results depending on the PTS tool version (e.g., Fail on 8.7.0, Pass on 8.7.1, Pass on 8.5.4). Should we standardize on a single PTS version, and is it acceptable to test at 8.5.4 specifically? What's causing this version-to-version inconsistency?",
+  "question_variants": [
+    "Why does the same test case Pass or Fail depending on PTS version?",
+    "Do we need to pick one PTS version and stick with it for all remaining tests?",
+    "Is testing at an older version like 8.5.4 acceptable for certification?"
+  ],
+  "actual_issue": "The customer was confused by inconsistent Pass/Fail results for the same test case across different PTS tool versions, and needed to know whether this meant they had to commit to one specific version for all remaining testing, or whether mixing versions and using whichever produces a Pass was acceptable for certification purposes.",
+  "plain_english_explanation": "PTS version updates come in two types: releases timed with new Core Specification profile additions (version numbers ending in 0), and incremental bug-fix releases (non-zero-ending versions). Empirically, regression bugs — where a test case that previously passed correctly stops passing due to a PTS tool defect, not an actual product issue — are most common in the profile-addition releases, which is why they're quickly followed by several bug-fix releases in short succession. Each version has its own published PTS Release Notes documenting what was fixed. Critically, certification rules allow mixing test reports from different PTS versions, and allow using the latest reliable Pass result as valid evidence even if other versions produced a Fail due to a known regression bug. There's no requirement to standardize on one single version — the practical approach is to use whichever version reliably produces a Pass for each specific test case, except when deliberately testing against a documented bug fix relevant to your specific Fail items (in this case, version 8.7.3's fix for 19 MPS-related bugs was specifically worth using for that profile).",
+  "consultant_answer": "PTS version updates split into two types: profile-addition releases (ending in 0) and bug-fix releases (non-zero endings) — regression bugs (a previously-passing test case failing due to a PTS tool defect, not an actual product issue) are most common right after a profile-addition release, which triggers several quick bug-fix releases afterward. Certification rules allow mixing reports from different PTS versions and using the latest reliable Pass result as evidence, even if another version Failed due to a known regression bug — so there's no need to standardize on one version. Use whichever version reliably passes for each test case, except where you specifically want a documented bug fix (like 8.7.3's 19 MPS bug fixes, which we recommend using for your MPS retest).",
+  "decision_logic": "PTS version-to-version Pass/Fail inconsistency should be interpreted via the tool's own release pattern (profile-addition releases carry more regression risk than bug-fix releases) rather than assumed to indicate an actual product defect, and certification evidence rules permit mixed-version reporting and reliance on the most reliable passing version per test case.",
+  "final_recommendation": "When a customer reports inconsistent PTS results across tool versions, explain the release-pattern context (profile-addition vs. bug-fix releases) and confirm that mixed-version evidence and best-available-Pass-result reliance are both acceptable, rather than insisting on a single standardized version.",
+  "risk_if_done_wrong": "Insisting on a single PTS version for all testing could force a customer to repeatedly fail test cases due to a known regression bug in that specific version, when an alternative version would have produced a valid Pass; conversely, failing to flag a documented bug-fix release relevant to specific Fail items could cause unnecessary firmware-level troubleshooting for what's actually a tool defect.",
+  "bluetooth_tags": [
+    "PTS version regression bug",
+    "mixed PTS version evidence acceptable",
+    "PTS Release Notes bug fix",
+    "profile addition vs bug fix release pattern",
+    "DensoTen"
+  ],
+  "search_aliases": [
+    "why does PTS version affect test result",
+    "can we mix PTS versions for certification evidence",
+    "PTS regression bug profile addition release",
+    "MPS bug fix PTS 8.7.3"
+  ],
+  "qualification_stage": "Test execution / retest",
+  "confidence": "high"
+}

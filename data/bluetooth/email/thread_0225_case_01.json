@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0225",
+  "case_id": "thread_0225_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (IDEAL company product with optional resin cover/case accessory)",
+  "customer_question": "Our product has an optional resin cover/case accessory that customers can purchase separately — does this accessory need to be included in the Bluetooth SIG registration scope?",
+  "question_variants": [
+    "Do Bluetooth-unrelated optional accessories need to be part of the registration?"
+  ],
+  "actual_issue": "The customer wanted to know whether an optional, separately-sold resin cover/case accessory — which has no Bluetooth functionality itself — needed to be declared or included within the scope of their product's Bluetooth SIG registration.",
+  "plain_english_explanation": "Optional accessories that have no Bluetooth-related function (such as a resin cover/case) do not need to be included in the registration scope, since SIG registration concerns the Bluetooth-implementing product itself, not unrelated bundled or optional accessories.",
+  "consultant_answer": "No — since the resin cover/case is unrelated to Bluetooth functionality, it does not need to be included in the registration scope.",
+  "decision_logic": "Registration scope covers only the Bluetooth-implementing device and its relevant hardware/software; accessories without Bluetooth function fall outside this scope regardless of whether they are bundled or sold separately.",
+  "final_recommendation": "When customers ask whether accessory items need registration, confirm whether the accessory itself implements or affects Bluetooth functionality — if not, it can be excluded from scope.",
+  "risk_if_done_wrong": "Unnecessarily including unrelated accessories in registration scope could create confusion in the Compliance Folder and registration documentation without any certification benefit.",
+  "bluetooth_tags": [
+    "registration scope",
+    "optional accessory exclusion",
+    "resin cover",
+    "IDEAL company"
+  ],
+  "search_aliases": [
+    "does accessory need Bluetooth registration",
+    "optional case included in scope",
+    "non-Bluetooth accessory registration"
+  ],
+  "qualification_stage": "Pre-registration / scope definition",
+  "confidence": "high"
+}

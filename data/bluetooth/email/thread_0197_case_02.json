@@ -1,0 +1,42 @@
+{
+  "source_thread": "thread_0197",
+  "case_id": "thread_0197_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth module-based product (host stack: D063309 Fluoride Bluetooth Host Subsystem), profiles A2DP/AVRCP/DI",
+  "customer_question": "What does 'ICS support' mean? We are not modifying the Bluetooth stack related to A2DP, AVRCP, and DI — does that mean product-level profile testing is exempted? Also, is RF/RF PHY testing required for our product?",
+  "question_variants": [
+    "What is an ICS (Implementation Conformance Statement) in Bluetooth SIG terms?",
+    "If we don't change the Bluetooth stack, is profile testing for A2DP/AVRCP/DI exempted?",
+    "Do we need RF/RF PHY testing if our Bluetooth module has an antenna connector?",
+    "How does ICS comparison against a reference host stack determine test exemption?"
+  ],
+  "actual_issue": "The customer asked the consultant to explain the meaning of 'ICS support' and whether keeping their Bluetooth stack unmodified would exempt them from profile testing on A2DP, AVRCP, and DI. They were already informed that profile testing might be conditionally required unless their product's ICS support matched, or was a subset of, the ICS support already declared for the pre-certified reference host stack D063309 (Fluoride Bluetooth Host Subsystem). Separately, the consultant had already determined from the module's datasheet that RF/RF PHY testing was exempt because the module has an antenna connector.",
+  "plain_english_explanation": "ICS stands for Implementation Conformance Statement — a Bluetooth SIG-defined document that breaks each profile or protocol down into its smallest functional items and records, item by item, whether the implementation supports it (YES/NO). To determine if a product needs its own profile testing, the consultant compares the product's actual ICS support against the ICS already declared and qualified for the underlying host stack component. If the product's support is identical to, or a strict subset of, that already-qualified ICS, and the customer has not modified the Bluetooth stack itself, then no new profile test is needed — the existing qualification already covers it. Separately, RF/RF PHY testing is determined by hardware: if the Bluetooth module has an antenna connector (confirmed via datasheet), RF/RF PHY testing is exempted.",
+  "consultant_answer": "ICS is a Bluetooth SIG-defined term. It is, in short, a document that breaks down each profile/protocol's functionality into minimal individual items and records support (YES or NO) for each item. Since the customer is not modifying the Bluetooth stack, as long as the product's ICS support for the relevant profiles (A2DP, AVRCP, DI) matches or is a subset of the ICS support already declared for the reference host stack D063309 (Fluoride Bluetooth Host Subsystem), profile testing on the product is exempted. Separately, based on the module's datasheet showing it has an antenna connector, RF/RF PHY testing is exempted for this product.",
+  "decision_logic": "For profile test exemption: compare the customer's declared ICS support for each profile against the ICS support already qualified for the underlying pre-certified host stack. If equal or a subset, and the stack is unmodified, exempt profile testing. For RF/RF PHY test exemption: check the module datasheet for presence of an antenna connector; if present, RF/RF PHY testing is exempt at the module level.",
+  "final_recommendation": "When a customer is reusing a pre-qualified Bluetooth host stack unmodified, request their ICS declaration and compare it against the reference stack's qualified ICS before granting a profile-test exemption. Always check module datasheets for antenna-connector presence before requiring RF/RF PHY testing.",
+  "risk_if_done_wrong": "Granting a profile-test exemption when the customer's actual ICS support exceeds what the reference stack declared would result in registering an unqualified product as qualified, creating a compliance and potential SIG audit risk. Incorrectly requiring (or skipping) RF/RF PHY testing wastes customer cost or creates a testing gap.",
+  "bluetooth_tags": [
+    "ICS",
+    "Implementation Conformance Statement",
+    "profile test exemption",
+    "RF PHY exemption",
+    "antenna connector",
+    "A2DP",
+    "AVRCP",
+    "DI",
+    "host stack reuse",
+    "D063309"
+  ],
+  "search_aliases": [
+    "what is ICS support Bluetooth",
+    "ICS Implementation Conformance Statement meaning",
+    "profile test exemption unmodified stack",
+    "RF PHY test exemption antenna connector module",
+    "A2DP AVRCP DI test exemption",
+    "reuse pre-qualified host stack ICS comparison"
+  ],
+  "qualification_stage": "pre-test review",
+  "confidence": "high"
+}

@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0185",
+  "thread_analysis": {
+    "thread_summary": "Panasonic Connect (cable TV set-top box, RTL8852 Wi-Fi/BT combo module, BT 5.3, Classic+BLE, LE Audio) requested a rough estimate for Bluetooth SIG certification. Key clarifications: (1) Post-July 2024 QPRDv3.0 unified Component and Controller Subsystem categories — no cost difference; (2) LE Audio registration requires X2Core or Core-Host QDID with Generic Framework (PACS, ASCS, BASS, MCS, TBS, etc.); (3) External antenna mandates RF testing (not exempt). Pricing estimate provided: RF full ¥1,200,000 or RF PHY 1M+2M+Coded ¥900,000; PTS full suite ¥1,000,000 (or IOPT only ¥200,000 if Host layers support profiles); Multi-Design ¥250,000; Compliance Folder ¥150,000.",
+    "all_questions_found": [
+      "Is there a cost difference between Component and Controller Subsystem QDID?",
+      "What is required for LE Audio product registration?",
+      "Does an external antenna require RF testing?",
+      "What is the rough price estimate for the full Bluetooth SIG certification service?"
+    ],
+    "key_technical_discussion": "Three important concepts clarified: (1) QPRDv3.0 (post-July 2024) treats Component and Controller Subsystem identically — this eliminates a common customer misconception from the old system; (2) LE Audio has specific prerequisite registrations (X2Core or Core-Host with Generic Framework) that must exist before LE Audio profiles can be registered; (3) External antenna always mandates RF PHY testing regardless of module QDID coverage.",
+    "key_decision_logic": "External antenna → RF test mandatory (categorical rule). LE Audio → Generic Framework QDID prerequisite (technical dependency). Component=Controller Subsystem → cost equivalence (QPRDv3.0 change). Always check all three factors when scoping a dual-mode product with LE Audio and external antenna.",
+    "risk_if_done_wrong": "Missing any of the three rules leads to incorrect quotes: underquoting RF test costs (external antenna), incorrect LE Audio registration (missing Generic Framework), or wrong fee calculation (applying old Component/Controller Subsystem distinction).",
+    "consulting_mistake": "None identified in this thread.",
+    "consulting_takeaway": "When quoting dual-mode + LE Audio products, always ask: (1) integrated or external antenna? (2) Does the Host QDID include the LE Audio Generic Framework? (3) Confirm Component vs. Controller Subsystem distinction is obsolete under QPRDv3.0. Include all three checkpoints in every LE Audio scoping conversation."
+  }
+}

@@ -1,48 +1,33 @@
 {
-    "source_thread": "thread_0052",
-    "cases": [
-        {
-            "case_id": "thread_0052_case_02",
-            "iut_type": "audio speaker",
-            "customer_question": "How should a new qualification be handled when a referenced Host Subsystem contains HOGP-related hierarchy inconsistencies that now trigger additional mandatory profile dependencies?",
-            "question_variants": [
-                "Can we inherit an existing qualification hierarchy error?",
-                "Do we need DIS SCPP and SCPS testing for HOGP dependencies?",
-                "Can a product be registered with inherited consistency issues?",
-                "Should we fix the hierarchy mismatch or reuse it unchanged?",
-                "Can HOGP remain declared without new profile testing?"
-            ],
-            "actual_issue": "A referenced Host Subsystem contained HOGP declarations that, under newer qualification rules, required DIS, SCPP, and SCPS qualifications. The customer needed to choose between inheriting the existing inconsistency or performing additional profile testing.",
-            "plain_english_explanation": "An older qualified Bluetooth design no longer matched newer qualification dependency checks. The customer could either keep the inherited inconsistency and reuse the qualification as-is, or perform additional profile testing to make the qualification hierarchy fully consistent. The decision was primarily a tradeoff between qualification cleanliness and additional testing cost.",
-            "consultant_answer": "The consultant explained that combining the referenced Controller and Host Subsystems using the unmodified-design approach would inherit the existing hierarchy inconsistency while still allowing successful submission and maintaining qualification validity. Alternatively, DIS, SCPP, and SCPS PTS testing could be performed to remove the inconsistency. The consultant also clarified that HOGP could remain visible and usable when inheriting the existing hierarchy issue and that qualification validity was not restricted by doing so.",
-            "decision_logic": "The deciding factor is whether the new product reuses the referenced design unchanged. An unmodified combination may inherit existing hierarchy inconsistencies from referenced qualifications, whereas correcting the inconsistency requires additional profile qualification evidence. Qualification validity remains intact when the inconsistency is inherited through the approved reuse path.",
-            "final_recommendation": "If minimizing cost and qualification effort is the priority, reuse the referenced designs unchanged and inherit the hierarchy inconsistency. If a clean hierarchy is required for future qualification strategy, perform DIS, SCPP, and SCPS profile testing and register a corrected design.",
-            "risk_if_done_wrong": "Unnecessary profile testing can be performed when not required, while incorrect profile declarations or misunderstanding dependency rules can create qualification confusion and registration rework. The thread explicitly states that correcting the hierarchy through DIS, SCPP, and SCPS testing would add ¥300,000 in profile testing cost.",
-            "bluetooth_tags": [
-                "qualification",
-                "HOGP",
-                "DIS",
-                "SCPP",
-                "SCPS",
-                "PTS",
-                "consistency check",
-                "profile"
-            ],
-            "search_aliases": [
-                "HOGP dependency",
-                "DIS mandatory",
-                "SCPP mandatory",
-                "SCPS mandatory",
-                "hierarchy inconsistency",
-                "consistency error",
-                "inherit qualification error",
-                "PTS profile testing",
-                "host subsystem mismatch",
-                "HOGP qualification"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0052",
+  "case_id": "thread_0052_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Conditional ICS Mandatory-trigger rules (HOGP-dependent DIS/SCPP/SCPS requirements), the 'Combine Unmodified Design' inherited-inconsistency strategy, and the cascading risk of including unused profiles that could later become Withdrawn",
+  "customer_question": "Our product doesn't support HOGP (HID over GATT Profile), but the existing QDIDs we're including nominally support it, which triggers a requirement for DIS, SCPP, and SCPS profiles we also don't use. Can we register without testing these unused, conditionally-triggered profiles -- or should we remove GATT support entirely to sidestep the issue?",
+  "question_variants": [
+    "What's the actual difference between leaving an inherited inter-layer inconsistency in a registration versus testing to resolve it?",
+    "Is there a long-term risk to including profiles in a registration that the product doesn't actually use?"
+  ],
+  "actual_issue": "The customer's product doesn't support HOGP, but the registration's referenced existing QDID combination nominally includes HOGP support, which -- per the Bluetooth ICS's conditional Mandatory rules -- triggers a requirement for DIS, SCPP, and SCPS to also be included; since the customer's product doesn't support those either, this created an inter-layer inconsistency in the registration, and the customer needed to decide how to resolve it.",
+  "plain_english_explanation": "Bluetooth's ICS tables include conditional rules like 'If [CORE] and [HOGP] (at certain versions) are Supported, then [DIS]/[SCPP]/[SCPS] is Mandatory' -- meaning these additional profile requirements only activate when HOGP is actually claimed as supported. Since the customer's product doesn't genuinely support HOGP, these conditional requirements don't reflect real product functionality, but because the registration inherits an existing QDID combination that nominally includes HOGP, the registration as filed shows an inter-layer inconsistency (HOGP claimed without the now-mandatory DIS/SCPP/SCPS support). There are three resolution paths: (1) Use 'Combine Unmodified Design' to Include the existing QDIDs exactly as-is, carrying forward the inherited inconsistency (and the HOGP claim) without performing any additional profile testing -- the registration Submission completes successfully despite the inconsistency, and the resulting certification's legal validity and usable scope (including HOGP) is completely unaffected by the inconsistency being present. (2) Actually perform PTS testing for DIS, SCPP, and SCPS (at additional cost) to genuinely resolve the inconsistency. (3) Remove HOGP (or, more conservatively, all GATT profiles) from the registration entirely, eliminating the conditional trigger altogether. The customer chose option (1) -- but there's an important long-term strategic consideration when choosing this path: including a profile your product has no plan to ever actually use carries a hidden future risk. If even ONE of the included-but-unused profiles later reaches a 'Withdrawn' version status (a profile or profile version that SIG deprecates over time), the ENTIRE registration becomes treated as Withdrawn, which blocks the ability to add any future derivative-model registrations to that registration's Product List. Because the customer specifically planned to use GATT profile functionality and add LE Audio support in the future, the recommended approach was a middle path: remove HOGP specifically (since it's genuinely unused and not part of future plans) while keeping the rest of GATT intact, rather than either keeping everything (risking future HOGP-driven Withdrawn-cascading) or removing all of GATT (which would have blocked the planned LE Audio extension).",
+  "consultant_answer": "Including the existing QDIDs via 'Combine Unmodified Design' lets you complete registration now without additional profile testing, carrying forward the inherited HOGP-related inconsistency -- this doesn't restrict your certification's validity or usable scope at all. But there's a longer-term risk to keep in mind: if you include profiles you'll never actually use, and even one of them later becomes a 'Withdrawn' version, your entire registration gets treated as Withdrawn, blocking future derivative-model additions to your Product List. Since you do plan to use GATT and add LE Audio later, I'd recommend removing just HOGP (which you genuinely don't use) while keeping the rest of GATT -- that avoids both the unused-profile risk and preserves your future LE Audio plans.",
+  "decision_logic": "When a registration inherits a conditionally-triggered profile requirement (e.g., DIS/SCPP/SCPS triggered by an inherited HOGP claim) that doesn't reflect the product's actual functionality, weigh the 'Combine Unmodified Design' no-testing path (valid but carries a future Withdrawn-cascading risk for any included-but-unused profile) against actually testing to resolve the inconsistency or removing only the specific unused profile that triggers the conditional requirement -- removing only the genuinely unused profile (rather than all related profiles) best balances near-term simplicity against future product roadmap plans.",
+  "final_recommendation": "When a customer's registration inherits an unused, conditionally-triggered profile requirement, don't just present the binary choice of 'test it' versus 'remove everything related' -- explain the 'Combine Unmodified Design' no-testing option's validity along with its specific future Withdrawn-cascading risk, and recommend removing only the specific genuinely-unused profile if the customer has concrete future plans for adjacent functionality (like GATT/LE Audio).",
+  "risk_if_done_wrong": "Including unused profiles via 'Combine Unmodified Design' without understanding the Withdrawn-cascading risk could later block all future derivative-model registrations if any included-but-unused profile becomes deprecated; conversely, removing all related profiles unnecessarily could foreclose planned future functionality like LE Audio that depends on retaining GATT.",
+  "bluetooth_tags": [
+    "conditional ICS Mandatory trigger HOGP DIS SCPP SCPS",
+    "Combine Unmodified Design inherited inconsistency no testing",
+    "Withdrawn profile cascading risk blocks derivative additions",
+    "remove only unused profile preserve future roadmap",
+    "Klipsch Premium Audio Company THE FIVES"
+  ],
+  "search_aliases": [
+    "HOGP triggers DIS SCPP SCPS mandatory requirement",
+    "Combine Unmodified Design inherited ICS inconsistency risk",
+    "Withdrawn profile version blocks derivative product registration",
+    "should I remove unused Bluetooth profile from registration"
+  ],
+  "qualification_stage": "Profile inclusion strategy and inter-layer inconsistency resolution",
+  "confidence": "high"
 }

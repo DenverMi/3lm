@@ -1,45 +1,32 @@
 {
-    "source_thread": "thread_0009",
-    "cases": [
-        {
-            "case_id": "thread_0009_case_02",
-            "iut_type": "host device",
-            "customer_question": "Can a product qualify without enabling HOGP functionality in the initial release if the Bluetooth stack already contains the feature and it will be enabled later by firmware update?",
-            "question_variants": [
-                "Can unused HOGP functionality stay disabled at launch?",
-                "Does SIG qualification require enabling all stack features immediately?",
-                "Can HOGP be added later without changing the stack?",
-                "Can the first product release omit HOGP support?",
-                "Is dormant HOGP functionality acceptable for qualification?"
-            ],
-            "actual_issue": "The product used a Bluetooth stack that supported HOGP, but the initial commercial release would not expose or enable HOGP functionality until a later software update.",
-            "plain_english_explanation": "The customer wanted to ship a product before enabling one Bluetooth feature already present in the software stack. The concern was whether Bluetooth SIG qualification requires every supported stack feature to be active in the first product release. The discussion focused on qualifying only the features actually used in the shipping product.",
-            "consultant_answer": "The thread indicates the qualification strategy was based on creating a Host Subsystem including HOGP capability not contained in the base QDID while the first release would not actually use the HOGP function. The reasoning presented was that because the Bluetooth stack itself remained unchanged between releases, the initial product could qualify without enabling HOGP functionality. The later firmware update would activate the feature without changing the underlying stack implementation.",
-            "decision_logic": "Bluetooth qualification is tied to the implemented and claimed Bluetooth functionality reflected in the product's ICS and listing scope. Dormant functionality that is not enabled or claimed in the released product may be excluded from the initial qualification scope if the Bluetooth-compliant implementation being declared does not change.",
-            "final_recommendation": "Qualify the initial product release based on the Bluetooth features actually enabled and exposed at launch. When enabling HOGP later, review whether the updated feature set changes the declared ICS or qualification scope and perform additional qualification work if required.",
-            "risk_if_done_wrong": "If unsupported assumptions are made about deferred features, the product may later require requalification, updated listings, or additional testing after the firmware update. Incorrectly claiming unsupported features in the initial listing could also create compliance issues.",
-            "bluetooth_tags": [
-                "qualification",
-                "HOGP",
-                "Host Subsystem",
-                "ICS",
-                "QDID",
-                "firmware update",
-                "design change"
-            ],
-            "search_aliases": [
-                "disabled HOGP at launch",
-                "future firmware Bluetooth feature",
-                "dormant profile qualification",
-                "ICS feature not enabled",
-                "later enable HOGP",
-                "Bluetooth stack unchanged",
-                "Host Subsystem deferred feature",
-                "qualification scope by enabled feature"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "medium",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0009",
+  "case_id": "thread_0009_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Silex Technology module, for end customer 'P company'), TCRL2024-1 scheduled HOGP/ScPP test item additions",
+  "customer_question": "Our HOGP/ScPP PTS test report was just completed by our subcontractor — can you confirm it's sufficient evidence for registration?",
+  "question_variants": [
+    "Is our current HOGP/ScPP test report enough, or will it become outdated soon?",
+    "What additional test items will be required if registration is delayed past a certain date?"
+  ],
+  "actual_issue": "The customer's registration timeline had been pushed back (to around January, due to the end customer's product release schedule change), and needed to know whether their already-completed HOGP/ScPP test report would still be valid as evidence once that delayed registration date arrived, given upcoming scheduled test specification updates.",
+  "plain_english_explanation": "Comparing the submitted HOGP/ScPP test report's Pass items against a freshly-generated Test Plan from the same ICS configuration confirmed no missing items for any registration completed by December 27, 2024. However, TCRL2024-1 was scheduled to add 10 new HOGP test items effective December 28, 2024 — meaning any registration completed on or after that date would require those 10 additional test items to be run and added as evidence, beyond what the current report already covered.",
+  "consultant_answer": "Your current HOGP/ScPP report is sufficient evidence with no missing items for any registration completed by December 27, 2024. However, TCRL2024-1 adds 10 new HOGP test items effective December 28, 2024 — since your registration is now expected around January, you'll need to run and add those 10 additional items as evidence before registering.",
+  "decision_logic": "Test report sufficiency should be evaluated against the specific TCRL version in effect at the actual planned registration date, not just the version in effect when testing was originally performed — a scheduled TCRL update with a known effective date can retroactively add requirements for a delayed registration timeline.",
+  "final_recommendation": "When a customer's registration timeline shifts due to external factors (like an end customer's release schedule change), proactively check for any scheduled TCRL updates with effective dates falling within the new timeline, and flag any additional test items that would become required as a result.",
+  "risk_if_done_wrong": "Failing to flag the TCRL2024-1 scheduled test item additions could result in the customer submitting an incomplete test report for a registration attempted after December 28, 2024, requiring a late-stage scramble to add the missing items.",
+  "bluetooth_tags": [
+    "TCRL2024-1 scheduled test item addition",
+    "test report sufficiency date dependent",
+    "delayed registration timeline TCRL update",
+    "HOGP ScPP test items",
+    "Silex Technology"
+  ],
+  "search_aliases": [
+    "TCRL2024-1 new HOGP test items December 2024",
+    "is test report still sufficient after delay",
+    "scheduled TCRL update effective date registration"
+  ],
+  "qualification_stage": "Pre-registration test report review",
+  "confidence": "high"
 }

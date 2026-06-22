@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0013",
+  "case_id": "thread_0013_case_07",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Koizumi Lighting BM043 lamp), DIS profile test item Fail resolved by changing ICS declaration rather than fixing firmware",
+  "customer_question": "Our DIS profile test completed with one item (3.4) showing Fail -- the PTS log shows the Serial Number String field isn't stored in the correct data format. Do we need to fix our firmware to resolve this?",
+  "question_variants": [
+    "Can a failing test item be resolved by simply declaring that feature as unsupported instead of fixing it?",
+    "Does changing an ICS declaration after a Fail result require re-running the test?"
+  ],
+  "actual_issue": "One of the DIS profile's optional sub-items (item 3.4, a Serial Number String related Characteristic test) failed during PTS testing because the field wasn't stored in the data format the test expected, and the customer needed to decide whether this required a firmware fix or whether there was a simpler path forward.",
+  "plain_english_explanation": "Since item 3.4 was an optional (not mandatory) DIS feature that the customer's product did not actually need to support, the customer chose to update their ICS declaration for that item from 'Supported' to 'Not Supported' (pending a final confirmation check with their outsourced firmware developer) rather than spending effort fixing the underlying data-format issue in firmware. Because the item became declared as unsupported, the original Fail result on that item no longer mattered for conformance purposes -- the test plan was updated to match the revised ICS, the existing test results were compiled into the final report, and DIS testing was considered complete without needing to re-run any tests.",
+  "consultant_answer": "Since item 3.4 is optional and your product doesn't need it, the simplest path is to update your ICS declaration for that item from 'Supported' to 'Not Supported' (please double-check with your outsourced developer first) rather than fixing the firmware. Once that's confirmed, we'll update the test plan to match and finalize the report with your existing results -- no retest needed, since the item no longer needs to Pass once it's declared unsupported.",
+  "decision_logic": "When a profile test item fails on an optional (not mandatory) feature, check whether the product genuinely needs to support that feature before investing in a firmware fix -- if it doesn't, updating the ICS declaration to 'Not Supported' resolves the Fail without requiring any code change or retest, since unsupported items are excluded from conformance requirements entirely.",
+  "final_recommendation": "Before recommending a firmware fix for a failing optional profile test item, confirm with the customer whether the underlying feature is actually needed by the product -- declaring it unsupported in the ICS is often the faster and equally valid resolution path when the feature isn't required.",
+  "risk_if_done_wrong": "Spending firmware development effort to fix a failing optional feature that the product doesn't actually need would waste time and delay registration unnecessarily, when simply revising the ICS declaration would have resolved the Fail immediately.",
+  "bluetooth_tags": [
+    "DIS profile test item Fail",
+    "ICS declaration change resolves Fail",
+    "optional feature not supported",
+    "Serial Number String data format issue",
+    "no retest needed after ICS change",
+    "Koizumi Lighting"
+  ],
+  "search_aliases": [
+    "DIS test item fails can ICS change fix it",
+    "declare feature unsupported instead of fixing firmware",
+    "Serial Number String DIS test Fail",
+    "does changing ICS require retest"
+  ],
+  "qualification_stage": "Profile PTS test result resolution",
+  "confidence": "high"
+}

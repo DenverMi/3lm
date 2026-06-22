@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0079",
-    "cases": [
-        {
-            "case_id": "thread_0079_case_03",
-            "iut_type": "BLE product",
-            "customer_question": "Is the compliance folder uploaded or publicly disclosed, and how long must it be kept?",
-            "question_variants": [
-                "Will the compliance folder be public?",
-                "Do we upload compliance-folder contents to the SIG site?",
-                "Where should the compliance folder be stored?",
-                "How long should the Bluetooth compliance folder be retained?",
-                "What do we do with the compliance folder after registration is complete?"
-            ],
-            "actual_issue": "Clarifying compliance-folder custody, disclosure, audit use, and retention after Bluetooth qualification registration.",
-            "plain_english_explanation": "The compliance folder is not normally uploaded or made public. It is kept by the member and shown only if Bluetooth SIG requests it during an audit. In this thread, the consultant instructed the customer to retain it until one year after sales of the listed products end.",
-            "consultant_answer": "The consultant explained that the compliance folder is retained by the customer unless Bluetooth SIG requests it during an audit, so it is not uploaded to the SIG site and is not disclosed to third parties in the ordinary process. After the customer received the CD-R, the consultant stated that the certification procedure was complete if the folder was stored under the specified condition: keep it until one year after completion of sales for the products listed in the Product List and present it during a Bluetooth SIG audit if requested.",
-            "decision_logic": "The compliance folder is supporting evidence for the member’s qualification record, not ordinary public listing content. Its purpose is audit readiness, so the practical obligation is retention and presentation upon request rather than submission during normal registration.",
-            "final_recommendation": "Store the compliance folder securely until one year after sales of the registered Product List items are complete, and be prepared to present it if Bluetooth SIG audits the qualification.",
-            "risk_if_done_wrong": "Uploading or disclosing the folder unnecessarily could expose non-public product information. Failing to retain it could leave the member unable to respond properly if Bluetooth SIG requests audit evidence.",
-            "bluetooth_tags": [
-                "compliance folder",
-                "audit",
-                "qualification",
-                "listing",
-                "declaration",
-                "Product List"
-            ],
-            "search_aliases": [
-                "compliance folder not public",
-                "SIG audit folder",
-                "retain compliance folder",
-                "CD-R compliance folder",
-                "not uploaded to SIG",
-                "audit presentation",
-                "one year after sales end",
-                "Product List retention"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0079",
+  "case_id": "thread_0079_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "If we release future derivative or expansion models that use the same module and host stack as this registration, do we need a whole new registration, or can they be added to this one?",
+  "question_variants": [
+    "Can a future expansion model be added to our existing registration for free?",
+    "Do derivative models with the same module and host stack need their own registration?",
+    "How do we add a new model to our Product List after registration is complete?"
+  ],
+  "actual_issue": "The customer wanted to know, for future derivative or expansion models built on the same module and host stack as the just-completed registration, whether each would require its own new registration or could instead be added to the existing one.",
+  "plain_english_explanation": "Once a registration is complete, the certification system gives the registrant a self-service way to add more models to that same registration, as long as those new models use the same core Bluetooth components (module and host stack) as what was already registered. This means future product variants built on the same Bluetooth hardware and software don't need to go through the full registration process again -- they can be added through a simple, free web operation.",
+  "consultant_answer": "Future derivative or expansion models that use the same module and host stack as this registration can be added to this registration's existing Product List through a simple web operation, performed for free, via the 'Manage Submitted Products' list available on the registrant's My Page. The consultant provided a derivative-product addition Product registration procedure document for the customer to follow when adding such models.",
+  "decision_logic": "A new model that reuses the same module and host stack as an already-completed registration does not require a separate new registration; it can be added to the existing registration's Product List through the free, self-service addition mechanism available on the registrant's My Page once the original registration is complete.",
+  "final_recommendation": "For future derivative or expansion models that reuse the same module and host stack as an existing registration, use the free Product List addition self-service flow (via 'Manage Submitted Products' on My Page) rather than initiating a new registration, following the derivative-product addition procedure documentation.",
+  "risk_if_done_wrong": "Treating each derivative model using the same module and host stack as requiring a brand-new registration would create unnecessary cost and process overhead compared to using the free, self-service Product List addition mechanism.",
+  "bluetooth_tags": ["Product List", "derivative model", "Manage Submitted Products", "My Page", "listing"],
+  "search_aliases": ["add derivative model to existing registration free", "Manage Submitted Products My Page", "same module host stack new model addition", "free additional model registration after completion"],
+  "qualification_stage": "post-launch change",
+  "confidence": "high"
 }

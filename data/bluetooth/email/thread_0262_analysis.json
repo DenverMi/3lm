@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0262",
+  "thread_analysis": {
+    "thread_summary": "Alinco Incorporated (contact Mitsunori Kirimoto) works with Allion (Itsuo Sakai, Masaya Iida) across two engagements years apart: a detailed 2020 registration troubleshooting saga for module XE1134 (Bluetooth Core Spec 4.2) involving TCRL/Layer Selection setup guidance and recovery from a premature submission with unresolved ICS errors, and a 2025 follow-up inquiry about registering a similar but updated module (same function as XE1134, IC changed from CSR8670 to QCC3044) where the customer, having forgotten much of the process after years away, requested a refresher consultation.",
+    "all_questions_found": [
+      "What should I do with the TCRL warning, Update TCRL option, and Layer Selection items during project setup? (see thread_0262_case_01)",
+      "How do I recover from a locked, under-review project after submitting with unresolved ICS errors? (see thread_0262_case_02)",
+      "(2025, administrative) Can we have a refresher Teams/F2F consultation before proceeding with a new, similar registration after years away?"
+    ],
+    "key_technical_discussion": "This thread preserves detailed, hands-on registration-execution guidance (TCRL handling, Layer Selection pruning, ICS Consistency Check error types, and the critical BQA Project Return recovery procedure) that remains directly applicable to the customer's 2025 follow-up project, since the underlying registration site mechanics described are foundational rather than specific to the original 2020 module.",
+    "key_decision_logic": "See thread_0262_case_01 and thread_0262_case_02.",
+    "risk_if_done_wrong": "See thread_0262_case_01 and thread_0262_case_02.",
+    "consulting_mistake": "The original 2020 customer submission proceeded with visible ICS errors despite the registration site's own checkbox warning, leading to the costly locked-state situation — a reminder that customers should be explicitly warned not to proceed past a visible Consistency Check error regardless of time pressure, since recovery requires an extra BQA request cycle.",
+    "consulting_takeaway": "For customers returning to do a new but similar registration years after a previous engagement, proactively offer a refresher consultation (Teams or in-person) before diving into registration-site mechanics, since customers can easily forget critical, non-obvious steps (TCRL handling, Layer Selection pruning) that aren't intuitive from the registration site's own interface and warning messages."
+  }
+}

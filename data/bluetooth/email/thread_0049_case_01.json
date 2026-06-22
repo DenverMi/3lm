@@ -1,47 +1,30 @@
 {
-    "source_thread": "thread_0049",
-    "cases": [
-        {
-            "case_id": "thread_0049_case_01",
-            "iut_type": "",
-            "customer_question": "Should 3-DH1 RF measurements be included when the implementation appears to support 3 Mbps EDR operation but the referenced RF ICS does not declare 3 Mbps support?",
-            "question_variants": [
-                "Do we need 3-DH1 testing if logs show 3 Mbps capability?",
-                "Can RF tests omit 3 Mbps measurements when RF ICS excludes 3 Mbps?",
-                "What determines whether 3-DH1 RF testing is required?",
-                "Does observed EDR behavior override RF ICS declarations?",
-                "Should RF test scope follow implementation logs or declared RF ICS?"
-            ],
-            "actual_issue": "A reviewer questioned why 3-DH1 RF measurements were omitted even though test logs appeared to indicate 3 Mbps EDR capability. The actual issue was ensuring that RF test scope remained consistent with the declared RF ICS inherited from the referenced qualification design.",
-            "plain_english_explanation": "Bluetooth RF testing is based on the officially declared supported features, not just what the hardware may appear capable of doing during testing. In this case, the inherited RF ICS did not declare 3 Mbps EDR support, so 3-DH1 measurements were intentionally excluded from the RF test plan. Even if some logs seem to show 3 Mbps behavior, undeclared features should not expand the qualification scope.",
-            "consultant_answer": "The consultant clarified that the RF ICS inherited from the referenced RF qualification did not support 3 Mbps operation, as already documented in the approved test plan. Therefore, 3-DH1 measurements were not required despite observations in the test logs that could suggest 3 Mbps capability. The consultant reinforced that qualification testing scope must follow the declared RF ICS capabilities and referenced qualification configuration rather than inferred implementation behavior.",
-            "decision_logic": "Bluetooth RF qualification scope is controlled by the declared RF ICS capabilities associated with the referenced qualified design. If 3 Mbps EDR support is not declared in the RF ICS, then 3-DH1 RF measurements are outside the required test scope regardless of apparent implementation behavior.",
-            "final_recommendation": "Ensure that RF test plans, executed measurements, and qualification reports strictly follow the declared RF ICS capabilities inherited from the referenced qualification design. Resolve any apparent mismatches between logs and ICS declarations before final report approval.",
-            "risk_if_done_wrong": "If RF test scope and RF ICS declarations become inconsistent, qualification evidence may be challenged during review, leading to report corrections, retesting requests, or confusion about the product's supported Bluetooth capabilities. Incorrectly expanding test scope could also introduce unnecessary qualification complexity.",
-            "bluetooth_tags": [
-                "RF",
-                "RF ICS",
-                "EDR",
-                "3Mbps",
-                "3-DH1",
-                "qualification",
-                "test plan"
-            ],
-            "search_aliases": [
-                "3-DH1 measurement required",
-                "3Mbps RF ICS",
-                "EDR support mismatch",
-                "RF ICS scope",
-                "3Mbps not declared",
-                "test scope inconsistency",
-                "referenced RF qualification",
-                "Bluetooth RF test plan",
-                "ICS versus test log",
-                "EDR capability review"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0049",
+  "case_id": "thread_0049_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "RF test report internal QC review -- resolving an apparent test-log discrepancy by deferring to the registered/inherited ICS declaration",
+  "customer_question": "(Internal QC review, not a customer question.) The CTS (Conformance Test Spec) states that if 3Mbps is supported, measurement should also be taken at 3-DH1 -- based on the test log, it looks like the device supports 3Mbps. Should the 3-DH1 measurement have been included?",
+  "question_variants": [
+    "How should a reviewer resolve an apparent mismatch between what a raw test log seems to show and what the registration's declared ICS states?"
+  ],
+  "actual_issue": "During internal QC review of an RF test report, a reviewer noticed the test log appeared to show 3Mbps support, which per the Conformance Test Spec would require an additional 3-DH1 measurement -- raising the question of whether that measurement had been improperly omitted.",
+  "plain_english_explanation": "The apparent discrepancy was resolved by checking the Test Plan: this registration's RF ICS, inherited from the referenced RF registration, does NOT actually declare 3Mbps support. Since the conformance requirement for an additional 3-DH1 measurement only applies when 3Mbps support is actually declared in the ICS, the registered ICS declaration -- not a superficial read of the test log -- is the authoritative source for determining whether that additional measurement requirement applies. In this case, no additional measurement was needed despite the test log's appearance, because the inherited ICS confirms 3Mbps is not a supported, declared feature for this registration.",
+  "consultant_answer": "As noted in the Test Plan, the RF ICS inherited from the referenced RF registration does not support 3Mbps for this case -- so the additional 3-DH1 measurement requirement (which only applies when 3Mbps support is declared) doesn't apply here, regardless of what the test log might appear to show.",
+  "decision_logic": "When a test report reviewer notices an apparent conformance requirement triggered by what the test log seems to show (e.g., evidence of a specific data rate or feature), verify against the registration's actual declared/inherited ICS in the Test Plan before concluding a measurement was improperly omitted -- the ICS declaration, not the raw test log's appearance, determines which conformance requirements actually apply.",
+  "final_recommendation": "Train report reviewers to cross-check apparent test-log-driven conformance triggers against the registration's actual ICS declaration in the Test Plan, since visual impressions from a test log can be misleading if the underlying registration doesn't actually declare the feature in question.",
+  "risk_if_done_wrong": "A reviewer who concludes a measurement was improperly omitted based solely on the test log's appearance, without checking the actual ICS declaration, could trigger unnecessary report rework or incorrectly flag a compliant report as deficient.",
+  "bluetooth_tags": [
+    "RF test report QC review ICS vs test log discrepancy",
+    "3Mbps 3-DH1 conformance requirement",
+    "inherited RF ICS determines applicable requirements",
+    "Toytec"
+  ],
+  "search_aliases": [
+    "test log shows 3Mbps but ICS says not supported",
+    "3-DH1 measurement requirement when required",
+    "how to resolve test report review discrepancy"
+  ],
+  "qualification_stage": "Internal test report quality control review",
+  "confidence": "medium"
 }

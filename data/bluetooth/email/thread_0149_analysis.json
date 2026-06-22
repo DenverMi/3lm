@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0149",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "ATAGO Co. quoting thread (214 lines). Three distinct customer questions: (1) whether their GATT-based profile requires PTS testing (answered: depends on UUID type — 16-bit → test required; 128-bit → no test); (2) optimal registration timing for a September launch (answered: register ~3 months early, can set Submission Date up to 90 days in the future); (3) whether they can change the SIG account email (answered: not possible — must register new account; both accounts can coexist). Thread also confirmed ATAGO is a SIG Adopter member and has an existing valid End Product registration (D041005, BT v5.0).",
     "all_questions_found": [
       "Does a GATT Base Profile require SIG PTS testing?",

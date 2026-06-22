@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0183",
+  "thread_analysis": {
+    "thread_summary": "Alps Alpine (HM23, Qualcomm-based, Android 14 OS update) registration thread covering multiple complex technical hurdles: (1) RF test report missing one item (RFPHY/TRM) due to TCRL update after original QDID date — SGS Taiwan should provide free additional test; (2) Power Class 1 ICS inconsistency between LL and RF PHY — resolved by requesting Qualcomm Subset DN removing LL 9/11; (3) After Power Class fix, AoA/AoD ICS inconsistencies appeared — resolved by further Subset DN removing LL 9/17/9/20/9/21/9/23/9/24; (4) When trying to proceed with Host+Profile Subsystem QDID (Qualcomm combined), BAP-related consistency check failed — resolved using TCW ES-25802; (5) Wrong advice to remove LE Audio from Layer Selection caused an unexpected 86-item IOPT test explosion — correctly resolved by reverting to TCW ES-25802 approach without removing LE Audio.",
+    "all_questions_found": [
+      "RF PHY test report missing one item (RFPHY/TRM) — what are the options?",
+      "LL Power Class 1 inconsistency with RF PHY Class 2 — how to fix?",
+      "AoA/AoD LL vs RF PHY ICS inconsistencies — how to resolve?",
+      "BAP Consistency Check failure with Combine unmodified Designs — how to proceed?",
+      "Removing LE Audio from Layer Selection caused 86 IOPT test items — why and how to fix?"
+    ],
+    "key_technical_discussion": "Multiple inter-layer ICS inconsistencies must be resolved via Subset DNs from the QDID Listing Owner (Qualcomm). The SIG portal Consistency Check examines ICS across all referenced QDID layers simultaneously. Each mismatch must be resolved at the QDID level — the product registrant cannot modify QDID ICS. BAP inconsistency with Combine unmodified Designs is handled by TCW ES-25802 — this is the designated SIG-approved waiver for this known issue. Removing LE Audio layers as a workaround is incorrect and causes unexpected IOPT test inflation.",
+    "key_decision_logic": "For ICS inconsistencies: always fix at QDID level via Subset DN (not at product ICS level). For BAP inconsistency with Combine unmodified Designs: use TCW ES-25802, not LE Audio layer removal. For missing test items: check if the item was added after the QDID date; if so, the test lab bears responsibility for its omission.",
+    "risk_if_done_wrong": "Incorrect workarounds (removing LE Audio layers) generate unintended test requirements. Unresolved ICS inconsistencies block Submission entirely. Missing test items cause SIG rejection if the product report is used as registration evidence.",
+    "consulting_mistake": "Initial advice to remove LE Audio from Layer Selection as a workaround for the BAP consistency check failure was incorrect. This caused 86 unexpected IOPT test items to be generated. The correct solution (TCW ES-25802) was identified and applied after the error was discovered.",
+    "consulting_takeaway": "When BAP causes a Consistency Check failure in Combine unmodified Designs mode, immediately apply TCW ES-25802 — do NOT remove LE Audio layers. Always verify workarounds in a Qualification Workspace before advising customers to proceed. For Power Class and AoA/AoD ICS mismatches, proactively request all necessary Subset DN changes from the QDID Listing Owner in a single request to minimize back-and-forth."
+  }
+}

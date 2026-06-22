@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0093",
-    "cases": [
-        {
-            "case_id": "thread_0093_case_01",
-            "iut_type": "beacon",
-            "customer_question": "How should a Bluetooth SIG qualification registration be completed when qualification reuse is used and no new testing is required?",
-            "question_variants": [
-                "Can SIG registration be completed without testing?",
-                "What is the process for declaration-only Bluetooth qualification?",
-                "What steps are required after qualification fee payment?",
-                "How is a qualification reuse registration finalized?",
-                "What review steps are required before submission?"
-            ],
-            "actual_issue": "The product qualification is performed through qualification reuse and declaration rather than new Bluetooth testing, requiring correct payment processing, qualification reference selection, review-page validation, and submission.",
-            "plain_english_explanation": "Some Bluetooth products can be qualified by reusing existing qualified designs instead of performing new testing. In these cases, the critical tasks are validating the qualification references, paying the SIG qualification fee, reviewing the registration details, and submitting the declaration correctly.",
-            "consultant_answer": "The consultant confirmed that the project qualified as a registration-only activity with no additional testing required. After SIG fee payment and receipt confirmation, the consultant validated the qualification content, prepared the registration, requested customer review of the Product Details and Design Details pages, and completed submission after customer approval. The registration then became visible in the customer account pending public release.",
-            "decision_logic": "When qualification reuse fully covers the implementation, qualification completion depends on administrative declaration accuracy rather than test execution. Correct qualification references, payment confirmation, and review-page approval are the key gating items before submission.",
-            "final_recommendation": "Validate all declaration details, obtain customer approval of the Review page, confirm SIG fee receipt processing, and submit the registration only after all qualification references have been verified.",
-            "risk_if_done_wrong": "Incorrect declaration data or unreviewed submission details can result in registration errors that may require correction or resubmission after qualification processing has begun.",
-            "bluetooth_tags": [
-                "qualification",
-                "declaration",
-                "listing",
-                "reuse",
-                "QDID",
-                "registration"
-            ],
-            "search_aliases": [
-                "declaration-only qualification",
-                "registration without testing",
-                "qualification reuse registration",
-                "Review page approval",
-                "SIG submission process",
-                "qualification fee receipt",
-                "listing submission",
-                "declaration workflow"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0093",
+  "case_id": "thread_0093_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "beacon",
+  "customer_question": "Which Host Stack QDID should our module's registration Include, given the specific firmware our module datasheet documents?",
+  "question_variants": [
+    "How do we know which Host Stack QDID actually matches our module's firmware?",
+    "Is any QDID from the same chip vendor an acceptable match, or does it need to be the exact firmware version?",
+    "Where do we find the firmware version our module actually uses?"
+  ],
+  "actual_issue": "The product's registration needed to Include a Host Stack QDID corresponding to the exact SoftDevice firmware version actually used by the module, rather than just any QDID associated with the general chip platform, and this needed to be verified against the module vendor's own documentation.",
+  "plain_english_explanation": "A Bluetooth chip's software stack (the SoftDevice, in this case) comes in different specific versions, and each version has its own separate certification record. Just picking any certification record from the same general chip family isn't good enough -- you need to find the exact one that matches the specific firmware file your module's datasheet says it actually uses, otherwise the registration wouldn't accurately reflect what's really running on the product.",
+  "consultant_answer": "The Host Stack Included alongside the module's Controller-level reference references the QDID corresponding to the SoftDevice file (s140_nrf52_7.2.0_softdevice.hex) documented on page 11 of the Kaga FEI module's datasheet -- specifically the QDID registered as 'S140 End Product v5.1.' This was identified by cross-referencing the exact SoftDevice firmware version specified in the module vendor's own datasheet against the QDID's actual registered firmware version, rather than assuming any S140-family QDID would be an acceptable match.",
+  "decision_logic": "When selecting a Host Stack QDID to Include with a module's registration, cross-reference the exact SoftDevice or firmware version documented in the module vendor's own datasheet against the QDID's actual registered firmware version, since different firmware versions within the same chip family have separate QDIDs and are not interchangeable.",
+  "final_recommendation": "Before Including a Host Stack QDID with a module's registration, check the module vendor's datasheet for the exact firmware/SoftDevice version it documents, and confirm that version matches the QDID actually being referenced rather than assuming any QDID from the same chip family is acceptable.",
+  "risk_if_done_wrong": "Including a Host Stack QDID that does not match the module's actual documented firmware version would result in a registration that misrepresents the product's actual implementation.",
+  "bluetooth_tags": ["Host Stack", "QDID", "SoftDevice", "Include", "firmware version", "module datasheet"],
+  "search_aliases": ["match SoftDevice firmware version to QDID", "Host Stack QDID exact firmware match", "module datasheet SoftDevice hex file QDID", "S140 End Product QDID firmware version"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

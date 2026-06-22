@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0241",
+  "thread_analysis": {
+    "thread_summary": "DensoTen Corporation (HMI Solutions, IVI Technology Dept., contact Hiroshi Majima) registers upper- and lower-model automotive HMI/IVI products referencing a Murata Bluetooth module, working with Allion (Itsuo Sakai, Toshitaka Mochizuki, Yukihiro Nakano). The thread documents a multi-stage Consistency Check saga (September 2024): a preliminary ICS check found an inherent RFPHY/LL inconsistency baked into the module vendor's own registration, the vendor's first attempted fix introduced a new LMP/BB inconsistency, and a Test Coverage Waiver was ultimately validated as applicable for that second issue — followed in October 2024 by post-test process timeline questions and Compliance Folder documentation scope clarifications (block diagram, operation manual, per-model Invoice) for the two-model registration.",
+    "all_questions_found": [
+      "How to register without triggering an LL-layer test requirement, given an inherent RFPHY/LL inconsistency in the module vendor's own registration? (see thread_0241_case_01)",
+      "Is the vendor's newly republished 'corrected' registration actually clean, or does it carry new inconsistencies? (see thread_0241_case_02)",
+      "Is a Test Coverage Waiver validly applicable to the newly discovered LMP/BB inconsistency? (see thread_0241_case_03)",
+      "What documentation and timeline applies after Profile testing passes? (see thread_0241_case_04)",
+      "What scope/detail level is required for the block diagram, operation manual, and per-model Invoice in the Compliance Folder? (see thread_0241_case_05)"
+    ],
+    "key_technical_discussion": "This thread is a strong illustration of how module-vendor-originated ICS defects can cascade: an initial inherent inconsistency in the vendor's registration, an incomplete vendor fix introducing a new inconsistency, and finally a Test Coverage Waiver correctly validated against SIG's specific 'ICS item does not exist' rule rather than approved by analogy alone. The later Compliance Folder questions (whole-product block diagram scope, manual-extraction-not-authoring approach, per-model Invoice requirement) round out the full registration lifecycle for a two-model engagement.",
+    "key_decision_logic": "Throughout the ICS saga, Allion consistently re-verified each new piece of vendor-provided information (the vendor's claimed fix, the vendor's TCW rationale) against the actual SIG registration data and published rules rather than accepting vendor claims at face value — a pattern that caught the second inconsistency before it reached the customer's own registration.",
+    "risk_if_done_wrong": "See thread_0241_case_01 through thread_0241_case_05 for the specific risks of each question.",
+    "consulting_mistake": "None identified — Allion's pattern of independently re-checking each vendor claim (the 'fixed' registration, the TCW rationale) against actual SIG data caught a second, vendor-introduced problem that could otherwise have silently passed through to the customer's registration.",
+    "consulting_takeaway": "For module-based product registrations, run a preliminary ICS/Consistency Check in the Qualification Workspace before committing to a test/registration schedule, and never accept a module vendor's self-reported 'fix' or TCW justification without independently re-verifying it against the actual SIG registration data and published TCW rules — vendor fixes can introduce new, previously absent inconsistencies."
+  }
+}

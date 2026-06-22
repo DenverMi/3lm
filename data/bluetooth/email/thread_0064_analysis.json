@@ -1,0 +1,21 @@
+{
+  "source_thread": "thread_0064",
+  "thread_analysis": {
+    "thread_summary": "[COMPANY] (a medical bed/equipment manufacturer) works with [COMPANY] to complete a Bluetooth SIG agency registration for a toilet-sensor product, after payment to Bluetooth SIG has been received. The thread resolves a login-account mismatch between the Invoice and the Receipt Number needed for registration, walks through a Review Page confirmation step (including a question about blank Company Details fields) before final Submission, and closes with the registration completed and a request for the customer's product documentation needed to build the compliance folder.",
+    "all_questions_found": [
+      "The login credentials provided for the agency registration confirmation document did not work -- can this be corrected?",
+      "Does the SIG account used to issue the Invoice need to match the account that will perform the registration, and if the customer wants registration under a different named account, how can the Receipt Number be moved to that account?",
+      "Should the registration proceed under the existing (Hosokawa-named) account, or should a new account be created for a different named individual first?",
+      "Before finalizing the Submission, will the customer be shown a Review Page for confirmation, and will Submission only be executed after the customer's explicit instruction?",
+      "Do the QDIDs referenced in this registration (a Controller Subsystem QDID from one company and a Host Subsystem QDID from another) need any further explanation or confirmation?",
+      "What product documentation does the customer need to prepare for the post-registration compliance folder?",
+      "Are blank fields in the Review Page's Company Details section a problem, and can they be edited?",
+      "After the customer requests wording corrections to the Review Page content, will those changes be applied before the registration is finalized?"
+    ],
+    "key_technical_discussion": "The thread illustrates SIG registration account mechanics: the login account used to issue an Invoice must match the account that performs the registration, since a Receipt Number is tied to a specific account and cannot be used for registration under a different one without first transferring it via SIG. It also covers the standard pre-Submission workflow of sharing a Review Page screenshot for customer confirmation (including wording corrections) before executing final Submission, and clarifies that certain Review Page fields (Company Details) are auto-populated from the membership database and cannot be edited during registration, with blank values in that section being historically harmless to registration completion.",
+    "key_decision_logic": "A Receipt Number can only be used for registration under the same account that was used to issue the corresponding Invoice; if the customer wants registration under a different named account, that account must first be created and a Transfer Request submitted to SIG to move the Receipt Number to it before agency registration can proceed -- otherwise, proceeding under the existing account is simpler and was the consultant's recommendation. Separately, blank or auto-populated fields on the Review Page that are not editable during registration do not block registration completion, based on prior experience.",
+    "risk_if_done_wrong": "Attempting to register under an account different from the one that issued the Invoice, without first transferring the Receipt Number via SIG, would make the Receipt Number unusable for that registration. Treating non-editable blank Company Details fields as a problem requiring correction could cause unnecessary delay, since these fields are outside the registrant's control and have not historically affected registration outcomes.",
+    "consulting_mistake": "",
+    "consulting_takeaway": "Before starting an agency registration, confirm that the account used to issue the Invoice matches the account intended to perform the registration, since a Receipt Number is account-bound and requires a formal SIG Transfer Request to move between accounts. When something on the Review Page looks incomplete or blank, check whether that field is system-auto-populated and non-editable before assuming it needs to be fixed."
+  }
+}

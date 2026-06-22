@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0160",
+  "case_id": "thread_0160_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE keyboard (Topre)",
+  "customer_question": "We want to add a Mute key to our keyboard that was already certified. Do we need to re-register with Bluetooth SIG?",
+  "question_variants": [
+    "Does adding a new key to a certified keyboard require a new Bluetooth registration?",
+    "If we add key codes to the HID report, does it invalidate the existing qualification?",
+    "We are adding keyboard keys after qualification — do we need to redo the Bluetooth qualification?",
+    "Adding a new function key — does Bluetooth SIG require re-registration?"
+  ],
+  "actual_issue": "The customer wants to add a Mute key (a new key code in the HID report) to a keyboard that has already been Bluetooth SIG certified. They are concerned this change requires a new SIG registration or retesting.",
+  "plain_english_explanation": "Bluetooth SIG qualification for a keyboard covers the Bluetooth protocol and profile behavior — specifically, how the HID (Human Interface Device) profile communicates key presses. When a keyboard is certified, the registration does not list every individual key type that the keyboard supports. Adding a new key (such as a Mute key) simply adds a new HID key code to the report — it does not change the Bluetooth protocol behavior, the Host Stack, or the profile-level ICS. Since the original registration did not restrict which specific key types are supported, adding a key falls within the already-certified scope. No re-registration or retesting is needed.",
+  "consultant_answer": "Adding a Mute key to an already-certified keyboard does NOT require re-registration or retesting with Bluetooth SIG, provided the original registration did not specifically list or limit the supported key types. Adding key codes only adds HID report data — it does not alter the Bluetooth protocol behavior or the profile ICS.",
+  "decision_logic": "SIG qualification covers protocol and profile behavior, not the specific application-layer content of HID reports. Key codes are application-layer data within the HID profile — not a Bluetooth profile change. As long as the HID profile implementation (the ICS) remains the same, adding or changing key codes does not trigger a new qualification requirement.",
+  "final_recommendation": "Before making hardware or firmware changes to a certified product, check whether the change affects: (1) the Bluetooth protocol or Host Stack, (2) the profile ICS, or (3) the radio hardware/antenna. If only application-layer content changes (like key codes in HID), re-registration is not needed.",
+  "risk_if_done_wrong": "Unnecessarily triggering a new registration costs $11,040 in Qualification Fees and weeks of delay. Conversely, failing to re-register when a Bluetooth-level change was made leaves the product non-compliant.",
+  "bluetooth_tags": [
+    "HID profile",
+    "key code addition",
+    "re-registration trigger",
+    "HOGP",
+    "BLE keyboard",
+    "product modification",
+    "ICS"
+  ],
+  "search_aliases": [
+    "adding key to certified keyboard",
+    "HID key code re-registration",
+    "bluetooth recertification trigger",
+    "product change re-registration",
+    "adding keys after certification",
+    "mute key qualification"
+  ],
+  "qualification_stage": "post-registration",
+  "confidence": "high"
+}

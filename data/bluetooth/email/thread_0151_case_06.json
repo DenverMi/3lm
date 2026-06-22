@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0151",
+  "case_id": "thread_0151_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product — BR/EDR-only product using Combine Unmodified Design",
+  "customer_question": "What does our company need to prepare in advance for the test and registration process (test samples, equipment, documents)?",
+  "question_variants": [
+    "What materials and equipment do we need to provide for Bluetooth RF testing?",
+    "What technical documents are required for the compliance folder?",
+    "How many test units do we need to send, and do they need modification?",
+    "What do we need to submit before and after testing for registration?"
+  ],
+  "actual_issue": "Ahead of testing, the customer asked what preparation was required on their side. The consultant specified: (1) one test unit is needed, and it requires a hardware modification described in a separate attached document; (2) if available, a PC application from the SoC vendor for putting the device into test/DUT mode is needed as supporting test environment/equipment; (3) prior to testing, the customer must submit a completed QUESTIONNAIRE (provided as an attachment), and after test completion must submit a registration-content confirmation document; (4) for the compliance folder needed by registration completion, the customer must supply: (a) an operation manual covering the Bluetooth-related portion, (b) a product block diagram, (c) a product outline/dimensional drawing, and (d) an antenna datasheet including the radiation gain pattern chart.",
+  "plain_english_explanation": "Before Bluetooth certification testing can start, the customer needs to hand over a modified test sample, fill out a vendor questionnaire, and after the test, sign off on the registration details. They also need to gather a set of technical documents for the compliance folder: an operating manual, block diagram, outline drawing, and an antenna datasheet showing the radiation gain pattern. This is a checklist of logistics required to actually run the project, distinct from the technical scoping questions about which tests apply.",
+  "consultant_answer": "Required preparation: (1) Test units: 1 unit, modified per the attached instructions. (2) Test environment/equipment: if available, the SoC vendor's PC application for entering DUT test mode. (3) Documents to submit before testing: the attached QUESTIONNAIRE; after test completion: a registration-content confirmation document. (4) Compliance folder technical documents needed by registration completion: operation manual (Bluetooth section), product block diagram, product outline drawing, and antenna datasheet (including radiation gain pattern). No other preparation items are needed beyond this list.",
+  "decision_logic": "Required preparation is split into three buckets: physical test sample (with vendor-specified modification), pre/post-test administrative documents (questionnaire, confirmation document), and compliance-folder technical documentation (manual, diagrams, antenna data) needed for the registration record. All four compliance-folder document types are mandatory; the DUT-mode PC application is conditional on availability from the SoC vendor.",
+  "final_recommendation": "Provide customers a single consolidated preparation checklist early (test sample + modification instructions, vendor questionnaire, post-test confirmation document, and the four compliance-folder documents) so they can gather materials in parallel with the registration/quoting process rather than after testing begins.",
+  "risk_if_done_wrong": "Missing or late submission of the questionnaire, confirmation document, or compliance-folder technical documents (manual, block diagram, outline drawing, antenna datasheet with gain pattern) can delay registration completion even after RF testing itself is finished.",
+  "bluetooth_tags": [
+    "test preparation",
+    "compliance folder",
+    "QUESTIONNAIRE",
+    "antenna datasheet",
+    "block diagram",
+    "DUT mode",
+    "registration documents"
+  ],
+  "search_aliases": [
+    "what to prepare for Bluetooth test",
+    "compliance folder required documents",
+    "antenna datasheet radiation gain pattern requirement",
+    "DUT mode PC application test sample",
+    "test sample modification requirement"
+  ],
+  "qualification_stage": "implementation",
+  "confidence": "high"
+}

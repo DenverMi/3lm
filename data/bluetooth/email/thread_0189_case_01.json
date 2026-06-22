@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0189",
+  "case_id": "thread_0189_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alps Alpine 27BRD Bluetooth module",
+  "customer_question": "The Review page shows HFP version 1.7.2 but the test report has HFP 1.8. Also, HID is listed as version 1.1.2 but testing was done for version 1.1.1. Are these discrepancies acceptable?",
+  "question_variants": [
+    "HFP version mismatch between registration and test report — is it OK?",
+    "HID version 1.1.1 tested but 1.1.2 registered — is this allowed?",
+    "Can the registered profile version be newer than the tested version?"
+  ],
+  "actual_issue": "During Review Page verification before Submission, two version discrepancies were found: (1) HFP was entered as 1.7.2 in the registration but the test report shows 1.8; (2) HID was entered as 1.1.2 in the registration but the PTS test was performed under version 1.1.1 (because 1.1.2 was not yet available in the TCRL when testing was done).",
+  "plain_english_explanation": "For HFP: the version 1.7.2 entry was an input error in the Qualification Workspace. HFP 1.8 is the correct version. Allion corrected this to HFP 1.8. This is straightforward — the test report is the authority and the registration must match. For HID: the test was done under TCRL version pkg101 which included HID 1.1.1. By the time of registration, TCRL:pkg101 also included HID 1.1.2, and HID 1.1.1 had no deprecation notice. Allion chose to register at HID 1.1.2 (longer lifespan) since the test items are identical for both 1.1.1 and 1.1.2.",
+  "consultant_answer": "HFP: corrected from 1.7.2 to 1.8 — this was an input error. HID: 1.1.2 was registered instead of tested 1.1.1. This is acceptable because: (1) the test items for HID 1.1.1 and 1.1.2 are the same; (2) HID 1.1.1 has no deprecation notice yet; (3) registering at 1.1.2 gives a longer-lived registration. The customer confirmed no registration issues with this approach.",
+  "decision_logic": "Profile version correction (HFP 1.7.2 → 1.8): mandatory, as the registration must match the actual tested version. Profile version upgrade (HID 1.1.1 → 1.1.2): acceptable when the test items are identical between the two versions, and 1.1.1 remains valid. Registering at the newer version provides a longer compliance window.",
+  "final_recommendation": "Always verify that the profile version entered in Qualification Workspace matches the test report. For minor version increments with identical test items, registering at the newer version is acceptable and recommended if it extends the registration validity period.",
+  "risk_if_done_wrong": "Registering at a different profile version than what was tested (when test items differ) would constitute falsifying the qualification evidence. Always confirm test items are identical before using a different version.",
+  "bluetooth_tags": [
+    "HFP",
+    "HID",
+    "profile version",
+    "TCRL",
+    "version correction",
+    "registration accuracy",
+    "Qualification Workspace"
+  ],
+  "search_aliases": [
+    "profile version mismatch test report registration",
+    "HFP version correction SIG",
+    "HID 1.1.1 vs 1.1.2 registration",
+    "profile version upgrade registration",
+    "TCRL version test items identical"
+  ],
+  "qualification_stage": "Registration / Review",
+  "confidence": "high"
+}

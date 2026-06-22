@@ -1,46 +1,33 @@
 {
-    "source_thread": "thread_0024",
-    "cases": [
-        {
-            "case_id": "thread_0024_case_01",
-            "iut_type": "dual-mode host subsystem device",
-            "customer_question": "Does adding CTKD support require a new Bluetooth qualification or additional testing when CTKD was already implemented in the existing BT5.1 qualified stack?",
-            "question_variants": [
-                "Is CTKD requalification required?",
-                "Does enabling Cross-Transport Key Derivation need new Bluetooth certification?",
-                "If CTKD is added by application and Android layer changes only, is requalification necessary?",
-                "Does CTKD appear in the Bluetooth ICS?",
-                "Can CTKD changes be covered by the existing qualification?"
-            ],
-            "actual_issue": "Determining whether enabling CTKD functionality constitutes a Bluetooth qualification-impacting change requiring a new qualification submission.",
-            "plain_english_explanation": "The customer planned to add CTKD after an earlier Bluetooth release and wanted to know if another Bluetooth qualification was required. The consultant checked whether CTKD appears as a Bluetooth qualification feature in the relevant qualification layers and whether the implementation changes affected protocol or profile behavior. Since the changes were limited to application and Android layers and CTKD was not represented as a separate ICS capability, the existing qualification remained valid.",
-            "consultant_answer": "The consultant explained that CTKD is related to the Bluetooth core security architecture, but the relevant qualification layers SEC and LESEC do not contain ICS items for CTKD or Cross-Transport Key Derivation. Therefore changing CTKD from unsupported to supported does not itself trigger a new qualification registration. The consultant further clarified that application-layer and Android-layer modifications remain covered by the existing qualification as long as they do not alter protocol or profile layer functionality.",
-            "decision_logic": "Bluetooth qualification impact is determined by whether the change modifies qualified protocol/profile functionality or changes ICS-declared capabilities. CTKD was not represented as a standalone ICS item in SEC or LESEC, and the implementation changes were outside the qualified protocol/profile layers.",
-            "final_recommendation": "Do not create a separate Bluetooth qualification solely for enabling CTKD if the changes are confined to application or Android layers and do not modify Bluetooth protocol/profile behavior or ICS-declared features. Verify that no lower-layer functionality changed before relying on the existing qualification.",
-            "risk_if_done_wrong": "Incorrectly assuming protocol-layer changes are exempt could leave an unqualified modified Bluetooth implementation in the market. Conversely, unnecessarily requalifying a non-impacting CTKD change could create avoidable cost and schedule delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "CTKD",
-                "SEC",
-                "LESEC",
-                "ICS",
-                "reuse",
-                "design change",
-                "BT5.1"
-            ],
-            "search_aliases": [
-                "CTKD requalification",
-                "Cross-Transport Key Derivation qualification",
-                "CTKD ICS item",
-                "CTKD existing qualification",
-                "application layer change Bluetooth",
-                "Android layer Bluetooth change",
-                "SEC LESEC CTKD",
-                "protocol layer impact"
-            ],
-            "qualification_stage": "post-launch change",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0024",
+  "case_id": "thread_0024_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine HM2-series device), adding a new HID11/CTKD profile to an existing registration -- post-2024 system requires testing the full combined profile set, not just the new profile",
+  "customer_question": "If we add a new profile (HID11) by referencing an existing Base QDID via a Profile Subsystem registration, do we only need to test HID11 plus the IOPT cases specifically related to HID11? Or does the existing QDID's other profiles' related IOPT cases need testing too?",
+  "question_variants": [
+    "Does this scope expansion only happen when referencing an existing QDID, or also when registering a brand-new Host Subsystem QDID?",
+    "Under the old (pre-2024) system, would this have worked differently?"
+  ],
+  "actual_issue": "The customer expected that adding a new profile (HID11) to an existing registration via a Profile Subsystem reference would only require testing that new profile plus its directly-related IOPT cases -- consistent with how this worked under the registration system in effect before July 2024 -- but the current system's structural change meant a much larger combined test scope was actually required.",
+  "plain_english_explanation": "Under the registration rules in effect through June 30, 2024 (PRDv2.3, via the Launch Studio site), the customer's expectation was correct: a 'new Profile Subsystem registration plus an existing DN/QDID reference' was a distinct registration method that only required testing the newly-added profile and its directly-related IOPT cases. However, effective July 1, 2024, the current registration rules (QPRDv3/v4, via the Qualification Workspace site) eliminated that registration method entirely -- it no longer exists as an option. Instead, when referencing (Including) an existing DN/QDID, the full combined set of profiles -- everything the referenced QDID already includes, plus the newly-added profile -- becomes the IOPT test scope as a whole, with the new profile's own ICS-linked test items also required on top of that combined IOPT scope. In this specific case, referencing the existing QDID brought along a substantial inherited profile set (SR/COD, A2DP, AVRCP, DID, DIS, HFP, DUN, MAP, OPP, PAN, PBAP, SPP), each contributing its own IOPT test items, resulting in 22 total IOPT test items required in addition to the HID11-specific PTS test items the customer had already planned for.",
+  "consultant_answer": "Under the older registration rules (through June 30, 2024, via Launch Studio), your expectation would have been correct -- only the new profile and its directly-related IOPT cases. But the current rules (since July 1, 2024, via Qualification Workspace) eliminated that registration method entirely: referencing an existing QDID now means the full combined profile set -- everything that QDID already includes, plus your newly-added HID11 profile -- becomes the IOPT test scope together, with HID11's own ICS-linked test items required on top. In your case, the existing QDID's inherited profiles bring 22 additional IOPT test items beyond the HID11-specific PTS tests you already planned for.",
+  "decision_logic": "When a customer plans to add a new profile to an existing registration by referencing (Including) an existing QDID under the current (post-July-2024) registration system, the full IOPT test scope must include every profile the referenced QDID already covers, not just the newly-added profile -- this represents a structural change from the prior registration system, and customers familiar with the old system's lighter scoping rule need this explicitly flagged before they commit to a test plan based on outdated assumptions.",
+  "final_recommendation": "When a customer proposes adding a new profile via an existing QDID reference, proactively check what profiles that QDID already includes and calculate the full combined IOPT scope before the customer commits to a test plan, rather than letting them discover the expanded scope only after building a test plan based on the older, narrower rule.",
+  "risk_if_done_wrong": "A customer building a test plan based on the outdated, narrower scoping rule would discover only after testing began that a much larger IOPT test scope was actually required, wasting time and potentially requiring a complete test plan redo.",
+  "bluetooth_tags": [
+    "post 2024 registration system IOPT scope expansion",
+    "Profile Subsystem plus existing QDID method eliminated",
+    "QPRDv3 v4 Qualification Workspace vs Launch Studio PRDv2.3",
+    "referencing existing QDID brings full inherited profile scope",
+    "Alps Alpine HM2"
+  ],
+  "search_aliases": [
+    "adding new profile to existing QDID requires full IOPT scope",
+    "Profile Subsystem registration method no longer exists",
+    "Qualification Workspace vs Launch Studio scope difference",
+    "why does referencing QDID require testing unrelated profiles"
+  ],
+  "qualification_stage": "Pre-test scoping for profile addition registration",
+  "confidence": "high"
 }

@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0174",
+  "case_id": "thread_0174_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE security device (Secom)",
+  "customer_question": "How long can we continue to add new product variants to this registration for free? Is there an expiration date for free derivative product registration?",
+  "question_variants": [
+    "After the initial registration, how long do we have to add derivative models at no charge?",
+    "Is there a time limit on free product additions to an existing SIG registration?",
+    "Our registration uses Bluetooth Core Spec v5.0. Until when can we add new models to it for free?"
+  ],
+  "actual_issue": "The customer (Secom) wants to understand the validity period for free derivative product additions after the initial registration. Specifically, they want to know if they can continue adding similar products to the same registration indefinitely.",
+  "plain_english_explanation": "Once you complete an initial SIG product registration, you can add derivative products (same QDID, same Host Stack) to the Product List for free through the SIG portal. This free addition right lasts until the Bluetooth Core Specification version referenced in your registration is officially deprecated by SIG. For example, if you register under Bluetooth Core Spec v5.0, the deprecation date is February 1, 2032. Until that date, you can keep adding derivative models for free. Products already on the Product List before the deprecation date remain valid and can continue to be sold without re-registration.",
+  "consultant_answer": "Free derivative product additions are valid until the Core Specification version referenced in your registration is deprecated by SIG. For v5.0, that deadline is February 1, 2032. After that, new products would need to be registered under a newer Core Spec version. Products already listed on the Product List before the deprecation date remain valid indefinitely under new SIG rules.",
+  "decision_logic": "SIG's free derivative registration right is linked to the Core Spec version, not to a fixed time limit from the registration date. The deprecation schedule is published by SIG. Once the Core Spec version is deprecated, new registrations under that version are no longer accepted — but existing registrations remain valid.",
+  "final_recommendation": "Track SIG's published Core Spec version deprecation schedule. Plan to add all foreseeable derivative products before the deprecation date of the referenced Core Spec version. If your product roadmap extends beyond the deprecation date, plan a new registration under a current Core Spec version in advance.",
+  "risk_if_done_wrong": "Failing to add derivative products before the Core Spec deprecation date means those products would need separate new registrations at full cost (new Qualification Fee + registration fees).",
+  "bluetooth_tags": [
+    "derivative product registration",
+    "free product addition",
+    "Core Spec deprecation",
+    "Product List",
+    "Bluetooth v5.0",
+    "SIG registration validity"
+  ],
+  "search_aliases": [
+    "how long free derivative registration",
+    "Core Spec deprecation free addition deadline",
+    "free product list addition expiration",
+    "v5.0 deprecation 2032",
+    "derivative model validity period SIG"
+  ],
+  "qualification_stage": "Post-registration / derivative product management",
+  "confidence": "high"
+}

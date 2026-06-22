@@ -1,46 +1,33 @@
 {
-    "source_thread": "thread_0054",
-    "cases": [
-        {
-            "case_id": "thread_0054_case_01",
-            "iut_type": "BLE device using nRF52 series SoC",
-            "customer_question": "Can products built with nRF Connect SDK v2.8.0 on nRF52-series SoCs be added as derived products under the same Bluetooth qualification without additional qualification fees?",
-            "question_variants": [
-                "Can multiple nRF52 products reuse the same qualification?",
-                "Does nRF Connect SDK v2.8.0 qualification cover other nRF52 SoCs?",
-                "Can I add derived models to the Product List without a new qualification?",
-                "Can both peripheral and host implementations reuse the same declaration?",
-                "Does changing the product model require a new qualification fee?"
-            ],
-            "actual_issue": "Determining the qualification reuse scope of Bluetooth SIG registrations based on Nordic nRF Connect SDK v2.8.0 qualification references and whether additional nRF52-based products can be covered through derived product registration.",
-            "plain_english_explanation": "The customer wanted to know how broadly a Bluetooth qualification based on nRF Connect SDK v2.8.0 could be reused. The key concern was whether additional products using different nRF52 chips, but built from the same qualified software foundation, could be sold without repeating the qualification process. The discussion clarified the conditions under which product-list expansion is allowed.",
-            "consultant_answer": "The referenced qualification assets cover BLE low-level functionality, GAP/GATT/SM functionality, and optionally Mesh functionality implemented using nRF Connect SDK v2.8.0. Products using nRF52-series SoCs and implementing object code created from the same nRF Connect SDK v2.8.0 qualification basis can be added to the Product List as derived models without additional registration fees. The reuse scope applies regardless of whether the nRF52 device is used in a peripheral role or host-related role, provided the implementation remains within the qualified software basis. Products built using other SDK lineages such as SoftDevice-based implementations are outside this qualification scope.",
-            "decision_logic": "Qualification reuse is driven by the qualified implementation lineage. Products remain eligible for reuse when they implement object code created from the same qualified nRF Connect SDK v2.8.0 basis and remain within the declared functionality scope. Different SDK qualification lineages are not automatically interchangeable.",
-            "final_recommendation": "Reuse the qualification only for products implementing object code generated from the qualified nRF Connect SDK v2.8.0 basis and register additional product models as derived products when required.",
-            "risk_if_done_wrong": "Using the qualification for products built from a different SDK qualification lineage could result in an incorrect Bluetooth declaration and qualification compliance issues.",
-            "bluetooth_tags": [
-                "qualification",
-                "declaration",
-                "QDID",
-                "nRF Connect SDK",
-                "nRF52",
-                "reuse",
-                "Product List",
-                "Mesh"
-            ],
-            "search_aliases": [
-                "nRF Connect SDK 2.8.0 reuse",
-                "derived product registration",
-                "Product List addition",
-                "nRF52 qualification reuse",
-                "same QDID lineage",
-                "BLE 5.3 declaration",
-                "Mesh qualification reuse",
-                "SDK lineage qualification"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0054",
+  "case_id": "thread_0054_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Free derivative-product addition eligibility for third-party Nordic nRF52-series modules (BM832, BC805) -- determined by actual SDK/firmware running on the device, not the module's own pre-existing QDID registration",
+  "customer_question": "A third-party module's datasheet (BM832) lists 'QDID 97989,' which refers to the embedded nRF52832 chip -- does that mean we don't need to separately reference QDID 97989 when incorporating BM832 into our product, since our registration already references different nRF Connect SDK 2.8.0-based QDIDs?",
+  "question_variants": [
+    "Can any nRF52-series module be freely added as a derivative product to a registration that references nRF Connect SDK 2.8.0-based QDIDs?",
+    "How do you determine whether a specific third-party module qualifies for free derivative addition to an existing registration?"
+  ],
+  "actual_issue": "The customer assumed that since a third-party module's (BM832's) datasheet referenced a QDID tied to the same underlying nRF52832 chip family as their registration, the module would automatically be covered for free derivative addition -- but the module's referenced QDID actually corresponded to a different, older SDK/firmware lineage entirely separate from the customer's registration.",
+  "plain_english_explanation": "The customer's registration referenced three nRF Connect SDK v2.8.0-based DNs covering BLE 5.3 low-level communication, GAP/GATT/SM-based beacon-pairing functionality, and Mesh networking -- and confirmed that ANY nRF52-series SoC (nRF52805, nRF52832, nRF52840, etc.) running object code built from nRF Connect SDK 2.8.0 could be added as a free derivative product to this registration's Product List, whether used as a peripheral or as a host/relay device, and even when incorporated into a third-party-developed module -- as long as the actual firmware was built from nRF Connect SDK 2.8.0 specifically (not a different SDK like SoftDevice SDK vX.X.X). The customer then asked about a specific third-party module, BM832, whose datasheet listed 'QDID 97989' -- assuming this meant BM832 was already effectively covered since that QDID referenced the same underlying nRF52832 chip. This assumption was incorrect: BM832 itself does not hold its own QDID -- it is registered via a Declaration that directly references Nordic's own QDID 97989 (an End Product registration), which in turn was built from SoftDevice 5.0.0 SDK firmware (referencing specific Component-level registrations for RF PHY, link layer, and host layer). This QDID lineage is completely separate from the nRF Connect SDK 2.8.0-based QDIDs referenced by the customer's own registration -- so a product built around BM832 using its ORIGINAL SoftDevice 5.0.0 firmware could NOT be added as a free derivative to the customer's registration; it would require an entirely separate new registration referencing Nordic's QDID 97989 instead. The same logic applied to another module, BC805, which referenced a different QDID (138610) built from SoftDevice 7.0.1 SDK -- also incompatible with the customer's registration lineage. However, the actual determining factor is not which SDK the module's ORIGINAL datasheet/registration references, but which SDK/firmware is ACTUALLY RUNNING on the device when used. The customer directly confirmed with BM832's manufacturer (Fanstel) whether the BM832 HARDWARE itself (independent of its original factory firmware) could run nRF Connect SDK 2.8.0 -- and Fanstel confirmed yes, the BM832 hardware can be used with nRF Connect SDK v2.8.0, including for the GAP/GATT/SM functionality and Mesh capability referenced by the customer's registration. This means that as long as the customer's actual product runs nRF Connect SDK 2.8.0 firmware on the BM832 hardware (rather than BM832's original SoftDevice 5.0.0 firmware), it CAN be added as a free derivative to the customer's existing registration.",
+  "consultant_answer": "BM832 itself doesn't hold its own QDID -- it's a Declaration referencing Nordic's QDID 97989, which is built from a completely different SDK lineage (SoftDevice 5.0.0) than your registration's nRF Connect SDK 2.8.0-based QDIDs. So a product using BM832's original firmware can't be added as a free derivative to your registration; it would need a separate registration referencing QDID 97989 instead. The same applies to BC805 (built from SoftDevice 7.0.1, referencing QDID 138610). [After the customer checked with Fanstel:] Good news -- Fanstel confirmed that the BM832 hardware itself can run nRF Connect SDK 2.8.0, including the GAP/GATT/SM and Mesh functionality your registration covers. So as long as your actual product runs nRF Connect SDK 2.8.0 on the BM832 hardware (not its original factory firmware), it can be added as a free derivative to your existing registration after all.",
+  "decision_logic": "When determining whether a third-party module can be added as a free derivative product to an existing Bluetooth registration, don't rely on the module's own pre-existing QDID or datasheet reference as the determining factor -- instead, verify which SDK/firmware will actually run on the device once deployed, since free derivative addition eligibility is tied to the actual firmware lineage matching the registration's referenced QDIDs, not to chip-family similarity or a module's factory-default registration.",
+  "final_recommendation": "When a customer wants to add a third-party module to an existing registration's Product List as a free derivative, proactively check the module's actual referenced QDID lineage against the registration's own QDIDs, and if there's a mismatch, recommend confirming directly with the module manufacturer whether the hardware can run the SDK/firmware version that matches the target registration before concluding the module is ineligible.",
+  "risk_if_done_wrong": "Assuming chip-family similarity alone qualifies a module for free derivative addition could result in an improperly registered product if the actual firmware lineage doesn't match the registration's covered scope; conversely, prematurely concluding a module is ineligible without checking actual firmware compatibility could cause an unnecessary full new registration when a free derivative addition was actually achievable.",
+  "bluetooth_tags": [
+    "free derivative addition determined by actual firmware not module QDID",
+    "Nordic nRF52 SDK lineage SoftDevice vs nRF Connect SDK",
+    "third party module QDID mismatch BM832 BC805",
+    "vendor confirmation hardware SDK compatibility",
+    "Pi Crystal Nordic nRF52"
+  ],
+  "search_aliases": [
+    "can third party module be added as free derivative product",
+    "BM832 QDID 97989 vs nRF Connect SDK registration",
+    "SoftDevice SDK vs nRF Connect SDK different QDID lineage",
+    "how to confirm module hardware can run different Bluetooth SDK"
+  ],
+  "qualification_stage": "Free derivative product addition eligibility verification",
+  "confidence": "high"
 }

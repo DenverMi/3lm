@@ -1,45 +1,23 @@
 {
-    "source_thread": "thread_0107",
-    "cases": [
-        {
-            "case_id": "thread_0107_case_01",
-            "iut_type": "audio module",
-            "customer_question": "Can a Bluetooth module qualify by including only a qualified SoC, or are additional RF and RF PHY qualification requirements still required?",
-            "question_variants": [
-                "Is a qualified chipset enough for module qualification?",
-                "Can I reuse the SoC QDID and skip RF testing?",
-                "What testing is required for an unqualified Bluetooth module?",
-                "Do I need RF PHY evidence if the controller is already qualified?",
-                "How does module qualification differ from SoC qualification?"
-            ],
-            "actual_issue": "The customer planned to qualify a module based on an already-qualified Bluetooth SoC and needed to know whether the module itself could be registered without additional RF-related qualification evidence.",
-            "plain_english_explanation": "A qualified Bluetooth chip does not automatically make a finished module qualified. The module is treated as its own Bluetooth design and may require proof that its radio implementation performs correctly. Qualification obligations depend on the highest-level qualified design that can be reused.",
-            "consultant_answer": "The consultant explained that including a qualified SoC in the registration does not eliminate the need for module-level RF and RF PHY evidence. If a previously qualified module QDID or Declaration Number can be included, RF and RF PHY testing may be avoided. If the module itself is unqualified, RF and RF PHY qualification evidence is still required unless acceptable existing module-level qualification artifacts are available.",
-            "decision_logic": "Qualification reuse occurs at the design level being referenced. Reusing a qualified chipset does not automatically transfer qualification coverage to a different module implementation. Module-level qualification evidence is still required unless a qualified module design is reused.",
-            "final_recommendation": "Determine whether a qualified module QDID or Declaration Number exists. If not, plan for module-level RF and RF PHY qualification activities rather than relying solely on the qualified SoC reference.",
-            "risk_if_done_wrong": "Assuming SoC qualification automatically covers the module can result in missing qualification evidence and an invalid Bluetooth registration strategy that requires later correction and rework.",
-            "bluetooth_tags": [
-                "qualification",
-                "module",
-                "QDID",
-                "RF",
-                "RF PHY",
-                "reuse",
-                "controller"
-            ],
-            "search_aliases": [
-                "qualified SoC only",
-                "module RF testing",
-                "RF PHY required",
-                "module QDID reuse",
-                "chipset qualification reuse",
-                "unqualified module",
-                "controller include",
-                "module registration"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0107",
+  "case_id": "thread_0107_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Our module (BCM-SQ800) doesn't show up on the SIG registration site. Can we just Include the chip's existing registration instead, or does the module need its own evidence? And what if it turns out to be a simple HCI-only module?",
+  "question_variants": [
+    "Is registering the underlying chip enough, or do we need module-level RF testing too?",
+    "Does the module need its own QDID, or can it ride on the chip's registration?",
+    "If our module has no embedded Host stack, does that simplify what we need to test?"
+  ],
+  "actual_issue": "A customer's audio module (BCM-SQ800, built on a QCC3095 chip) did not appear on the Bluetooth SIG registration site, and it needed to be determined whether Including the underlying chip's existing registration would be sufficient, or whether the module itself required its own RF/RF PHY evidence -- and separately, whether the module being a simple HCI-only type (without an embedded Host stack) would change the required scope.",
+  "plain_english_explanation": "Just because the chip inside a module is already certified doesn't mean the finished module itself is automatically covered -- the module still needs its own radio-level test evidence unless it has its own separate certification record. However, if the module turns out to be a simple type that just exposes a standard command interface without any built-in software stack of its own (with the actual Bluetooth software running elsewhere, on a separate processor), the testing scope becomes much simpler: only the module's own radio testing is needed, referencing the underlying chip's existing certification, since there's no software stack on the module itself to test.",
+  "consultant_answer": "Searching the SIG registration site for BCM-SQ800 returns no result, suggesting it is unauthenticated. Even if Including an already-registered SoC for the quote-request form, the module's own RF/RF PHY report would still be needed; RF/RF PHY testing would only be exempted if the module itself had its own registered QDID/DN to Include. If the module manufacturer can obtain a BQTF-issued RF/RF PHY report for it, that could serve as the needed evidence. Separately, if -- as is common for many modules -- this turns out to be a so-called 'HCI module' (a Core-Controller registration only, without an embedded Host stack), then registration can proceed by Including just the underlying chip's QDID and performing RF/RF PHY testing on the module, which is sufficient for the module's authentication in that scenario. The quote for this HCI-module scenario: RF full-item testing (¥1,200,000), RF PHY testing for 1M and 2M (¥700,000), agency registration support referencing a Single Design (¥150,000), and compliance folder preparation (¥150,000).",
+  "decision_logic": "An unregistered module's RF/RF PHY testing requirement is not satisfied merely by Including the underlying chip's existing registration; the module needs its own evidence (either through its own QDID or a freshly-obtained BQTF report) unless it is determined to be a simple HCI-only module without an embedded Host stack, in which case Including just the chip's QDID and testing the module's RF/RF PHY is sufficient, since Host and Profile layers are out of scope for that type of module.",
+  "final_recommendation": "Before quoting registration for an unregistered module, check whether it has its own RF/RF PHY evidence available (its own QDID or an obtainable BQTF report) and determine whether it is a simple HCI-only module without an embedded Host stack, since that significantly narrows the required scope to RF/RF PHY testing on the module alone.",
+  "risk_if_done_wrong": "Assuming the underlying chip's existing registration alone covers the module would understate the true testing requirement; conversely, assuming full Host/Profile-layer testing is required without checking whether the module is actually a simple HCI-only type would lead to over-quoting unnecessary scope.",
+  "bluetooth_tags": ["HCI module", "Core-Controller", "RF PHY", "unauthenticated module", "QDID"],
+  "search_aliases": ["module not found on SIG registration site", "underlying chip registered but module not", "HCI only module Core Controller registration", "module own RF PHY evidence required"],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
 }

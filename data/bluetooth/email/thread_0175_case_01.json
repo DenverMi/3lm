@@ -1,0 +1,41 @@
+{
+  "source_thread": "thread_0175",
+  "case_id": "thread_0175_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE product using Silicon Laboratories BGM210P series module (Go Co., Ltd.)",
+  "customer_question": "When we reference two Component QDIDs together in our product registration, SIG detects ICS inconsistencies between them. How do we resolve this without conducting hundreds of additional tests?",
+  "question_variants": [
+    "Combining two QDIDs in our registration triggers inter-layer ICS conflicts. What's the fix?",
+    "The LL and RFPHY layers have inconsistencies when we include both our Controller QDID and Host QDID. How do we resolve this?",
+    "We get 13 ICS inconsistencies when we try to register with two QDIDs. What should we do?"
+  ],
+  "actual_issue": "Go Co., Ltd. is registering a BLE product that references two Component QDIDs: one for the RF PHY (v5.1) and one for the LL + Host (v5.4 Wireless Gecko). When these two QDIDs are combined in the SIG registration, the portal detects 13 inter-layer ICS inconsistencies between the LL and RFPHY layers related to AoA/AoD and Isochronous functions. Fixing these inconsistencies by modifying the LL ICS during product registration would trigger hundreds of additional LL test requirements.",
+  "plain_english_explanation": "When two QDIDs are combined in a product registration, the SIG portal performs a cross-layer ICS consistency check. If one QDID's ICS says a feature is supported at the RFPHY layer but the other QDID's ICS doesn't have the corresponding LL entry, SIG flags this as an inconsistency. The correct fix is not to modify the ICS during product registration (which would trigger new test requirements) — instead, ask the QDID owner (here, Silicon Laboratories) to create a free Subset DN of their QDID that has those conflicting ICS items already set to 'Not Supported.' Referencing this Subset DN instead of the original QDID eliminates the inconsistencies without any new testing.",
+  "consultant_answer": "Ask Silicon Laboratories (or their distributor) to create a free Subset DN from their QDID with the 15 conflicting LL ICS items set from 'Supported YES' to 'Supported NO' (specifically the AoA/AoD and Isochronous features). Reference this new Subset DN in your product registration instead of the original QDID. The inconsistencies will be eliminated without triggering any new test requirements. Silicon Laboratories confirmed this was already available and provided the appropriate Subset DN.",
+  "decision_logic": "Modifying the LL ICS during product registration triggers test requirements for each modified item. Fixing at the QDID level (Subset DN) removes the inconsistency before it enters the product registration scope, so no test triggers occur. The correct path is always to resolve ICS inconsistencies at the QDID level (via Subset) rather than at the product registration level.",
+  "final_recommendation": "When inter-layer ICS inconsistencies are detected during product registration, identify which QDID Listing Owner can resolve the conflicting ICS items, and ask them to create a Subset DN with those items set to 'Not Supported.' Reference the Subset DN in your registration. This approach costs nothing and avoids triggering additional tests.",
+  "risk_if_done_wrong": "Attempting to fix the inconsistency by modifying the LL ICS during product registration would generate hundreds of new LL test requirements, consuming weeks of additional testing time and significant cost.",
+  "bluetooth_tags": [
+    "inter-layer ICS inconsistency",
+    "Subset DN",
+    "QDID Listing Owner",
+    "LL",
+    "RFPHY",
+    "AoA",
+    "AoD",
+    "Isochronous",
+    "Silicon Laboratories",
+    "ICS cross-layer conflict",
+    "Multi-Design"
+  ],
+  "search_aliases": [
+    "ICS inconsistency between two QDIDs",
+    "Subset DN resolve inter-layer inconsistency",
+    "LL RFPHY ICS conflict resolution",
+    "ask QDID owner to create Subset",
+    "AoA AoD ICS inconsistency Subset fix"
+  ],
+  "qualification_stage": "Pre-registration / QDID selection and ICS validation",
+  "confidence": "high"
+}

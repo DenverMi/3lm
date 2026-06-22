@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0251",
+  "case_id": "thread_0251_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product registered as BR/EDR/LE Class 1 (JVC Kenwood)",
+  "customer_question": "If we register this device as 'BR/EDR/LE' 'Class 1,' but our website product page or user manual describes it using the words 'BR/EDR' and 'Class 2,' would that create a rule violation, given the mismatch with the actual registration?",
+  "question_variants": [
+    "Is it a problem to describe an LE-capable, Class-1-registered device as 'BR/EDR' only in marketing materials?",
+    "Is it a problem to describe a Class-1-registered device as 'Class 2' in the manual?"
+  ],
+  "actual_issue": "The customer registered their device with full BR/EDR/LE functionality at Class 1 output power, but their actual product marketing and manual described it using narrower terms ('BR/EDR' and 'Class 2'), and wanted to confirm this discrepancy wouldn't violate any Bluetooth SIG rule.",
+  "plain_english_explanation": "For the LE designation: an LE-capable device can only be detected as a Bluetooth LE device by scanner devices (like smartphones) if it implements a user-facing feature that emits Advertising packets. If the product doesn't implement such a feature, end users have no actual way to access or use its LE capability, even though it's registered with BR/EDR/LE functionality — so describing it as 'BR/EDR' only in the manual is acceptable in practice, though no specific SIG document was found that explicitly addresses this exact scenario. For the Class 2 description: Bluetooth's official output power ranges for Class 1 (0 to 20dBm) and Class 2 (-6 to 4dBm) actually overlap between 0 and 4dBm. Wireless certification disclosures are typically made at maximum output power, but operating at a lower, legal output level in actual use is permitted. So in this case, managing the device's actual output within the 0-4dBm overlap range and describing it in the manual as 'Class 2 equivalent' (explicitly including the word 'equivalent') avoids any inaccurate claim while still being technically defensible.",
+  "consultant_answer": "For LE: a device can only be detected as Bluetooth LE if it implements a feature that emits Advertising packets — if yours doesn't, users have no real way to access LE functionality even though it's registered with BR/EDR/LE, so describing it as 'BR/EDR' only in your manual is acceptable in practice (though we couldn't find a SIG document explicitly addressing this exact scenario). For Class 2: Class 1 (0-20dBm) and Class 2 (-6 to 4dBm) actually overlap between 0 and 4dBm, and operating below your registered maximum output is legal. If you manage actual output within that 0-4dBm overlap and describe it in your manual as 'Class 2 equivalent' — explicitly including the word 'equivalent' — that avoids the issue.",
+  "decision_logic": "Marketing/manual descriptions narrower than the actual registration are acceptable when the narrower description reflects genuine real-world usage limitations (no Advertising UI implemented) or falls within an officially overlapping output power range described with an appropriate qualifier ('equivalent') rather than an outright incorrect classification claim.",
+  "final_recommendation": "When a customer's marketing materials describe a device using narrower terms than its actual SIG registration, check whether the narrower description reflects a genuine functional limitation or falls within an official overlapping technical range, and recommend a qualifying word (like 'equivalent') rather than an unqualified, technically inaccurate claim.",
+  "risk_if_done_wrong": "Describing a Class 1 device as flatly 'Class 2' without any equivalence qualifier, or without actually managing output within the overlapping range, could create a genuine product-labeling inaccuracy inconsistent with its actual SIG registration.",
+  "bluetooth_tags": [
+    "BR/EDR LE marketing description mismatch",
+    "Class 1 Class 2 output power overlap",
+    "Advertising packet UI requirement for LE detection",
+    "Class 2 equivalent labeling",
+    "JVC Kenwood"
+  ],
+  "search_aliases": [
+    "can we call Class 1 device Class 2 in manual",
+    "LE device not detectable without Advertising UI",
+    "Class 1 Class 2 output power overlap range",
+    "Class 2 equivalent labeling rule"
+  ],
+  "qualification_stage": "Post-registration / product labeling",
+  "confidence": "high"
+}

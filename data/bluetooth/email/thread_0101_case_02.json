@@ -1,43 +1,23 @@
 {
-    "source_thread": "thread_0101",
-    "cases": [
-        {
-            "case_id": "thread_0101_case_02",
-            "iut_type": "payment terminal",
-            "customer_question": "What should be done when a company previously qualified Bluetooth products but cannot find its Bluetooth SIG membership under its current company name?",
-            "question_variants": [
-                "Why can't I find my SIG membership?",
-                "Do I need a new Bluetooth SIG membership after a company name change?",
-                "Can an old member account still be used for qualification?",
-                "How do I handle qualification after a corporate name change?",
-                "Can registration proceed before updating the company name?"
-            ],
-            "actual_issue": "Determining whether an existing Bluetooth SIG membership remains valid after a company name change and whether qualification activities must wait for membership-record updates.",
-            "plain_english_explanation": "A company that qualified products in the past may have changed its corporate name. When searching the Bluetooth SIG member database, the old name may still be listed. This can create confusion about whether a new membership is required.",
-            "consultant_answer": "Investigation showed that the company already had an existing Bluetooth SIG Adopter membership under its former corporate name. The consultant advised proceeding with qualification using the existing member record rather than creating a new membership. Because qualification completion was time-sensitive, the company-name update was recommended as a separate follow-up activity after registration. The consultant also identified the Bluetooth SIG company-name-change process and required supporting documentation.",
-            "decision_logic": "Bluetooth SIG membership belongs to the member organization and may remain valid even if the company name changes. Existing membership records should be located and reused before creating a new membership, especially when qualification timelines are important.",
-            "final_recommendation": "Search for historical company names before creating a new Bluetooth SIG membership. If an existing membership is found, complete the qualification using that membership and process the company-name update afterward through the official Bluetooth SIG procedure.",
-            "risk_if_done_wrong": "Creating an unnecessary new membership or delaying qualification while processing a name change can introduce avoidable administrative effort and schedule delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "membership",
-                "listing",
-                "declaration",
-                "Adopter"
-            ],
-            "search_aliases": [
-                "company name change",
-                "SIG member lookup",
-                "existing adopter member",
-                "membership transfer",
-                "old company name",
-                "Bluetooth SIG Form 3100",
-                "member database mismatch",
-                "membership already exists"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0101",
+  "case_id": "thread_0101_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "payment terminal",
+  "customer_question": "We got SIG certification for another product a few years ago -- does that mean we're already a member? A search for our company name doesn't find a match.",
+  "question_variants": [
+    "Why doesn't our company name show up in the member search?",
+    "Could we already be a member under a different company name?",
+    "Do we need new member registration, or are we already covered?"
+  ],
+  "actual_issue": "The customer believed their company might already be a Bluetooth SIG member based on a past certification, but a member search for the company name they provided ('Flight Solutions') returned no match, raising the question of whether new member registration was actually needed.",
+  "plain_english_explanation": "Sometimes the name someone uses to introduce themselves in an email isn't the same as the official company name their organization is actually registered under with Bluetooth SIG -- this can happen when someone works across related companies or uses an informal name. Before concluding that a new membership needs to be set up, it's worth checking the history of how the conversation started, since the original contact may have come from a different, already-registered company name.",
+  "consultant_answer": "A member search for 'Flight Solutions' (the name the customer's representative used) found no match. Reviewing the engagement's email history showed that the original contact for this matter actually came from a representative of 'Flight System Consulting Inc.,' on which the current representative (using the name 'Flight Solutions') had been CC'd. A member search for 'Flight System Consulting Inc.' found a match as an existing Adopter member. The customer was informed that if registering under the Flight System Consulting Inc. name was acceptable, no new member registration would be needed.",
+  "decision_logic": "When a customer's stated company name does not match any Bluetooth SIG member search result, check the engagement's actual email history for an earlier-stated, differently-named entity the customer may be affiliated with, and search for that name as well, before concluding that new member registration is required.",
+  "final_recommendation": "When a member search for a customer's stated company name fails, trace back through the engagement's email history for any earlier-stated, differently-named affiliated entity, and search for that name before assuming new member registration is needed.",
+  "risk_if_done_wrong": "Assuming new member registration is required simply because the customer's stated company name doesn't match a search result, without checking for an affiliated entity name earlier in the engagement, could lead to unnecessary duplicate member registration.",
+  "bluetooth_tags": ["member registration", "company name search", "Adopter", "membership status"],
+  "search_aliases": ["company name not found in member search", "check email history for affiliated company name", "already a member under different company name", "Adopter member search"],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
 }

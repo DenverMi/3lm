@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0026",
+  "case_id": "thread_0026_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Registration login identity for an OEM/brand-owner scenario (Topre manufacturing for PFU's branded product) -- whose Username/Password to use, and handling the brand owner's refusal to disclose SIG login credentials",
+  "customer_question": "The registration confirmation document asks for a 'User Name' and 'Password' for the BluetoothSIG login -- should this be my (the manufacturer's contact's) own name, or the brand owner's (PFU's) staff member's name? And would it even be appropriate for me to ask PFU for their login credentials -- might they refuse?",
+  "question_variants": [
+    "Does the registration login account need to match the company whose name appears on the product nameplate, or can the manufacturer's own account be used instead?",
+    "If the brand owner's company policy prohibits sharing login credentials with a third party, how can registration still proceed?"
+  ],
+  "actual_issue": "Topre was handling SIG registration logistics for a keyboard product that would actually be sold under PFU's brand name (PFU's name on the nameplate), and needed to determine whose account credentials belonged in the registration confirmation document's Username/Password fields -- while also being concerned that PFU's internal security policy might prevent them from disclosing those credentials to Topre as a third party.",
+  "plain_english_explanation": "Bluetooth SIG's certification regulations require that the registration be made under the name of the selling company shown on the product's nameplate -- in this case, PFU, not Topre (the manufacturer). Since the registration is filed under PFU's name, the Username/Password used for the SIG login must be PFU's own staff member's account, not Topre's. However, since many companies have internal security policies prohibiting disclosure of website login credentials to third parties, PFU might legitimately decline to share their Username/Password with Topre. The recommended workaround in this situation is: have the brand-owner (PFU) fill out and submit the proxy registration confirmation document with the Username/Password fields left blank if they're unable to disclose them. Based on the rest of the submitted content, the consultant prepares both (a) the registration documents already verified and pre-checked in the consultant's own trial Project, and (b) a step-by-step procedure manual for performing the actual web-based registration -- packaged together (e.g., in a zip file) and sent to the manufacturer, who forwards it to the brand owner. The brand owner's own staff can then log in with their own credentials and complete the registration themselves using the prepared documents and instructions, without ever having to disclose their login credentials to the manufacturer or the registration support company.",
+  "consultant_answer": "Bluetooth SIG's certification regulations require that registration be filed under the name of the company on the product's nameplate -- since this product is PFU's, the registration must be under PFU's name, and the Username/Password should be PFU's own staff member's account, not yours. As for whether you can ask PFU for their credentials: if PFU's internal security policy prohibits sharing login credentials with a third party, they may decline. If that happens, just have PFU submit the proxy registration confirmation document with those fields left blank -- we'll prepare the pre-verified registration documents and a step-by-step procedure manual as a zip file, which you can forward to PFU so their own staff can log in and complete the registration themselves.",
+  "decision_logic": "When a manufacturer is handling SIG registration logistics for a product sold under a different brand owner's name, the registration's login credentials must be the brand owner's own account, not the manufacturer's -- and since the brand owner may be unable to disclose those credentials due to internal security policy, prepare a self-service registration package (pre-verified documents plus a step-by-step procedure manual) so the brand owner's own staff can complete the actual login and registration themselves without disclosing credentials to any third party.",
+  "final_recommendation": "When a manufacturer is registering on behalf of a different brand-owning customer, proactively flag both the requirement that login credentials must belong to the brand owner (not the manufacturer) and the possibility that the brand owner may be unable to share those credentials -- offering the self-service documentation package as a ready alternative rather than waiting for the manufacturer to discover the credential-disclosure obstacle on their own.",
+  "risk_if_done_wrong": "Registering under the manufacturer's own account instead of the brand owner's could violate SIG's certification regulations regarding nameplate-matching registrant identity, while failing to anticipate a credential-disclosure refusal could stall the registration process until a workaround is improvised.",
+  "bluetooth_tags": [
+    "registration login must match nameplate selling company",
+    "manufacturer vs brand owner OEM registration identity",
+    "brand owner refuses to disclose login credentials",
+    "self-service registration package zip file procedure manual",
+    "Topre PFU keyboard OEM"
+  ],
+  "search_aliases": [
+    "whose account to use for SIG registration login manufacturer vs brand owner",
+    "brand owner won't share Bluetooth SIG password",
+    "OEM registration credential disclosure workaround",
+    "self-service registration procedure manual for brand owner staff"
+  ],
+  "qualification_stage": "Proxy registration confirmation document preparation for OEM/brand-owner scenario",
+  "confidence": "high"
+}

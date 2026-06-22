@@ -1,45 +1,36 @@
 {
-    "source_thread": "thread_0040",
-    "cases": [
-        {
-            "case_id": "thread_0040_case_04",
-            "iut_type": "Bluetooth product",
-            "customer_question": "What exactly are Support Layers and ICS details in Bluetooth qualification, and where can they be viewed?",
-            "question_variants": [
-                "What is included in ICS details?",
-                "Are profiles and features the same as ICS?",
-                "Where can I view ICS details for a QDID?",
-                "What defines the qualified Bluetooth functionality?",
-                "What does the Bluetooth SIG register internally?",
-                "How detailed is the ICS definition?"
-            ],
-            "actual_issue": "Misunderstanding between high-level Bluetooth profiles/features and the detailed ICS definitions actually used in Bluetooth qualification.",
-            "plain_english_explanation": "The customer assumed that Bluetooth qualification only tracks visible features and profiles. The consultant clarified that the qualification database contains much more detailed ICS definitions describing implemented Bluetooth functionality. These ICS definitions determine whether a modified product is still considered the same qualified design.",
-            "consultant_answer": "Support Layers and ICS definitions are more detailed than the feature and profile summaries typically visible in a QDID overview. Detailed ICS information is publicly viewable to logged-in SIG members through the 'View ICS Details' interface in the qualification database. The registered ICS definitions determine the qualified Bluetooth implementation and whether a future design change still qualifies as the same design.",
-            "decision_logic": "Bluetooth qualification reuse depends on detailed ICS-defined functionality, not only high-level profile names. Therefore, evaluating whether a design changed requires reviewing the underlying ICS details.",
-            "final_recommendation": "Review the detailed ICS definitions associated with the qualified design before determining whether a modification can reuse the existing qualification.",
-            "risk_if_done_wrong": "Relying only on visible profile summaries instead of detailed ICS definitions can lead to incorrect assumptions about qualification reuse eligibility and required testing.",
-            "bluetooth_tags": [
-                "ICS",
-                "Support Layer",
-                "QDID",
-                "qualification",
-                "profile",
-                "listing"
-            ],
-            "search_aliases": [
-                "View ICS Details",
-                "ICS definition",
-                "Support Layer meaning",
-                "QDID ICS details",
-                "profile versus ICS",
-                "Bluetooth feature registration",
-                "qualified functionality definition",
-                "ICS-based qualification"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0040",
+  "case_id": "thread_0040_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Pre-registration consulting (Move Corporation), comprehensive decision tree for which design changes trigger new Bluetooth registration",
+  "customer_question": "Our SoC also implements non-Bluetooth functions (like Wi-Fi) -- if we change those, is certification needed? What about hardware changes around the antenna (impedance matching circuit L/C values)? What about non-antenna circuit changes elsewhere on the board, using the same module? And what about enclosure/housing changes, since that would change the RF environment too?",
+  "question_variants": [
+    "Is there a clean way to distinguish which hardware changes are 'Bluetooth-relevant' versus not, given that almost any change could arguably affect RF behavior somehow?",
+    "If an antenna change causes the product to cross from one Power Class to another, can it still be added as a free derivative?"
+  ],
+  "actual_issue": "The customer needed a clear, complete rule for which categories of design change (non-Bluetooth SoC features, antenna/RF circuit changes, non-antenna board changes, enclosure/housing changes) require a new Bluetooth registration, require only a free derivative addition, or require no Bluetooth action at all -- since the boundary wasn't obvious from general principles alone.",
+  "plain_english_explanation": "Bluetooth SIG registration covers only the Bluetooth functionality's Support Layer and its ICS (functional definition) -- so changes to non-Bluetooth functions implemented on the same SoC (such as Wi-Fi) are entirely out of scope and never require any Bluetooth registration action, as long as the registered Bluetooth scope itself doesn't change. For antenna-related hardware changes (including antenna swaps and impedance-matching circuit L/C value changes), the path is: re-measure the new antenna's maximum gain and have it tested on the BQTF's certified RF test system (entering the new antenna's max gain value) for radiated power and receiver sensitivity; if the result Passes within the already-registered Power Class, the new antenna variant can be added as a free derivative to the existing registration's Product List. However, if the antenna change shifts the measured result across a Power Class boundary -- for example, an extreme case where a product registered as Class 2 (0.25-4dBm with 0dBi antenna gain) changes to a 2dBi antenna, pushing it into Class 1 territory and failing Class 2's range -- the existing Class 2 registration cannot be extended via free derivative addition, and a new registration is required instead, since the underlying Power Class designation itself has changed. For non-antenna circuit changes elsewhere on the board (using the same module unchanged) -- such as an audio amplifier redesign -- these fall outside Bluetooth logo certification's scope entirely, as long as they don't affect the Bluetooth transmit/receive circuit characteristics, even though Japan's radio-law construction-design certification does treat any 'major component' change as requiring re-application (a stricter, different rule from a separate regulatory regime). Finally, for enclosure/housing changes: Bluetooth certification testing uses Conduction Mode testing only (a direct cable connection to the test system) and never Radiation Mode (over-the-air) testing -- meaning that even though a housing change could plausibly affect the real-world over-the-air RF environment, this has no bearing on Bluetooth registration at all, since that aspect is simply never measured or considered as part of Bluetooth SIG's certification process.",
+  "consultant_answer": "Here's the full breakdown: non-Bluetooth SoC functions (like Wi-Fi) are entirely out of scope -- changing them never requires Bluetooth action, since only the Bluetooth Support Layer and its ICS are registered. For antenna/RF circuit changes (including impedance-matching L/C changes), re-test the new antenna's max gain on our certified system; if it Passes within your already-registered Power Class, add it as a free derivative. But if the change pushes the result across a Power Class boundary (e.g., from Class 2 into Class 1 territory), that requires a brand-new registration, not a derivative addition, since the Power Class designation itself changed. For non-antenna board changes (same module, e.g., an audio amplifier redesign), these are out of scope for Bluetooth logo certification as long as they don't affect the Bluetooth TX/RX circuit characteristics -- though note Japan's radio-law certification does separately require re-application for any major component change, a stricter rule from a different regulatory regime. And enclosure/housing changes never require new measurement, since Bluetooth certification only does Conduction Mode (cable-connected) testing, never Radiation Mode (over-the-air) testing -- so a housing change's real-world RF environment impact is simply outside what Bluetooth SIG certification measures.",
+  "decision_logic": "Bluetooth registration scope is strictly limited to the Bluetooth Support Layer and its ICS, tested via Conduction Mode only -- non-Bluetooth SoC functions, non-antenna circuit changes not affecting Bluetooth TX/RX characteristics, and enclosure/housing changes are all entirely out of scope and require no action; antenna/RF circuit changes require re-testing and can be added as a free derivative only if the result stays within the already-registered Power Class, otherwise requiring a full new registration.",
+  "final_recommendation": "Provide customers planning iterative product development with this full decision tree upfront (non-Bluetooth SoC features, antenna/RF changes with the Power-Class-boundary caveat, non-antenna circuit changes, and enclosure changes) rather than answering each category piecemeal across multiple emails, since customers doing this kind of cost-planning benefit from seeing the complete picture at once.",
+  "risk_if_done_wrong": "A customer might either over-conclude that a new registration is needed for an out-of-scope change (wasting cost), or under-conclude that an antenna change pushing the product across a Power Class boundary can be handled as a free derivative when it actually requires a full new registration (risking an invalid registration).",
+  "bluetooth_tags": [
+    "design change decision tree for re-registration",
+    "non-Bluetooth SoC feature out of scope",
+    "antenna change Power Class boundary new registration",
+    "non-antenna circuit change out of scope",
+    "enclosure housing change no Radiation Mode test",
+    "Conduction Mode only testing",
+    "Move Corporation"
+  ],
+  "search_aliases": [
+    "which design changes require new Bluetooth registration",
+    "antenna change crosses Power Class boundary new registration needed",
+    "does enclosure change require Bluetooth retest",
+    "Conduction Mode vs Radiation Mode Bluetooth testing",
+    "non-Bluetooth SoC feature change registration impact"
+  ],
+  "qualification_stage": "Pre-registration general consulting / design change impact analysis",
+  "confidence": "high"
 }

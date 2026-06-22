@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0001",
+  "case_id": "thread_0001_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Topre keyboard, RC1/R4H series), USB IOP/Chapter 9 test scope for battery-powered device",
+  "customer_question": "Our keyboard has an internal rechargeable battery that charges while connected via USB, meaning its current draw varies depending on remaining battery charge. Does this require us to prepare additional documentation for the USB IOP/Chapter 9 test?",
+  "question_variants": [
+    "Does variable current draw from battery charging need to be documented for USB testing?",
+    "Are there battery capacity requirements relevant to IOP/Chapter 9 testing?"
+  ],
+  "actual_issue": "The customer was concerned that their keyboard's battery-charging behavior (variable current draw depending on remaining charge) might require additional supporting documentation for the USB IOP and Chapter 9 conformance tests, given that current draw isn't constant.",
+  "plain_english_explanation": "After checking internally, it was confirmed that the IOP and Chapter 9 test specifications don't include any provisions regulating internal battery capacity or current draw variability — battery charge level isn't a factor these tests evaluate at all, so no additional documentation needs to be prepared for this aspect of the product.",
+  "consultant_answer": "We checked internally, and IOP and Chapter 9 testing don't include any provisions regulating internal battery capacity or current draw — battery charge level isn't something these tests evaluate, so you don't need to prepare any additional documentation for this.",
+  "decision_logic": "USB IOP/Chapter 9 test documentation requirements are scoped to what the test specifications actually regulate, and battery-related current draw variability falls outside that scope entirely, requiring no special accommodation.",
+  "final_recommendation": "When a customer raises a documentation concern about a product characteristic (like variable battery-related current draw), verify against the actual test specification's regulated scope before requiring additional documentation, rather than assuming any unusual characteristic needs special handling.",
+  "risk_if_done_wrong": "Requiring unnecessary documentation for a product characteristic outside the test specification's actual scope would create needless customer effort without any corresponding compliance benefit.",
+  "bluetooth_tags": [
+    "USB IOP Chapter 9 battery capacity not regulated",
+    "variable current draw documentation not needed",
+    "Topre",
+    "RC1"
+  ],
+  "search_aliases": [
+    "does battery charging current draw need documentation USB test",
+    "IOP Chapter 9 battery capacity requirement",
+    "rechargeable keyboard USB test documentation"
+  ],
+  "qualification_stage": "Pre-test documentation scoping",
+  "confidence": "high"
+}

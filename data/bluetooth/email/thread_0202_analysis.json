@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0202",
+  "thread_analysis": {
+    "thread_summary": "Teraoka Seiko (寺岡精工) engaged Allion for two separate Bluetooth SIG registration projects over a long span (Oct 2023 – Feb 2025). Project A: ROHM MK71511 (Nordic nRF52811 + SoftDevice S112, integrated antenna) where the original LAPIS QDID had expired, requiring use of Nordic's End Product QDID for Declaration registration. Project B: Intel AX210NGW (antenna connector module) + Windows OS Host — originally planned with Windows 10, but after the July 1, 2024 SIG portal update (QPRDv3), all Windows 10 QDIDs were found to contain non-removable deprecated HID 1.1 and could not be used. Customer pivoted to Windows 11. Final registration completed in Feb 2025 using Windows 11. Post-registration, compliance folder was created and delivered.",
+    "all_questions_found": [
+      "Can the expired LAPIS QDID be used, or is there a valid successor for the nRF52811 SoftDevice S112?",
+      "After the July 1, 2024 SIG update, can Windows 10 Host QDIDs still be used for new registrations?",
+      "Does the Intel AX210NGW (antenna connector module) + certified Windows Host qualify for Declaration registration with no RF test?",
+      "What content should the operation manual (Bluetooth section) contain for a printer (peripheral device)?",
+      "Are the Compliance Folder documents registered publicly on the SIG portal?"
+    ],
+    "key_technical_discussion": "The thread covers two major blocking issues: (1) Expired QDID — LAPIS module QDID had passed its 3-year validity. Nordic provided End Product QDIDs (S112, S113, S140) as successors enabling Declaration registration. (2) Windows 10 QDID blocked — after July 1, 2024 QPRDv3 update, ALL Windows 10 Host Subsystem QDIDs contain HID 1.1 deprecated profile that cannot be removed via Layer Selection. Only Windows 11 QDIDs are usable. Additionally: AX210NGW has antenna connector → RF test exempt; Compliance Folder for printer requires operation manual from connecting device's perspective; Compliance Folder is private.",
+    "key_decision_logic": "Expired QDID → find valid successor from chip vendor. Windows 10 QDID + QPRDv3 = blocked (deprecated HID 1.1 cannot be Layer Selected away) → Windows 11 required. Antenna connector → RF test not needed. Declaration registration valid when both controller and host have active QDIDs.",
+    "risk_if_done_wrong": "Using expired QDID or blocked Windows 10 QDID would cause registration to fail. Proceeding without understanding antenna connector rule could result in unnecessary RF testing. Wrong operation manual perspective (from printer instead of connecting device) could result in non-compliant Compliance Folder.",
+    "consulting_mistake": "Allion initially quoted the Windows 10 + AX210NGW combination as tentatively feasible (June 2024 quote), with a caveat that the July 1 update 'might' block it. It did block it. More definitively advising the customer to prepare for Windows 11 earlier would have saved time.",
+    "consulting_takeaway": "After July 1, 2024, immediately redirect any Windows-based Host QDID selection to Windows 11. Do not issue tentative quotes based on assumptions about deprecated profile handling in the new portal — check the actual portal behavior first. Always identify the antenna type (integrated vs connector) at the very first scoping meeting."
+  }
+}

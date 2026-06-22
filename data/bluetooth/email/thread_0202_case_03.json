@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0202",
+  "case_id": "thread_0202_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Printer incorporating Intel AX210NGW module with antenna connector + Windows OS Host)",
+  "customer_question": "The Intel AX210NGW has an antenna connector. Combined with a certified Windows Host QDID, does this qualify for Declaration registration with no RF testing required?",
+  "question_variants": [
+    "If the BT module has an antenna connector (not an integrated antenna), is RF PHY testing required?",
+    "Can a product combining an antenna-connector BT module and a certified Windows Host QDID use Declaration registration?",
+    "Intel AX210NGW is listed on the SIG portal as certified — does our printer still need RF testing?"
+  ],
+  "actual_issue": "Teraoka Seiko's printer used the Intel AX210NGW (a certified Controller Subsystem module with an antenna connector rather than an integrated antenna) combined with a Windows OS Host. The customer asked whether RF testing was required and whether Declaration registration applied.",
+  "plain_english_explanation": "A module with an antenna connector means no antenna is built into the module — an external antenna is attached. This is key because for SIG certification, the RF test requirement depends on antenna configuration. When a module has an antenna connector (as opposed to an integrated antenna), the module's certification already covers the radio performance up to the connector, and new RF testing is not required for the end product registration. Combined with the fact that both the Controller (AX210NGW) and Host (Windows OS) are already certified with valid QDIDs, the registration qualifies as a simple Declaration — no testing of any kind is required.",
+  "consultant_answer": "Yes. The Intel AX210NGW has an antenna connector — this means RF PHY test is not required for the end product registration. Since both the Controller Subsystem (AX210NGW QDID) and the Host Subsystem (Windows QDID) are already certified, the end product registration is a Declaration registration with no additional testing needed. Cost: Declaration registration support ¥250,000 (Multi-Design) + Compliance Folder ¥150,000, plus DID fee paid to SIG.",
+  "decision_logic": "Antenna type determines RF test requirement: integrated antenna → RF test required; antenna connector → RF test not required (RF performance covered up to the connector in the module's own certification). Both controller and host have valid QDIDs → Declaration registration path applies. Note: In this case the customer was originally quoted ¥150,000 for Single-Design but the final quote was ¥250,000 for Multi-Design, suggesting the host reference was multi-design.",
+  "final_recommendation": "At the initial scoping stage, always check whether the module has an integrated antenna or an antenna connector. Antenna connector → RF test exempt → Declaration registration if both controller and host have valid certified QDIDs.",
+  "risk_if_done_wrong": "Incorrectly classifying the antenna type could lead to unnecessary RF testing being quoted (wasted money) or missed RF testing being required (registration compliance failure).",
+  "bluetooth_tags": [
+    "antenna connector",
+    "RF test exempt",
+    "Declaration registration",
+    "Intel AX210NGW",
+    "Controller Subsystem",
+    "Host Subsystem",
+    "Windows OS QDID"
+  ],
+  "search_aliases": [
+    "antenna connector RF test exempt",
+    "Intel AX210 Bluetooth SIG",
+    "Declaration registration module certified",
+    "no RF test antenna connector",
+    "AX210NGW SIG registration"
+  ],
+  "qualification_stage": "Pre-registration / registration path determination",
+  "confidence": "high"
+}

@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0256",
+  "case_id": "thread_0256_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product profile retest (DensoTen), MPS profile ICS configuration in customer's own PTS tool",
+  "customer_question": "For our own PTS testing, we've been loading the BlueSDK/profile SDKs from Qualification Workspace and manually applying the profile differences from the '24CY Bluetooth ICS List_DTEN.xlsx' file into the PTS tool. This approach doesn't seem to bring MPS into the test scope at all — could you share the ICS file you created (including the profile difference changes) so we can deploy it directly?",
+  "question_variants": [
+    "Why doesn't our manual ICS-difference approach bring MPS into our PTS test scope?",
+    "Can you share your own prepared ICS file so we can load it directly into our PTS tool?"
+  ],
+  "actual_issue": "The customer's manual approach of loading base SDKs and then individually reflecting ICS profile differences in the PTS tool worked for testing most profiles but failed to bring the MPS profile into scope at all, and they needed Allion's own correctly-configured ICS file (already including the necessary profile difference changes) to test MPS themselves.",
+  "plain_english_explanation": "Rather than continuing to troubleshoot why manually reflecting ICS differences in the PTS tool wasn't successfully bringing MPS into the test scope, the practical and reliable solution was for Allion to directly share its own already-correctly-configured PTS ICS file (the one used internally for this exact registration, including the necessary profile difference changes) so the customer could load it directly into their own PTS tool and test MPS without needing to replicate the configuration manually.",
+  "consultant_answer": "Here's our PTS ICS file (attached) — it already has the correct profile difference configuration for this registration, including MPS. Please load this directly into your PTS tool rather than continuing to manually reflect the ICS differences, since that approach wasn't bringing MPS into scope.",
+  "decision_logic": "When a customer's manual ICS-difference replication approach fails to bring a specific profile into PTS test scope, the most direct and reliable fix is to share the certification lab's own working ICS configuration file rather than continuing to debug the manual replication process.",
+  "final_recommendation": "When a customer's manual PTS configuration approach is missing a specific profile from test scope, offer to share the lab's own verified ICS configuration file directly as the fastest resolution, rather than spending further time diagnosing the manual replication gap.",
+  "risk_if_done_wrong": "Continuing to troubleshoot the customer's manual ICS-replication approach indefinitely, rather than simply sharing the working configuration file, would waste time that could otherwise be spent completing the actual MPS retest.",
+  "bluetooth_tags": [
+    "MPS profile not in PTS scope",
+    "ICS file sharing for customer self testing",
+    "manual ICS difference replication failure",
+    "DensoTen"
+  ],
+  "search_aliases": [
+    "MPS profile missing from PTS test scope",
+    "share ICS file for customer PTS configuration",
+    "Qualification Workspace SDK manual ICS difference"
+  ],
+  "qualification_stage": "Test execution / retest",
+  "confidence": "high"
+}

@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0154",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "Internal report review thread (227 lines) for Sony Corporation A2DP/AVRCP profile test (Bravia FY26). Two issues identified by reviewer Tanaka: (1) A2DP/SRC/SUS/[ID] (Category B) is in the test plan but was not executed — root cause: customer changed ICS mid-project to remove this capability but test plan was not updated; Sakai updated the test plan; (2) AVRCP PTS version mismatch between report (11.5.0.5) and log (11.10.2.3), plus TSPC_ALL=True in log — Tanaka suggested regenerating log with TSPC_ALL=False; Sakai confirmed TSPC_ALL=True is acceptable and no regeneration needed.",
     "all_questions_found": [
       "Test plan has a case that was not executed due to customer ICS change — how to handle?",

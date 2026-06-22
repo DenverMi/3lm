@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0041",
+  "thread_analysis": {
+    "thread_summary": "Atago Corporation (contact Jun Osuga) engages Allion (Itsuo Sakai, Masaya Iida) for Bluetooth SIG registration completion follow-up, spanning July 2025. This short thread covers post-registration education for a customer new to the process: Compliance Folder timing/responsibility, a URL-viewing login issue, and a full breakdown of customer vs. consultant responsibilities during the registration.",
+    "all_questions_found": [
+      "By when must Compliance Folder materials be ready, who holds the storage obligation, and how rare are SIG audits? (see thread_0041_case_01)",
+      "What exactly did the consultant do versus what did the customer do during this registration? (see thread_0041_case_02)",
+      "(Administrative, not separately cased) Customer couldn't view the registration detail page via the provided URL because they weren't logged into their own account first -- resolved by confirming login status before navigating to the URL."
+    ],
+    "key_technical_discussion": "Case_01 crisply distinguishes the vague Compliance Folder preparation expectation ('promptly after registration') from the clearly-defined retention period (1 year post-sales-end), and clarifies that the Listing Owner (not the registration support company) holds the storage obligation -- a useful clarification for customers who might otherwise assume an audit-driven deadline. Case_02 provides a clean, reusable template for explaining the customer/consultant division of labor to any customer unfamiliar with the registration process.",
+    "key_decision_logic": "See thread_0041_case_01 and thread_0041_case_02 for case-specific decision logic.",
+    "risk_if_done_wrong": "See individual case files; case_01's risk centers on a customer indefinitely deferring Compliance Folder assembly under the mistaken belief it's only needed if an audit (which may never occur) happens.",
+    "consulting_mistake": "No significant consulting-side mistakes identified -- the consultant patiently re-explained the same points multiple times as the customer asked for increasing levels of clarity, and proactively offered concrete examples (operation manual, outline drawing, block diagram, antenna documentation found online) when the customer needed a reference point for the expected Compliance Folder document quality.",
+    "consulting_takeaway": "When a customer new to Bluetooth SIG certification asks about post-registration obligations, provide concrete, plain-language breakdowns (who does what, what's the real deadline vs. the retention period, how rare are audits) rather than repeating SIG's own vaguely-worded requirements, since customers unfamiliar with the process need translation into actionable terms."
+  }
+}

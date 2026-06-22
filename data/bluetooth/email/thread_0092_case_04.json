@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0092",
+  "case_id": "thread_0092_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "We're not sure what the 'operation' part of the 'operation manual (Bluetooth part)' document is asking for -- is a document explaining what functions use Bluetooth enough?",
+  "question_variants": [
+    "What exactly does 'operation manual' mean for the compliance folder?",
+    "Is a document describing Bluetooth functions the same as an operation manual?",
+    "Do we need the full retail manual, or something simpler?"
+  ],
+  "actual_issue": "The customer was unsure what the compliance folder's 'operation manual (Bluetooth part)' document requirement actually referred to, specifically whether a document describing which product functions use Bluetooth would satisfy it.",
+  "plain_english_explanation": "The term 'operation manual' here is just a translation of the English 'Operation Manual' -- in other words, it's the regular instructions/user manual that explains how to use the device, the kind of document that's commonly called a user manual or instruction manual. It doesn't need to be a special, separate technical write-up about which functions use Bluetooth, and for the compliance folder it doesn't even need to be the polished version that ships with the product -- a simple memo-level document is fine.",
+  "consultant_answer": "The 'operation' in 'operation manual' is simply the Japanese translation of 'Operation' from 'Operation Manual' -- it refers to a document explaining how to use the registered device, commonly called a User Manual or instruction manual in Japan. An example User Manual from an actually-sold product was provided for reference, but for compliance folder purposes specifically, a simple memo-level document is sufficient rather than the polished, product-shipped version.",
+  "decision_logic": "When a customer is unsure what a compliance folder document term like 'operation manual' actually refers to, clarify that it means a standard User Manual / instructions-for-use document (not a specialized technical write-up), and that for compliance folder purposes a memo-level document is acceptable rather than requiring the polished, retail-shipped version.",
+  "final_recommendation": "When a customer is confused about what 'operation manual' means for the compliance folder, clarify it refers to a standard User Manual / instructions-for-use document, accepted at memo-level fidelity, and provide a reference example if helpful.",
+  "risk_if_done_wrong": "Leaving the term 'operation manual' ambiguous could lead a customer to either submit an unrelated technical document or unnecessarily delay submission while preparing a polished retail-level manual that isn't actually required.",
+  "bluetooth_tags": ["operation manual", "User Manual", "compliance folder", "listing"],
+  "search_aliases": ["operation manual meaning compliance folder", "User Manual instructions for use document", "memo level operation manual acceptable"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

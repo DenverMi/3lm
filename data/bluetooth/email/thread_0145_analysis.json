@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0145",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "Alinco Qualcomm-based module registration. The product is Class 1 (high power). Setting RF ICS item 1/1 = Supported triggers an unresolvable Invalid because the Check Rule mandates LMP 31/1 (Power Control), which the QDID does not support. Solution: set RF 1/1 = NO (Class 2 in RF layer) and RF PHY 1/15 = YES (PHY Class 1) — this accurately represents Class 1 capability without triggering the LMP dependency. RF/RF PHY test must be conducted at Class 1 settings.",
     "all_questions_found": [
       "Why does setting RF ICS 1/1 = Supported (Class 1) cause a Consistency Check Invalid?",

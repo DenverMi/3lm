@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0212",
+  "case_id": "thread_0212_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (automotive IVI/HMI head unit, Denso Ten)",
+  "customer_question": "(Internal Allion discussion, prompted by a customer request) When a profile test run produces an unusually large number of Fail/Inconclusive results (100+ items) and the customer requests detailed per-item debug log collection to support their own root-cause analysis, is providing those logs part of standard Bluetooth logo certification testing scope, or extra billable work?",
+  "question_variants": [
+    "Should customer-requested per-item debug log collection beyond standard PTS output be included in the base testing fee?",
+    "How should Allion handle a large volume of customer-requested debug logging that wasn't separately quoted?"
+  ],
+  "actual_issue": "During profile testing for an automotive head unit with an unstable DUT, 100+ Fail/Inconclusive results occurred. The customer (Denso Ten) requested per-test-item debug log collection (delete log, run failing test, capture log, rename with Test Case ID, upload, notify) repeated for every failing item, to support their own internal root-cause analysis. Allion's engineer performed roughly 32 hours of this work without first quoting it separately, leading to internal questions about whether this falls within the standard certification testing scope.",
+  "plain_english_explanation": "Standard Bluetooth logo certification testing scope is defined as running tests using PTS (Profile Tuning Suite) as the tester and providing the customer with the PTS logs (Pass, Fail, Inconclusive) that are automatically produced as part of that testing — this is included in the base test fee. Any additional log collection performed using methods or tools beyond what PTS automatically produces, requested by the customer for their own debugging/design-verification purposes, falls outside the standard certification scope and constitutes separate 'design verification' work requiring its own quote each time. The 32 hours already spent on this in the current case will be absorbed by Allion since it wasn't quoted in advance, but going forward this distinction must be clearly communicated to the customer.",
+  "consultant_answer": "Standard certification testing scope only covers running PTS-based tests and providing the PTS-generated logs (Pass/Fail/Inconclusive) as part of the test fee. Customer-requested additional debug log collection beyond that — using non-PTS methods to investigate non-Pass items — is design verification work outside logo certification testing's scope, and should be quoted separately each time it's requested. The 32 hours already spent will be absorbed this time since it wasn't quoted upfront, but the customer should be informed going forward that further such requests require a separate estimate.",
+  "decision_logic": "Bluetooth logo certification testing scope is bounded by PTS-tool-based testing and its automatically generated logs; any customer-requested debugging or root-cause analysis support beyond that is a distinct service category (design verification) requiring its own scoping and quote, regardless of how the request is phrased.",
+  "final_recommendation": "When a customer's profile test produces unusually high Fail/Inconclusive counts and they request extensive custom debug logging, proactively clarify the scope boundary and provide a separate quote before performing the work, rather than absorbing potentially large unbudgeted engineering hours.",
+  "risk_if_done_wrong": "Failing to set this scope boundary clearly risks recurring unbudgeted engineering hours being absorbed by Allion on every high-Fail-count test engagement, and customer expectations becoming misaligned about what's included in standard certification testing fees.",
+  "bluetooth_tags": [
+    "testing scope boundary",
+    "PTS log provision",
+    "design verification billing",
+    "Denso Ten",
+    "internal policy"
+  ],
+  "search_aliases": [
+    "is custom debug log collection included in test fee",
+    "PTS log vs custom log scope",
+    "additional billable work profile testing",
+    "high fail count test debugging cost"
+  ],
+  "qualification_stage": "Testing / service scope and billing",
+  "confidence": "high"
+}

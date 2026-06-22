@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0166",
+  "case_id": "thread_0166_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Smart TV with Bluetooth (Sony, A2DP + AVRCP + DI)",
+  "customer_question": "We don't recall ever submitting a Compliance Folder before - is this a new requirement under the new Qualification Process? For a TV product, can we provide the wireless module's block diagram instead of the full TV's, and does this material need to be ready before SIG Submission?",
+  "question_variants": [
+    "Is the Compliance Folder a new requirement, or did it always exist?",
+    "For a complex product like a TV, can the block diagram be the wireless module's diagram instead of the whole product's?",
+    "Does the Compliance Folder need to be ready before we submit to SIG, or can it come after?"
+  ],
+  "actual_issue": "Sony asked whether the Compliance Folder request was a new requirement, since they had no memory of providing such materials in a prior registration. The consultant clarified that Compliance Folder creation and retention was already mandatory for Design registrations even under the old Launch Studio (PRD v2.3) system, but since July 2024 it became mandatory for ALL registration types under the new Qualification Process. For a complex product like a TV, the consultant confirmed the outline drawing should preferably be the product's own, but the block diagram can be the wireless module's (since a full TV block diagram would be too complex). The consultant also confirmed the documents are not required before SIG Submission - they should be prepared as soon as possible after registration is finalized.",
+  "plain_english_explanation": "The Bluetooth SIG's Compliance Folder is a set of technical documents (operation manual, block diagram, outline drawing, antenna data sheet) that a registrant must assemble and retain to prove the registered product genuinely conforms to its declared Bluetooth capabilities. This requirement already existed for Design-type registrations in the old Launch Studio system, but since July 2024 it now applies to every registration type. For a product as complex as a TV, supplying a full system block diagram would be overwhelming and impractical, so the wireless module's own block diagram is an acceptable substitute - though the outline/exterior drawing should still be the actual product's, where possible. Unlike test evidence, none of these documents are required before the registration is submitted to SIG; they just need to be gathered and provided promptly afterward.",
+  "consultant_answer": "The Compliance Folder requirement is not new - it already existed for Design registrations even in the Launch Studio (PRD v2.3) era. Since July 2024, the new registration system made it mandatory for all registration types. For the block diagram and outline drawing: the outline drawing is preferably the product's own, but since a full TV block diagram would be far too complex, the wireless module's block diagram is acceptable. These materials are not needed before SIG Submission - they should be prepared as promptly as possible after registration is finalized.",
+  "decision_logic": "When a customer questions the Compliance Folder requirement, clarify that it has always applied to Design registrations and was simply expanded to all registration types post-July 2024. For complex products (TV, server, etc.), accept the wireless module's block diagram as a substitute for the full product diagram, while still preferring the actual product's outline/exterior drawing where available. Compliance Folder materials are due after registration completion, not before Submission - do not let this become a blocking item pre-Submission.",
+  "final_recommendation": "Proactively explain to customers (especially those unfamiliar with the post-July-2024 rules) that the Compliance Folder is mandatory for all registrations now, accept the wireless module's block diagram for complex products, and make clear this material is due after - not before - registration Submission, so it doesn't unnecessarily delay the registration itself.",
+  "risk_if_done_wrong": "Treating the Compliance Folder as a pre-Submission blocker would unnecessarily delay registration completion. Insisting on a full product-level block diagram for a complex product like a TV imposes an impractical documentation burden with no compliance benefit over the module-level diagram.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "QPRDv3",
+    "post-2024",
+    "block diagram",
+    "outline drawing",
+    "registration timing",
+    "TV",
+    "documentation"
+  ],
+  "search_aliases": [
+    "Compliance Folder new requirement post July 2024",
+    "TV block diagram wireless module substitute",
+    "Compliance Folder timing before after Submission",
+    "complex product block diagram acceptable module",
+    "Design registration Compliance Folder Launch Studio"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

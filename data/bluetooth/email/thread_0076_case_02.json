@@ -1,42 +1,23 @@
 {
-    "source_thread": "thread_0076",
-    "cases": [
-        {
-            "case_id": "thread_0076_case_02",
-            "iut_type": "",
-            "customer_question": "How should multiple product models be handled when creating a new Bluetooth SIG Product Listing?",
-            "question_variants": [
-                "Can multiple models be entered during new registration?",
-                "Is only one model allowed in Product List?",
-                "How do I add derivative models?",
-                "Product List management for multiple models",
-                "Additional model registration after listing"
-            ],
-            "actual_issue": "The customer wanted to understand whether Bluetooth SIG rules limit a new registration to a single product model and how derivative models should be handled.",
-            "plain_english_explanation": "A new Bluetooth SIG registration requires at least one model to be entered into the Product List. However, the registration is not restricted to a single model forever. Additional compatible models can be added later through Product List maintenance.",
-            "consultant_answer": "The consultant explained that a new registration requires at least one Product List entry. Although multiple models are not strictly prohibited during registration, the recommended practice is to complete the initial registration with a primary model and then add additional models afterward using the Product List addition workflow.",
-            "decision_logic": "Initial registration and Product List maintenance are separate activities. Since Product List corrections can be cumbersome after submission, adding additional models after successful registration is often the safer process.",
-            "final_recommendation": "Complete the initial registration using a primary model and add additional derivative models through the Product List management process after registration completion.",
-            "risk_if_done_wrong": "Incorrect Product List entries may require later correction requests and create unnecessary registration administration effort.",
-            "bluetooth_tags": [
-                "listing",
-                "Product List",
-                "registration",
-                "declaration"
-            ],
-            "search_aliases": [
-                "Product List addition",
-                "multiple model listing",
-                "derivative model registration",
-                "single model requirement",
-                "Product List maintenance",
-                "additional product models",
-                "listing management",
-                "registration workflow"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0076",
+  "case_id": "thread_0076_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "Is a new SIG registration limited to just one model, or can we register multiple models at once?",
+  "question_variants": [
+    "Can we add several models in our initial new registration?",
+    "Does SIG only allow one model per new registration?",
+    "What's the recommended way to register more than one model?"
+  ],
+  "actual_issue": "The customer needed to know whether SIG's new-registration process restricted them to registering only one model, since they wanted to understand their options for covering multiple models under the new registration.",
+  "plain_english_explanation": "Bluetooth SIG requires that a new registration include at least one model, not exactly one -- so technically more than one model can be added during the initial registration. In practice, though, it's usually better to register just the first model up front and add any additional models afterward through a separate, free process, because mistakes made in the model list during the busier initial registration can only be deleted by SIG, not corrected, whereas adding models later is simpler and lower-risk.",
+  "consultant_answer": "SIG's rule is that a new registration must include at least one model added to the Product List -- this is a minimum, not a maximum, so registering multiple models at the time of new registration is not prohibited. However, because new registration already involves a substantial amount of other input and confirmation, and because any incorrectly-entered Product List item can only be requested for deletion by SIG (not corrected), the general practice is to register just one model during new registration, then use the free additional-model registration entry point that becomes available on the Product List page after registration completes to calmly add further models.",
+  "decision_logic": "Since SIG's new-registration requirement is a floor (at least one model), not a ceiling, multiple models could technically be included at once, but the asymmetry between mis-entries being uncorrectable (only deletable) and the simplicity of the free post-registration addition process makes registering one model first, then adding others afterward, the lower-risk default approach.",
+  "final_recommendation": "Register a single model during the initial new registration, then add any additional models afterward through the free Product-List addition entry point, rather than attempting to include multiple models in the initial registration.",
+  "risk_if_done_wrong": "Including multiple models in the initial new registration increases the chance of a Product List entry error, which cannot be corrected after the fact -- only deleted by SIG -- creating avoidable rework compared to using the free post-registration addition process.",
+  "bluetooth_tags": ["Product List", "new registration", "multiple models", "listing"],
+  "search_aliases": ["one model minimum not maximum new registration", "add models after registration free", "Product List entry error cannot be corrected", "multiple models same new registration"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

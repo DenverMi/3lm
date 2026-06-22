@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0244",
+  "thread_analysis": {
+    "thread_summary": "Sony Semiconductor Solutions (contact Yutaro Obata, with electrical/software design and technical management staff later added) inquires with Allion (Masaya Iida) about both Bluetooth SIG certification and global radio-type regulatory certification for a battery-powered, BT-module-equipped wafer temperature measurement unit paired with a USB dongle receiver, intended for use with semiconductor manufacturing equipment. The thread spans NDA negotiation (Nov 2024-Feb 2025), service-scope clarification (Allion direct vs. SGS Japan partner), a detailed country-by-country global certification strategy, a Bluetooth SIG quote (Single Design reference, ¥300,000 total plus separate Qualification Fee), and Korea-specific KC certification scoping questions.",
+    "all_questions_found": [
+      "Does Allion handle both Bluetooth SIG and global radio law certification directly? (see thread_0244_case_01)",
+      "Which target countries can rely on the module's existing certifications, which need local testing/certification, and which accept a test report? (see thread_0244_case_02)",
+      "What information does Korea's KC certification process need, and does it apply at the module or end-product level, or both? (see thread_0244_case_03)"
+    ],
+    "key_technical_discussion": "This thread illustrates Allion's role as a single point of contact spanning both its own accredited Bluetooth SIG certification service and a partnered (SGS Japan) global radio-type regulatory certification service, with a clear per-country strategy distinguishing module-certification reuse, mandatory local testing/certification, and test-report-acceptance schemes, plus country-specific scoping nuances (like Korea's module-vs-end-product KC certification question) for a two-device Bluetooth system.",
+    "key_decision_logic": "Service-scope and per-country certification strategy should each be explicitly itemized (which entity performs the work, which certification tier applies per country) rather than treated as a single undifferentiated 'global certification' service, since the customer's planning and quoting depend on these specific distinctions.",
+    "risk_if_done_wrong": "See thread_0244_case_01 through thread_0244_case_03 for specific risks of each question.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "For customers requesting both Bluetooth SIG certification and broader global regulatory certification in one inquiry, clearly delineate direct vs. partner-provided services upfront, and structure regulatory strategy advice as a per-country tiered breakdown (certification reuse, mandatory local work, report acceptance) to support accurate customer planning and quoting across multiple jurisdictions."
+  }
+}

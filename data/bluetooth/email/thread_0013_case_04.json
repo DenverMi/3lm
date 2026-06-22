@@ -1,44 +1,35 @@
 {
-    "source_thread": "thread_0013",
-    "cases": [
-        {
-            "case_id": "thread_0013_case_04",
-            "iut_type": "lighting device",
-            "customer_question": "Is an operation control application required for DIS profile testing, and can prototype hardware be used for testing?",
-            "question_variants": [
-                "Can DIS testing use prototype hardware?",
-                "Is a smartphone control app required for DIS qualification?",
-                "Do we need production labels for Bluetooth profile testing?",
-                "Can profile testing be done with engineering samples?",
-                "What hardware is needed for DIS testing?"
-            ],
-            "actual_issue": "The customer needed clarification on whether Bluetooth DIS profile testing required a production-ready product and a companion control application.",
-            "plain_english_explanation": "The customer only had prototype hardware and an unfinished smartphone control application available for testing. They were concerned this might block Bluetooth qualification testing. The consultant clarified that the DIS profile test only required the Bluetooth-enabled product itself and that prototype labels were acceptable.",
-            "consultant_answer": "The consultant explained that DIS profile testing can be performed using prototype hardware with temporary labeling as long as the Bluetooth functionality is representative of the final implementation. The smartphone control application was not required because DIS testing could be performed directly against the product implementing the DIS profile.",
-            "decision_logic": "Bluetooth profile testing validates the implemented Bluetooth profile behavior rather than final cosmetic manufacturing details. Companion applications are only required if they are necessary to exercise the tested Bluetooth functionality.",
-            "final_recommendation": "Provide a representative prototype unit implementing the DIS profile functionality and proceed with testing even if the final production labeling or control application is not complete.",
-            "risk_if_done_wrong": "Delaying testing unnecessarily until production hardware or applications are finalized can delay qualification schedules and product launch timelines.",
-            "bluetooth_tags": [
-                "DIS",
-                "profile",
-                "testing",
-                "prototype",
-                "PTS",
-                "qualification"
-            ],
-            "search_aliases": [
-                "prototype acceptable for testing",
-                "DIS app required",
-                "engineering sample qualification",
-                "temporary label testing",
-                "profile-only testing",
-                "Bluetooth prototype testing",
-                "control app unnecessary",
-                "DIS profile sample"
-            ],
-            "qualification_stage": "testing",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0013",
+  "case_id": "thread_0013_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Koizumi Lighting lamp using new Telink-based module 'BM043'), overlapping reference QDID layers requiring new registration evidence",
+  "customer_question": "We want to register a lighting fixture using a new module ('BM043,' built on a Telink chipset) -- what test reports and registration evidence will be needed, given that our quotation request listed two possible reference QDIDs?",
+  "question_variants": [
+    "Can we simply reference one of the two existing module QDIDs we cited without any new testing?",
+    "Why would RF PHY and DIS testing both be needed if a reference QDID already covers part of the stack?"
+  ],
+  "actual_issue": "The customer's quotation request listed two candidate reference QDIDs for the new BM043 module: one registered as a Component (v5.3) and another registered as a Core-Controller (v6.1) -- both of which overlap in their RF PHY, LL, and HCI layer coverage. Because of this overlap, neither reference alone was sufficient by itself to support a new DIS-inclusive registration without additional evidence.",
+  "plain_english_explanation": "Since the two candidate reference QDIDs (the Component-level v5.3 registration and the Core-Controller-level v6.1 registration) duplicate each other's RF PHY, LL, and HCI layer coverage, a new registration that adds DIS support requires combining either the first QDID plus a third item, or the second QDID plus that same third item, using RF PHY (1M, 2M, Coded) test report and DIS PTS test report as evidence for the new registration. The quoted cost was identical regardless of which of the two combination paths (first+third or second+third) was chosen: RF PHY testing (¥400,000), DIS profile testing (¥100,000), and Compliance Folder creation (¥150,000), plus the registrant's own separate USD wire transfer of the SIG registration fee ($11,040). Note: the first version of this quote omitted a line item that was added in a follow-up correction -- proxy registration support specifically for the Multi-Design reference path, priced at ¥250,000 -- so the complete quote also includes this registration-support fee alongside the test and Compliance Folder costs.",
+  "consultant_answer": "Your two candidate reference QDIDs overlap in RF PHY, LL, and HCI layer coverage, so neither alone is sufficient for a new DIS-inclusive registration. You'll need to combine either the first QDID plus a third item, or the second QDID plus that same third item, supported by an RF PHY (1M, 2M, Coded) test report and a DIS PTS test report as evidence. The quote is the same either way: RF PHY testing ¥400,000, DIS profile testing ¥100,000, Compliance Folder ¥150,000, plus your own $11,040 SIG fee wire transfer. (Correction to our initial quote: please also add ¥250,000 for proxy registration support via the Multi-Design reference path, which was missing from the first version we sent.)",
+  "decision_logic": "When a new product's candidate reference QDIDs overlap in the protocol layers they cover, a new registration requiring additional functionality (like DIS) cannot rely on either reference alone -- it must combine the most relevant reference with whichever additional registration item covers the missing layer, backed by fresh test report evidence for the specific layers/profiles not already proven by the reference combination.",
+  "final_recommendation": "When scoping a quote for a new module registration referencing existing QDIDs, check early for layer overlap between candidate references, and base the evidence/test-report requirement on which layers remain uncovered after combining the best-fit reference QDID with any needed additional item, rather than assuming either reference is independently sufficient.",
+  "risk_if_done_wrong": "Assuming a single existing reference QDID is sufficient without checking for layer overlap could result in an incomplete registration submission, requiring late discovery of missing RF PHY/LL/HCI evidence and project delay.",
+  "bluetooth_tags": [
+    "new module registration BM043",
+    "overlapping reference QDID layers",
+    "RF PHY LL HCI layer duplication",
+    "Component vs Core-Controller registration",
+    "DIS inclusive new registration",
+    "Koizumi Lighting",
+    "Telink chipset"
+  ],
+  "search_aliases": [
+    "reference QDID overlapping layers registration",
+    "Component vs Core-Controller QDID RF PHY LL HCI",
+    "new module registration DIS evidence requirement",
+    "BM043 Telink module registration"
+  ],
+  "qualification_stage": "Pre-registration quotation / scoping",
+  "confidence": "high"
 }

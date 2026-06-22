@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0221",
+  "case_id": "thread_0221_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product incorporating Q309899 Core-Controller SoC (Move company)",
+  "customer_question": "Does the 'person in charge' (担当者) referenced in the quote request need to be the company's SIG account signer?",
+  "question_variants": [
+    "Is the registration point-of-contact required to be the same person as our SIG member signer?"
+  ],
+  "actual_issue": "Move company (Koji Kishimoto) asked whether the contact person listed on the quote request form had to be the same individual designated as their company's Bluetooth SIG member account signer.",
+  "plain_english_explanation": "The 'person in charge' field is just the point of contact for the registration process — it does not need to be the same person who is registered as the company's SIG account signer.",
+  "consultant_answer": "The person in charge is simply the registration point of contact and does not need to be your company's member-registration signer.",
+  "decision_logic": "SIG account signer authority and day-to-day registration point of contact are separate roles; the quote/registration process only requires a contact person, not signer-level authority.",
+  "final_recommendation": "Clarify this distinction proactively in quote request instructions to avoid customer confusion about who needs to fill out the contact field.",
+  "risk_if_done_wrong": "None significant — a misunderstanding here would only cause a minor delay in form completion, not a compliance issue.",
+  "bluetooth_tags": [
+    "signer",
+    "point of contact",
+    "SIG member account",
+    "quote request form",
+    "Move"
+  ],
+  "search_aliases": [
+    "does registration contact need to be signer",
+    "SIG account signer vs point of contact"
+  ],
+  "qualification_stage": "Pre-registration / quote clarification",
+  "confidence": "high"
+}

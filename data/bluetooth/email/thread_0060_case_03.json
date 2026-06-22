@@ -1,43 +1,31 @@
 {
-    "source_thread": "thread_0060",
-    "cases": [
-        {
-            "case_id": "thread_0060_case_03",
-            "iut_type": "sensor",
-            "customer_question": "When must Bluetooth SIG registration be completed relative to product launch and public disclosure?",
-            "question_variants": [
-                "Does Bluetooth registration need to be completed before sales start?",
-                "When is the deadline for Bluetooth SIG listing?",
-                "Must registration be completed before a press release?",
-                "Can a product be publicly announced before Bluetooth registration?",
-                "What event determines the registration timing requirement?"
-            ],
-            "actual_issue": "Determining the correct timing for Bluetooth SIG registration relative to product publication, promotion, and commercialization.",
-            "plain_english_explanation": "Many companies assume Bluetooth registration only needs to be completed before sales begin. However, public disclosure can occur earlier through websites, exhibitions, catalogs, dealer communications, or press releases. Registration timing must account for the first public exposure of the Bluetooth product.",
-            "consultant_answer": "The consultant explained that Bluetooth SIG requirements are tied to the date the Bluetooth product becomes publicly known to third parties. Public announcements, exhibitions, websites, sales materials, or similar disclosures can trigger the need for registration before commercial sales begin. The required SIG fee payment should also be completed before registration activities are executed.",
-            "decision_logic": "The governing event is public disclosure of the Bluetooth product rather than the formal sales start date. Registration must therefore be aligned with the earliest public exposure of the product.",
-            "final_recommendation": "Identify the earliest planned public disclosure activity and ensure Bluetooth SIG registration and required payment activities are completed before that date.",
-            "risk_if_done_wrong": "If the product is publicly disclosed before registration is completed, the company may create a Bluetooth SIG compliance issue and face corrective qualification actions.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "declaration",
-                "launch planning",
-                "SIG"
-            ],
-            "search_aliases": [
-                "public disclosure requirement",
-                "registration before launch",
-                "Bluetooth announcement timing",
-                "press release before registration",
-                "listing deadline",
-                "pre-launch qualification",
-                "public release compliance",
-                "registration scheduling"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0060",
+  "case_id": "thread_0060_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Model name registration granularity determined by the physical nameplate display -- not internal manufacturing codes, and wildcard/series-style registration is prohibited",
+  "customer_question": "Our catalog/order product codes consist of 9 variants (combinations of the Bluetooth-equipped unit with different mounting brackets), but our internal manufacturing code identifies just the Bluetooth unit itself as a single variant. Should we register all 9 catalog codes in the Product List, or just the 1 internal code? Also, could we use a 'series registration' format to cover future product expansions?",
+  "question_variants": [
+    "If a product has multiple SKU variants from combining a core unit with different accessories, how many model names need to be registered?",
+    "Can a wildcard or series-style naming convention be used in the Product List instead of listing every individual model name?"
+  ],
+  "actual_issue": "The customer's product had two different model-naming structures -- a 9-variant catalog/ordering code system (reflecting different unit-plus-bracket combinations) and a single internal manufacturing code (identifying only the Bluetooth-equipped unit) -- and needed to know which naming structure determined what had to be registered in the SIG Product List, plus whether a forward-looking 'series' registration format was possible.",
+  "plain_english_explanation": "Which model name(s) need to be registered in the Product List is determined entirely by what is actually displayed on the physical product's nameplate -- not by the internal manufacturing code structure or the catalog/ordering code structure in isolation. If the nameplate displays only the single internal manufacturing code, then only that one code needs to be registered in the SIG Product List. However, if the catalog/ordering codes (all 9 variants) are also displayed on or alongside the nameplate, then all 9 of those codes must also be registered in the Product List. Separately, SIG's regulations require that the model name displayed on the actually-sold physical product's nameplate match the model name registered in the Product List -- this means a wildcard-based or generic 'series' registration format (intended to cover an open-ended range of future model variants without individually registering each one) is explicitly prohibited.",
+  "consultant_answer": "It depends on what's actually shown on the physical nameplate: if only your single internal manufacturing code appears there, that's the only one you need to register in the Product List. But if your 9 catalog/ordering codes also appear on or alongside the nameplate, all 9 of those need to be registered too. As for a 'series' registration to cover future products -- that's not possible; SIG requires every nameplate-displayed model name to individually match a registered Product List entry, so wildcard-style series registrations are prohibited.",
+  "decision_logic": "When a customer has multiple model-naming structures (e.g., internal manufacturing codes vs. catalog/ordering codes) and asks which names need Product List registration, determine the answer based on what's actually displayed on the physical product's nameplate -- register exactly those names, whether that's a single code or multiple variant codes -- and clarify that wildcard/series-style registration covering an open-ended future model range is not permitted under any circumstances.",
+  "final_recommendation": "When a customer's product has multiple overlapping naming structures, explicitly ask what appears on the physical nameplate before determining which model names require Product List registration, and proactively clarify that series/wildcard registration is never an option, since customers planning future product line expansion may otherwise assume this shortcut exists.",
+  "risk_if_done_wrong": "Registering the wrong set of model names (e.g., only the internal code when the nameplate actually shows multiple catalog variant codes) could leave some actually-sold product variants unregistered, creating a future corrective-recommendation risk; assuming a series/wildcard registration is possible could lead to an invalid registration attempt.",
+  "bluetooth_tags": [
+    "model name registration determined by nameplate display",
+    "wildcard series registration prohibited",
+    "multiple SKU variants Product List registration",
+    "Paramount Bed toilet sensor"
+  ],
+  "search_aliases": [
+    "how many model names need to be registered for multi-SKU product",
+    "is series or wildcard registration allowed Bluetooth SIG",
+    "model name must match nameplate not internal code"
+  ],
+  "qualification_stage": "Product List model name scoping",
+  "confidence": "high"
 }

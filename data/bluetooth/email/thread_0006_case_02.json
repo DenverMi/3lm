@@ -1,47 +1,32 @@
 {
-    "source_thread": "thread_0006",
-    "cases": [
-        {
-            "case_id": "thread_0006_case_02",
-            "iut_type": "digital camera",
-            "customer_question": "What is a DIS ICS file and who should complete it for Bluetooth profile qualification testing?",
-            "question_variants": [
-                "How do we prepare a DIS ICS for profile testing?",
-                "Who should fill out the DIS ICS document?",
-                "What information is required for DIS qualification?",
-                "Why is the DIS ICS needed for PTS testing?",
-                "What is an ICS in Bluetooth qualification?"
-            ],
-            "actual_issue": "The customer did not understand the role of the Device Information Service ICS document required for DIS profile qualification and PTS test plan generation.",
-            "plain_english_explanation": "Bluetooth profile testing requires a formal feature declaration document called an ICS. The consultant clarified that the DIS ICS describes which Device Information Service features the product supports and must be completed by the engineer or supplier who implemented the DIS software. The completed ICS is then used to generate the test plan and PTS configuration.",
-            "consultant_answer": "The consultant explained that the ICS is an Implementation Conformance Statement defined by the Bluetooth SIG for Bluetooth profiles and protocols. The DIS ICS specifically defines the supported Device Information Service functionality implemented in the product. The consultant instructed the customer to have the software engineer or external development vendor responsible for implementing DIS complete the provided ICS form. The completed DIS ICS would then be used to generate the DIS test plan and PTS ICS files for qualification testing.",
-            "decision_logic": "Bluetooth profile qualification requires an accurate ICS because the test plan and applicable PTS cases are derived from declared supported features. The implementer of the Bluetooth functionality is the authoritative source for the feature declarations.",
-            "final_recommendation": "Have the engineer or software supplier responsible for implementing the Device Information Service complete the DIS ICS accurately before generating the qualification test plan.",
-            "risk_if_done_wrong": "Incorrect or incomplete ICS information can generate the wrong test plan, trigger consistency issues, cause failed profile testing, or require retesting and qualification rework.",
-            "bluetooth_tags": [
-                "qualification",
-                "ICS",
-                "PTS",
-                "profile",
-                "DIS",
-                "test plan",
-                "GATT"
-            ],
-            "search_aliases": [
-                "DIS ICS",
-                "Implementation Conformance Statement",
-                "PTS ICS file",
-                "Device Information Service qualification",
-                "profile test plan",
-                "Bluetooth ICS form",
-                "DIS profile testing",
-                "PTS configuration",
-                "ICS completion",
-                "GATT profile qualification"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0006",
+  "case_id": "thread_0006_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging camera), USB Power Delivery Source current threshold",
+  "customer_question": "For PD compliance, is 900mA the minimum required Source current, or would 500mA be sufficient?",
+  "question_variants": [
+    "Can our product satisfy PD certification requirements with only a 500mA Source current?",
+    "What is the actual minimum Source current threshold for PD/DRP eligibility?"
+  ],
+  "actual_issue": "The customer's product design was being evaluated against a candidate Source output current of 500mA, and they needed to know whether this met the minimum threshold for PD compliance and DRP (dual-role power) eligibility, or whether a higher current was required.",
+  "plain_english_explanation": "500mA is not sufficient — the minimum required Source current for PD compliance is 900mA. A product with a Source output below this threshold cannot qualify for DRP (dual-role power) certification, which has downstream implications for whether the product can be certified as a UFP/DFP dual-role device versus a sink-only (UFP-only) device.",
+  "consultant_answer": "500mA is not enough — the minimum required Source current for PD compliance is 900mA. Below that threshold, your product cannot qualify for DRP certification.",
+  "decision_logic": "PD/DRP certification eligibility is gated on a minimum Source output current threshold (900mA); a lower candidate current (such as 500mA) disqualifies the product from DRP certification regardless of other specification details, and this threshold should be checked early in the hardware design process before committing to a certification path.",
+  "final_recommendation": "Confirm a product's planned Source output current against the 900mA PD/DRP minimum threshold as early as possible in hardware design, since falling short forecloses DRP certification and forces a fallback to sink-only (UFP-only) certification paths with their own separate constraints.",
+  "risk_if_done_wrong": "Designing hardware around a 500mA Source assumption would result in late discovery that DRP certification is unavailable, potentially requiring a hardware redesign or a fallback to a more limited certification scope after significant design work is already complete.",
+  "bluetooth_tags": [
+    "USB Power Delivery",
+    "900mA minimum Source current",
+    "DRP eligibility threshold",
+    "Ricoh Imaging"
+  ],
+  "search_aliases": [
+    "minimum Source current for PD certification",
+    "is 500mA enough for USB PD",
+    "DRP certification current threshold",
+    "900mA Source requirement"
+  ],
+  "qualification_stage": "Pre-test design review",
+  "confidence": "high"
 }

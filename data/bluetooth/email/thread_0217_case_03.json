@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0217",
+  "case_id": "thread_0217_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (fire-extinguisher-shaped AR controller, Nihon Bousai Gijutsu Center)",
+  "customer_question": "Since a single shared group email address is undesirable for delegation reasons, can multiple actual employees be made administrators, or can a shared email address still be used for that purpose despite the concerns?",
+  "question_variants": [
+    "Is using a shared/group email address acceptable for managing Primary Contact or Listing Owner roles?",
+    "How should we name a shared email address if we want to use one for account management?"
+  ],
+  "actual_issue": "The customer wanted to avoid concentrating account management responsibility in a single named individual (worried about personnel risk), and asked whether using a shared/group company email address for account roles was acceptable, given they had been told this was 'not preferable.'",
+  "plain_english_explanation": "For the Primary Contact role specifically, a shared/group email address should be avoided, because the company membership registration is based on a personal delegation of authority from the company's legal representative to a specific named individual. For the Listing Owner role, however, there is actual precedent of multiple companies using a shared/group email address — though the customer should name the address so it appears to be tied to a specific individual rather than obviously being a shared department address.",
+  "consultant_answer": "Avoid using a shared/group email address for the Primary Contact role, since the company membership registration relies on personal delegation of authority from your legal representative to a specific individual. For the Listing Owner role, there are real-world examples of multiple companies successfully using a shared/group email address — just name the address so it looks like an individual's name rather than an obvious department alias.",
+  "decision_logic": "Primary Contact carries personal legal delegation weight that a shared address would undermine; Listing Owner is a more operational/administrative role where shared-address use has functioned in practice, provided the address doesn't overtly signal its shared nature.",
+  "final_recommendation": "When customers raise succession-risk concerns, clearly differentiate the two roles' tolerance for shared email addresses rather than giving one blanket answer — Primary Contact should stay individual, Listing Owner can be shared with a disguised naming convention if needed.",
+  "risk_if_done_wrong": "Using a shared address for Primary Contact could create ambiguity about who holds legal delegation authority for the company's SIG membership, which is a more sensitive risk than a shared Listing Owner address.",
+  "bluetooth_tags": [
+    "shared email address",
+    "Primary Contact delegation",
+    "Listing Owner shared account",
+    "Nihon Bousai Gijutsu Center"
+  ],
+  "search_aliases": [
+    "can multiple admins manage SIG account",
+    "shared email address Bluetooth SIG account",
+    "group email Primary Contact Listing Owner"
+  ],
+  "qualification_stage": "Post-registration / account management",
+  "confidence": "high"
+}

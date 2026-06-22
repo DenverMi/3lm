@@ -1,43 +1,31 @@
 {
-    "source_thread": "thread_0060",
-    "cases": [
-        {
-            "case_id": "thread_0060_case_02",
-            "iut_type": "sensor",
-            "customer_question": "Which model names must be included in the Bluetooth SIG Product List when a product family has multiple commercial product codes and can wildcard or series naming be used?",
-            "question_variants": [
-                "Do all model numbers need to be listed in the Product List?",
-                "Can I register only the Bluetooth unit model instead of all sales models?",
-                "Can Bluetooth SIG Product List use a series name?",
-                "Are wildcard model names allowed in Bluetooth registration?",
-                "How should Product List model names match the product label?"
-            ],
-            "actual_issue": "Determining the correct Bluetooth SIG Product List model naming strategy when multiple marketed product codes are associated with the same Bluetooth hardware.",
-            "plain_english_explanation": "A company may have one Bluetooth hardware unit but several commercial product codes created by packaging or accessory combinations. Bluetooth SIG registration must reflect how the product is actually identified in the marketplace and on the product label. The challenge is deciding which model names belong in the Product List.",
-            "consultant_answer": "The consultant explained that Product List entries must match the model identifiers shown on the actual product label or nameplate. If only one identifier appears on the product, only that model needs to be registered. If multiple product codes appear on the product, all relevant identifiers must be represented in the Product List. Wildcard, pattern-based, or series-style naming is not permitted because Product List names must correspond to actual marketed model names.",
-            "decision_logic": "Bluetooth SIG requires traceability between the declared Product List and the identifiers visible on the physical product. Product names in the registration cannot be generalized beyond what is actually displayed and marketed.",
-            "final_recommendation": "Review the product labeling and register the exact model identifiers that appear on the physical product. Do not use wildcard characters, range notation, or series-style naming in the Product List.",
-            "risk_if_done_wrong": "Using Product List names that do not match product labeling or using wildcard naming can result in inaccurate Bluetooth SIG registration records and may require correction or re-registration work.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "Product List",
-                "model name",
-                "declaration"
-            ],
-            "search_aliases": [
-                "Product List model name",
-                "wildcard model prohibited",
-                "series registration not allowed",
-                "label name matching",
-                "Product List compliance",
-                "multiple model listing",
-                "model identifier registration",
-                "Bluetooth product naming"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0060",
+  "case_id": "thread_0060_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Registration deadline tied to public disclosure date -- encompasses press releases, preview events, website announcements, and dealer pamphlet distribution, not just the actual sale date",
+  "customer_question": "We're planning to launch our branded product on April 1 -- by when must we complete registration and the SIG wire transfer relative to that date?",
+  "question_variants": [
+    "If we hold a preview event or send marketing pamphlets to retailers before our official sale date, does that change our registration deadline?",
+    "Does the registration deadline track the actual product sale date, or something earlier?"
+  ],
+  "actual_issue": "The customer assumed their registration deadline was tied to their planned brand sales launch date (April 1) and asked for guidance on exactly when registration and the corresponding Qualification Fee wire transfer needed to be completed relative to that date.",
+  "plain_english_explanation": "SIG's actual requirement is to complete registration by the date a third party becomes aware of the existence of your Bluetooth-equipped product -- this is not necessarily the same as the official sale date. If any of the following occur before the planned sale date, the registration (and its public listing) must be completed by that earlier date instead: a press release, a preview/open-house event, an announcement on a website, or even sending marketing pamphlets to retail dealers. In other words, the actual sale date is just one of several possible disclosure triggers -- any public-facing or even retailer-facing announcement activity that reveals the product's existence ahead of the sale date moves the effective registration deadline earlier. Separately, the Qualification Fee wire transfer to SIG must be completed by your own bank the day before you perform the actual registration finalization operation, since registration cannot be finalized until SIG has received the payment.",
+  "consultant_answer": "SIG's requirement is to register by whichever date a third party first becomes aware that your Bluetooth-equipped product exists -- this isn't necessarily your sale date. If you have a press release, preview event, website announcement, or even send pamphlets to dealers before your planned sale date, you'd need to register and have the listing public by that earlier date instead. Also, make sure the Qualification Fee wire transfer reaches SIG the day before you actually finalize the registration, since SIG won't let registration complete until payment is received.",
+  "decision_logic": "When a customer states a target registration date based on their planned sale date, ask whether any earlier public-facing or dealer-facing disclosure activities (press releases, preview events, website announcements, dealer pamphlet distribution) are planned, since SIG's actual deadline is tied to the earliest such disclosure event rather than the sale date itself.",
+  "final_recommendation": "When scoping a registration timeline against a customer's stated sale date, proactively ask about any planned pre-launch disclosure activities (marketing, events, dealer materials) that could move the effective registration deadline earlier than the sale date itself.",
+  "risk_if_done_wrong": "A customer who plans registration around their sale date without accounting for earlier disclosure events (press releases, dealer pamphlets, preview events) could end up disclosing the product's existence before completing registration, violating SIG's certification timing requirement.",
+  "bluetooth_tags": [
+    "registration deadline tied to public disclosure not sale date",
+    "press release preview event dealer pamphlet triggers deadline",
+    "Qualification Fee wire transfer day before finalization",
+    "Paramount Bed toilet sensor"
+  ],
+  "search_aliases": [
+    "when must Bluetooth SIG registration be completed relative to product launch",
+    "does press release move up registration deadline",
+    "registration deadline public disclosure vs sale date"
+  ],
+  "qualification_stage": "Pre-registration timeline scoping",
+  "confidence": "high"
 }

@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0208",
+  "case_id": "thread_0208_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (module with antenna connector + certified Host Stack)",
+  "customer_question": "What is the total timeline from placing an order to completing registration (Listing)? We assumed it would be 3 weeks from the payment date.",
+  "question_variants": [
+    "How long does the entire Bluetooth SIG registration process take from start to finish?",
+    "Is the timeline 3 weeks after we make the payment?",
+    "What steps are involved after payment and how long does each step take?"
+  ],
+  "actual_issue": "A customer (佐京/Sako of ACCESS company) asked about the overall timeline for Bluetooth SIG registration, assuming it would be approximately 3 weeks from the date of payment. They needed to understand the full end-to-end flow and timing.",
+  "plain_english_explanation": "The 3-week assumption is partially correct but incomplete. The SIG payment (DID fee) takes about 3 weeks to clear (reach SIG's account), but additional steps come both before and after that. Before payment clears: customer must obtain the Invoice from SIG's website, then submit it to Allion who initiates the wire transfer. After payment clears: Allion needs the customer's SIG login credentials to perform the registration (1-3 business days), then after registration is confirmed, the customer submits their Compliance Folder documents (1-3 business days), and Allion creates and delivers the CD-R (1-3 business days). Total: approximately 1 month from order to Compliance Folder delivery.",
+  "consultant_answer": "The complete timeline is approximately 1 month: (1) Customer places order and wire transfers payment → (2) Customer obtains Invoice from SIG portal and submits to Allion (1-2 business days) → (3) Allion initiates SIG wire transfer (3 weeks until SIG receives payment) → (4) Allion performs registration using customer's SIG login (1-3 business days) → (5) Customer prepares and submits Compliance Folder documents (1-3 business days) → (6) Allion creates CD-R and delivers it (1-3 business days). Total: approximately 1 month. The 3-week assumption only accounts for Step 3 (SIG payment clearing) — the remaining steps add ~1-2 weeks.",
+  "decision_logic": "SIG payment processing is the longest single step (~3 weeks). Registration itself is fast (1-3 days). Compliance Folder depends on customer document readiness. New customers (no prior transaction history with Allion) pay in advance — prepayment is required before any work begins.",
+  "final_recommendation": "Always provide customers with the full end-to-end timeline (approximately 1 month) broken down by step, not just the SIG payment clearing time. This sets accurate expectations and prevents customers from being surprised by the additional steps after payment.",
+  "risk_if_done_wrong": "If customers only plan for the 3-week SIG payment window, they will be surprised by the additional weeks needed and may face product launch schedule issues.",
+  "bluetooth_tags": [
+    "registration timeline",
+    "DID fee",
+    "SIG wire transfer",
+    "Compliance Folder",
+    "Invoice",
+    "qualification timeline"
+  ],
+  "search_aliases": [
+    "Bluetooth SIG registration timeline",
+    "how long does SIG registration take",
+    "DID payment 3 weeks",
+    "registration end to end time",
+    "SIG payment clearing time"
+  ],
+  "qualification_stage": "Pre-registration / process planning",
+  "confidence": "high"
+}

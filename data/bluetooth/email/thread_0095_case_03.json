@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0095",
+  "case_id": "thread_0095_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "Our registration covers several models, but we currently only have detailed outline drawings for one of them -- is providing documentation for just that one model enough for the compliance folder?",
+  "question_variants": [
+    "Do we need outline drawings for every model, or just one representative one?",
+    "Can we submit compliance folder materials for only one of our several registered models?",
+    "Is one model's worth of documentation sufficient for a multi-model registration?"
+  ],
+  "actual_issue": "The registration covered multiple models, but the customer currently only had detailed outline drawings available for one of them (NXA-S), and needed to know whether providing compliance folder documentation for just that one model was sufficient.",
+  "plain_english_explanation": "When a single registration covers several different product models, it's not always necessary to provide full documentation for every single one -- documentation for one representative model can be enough for the compliance folder.",
+  "consultant_answer": "Material for one model is sufficient. The compliance folder (CD-R) will be sent once it has been prepared.",
+  "decision_logic": "For a registration covering multiple models, compliance folder documentation (such as detailed outline drawings) for one representative model can be accepted as sufficient, rather than requiring equivalent documentation for every model covered by the registration.",
+  "final_recommendation": "When a multi-model registration's compliance folder documentation is only available for one representative model, accept that as sufficient rather than requiring the customer to produce equivalent documentation for every covered model.",
+  "risk_if_done_wrong": "Insisting on detailed documentation for every model in a multi-model registration, when one representative model's documentation is accepted practice, could cause unnecessary delay in compliance folder completion.",
+  "bluetooth_tags": ["compliance folder", "multi-model registration", "outline drawing", "listing"],
+  "search_aliases": ["one model documentation sufficient multi-model registration", "representative model outline drawing compliance folder", "multiple models same registration documentation requirement"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "medium"
+}

@@ -1,47 +1,32 @@
 {
-    "source_thread": "thread_0001",
-    "cases": [
-        {
-            "case_id": "thread_0001_case_01",
-            "iut_type": "keyboard",
-            "customer_question": "If a Bluetooth-qualified keyboard is modified only by adding additional key codes (e.g., adding a Mute key to an existing Report Descriptor), is requalification required?",
-            "question_variants": [
-                "Do we need to requalify if we add new key codes to a Bluetooth keyboard?",
-                "Is adding a multimedia key like Mute considered a design change requiring re-submission?",
-                "Can we skip Bluetooth SIG requalification for minor HID key additions?",
-                "Does modifying the HID Report Descriptor require a new qualification?",
-                "If functionality is extended without changing Bluetooth features, is requalification needed?"
-            ],
-            "actual_issue": "Determining whether adding new HID key codes (without changing Bluetooth feature declarations or ICS scope) constitutes a design change requiring requalification under the Bluetooth Qualification Process.",
-            "plain_english_explanation": "The company already certified a Bluetooth keyboard and now wants to add one more key (Mute). They are unsure if this small functional change means they must go through the full Bluetooth certification process again. The key question is whether this change affects the Bluetooth-defined behavior or just adds application-level functionality.",
-            "consultant_answer": "The qualification does not include constraints on specific key types within the HID Report Descriptor. Since the registered design does not limit or define individual key codes, adding additional key codes (such as a Mute key) does not constitute a change to the qualified Bluetooth design. Therefore, requalification is not required. However, if the product model name changes as a result of this modification, the new model should be added using the 'Qualify Additional Products' process in the product listing.",
-            "decision_logic": "If a modification does not change the Bluetooth-defined functionality (i.e., no change to ICS-declared features or protocol behavior), it is not considered a design change. HID key code additions are application-level and not part of Bluetooth qualification scope, so they do not trigger requalification.",
-            "final_recommendation": "Do not requalify. If the product name or model changes, register it as an additional product under the existing qualified design using the 'Qualify Additional Products' option.",
-            "risk_if_done_wrong": "Unnecessary requalification would result in wasted cost and time. Conversely, failing to list a new product model could lead to incomplete product listing records in the Bluetooth database.",
-            "bluetooth_tags": [
-                "qualification",
-                "HID",
-                "keyboard",
-                "design change",
-                "listing",
-                "QDID",
-                "reuse"
-            ],
-            "search_aliases": [
-                "add key code bluetooth qualification",
-                "HID descriptor change requalification",
-                "keyboard mute key bluetooth certification",
-                "minor change bluetooth no requalification",
-                "additional product listing bluetooth",
-                "report descriptor change impact",
-                "bluetooth design change definition",
-                "reuse QDID keyboard change",
-                "do I need to requalify for firmware change HID",
-                "bluetooth qualification minor update"
-            ],
-            "qualification_stage": "post-launch change",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0001",
+  "case_id": "thread_0001_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Topre keyboard, RC1/R4H series), adding a new HID keycode to an already-certified device",
+  "customer_question": "For an already Bluetooth-certified keyboard, if we add a new keycode to what's sent over Bluetooth (for example, adding a Mute key when we'd previously only registered Vol Up/Down among the multimedia keys, with the Report Descriptor for multimedia keys already in place), do we need to re-apply for certification?",
+  "question_variants": [
+    "Does adding a new HID keycode trigger a re-certification requirement?",
+    "What if the keycode addition comes with a new model name?"
+  ],
+  "actual_issue": "The customer wanted to add a new keyboard key function (Mute) to the set of keycodes their already-certified keyboard could send over Bluetooth, and needed to know whether this kind of incremental keycode addition would require going through certification again.",
+  "plain_english_explanation": "The existing registration's content doesn't include any information that limits which specific keys or keycodes the device is allowed to send — so adding a new keycode (like Mute) to the existing multimedia-key Report Descriptor doesn't require re-application at all. The only scenario requiring action is if the keycode addition is accompanied by an entirely new model name being issued for the product — in that case, the new model should be added via the standard 'Qualify Additional Products' button on the Product List page, treating it as a routine derivative-model addition rather than a full new certification.",
+  "consultant_answer": "No re-application is needed — your existing registration doesn't include any information limiting which specific keycodes can be sent, so adding a new keycode like Mute to your existing multimedia-key Report Descriptor doesn't require re-certification. The only action needed is if this change comes with an entirely new model name — in that case, just add the new model via the 'Qualify Additional Products' button on your Product List page, as a routine derivative-model addition.",
+  "decision_logic": "Adding a keycode within an already-registered HID function category (like multimedia keys) doesn't trigger re-certification, since the registration doesn't constrain specific key assignments — only a new model name issuance requires a (free, routine) derivative-model addition action.",
+  "final_recommendation": "When a customer asks about incremental HID keycode additions to an already-certified keyboard, confirm that registration content doesn't typically constrain specific key assignments, and clarify that only a new model name (not the keycode change itself) would trigger any registration action.",
+  "risk_if_done_wrong": "A customer mistakenly believing every keycode addition requires full re-certification could incur unnecessary cost and delay for routine product feature additions that don't actually affect their registration's validity.",
+  "bluetooth_tags": [
+    "adding HID keycode no re-registration needed",
+    "multimedia key Report Descriptor addition",
+    "new model name triggers Qualify Additional Products",
+    "Topre",
+    "RC1"
+  ],
+  "search_aliases": [
+    "does adding a keycode require recertification",
+    "Mute key addition Bluetooth keyboard certification",
+    "Qualify Additional Products new model name"
+  ],
+  "qualification_stage": "Post-certification product modification",
+  "confidence": "high"
 }

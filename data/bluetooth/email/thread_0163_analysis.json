@@ -1,0 +1,20 @@
+{
+  "source_thread": "thread_0163",
+  "thread_analysis": {
+    "thread_summary": "Global Denshi thread for a BLE product using the BlueNRG-M2SA ceramic chip antenna module. Rich in technical Q&A covering Compliance Folder content questions and billing/tax questions. Key cases: (1) prototype product name is acceptable for registration; (2) 'Operation manual (Bluetooth part)' can be a simple memo; (3) FCC technical filing from the module manufacturer is acceptable as antenna data if it includes radiation gain; (4) Japanese consumption tax applies when Allion invoices for proxy Qualification Fee payment (direct payment to SIG avoids domestic tax); (5) Compliance Folder retention = 1 year post end-of-sales; (6) Free derivative product registration via SIG portal; (7) USD wire proxy service is optional.",
+    "all_questions_found": [
+      "Can we use a prototype product name for SIG registration before the commercial name is decided?",
+      "What is required for the 'Operation Manual (Bluetooth part)' in the Compliance Folder — we don't have a formal manual?",
+      "Can we use the module manufacturer's FCC technical filing as antenna data for the Compliance Folder?",
+      "Does Japanese consumption tax apply to the Qualification Fee when Allion pays it as a proxy?",
+      "How long must the Compliance Folder be retained after the product stops selling?",
+      "Can we register a second product using the same module for free?",
+      "Is the USD wire proxy service required to use Allion's registration proxy?"
+    ],
+    "key_technical_discussion": "Compliance Folder content flexibility: QPRDv3 mandates a Compliance Folder but is flexible on document format for the operation manual (any description of Bluetooth use is fine) and antenna data (existing FCC filings accepted if they contain radiation gain data). Prototype naming: SIG registration does not require the final commercial product name. Tax treatment: Allion's proxy billing for the Qualification Fee is a domestic taxable service (立替金); direct customer payment to SIG is international and not subject to Japanese consumption tax. Derivative product registration is free via SIG portal 'Manage Submitted Products.'",
+    "key_decision_logic": "The underlying principle across all Compliance Folder questions is that SIG's requirements serve audit readiness — the documentation needs to prove that the registered product behaves as declared. Flexibility exists in format, but completeness in content (especially radiation gain data) is required. Tax treatment follows Japanese law for domestic service transactions.",
+    "risk_if_done_wrong": "Using FCC filing without confirming it includes radiation gain data leaves a gap in the Compliance Folder. Failing to inform customers about consumption tax leads to invoice disputes. Not informing customers about free derivative registration leads to unnecessary $11,040 fees for second products.",
+    "consulting_mistake": "None identified. Sakai provides clear, practical answers to all questions. Notably, he is transparent that the SIG audit has never been triggered for any Allion customer — reducing customer anxiety about Compliance Folder retention without dismissing the obligation.",
+    "consulting_takeaway": "Compliance Folder documentation is flexible in format but must be substantively complete. Always confirm FCC filing content before accepting it as antenna data. Proactively inform customers about free derivative registration to prevent unnecessary fees."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0240",
+  "case_id": "thread_0240_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Derivative model (DensoTen 24MM-series upper model) with antenna configuration change",
+  "customer_question": "We're considering changing the 2.4GHz antenna configuration from 1x1 to 2x2 on a derivative of our already-certified 24MM upper model (antenna is external to the Bluetooth module). If this change is finalized, does Bluetooth certification require re-testing, and if so, which test items and what's the approximate lead time?",
+  "question_variants": [
+    "Does an antenna count change (1x1 to 2x2) on the 2.4GHz band require Bluetooth re-certification testing?",
+    "If retesting is required, which RF test items apply and what's the expected turnaround time?"
+  ],
+  "actual_issue": "The customer needed to know, before finalizing a hardware antenna change on a derivative model, whether the change would trigger Bluetooth re-certification testing obligations and what that would cost in test scope and schedule.",
+  "plain_english_explanation": "For products that implement a Bluetooth module, RF/RF PHY testing is performed by connecting the test equipment at the antenna connector. Whether retesting is required for a derivative model depends entirely on whether anything changed on the module side of that antenna connector — meaning the module's internal circuit, components, and board layout. If none of those change, the existing test results are considered to still apply and no retest is needed, even if the antenna itself (which sits beyond the connector) changes from 1x1 to 2x2. If any circuit, component, or board layout change occurs on the module side of the connector, retesting is required.",
+  "consultant_answer": "Bluetooth RF/RF PHY testing for module-based products is performed at the antenna connector. As long as the module's circuit, components, and board layout before that connector don't change, the existing test results are considered unchanged and retesting is not required — this would apply even for your planned 1x1 to 2x2 antenna change, since the antenna sits external to the module. Retesting is only required if there's a change to the module's circuit, components, or board layout before the antenna connector.",
+  "decision_logic": "Retest necessity for module-based product changes is determined by whether the change occurs before or after the antenna connector (the RF measurement point) — changes downstream of the connector (e.g., external antenna configuration) don't require retest, while any change upstream of it (module circuit/components/board layout) does.",
+  "final_recommendation": "When customers propose antenna or other RF-front-end changes on module-based products, identify whether the change sits before or after the module's antenna connector (the test measurement point) to determine retest necessity, rather than assuming any RF-related hardware change automatically triggers retesting.",
+  "risk_if_done_wrong": "Incorrectly requiring retesting for a change that doesn't affect the module side of the antenna connector would impose unnecessary cost and schedule delay; incorrectly waiving retesting for a change that does affect the module's internal circuit/layout would risk shipping a product whose actual RF performance was never validated.",
+  "bluetooth_tags": [
+    "antenna configuration change",
+    "1x1 to 2x2 antenna",
+    "module antenna connector measurement point",
+    "derivative model retest necessity",
+    "DensoTen",
+    "24MM"
+  ],
+  "search_aliases": [
+    "does antenna change require Bluetooth retest",
+    "RF test measurement point antenna connector",
+    "module circuit change retest",
+    "external antenna configuration change certification"
+  ],
+  "qualification_stage": "Derivative model change assessment",
+  "confidence": "high"
+}

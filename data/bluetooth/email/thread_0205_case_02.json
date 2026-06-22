@@ -1,0 +1,35 @@
+{
+  "source_thread": "thread_0205",
+  "case_id": "thread_0205_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (incorporating Nordic S132-based module)",
+  "customer_question": "For the Compliance Folder documents we need to submit (operation manual, block diagram, outline drawing), is it acceptable to provide them in Japanese, or must they be in English?",
+  "question_variants": [
+    "Can Compliance Folder supporting documents be submitted in Japanese instead of English?",
+    "Does the SIG require Compliance Folder documents to be in a specific language?",
+    "Is a Japanese-language operation manual acceptable for the Compliance Folder?"
+  ],
+  "actual_issue": "After Review Page confirmation, the customer (IDEAL) asked Allion whether the Compliance Folder product documents (operation manual, block diagram, outline drawing) could be submitted in Japanese rather than English, since their internal documentation was in Japanese.",
+  "plain_english_explanation": "The Compliance Folder is a private document retained by the registering company (Listing Owner) and only presented to the Bluetooth SIG if an audit is requested — it is not reviewed or approved by the SIG at submission time. Because of this, there is no language requirement enforced by the SIG; the documents simply need to accurately represent the product's Bluetooth implementation for the company's own records and for any future audit. Japanese-language documents are fully acceptable.",
+  "consultant_answer": "Yes, Japanese-language documents are acceptable for the Compliance Folder. There is no requirement that the operation manual, block diagram, or outline drawing be in English.",
+  "decision_logic": "Compliance Folder documents are not submitted to or reviewed by the SIG at registration time — they are retained by the Listing Owner for potential future audit. Since the SIG does not review the documents directly, no specific language is mandated; the customer's native language is acceptable.",
+  "final_recommendation": "When customers ask about document language requirements for the Compliance Folder, proactively confirm that Japanese (or any language matching the customer's internal documentation) is acceptable, since the folder is private and not submitted to the SIG for review.",
+  "risk_if_done_wrong": "Unnecessarily requiring translation of Compliance Folder documents into English would create extra cost and delay for the customer with no compliance benefit.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "document language",
+    "Japanese",
+    "operation manual",
+    "block diagram",
+    "outline drawing"
+  ],
+  "search_aliases": [
+    "compliance folder documents Japanese language",
+    "operation manual language requirement SIG",
+    "compliance folder English required",
+    "Japanese documents Bluetooth SIG acceptable"
+  ],
+  "qualification_stage": "Post-registration / Compliance Folder preparation",
+  "confidence": "high"
+}

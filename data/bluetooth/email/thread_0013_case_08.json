@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0013",
+  "case_id": "thread_0013_case_08",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Koizumi Lighting BM043 lamp), RF PHY Mid/Low/High Frequency test parameter selection rules across Core Specification versions and device roles -- including a self-corrected error and a test-tooling limitation",
+  "customer_question": "For RF PHY testing, which Mid Frequency value should we use given our product's declared Core Specification version (v4.2), and why does our test system not offer the exact Low/High Frequency values the v4.2 test spec calls for?",
+  "question_variants": [
+    "Does the Mid Frequency rule differ between device roles (Peripheral vs. Broadcaster/Observer) within the same Core Specification version?",
+    "What should we do if our test tooling doesn't support the legacy frequency values a deprecated-soon spec version technically requires?"
+  ],
+  "actual_issue": "The lab initially gave an incorrect Mid Frequency value for the customer's declared Core Specification version (citing the Broadcaster/Observer Devices definition instead of the correct Peripheral Device definition), requiring a self-correction and report revision; separately, the test system software no longer supported the exact Low/High Frequency values that the (soon-to-be-deprecated) v4.2 test specification calls for, requiring a pragmatic resolution.",
+  "plain_english_explanation": "From Core Specification v5.0 onward, the Mid Frequency rule is straightforward: 1M PHY mode uses either 2426MHz or 2440MHz, while 2M PHY mode uses 2440MHz. For the customer's product, however, the declared Core Specification version (per their QUESTIONNAIRE) was v4.2, an earlier version with its own, role-dependent Mid Frequency definitions. The lab's first answer (2426MHz) was incorrect -- that value is actually the v4.2 definition for Broadcaster and Observer Devices, not Peripheral Devices, which is the customer's actual device role. Upon rechecking the v4.2 test specification document directly, the correct Mid Frequency for a Peripheral Device under v4.2 is 2440MHz, requiring the already-issued report to be corrected and the existing 2426MHz log data simply left in place alongside the corrected report (copied as-is from the test system, with no need to delete it) rather than withheld. Separately, for the TRM03/RCV03 Low Frequency/High Frequency test items, the v4.2 test specification calls for 2406MHz and 2476MHz specifically -- but the InterLab test system's software only offered 2402MHz and 2480MHz, evidently because the v4.2 test specification had quietly become unsupported in the tooling ahead of its scheduled deprecation. Since the exact legacy values couldn't be produced by the available tooling, the pragmatic resolution was to proceed with the test system's actual supported frequencies (2402, 2440, 2480MHz) and explain this tooling limitation directly to the customer, rather than attempting to force an unsupported configuration.",
+  "consultant_answer": "Correction to our earlier answer: for your declared Core Specification v4.2 and your device's actual role (Peripheral Device, not Broadcaster/Observer), the correct Mid Frequency is 2440MHz, not 2426MHz -- we had cited the wrong device-role definition initially. We've corrected the report accordingly; no need to remove the existing 2426MHz log, it can stay alongside the corrected report as copied from the test system. Separately, for the TRM03/RCV03 Low/High Frequency items, the v4.2 spec calls for 2406MHz and 2476MHz, but our test system's software no longer offers those exact values (likely because v4.2 support is being phased out ahead of its scheduled deprecation) -- we'll proceed with the system's actual supported frequencies (2402, 2440, 2480MHz) and will explain this tooling limitation to you directly.",
+  "decision_logic": "RF PHY Mid/Low/High Frequency test parameter requirements can differ both by Core Specification version and by device role within the same version -- always verify the exact spec text for the customer's actual declared device role before answering, rather than relying on a same-version rule recalled from a different device role. When a legacy (soon-to-be-deprecated) spec version's exact required test frequencies are no longer available in current test tooling, proceed with the tooling's actual supported values and disclose the discrepancy and its likely cause directly to the customer, rather than attempting a workaround.",
+  "final_recommendation": "When determining RF PHY frequency test parameters for a product declared under an older Core Specification version, check the spec text for the exact device role in question rather than assuming a single per-version rule applies to all roles, and proactively flag to the customer when current test tooling no longer supports an older spec version's exact required values, explaining the likely cause (tooling deprecation) and the practical workaround being used.",
+  "risk_if_done_wrong": "Issuing a test report based on the wrong device-role's frequency definition could produce technically incorrect registration evidence requiring later correction (as happened here); separately, failing to disclose a test-tooling limitation for a legacy spec version to the customer could create confusion later if the discrepancy between the spec's exact requirement and the actual tested frequencies were noticed.",
+  "bluetooth_tags": [
+    "RF PHY Mid Frequency device role dependent",
+    "Peripheral Device vs Broadcaster Observer Device definition",
+    "Core Spec v4.2 vs v5.0 frequency rules",
+    "TRM03 RCV03 Low High Frequency",
+    "test tooling no longer supports legacy spec frequencies",
+    "self-corrected technical error",
+    "Koizumi Lighting"
+  ],
+  "search_aliases": [
+    "RF PHY Mid Frequency 2426 vs 2440 MHz",
+    "Peripheral Device Mid Frequency v4.2",
+    "TRM03 RCV03 Low Frequency High Frequency values",
+    "InterLab system doesn't support v4.2 test frequencies",
+    "Core Spec v5.0 1M 2M PHY mid frequency rule"
+  ],
+  "qualification_stage": "RF PHY test execution / report correction",
+  "confidence": "high"
+}

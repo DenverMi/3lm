@@ -1,48 +1,23 @@
 {
-    "source_thread": "thread_0102",
-    "cases": [
-        {
-            "case_id": "thread_0102_case_01",
-            "iut_type": "module",
-            "customer_question": "How should a product based on a qualified Controller Subsystem and a qualified host-stack Component be qualified without requiring additional testing?",
-            "question_variants": [
-                "Can a Controller Subsystem and Component be combined without testing?",
-                "How do I qualify a module with a separately qualified host stack?",
-                "Should I reference both the Controller Subsystem and BLE Solution QDIDs?",
-                "Can overlapping Core Layers be reused without generating tests?",
-                "What is the best qualification path for a Controller Subsystem plus host stack design?"
-            ],
-            "actual_issue": "A qualified Controller Subsystem and a qualified BLE host-stack Component contained overlapping Core Layer coverage. Under the new Qualification Workspace process, combining both references could trigger Consistency Check-driven lower-layer test requirements.",
-            "plain_english_explanation": "The customer wanted to reuse existing Bluetooth qualifications instead of running new tests. Two different qualified designs covered some of the same Bluetooth layers. Under the new qualification system, referencing both can create extra test requirements even if the functionality is already covered elsewhere.",
-            "consultant_answer": "The consultant initially believed overlapping layers could simply be excluded during design creation. After evaluating Qualification Workspace behavior and Consistency Check processing, the consultant determined that overlapping Core Layer references could generate lower-layer test requirements. Analysis showed that the BLE Solution qualification already provided equivalent ICS coverage for the needed functionality. Therefore, referencing only the BLE Solution qualification achieved the same result while avoiding unnecessary testing and qualification complexity.",
-            "decision_logic": "If a referenced qualification already provides the required ICS and Core Layer coverage, adding another qualification with overlapping layers creates unnecessary Consistency Check evaluation. Avoiding redundant layer references prevents generation of additional test requirements.",
-            "final_recommendation": "Use the BLE Solution qualification as the sole reference design and avoid combining it with the overlapping Controller Subsystem reference when equivalent ICS coverage is already present.",
-            "risk_if_done_wrong": "Combining overlapping qualified designs can trigger lower-layer test requirements in the Qualification Workspace. Existing module-vendor test evidence may not satisfy the generated requirements, resulting in unnecessary testing effort, qualification rework, and schedule delay.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "module",
-                "controller",
-                "component",
-                "ICS",
-                "Core Layer",
-                "consistency check"
-            ],
-            "search_aliases": [
-                "overlapping Core Layers",
-                "duplicate layer reference",
-                "Controller Subsystem plus Component",
-                "Consistency Check test generation",
-                "QDID overlap",
-                "BLE Solution only reference",
-                "unnecessary lower-layer testing",
-                "ICS equivalent coverage",
-                "Qualification Workspace overlap",
-                "single reference design"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0102",
+  "case_id": "thread_0102_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Our module is registered as a Controller Subsystem, and we want to combine it with a separately Component-registered Host stack to register our End Product. Is this just a combination registration, or is there a different procedure? Also, does it matter that the Host stack's Component registration includes some controller-level content too?",
+  "question_variants": [
+    "Can we directly combine a Controller Subsystem and a Component Host stack into an End Product registration?",
+    "Does overlapping LL/RF PHY content in the Host stack's Component registration cause a problem?",
+    "Is RF testing exempted with this approach, and do we need profile testing?"
+  ],
+  "actual_issue": "The customer wanted to register an End Product by combining their module's existing Controller Subsystem registration with a separately Component-registered Host stack, and was concerned that the Host stack's Component registration -- which included lower-layer content (LL, RF PHY) in addition to the GATT stack -- might conflict with the module's own Controller Subsystem layers.",
+  "plain_english_explanation": "You can't just directly combine a chip-level certification and a separately-registered software-stack certification into a finished-product certification -- there's a specific registration step for that. During that step, you build a new registration that references both pieces together, and importantly, you get to choose which specific layers from each referenced piece actually apply, so if the software-stack's certification happens to also cover some lower-level radio functionality that overlaps with what your own chip already covers, you can simply leave that overlapping part out without it causing any conflict.",
+  "consultant_answer": "A Controller Subsystem and a Component-registered Host stack cannot be combined directly into an End Product registration. Instead, performing a new Host Subsystem design registration that references the Component-registered Host stack together with the module's Controller Subsystem produces a registration with equivalent legal effect to an End Product registration. Under this approach, RF testing is exempted, and profile testing is required only if a Bluetooth SIG-defined profile is implemented at the upper layer. Regarding the overlap concern: the layers included in a Component registration can be selectively included or excluded during the design registration process that references it, so any unneeded LL or RF PHY content bundled into the Host stack's Component registration is simply excluded during the Host Subsystem design registration and does not cause a problem.",
+  "decision_logic": "Combining a module's Controller Subsystem with a separately Component-registered Host stack requires performing a new Host Subsystem design registration that references both (not a direct End Product registration), and any layer overlap between the two references (such as LL/RF PHY content bundled into the Host stack's Component registration) is resolved through selective layer inclusion/exclusion during that design registration process, rather than being a blocking conflict.",
+  "final_recommendation": "When a customer wants to combine a module's Controller Subsystem with a separately Component-registered Host stack, guide them through a new Host Subsystem design registration referencing both, exempting RF testing and requiring profile testing only for SIG-defined profiles, and reassure them that any overlapping lower-layer content in the Host stack's Component registration can simply be excluded during that process.",
+  "risk_if_done_wrong": "Attempting a direct End Product registration from a Controller Subsystem and Component-registered Host stack, without going through the correct Host Subsystem design registration process, would not produce a valid registration, and failing to selectively exclude overlapping layer content could create unnecessary inter-layer complications.",
+  "bluetooth_tags": ["Controller Subsystem", "Component registration", "Host Subsystem", "End Product", "layer overlap", "RF exemption"],
+  "search_aliases": ["combine Controller Subsystem with Component Host stack", "Host Subsystem design registration equivalent to End Product", "selective layer inclusion exclude overlapping LL RF PHY", "RF testing exempted profile testing only if SIG profile"],
+  "qualification_stage": "planning",
+  "confidence": "high"
 }

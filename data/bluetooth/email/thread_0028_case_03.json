@@ -1,49 +1,33 @@
 {
-    "source_thread": "thread_0028",
-    "cases": [
-        {
-            "case_id": "thread_0028_case_03",
-            "iut_type": "module",
-            "customer_question": "Why does Bluetooth RF PHY testing fail or timeout in Two-Wire mode while HCI mode succeeds?",
-            "question_variants": [
-                "Two-Wire RF PHY timeout",
-                "Serial - HCI works but Two-Wire fails",
-                "RF PHY command response timeout",
-                "Automation Explore HCI success only",
-                "RF PHY test cannot start",
-                "InterLab RF PHY communication failure"
-            ],
-            "actual_issue": "The DUT and qualification test system were configured with incompatible Direct Test Mode communication settings, causing RF PHY command-response failures in Two-Wire mode while HCI mode communication worked correctly.",
-            "plain_english_explanation": "Bluetooth RF PHY testing requires the tester and DUT to communicate using the correct test command protocol. In this case, the DUT failed in Two-Wire mode but responded correctly in HCI mode. The problem was caused by using the wrong communication method and test setup assumptions.",
-            "consultant_answer": "The consultant investigated several possible causes including missing Direct Test firmware, UART wiring mistakes, and incorrect Direct Test Mode configuration. Testing with Automation Explore showed that all commands timed out in Serial - Two-Wire mode but succeeded in Serial - HCI mode. The consultant concluded that the DUT properly responded in HCI mode and instructed the lab team to rerun RF PHY testing using Serial - HCI instead of the originally assumed Two-Wire configuration.",
-            "decision_logic": "Bluetooth RF PHY testing depends on matching the DUT Direct Test Mode implementation with the tester communication mode. If the DUT only correctly supports HCI-based DTM communication, Two-Wire mode testing will fail even though the RF functionality itself may be valid.",
-            "final_recommendation": "Verify the DUT Direct Test Mode implementation and use the communication mode that successfully passes command-response validation, such as Serial - HCI in this case, before running RF PHY qualification tests.",
-            "risk_if_done_wrong": "Using the wrong DTM communication mode can cause repeated RF PHY failures, invalid timeout results, wasted lab time, and unnecessary escalation with the IC vendor.",
-            "bluetooth_tags": [
-                "qualification",
-                "RF PHY",
-                "HCI",
-                "DTM",
-                "UART",
-                "testing",
-                "InterLab",
-                "module"
-            ],
-            "search_aliases": [
-                "Two-Wire timeout",
-                "Serial HCI success",
-                "DTM mode mismatch",
-                "RF PHY timeout",
-                "Automation Explore",
-                "HCI RF PHY",
-                "UART DTM issue",
-                "LE Test End timeout",
-                "RF PHY command failure",
-                "Direct Test Mode"
-            ],
-            "qualification_stage": "test failure",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0028",
+  "case_id": "thread_0028_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Toytec Bluetooth module), USB-UART level converter cable length constraint near the certification test system",
+  "customer_question": "We have a KKHMF CH340 USB-UART module already on hand -- can we use it extended to over 1 meter, as shown in our attached setup diagram, since that's the distance needed between the test system's control PC and the test sample?",
+  "question_variants": [
+    "Would a different, possibly cheaper level-converter board work as a substitute for the recommended one?",
+    "Is RF tester hardware something the customer needs to provide, or does the lab supply it?"
+  ],
+  "actual_issue": "The customer needed to confirm whether their already-on-hand USB-UART converter module could be used with an extension cable over 1 meter long to bridge the required distance between the certification test system's control PC and the test sample, and separately asked whether a different candidate level-converter board would work and whether RF test hardware was the customer's or the lab's responsibility.",
+  "plain_english_explanation": "Bluetooth SIG certification testing uses a SIG-certified test system supplied and operated by the lab (BQTF) itself -- not a general-purpose RF tester the customer would need to provide, and in Japan only three such certified systems exist. Extending the UART signal side of the connection beyond about 10-20cm is not recommended due to increased noise susceptibility at that signal level; instead, the test system side (the USB connection) should be extended using a shielded USB extension cable to bridge the roughly 1-meter gap, while the UART-to-DUT connection itself stays short. For the customer's candidate level-converter board, while not unsuitable, the lab recommended a specific alternative USB-UART adapter, since its cable length was sufficient for the full distance needed and it had a faster expected delivery time than the customer's candidate board, despite a similarly low cost (around ¥400).",
+  "consultant_answer": "The certification test system is a SIG-certified system that we provide and operate ourselves -- not something you need to supply (there are only three such systems running in Japan). On the cabling: extending the UART side beyond about 10-20cm isn't recommended due to noise sensitivity at that signal level; instead, we'll extend the USB side using a shielded USB extension cable to cover the roughly 1-meter gap, keeping the UART-to-DUT run short. Your candidate level-converter board isn't unsuitable, but we'd recommend a specific alternative USB-UART adapter instead -- it has sufficient cable length for the full distance and a faster delivery time, at a similarly low cost (~¥400).",
+  "decision_logic": "When extending a UART-based DUT connection to a certification test system over a meter or more, extend on the USB side (using a shielded USB extension cable) rather than the UART signal side, since UART is more noise-sensitive over longer cable runs -- and when a customer proposes a specific adapter, weigh it against alternatives on cable length sufficiency and delivery time, not just unit cost.",
+  "final_recommendation": "When a customer proposes their own cabling/adapter hardware for a test setup, evaluate it against the test system's actual distance and noise-sensitivity requirements rather than approving or rejecting it on cost alone, and clarify upfront that the certification test system itself is lab-provided, not something the customer needs to supply.",
+  "risk_if_done_wrong": "Extending the UART signal path beyond the recommended short distance could introduce noise-related connection instability during testing, while using an inadequate cable-length adapter could fail to physically bridge the required distance to the test system.",
+  "bluetooth_tags": [
+    "USB-UART level converter cable length",
+    "extend USB side not UART side",
+    "SIG certified test system lab provided",
+    "shielded USB extension cable",
+    "Toytec"
+  ],
+  "search_aliases": [
+    "UART cable extension noise issue",
+    "does customer need to provide RF tester",
+    "USB-UART adapter recommendation for test setup",
+    "extend USB vs UART signal side"
+  ],
+  "qualification_stage": "Test setup logistics",
+  "confidence": "medium"
 }

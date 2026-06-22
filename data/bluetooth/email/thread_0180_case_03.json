@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0180",
+  "case_id": "thread_0180_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE wireless unit",
+  "customer_question": "Can Allion handle Japan, EU (RED), and US (FCC) radio regulatory certification in addition to Bluetooth SIG certification?",
+  "question_variants": [
+    "Can you handle radio regulatory certification for Japan, Europe, and the US?",
+    "Does Allion do FCC Part 15C certification?",
+    "Can you manage RED and TELEC certification?"
+  ],
+  "actual_issue": "Customer asked about Bluetooth SIG certification AND national radio certifications (Japan TELEC, EU RED, US FCC). Allion handles Bluetooth SIG BQTF testing, but national radio device certifications are handled through a partner company.",
+  "plain_english_explanation": "Bluetooth SIG certification (BQTF testing) and national radio regulatory certification (Japan TELEC, EU RED, US FCC) are separate processes. Allion specializes in Bluetooth SIG BQTF testing and registration. For national radio certifications, Allion refers customers to SGS Japan, which handles these certifications directly with the customer.",
+  "consultant_answer": "Allion can handle Bluetooth SIG certification testing (BQTF). For Japan, EU (RED), and US (FCC Part 15C/15B) radio device certifications, Allion refers customers to its partner SGS Japan. If the customer agrees, Allion will introduce the SGS Japan sales representative, who will then contact the customer directly with information on required documents and a quote.",
+  "decision_logic": "Bluetooth SIG certification and national radio device certifications are distinct processes with different bodies. Allion's core service is Bluetooth SIG BQTF testing and registration. National certifications (TELEC/MIC, CE/RED, FCC) require a different type of lab and are outside Allion's direct service scope — handled by Allion's partner (SGS Japan).",
+  "final_recommendation": "For national radio certifications (Japan/EU/US), ask Allion to introduce SGS Japan as the certification partner. The introduction is free; SGS Japan will send a quote request and required document list directly to the customer.",
+  "risk_if_done_wrong": "Confusing Bluetooth SIG BQTF certification with national radio regulatory approval can cause a product to be sold without required radio certifications, leading to legal compliance violations in the target market.",
+  "bluetooth_tags": [
+    "radio certification",
+    "TELEC",
+    "FCC",
+    "RED",
+    "SGS Japan",
+    "BQTF",
+    "radio regulatory"
+  ],
+  "search_aliases": [
+    "Japan radio certification",
+    "FCC certification Bluetooth",
+    "EU RED certification",
+    "national radio cert vs Bluetooth SIG",
+    "SGS Japan partner"
+  ],
+  "qualification_stage": "pre-sales",
+  "confidence": "high"
+}

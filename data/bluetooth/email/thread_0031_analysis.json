@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0031",
+  "thread_analysis": {
+    "thread_summary": "Pi Crystal Corporation (contact Junto Tsurumi) engages Allion (Itsuo Sakai) for Bluetooth SIG registration of a product using the Fanstel BM832 BLE module, spanning April 2025. The thread covers a vendor-confirmed QDID reference combination (no retest needed), Review page confirmation and registration finalization, and the standard Compliance Folder document request cycle.",
+    "all_questions_found": [
+      "Can the customer reference newer QDIDs (tied to a newer SDK version, including a Mesh-capability QDID) instead of the BM832's original QDID, confirmed via direct vendor consultation? (see thread_0031_case_01)",
+      "(Administrative, not separately cased) Review page confirmation and registration finalization, and repeated follow-up requests for Compliance Folder documents (operation manual, block diagram, outline drawing, antenna datasheet) -- routine project administration without a generalizable technical lesson."
+    ],
+    "key_technical_discussion": "The thread's only generalizable technical point is case_01's vendor-confirmation approach to QDID reference changes, demonstrating a clean, low-risk way to validate a new reference combination without requiring retesting.",
+    "key_decision_logic": "See thread_0031_case_01.",
+    "risk_if_done_wrong": "Proceeding with a new QDID reference combination without the vendor's direct confirmation could risk an invalid registration.",
+    "consulting_mistake": "No consulting-side mistakes identified in the visible record.",
+    "consulting_takeaway": "Encourage customers proposing a QDID reference change to obtain direct vendor confirmation that the new combination covers their specific hardware before proceeding with registration."
+  }
+}

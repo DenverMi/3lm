@@ -1,0 +1,35 @@
+{
+  "source_thread": "thread_0006",
+  "case_id": "thread_0006_case_07",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging camera), end-to-end Bluetooth SIG registration process overview for a first-time customer",
+  "customer_question": "Now that we've had our pre-test kickoff meeting, what does the overall process look like from here through to having our compliance documentation in hand?",
+  "question_variants": [
+    "What are all the steps between placing an order and finishing the registration?",
+    "What documents will we need to provide near the end of the process, and what do we receive at completion?"
+  ],
+  "actual_issue": "A first-time customer needed a clear, complete picture of the entire registration workflow end-to-end, beyond just answering individual ad-hoc questions, so they could plan their internal scheduling and document preparation accordingly.",
+  "plain_english_explanation": "The full process runs as: (1) the customer replies to the quotation email with either a purchase order attachment or written confirmation of the order; (2) the lab sends the Invoice acquisition procedure for the proxy registration-fee wire transfer along with a proxy registration content confirmation document; (3) the lab sends a QUESTIONNAIRE for test preparation, which the customer fills out and returns; (4) the customer ships the RF (2-item) and DIS test samples along with the DIS ICS; (5) the lab performs the registration according to the proxy registration content confirmation document and emails a screenshot image of the resulting Review page; (6) once the customer confirms that Review page, the lab executes the final registration-confirmation operation, completing the formal registration -- at which point the customer needs to provide, alongside the Compliance Folder materials gathered during registration, their own product documentation: the Bluetooth-related operation manual section, the product's block diagram, the product's outline drawing, and the antenna datasheet (including its radiation gain pattern chart); (7) finally, the Compliance Folder is delivered on CD-R for the customer to retain, completing the engagement.",
+  "consultant_answer": "Here's the full flow from here: (1) reply to our quotation with either a purchase order or written order confirmation; (2) we'll send you the Invoice acquisition procedure for the registration-fee wire transfer plus a proxy registration content confirmation document; (3) we'll send a QUESTIONNAIRE for test prep, which you fill out and return; (4) you ship us the RF (2-item) and DIS test samples plus the DIS ICS; (5) we register according to the confirmation document and email you a screenshot of the resulting Review page; (6) once you confirm that, we finalize the registration -- at that point we'll also need your operation manual (Bluetooth section), block diagram, outline drawing, and antenna datasheet (with radiation gain pattern) for the Compliance Folder; (7) we deliver the completed Compliance Folder on CD-R for you to keep, and that completes the engagement.",
+  "decision_logic": "When onboarding a first-time customer after an initial kickoff meeting, proactively walk through the complete end-to-end process (order, payment, test prep, sample shipment, registration execution, final document collection, and deliverable handover) as a single sequence, rather than only answering each ad-hoc question as it arises, so the customer can plan their internal scheduling and document gathering around the full picture.",
+  "final_recommendation": "For new customers, provide the full step-by-step registration workflow proactively early in the engagement (including which final product documents -- operation manual, block diagram, outline drawing, antenna datasheet -- will eventually be needed), rather than letting these surface piecemeal late in the process when they could cause last-minute delay.",
+  "risk_if_done_wrong": "A customer unaware of the full process, especially the final document requirements (block diagram, outline drawing, antenna datasheet with radiation gain pattern), could be caught off guard near the end of registration, causing delay while those documents are gathered at the last minute.",
+  "bluetooth_tags": [
+    "end-to-end registration process overview",
+    "Compliance Folder document requirements",
+    "proxy registration content confirmation document",
+    "Review page confirmation step",
+    "antenna datasheet radiation gain pattern",
+    "first-time customer onboarding",
+    "Ricoh Imaging"
+  ],
+  "search_aliases": [
+    "what is the full Bluetooth SIG registration process",
+    "steps from order to compliance folder",
+    "what documents needed for compliance folder",
+    "Review page confirmation before final registration"
+  ],
+  "qualification_stage": "Process onboarding / kickoff",
+  "confidence": "high"
+}

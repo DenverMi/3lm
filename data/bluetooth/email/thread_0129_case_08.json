@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0129",
+  "case_id": "thread_0129_case_08",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "consumer electronics",
+  "customer_question": "We've confirmed our current TV software never issues a Suspend command, so the A2DP/SRC/SUS test case doesn't reflect real product behavior. We unchecked A2DP ICS item 2/8 (Initiate Suspend) on our end - can you swap in the corrected test case scope to remove this item from testing?",
+  "question_variants": [
+    "Can we remove a test case from scope if our product genuinely doesn't implement that feature?",
+    "Is changing the ICS answer to NO the correct way to exclude an unsupported feature's test case?",
+    "Do we need to keep trying to pass a test case for a feature our product doesn't use?"
+  ],
+  "actual_issue": "During A2DP profile testing for a Sony TV, the A2DP/SRC/SUS test case (Suspend) was failing or proving difficult to pass. The customer determined that the current TV software implementation never actually issues an Initiate Suspend command, and accordingly unchecked the corresponding ICS item (A2DP 2/8, Initiate Suspend) on their own ICS form, asking the consultant to substitute the corrected test case scope.",
+  "plain_english_explanation": "Not every optional Bluetooth feature has to be supported, and if a product genuinely doesn't implement a given feature, the right move isn't to keep struggling to pass that feature's test - it's to update the feature checklist (ICS) to say the feature isn't supported, which removes the corresponding test case from scope entirely. This is the correct, designed-for path in the qualification process, not a workaround.",
+  "consultant_answer": "Thank you for letting us know. We will change A2DP ICS item 1/8 to NO, which removes A2DP/SRC/SUS/[item] from the test scope.",
+  "decision_logic": "When a customer confirms that their product's actual implementation does not support a given optional Bluetooth feature (here, A2DP Initiate Suspend), the correct response is to update the corresponding ICS item to NO (not supported), which removes that feature's test case from the required scope -- this is the intended mechanism for scoping tests to a product's actual capabilities, not a workaround to avoid a failing test.",
+  "final_recommendation": "When a customer reports that their product genuinely does not implement an optional feature that has a failing or difficult-to-pass test case, update the relevant ICS item to NO to remove that test case from scope, rather than continuing to attempt to pass a test for a feature the product doesn't use.",
+  "risk_if_done_wrong": "Continuing to attempt to pass a test case for a feature the product doesn't actually implement would waste test time and could pressure the team into incorrectly modifying product behavior just to pass an unneeded test, or could delay the registration if the ICS isn't corrected to reflect reality.",
+  "bluetooth_tags": ["A2DP", "ICS", "Suspend", "test scope", "Initiate Suspend"],
+  "search_aliases": ["A2DP ICS 1/8 Suspend not supported", "remove test case unsupported feature ICS NO", "A2DP/SRC/SUS test case scope reduction", "product does not implement Suspend command"],
+  "qualification_stage": "test failure",
+  "confidence": "high"
+}

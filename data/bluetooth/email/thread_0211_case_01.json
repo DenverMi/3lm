@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0211",
+  "case_id": "thread_0211_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (BLE+USB dual-mode keyboard, Topre Corporation / R4HA, R4HB, R4HD series)",
+  "customer_question": "Is it true that we can obtain Bluetooth certification without actually running the HOGP profile test, as long as the minimum Core-layer items required for End Product registration are present?",
+  "question_variants": [
+    "Can we skip HOGP testing and still register the product?",
+    "If we skip profile testing, what kind of certification do we actually get?"
+  ],
+  "actual_issue": "The customer, developing a new flagship BLE+USB keyboard, asked whether HOGP profile testing could be skipped entirely while still calling the result a valid Bluetooth certification, since registration is technically possible with just the Core layer.",
+  "plain_english_explanation": "It is technically true that registering only the minimum Core-layer items required for End Product registration is possible without running the HOGP profile test. However, this would only be valid as certification for a product with no profile implemented at all — it would NOT be recognized as certification for a product that actually implements HOGP. Since this keyboard is a flagship HID device that does implement HOGP, the customer needed to run the actual HOGP test (plus the now-required BAS, DIS, HIDS minimum items) to obtain valid certification covering that functionality.",
+  "consultant_answer": "Yes, technically you can register with just the minimum Core-layer items and skip profile testing — but that registration would only be valid as certification for a no-profile product, not as certification for a product that actually implements HOGP. Since your new flagship keyboard does implement HOGP, you should run the HOGP test (and now also the required BAS, DIS, HIDS minimum tests) to get certification that actually covers your product's real functionality.",
+  "decision_logic": "Certification scope is determined by what is actually tested and declared; registering with only Core-layer items produces a valid but functionally narrow certification that does not extend to undeclared/untested profiles the product actually implements.",
+  "final_recommendation": "When a customer asks about skipping profile testing to save cost, clarify the scope limitation this creates rather than just confirming it is technically possible, since they risk a registration that doesn't actually cover their shipping product's functionality.",
+  "risk_if_done_wrong": "A customer mistakenly believing a Core-only registration covers their HOGP-implementing product would have an invalid/inapplicable certification for their actual shipping functionality, creating compliance and market risk.",
+  "bluetooth_tags": [
+    "HOGP profile test",
+    "Core-only registration",
+    "no-profile certification scope",
+    "Topre keyboard"
+  ],
+  "search_aliases": [
+    "can I skip HOGP testing",
+    "Core layer only registration validity",
+    "certification scope without profile test"
+  ],
+  "qualification_stage": "Pre-testing / certification scope decision",
+  "confidence": "high"
+}

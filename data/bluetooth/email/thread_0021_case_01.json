@@ -1,46 +1,35 @@
 {
-    "source_thread": "thread_0021",
-    "cases": [
-        {
-            "case_id": "thread_0021_case_01",
-            "iut_type": "module-integrated Bluetooth device",
-            "customer_question": "If a product uses a pre-certified Bluetooth module, is Bluetooth SIG RF/RF PHY testing still required for product qualification?",
-            "question_variants": [
-                "Does a certified module eliminate Bluetooth RF testing?",
-                "Can we skip RF PHY testing when using a qualified ESP32 module?",
-                "Is Bluetooth SIG testing required after integrating a certified module?",
-                "Will a module with integrated antenna avoid RF PHY testing?",
-                "Can a product reuse module qualification without additional Bluetooth tests?"
-            ],
-            "actual_issue": "Determining whether Bluetooth SIG RF/RF PHY testing can be waived when integrating previously qualified Bluetooth modules, and understanding the dependency on the exact module variant and antenna implementation.",
-            "plain_english_explanation": "Using a Bluetooth module does not automatically remove all Bluetooth SIG obligations. Some modules already include the required RF qualification evidence, which can allow the final product to skip RF/RF PHY testing if the Bluetooth portion is unchanged. The exact module model matters because some variants are fully reusable while others are not.",
-            "consultant_answer": "The consultant clarified that the referenced module family name represented multiple module variants and that qualification eligibility depended on the exact module model. For the variants with integrated antenna or antenna connector implementations, the Bluetooth SIG RF/RF PHY tests could be waived during product qualification because the module already covered those RF portions. However, even when testing is waived, the final branded product still requires its own Bluetooth SIG product listing under the final company name. The consultant also explained that using a certified module often avoids testing, but the final determination depends on the actual product implementation and whether the Bluetooth-compliant portions remain unchanged.",
-            "decision_logic": "RF/RF PHY test reuse depends on whether the exact integrated module variant already completed the applicable Bluetooth qualification testing and whether the product implementation preserves the qualified Bluetooth design without Bluetooth-related modifications.",
-            "final_recommendation": "Identify the exact module model and confirm its Bluetooth qualification status and QDID/DN coverage before planning testing. If using a fully qualified unmodified module variant, proceed with product listing and reuse the module qualification evidence to avoid unnecessary RF/RF PHY testing.",
-            "risk_if_done_wrong": "Using the wrong module reference or assuming all variants are equally qualified may result in unexpected RF testing requirements, qualification delays, incorrect declarations, or rejected qualification submissions.",
-            "bluetooth_tags": [
-                "qualification",
-                "module",
-                "RF",
-                "RF PHY",
-                "QDID",
-                "reuse",
-                "listing / declaration"
-            ],
-            "search_aliases": [
-                "RF PHY test exemption",
-                "qualified module reuse",
-                "ESP32 module qualification",
-                "module RF reuse",
-                "Bluetooth SIG RF waiver",
-                "pre-certified module",
-                "QDID reuse",
-                "unmodified module design",
-                "RF testing not required"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0021",
+  "case_id": "thread_0021_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "First-time customer onboarding (JUST.WILL Co., Ltd.), Bluetooth SIG registration basics, cost structure, and full-service proxy support",
+  "customer_question": "I thought we could register ourselves directly on the SIG website -- can your company also handle the registration on our behalf? After registration, is certification testing required, and if so, roughly how much does it cost? Also, since we're complete novices, can you handle the entire registration process for us, since we'd struggle to do the actual registration work ourselves even with guidance?",
+  "question_variants": [
+    "Are there two separate registrations (company membership and product registration), and which of them can be done by the consultant versus only by us?",
+    "If testing isn't required, is the only cost the $11,040 SIG registration fee?",
+    "What documents do we need to prepare after requesting registration, and how long does registration take?"
+  ],
+  "actual_issue": "A first-time customer was confused about the distinction between SIG company membership registration (self-service only) and product registration (which a consultant can perform as proxy), uncertain whether certification testing would be required for their product, and wanted a full-service engagement since they lacked the in-house expertise to perform even guided registration steps themselves.",
+  "plain_english_explanation": "There are two distinct registrations: company/member registration, which the customer must perform themselves at no cost via the SIG website, and product registration, which a consulting firm can perform as a paid proxy on the customer's behalf. Whether certification testing is required depends on the product's specification -- products using an already-tested, pre-qualified module often don't need fresh testing, but this varies case by case. Critically, even when no testing is required, the finished product must still undergo its own SIG product registration under the name of the company whose brand appears on the product -- testing being unnecessary does not mean registration itself is unnecessary. Cost-wise, the consultant's support/registration fee runs roughly ¥300,000-¥500,000 even without testing, with testing (if needed) adding roughly ¥100,000-¥1,500,000 more, for a total range of about ¥300,000-¥2,000,000 -- on top of which the customer must separately pay Bluetooth SIG's own $11,040 registration fee directly. For a customer wanting full-service support due to lacking in-house expertise, the consultant can perform the entire product registration process directly (typically completing it within about 3 business days once SIG payment is confirmed received), with the customer only needing to prepare specific supporting documents (a Bluetooth-specific operation manual excerpt, product block diagram, product outline drawing, and antenna documentation including a radiation gain pattern) after the registration request is placed.",
+  "consultant_answer": "There are two separate registrations: company/member registration, which you do yourselves for free via the SIG website, and product registration, which we can perform as a paid proxy on your behalf. Whether testing is needed depends on your product spec -- using an already-tested, pre-qualified module often avoids the need for fresh testing, but it varies. Even if testing isn't needed, your product still requires its own SIG registration under your company's brand name -- that part is never skippable. Cost-wise: our support/registration fee is roughly ¥300,000-¥500,000 even without testing, plus ¥100,000-¥1,500,000 more if testing is needed (total range ¥300,000-¥2,000,000), on top of which you pay Bluetooth SIG's own $11,040 fee directly. Since you'd like full-service support, we can handle the entire registration process ourselves -- typically completing it within about 3 business days once your SIG payment is confirmed received. You'll just need to prepare a few supporting documents (Bluetooth-specific operation manual excerpt, block diagram, outline drawing, and antenna documentation with radiation gain pattern) after we get started.",
+  "decision_logic": "Bluetooth SIG company/member registration is always self-service and free; product registration can be performed by a consultant as a paid proxy; whether certification testing is required is product-specific (often unnecessary when using an already-qualified module) but product registration itself is always required regardless of whether testing is needed, since registration is tied to the final brand owner, not to test completion.",
+  "final_recommendation": "When onboarding a first-time, inexperienced customer, clearly separate the four distinct cost/responsibility axes (free self-service company membership; paid proxy product registration always required; testing requirement that's product-dependent; and the customer's own direct SIG fee payment) early and explicitly, since customers new to the process consistently conflate these in their initial questions.",
+  "risk_if_done_wrong": "A customer might mistakenly believe that avoiding certification testing (e.g., via an already-qualified module) also means they can skip product registration entirely, which would leave them non-compliant despite believing they'd resolved the requirement.",
+  "bluetooth_tags": [
+    "first time customer onboarding",
+    "company membership vs product registration distinction",
+    "registration always required even without testing",
+    "full service proxy registration",
+    "cost structure breakdown",
+    "JUST.WILL"
+  ],
+  "search_aliases": [
+    "difference between SIG member registration and product registration",
+    "is product registration needed if testing not required",
+    "Bluetooth SIG registration cost breakdown",
+    "full service registration for inexperienced customer"
+  ],
+  "qualification_stage": "Pre-registration onboarding / scoping",
+  "confidence": "high"
 }

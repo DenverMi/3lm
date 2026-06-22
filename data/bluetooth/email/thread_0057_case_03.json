@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0057",
+  "case_id": "thread_0057_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "SDK migration triggering re-registration despite unchanged supported profiles -- and a cost-saving strategy of aligning the SDK migration with a concurrently-planned new registration to cover both products under one filing",
+  "customer_question": "We're planning a firmware-only derivative model of an existing registration, with no change to supported profiles, but we might migrate the underlying SDK from SoftDevice S332 to nRF Connect SDK v2.8.0 or later. Does this kind of change require re-certification regardless of implementation content, or does it depend on whether the ICS actually changes?",
+  "question_variants": [
+    "If supported profiles stay the same, does an SDK migration alone ever require a new registration?",
+    "Is there a way to avoid a separate new registration cost when migrating an existing product's SDK?"
+  ],
+  "actual_issue": "The customer planned a firmware-only update to an existing registered product (no change to supported profiles) that might involve migrating the underlying SDK, and wanted to know whether this kind of change -- where the customer-facing functionality is unchanged -- would still trigger a re-registration requirement, since their existing registration referenced a QDID tied to the old SDK.",
+  "plain_english_explanation": "The existing registration referenced a Nordic QDID corresponding to the old SoftDevice SDK (S332, functionally equivalent to S132 for Bluetooth purposes). A product whose firmware migrates to nRF Connect SDK v2.8.0 or later has a different Core Specification version and different ICS content at each included layer compared to the old SDK-based registration -- even though the customer-facing supported profiles remain unchanged. Because of this underlying ICS/Core-version difference, the migrated-firmware product would no longer be considered a valid derivative of the existing S332-based registration -- it would require an entirely new registration referencing the nRF Connect SDK v2.8.0+-based design instead. However, there is a cost-saving strategy available when a customer has another new registration already planned around the same time: if the SDK-migrating product can be designed to use the exact same SDK and profile set as that other, already-planned new registration, the migrating product can instead be structured as a free derivative of that new registration rather than requiring its own separate new registration -- covering both products under a single registration filing and avoiding the cost of a second new registration entirely.",
+  "consultant_answer": "Yes, your concern is correct -- since your existing registration references a Nordic QDID built on the old S332 SDK, and migrating to nRF Connect SDK v2.8.0+ changes both the Core Specification version and the ICS content at each layer, this would no longer be considered a derivative of your existing registration and would require a new one, even though your supported profiles haven't changed. That said, here's a way to avoid the extra cost: if this firmware-migrating model can use the exact same SDK as the new registration you're already planning to file (the one in this quote request), and you design the profiles accordingly, this model can become a free derivative of that new registration instead of needing its own separate filing -- covering both products under one registration.",
+  "decision_logic": "When a customer asks whether an SDK migration with unchanged supported profiles requires re-registration, check whether the migration changes the Core Specification version or the ICS content at any layer -- if so, re-registration is required regardless of unchanged profile-level functionality. When a customer has another new registration already planned around the same time, check whether the SDK-migrating product could be designed to share that new registration's exact SDK and profile set, enabling it to be covered as a free derivative instead of requiring its own separate new registration.",
+  "final_recommendation": "When a customer describes an SDK migration for an existing registered product, evaluate re-registration necessity based on actual ICS/Core-version change rather than customer-facing profile changes, and proactively check for cost-saving alignment opportunities with any other concurrently-planned new registration before confirming a separate filing is required.",
+  "risk_if_done_wrong": "Assuming unchanged supported profiles means no re-registration is needed could result in an invalid derivative registration if the underlying SDK migration actually changed the ICS or Core version; conversely, missing the alignment opportunity with a concurrently-planned registration could result in unnecessarily paying for two separate new registrations.",
+  "bluetooth_tags": [
+    "SDK migration triggers re-registration despite unchanged profiles",
+    "ICS Core version change determines derivative eligibility not profile list",
+    "align SDK migration with concurrent new registration to save cost",
+    "Shimano SW-UT600 Nordic SoftDevice S332"
+  ],
+  "search_aliases": [
+    "does SDK change require new Bluetooth registration",
+    "S332 to nRF Connect SDK migration registration impact",
+    "how to avoid separate registration cost for SDK migration",
+    "ICS change determines re-registration not profile change"
+  ],
+  "qualification_stage": "SDK migration registration impact and cost optimization",
+  "confidence": "high"
+}

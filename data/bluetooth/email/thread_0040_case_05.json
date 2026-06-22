@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0040",
+  "case_id": "thread_0040_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Understanding detailed ICS (Implementation Conformance Statement) content visible on a public Bluetooth SIG registration listing",
+  "customer_question": "Is the 'Support Layer and ICS' you mentioned just the feature/profile list shown in the basic registration summary, or is there more detailed information available?",
+  "question_variants": [
+    "How can I view the full layer-by-layer ICS detail for an existing public registration, using a real example?",
+    "Why can't I see the 'View ICS Details' link when I visit a registration page?"
+  ],
+  "actual_issue": "The customer assumed the basic feature/profile summary shown on a registration listing was the full extent of the publicly viewable ICS information, and needed a concrete walkthrough of how to access the much more detailed, layer-by-layer ICS data that's actually available.",
+  "plain_english_explanation": "The publicly viewable ICS information goes well beyond a simple feature/profile summary list -- a far more detailed, layer-by-layer Implementation Conformance Statement is accessible via a 'View ICS Details' link found near the bottom of a specific registration's detail page. Clicking that link opens an ICS detail page with a Layer-selection menu in the upper-left, which displays the detailed ICS content for whichever layer is selected in the central part of the page. Critically, this detailed view is only accessible while logged into the registration site -- visiting the same page without logging in shows a non-member display mode where the 'View ICS Details' link and the underlying ICS content are both unavailable.",
+  "consultant_answer": "There's much more detail available than the basic feature/profile summary -- a full layer-by-layer ICS is accessible via a 'View ICS Details' link near the bottom of a specific registration's detail page. Clicking it opens an ICS detail page with a Layer-selection menu in the upper-left; selecting a layer shows its detailed ICS content in the center of the page. One important note: this is only visible while logged in -- without logging in, the page shows a non-member display mode where that link and the ICS content itself aren't available at all.",
+  "decision_logic": "Detailed, layer-by-layer ICS content for a Bluetooth SIG registration is accessible to logged-in users via a 'View ICS Details' link on the registration's detail page, distinct from and more comprehensive than the basic feature/profile summary -- if this link or content appears missing, check login status first before assuming the detail isn't available.",
+  "final_recommendation": "When walking a customer through how to access detailed ICS information for an example registration, explicitly mention the login requirement upfront, since a customer browsing without logging in will not see the relevant link or content and may otherwise conclude the detailed information doesn't exist.",
+  "risk_if_done_wrong": "A customer trying to follow ICS-viewing instructions without being logged in would conclude the detailed information isn't available at all, when it simply requires logging in first.",
+  "bluetooth_tags": [
+    "View ICS Details link login required",
+    "detailed layer by layer ICS content",
+    "ICS more detailed than feature profile summary",
+    "Move Corporation",
+    "Raytac MDBT module ICS example"
+  ],
+  "search_aliases": [
+    "how to view detailed ICS for Bluetooth registration",
+    "View ICS Details link missing",
+    "ICS detail page requires login",
+    "layer selection menu ICS detail"
+  ],
+  "qualification_stage": "Pre-registration general consulting",
+  "confidence": "high"
+}

@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0227",
+  "case_id": "thread_0227_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Test environment setup (QDART/QRCT tooling for HM23/HM26 DUT mode entry)",
+  "customer_question": "We're getting an installation error trying to install QDART(QRCT) by following the manual's instructions and can't get the test-mode-entry software working. Can you provide a working tool set, or tell us how to resolve the error? Also, since we can't get this installed and don't understand the difference from your working environment, can you contact Qualcomm directly about this issue?",
+  "question_variants": [
+    "How do we fix the QDART/QRCT installation error blocking DUT mode entry?",
+    "Can Allion provide its own working installation of the required tools (ADB, CP210x driver, QDART, Qualcomm Package Manager 3, Bluetooth/WLAN QRCT modules, Qualcomm USB driver) or lend a working PC?",
+    "Can Allion open a support case with Qualcomm to resolve the installation failure, since internal troubleshooting couldn't identify the cause?"
+  ],
+  "actual_issue": "The customer's engineering team could not get the Qualcomm QDART/QRCT tooling installed correctly to put the DUT into test mode, despite following the provided test-mode-entry manual, and neither side could diagnose the installation failure from the error/license information available, blocking progress on RF/RF PHY testing.",
+  "plain_english_explanation": "When a customer cannot get SoC-vendor test tooling (here, Qualcomm's QDART/QRCT and related drivers) installed correctly and the installation issue can't be diagnosed from the available error and license information, the test lab can offer two practical mitigations: lending or sharing an already-working installation/PC, or escalating directly to the SoC vendor's support channel (a Qualcomm CASE inquiry) to get vendor-level help, especially when the customer's own engineers also can't identify what differs between their failing setup and a working one. A live screen-share demonstration of the failed installation can also help the vendor or test lab diagnose the issue faster.",
+  "consultant_answer": "Since the installation issue can't be resolved internally, could you lend us a PC where the app is already installed and confirmed working, or provide the complete installed tool set (ADB, CP210x USB to UART Bridge VCP Driver, QDART, Qualcomm Package Manager 3, Bluetooth and ANT QRCT Module, WLAN QRCT Module, Qualcomm USB Driver)? We're also checking whether we can open a support case with Qualcomm about this — if that's possible, please be aware an immediate fix may not be guaranteed. A live demonstration of the installation failure over a screen share could also help us diagnose what's different from a working setup.",
+  "decision_logic": "When SoC-vendor tooling installation issues can't be self-diagnosed by either the test lab or the customer's engineers, escalate to the SoC vendor's official support channel and, in parallel, pursue a stopgap (shared working environment or full tool package) to avoid blocking test execution while the vendor-level fix is pending.",
+  "final_recommendation": "For test-environment tooling failures tied to SoC-vendor software, pursue parallel paths: vendor support escalation for a root-cause fix, plus an immediate workaround (lending a working setup) so testing isn't blocked while waiting on the vendor.",
+  "risk_if_done_wrong": "Without escalating to the SoC vendor and without an interim workaround, an unresolved tooling installation failure could stall the entire RF/RF PHY test schedule indefinitely.",
+  "bluetooth_tags": [
+    "QDART QRCT installation error",
+    "DUT mode entry tooling failure",
+    "Qualcomm CASE support escalation",
+    "test environment troubleshooting",
+    "Alps Alpine"
+  ],
+  "search_aliases": [
+    "QDART install error fix",
+    "QRCT installation failure DUT mode",
+    "Qualcomm CASE inquiry test tool",
+    "lend PC for test tool installation"
+  ],
+  "qualification_stage": "Test execution setup",
+  "confidence": "high"
+}

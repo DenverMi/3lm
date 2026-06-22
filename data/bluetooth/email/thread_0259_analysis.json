@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0259",
+  "thread_analysis": {
+    "thread_summary": "Ricoh Imaging Company, Ltd. (contact Hirokazu Maeda) works with Allion (Masaya Iida, Toshitaka Mochizuki, Itsuo Sakai) on Bluetooth SIG certification for a camera-related product undergoing combined USB/DisplayPort/Bluetooth evaluation. The thread spans confidential pre-launch timeline planning, profile ICS terminology clarification (DIS), RF test logistics (Japan-to-Taiwan lab routing for equipment calibration reasons), a Power Class declaration-vs-measurement discrepancy, and a substantial post-July-2024 registration system issue involving a dual-mode reference QDID forced into LE-only behavior via software disable, resolved alongside a Test Case Waiver for an unrelated stale-ICS-item warning.",
+    "all_questions_found": [
+      "Why is my registration dual-mode when the product is LE-only, and what does the yellow TCW warning mean? (see thread_0259_case_01)",
+      "Which Power Class is correct given a declaration-vs-measurement mismatch? (see thread_0259_case_02)",
+      "What does 'desired certification date' mean, and can registration visibility be controlled for a confidential launch? (see thread_0259_case_03)",
+      "What is 'DIS ICS' and who should complete it? (see thread_0259_case_04)"
+    ],
+    "key_technical_discussion": "This thread illustrates the post-July-2024 registration system's stricter handling of mode mismatches (dual-mode reference QDIDs cannot have their ICS changed to single mode, requiring a software-level workaround instead), the TCW mechanism for resolving stale-ICS-item warnings unrelated to actual product issues, RF Power Class declaration verification against measured output, and practical confidentiality/timeline planning tools (the 90-day public release date control) available within the registration site itself.",
+    "key_decision_logic": "See thread_0259_case_01 through thread_0259_case_04 for the specific decision logic behind each question.",
+    "risk_if_done_wrong": "See thread_0259_case_01 through thread_0259_case_04 for specific risks.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "For products intended to support only a subset of a dual-mode reference QDID's capability (e.g., LE-only against a dual-mode reference), resolve the mismatch via product-level software disabling rather than attempting to alter the registration's own ICS mode, since the post-2024 Consistency Check no longer permits that; and proactively explain the registration site's built-in confidentiality tools (90-day public release date) to customers with unreleased, confidentially-timed product launches."
+  }
+}

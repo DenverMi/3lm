@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0062",
+  "case_id": "thread_0062_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "How should the test media files in the PTS Playlist folder be prepared for the AVRCP profile test item, without losing the original files?",
+  "question_variants": [
+    "What do we need to do with the mp3 files in the PTS playlist folder before running this AVRCP test?",
+    "Do we need to back up the original playlist mp3 files before swapping them?",
+    "How do we find the playlist folder if it's not in the expected location?"
+  ],
+  "actual_issue": "A specific AVRCP profile test item (the metadata/now-playing related test) required the music files referenced by PTS's Playlist folder to be replaced with deliberately oversized ('Mega') files for the test to exercise the intended condition, while the original test media needed to be preserved for restoration afterward.",
+  "plain_english_explanation": "One particular Bluetooth audio-control test needs unusually large music files to properly exercise a metadata-handling condition, rather than the small sample files PTS ships with. Before swapping in the large files, the originals need to be safely renamed out of the way so they aren't lost, and afterward the originals should be put back.",
+  "consultant_answer": "Locate PTS's Playlist folder (nested under the PTS installation folder, not necessarily at a fixed depth) and identify the original mp3 files it references. Rename each original file by appending '.bak' to its existing extension so it is preserved, then replace it with a large 'Mega' file under the original filename. If the Playlist folder containing mp3 files cannot be found by inspection, use the Windows search function for '*.mp3' under the PTS folder to locate it. Once confirmed, apply the rename-and-replace treatment to the relevant set of files (11 files in this case), run the AVRCP/CT/MCN/CB test item, and once it passes, restore the original files from their '.bak' copies.",
+  "decision_logic": "When a specific PTS test item requires non-default test media to exercise a particular condition, the safe approach is to preserve the originals via a reversible rename (appending a backup extension) before substituting the required oversized files, and to use a file-search sweep to locate the correct target folder if its exact path or depth is not already known, rather than guessing.",
+  "final_recommendation": "Before running the AVRCP/CT/MCN/CB test item, back up the original Playlist mp3 files by appending '.bak' to their filenames, substitute large 'Mega' files under the original names, run the test, and restore the originals from the '.bak' copies once the test has passed.",
+  "risk_if_done_wrong": "Overwriting the original Playlist mp3 files without first backing them up risks permanently losing the standard PTS test media needed for other test items or future test runs.",
+  "bluetooth_tags": ["AVRCP", "PTS", "test media", "profile", "testing"],
+  "search_aliases": ["AVRCP CT MCN CB test media setup", "PTS Playlist folder mp3 backup", "large Mega file AVRCP test", "rename .bak before swapping test files"],
+  "qualification_stage": "testing",
+  "confidence": "high"
+}

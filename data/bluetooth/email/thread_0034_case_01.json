@@ -1,46 +1,33 @@
 {
-    "source_thread": "thread_0034",
-    "cases": [
-        {
-            "case_id": "thread_0034_case_01",
-            "iut_type": "module",
-            "customer_question": "Does a company still need Bluetooth SIG qualification registration and a Declaration ID when using a pre-qualified Bluetooth module and not displaying the Bluetooth logo on the final product?",
-            "question_variants": [
-                "Is QDID reuse alone sufficient for selling a Bluetooth product?",
-                "Can we skip Bluetooth SIG registration if we do not use the Bluetooth logo?",
-                "Does a branded end product using a certified module still require a Declaration ID?",
-                "Is Bluetooth qualification required without logo usage?",
-                "Do final products using qualified modules still need SIG registration?"
-            ],
-            "actual_issue": "The customer appeared to assume that using a pre-qualified Bluetooth module or avoiding Bluetooth logo display could remove the obligation for final product Bluetooth SIG qualification registration.",
-            "plain_english_explanation": "A Bluetooth module may already have its own qualification, but that does not automatically cover the final branded product being sold to customers. If a company markets and sells a Bluetooth product under its own brand, the company still needs to complete the required Bluetooth SIG declaration process. This requirement applies even if the Bluetooth logo is not shown on the product.",
-            "consultant_answer": "The consultant clarified that Bluetooth SIG qualification obligations are tied to selling and marketing Bluetooth products, not to whether the Bluetooth logo is displayed. The consultant corrected wording that overemphasized logo usage and instead referenced the official Bluetooth SIG Help & Support guidance 'Do I Need to Qualify?' as the authoritative basis for the rule. The consultant also confirmed that reuse of a module QDID does not eliminate the need for a final product Declaration ID registered under the seller's company name.",
-            "decision_logic": "Bluetooth SIG qualification applies to commercial Bluetooth products regardless of Bluetooth logo display. A pre-qualified module supports qualification reuse, but the final product company must still complete the declaration process for its own branded product.",
-            "final_recommendation": "Advise customers that final products using Bluetooth technology require Bluetooth SIG qualification registration under the selling company's name even when reusing certified modules and even when the Bluetooth logo is not displayed. Reference the official Bluetooth SIG qualification guidance when communicating this requirement.",
-            "risk_if_done_wrong": "Customers may incorrectly assume they can commercially sell Bluetooth products without completing the required SIG declaration process, potentially creating compliance exposure, delayed launch activities, or later corrective registration work.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "declaration",
-                "QDID",
-                "module",
-                "reuse"
-            ],
-            "search_aliases": [
-                "Declaration ID required",
-                "QDID reuse not enough",
-                "Bluetooth logo not required for qualification",
-                "Do I Need to Qualify",
-                "final product declaration",
-                "module qualification reuse",
-                "Bluetooth SIG registration",
-                "qualified module end product",
-                "Bluetooth product registration",
-                "SIG declaration obligation"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0034",
+  "case_id": "thread_0034_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Yaman product, module-based), whether Bluetooth registration is required when the product doesn't display the Bluetooth logo",
+  "customer_question": "Our product doesn't display the Bluetooth logo, so do we still need to register it with Bluetooth SIG and pay the associated fee?",
+  "question_variants": [
+    "Is module-level QDID certification (purchased from our module vendor) sufficient on its own, without our own product-level registration?",
+    "Where is it officially documented that registration is required regardless of logo use?"
+  ],
+  "actual_issue": "The customer needed to confirm whether the legal/contractual obligation to register a Bluetooth-enabled product with Bluetooth SIG (and pay the Declaration fee) applies even when the finished product does not display the Bluetooth logo at all, and whether their module vendor's own QDID certification was sufficient on its own.",
+  "plain_english_explanation": "Bluetooth product registration (obtaining a Declaration ID) is required at the final-product level any time a Bluetooth-enabled product is brought to market under a company's own brand, regardless of whether the Bluetooth logo is actually displayed on the product or its packaging -- the module vendor's own QDID certification covers only the module itself and does not substitute for the final product's own registration. This obligation, and its independence from logo display, is explicitly documented on Bluetooth SIG's own Help & Support page under the heading 'Do I Need to Qualify?,' which the customer can reference directly as the authoritative source. The required payment is the Declaration fee ($11,040 to Bluetooth SIG), which is separate from -- and in addition to -- the proxy registration support and Compliance Folder service fees a consulting firm would charge.",
+  "consultant_answer": "Yes, registration is required regardless of whether you display the Bluetooth logo -- any Bluetooth-enabled product brought to market under your own brand needs its own product-level registration (Declaration ID), separate from your module vendor's own QDID certification, which only covers the module itself. This requirement, independent of logo display, is documented directly on Bluetooth SIG's Help & Support page under 'Do I Need to Qualify?' -- I'd recommend referencing that page directly. The required Declaration fee is $11,040 to Bluetooth SIG, on top of our proxy registration support and Compliance Folder fees.",
+  "decision_logic": "Bluetooth product registration obligation is triggered by bringing a Bluetooth-enabled product to market under one's own brand, not by whether the Bluetooth logo is displayed -- a module vendor's own component-level QDID certification does not substitute for the final product's own required registration, and this distinction should be explained with reference to Bluetooth SIG's own official documentation rather than asserted without a citable source.",
+  "final_recommendation": "When a customer asks whether registration is needed despite not using the Bluetooth logo, cite Bluetooth SIG's own 'Do I Need to Qualify?' Help & Support page directly as the authoritative source, rather than simply asserting the requirement, since customers (and their own internal stakeholders) are more likely to accept and act on an officially-documented answer.",
+  "risk_if_done_wrong": "A customer mistakenly believing that avoiding the Bluetooth logo exempts them from registration could face compliance warnings or enforcement action from Bluetooth SIG later, as appears to have happened in a comparable case (see thread_0038).",
+  "bluetooth_tags": [
+    "registration required regardless of logo display",
+    "Do I Need to Qualify Help page citation",
+    "module QDID does not substitute for product registration",
+    "Declaration fee $11,040",
+    "Yaman"
+  ],
+  "search_aliases": [
+    "do we need to register if we don't use Bluetooth logo",
+    "is module certification enough without product registration",
+    "Do I Need to Qualify Bluetooth SIG page",
+    "Declaration ID required regardless of logo"
+  ],
+  "qualification_stage": "Pre-registration scoping / customer inquiry",
+  "confidence": "high"
 }

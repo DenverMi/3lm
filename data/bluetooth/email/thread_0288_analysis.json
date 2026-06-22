@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0288",
+  "thread_analysis": {
+    "thread_summary": "This thread is substantially the same Secom Corporation (contact Hirotaka Kotake) Bluetooth SIG certification engagement already documented in thread_0220 — the same quote request form field guidance (Member Class, Model Name, SW/HW Version, Product Description, Product Category, Product Type, wire-transfer-delegation checkbox), the same Single-Design-to-Multi-Design fee reclassification due to a July 2024 SIG site bug, and the same Bluetooth Core Specification v5.0 retirement-date logic for derivative-model registration validity (2032/02/01) — carried through to Review Page confirmation, Submission, and registration completion. This capture additionally includes a new, previously undocumented question about Compliance Folder document scope for a planned multi-model product line.",
+    "all_questions_found": [
+      "(Already documented in thread_0220_case_01) How should quote request form fields (Member Class, Model Name, SW/HW Version, Product Description, Product Category, Product Type, wire-transfer checkbox) be filled in?",
+      "(Already documented in thread_0220_case_02) Why did the proxy registration fee change from Single-Design to Multi-Design reference?",
+      "(Already documented in thread_0220_case_04) Is there a time limit on free additional-model registration, tied to Bluetooth Core Spec v5.0's retirement date?",
+      "Are Compliance Folder documents required per model or just for the initial representative model, and how detailed should the block diagram be? (see thread_0288_case_01)"
+    ],
+    "key_technical_discussion": "Beyond the duplicated content (see thread_0220's case files for the full record), this thread's new contribution clarifies that Compliance Folder documentation scope tracks the number of models actually listed in the Product List at initial registration, not the customer's total planned model count, with a concrete block-diagram-detail reference example provided.",
+    "key_decision_logic": "See thread_0288_case_01 for the new decision logic; duplicated content follows thread_0220's existing logic.",
+    "risk_if_done_wrong": "See thread_0288_case_01; for duplicated content, see thread_0220's case files.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "This thread reinforces thread_0220's lessons about quote-form guidance and fee/validity logic, and adds a new one: for multi-model product line registrations, proactively clarify that Compliance Folder documentation scope tracks the initially-listed model count (recommending a single representative model to minimize burden) rather than the customer's total eventual product line size."
+  }
+}

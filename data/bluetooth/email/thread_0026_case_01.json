@@ -1,44 +1,31 @@
 {
-    "source_thread": "thread_0026",
-    "cases": [
-        {
-            "case_id": "thread_0026_case_01",
-            "iut_type": "module",
-            "customer_question": "If a product changes from one Bluetooth module supplier to another while keeping Bluetooth 4.2, is a new Bluetooth qualification or registration required?",
-            "question_variants": [
-                "Can we replace the Bluetooth module without requalification?",
-                "Does changing the module vendor require a new Bluetooth SIG listing?",
-                "If the Bluetooth version stays at 4.2, do we need new registration work?",
-                "Can an existing Bluetooth 4.2 qualification remain valid after a module replacement?",
-                "Does swapping to a different QDID require additional testing?"
-            ],
-            "actual_issue": "The product changed from one supplier's Bluetooth module to another supplier's module with a different QDID, but the Bluetooth version and qualification scope remained unchanged. The customer needed to determine whether a new Bluetooth qualification process or testing was required.",
-            "plain_english_explanation": "The company replaced the Bluetooth module inside its product with another already-qualified module. Because the product would continue claiming the same Bluetooth version and no new Bluetooth features were being added, the existing qualification approach could remain unchanged. The discussion clarified that no additional Bluetooth qualification procedures were needed in that specific scenario.",
-            "consultant_answer": "The consultant confirmed that when the product continues to use Bluetooth 4.2 as originally registered, no additional Bluetooth SIG procedures or testing are required despite the module supplier change. The replacement module already had its own QDID, and the Bluetooth capability level being marketed did not change.",
-            "decision_logic": "A module supplier replacement alone does not automatically require a new qualification if the Bluetooth functionality, claimed version, and qualification scope remain unchanged and the replacement module already has a valid qualified design.",
-            "final_recommendation": "Keep the existing Bluetooth 4.2 qualification approach and proceed without additional Bluetooth SIG registration or testing activity for the module replacement.",
-            "risk_if_done_wrong": "If the company unnecessarily initiates a new qualification or testing effort despite no Bluetooth functional change, it may incur avoidable cost, schedule delay, and administrative work.",
-            "bluetooth_tags": [
-                "qualification",
-                "module",
-                "QDID",
-                "reuse",
-                "Bluetooth 4.2",
-                "listing"
-            ],
-            "search_aliases": [
-                "module replacement no requalification",
-                "Bluetooth 4.2 unchanged",
-                "QDID swap",
-                "supplier module change",
-                "existing qualification reuse",
-                "module vendor replacement",
-                "no new testing required",
-                "same Bluetooth version reuse"
-            ],
-            "qualification_stage": "post-launch change",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0026",
+  "case_id": "thread_0026_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Already-Included Bluetooth module QDID whose Listing Owner (manufacturer) changes -- effect on downstream registrations referencing that QDID",
+  "customer_question": "For our device currently registered with Bluetooth Core Specification 4.2, the Bluetooth module manufacturer is changing from Taiyo Yuden to Kaga FEI, but the QDID itself doesn't change (97470). Does this require any change-application procedure to our SIG registration?",
+  "question_variants": [
+    "If a referenced module's manufacturer changes but keeps the same QDID, do all downstream registrations referencing that QDID need to be updated?",
+    "Does a module's Listing Owner change automatically propagate to or invalidate registrations that already Include that module's QDID?"
+  ],
+  "actual_issue": "The customer's underlying Bluetooth module supplier was transitioning from Taiyo Yuden to Kaga FEI for the same QDID (97470), and the customer wanted to know whether this manufacturer change required any update to their own device's existing SIG registration, which references that QDID.",
+  "plain_english_explanation": "In this specific case, the QDID's Listing Owner was also transitioning from Taiyo Yuden to Kaga FEI, and critically, both companies' module model names were registered together in that QDID's own Product List. Because both manufacturer names appear in the Product List of the referenced QDID itself, a downstream registration that references (Includes) that QDID requires no procedure or update on its own part, regardless of which of the two listed manufacturers actually supplied the physical module. The downstream registration's validity is tied to the QDID reference, not to which specific manufacturer among those listed under that QDID's Product List actually produced the unit.",
+  "consultant_answer": "In your case, no procedure is needed -- the QDID's Listing Owner is also transitioning from Taiyo Yuden to Kaga FEI, and both companies' module model names are registered together under that QDID's own Product List. Since your registration references that QDID, it remains valid regardless of which of the two listed manufacturers actually supplied your specific module.",
+  "decision_logic": "When a referenced module's manufacturer changes for an already-Included QDID, check whether the new manufacturer's model name has also been added to that QDID's own Product List (alongside the original manufacturer) -- if so, downstream registrations referencing that QDID require no update or procedure, since validity is tied to the QDID reference itself rather than to a single specific manufacturer's identity.",
+  "final_recommendation": "When a customer asks about a referenced component's manufacturer transition, check the QDID's own Product List for whether both the outgoing and incoming manufacturer's model names are listed together before concluding any update procedure is or isn't needed on the downstream registration.",
+  "risk_if_done_wrong": "A customer might needlessly initiate an update or re-registration process out of caution when none is actually required, or conversely assume no action is ever needed for manufacturer transitions without checking whether the new manufacturer is actually listed under the referenced QDID.",
+  "bluetooth_tags": [
+    "module manufacturer Listing Owner change",
+    "QDID Product List multiple manufacturers",
+    "downstream registration no update needed",
+    "Topre RC1 keyboard"
+  ],
+  "search_aliases": [
+    "module manufacturer changed does registration need updating",
+    "QDID Listing Owner transition effect on downstream registration",
+    "Taiyo Yuden to Kaga FEI module change SIG registration"
+  ],
+  "qualification_stage": "Post-registration component supplier transition",
+  "confidence": "high"
 }

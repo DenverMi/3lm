@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0225",
+  "case_id": "thread_0225_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product using a BLE module (IDEAL company)",
+  "customer_question": "For Step 3, can the required antenna datasheet just be a copy of the relevant page from our BLE module's own spec sheet, rather than a dedicated antenna datasheet?",
+  "question_variants": [
+    "Is a module spec sheet excerpt acceptable in place of a separate antenna datasheet?"
+  ],
+  "actual_issue": "The customer's product used an integrated BLE module without a separately documented antenna, and wanted to know if they could submit the module's own spec sheet page instead of producing a dedicated antenna datasheet.",
+  "plain_english_explanation": "Yes — copying the relevant page from the BLE module's own spec sheet is acceptable as the antenna datasheet for Step 3, as long as that page includes the antenna's radiation gain characteristics (e.g., a radiation pattern or gain chart). If the module spec sheet doesn't include this information, a dedicated antenna datasheet would still be needed.",
+  "consultant_answer": "Yes, a copy of the relevant page from your BLE module's spec sheet is acceptable for Step 3's antenna datasheet requirement, as long as it includes the antenna's radiation gain characteristics.",
+  "decision_logic": "Antenna datasheet requirements are satisfied by any document containing the necessary radiation gain characteristic data, regardless of whether that document is a standalone antenna datasheet or an excerpt from a broader module spec sheet.",
+  "final_recommendation": "When customers ask about acceptable document substitutes, confirm based on whether the required technical content (radiation gain characteristics) is present, not on the document's title or source.",
+  "risk_if_done_wrong": "Requiring a separate antenna datasheet when an adequate excerpt already exists in the module's own documentation would create unnecessary work; conversely, accepting a module spec sheet page lacking radiation gain data would leave the Compliance Folder incomplete.",
+  "bluetooth_tags": [
+    "antenna datasheet",
+    "radiation gain characteristics",
+    "Step 3 documentation",
+    "BLE module spec sheet",
+    "IDEAL company"
+  ],
+  "search_aliases": [
+    "antenna datasheet substitute",
+    "module spec sheet as antenna datasheet",
+    "radiation gain chart requirement"
+  ],
+  "qualification_stage": "Pre-registration / Step 3 documentation",
+  "confidence": "high"
+}

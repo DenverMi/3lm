@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0232",
+  "thread_analysis": {
+    "thread_summary": "Sharp Corporation (contact Yoshio Iwai) works with Allion (Masaya Iida, with technical answers drafted by Itsuo Sakai) on a Bluetooth registration that Includes an existing QDID, encountering Consistency Check problems under the post-July-2024 registration site and an RF 2-item retest billing item. The thread also covers forward-looking questions about TCRL version handling for future derivative inch-size-variant model registrations.",
+    "all_questions_found": [
+      "Where does the RF test report get uploaded, and is the registration approach correct given visible Consistency Check errors from combining QDIDs? (see thread_0232_case_01)",
+      "Is the TCRL version locked in for future derivative-model additions, and why did a newer TCRL version produce an error on a previously-clean host stack ICS? (see thread_0232_case_02)"
+    ],
+    "key_technical_discussion": "The post-2024 registration site's stronger cross-layer Consistency Checking can block registrations Including older QDIDs even when each QDID is individually clean; the 'Combine Unmodified Design' relief path avoids this at the cost of skipping report upload, while the full 'Modified' path risks cascading into full Test Plan generation across affected layers under the new system. Separately, TCRL version updates can introduce new Consistency Check failures on previously-valid ICS content, and registered TCRL versions are locked in per-registration rather than auto-updating for derivative additions.",
+    "key_decision_logic": "Both cases hinge on understanding what the post-2024 registration site locks in versus re-evaluates: QDID combination errors are evaluated fresh at each registration (hence the relief-path tradeoff in case_01), while TCRL version is fixed at original registration time and not re-evaluated for derivative additions (case_02).",
+    "risk_if_done_wrong": "See thread_0232_case_01 and thread_0232_case_02 for specific risks.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "The post-2024 Bluetooth SIG registration site introduces several non-obvious behaviors (cross-layer Consistency Check on QDID combinations, full Test Plan regeneration on ICS changes, TCRL version lock-in per registration) that customers migrating from or extending older registrations are likely to be confused by; proactively explaining these mechanics — not just answering the literal question asked — helps customers plan future derivative registrations correctly."
+  }
+}

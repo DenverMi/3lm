@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0026",
+  "case_id": "thread_0026_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Internal safeguard: Invoice used for SIG Qualification Fee payment must be obtained under the same company account as the actual registrant, not the intermediary/contracting customer",
+  "customer_question": "(Internal quality-control catch, not a customer question.) An Invoice (INV63702) had already been obtained and wire-transfer payment was being arranged using Topre/Enomoto's own account -- but should this be used, given that the actual registration is being filed under PFU's name?",
+  "question_variants": [
+    "If a manufacturer initially obtains an Invoice under their own account before realizing the registration must be under the brand owner's name, can that Invoice still be used for payment?",
+    "What happens if the wrong company's Invoice gets used to pay the SIG registration fee?"
+  ],
+  "actual_issue": "An Invoice for the SIG Qualification Fee had already been obtained under the contracting manufacturer's (Topre/Enomoto's) own account and wire-transfer payment was being processed against it, but the actual registration for this product needed to be filed under the brand owner's (PFU's) name -- meaning the wrong company's Invoice was about to be used for payment.",
+  "plain_english_explanation": "Since SIG registration must be filed under the account of the company whose name appears on the product (the brand owner, PFU in this case), the Invoice used to pay the Qualification Fee must also be obtained under that same company's account -- an Invoice obtained under a different company's account (even the manufacturer handling the registration logistics) cannot be used, since SIG's Invoice/payment system ties the Qualification Fee credit to the specific account that requested it. The consultant caught this internally before the wire transfer was finalized and instructed the sales contact to cancel the incorrect Invoice (obtained under Topre's account) and use instead the correct Invoice (INV63796) that had been obtained under PFU's own account. Because the cancellation was caught before the wire transfer was actually sent, the Invoice could be swapped without complication, though it did push the payment date back by roughly two weeks.",
+  "consultant_answer": "INV63702 was obtained under Topre/Enomoto's own account, but since this registration is being filed under the brand owner's (PFU's) name, that Invoice can't be used -- please cancel it, or if possible, swap to INV63796, which was obtained under PFU's own account.",
+  "decision_logic": "Before finalizing wire-transfer payment for a SIG Qualification Fee, always verify that the Invoice being paid was obtained under the same company account as the entity under whose name the registration will actually be filed -- particularly in OEM/brand-owner scenarios where the manufacturer handling logistics is not the same entity as the registrant.",
+  "final_recommendation": "When a registration's registrant identity (the brand owner) differs from the company directly handling registration logistics (the manufacturer), build in an explicit internal cross-check of which company's account the Invoice was obtained under before authorizing wire-transfer payment, since this mismatch can occur even when the registrant-identity question itself has already been correctly answered earlier in the engagement.",
+  "risk_if_done_wrong": "Paying the SIG Qualification Fee using an Invoice obtained under the wrong company's account could create a payment that cannot be properly credited to the actual registrant's registration, potentially delaying or invalidating the registration process and requiring a costly, time-consuming correction.",
+  "bluetooth_tags": [
+    "Invoice must match registrant account",
+    "wire transfer wrong company invoice catch",
+    "OEM brand owner registration payment mismatch",
+    "Topre PFU keyboard OEM"
+  ],
+  "search_aliases": [
+    "wrong company invoice SIG registration fee payment",
+    "Invoice account must match registrant not manufacturer",
+    "OEM registration payment mismatch correction"
+  ],
+  "qualification_stage": "Internal payment processing quality control",
+  "confidence": "high"
+}

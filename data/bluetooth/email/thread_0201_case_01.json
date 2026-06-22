@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0201",
+  "case_id": "thread_0201_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Powered Speaker)",
+  "customer_question": "What documents are needed for the Compliance Folder after registration is complete, and can we add derivative models later without extra cost?",
+  "question_variants": [
+    "What product materials does Allion need to create the Compliance Folder after SIG registration?",
+    "If we release a similar product with the same module and Host Stack, does it need a new registration?",
+    "How do we add derivative models to an existing registration?"
+  ],
+  "actual_issue": "Customer (Premium Audio Company, Onkyo GX10 Powered Speaker) completed SIG registration using two QDIDs. Post-registration, Allion needed four product documents to create the Compliance Folder (CD-R). A secondary issue arose where the customer's shared cloud link was restricted to a specific email address (yukihiro.nakano) and not accessible to Allion's email, requiring the customer to re-share with broader access.",
+  "plain_english_explanation": "After Bluetooth SIG registration is confirmed, Allion creates a Compliance Folder containing all certification documents and product materials on a CD-R, which the customer must retain as proof of compliance. The customer needs to supply four specific product documents. Additionally, any future products using the exact same module and Host Stack do not require a new SIG registration — they can be added to the existing Product List for free via the 'Manage Submitted Products' feature on the SIG portal.",
+  "consultant_answer": "Four documents are required for the Compliance Folder: (1) Operation manual (Bluetooth section), (2) Block diagram, (3) Outline drawing, (4) Antenna datasheet with radiation gain characteristics. These are collected from the customer after registration is confirmed. Regarding derivative models: if the same module and Host Stack are used, the new model can be added free of charge to the existing Product List via 'Manage Submitted Products' on the SIG My Page — no new registration, no new fee. On the cloud link access issue: shared document links must be accessible to Allion's email; if restricted to a named account, the customer must adjust sharing permissions.",
+  "decision_logic": "Compliance Folder is mandatory per Bluetooth SIG QPRDv3 rules for all registrations. It must be retained by the Listing Owner until 1 year after the last listed product is discontinued. The Manage Submitted Products free addition applies only when module and Host Stack are identical to the original registered configuration.",
+  "final_recommendation": "Collect the four Compliance Folder documents promptly after registration. Remind customers about the free derivative product addition path via Manage Submitted Products for future models using the same module and Host Stack. When sharing cloud documents with Allion, ensure access is not restricted to a single named email.",
+  "risk_if_done_wrong": "If Compliance Folder is not prepared, the customer cannot comply with a SIG audit. If derivative models are registered separately instead of added for free, unnecessary fees are incurred. If the shared document link is inaccessible, registration progress is delayed.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "CD-R",
+    "Manage Submitted Products",
+    "derivative product",
+    "Powered Speaker",
+    "End Product"
+  ],
+  "search_aliases": [
+    "compliance folder documents",
+    "after registration documents",
+    "CD-R Bluetooth",
+    "derivative model free addition",
+    "same module same host stack"
+  ],
+  "qualification_stage": "Post-registration / Compliance Folder delivery",
+  "confidence": "high"
+}

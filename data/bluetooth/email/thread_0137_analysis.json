@@ -1,16 +1,18 @@
 {
   "source_thread": "thread_0137",
-  "case_analysis": {
-    "thread_summary": "NEC Platforms / Google Fluoride Host Stack registration attempt. All known Fluoride versions (1.3–1.6) have a GAP-GATT ICS inconsistency (GAP 25/4 or 35/4 Mandatory when GATT 7/7 Supported) that blocks Design Number registration under QPRDv3.0. GAP/GATT are Host-layer issues — changing the Controller QDID does not help. The customer also needed guidance on SIG Launchstudio account verification.",
+  "thread_analysis": {
+    "thread_summary": "NEC Platforms / Google Fluoride Host Stack registration attempt, run via Allion as registration agent. All tested Fluoride versions (1.3, 1.4, 1.5, 1.6) produced the same fatal GAP-GATT ICS Consistency Check Invalid findings (GATT 7/5 or 7/6 Supported requiring GAP 25/5,35/5 or 25/6,35/6; and related GATT 4/25 mandatory findings), which blocks Design Number registration regardless of which module/Controller QDID is paired with it. GAP/GATT are Host-layer issues, so changing the Controller QDID does not help. The customer also needed guidance on verifying their SIG Launchstudio account and company association, and on the invoice/payment process for the registration fee.",
     "all_questions_found": [
       "Which Google Fluoride version is safe for Bluetooth certification?",
-      "Can the GAP-GATT Consistency Check error be fixed by switching the Controller or module QDID?",
-      "How do we verify our SIG Launchstudio account and company association?"
+      "Is Google Fluoride 1.6 compatible with our module, given that 1.4 and 1.5 both failed?",
+      "Can the GAP-GATT Consistency Check error be fixed by switching the Controller or module QDID, or does the module need to satisfy specific GAP requirements?",
+      "How do we verify our SIG Launchstudio account and company association (i.e., which company/email the logged-in account is registered under)?",
+      "How do we obtain the SIG registration fee Invoice to proceed with payment (which account should be used to log in and generate it)?"
     ],
-    "key_technical_discussion": "Google Fluoride 1.3/1.4/1.5/1.6 all share the same internal ICS defect: GAP mandatory items are set in a way that conflicts with GATT 7/7 being Supported. Post-July 2024 QPRDv3.0 Consistency Check enforces this rule strictly and blocks DN registration. GAP and GATT are both Host-layer (not Controller-layer) items — no amount of Controller QDID changes will resolve a Host-layer ICS inconsistency. The only solution is to use a compliant Host Stack (BlueZ or a future fixed Fluoride version).",
+    "key_technical_discussion": "Google Fluoride 1.3/1.4/1.5/1.6 all share the same internal ICS defect: GATT items (7/5) and (7/6) being Supported require corresponding GAP items (25/5 or 35/5, and 25/6 or 35/6 respectively) to also be Supported, and GATT (1/2 and 4/15)/(4/16)/(4/22) being Supported require GATT (4/25) to be Mandatory — none of which Fluoride's ICS satisfies, producing fatal Invalid findings on the Consistency Check that block Design Number registration. GAP and GATT are both Host-layer (not Controller-layer) items — no amount of Controller/module QDID changes will resolve a Host-layer ICS inconsistency. The consultant speculated Bluetooth SIG added this ICS check rule after Fluoride was originally registered. The only solution is to use a compliant, already-registered Host Stack (e.g. BlueZ) or a future fixed Fluoride version.",
     "key_decision_logic": "1. Identify Fluoride as the Host Stack → flag immediately for GAP-GATT inconsistency risk. 2. GAP/GATT error → Host Stack problem → must change Host Stack. 3. Controller/module QDID is irrelevant to this error.",
     "risk_if_done_wrong": "Proceeding with Fluoride wastes test and registration fees and blocks product launch. Advising a module change instead of Host Stack change wastes engineering resources.",
-    "consulting_mistake": "Not flagging the Fluoride GAP-GATT issue at project intake, or suggesting Controller-side fixes for a Host-layer problem.",
+    "consulting_mistake": "",
     "consulting_takeaway": "Any project using Google Fluoride must be flagged at intake for the known GAP-GATT Consistency Check blocker. Escalate immediately to inform the customer that DN registration is blocked until they switch Host Stack or SIG verifies a fixed Fluoride release."
   }
 }

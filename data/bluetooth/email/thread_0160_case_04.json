@@ -1,0 +1,39 @@
+{
+  "source_thread": "thread_0160",
+  "case_id": "thread_0160_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE keyboard (Topre)",
+  "customer_question": "We are changing the Bluetooth module manufacturer from Taiyo Yuden to Kaga FEI, but both use the same QDID number. Do we need to re-register?",
+  "question_variants": [
+    "Does changing the module vendor require a new Bluetooth SIG registration?",
+    "If we switch module suppliers but the QDID stays the same, is re-registration needed?",
+    "Module manufacturer changed but QDID is unchanged — any Bluetooth compliance impact?",
+    "We are sourcing the same-spec module from a different manufacturer — do we need a new qualification?"
+  ],
+  "actual_issue": "The customer is changing their Bluetooth module supplier from Taiyo Yuden to Kaga FEI. Both modules carry the same QDID number (they are the same qualified design). The customer wants to confirm whether this supplier change requires a new product-level Bluetooth SIG registration.",
+  "plain_english_explanation": "Bluetooth SIG qualification at the product level references the QDID (Qualified Design ID) of the Bluetooth component (module or chip) used in the product. The QDID certifies the design — not the specific manufacturing source. If a customer changes module suppliers but the new module has the same QDID as the old one, the Bluetooth qualification at the product level is unaffected. The product's registration still references the same QDID, and no new registration or retesting is required.",
+  "consultant_answer": "Changing the module manufacturer from Taiyo Yuden to Kaga FEI does NOT require a new product-level Bluetooth SIG registration, provided both modules share the same QDID number. The SIG product registration references the QDID — not the specific module vendor. As long as the QDID is unchanged, the qualification remains valid.",
+  "decision_logic": "SIG product registrations reference QDIDs, which represent qualified Bluetooth designs. Two modules from different manufacturers that carry the same QDID are the same qualified design from SIG's perspective. The product registration is tied to the design (QDID), not to the physical manufacturing source of that design.",
+  "final_recommendation": "When switching Bluetooth module suppliers, always verify whether the new module carries the same QDID as the old one. If QDID matches: no re-registration needed. If QDID differs: a new product registration is required, referencing the new QDID.",
+  "risk_if_done_wrong": "Using a module with a different QDID without updating the product registration means the registered product references a QDID that does not match the physical component — a compliance violation. Always verify QDID before completing a component change.",
+  "bluetooth_tags": [
+    "QDID",
+    "module manufacturer change",
+    "component substitution",
+    "re-registration trigger",
+    "same QDID",
+    "Taiyo Yuden",
+    "Kaga FEI",
+    "Bluetooth qualification"
+  ],
+  "search_aliases": [
+    "module supplier change re-registration",
+    "same QDID different manufacturer",
+    "QDID unchanged module swap",
+    "changing module vendor bluetooth",
+    "module manufacturer change qualification"
+  ],
+  "qualification_stage": "post-registration",
+  "confidence": "high"
+}

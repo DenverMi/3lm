@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0260",
+  "case_id": "thread_0260_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product not sold to the general public, Compliance Folder document requirement (ACCESS Corporation)",
+  "customer_question": "Why do you need these Compliance Folder documents (operation manual, block diagram, outline drawing, antenna data)? The product being registered isn't sold to the general public, so we don't have an operation manual for it.",
+  "question_variants": [
+    "Is the Compliance Folder requirement waived for products not sold publicly?",
+    "What can we submit instead of an operation manual if one doesn't exist?"
+  ],
+  "actual_issue": "The customer questioned the need for standard Compliance Folder documentation since their product, unlike a typical consumer product, wasn't sold to the general public and therefore had no conventional end-user operation manual to submit.",
+  "plain_english_explanation": "The Compliance Folder requirement is mandated directly by Bluetooth SIG's certification rules (QPRDv3) as something that must be retained alongside registration and presented if SIG requests an audit — this requirement applies regardless of whether the product is sold to the general public. When a conventional operation manual doesn't exist (as is the case for a non-publicly-sold product), a specification document can be submitted instead, since it serves the same documentary purpose of describing the product's Bluetooth-related operation. Additionally, since the customer would likely have already gone through Japan's Radio Law technical conformity certification process for this product, the documents prepared for that earlier certification can simply be reused for the Compliance Folder, rather than creating new documents from scratch.",
+  "consultant_answer": "The Compliance Folder requirement comes directly from Bluetooth SIG's own certification rules (QPRDv3) and applies regardless of whether your product is sold to the general public — it's something you retain and present only if SIG requests an audit. Since you don't have a conventional operation manual, a specification document works as a substitute, since it serves the same purpose of describing the product's Bluetooth-related operation. Also, since you've likely already gone through Japan's Radio Law technical conformity certification for this product, you can simply reuse the documents prepared for that process here rather than creating anything new.",
+  "decision_logic": "Compliance Folder documentation requirements are tied to SIG's certification rules, not to whether a product is sold publicly, and missing conventional documents (like an operation manual) can be substituted with functionally equivalent existing materials (specification documents, prior regulatory certification documents) rather than requiring newly authored content.",
+  "final_recommendation": "When a customer questions a Compliance Folder requirement because their product doesn't fit the typical consumer-product mold (no public sale, no conventional manual), clarify that the requirement is rule-based and product-type-agnostic, and proactively suggest substituting existing equivalent documentation (like Radio Law certification materials) rather than asking the customer to author new documents.",
+  "risk_if_done_wrong": "Mistakenly exempting a non-publicly-sold product from Compliance Folder requirements could leave the registration non-compliant with QPRDv3; requiring the customer to author entirely new documents when functionally equivalent existing materials are available would create unnecessary work.",
+  "bluetooth_tags": [
+    "Compliance Folder requirement non public product",
+    "QPRDv3 documentation rule",
+    "specification document substitute for operation manual",
+    "Radio Law certification document reuse",
+    "ACCESS Corporation"
+  ],
+  "search_aliases": [
+    "is Compliance Folder needed for non public product",
+    "what to submit instead of operation manual",
+    "can Radio Law certification documents be reused for Compliance Folder"
+  ],
+  "qualification_stage": "Post-registration / Compliance Folder preparation",
+  "confidence": "high"
+}

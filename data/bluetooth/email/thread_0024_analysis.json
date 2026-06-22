@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0024",
+  "thread_analysis": {
+    "thread_summary": "Alps Alpine (contact Asao Makino, with Yoshihisa Iwamoto and others) engages Allion (Itsuo Sakai, Jun Wang) to add an HID/CTKD profile to an existing HM2-series device registration, spanning October-November 2025 (with later messages in December 2025 being non-extractable: an encoded forwarded email attachment and an encrypted message placeholder). The thread documents a major post-2024 registration system scope-expansion surprise, a self-test workflow with specific file format requirements, and a membership-tier-dependent SIG fee detail.",
+    "all_questions_found": [
+      "Does adding a new profile (HID11) via an existing QDID reference require testing only that profile, or the full combined profile set inherited from the referenced QDID? (see thread_0024_case_01)",
+      "Can the customer self-test using their own facilities with a lab-confirmed Test Plan, and what file format does the lab need to verify the evidence? (see thread_0024_case_02)",
+      "Why does this customer's quoted SIG registration fee differ from the commonly-cited $11,040 figure? (see thread_0024_case_03)",
+      "(Administrative, not separately cased) Formal quote addressee/contact information corrections -- routine project administration without a generalizable technical lesson. (Note: messages 4-5 of this thread were not extractable -- message 4 contained an encoded/quoted-printable forwarded email attachment rather than plain readable text, and message 5 was an encrypted Microsoft Purview message placeholder with no visible content.)"
+    ],
+    "key_technical_discussion": "Case_01's documentation of the post-July-2024 registration system's IOPT scope expansion (referencing an existing QDID now pulls in that QDID's entire inherited profile set, not just the newly-added profile) is a significant, generalizable gotcha for any customer extending an existing registration via a Profile Subsystem reference, directly paralleling but extending the lesson already seen in other threads about the post-2024 system's structural changes. Case_02's file-format requirement (full Project Export .bqw, not a bare .pts file) is a concrete, reusable technical detail for any self-test workflow.",
+    "key_decision_logic": "See thread_0024_case_01 through thread_0024_case_03 for case-specific decision logic.",
+    "risk_if_done_wrong": "See individual case files; case_01 carries the highest risk, since a customer building a test plan on the outdated narrower-scope assumption would face a costly, late-discovered scope expansion.",
+    "consulting_mistake": "The consultant's first response to the customer's IOPT scope question did not mention the post-2024 system's structural change at all, requiring a follow-up correction once the customer asked again -- acknowledged directly ('insufficient mention in the prior email') in the response.",
+    "consulting_takeaway": "When a customer proposes extending an existing registration via a new Profile Subsystem reference to an existing QDID, proactively flag the post-July-2024 system's full-inherited-profile-scope rule immediately rather than waiting for the customer to ask a follow-up question, since this is an easy point to under-explain on a first pass; and when agreeing to a self-test workflow, specify the exact required evidence file format upfront to avoid a wasted submission round-trip."
+  }
+}

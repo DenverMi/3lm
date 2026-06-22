@@ -1,42 +1,23 @@
 {
-    "source_thread": "thread_0087",
-    "cases": [
-        {
-            "case_id": "thread_0087_case_03",
-            "iut_type": "",
-            "customer_question": "What test-plan information should be provided when a customer performs Bluetooth testing using loaned reference equipment?",
-            "question_variants": [
-                "Customer self-testing package",
-                "Share test plan with customer",
-                "Remove internal report data",
-                "Customer-facing test plan",
-                "Reference equipment testing support"
-            ],
-            "actual_issue": "A decision was needed regarding whether an internal test plan containing report-specific information should be provided to a customer performing self-testing.",
-            "plain_english_explanation": "Internal test plans can contain information intended only for report preparation or internal workflows. When supporting customer-run testing, only the information necessary for executing the tests should be shared. Customer-facing documents should be simplified appropriately. ",
-            "consultant_answer": "The consultant determined that the original test plan contained report-related information that was unnecessary for customer self-testing. A customer-facing version with the unnecessary report information removed was prepared and designated for distribution instead of the original internal document. ",
-            "decision_logic": "Customer-provided testing documentation should contain only the information needed to execute the testing activity. Internal reporting content should be removed when it is not required for the customer's purpose. ",
-            "final_recommendation": "Create a customer-facing version of the test plan that excludes internal report-generation content and distribute only the information required to perform the testing. ",
-            "risk_if_done_wrong": "Customers may receive unnecessary internal information, increasing document-control complexity and creating confusion about which information is required for testing. ",
-            "bluetooth_tags": [
-                "test plan",
-                "customer testing",
-                "documentation",
-                "RF PHY",
-                "self-test"
-            ],
-            "search_aliases": [
-                "customer test plan",
-                "self-testing support",
-                "reference equipment loan",
-                "sanitized test plan",
-                "internal report information",
-                "customer-facing document",
-                "test plan distribution"
-            ],
-            "qualification_stage": "testing",
-            "confidence": "medium",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0087",
+  "case_id": "thread_0087_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Did the test frequency change along with the Core Spec 6.0 release, and is our template still using the old value?",
+  "question_variants": [
+    "Should our pre-check have caught a test frequency change tied to Core Spec 6.0?",
+    "Is our template outdated relative to the current Test Specification?",
+    "Why wasn't this test frequency change flagged earlier?"
+  ],
+  "actual_issue": "A required test frequency specified in the Test Specification (TS) changed in conjunction with the release of Bluetooth Core Spec 6.0, and the consultant's own pre-check had not accounted for this change, risking an outdated template being used for testing.",
+  "plain_english_explanation": "When a new version of the Bluetooth specification comes out, some of the detailed test conditions tied to it -- like which frequency a test should run at -- can change too. If the person doing the upfront review doesn't realize this, they might keep using an old template that no longer matches the current rules, without anyone catching it until later.",
+  "consultant_answer": "Coinciding with the release of Core Spec 6.0, the test frequency specified in the Test Specification changed from what it had been previously. The consultant acknowledged that this was overlooked during the pre-check and apologized, asking that the template be corrected if it still reflected the outdated content. The concrete instance found in this report: for both the TRM and RCV test items, the test log showed the correct frequencies (2402, 2440, and 2480 MHz), but the report had been written with outdated frequencies (2406, 2440, and 2476 MHz) carried over from the old template; the report was corrected to state 2402, 2440, and 2480 MHz to match the log.",
+  "decision_logic": "A new Bluetooth Core Spec release can change dependent Test Specification details, such as required test frequency; pre-checks and templates must be actively verified against the current Test Specification after any Core Spec release, rather than assuming previously-used templates remain valid.",
+  "final_recommendation": "Whenever a new Core Spec version is released, proactively check whether dependent Test Specification details (such as test frequency) have changed, and update any templates used in pre-checks accordingly rather than relying on prior versions.",
+  "risk_if_done_wrong": "Continuing to use an outdated template after a Core Spec release changes a dependent test condition (such as test frequency) risks testing against an incorrect or outdated condition, which could be uncovered only after testing has already proceeded.",
+  "bluetooth_tags": ["Core Spec", "Test Specification", "test frequency", "pre-check", "template"],
+  "search_aliases": ["Core Spec 6.0 test frequency change", "Test Specification template outdated after Core Spec release", "pre-check missed TS update", "TRM RCV test frequency 2402 2440 2480 MHz", "report frequency 2406 2440 2476 MHz incorrect"],
+  "qualification_stage": "pre-test review",
+  "confidence": "high"
 }

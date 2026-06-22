@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0247",
+  "case_id": "thread_0247_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Teraoka Seiko printer, module + Windows 10 Host Subsystem)",
+  "customer_question": "We want to register a new product combining this module with Windows 10 (one of four existing Windows 10 registrations), the same approach we've used before. Given the July 1, 2024 update to the Bluetooth SIG registration site and rules, is there any risk this combination can no longer be newly registered?",
+  "question_variants": [
+    "Will the July 2024 SIG site update affect our ability to register this module+Windows10 combination?",
+    "Why can't this Windows 10 Host Subsystem registration be used for a new registration anymore?"
+  ],
+  "actual_issue": "The customer wanted to register a new printer model using the same module-plus-Windows-10 approach that had worked previously, but the July 1, 2024 SIG registration site/rule update introduced a complication that prevented this specific combination from being used for any new registration.",
+  "plain_english_explanation": "Checking the requested registration in the updated Qualification Workspace (effective July 1, 2024) revealed that the relevant Host Subsystem's profile set includes 'HID 1.1,' a deprecated profile specification that the customer's product doesn't actually use. Attempting to remove HID 1.1 via Layer Selection (as could previously be done in the older Launch Studio tool) was not possible for new registrations under the updated site. This issue wasn't unique to the one Windows 10 registration in question — checking found three other existing Windows 10 registrations (covering different Windows 10 versions) that all included HID 1.1 and were therefore similarly unusable for any new registration. Windows 11-based Host Subsystem registrations, by contrast, did not have this problem and remained usable for new registrations.",
+  "consultant_answer": "We checked this in the updated Qualification Workspace (effective July 1, 2024) and found the relevant Windows 10 Host Subsystem registration includes 'HID 1.1,' a deprecated profile your product doesn't use — and unlike the older Launch Studio tool, the new system doesn't let us remove HID 1.1 via Layer Selection for new registrations. This isn't specific to just this one registration; we checked and found three other existing Windows 10 registrations (different versions) that all include HID 1.1 and have the same problem. Windows 11-based registrations don't have this issue and remain usable for new registrations.",
+  "decision_logic": "New registrations under the post-July-2024 registration site can be blocked by deprecated profile items (like HID 1.1) baked into an existing Host Subsystem registration that can no longer be selectively excluded, even if the actual product doesn't use that deprecated profile — this should be checked proactively for any Windows 10-based Host Subsystem reference before quoting a new registration.",
+  "final_recommendation": "Before quoting a new registration referencing an existing Host Subsystem registration, verify in the current registration site whether any deprecated profile items are baked into that subsystem and can't be excluded via Layer Selection, since this could block the new registration entirely regardless of whether the product actually uses the deprecated profile.",
+  "risk_if_done_wrong": "Quoting a new registration assuming a previously-usable Host Subsystem reference still works, without checking for this kind of post-update blocker, could lead to a failed registration attempt and a need to re-scope the project (e.g., switching to Windows 11) after the customer has already committed budget and DID acquisition cost.",
+  "bluetooth_tags": [
+    "HID 1.1 deprecated profile blocking registration",
+    "July 2024 SIG registration site update",
+    "Windows 10 Host Subsystem unusable for new registration",
+    "Layer Selection limitation new system",
+    "Teraoka Seiko"
+  ],
+  "search_aliases": [
+    "why cant I register Windows 10 Host Subsystem after July 2024",
+    "HID 1.1 deprecated profile new registration blocked",
+    "Layer Selection cannot remove profile new Qualification Workspace"
+  ],
+  "qualification_stage": "Quotation / pre-registration feasibility check",
+  "confidence": "high"
+}

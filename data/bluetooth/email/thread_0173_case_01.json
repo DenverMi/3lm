@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0173",
+  "case_id": "thread_0173_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Camera with Bluetooth (Ricoh Imaging, R0910)",
+  "customer_question": "We want to test with the latest PTS version. Is it safer to use the newest PTS version, or should we use an older one?",
+  "question_variants": [
+    "The latest PTS version was just released. Should we update to use it for our profile testing?",
+    "Is there a risk in using the very newest PTS version for our certification test?",
+    "Which PTS version should we use for our Bluetooth profile test?"
+  ],
+  "actual_issue": "The customer is about to conduct PTS profile testing and is considering whether to use the latest PTS version. The question is whether the newest version is stable enough for certification testing.",
+  "plain_english_explanation": "PTS (Profile Tuning Suite) is the official SIG test tool for Bluetooth profile testing. SIG releases updates regularly, and new versions sometimes introduce bugs that cause previously passing test cases to fail — not because the DUT has a problem, but because the test tool itself has a bug. Brand-new PTS versions (especially fresh '.0' releases) carry the highest risk of tool-side bugs. Using a version that has already been used successfully on similar products at the lab is safer, because any tool bugs in that version are already known and worked around.",
+  "consultant_answer": "Avoid the very latest PTS version, especially fresh '.0' releases. Use a stable version that has been verified and previously used successfully on similar products at the Allion lab. This avoids test failures caused by tool bugs in unvalidated new releases.",
+  "decision_logic": "PTS tool versions are analogous to software releases — each new version may introduce regressions. The risk of a tool bug in a fresh '.0' release is significantly higher than in a version that has been in use for weeks or months. SIG allows testing with earlier PTS versions as long as the version meets minimum requirements. The lab's experience with a specific version is the best indicator of its stability.",
+  "final_recommendation": "Before scheduling PTS testing, confirm with the Allion test engineer which PTS version is currently recommended based on recent test experience. Avoid the very latest version unless specifically required and confirmed stable.",
+  "risk_if_done_wrong": "Using an unstable PTS version can cause test failures that require debugging time to distinguish between real DUT problems and PTS tool bugs. This delays test completion and can cause timeline overruns without any actual product defect.",
+  "bluetooth_tags": [
+    "PTS",
+    "Profile Tuning Suite",
+    "PTS version",
+    "profile test",
+    "test tool stability",
+    "PTS bug"
+  ],
+  "search_aliases": [
+    "PTS version selection",
+    "avoid latest PTS version",
+    "PTS tool bug",
+    "which PTS version to use",
+    "stable PTS version for certification",
+    "PTS version risk"
+  ],
+  "qualification_stage": "Testing / PTS profile test setup",
+  "confidence": "high"
+}

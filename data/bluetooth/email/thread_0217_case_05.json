@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0217",
+  "case_id": "thread_0217_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (fire-extinguisher-shaped AR controller, Nihon Bousai Gijutsu Center)",
+  "customer_question": "Our product is a self-contained internal unit with dispersed components, making it hard to produce a proper outline drawing for the Compliance Folder — can we substitute the outline drawing from the [reference] DevKitC (the main wireless component) instead?",
+  "question_variants": [
+    "Is it acceptable to use a development kit's outline drawing instead of drawing our own dispersed-component product?",
+    "What if our hardware has no clean outline drawing because parts are scattered across the device?"
+  ],
+  "actual_issue": "The customer, building their first hardware product, had an operation manual and block diagram ready but no proper outline (dimensional) drawing, since the relevant Bluetooth components were physically dispersed throughout the device rather than concentrated in one drawable assembly.",
+  "plain_english_explanation": "Since the wireless function's main hardware is based on a specific reference DevKitC module, Allion proposed substituting that DevKit's outline drawing for the customer's own outline drawing in the Compliance Folder, given the impracticality of diagramming the dispersed actual product. The customer agreed to this substitution.",
+  "consultant_answer": "Since drawing the full dispersed-component product is impractical, we propose substituting the outline drawing of the [reference] DevKitC (the main wireless hardware) for your Compliance Folder's outline drawing, if your company has no objection. Once you've confirmed this is acceptable, we'll use it to complete the Compliance Folder and ship the CD-R.",
+  "decision_logic": "Compliance Folder outline drawing requirements can be satisfied with a reasonable proxy/representative drawing of the relevant wireless hardware when the actual product's physical layout makes a literal outline drawing impractical, as long as the customer agrees to the substitution.",
+  "final_recommendation": "When a first-time hardware customer lacks a proper outline drawing due to a dispersed or unusual product design, proactively propose a reasonable substitute (such as a reference module/devkit's outline drawing) rather than blocking progress on a document the customer cannot easily produce.",
+  "risk_if_done_wrong": "Requiring a literal full-product outline drawing in cases where the design genuinely doesn't support one could needlessly stall Compliance Folder completion and delivery.",
+  "bluetooth_tags": [
+    "outline drawing substitution",
+    "Compliance Folder documentation flexibility",
+    "DevKitC reference drawing",
+    "Nihon Bousai Gijutsu Center"
+  ],
+  "search_aliases": [
+    "outline drawing alternative Compliance Folder",
+    "dispersed component product drawing substitute",
+    "DevKit outline drawing reuse"
+  ],
+  "qualification_stage": "Post-registration / Compliance Folder preparation",
+  "confidence": "high"
+}

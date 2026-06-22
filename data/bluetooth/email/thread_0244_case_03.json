@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0244",
+  "case_id": "thread_0244_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BT-module-equipped wafer temperature measurement unit + USB dongle receiver, Korean (KC) certification scoping (Sony Semiconductor Solutions)",
+  "customer_question": "For Korean certification, the certification body asked us to clarify: (1) if we want the final product to get a KC certificate, what are the wafer temperature measurement device's size and power specifications? (2) Do we also want the module itself separately KC-certified on its own? (3) Do the dongle-type receiver and the wafer temperature measurement device use the same Bluetooth module?",
+  "question_variants": [
+    "What size/power information is needed for a final-product KC certificate?",
+    "Should the module be separately KC certified in addition to the end product?",
+    "Do both devices in this system share the same Bluetooth module?"
+  ],
+  "actual_issue": "Korea's certification body needed specific product information to scope the KC certification work for this two-device Bluetooth system (a measurement unit and its USB dongle receiver), and Allion relayed these clarifying questions from the local certification partner back to the customer.",
+  "plain_english_explanation": "These three questions were forwarded from Korea's certification process (via Allion's partner) to determine the actual scope of KC certification work needed: whether the customer wants only the end product certified (in which case the device's physical size and power specifications are required inputs) or also wants the Bluetooth module itself independently KC-certified as a standalone component, and whether the two devices in the system (the wafer temperature measurement unit and the USB dongle receiver) use the same underlying Bluetooth module, which would affect how the certification scope is structured across the two devices.",
+  "consultant_answer": "Korea's certification process needs the following clarified before we can scope the KC certification work: your wafer temperature measurement device's size and power specifications (if you want the final product KC-certified), whether you also want the Bluetooth module itself separately KC-certified as a standalone component, and whether the dongle-type receiver and the measurement device use the same Bluetooth module.",
+  "decision_logic": "Korean KC certification scope and required input data depend on whether certification targets the end product alone, the module alone, or both, and whether multiple devices in a system share the same underlying module — these distinctions must be resolved before certification work can be properly scoped and quoted.",
+  "final_recommendation": "When relaying a local certification partner's scoping questions to a customer, preserve the specific technical distinctions being asked (end product vs. module-level certification, shared vs. separate modules across devices) rather than simplifying them, since the customer's answers directly determine certification structure and cost.",
+  "risk_if_done_wrong": "Failing to clarify whether the module needs separate KC certification, or whether both devices share a module, could result in an incomplete or incorrectly scoped Korean certification application.",
+  "bluetooth_tags": [
+    "Korea KC certification scoping",
+    "end product vs module certification",
+    "shared Bluetooth module across devices",
+    "size power specification requirement",
+    "Sony Semiconductor Solutions"
+  ],
+  "search_aliases": [
+    "KC certification end product vs module",
+    "Korea certification size power specs needed",
+    "shared module multiple devices certification scope"
+  ],
+  "qualification_stage": "Pre-quotation / country-specific certification scoping",
+  "confidence": "high"
+}

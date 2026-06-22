@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0242",
+  "case_id": "thread_0242_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product Including module Component QDID + stack Component QDID (GO Corporation, Silicon Labs Wireless Gecko)",
+  "customer_question": "Including both our module's Component QDID (v5.1) and the stack's Component QDID (Wireless Gecko Link Layer and Host, Core Specification 5.4) in our product registration produces 13 Consistency Check inconsistencies between the LL and RFPHY layers, related to AoA/AoD and Isochronous features. How can this be resolved without triggering full LL-layer retesting?",
+  "question_variants": [
+    "Why does combining these two QDIDs cause LL/RFPHY cross-layer inconsistencies?",
+    "How do we fix this without having to retest the entire LL layer (hundreds of test items)?"
+  ],
+  "actual_issue": "The customer's registration, which Included both a module-level Component QDID and a separate stack-level Component QDID for AoA/AoD- and Isochronous-capable features, failed the registration site's Consistency Check due to 13 specific LL/RFPHY cross-layer inconsistency rules, and directly editing the LL ICS to resolve them would have triggered full LL-layer test requirements (hundreds of test items) under the new registration system.",
+  "plain_english_explanation": "The 13 inconsistencies arose because the included RFPHY and CORE ICS items did not support certain AoA/AoD and Isochronous-related capabilities that the LL ICS, as registered, claimed to support — creating rule violations like 'if RFPHY item X is Supported and RFPHY item Y is Not Supported, then LL item Z is Excluded.' Modifying the LL ICS directly within this registration to resolve the mismatch would force the new registration system to regenerate a full Test Plan for the entire LL layer, requiring hundreds of test items to be executed and reported — a vastly disproportionate cost to fix what was really a feature-support mismatch, not a defect. The practical resolution was to have the stack/module vendor (Silicon Laboratories or its distributor) create a free Subset DN of the existing stack registration with those specific 15 LL ICS items changed from Support=YES to Support=NO, matching the actual unsupported AoA/AoD and Isochronous features — and then reference that Subset DN in the product registration instead of the original, fully-capable DN. The customer ultimately resolved this by referencing a vendor-provided QDID (for the module Component) and DN (covering LL, HCI, and Host layers) that matched their actual supported feature set, with no change to the original quoted price.",
+  "consultant_answer": "These 13 inconsistencies happen because your registered LL ICS claims support for AoA/AoD and Isochronous-related capabilities that your included RFPHY/CORE ICS items don't actually support. Editing the LL ICS directly to fix this would trigger a full LL-layer Test Plan (hundreds of test items) under the new system, which is disproportionate to what's really a feature-support mismatch. Instead, please ask Silicon Laboratories or their distributor to create a free Subset DN of your stack's existing design with the relevant 15 LL ICS items changed from Support=YES to Support=NO, matching your actual unsupported features — if such a Subset DN already exists, just provide its DN so we can reference it instead.",
+  "decision_logic": "When a Consistency Check failure stems from a feature-support mismatch between an included stack's ICS and the product's actual capability (rather than an actual design defect), resolve it by obtaining a vendor-created Subset DN with the unsupported items explicitly marked Not Supported, rather than editing the registration's own ICS directly and triggering full-layer retesting under the new system's stricter regeneration rules.",
+  "final_recommendation": "When a customer's registration hits cross-layer Consistency Check errors from combining a module Component QDID with a separate stack Component QDID, check whether the mismatch is a feature-support discrepancy resolvable via a vendor-provided Subset DN before recommending any direct ICS edit, since direct edits can trigger disproportionate full-layer retest requirements under the post-2024 registration system.",
+  "risk_if_done_wrong": "Directly editing the LL ICS to resolve the mismatch without exploring the Subset DN option could force the customer into hundreds of unnecessary LL-layer test items; failing to identify the correct vendor-side request (a Subset DN with specific items set to Not Supported) could stall the registration indefinitely while the customer and vendor talk past each other.",
+  "bluetooth_tags": [
+    "Consistency Check LL RFPHY inconsistency",
+    "AoA AoD Isochronous feature mismatch",
+    "Subset DN vendor request",
+    "full LL layer retest avoidance",
+    "Silicon Labs Wireless Gecko",
+    "GO Corporation"
+  ],
+  "search_aliases": [
+    "LL RFPHY Consistency Check error AoA AoD",
+    "how to avoid full LL layer retest",
+    "Subset DN Support NO request vendor",
+    "combining module and stack QDID inconsistency"
+  ],
+  "qualification_stage": "Registration execution",
+  "confidence": "high"
+}

@@ -1,47 +1,23 @@
 {
-    "source_thread": "thread_0077",
-    "cases": [
-        {
-            "case_id": "thread_0077_case_01",
-            "iut_type": "controller",
-            "customer_question": "Can a product be qualified using RF Class 2 / RF PHY non-Class 1 test evidence together with an existing controller component qualification, and then registered as a Controller Subsystem-equivalent design?",
-            "question_variants": [
-                "Can I combine RF PHY Class 2 results with an existing controller QDID?",
-                "Why does Qualification Workspace report an Invalid condition between RF PHY and LL ICS?",
-                "Can I reuse a controller component qualification with a non-Class 1 RF PHY implementation?",
-                "How do I resolve an RF PHY and LL ICS dependency mismatch?",
-                "Can I change inherited LL ICS settings to make registration pass?"
-            ],
-            "actual_issue": "The selected controller component qualification contains an LL ICS declaration that requires RF PHY Class 1 support, but the planned RF PHY qualification is not Class 1, creating an Inter-Layer Dependency consistency failure during registration.",
-            "plain_english_explanation": "The planned Bluetooth qualification reused an existing controller qualification while testing a new RF implementation. However, the reused controller qualification declares capabilities that require a higher RF PHY class than the new design intends to use. This creates a qualification inconsistency that prevents successful registration unless the RF PHY class or referenced controller qualification is changed.",
-            "consultant_answer": "Qualification Workspace validation identified that the referenced controller component qualification declares LL ICS 9/11 as supported. When RF PHY is supported but RF PHY Class 1 is not supported, this LL declaration becomes invalid. Although the LL declaration could theoretically be modified, doing so under the current qualification rules would trigger extensive additional LL and BB testing obligations. The practical solutions are either to qualify the RF PHY as Class 1 or select an alternative controller qualification whose LL ICS declarations are compatible with the intended RF PHY class.",
-            "decision_logic": "Referenced qualification assets must remain logically consistent with RF PHY capability declarations. If the selected controller qualification requires RF PHY Class 1 support, a non-Class 1 RF PHY implementation cannot be combined without violating consistency rules. Modifying inherited controller behavior changes qualification scope and triggers additional testing requirements.",
-            "final_recommendation": "Before testing, verify compatibility between RF PHY class declarations and all referenced controller QDIDs. Either qualify RF PHY as Class 1 to match the selected controller qualification or choose an alternative controller qualification with compatible LL ICS settings.",
-            "risk_if_done_wrong": "Registration may fail due to consistency validation errors. Attempting to resolve the issue by changing LL declarations can trigger extensive additional qualification testing, including LL and BB-related requirements, creating significant qualification effort and uncertainty.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "controller",
-                "RF PHY",
-                "ICS",
-                "LL",
-                "consistency check",
-                "reuse"
-            ],
-            "search_aliases": [
-                "RF PHY Class 1 mismatch",
-                "LL ICS 9/11 conflict",
-                "QDID combination invalid",
-                "Inter-Layer Dependency failure",
-                "controller qualification reuse",
-                "RF PHY consistency error",
-                "Qualification Workspace invalid",
-                "LL declaration mismatch",
-                "controller stack compatibility"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0077",
+  "case_id": "thread_0077_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "We want to test and register our module as RF Power Class 2 / RF PHY non-Class 1, combined with an existing chip vendor Component registration. Is that compatible with how that registration's ICS is set up?",
+  "question_variants": [
+    "Can we combine our Class 2 RF evidence with this existing Component registration?",
+    "Why would forcing the existing registration's LL setting to match our desired Class trigger so much extra testing?",
+    "What are our options if our desired Power Class doesn't match the existing Component registration's dependencies?"
+  ],
+  "actual_issue": "The customer wanted to register their module's RF (declared Class 2) and RF PHY (non-Class 1) test evidence in combination with an existing Qualcomm Component registration to form an old-style Controller Subsystem registration, but that Component registration's LL ICS item was registered as Support:YES, which creates a dependency requiring the corresponding RF PHY item (Class 1) to also be YES -- directly conflicting with the customer's desired Class 2 declaration.",
+  "plain_english_explanation": "Bluetooth has different power tiers (Classes), and a chip's existing registration can lock in assumptions about which tier it supports at a deep technical level. Here, the chip registration the customer wanted to reuse had a setting that only makes sense if the product supports the higher Class 1 power tier, but the customer's product was meant to be the lower-power Class 2. You can't just edit that one setting on the existing registration to fix the mismatch, because doing so would force a huge amount of additional, hard-to-schedule retesting on a completely different part of the registration. The practical choice is to either go along with what the existing registration already implies, or use a different existing registration that already matches what the product needs.",
+  "consultant_answer": "A pre-check in a temporary Qualification Workspace project confirmed the following: the existing Qualcomm Component registration (covering BB, LMP, LL, HCI, and 4.0HCI layers) has its LL ICS item 9/11 registered as Support:YES. Because of this, unless RF PHY item 1/15 (which corresponds to Class 1) is also set to YES, the registration produces an Invalid dependency error ('If [RFPHY] is Supported and [RFPHY] (1/15) is Not Supported then [LL] (9/11) is Excluded'). It is technically possible to force LL ICS 9/11 to NO on this registration, but doing so would require fully complying with the LL layer's current specification under the present TCRL, which entails roughly 730 test items; the BB-layer portion of that testing must be performed at a BQTF with a SIG-specified tester, and currently only one BQTF (located in China) possesses that tester, making the cost and schedule for this path effectively unpredictable and impractical. The two practical remedies are: (1) if using this specific Component registration is the priority, test and register RF PHY as Class 1 instead of the originally intended Class 2; or (2) if having RF PHY register as Class 2 is the priority, select a different, already-registered Controller stack whose LL ICS 9/11 is registered as NO, instead of this Component registration.",
+  "decision_logic": "An existing chip vendor Component-level registration's ICS dependencies (such as an LL item that mandates a corresponding RF PHY Class declaration) constrain which Power Class a combined registration can declare; forcing that ICS setting to change is technically possible but should be evaluated against the resulting full-layer retest burden under current TCRL requirements and BQTF tester availability, which can make it impractical -- the realistic choice is then between accepting the existing registration's implied Class or substituting a different existing registration that already matches the desired Class.",
+  "final_recommendation": "Before combining a product's RF/RF PHY test evidence with an existing chip vendor Component-level registration, verify that registration's ICS dependencies are compatible with the desired Power Class. If they are not, choose between accepting the existing registration's implied Class (testing and registering accordingly) or substituting a different already-registered Controller stack that already matches the desired Class, rather than attempting to force a change to the existing registration's ICS.",
+  "risk_if_done_wrong": "Attempting to force the existing Component registration's LL ICS to the opposite value, without recognizing the resulting obligation to retest roughly 730 LL items at a scarce, specialized BQTF facility, risks an unpredictable and likely large cost and schedule commitment for a path that may not even be necessary.",
+  "bluetooth_tags": ["Power Class", "LL ICS", "RF PHY", "Component registration", "Controller Subsystem", "Consistency Check", "BQTF", "TCRL"],
+  "search_aliases": ["Power Class mismatch Component registration", "LL ICS 9/11 forces RF PHY Class 1", "forcing ICS change triggers full layer retest", "select alternate Controller stack matching Class", "BQTF tester availability China LL test"],
+  "qualification_stage": "planning",
+  "confidence": "high"
 }

@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0221",
+  "case_id": "thread_0221_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product incorporating Q309899 Core-Controller SoC (Move company)",
+  "customer_question": "By when do we need to obtain the receipt number (for the SIG registration fee payment)?",
+  "question_variants": [
+    "What is the deadline for getting the wire transfer receipt number before registration?",
+    "When must the $11,040 SIG fee payment be completed relative to registration confirmation?"
+  ],
+  "actual_issue": "Move company asked when they needed to have the receipt number for their SIG fee wire transfer in hand, relative to the registration confirmation step.",
+  "plain_english_explanation": "The $11,040 USD wire transfer to Bluetooth SIG must be completed through the partner bank by the day before the registration confirmation (Submission) is executed.",
+  "consultant_answer": "Please complete the $11,040 USD wire transfer through the partner bank by the day before the registration confirmation operation is performed. Refer to the attached procedure document for details.",
+  "decision_logic": "SIG requires payment to clear and a receipt number to be available before final registration confirmation can be executed, so the payment must be initiated with enough lead time to complete before the planned Submission date.",
+  "final_recommendation": "Always provide customers a clear payment-lead-time instruction (e.g., 'complete wire transfer by the day before planned Submission') rather than a vague timeframe, to avoid registration-day delays.",
+  "risk_if_done_wrong": "If the wire transfer and receipt number aren't ready before the planned Submission date, registration confirmation will be blocked, delaying the entire project.",
+  "bluetooth_tags": [
+    "receipt number",
+    "wire transfer",
+    "Qualification Fee",
+    "Submission",
+    "Move"
+  ],
+  "search_aliases": [
+    "when to get SIG receipt number",
+    "Bluetooth SIG fee wire transfer timing",
+    "$11,040 payment deadline before registration"
+  ],
+  "qualification_stage": "Pre-registration / payment scheduling",
+  "confidence": "high"
+}

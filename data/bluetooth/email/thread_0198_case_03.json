@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0198",
+  "case_id": "thread_0198_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "NEC Platforms communications terminal (3 models registered under one Product List)",
+  "customer_question": "We have 3 models registered under one Product List (2 product types, 3 variants). For the Compliance Folder documents (operation manual, block diagram, outline drawing, antenna datasheet), do we need to provide documents for all 3 models, or is one representative model sufficient?",
+  "question_variants": [
+    "Compliance Folder for multi-model registration — documents for all models or just one representative?",
+    "3 products in one registration — do we need 3 sets of Compliance Folder documents?",
+    "Which product's documents should be used for the Compliance Folder when multiple models are registered together?"
+  ],
+  "actual_issue": "NEC Platforms registered 3 product models (2 LCD 7-inch variants and 1 LCD 4.8-inch variant) under a single Bluetooth SIG registration. They asked whether the Compliance Folder (which requires operation manual, block diagram, outline drawing, and antenna datasheet) needs to include documentation for each of the 3 models separately, or whether one representative product's documents are sufficient.",
+  "plain_english_explanation": "For a multi-model registration where all models share the same Bluetooth hardware and software implementation, the Compliance Folder only needs to include documents for one representative product. The Bluetooth implementation is identical across all models, so one set of documents accurately represents the Bluetooth compliance for the entire registration. The customer may choose any of the registered models as the representative — in this case, Allion confirmed the LCD 7-inch variant model (E1931-01) as the representative.",
+  "consultant_answer": "For a multi-model registration with the same Bluetooth implementation, one representative product's Compliance Folder documents are sufficient. You do not need to provide separate documentation for each of the 3 models. Choose any one model as the representative and provide: (1) operation manual (Bluetooth section), (2) block diagram, (3) outline drawing, (4) antenna datasheet with radiation gain characteristics. Any of the registered models can serve as the representative.",
+  "decision_logic": "Compliance Folder documents are required to evidence that the product's Bluetooth implementation matches the registration. When all models have identical Bluetooth hardware and software, one representative product's documents fully cover all models. The principle is that the documentation must represent the Bluetooth implementation — not each individual product variant.",
+  "final_recommendation": "For multi-model registrations with identical Bluetooth implementations, confirm with the customer which model they would like to use as the representative for Compliance Folder documentation. This prevents unnecessary work of gathering documents for every model variant.",
+  "risk_if_done_wrong": "Requiring documentation for every model causes unnecessary work for the customer and delays Compliance Folder delivery. Conversely, using a representative product whose Bluetooth implementation differs from other registered models would be incorrect.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "multi-model registration",
+    "representative product",
+    "Product List",
+    "QPRDv3",
+    "documentation"
+  ],
+  "search_aliases": [
+    "compliance folder multi-model registration one representative",
+    "compliance folder documents how many models",
+    "multiple products one registration compliance folder",
+    "representative product compliance folder SIG",
+    "compliance folder documentation multi-model"
+  ],
+  "qualification_stage": "Post-registration / Compliance Documentation",
+  "confidence": "high"
+}

@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0264",
+  "thread_analysis": {
+    "thread_summary": "This thread is a complete duplicate capture of the same Teraoka Seiko Co., Ltd. (contact Hideaki Haraguchi, Intellectual Property & Standards Department) Bluetooth certification email conversation with Allion (Masaya Iida, Itsuo Sakai) already fully documented in thread_0247 — covering the same multi-year sequence of printer-product registration projects: the initial ROHM-module inquiry, the LAPIS/Nordic-module Declaration registration requiring an End Product reference due to Component registration expiration, the reused module+antenna+Windows 11 combination, the July 2024 SIG site update blocking module+Windows 10 combinations due to the deprecated HID 1.1 profile, and the final AX210-module+Windows 11 registration completed through Compliance Folder delivery (including the same operation-manual-content and document-non-publication questions).",
+    "all_questions_found": [
+      "(Already documented in thread_0247_case_01) Can a quote be given for the LAPIS/Nordic module despite its Component registration having expired, and how is DID acquired?",
+      "(Already documented in thread_0247_case_02) Is the same Declaration registration approach reusable for a new antenna/Windows 11 combination, and is there an antenna concern or DID fee timing issue?",
+      "(Already documented in thread_0247_case_03) Why can't a module+Windows 10 combination be newly registered after the July 2024 SIG site update?",
+      "(Already documented in thread_0247_case_04) What should the Bluetooth-portion operation manual contain, and are the four Compliance Folder documents public?"
+    ],
+    "key_technical_discussion": "Identical to thread_0247 — see that thread's case files for the full technical content (Component registration 3-year expiration and End Product reference substitution, Controller/Host Subsystem test exemption carrying over across antenna/chassis combinations, the HID 1.1 deprecated-profile registration block introduced by the July 2024 SIG site update, and Compliance Folder document content/confidentiality guidance).",
+    "key_decision_logic": "Same as thread_0247.",
+    "risk_if_done_wrong": "Same as thread_0247.",
+    "consulting_mistake": "Same as thread_0247 — none identified.",
+    "consulting_takeaway": "This thread duplicates thread_0247's content; no new case files were created here to avoid duplication. Refer to thread_0247_case_01 through thread_0247_case_04 for the full consulting record of this Teraoka Seiko printer certification relationship."
+  }
+}

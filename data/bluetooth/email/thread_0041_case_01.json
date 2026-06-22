@@ -1,48 +1,32 @@
 {
-    "source_thread": "thread_0041",
-    "cases": [
-        {
-            "case_id": "thread_0041_case_01",
-            "iut_type": "module-based Bluetooth product",
-            "customer_question": "When must Bluetooth SIG compliance folder documents be prepared and who is responsible for storing them after qualification registration?",
-            "question_variants": [
-                "When do compliance documents need to be ready after Bluetooth qualification?",
-                "Who keeps the Bluetooth SIG compliance folder?",
-                "Is the compliance folder required before product launch?",
-                "How long must Bluetooth qualification documents be retained?",
-                "What documents are required for Bluetooth SIG audit preparation?",
-                "Who is the Listing Owner responsible for compliance evidence?"
-            ],
-            "actual_issue": "Clarification of post-listing compliance folder obligations, document retention timing, and Listing Owner responsibility after Bluetooth SIG qualification registration completion.",
-            "plain_english_explanation": "The customer wanted to understand when product documents must be prepared after Bluetooth SIG qualification registration and who is responsible for keeping them. The consultant explained that Bluetooth SIG does not define a strict submission deadline for compliance-folder creation, but the documents must be prepared promptly after registration. The Listing Owner is responsible for storing the documents and presenting them if Bluetooth SIG performs an audit.",
-            "consultant_answer": "The consultant explained that qualification registration was already completed and that the product could be released after the stated launch date. Bluetooth SIG does not specify an exact compliance-folder preparation deadline, but requires documents to be stored 'promptly after registration.' The Listing Owner is responsible for maintaining the compliance folder and retaining documents until one year after the product listed in the Product List is discontinued. Required supporting materials may include operation manuals, external appearance drawings, block diagrams, and antenna documentation. These materials must be available if Bluetooth SIG requests them during an audit or investigation.",
-            "decision_logic": "Bluetooth SIG qualification approval and compliance-folder maintenance are separate obligations. Registration completion allows product launch, but the Listing Owner remains responsible for maintaining compliance evidence for possible future audits.",
-            "final_recommendation": "Prepare and store the compliance-folder documentation immediately after qualification registration, ensure the Listing Owner controls the records, and retain the materials until at least one year after product end-of-sale.",
-            "risk_if_done_wrong": "If compliance documents are not prepared or retained correctly, the company may be unable to respond to a Bluetooth SIG audit or compliance investigation, potentially creating qualification compliance issues or product listing disputes.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "compliance folder",
-                "Listing Owner",
-                "Product List",
-                "audit",
-                "documentation"
-            ],
-            "search_aliases": [
-                "compliance folder timing",
-                "Listing Owner responsibility",
-                "Bluetooth audit documents",
-                "Product List retention",
-                "qualification document storage",
-                "SIG audit preparation",
-                "post-registration compliance",
-                "Bluetooth compliance folder",
-                "document retention rule",
-                "qualification evidence"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0041",
+  "case_id": "thread_0041_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Compliance Folder storage timing and responsibility -- when materials must be ready, who holds the storage obligation, and how rare SIG audits actually are",
+  "customer_question": "By when do we need to prepare the product materials for the Compliance Folder? Is it acceptable to assume they just need to be ready by the time of a SIG audit (with the audit date unknown)? Also, who is responsible for storing the product specification materials -- us or you?",
+  "question_variants": [
+    "Does SIG specify an exact deadline for completing the Compliance Folder after registration?",
+    "How often do SIG audits actually happen, and what triggers one?"
+  ],
+  "actual_issue": "The customer wanted concrete clarity on the Compliance Folder's preparation deadline and storage responsibility, since SIG's stated requirement ('store promptly after registration') felt vague, and the customer wondered whether they could instead treat the deadline as tied to an eventual (but undated) SIG audit.",
+  "plain_english_explanation": "SIG does not specify an exact deadline for assembling the Compliance Folder -- the requirement is simply to store it 'as promptly as possible after registration.' This is distinct from the storage RETENTION period, which IS clearly defined: the Compliance Folder must be retained for one year after sales of the Product-List-registered product end, and presented if SIG conducts an audit. The storage obligation belongs specifically to the Listing Owner (the company whose name the registration is under), not to the registration support company (Allion) handling the proxy registration. Regarding audits: they are not routine or scheduled -- they occur only if a SIG representative develops doubts about a specific registration's content, or if a report is filed via SIG's violation-reporting site. As a result, the large majority of registrations are never audited at all. The consultant compared this to a car's roadworthiness certificate (analogous to vehicle registration documents) -- you're not required to proactively present it unless something (like a vehicle defect) causes you to be stopped at a checkpoint.",
+  "consultant_answer": "There's no specific SIG-defined deadline for assembling the Compliance Folder -- just understand it as 'store as promptly as possible after registration,' which is different from the retention period (1 year after the registered product's sales end, presented only if SIG audits). The storage obligation belongs to you as the Listing Owner, not to us. And audits are rare -- they only happen if SIG develops specific doubts about a registration or receives a violation report, so most registrations are never audited at all, much like a car's roadworthiness certificate that you don't need to show unless stopped for an actual defect.",
+  "decision_logic": "When a customer asks about Compliance Folder timing, distinguish between the (vague, 'as promptly as possible') preparation expectation and the (clearly defined, 1-year-post-sales) retention period, clarify that the Listing Owner -- not the registration support company -- holds the storage obligation, and explain that SIG audits are rare, complaint/doubt-driven events rather than scheduled or guaranteed occurrences.",
+  "final_recommendation": "When a customer seems to be treating Compliance Folder assembly as something that can be indefinitely deferred until an eventual audit, proactively clarify that 'promptly after registration' is the actual expectation, while also reassuring them that audits themselves are rare and complaint-driven rather than routine.",
+  "risk_if_done_wrong": "A customer who assumes Compliance Folder assembly can be deferred until an audit (which may never happen) might end up without properly assembled documentation if an audit unexpectedly does occur, or might mistakenly believe the registration support company bears the storage obligation rather than themselves.",
+  "bluetooth_tags": [
+    "Compliance Folder timing promptly after registration",
+    "Listing Owner holds storage obligation",
+    "SIG audit rare complaint driven not routine",
+    "Atago"
+  ],
+  "search_aliases": [
+    "when must Compliance Folder be ready",
+    "who is responsible for storing Compliance Folder",
+    "how often does Bluetooth SIG audit registrations",
+    "Compliance Folder deadline vs retention period"
+  ],
+  "qualification_stage": "Post-registration Compliance Folder responsibility clarification",
+  "confidence": "high"
 }

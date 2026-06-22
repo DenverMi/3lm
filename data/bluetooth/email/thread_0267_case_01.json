@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0267",
+  "case_id": "thread_0267_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Keyboard with BAS (Battery Service) implementation, PTS test BAS/SR/CN/[battery level change notification] (Topre R4HA)",
+  "customer_question": "The remaining BAS Battery Level change-notification test case keeps failing — when we gradually lower the external constant-voltage power supply from 5.1V to simulate battery drain, the device unexpectedly powers off around 2.8V, before the test can ever detect the '10% or above: yellow' threshold crossing. Can you tell us your battery indicator's exact voltage detection levels (for the 30%-and-above green, and 10%-and-above yellow thresholds) and how often the device checks voltage, so we can figure out the right test approach?",
+  "question_variants": [
+    "Why does our device power off before the test detects the expected battery-level threshold?",
+    "What voltage levels and detection cycle timing does our device actually use for its battery indicator?"
+  ],
+  "actual_issue": "The PTS test case verifying that the device correctly notifies a changing battery level kept failing because gradually lowering an external power supply to simulate the documented battery percentage thresholds caused the device to unexpectedly power off well before the relevant threshold could be detected, likely due to a mismatch between how fast the test lowered voltage and how infrequently the device's own battery-level detection cycle actually sampled voltage.",
+  "plain_english_explanation": "The test sample's documentation describes battery indicator behavior in terms of percentage thresholds (30%+ green, 10%+ yellow, under 10% red), but the test needs to know the actual voltage levels and detection cycle timing underlying those percentage thresholds in order to properly simulate a battery level crossing during the test. The suspected root cause of the unexpected power-off is that the device's voltage detection cycle is too infrequent relative to how quickly the external power supply's voltage was being lowered during the test — meaning the test was dropping voltage past the relevant detection window before the device's next scheduled voltage check could occur, causing the device to interpret the voltage drop as an abrupt power loss rather than a gradual battery-level decline. Getting the actual voltage thresholds and detection cycle from the customer would allow the test to time the voltage reduction appropriately, hitting the actual detection window rather than overshooting it. The test was ultimately resolved by starting the test at 5.1V and lowering it to 3.42V specifically at the moment PTS displayed its prompt to change the Battery Level, rather than a smooth, continuous voltage ramp-down.",
+  "consultant_answer": "We suspect the issue is timing: your device's voltage detection cycle may be too infrequent relative to how quickly we're lowering the external power supply, causing us to drop past the relevant threshold before the device's next scheduled check, which it then interprets as an abrupt power loss. Could you share the actual voltage levels behind your documented 30%-and-above (green) and 10%-and-above (yellow) thresholds, along with your device's detection cycle interval? We ultimately resolved this by starting the test at 5.1V and dropping specifically to 3.42V at the moment PTS prompted us to change the Battery Level, rather than a continuous ramp-down — that approach passed.",
+  "decision_logic": "When a battery-level-notification PTS test fails due to an apparent power-off rather than a clean threshold detection, investigate whether the test's voltage-reduction timing is outpacing the device's actual voltage detection cycle, and request the device's real threshold/cycle specifications from the customer rather than continuing trial-and-error voltage adjustments alone.",
+  "final_recommendation": "When a battery-level notification test produces an unexpected power-off instead of a clean threshold detection, request the device's actual voltage detection thresholds and sampling cycle timing from the customer to properly calibrate the test's voltage-reduction approach, rather than relying solely on documented percentage labels.",
+  "risk_if_done_wrong": "Continuing to test via a smooth, continuous voltage ramp-down without accounting for the device's actual detection cycle timing could repeatedly trigger an unintended power-off, preventing the test from ever reaching a valid Pass and wasting significant retest effort.",
+  "bluetooth_tags": [
+    "BAS Battery Level notification test failure",
+    "voltage detection cycle timing mismatch",
+    "device unexpected power off during test",
+    "discrete voltage step workaround",
+    "Topre R4HA"
+  ],
+  "search_aliases": [
+    "BAS battery level test fails device powers off",
+    "voltage detection cycle PTS test timing",
+    "battery level threshold test workaround"
+  ],
+  "qualification_stage": "Test execution",
+  "confidence": "high"
+}

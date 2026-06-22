@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0227",
+  "case_id": "thread_0227_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine HM23/HM26)",
+  "customer_question": "For submitting manuals, design documents, and other paperwork, is it fine to email everything to the Allion PM (Mochizuki), or do we need to use an SFTP server arrangement like we did for the WiFi certification? Also, can you share the specific test schedule once it's confirmed?",
+  "question_variants": [
+    "Should manuals and design documents be submitted by email or via SFTP, similar to the prior WiFi certification process?",
+    "Can the concrete test schedule be shared once it's available?"
+  ],
+  "actual_issue": "The customer wanted to confirm the correct file-submission channel before sending sensitive manuals/design documents, drawing on their prior experience with the WiFi certification process (which had used an SFTP server), and also wanted visibility into the upcoming test schedule.",
+  "plain_english_explanation": "Rather than requiring a dedicated SFTP server like the WiFi certification process, Allion set up a large-file transfer service (Office Takuhaibin) upload link with a time-limited password for the customer to upload required documents directly, addressed to the Allion PM. This was used in practice for document submission, and the test schedule was communicated separately by the sales contact as it became confirmed.",
+  "consultant_answer": "You don't need to set up an SFTP server like with the WiFi certification — for document submission, we'll send you a large-file upload link (via our file transfer service) with a password, and you can upload the manuals and design documents there addressed to our PM. We'll share the confirmed test schedule with you as soon as it's finalized.",
+  "decision_logic": "Document submission channel choice depends on file size and security needs; a temporary password-protected large-file transfer link is treated as an acceptable substitute for a dedicated SFTP server when the volume/sensitivity doesn't require persistent secure infrastructure.",
+  "final_recommendation": "When customers reference a prior certification engagement's process (e.g., SFTP for WiFi) as a baseline expectation, clarify upfront what channel will actually be used for the current Bluetooth engagement rather than assuming they'll infer it, since requirements can differ by engagement.",
+  "risk_if_done_wrong": "Without clarifying the submission channel, the customer might delay sending required documents while waiting for SFTP credentials, or send sensitive design documents over an insecure channel by default.",
+  "bluetooth_tags": [
+    "document submission process",
+    "large file transfer service",
+    "SFTP alternative",
+    "test schedule communication",
+    "Alps Alpine"
+  ],
+  "search_aliases": [
+    "how to submit manual and design documents",
+    "is SFTP required for document submission",
+    "Office Takuhaibin upload link",
+    "test schedule sharing"
+  ],
+  "qualification_stage": "Pre-test logistics",
+  "confidence": "high"
+}

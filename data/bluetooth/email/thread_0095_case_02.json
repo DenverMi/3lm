@@ -1,47 +1,23 @@
 {
-    "source_thread": "thread_0095",
-    "cases": [
-        {
-            "case_id": "thread_0095_case_02",
-            "iut_type": "sensor device",
-            "customer_question": "Why does the Bluetooth SIG Review page show ICS consistency warnings for an otherwise valid QDID combination, and can qualification still proceed?",
-            "question_variants": [
-                "ICS yellow warning icon on Review page",
-                "Consistency check warning with reused QDIDs",
-                "What does TCW mean for ICS warnings?",
-                "Can qualification proceed with ICS inconsistencies?",
-                "Why does Qualification Workspace show LL/GAP inconsistency warnings?"
-            ],
-            "actual_issue": "The selected LL and Host QDID combination triggers ICS consistency warnings because newer consistency checks reference LL ICS items that do not exist in the historical qualification records used by the legacy design.",
-            "plain_english_explanation": "The warning does not indicate that the Bluetooth implementation is necessarily broken. Instead, the qualification tool is comparing an older qualified design against newer consistency-check rules and finding references to fields that never existed in the older ICS structure. The issue is administrative and tooling-related rather than a functional Bluetooth defect.",
-            "consultant_answer": "The referenced LL and Host QDIDs were qualified years earlier under Bluetooth specification v5.1 and passed the consistency checks that existed at the time. Newer consistency-check logic evaluates LL-to-GAP dependencies and expects certain LL ICS entries that are absent from the legacy qualification record. These missing entries are effectively legacy-data inconsistencies rather than functional failures. Because the warnings are caused by non-existent legacy ICS items, qualification is permitted through application of a Test Case Waiver (TCW).",
-            "decision_logic": "If a consistency warning originates from legacy ICS structure differences or tool-generated inconsistency conditions rather than an actual implementation noncompliance, the qualification can proceed using the applicable TCW instead of requiring redesign or retesting.",
-            "final_recommendation": "Review the warning details, confirm that the inconsistency is caused by legacy ICS data rather than missing functionality, document the applicable TCW, and proceed with qualification using the approved QDID combination.",
-            "risk_if_done_wrong": "The team may incorrectly treat the warning as a functional Bluetooth failure, causing unnecessary qualification rework, redesign effort, investigation, or submission delays. Valid qualification paths may be abandoned unnecessarily.",
-            "bluetooth_tags": [
-                "qualification",
-                "ICS",
-                "consistency check",
-                "TCW",
-                "QDID",
-                "review page",
-                "listing"
-            ],
-            "search_aliases": [
-                "ICS warning",
-                "yellow warning icon",
-                "consistency check failed",
-                "TCW applicable",
-                "legacy ICS mismatch",
-                "phantom inconsistency",
-                "LL GAP warning",
-                "review page warning",
-                "ICS conditional issue",
-                "qualification workspace inconsistency"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0095",
+  "case_id": "thread_0095_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "Why does this QDID combination show a yellow warning mark in the ICS Form, and what does it mean that this is 'acceptable via TCW application'?",
+  "question_variants": [
+    "What's causing this inter-layer dependency warning on our registration?",
+    "Is this warning a real problem with our product, or something else?",
+    "What is TCW and why does it let us proceed despite the warning?"
+  ],
+  "actual_issue": "Referencing an LL/S140 and Host/S140 QDID pair (originally registered in 2019 under an older Bluetooth Core Spec version) in a new registration produced ICS Form warning marks reflecting inter-layer dependency inconsistencies, and the customer needed to understand the actual cause of these warnings and what resolving them via TCW (Test Case Waiver) application actually meant.",
+  "plain_english_explanation": "A certification filed years ago was built against the rules and feature checklist that existed at that time. Since then, the checklist has grown to include new items, and the automated consistency-checking rules have grown along with it to reference those new items. When an old certification's data gets loaded into today's system, any checklist item that simply didn't exist back when it was filed shows up blank -- and the system treats a blank item as 'not supported.' This can trigger warnings about a dependency on an item that, from the old certification's point of view, never existed at all -- a kind of false alarm caused by the checklist growing over time, not a real problem with the product. Because it's a side effect of the system's own evolution rather than an actual defect, there's a formal process (TCW) to acknowledge this and let the registration proceed anyway.",
+  "consultant_answer": "The referenced QDIDs (LL/S140 and Host/S140) were registered in 2019 under Core Spec v5.1, and necessarily passed the intra-layer and inter-layer consistency checks and ICS (feature definition table) structure that existed at that time. A new registration today must pass the currently-effective ICS structure and consistency-check rules; as the spec has been updated since 2019, the ICS table structure has grown new columns/items, and the consistency-check rules have been updated with corresponding new conditions referencing those new items. When a new registration loads the old QDID's ICS information and maps it onto the current ICS structure, any item that did not exist at the time of the old QDID's original registration is left blank, which the consistency-check engine interprets as 'Not Supported.' In this specific case, several LL > GAP dependency rules were flagged as inconsistent, but the dependent LL items they reference (3/1a, 3/5a, 3/4b) do not exist at all in the old QDID's (2019, v5.1) ICS -- making these 'phantom inconsistency items' that are flagged only because of the ICS structure's growth since 2019, not because of any genuine incompatibility. Because of this, a TCW application is the appropriate and accepted way to resolve the warning and proceed with registration, rather than treating it as a real defect requiring correction.",
+  "decision_logic": "An inter-layer dependency warning produced by referencing an old QDID (registered under an earlier Core Spec version) should be checked against whether the flagged dependent items actually existed in that old QDID's ICS at the time of its original registration; if they did not exist (a 'phantom' inconsistency caused by the ICS structure having grown since), this is a structural artifact of spec evolution, not a genuine incompatibility, and should be resolved via a TCW application rather than corrective rework.",
+  "final_recommendation": "When an old QDID reference produces an inter-layer dependency warning, check whether the flagged dependent ICS items existed at the time of that QDID's original registration. If they are 'phantom' items that didn't exist back then, apply for the appropriate TCW to proceed with registration rather than assuming a genuine product incompatibility requiring correction.",
+  "risk_if_done_wrong": "Treating a 'phantom' inter-layer dependency warning as a genuine incompatibility could lead to unnecessary redesign, retesting, or registration delay, when the correct and accepted resolution is a TCW application.",
+  "bluetooth_tags": ["ICS", "Inter-Layer Dependency", "TCW", "phantom inconsistency", "Core Spec version", "Consistency Check"],
+  "search_aliases": ["ICS Form yellow warning mark old QDID", "phantom inconsistency item does not exist in old ICS", "TCW resolves spec structure evolution warning", "old QDID 2019 registration current ICS structure mismatch", "blank ICS item treated as Not Supported"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

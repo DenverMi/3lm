@@ -1,47 +1,29 @@
 {
-    "source_thread": "thread_0043",
-    "cases": [
-        {
-            "case_id": "thread_0043_case_01",
-            "iut_type": "",
-            "customer_question": "Can Bluetooth qualification registration questions and Japanese radio certification (技適 / TELEC) questions be reviewed in advance before the customer meeting?",
-            "question_variants": [
-                "Can you review our Bluetooth certification QA sheet before the meeting?",
-                "Can Bluetooth SIG and TELEC questions be answered ahead of the web meeting?",
-                "Can we discuss 技適 requirements together with Bluetooth qualification?",
-                "Should qualification questions be shared before the certification meeting?",
-                "Can the consultant prepare responses before the Bluetooth certification discussion?"
-            ],
-            "actual_issue": "Managing pre-sales Bluetooth qualification consulting when the customer also requests support for Japanese radio certification requirements, including the need for advance technical preparation and expectation management.",
-            "plain_english_explanation": "The customer prepared a list of Bluetooth certification questions and later added questions about Japanese radio certification. The consulting team reviewed the questions internally before the meeting so they could provide organized answers during the discussion. The thread also highlights that supporting inexperienced customers on TELEC and radio-law topics can require significantly more effort than normal Bluetooth qualification consulting.",
-            "consultant_answer": "The consultant instructed the sales contact to collect and distribute the customer's Bluetooth qualification and 技適 questions before the scheduled meeting so technical answers could be prepared in advance. Internal guidance emphasized that TELEC certification projects can create substantial support overhead when the customer has limited familiarity with regulatory certification terminology and processes. The consultant also advised proactively sending prepared responses to the customer before the web meeting to improve efficiency and clarity.",
-            "decision_logic": "Advance review of Bluetooth qualification and radio certification questions reduces meeting confusion, improves technical accuracy, and helps consultants estimate the support burden required for projects involving both Bluetooth SIG qualification and regional radio approvals such as TELEC.",
-            "final_recommendation": "Request customer qualification and radio certification questions before meetings, prepare written answers internally in advance, and align customer expectations regarding the complexity and support effort required for Bluetooth SIG qualification and TELEC certification activities.",
-            "risk_if_done_wrong": "If Bluetooth qualification and TELEC discussions are handled without preparation, consultants may underestimate support effort, create customer confusion about certification scope, or spend excessive time clarifying basic regulatory concepts during the project. The thread explicitly notes that TELEC handling can generate significantly more work than standard Bluetooth logo qualification while providing limited project margin.",
-            "bluetooth_tags": [
-                "qualification",
-                "pre-sales",
-                "TELEC",
-                "radio certification",
-                "planning",
-                "Bluetooth SIG",
-                "技適"
-            ],
-            "search_aliases": [
-                "技適 support effort",
-                "TELEC handling overhead",
-                "Bluetooth certification QA sheet",
-                "pre-meeting qualification review",
-                "Bluetooth SIG and TELEC",
-                "radio law certification questions",
-                "qualification consulting preparation",
-                "Japanese radio certification support",
-                "customer certification questions",
-                "Bluetooth pre-sales consulting"
-            ],
-            "qualification_stage": "pre-sales",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0043",
+  "case_id": "thread_0043_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Internal business economics note -- relative profitability and effort of handling Japan TELEC/Giteki radio-law certification cases versus Bluetooth Logo certification",
+  "customer_question": "(Internal note, not a customer question.) Should the sales team take on requests involving Japan's domestic radio-law (Giteki) certification (TELEC) alongside Bluetooth Logo certification requests?",
+  "question_variants": [
+    "Is handling a TELEC/Giteki certification case as profitable, relative to effort, as handling a Bluetooth Logo certification case?"
+  ],
+  "actual_issue": "A sales team member was preparing to handle a customer's combined Bluetooth and Japan radio-law (Giteki/TELEC) certification questions, and an internal note flagged the comparative economics of taking on the Giteki/TELEC side of the work.",
+  "plain_english_explanation": "As an internal point of reference: handling a Japan TELEC (radio-law construction design certification) case billed at ¥366,000 yields Allion a profit of only about ¥15,000 -- a thin margin relative to the billed amount. Moreover, the effort required for customers who use Giteki/radio-law terminology and concepts tends to be disproportionately larger compared to a Bluetooth Logo certification case of similar billing size, since the two regulatory regimes have different rules, terminology, and customer expectations that require separate explanation and handling.",
+  "consultant_answer": "For reference, the profit margin on a ¥366,000 TELEC case is only about ¥15,000, and the effort required for customers operating at a Giteki/radio-law level of detail is disproportionately larger than for Bluetooth Logo certification -- worth keeping in mind when scoping combined engagements.",
+  "decision_logic": "When evaluating whether to take on a customer's combined Bluetooth and Japan radio-law (TELEC/Giteki) certification request, account for the comparatively thin profit margin and disproportionately higher effort that radio-law-side work tends to require relative to Bluetooth Logo certification work of similar billing size.",
+  "final_recommendation": "When scoping a request that bundles Bluetooth Logo certification with Japan radio-law (TELEC/Giteki) certification, factor in the comparatively low margin and higher effort intensity of the radio-law side before committing significant team time to it.",
+  "risk_if_done_wrong": "Underestimating the effort-to-profit ratio of TELEC/Giteki work bundled with a Bluetooth engagement could result in disproportionate time investment relative to the revenue generated.",
+  "bluetooth_tags": [
+    "TELEC Giteki profit margin internal economics",
+    "radio law certification effort vs Bluetooth Logo certification effort",
+    "Asahi"
+  ],
+  "search_aliases": [
+    "TELEC case profitability",
+    "Giteki certification effort comparison Bluetooth",
+    "internal economics radio law vs Bluetooth certification"
+  ],
+  "qualification_stage": "Internal business scoping for combined engagements",
+  "confidence": "medium"
 }

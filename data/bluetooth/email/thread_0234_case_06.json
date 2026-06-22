@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0234",
+  "case_id": "thread_0234_case_06",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (OM Digital Solutions headset), Review Page company address error",
+  "customer_question": "The registered address shown on the Review Page is listed as Olympus, but that's incorrect — here's our actual OM Digital Solutions address. Can you correct it?",
+  "question_variants": [
+    "Why does our registration show our former parent company's name/address instead of ours?",
+    "Can the Company Address and Listing Owner information be edited directly in this registration?"
+  ],
+  "actual_issue": "The customer noticed the Review Page displayed an outdated company name/address (Olympus, the former parent company) rather than their current company (OM Digital Solutions) and asked Allion to correct it as part of the registration.",
+  "plain_english_explanation": "The Company Address and Listing Owner fields on the registration site are automatically pulled from the SIG member account database tied to the login ID used for registration — they aren't something the person performing the registration (the applicant/agent) has permission to edit directly within a given registration. Since this information doesn't appear on the publicly visible registration page, it's likely that previous registrations under the same account carried the same outdated information without anyone noticing. The correct fix is for the customer's company to update its own SIG member registration details directly; once updated, the corrected information will automatically be reflected in all future registrations made under that account, including any in progress.",
+  "consultant_answer": "The Company Address and Listing Owner fields are automatically pulled from your SIG member account database based on the login ID used, so we don't have permission to edit them within this specific registration. Since this information doesn't appear on the public registration page, your previous registrations under this account likely carried the same outdated information without it being noticed. To fix this, please update your company's SIG member registration details directly — once that's done, the correction will automatically apply to all future registrations made under your account.",
+  "decision_logic": "Fields sourced from the account-level member database (Company Address, Listing Owner) cannot be corrected within an individual registration's editable fields; the only valid fix path is updating the source member account record itself, which then propagates automatically to future registrations.",
+  "final_recommendation": "When a customer flags incorrect company information on a Review Page, first determine whether the field is account-database-sourced (requiring a member registration update) versus directly editable in the current registration, and direct the customer to the correct fix path accordingly.",
+  "risk_if_done_wrong": "Attempting to edit an account-database-sourced field directly within a single registration (which isn't possible) would waste time and leave the customer believing the issue is unfixable, when updating their SIG member account record is the actual, durable fix.",
+  "bluetooth_tags": [
+    "Company Address auto populated",
+    "Listing Owner account database",
+    "outdated company name registration",
+    "SIG member registration update",
+    "OM Digital Solutions",
+    "Olympus"
+  ],
+  "search_aliases": [
+    "wrong company name on Review Page",
+    "how to fix Company Address SIG registration",
+    "Listing Owner cannot be edited in registration",
+    "update SIG member account information"
+  ],
+  "qualification_stage": "Pre-Submission Review Page confirmation",
+  "confidence": "high"
+}

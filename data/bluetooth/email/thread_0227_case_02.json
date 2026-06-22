@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0227",
+  "case_id": "thread_0227_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine HM23 automotive display/HMI unit)",
+  "customer_question": "For HM23, is our understanding correct that a quotation for Compliance Folder creation and End Product registration is not needed (i.e., that HM23 only needs the additional RF test item)?",
+  "question_variants": [
+    "Should the HM23 quote exclude Compliance Folder creation and End Product registration support?",
+    "Can you also provide separate quoted amounts for Compliance Folder creation and End Product registration for HM23?"
+  ],
+  "actual_issue": "The customer initially assumed HM23 only needed an additional RF test item quoted, separate from HM26's fuller registration scope, and wanted to confirm whether Compliance Folder creation and End Product registration could be left out of the HM23 quote.",
+  "plain_english_explanation": "Allion clarified that Compliance Folder creation and End Product registration support do need to be quoted for HM23 as well, not just the additional RF test item. The final HM23 quote (¥300,000 tax excl.) was broken into two parts: ¥150,000 for the single RF test item, and ¥150,000 for Compliance Folder creation plus End Product registration support — confirming that HM23 required the same registration support scope as HM26, just with a smaller RF test scope.",
+  "consultant_answer": "For HM23, Compliance Folder creation and End Product registration support do need to be included in the quote — they aren't excluded. The total HM23 quote is ¥300,000 (tax excl.): ¥150,000 for the one RF test item, and ¥150,000 for Compliance Folder creation and End Product registration support.",
+  "decision_logic": "Compliance Folder creation and End Product registration support are required scope items independent of how many RF test items a given model needs; a smaller RF test scope (e.g., one item vs. a full RF item set) doesn't exempt a model from registration/documentation requirements.",
+  "final_recommendation": "When a customer assumes registration support or Compliance Folder work can be dropped from a quote because a model's test scope is smaller, explicitly confirm that these are separate, required line items regardless of test scope size.",
+  "risk_if_done_wrong": "If Allion had silently omitted Compliance Folder creation and End Product registration from the HM23 quote per the customer's initial assumption, the customer could have proceeded to order without the required documentation/registration support, risking non-compliance or a need for an unplanned follow-up quote later.",
+  "bluetooth_tags": [
+    "Compliance Folder creation",
+    "End Product registration",
+    "quote scope confirmation",
+    "HM23",
+    "Alps Alpine"
+  ],
+  "search_aliases": [
+    "is Compliance Folder required for every model",
+    "does smaller RF test scope exclude registration support",
+    "HM23 quote breakdown"
+  ],
+  "qualification_stage": "Quotation",
+  "confidence": "high"
+}

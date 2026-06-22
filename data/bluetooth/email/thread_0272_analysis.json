@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0272",
+  "thread_analysis": {
+    "thread_summary": "Koizumi Lighting (contact Teruo Katayama) consults Allion (Masaya Iida, with guidance from Itsuo Sakai) about Bluetooth Combination Mark trademark display requirements for a slim aluminum linear light fixture, where physical design constraints force a too-small logo display area, and proposes moving the required (R)-omission Footnote disclosure to the product's user manual instead of the product itself.",
+    "all_questions_found": [
+      "Can the (R) symbol be omitted from a too-small logo if the Footnote disclosure is placed in the user manual instead, and does Allion have authority to approve this? (see thread_0272_case_01)"
+    ],
+    "key_technical_discussion": "Bluetooth SIG's Brand Guide permits omitting the (R) symbol when a logo is too small for it to remain legible, conditioned on including a specific Footnote disclosure — but the exact display-location requirement for that Footnote is ambiguous from the published wording alone, and branding/trademark approval authority sits with SIG itself, outside a BQTF's RF/RF PHY testing and reporting scope.",
+    "key_decision_logic": "See thread_0272_case_01.",
+    "risk_if_done_wrong": "See thread_0272_case_01.",
+    "consulting_mistake": "None identified — Allion appropriately declined to give a definitive ruling on a question outside its certification authority, while still providing the relevant Brand Guide language to help the customer understand the ambiguity.",
+    "consulting_takeaway": "Branding/trademark display questions (logo sizing, (R) symbol omission, Footnote placement) are outside a BQTF's certification authority; consistently redirect customers to Bluetooth SIG's own inquiry channel for these specific questions rather than attempting to interpret ambiguous Brand Guide language definitively."
+  }
+}

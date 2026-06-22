@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0113",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "This is a short internal Allion exchange (2025-01-14) relaying and responding to a request from [COMPANY] (contact [PERSON]) for urgent SIG Product Listing of a near-mass-production ODM product (referencing existing registrations of similarly-configured products from other companies, [ID][ID]). The consultant ([PERSON]) determines from the updated quote request form that RF and RF PHY testing are exempted and asks for the quote to be reissued, then separately notes that the Qualification Fee for the account in the registration confirmation document has not yet been paid and requests the USD remittance procedure be sent along with the updated quote.",
     "all_questions_found": [
       "Can RF and RF PHY testing be exempted for the new ODM product based on the updated quote request form content, given its configuration matches already-registered products?",

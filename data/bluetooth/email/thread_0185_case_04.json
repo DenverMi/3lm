@@ -1,0 +1,42 @@
+{
+  "source_thread": "thread_0185",
+  "case_id": "thread_0185_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Panasonic Connect set-top box (Wi-Fi/Bluetooth combo module, LE Audio + BR/EDR)",
+  "customer_question": "What is the rough cost estimate for Bluetooth SIG certification for a BR/EDR + LE Audio product using a combo module?",
+  "question_variants": [
+    "Rough price estimate for Bluetooth certification with LE Audio?",
+    "Cost breakdown for BR/EDR + LE Audio SIG registration with RF test and profile test?",
+    "How much does a full Bluetooth SIG certification cost for a set-top box?"
+  ],
+  "actual_issue": "Panasonic Connect requested a rough cost estimate for Bluetooth SIG certification for a set-top box product featuring BR/EDR audio (A2DP, AVRCP, HFP) plus LE Audio. The product uses a Wi-Fi/Bluetooth combo module. The customer needed an estimate to plan budget and timeline (trial planned for December 2026, mass production October 2027).",
+  "plain_english_explanation": "Bluetooth SIG certification cost depends on the product's RF PHY scope and which profiles need PTS testing. A rough estimate was provided under two key assumptions: (1) the product uses a Core-Host (Host Subsystem) QDID for the Host stack, which exempts host-layer profiles from re-testing, and (2) the product implements LE Audio using a Host QDID that includes the required Generic Framework (PACS, ASCS, BASS, etc.). The estimate breakdown: RF PHY test (1M+2M+Coded, without CTE) ¥900,000 or full suite with CTE ¥1,200,000; PTS profile test if host profiles not covered by QDID ¥1,000,000, or IOPT only if covered ¥200,000; Multi-Design registration ¥250,000; Compliance Folder ¥150,000. Plus SIG Qualification Fee (Adopter: $12,000 / Associate: $6,000).",
+  "consultant_answer": "Rough estimate under standard assumptions (Core-Host QDID for Host stack, LE Audio Generic Framework included):\n- RF PHY (1M, 2M, Coded, no CTE): ¥900,000 / Full RF with CTE: ¥1,200,000\n- PTS profile test (A2DP, AVRCP, HFP, DID, IOPT — if Host QDID does not cover profiles): ¥1,000,000\n- IOPT only (if Host QDID covers all profiles): ¥200,000\n- Multi-Design registration support: ¥250,000\n- Compliance Folder: ¥150,000\n- SIG Qualification Fee: Adopter $12,000 / Associate $6,000\nTotal (typical range with IOPT-only): ¥900,000 + ¥200,000 + ¥250,000 + ¥150,000 + SIG fee",
+  "decision_logic": "Two cost-saving levers: (1) Whether the Host QDID covers the required profiles (reduces PTS cost from ¥1,000,000 to ¥200,000). (2) Whether CTE is in scope (adds ¥300,000 to RF PHY cost). LE Audio requires Generic Framework coverage in the Host QDID — verify this before assuming IOPT-only applies.",
+  "final_recommendation": "For initial budget planning, use the IOPT-only scenario as the target (assuming Host QDID covers profiles). Always caveat that the estimate assumes Core-Host QDID with sufficient profile coverage. Confirm LE Audio Generic Framework presence in the referenced Host QDID before committing to the estimate.",
+  "risk_if_done_wrong": "If the Host QDID does not cover the required profiles, PTS testing adds ¥1,000,000 to the cost. If LE Audio Generic Framework is missing from the Host QDID, LE Audio cannot be registered via QDID reference — a new LE Audio Host registration may be required.",
+  "bluetooth_tags": [
+    "pricing",
+    "cost estimate",
+    "LE Audio",
+    "BR/EDR",
+    "A2DP",
+    "AVRCP",
+    "HFP",
+    "RF PHY",
+    "PTS",
+    "IOPT",
+    "Compliance Folder",
+    "SIG Qualification Fee"
+  ],
+  "search_aliases": [
+    "Bluetooth certification cost estimate LE Audio BR/EDR",
+    "price breakdown SIG certification",
+    "RF PHY PTS IOPT cost estimate",
+    "900000 yen RF PHY certification",
+    "SIG certification budget planning"
+  ],
+  "qualification_stage": "Pre-engagement / Scoping",
+  "confidence": "high"
+}

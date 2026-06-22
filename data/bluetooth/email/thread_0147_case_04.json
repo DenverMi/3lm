@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0147",
+  "case_id": "thread_0147_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product — BR/EDR+BLE (Head Unit / AVN, 19AVN profile test build)",
+  "customer_question": "Our OPP profile test is failing. How do we set up the vCard file path and physically connect the USB to the product so the OPP test can run correctly?",
+  "question_variants": [
+    "OPP profile test FAILed — what's the correct vCard file/path setup?",
+    "The product has no USB port — how do we connect the USB harness for the OPP test?",
+    "Where exactly should the VCF_Sample folder go on the USB drive?"
+  ],
+  "actual_issue": "The OPP profile test failed because the vCard file path described in the test procedure (step 3-1 of the PTS guide) was not set up: the lab had not been sent the required VCF_Sample.zip file, so the vCard path setting in step 3-1 could not be completed. Separately, the customer's DUT had no exposed USB port, causing confusion about how to physically attach a USB drive — this was resolved by referring to the USB harness cable that had been included in the original sample shipment (documented in the equipment submission form) and to section 2.2.3 of BT-Cert_PTS-Test-Manual.pdf for the connection method.",
+  "plain_english_explanation": "The OPP (Object Push Profile) test requires a USB drive containing a specific vCard sample file (VCF_Sample), placed at the root of the USB drive, to be connected to the product before running the test step. The lab initially didn't have this file, causing a test FAIL. Once Allion sent the VCF_Sample.zip file and the customer used the harness cable already provided with the test samples (per the test manual's connection instructions), the OPP test could proceed.",
+  "consultant_answer": "Allion identified the OPP FAIL root cause as the missing vCard path setup described on page 5 of the OPP test procedure: the customer needed a USB drive with a VCF_Sample folder at its root, attached to the product, before executing step 3-1. Allion sent the VCF_Sample.zip file (which it had failed to provide initially) for the customer to unzip onto the USB drive. For the physical connection, since the DUT had no visible USB port, Allion clarified that the USB harness cable already shipped with the test samples (listed in the evaluation equipment submission form) was the correct cable, and pointed to section 2.2.3 of the RF/Profile test manual for the connection procedure.",
+  "decision_logic": "OPP test FAILs should first be checked against the test procedure's prerequisite file/path setup steps before assuming a DUT defect. If a required test asset (e.g., a sample vCard file) was not provided to the customer, that is the lab's responsibility to supply. Hardware connection issues (e.g., missing USB port) should be resolved by referring to the equipment/test manual documentation that accompanied the original sample shipment.",
+  "final_recommendation": "When sending OPP test instructions, include all required sample files (e.g., VCF_Sample.zip) up front rather than after a FAIL occurs. Confirm the DUT's physical USB connection method against the equipment submission form and test manual before the customer attempts the test.",
+  "risk_if_done_wrong": "Missing test prerequisite files or unclear physical setup instructions cause avoidable test FAILs, requiring re-testing and delaying the certification schedule.",
+  "bluetooth_tags": [
+    "OPP",
+    "Object Push Profile",
+    "PTS test",
+    "vCard",
+    "test FAIL",
+    "USB harness",
+    "profile test",
+    "DUT setup"
+  ],
+  "search_aliases": [
+    "OPP test FAIL vCard path",
+    "VCF_Sample USB setup",
+    "OPP profile test setup file",
+    "USB harness cable PTS test",
+    "no USB port DUT OPP test"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "high"
+}

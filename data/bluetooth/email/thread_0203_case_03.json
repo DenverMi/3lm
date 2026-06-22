@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0203",
+  "case_id": "thread_0203_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth module under IOPT profile test (Alps Alpine UXC, SPP profile)",
+  "customer_question": "SPP profile test is failing at the lab even though Alps Alpine has a passing PTS report from their own testing. Can the vendor's passing PTS log be used as test evidence?",
+  "question_variants": [
+    "When a profile test passes at the customer's end but fails at the lab, can the customer's PTS report be accepted as certification evidence?",
+    "SPP is not passing in our lab environment — can we use the manufacturer's own PTS passing log instead?",
+    "What options are available when an IOPT profile test fails due to PTS environment or connectivity issues?"
+  ],
+  "actual_issue": "During IOPT profile testing for Alps Alpine's UXC module, SPP (Serial Port Profile) tests (SPP/DEVA/CGSIT and SPP/DEVB/SDPR) failed at the Allion lab even after re-testing with matched ICS settings. Alps Alpine provided a passing PTS report from their own prior testing (same PTS version). The root cause could not be determined at the lab — it was suspected to be a PTS environment or connectivity issue rather than a DUT firmware defect.",
+  "plain_english_explanation": "Bluetooth profile testing (IOPT) is done using the Bluetooth SIG's Profile Tuning Suite (PTS) software. Sometimes tests fail not because the device is defective, but because the PTS environment, test PC connectivity, or setup configuration at a particular lab is slightly different from the device maker's environment. When this happens and the device manufacturer has already produced their own passing PTS report using the same version, there is a pragmatic option: the lab can use the customer's passing PTS log as the evidence and issue an Allion test report based on that log. This avoids being stuck indefinitely trying to reproduce a pass in a different environment.",
+  "consultant_answer": "When SPP (or another profile) fails at the lab but the customer has a valid passing PTS report from their own environment using the same PTS version and ICS settings, Allion can accept the customer's PTS log as the test evidence and issue an Allion-branded test report based on that log for use in the SIG registration. This is an accepted approach when the failure appears to be environment-related (PTS connectivity, setup, etc.) rather than a fundamental DUT defect. The first step is to share the lab's failure logs with the customer for root cause investigation; if no resolution is found, propose using the customer's passing log as evidence.",
+  "decision_logic": "SIG profile test evidence requires a passing PTS log, but it does not strictly require the log to have been generated at the certification lab. When the lab cannot reproduce the pass due to environmental factors and the customer has a valid passing log from the correct PTS version, using the customer's log is a reasonable fallback. The lab issues its own report citing the customer's log as the evidence source.",
+  "final_recommendation": "When an IOPT test item repeatedly fails at the lab and the customer has a passing PTS report, first try to diagnose whether the failure is DUT-related (firmware, SDP records) or environment-related (PTS setup, USB connectivity, test PC config). If environment-related and customer has a valid pass log, propose using the customer's PTS log as evidence and Allion issuing an Allion test report. Coordinate with customer on this approach before adopting it.",
+  "risk_if_done_wrong": "Continuing to retry indefinitely wastes time and lab resources. Issuing a report based on a passing log without proper validation of the log's authenticity (correct PTS version, correct DUT firmware) could compromise the certification's integrity.",
+  "bluetooth_tags": [
+    "IOPT",
+    "SPP",
+    "PTS",
+    "profile test failure",
+    "PTS log evidence",
+    "test environment",
+    "Alps Alpine",
+    "UXC"
+  ],
+  "search_aliases": [
+    "SPP test fail PTS",
+    "IOPT profile test fail lab",
+    "customer PTS log as evidence",
+    "PTS environment failure",
+    "SPP/DEVB/SDPR"
+  ],
+  "qualification_stage": "IOPT profile testing",
+  "confidence": "medium"
+}

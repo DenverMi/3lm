@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0232",
+  "case_id": "thread_0232_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Sharp, derivative registration Including an existing QDID, RF 2-item test scope)",
+  "customer_question": "I created a project on the Bluetooth SIG site and can fill in the Test Plan with Waived items matching our spec, but I don't see any step to attach the RF test report your company already produced for us. Is there a problem with how I'm registering?",
+  "question_variants": [
+    "Where does the RF test report get uploaded in the new registration site's workflow?",
+    "Is my registration approach correct given that I can't find a report-upload step?"
+  ],
+  "actual_issue": "The customer was registering a derivative model that Included an existing QDID under the post-July-2024 registration site, and could not find where to upload Allion's RF test report, while also encountering Consistency Check errors caused by combining QDIDs that were each individually error-free.",
+  "plain_english_explanation": "The post-July-2024 registration site enforces stronger cross-layer Consistency Checking than the prior system, so registrations that Include an old-system QDID can sometimes be unable to clear the Consistency Check through the normal path. SIG provides a relief option called 'Combine Unmodified Design,' which performs only a coarse, prior-system-equivalent Consistency Check and skips the Layer/ICS settings and report-upload steps entirely, proceeding straight to the registration-fee confirmation and Submission. The alternative path, 'Modified or add to this Set of Designs,' requires going through Layer/ICS settings, achieving zero Consistency Check errors, and uploading a Test Plan/report before reaching fee confirmation and Submission. In this case, the specific QDID combination produced multiple cross-layer Consistency Errors (BB, GAP, LL, LMP, SM, ScPP) even though each QDID was error-free individually; taking the 'Modified' path would let the RF 2-item report be uploaded, but resolving those errors via ICS changes would, under the new system, trigger full Test Plan generation for every test item in the affected layers — requiring testing and reporting far beyond the intended RF 2-item scope. The recommended approach was therefore to use 'Combine Unmodified Design' to reach Submission, and to retain the RF 2-item test report only as a self-verification document (covering a minor hardware change, an antenna pattern change, from the originally tested configuration) rather than uploading it through the registration site.",
+  "consultant_answer": "The new registration site's stronger Consistency Checking means a registration Including an old-system QDID may not clear normally. Use the 'Combine Unmodified Design' option — it does a coarser, prior-system-equivalent check and skips Layer/ICS settings and report upload entirely, going straight to fee confirmation and Submission. The alternative 'Modified or add to this Set of Designs' path would let you upload the RF 2-item report, but resolving the specific cross-layer Consistency Errors this QDID combination produces would require ICS changes that, under the new system, force full Test Plan generation across all affected layers — well beyond your intended RF 2-item scope. So please submit via 'Combine Unmodified Design,' and keep the RF 2-item report only as a self-retained verification document covering the minor antenna pattern change from your originally tested configuration.",
+  "decision_logic": "When a derivative registration's QDID combination triggers cross-layer Consistency Errors that didn't exist for the QDIDs individually, weigh the relief-path option (coarser check, no report upload, but no record of the actual RF retest performed) against the full-resolution path (clean Consistency Check but cascading into full Test Plan generation under the new system) and choose the relief path when the alternative would force disproportionate additional testing.",
+  "final_recommendation": "When a customer can't find a report-upload step in the new registration site, first check whether their registration combination is hitting cross-layer Consistency Errors that the relief-path option (Combine Unmodified Design) is designed to bypass, and explain the tradeoff (no report upload, but no forced full-layer retest) clearly rather than just pointing to a UI location.",
+  "risk_if_done_wrong": "Pushing a customer toward the 'Modified' path without warning about the new system's full Test Plan generation on ICS changes could result in unexpected, large-scale additional testing requirements; failing to retain the RF 2-item report as self-verification documentation could leave the customer unable to justify the hardware change if later questioned.",
+  "bluetooth_tags": [
+    "Consistency Check cross-layer error",
+    "Combine Unmodified Design",
+    "Modified or add to Set of Designs",
+    "RF test report self-verification",
+    "new registration site 2024",
+    "Sharp"
+  ],
+  "search_aliases": [
+    "where to upload RF test report new registration site",
+    "Combine Unmodified Design vs Modified Design",
+    "Consistency Check error combining QDIDs",
+    "self-verification report antenna pattern change"
+  ],
+  "qualification_stage": "Registration execution",
+  "confidence": "high"
+}

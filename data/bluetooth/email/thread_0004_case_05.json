@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0004",
+  "case_id": "thread_0004_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine UXC10), SPP profile PTS test failing on retest despite matching ICS settings -- root cause traced to a missing required test app",
+  "customer_question": "We retested with the same ICS settings as your originally-passing SPP PTS report, using firmware v8.10.2, and this time MAP and PBAP passed but SPP did not. Is there some pre-test operation needed before starting the SPP PTS test? Also -- have you installed 'BlueSPP.apk' as documented in the IOPTTestguide.pdf? And once we do, which of the DUT's three labeled USB debug cables (DEBUG SAIL, DEBUG HKP, DEBUG MD) should it be installed/run through?",
+  "question_variants": [
+    "Could a stale Bluetooth pairing/bonding entry from a previous test session cause SPP PTS to fail on a retest that otherwise uses identical ICS settings?",
+    "Is BlueSPP.apk installed on the DUT itself, or on the PC running the test tooling?",
+    "Which of the DUT's three differently-labeled USB debug cables should be used to install and run the required SPP test companion app?"
+  ],
+  "actual_issue": "A retest of the SPP profile failed to reproduce a previously-passing result despite using ICS settings confirmed identical to the original passing report. The actual root cause, identified several days later after the customer's OEM flagged it, was that the SPP retest had not had 'BlueSPP.apk' -- a companion Android app explicitly required by the IOPTTestguide.pdf for SPP testing -- installed on the DUT at all. The lab's engineer confirmed this directly: the prior SPP retest had been run without it. This left a new, still-open sub-question of which of the DUT's three labeled USB debug cables (DEBUG SAIL, DEBUG HKP, DEBUG MD) should be used to install and run the app, which neither the lab nor the customer could immediately answer from the documentation alone.",
+  "plain_english_explanation": "ICS settings describe which profile features are declared as supported -- they say nothing about whether all the test-side tooling required by the test guide (such as a companion Android app needed specifically for SPP) was actually present during a given test run. In this case, the SPP retest matched the original passing report's ICS exactly, but had silently skipped the BlueSPP.apk installation step that the IOPTTestguide.pdf calls for, which was the actual reason SPP failed to reproduce while MAP and PBAP (which didn't depend on that app) passed normally. The .apk file format runs in an Android environment, so it needed to be installed on the DUT itself (which runs Android), not on the lab's PC. Once the missing step was identified, a new practical question emerged: the DUT exposes three separate USB debug interfaces, each carrying a different label (DEBUG SAIL, DEBUG HKP, DEBUG MD), and it wasn't documented or obvious which one the test guide's app-installation step actually expects to be used -- this required following up with the customer directly rather than guessing.",
+  "consultant_answer": "We found the actual cause: the SPP retest hadn't had BlueSPP.apk installed, which your IOPTTestguide.pdf requires for SPP testing specifically -- that's why MAP and PBAP passed (they don't depend on it) while SPP didn't, even with matching ICS. Since .apk is an Android app format, it needs to go on the DUT itself, not our PC. One thing we can't determine from the documentation alone: your DUT exposes three labeled USB debug cables (DEBUG SAIL, DEBUG HKP, DEBUG MD) -- which one is the test guide expecting us to use for the app installation and SPP test run? We'll need to confirm that with you before retesting.",
+  "decision_logic": "When a profile retest fails to reproduce a previously-passing result despite identical ICS settings, check whether all test-tooling prerequisites specified in the test guide (companion apps, required installs) were actually present during the failing run before investigating ICS, firmware, or pairing-state explanations -- a missing required test app is a distinct failure mode from all of those and should be checked first, especially when other profiles in the same test batch (which don't share that dependency) pass normally.",
+  "final_recommendation": "Before retesting a profile that previously passed, cross-check the test guide's full prerequisite list (including any required companion apps) against what was actually installed/run during the failing attempt, rather than jumping to ICS-mismatch or firmware-difference explanations -- and when a DUT exposes multiple ambiguously-labeled debug interfaces, confirm with the customer which one a given test procedure actually expects rather than guessing.",
+  "risk_if_done_wrong": "Without checking for a missing required test app first, the team could have spent significant additional time investigating ICS Table discrepancies, stale paired-device state, or firmware differences -- none of which were the actual cause -- before reaching the real, simple explanation (a skipped installation step in the test guide).",
+  "bluetooth_tags": [
+    "SPP PTS test fails to reproduce prior pass",
+    "BlueSPP.apk required companion app missing",
+    "test guide prerequisite not installed",
+    "Android apk installed on DUT not PC",
+    "multiple labeled USB debug cables ambiguous",
+    "Alps Alpine UXC10"
+  ],
+  "search_aliases": [
+    "SPP PTS test fails on retest same ICS",
+    "BlueSPP.apk not installed causes SPP fail",
+    "missing companion app profile test failure",
+    "which USB debug cable for apk install DUT",
+    "IOPTTestguide.pdf required app installation"
+  ],
+  "qualification_stage": "Profile PTS test retest troubleshooting",
+  "confidence": "high"
+}

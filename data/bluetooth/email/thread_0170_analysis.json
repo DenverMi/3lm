@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0170",
+  "thread_analysis": {
+    "thread_summary": "Silex Technology / PFU keyboard thread covering three distinct SIG registration challenges: (1) troubleshooting SIG submission rejections and identifying the four possible rejection causes; (2) the restriction on creating Subset DNs when the base design includes third-party QDIDs; (3) handling inherited ICS inconsistencies from referenced QDIDs using Test Coverage Waivers. The thread documents a real submission rejection cycle and the resolution process.",
+    "all_questions_found": [
+      "Our SIG submission was rejected. What are the typical rejection reasons and how do we fix each one?",
+      "Can we create a Subset DN from a base design that includes QDIDs from other SIG member companies?",
+      "The referenced QDID has ICS inconsistencies baked in. How do we handle these inherited inconsistencies?"
+    ],
+    "key_technical_discussion": "SIG rejections fall into four categories: unresolved ICS inconsistencies, test declaration errors, missing test reports, and missing TCW numbers. The Subset DN creation restriction applies when the base design includes any QDID from another SIG member — you cannot create a Subset of designs you don't fully control. Inherited ICS inconsistencies from referenced third-party QDIDs are handled with TCW numbers; the yellow ICS Form warning on the Review Page indicates a valid waiver is in place, not a failure. SIG review takes 1–5 US business days post-submission.",
+    "key_decision_logic": "Each rejection is traceable to one of the four categories. The TCW yellow indicator is not a rejection trigger — it signals that SIG has already acknowledged the inconsistency. The Subset restriction is binary: any third-party QDID in the base design blocks Subset creation.",
+    "risk_if_done_wrong": "Resubmitting without diagnosing the rejection cause wastes a full SIG review cycle (5–6 business days). Missing a TCW causes repeated rejections. Attempting Subset creation with third-party QDIDs in the base design will be blocked by the portal.",
+    "consulting_mistake": "None identified. The consultant correctly diagnosed the rejection root causes, explained the TCW workflow, and identified the Subset restriction.",
+    "consulting_takeaway": "Always check TCW coverage for all inherited ICS inconsistencies before the first submission — this prevents the most common category-4 rejection. The yellow warning on the ICS Form should be proactively explained to customers before submission to prevent unnecessary alarm."
+  }
+}

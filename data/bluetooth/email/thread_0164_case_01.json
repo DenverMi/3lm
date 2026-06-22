@@ -1,0 +1,42 @@
+{
+  "source_thread": "thread_0164",
+  "case_id": "thread_0164_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth product supporting A2DP, AVRCP, DI (ACCESS /株式会社ACCESS)",
+  "customer_question": "Our product uses the same Bluetooth Host Stack as the QDID component without modification. Does it need product-level profile testing for A2DP, AVRCP, and DI?",
+  "question_variants": [
+    "If we don't change the Bluetooth stack, do we need to run profile tests?",
+    "What is ICS and how does it determine whether profile testing is required?",
+    "Our A2DP, AVRCP, DI implementation is the same as the qualified module — are tests exempt?",
+    "When is product-level profile testing required vs. exempt?"
+  ],
+  "actual_issue": "The customer's product implements A2DP, AVRCP, and DI profiles using the Fluoride Bluetooth Host Subsystem (QDID D063309). The customer is not modifying the Host Stack or the profile ICS relative to what the QDID component already qualifies. The question is whether product-level profile testing is still required.",
+  "plain_english_explanation": "ICS stands for 'Implementation Conformance Statement' — a document defined by Bluetooth SIG that lists which features of each profile or protocol the implementation supports (YES or NO for each feature). When a Bluetooth module or Host Stack (like Fluoride) is qualified under a QDID, its ICS is part of that qualification. If a product uses the same Host Stack without changing any ICS items — meaning it supports the same set of profile features as the QDID component, not more — then the product does not need to run its own profile-level PTS tests. The QDID component's test results cover it. This is called 'profile test exemption.' However, if the product adds features that were marked as 'not supported' in the QDID component's ICS, the new features must be tested.",
+  "consultant_answer": "If the product's Bluetooth stack supports the same A2DP, AVRCP, and DI ICS items as the QDID component (D063309 / Fluoride), or a subset of those items, product-level profile testing is exempt. If the product adds any ICS features not covered by the QDID component, those additional features require testing at ¥100,000 per profile.",
+  "decision_logic": "Profile test exemption applies when: (1) the product uses the same qualified Host Stack implementation, and (2) the product's ICS is identical to or a subset of the QDID component's ICS. Adding any new ICS support that the QDID component does not have constitutes a scope expansion that requires testing.",
+  "final_recommendation": "Before quoting a customer on profile testing, compare the product's intended ICS support against the QDID component's ICS. If no new ICS items are added, profile testing is exempt. Confirm with the customer that they are not changing the Bluetooth stack implementation.",
+  "risk_if_done_wrong": "Incorrectly exempting a product from profile testing when it has added ICS features results in a non-compliant qualification. Conversely, billing for unnecessary testing when ICS matches wastes the customer's budget.",
+  "bluetooth_tags": [
+    "ICS",
+    "Implementation Conformance Statement",
+    "profile test exemption",
+    "A2DP",
+    "AVRCP",
+    "DI",
+    "QDID",
+    "Fluoride",
+    "Host Stack",
+    "PTS testing"
+  ],
+  "search_aliases": [
+    "ICS match profile test exempt",
+    "implementation conformance statement bluetooth",
+    "A2DP profile test exemption",
+    "QDID ICS same no testing needed",
+    "profile testing when required",
+    "bluetooth stack unchanged profile exempt"
+  ],
+  "qualification_stage": "pre-registration",
+  "confidence": "high"
+}

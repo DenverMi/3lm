@@ -1,48 +1,32 @@
 {
-    "source_thread": "thread_0035",
-    "cases": [
-        {
-            "case_id": "thread_0035_case_01",
-            "iut_type": "module-based end product",
-            "customer_question": "How long can additional derivative products be added for free after the initial Bluetooth SIG registration using the same module and host stack?",
-            "question_variants": [
-                "Is there a validity period for free additional Product List registrations?",
-                "Can future similar products be added to the same Bluetooth SIG registration later?",
-                "How long can derivative models be added using the same Bluetooth design?",
-                "Can we continue adding similar devices until the Bluetooth version is withdrawn?",
-                "Do additional models require a new qualification after several years?"
-            ],
-            "actual_issue": "The customer needed clarification on the long-term reuse eligibility of an existing qualified Bluetooth design for future derivative products using the same module and host stack.",
-            "plain_english_explanation": "The customer wanted to know whether future products using the same Bluetooth implementation could continue using the original qualification without paying again. The answer depended on whether the Bluetooth design stayed unchanged and whether the referenced Bluetooth specification version remained valid for reuse.",
-            "consultant_answer": "The consultant explained that after the initial paid registration is completed, derivative products using the same module and host stack can be added to the Product List at no additional qualification fee through the MyBlue 'Manage Submitted Products' workflow. The referenced module used Bluetooth v5.0, so the registration inherits that specification status. As long as the Bluetooth v5.0 design remains valid and unmodified, additional derivative products can continue to be added. The consultant stated that Bluetooth v5.0 was scheduled for deprecation on 2032-02-01, and derivative additions would remain possible until the day before that date. Previously registered products already listed in the Product List can continue to be sold indefinitely unless future SIG policy changes require otherwise.",
-            "decision_logic": "Free derivative product registration is allowed when the later products use the same unmodified Bluetooth module and host stack as the originally qualified design. Reuse remains available while the referenced Bluetooth specification remains eligible for qualification reuse and is not withdrawn.",
-            "final_recommendation": "Complete the initial qualification using a representative product, then add future derivative models through the Product List management workflow as long as the Bluetooth design remains unchanged and the referenced specification version remains reusable.",
-            "risk_if_done_wrong": "If a modified Bluetooth implementation is incorrectly treated as a derivative product reuse case, the company may skip required qualification activities, leading to non-compliant listings or later requalification effort. Waiting until after specification withdrawal may also prevent reuse of the original design.",
-            "bluetooth_tags": [
-                "qualification",
-                "Product List",
-                "module",
-                "host",
-                "reuse",
-                "derivative product",
-                "listing",
-                "v5.0"
-            ],
-            "search_aliases": [
-                "free derivative registration",
-                "Product List add model",
-                "same module same host stack",
-                "reuse existing qualification",
-                "Bluetooth v5.0 reuse",
-                "additional product registration",
-                "Manage Submitted Products",
-                "qualify more products",
-                "derivative model listing",
-                "free product add"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0035",
+  "case_id": "thread_0035_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Secom security sensor device), yellow warning indicator on the ICS Form within Submission Requirements on the Review Page, resolved via a pre-filed Test Case Waiver (TCW)",
+  "customer_question": "(Context: the consultant proactively flagged this before the customer could ask.) The Review Page shows a yellow warning mark on the ICS Form within Submission Requirements -- is it still acceptable to proceed with finalizing the registration despite this warning?",
+  "question_variants": [
+    "Does a yellow warning icon on the Review Page always indicate an unresolved problem blocking registration?",
+    "What is a Test Case Waiver (TCW) and how does it relate to a Submission Requirements warning?"
+  ],
+  "actual_issue": "Before asking the customer to confirm and finalize the registration, the consultant proactively reviewed the Review Page and noticed the ICS Form within Submission Requirements displayed a yellow warning indicator, which could otherwise look like a blocking error to a customer unfamiliar with the registration system.",
+  "plain_english_explanation": "A yellow warning mark on the ICS Form section of the Submission Requirements (visible on the pre-finalization Review Page) does not necessarily mean the registration is blocked or invalid. In this case, the warning appeared because a specific test case was not covered by the standard test results, but a Test Case Waiver (TCW) had already been filed and approved (referenced by its own application ID) to formally account for that gap. Once a TCW is on file for the relevant test case, the registration is in an acceptable state to finalize despite the yellow warning still being visually present on the Review Page -- the warning is essentially a cosmetic flag for a condition that has already been formally resolved through the waiver process, not an indication that something still needs to be fixed.",
+  "consultant_answer": "Yes, it's fine to proceed -- the ICS Form's yellow warning relates to a test case that we've already filed a Test Case Waiver (TCW) for (waiver ID provided), so the registration is in an acceptable state despite the warning still showing. Please review the Review Page image and let us know if you'd like us to proceed with finalizing.",
+  "decision_logic": "A yellow warning indicator on the Review Page's ICS Form / Submission Requirements section should be checked against whether a Test Case Waiver (TCW) has already been filed for the underlying gap -- if a TCW is on file, the warning is expected and does not block finalization, but if no TCW exists, the warning likely indicates a genuine unresolved testing gap that must be addressed before finalizing.",
+  "final_recommendation": "When presenting a Review Page screenshot to a customer for final sign-off, proactively explain any visible warning indicators and their resolution status (e.g., an existing TCW) rather than letting the customer discover and question the warning on their own, since an unexplained warning could otherwise cause unnecessary alarm or delay.",
+  "risk_if_done_wrong": "A customer unaware that a yellow warning is already accounted for via a filed TCW might either delay finalization unnecessarily out of caution, or conversely, a consultant who overlooks a yellow warning without confirming a TCW is actually on file could finalize a registration with a genuine unresolved testing gap.",
+  "bluetooth_tags": [
+    "Review Page yellow warning ICS Form",
+    "Test Case Waiver TCW",
+    "Submission Requirements warning indicator",
+    "Secom"
+  ],
+  "search_aliases": [
+    "what does yellow warning on Review Page mean",
+    "Test Case Waiver TCW Bluetooth SIG",
+    "ICS Form warning still OK to finalize registration",
+    "Submission Requirements warning indicator meaning"
+  ],
+  "qualification_stage": "Pre-finalization Review Page confirmation",
+  "confidence": "high"
 }

@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0099",
-    "cases": [
-        {
-            "case_id": "thread_0099_case_02",
-            "iut_type": "end product",
-            "customer_question": "What documentation must be prepared and retained for Bluetooth SIG compliance under the updated qualification process?",
-            "question_variants": [
-                "What is required for the compliance folder?",
-                "Which product documents must be submitted after qualification?",
-                "What records must be retained for SIG audits?",
-                "Do all models require separate compliance documentation?",
-                "What changed under QPRDv3 compliance requirements?"
-            ],
-            "actual_issue": "Understanding compliance-folder creation, supporting documentation requirements, and retention obligations introduced under the updated qualification process.",
-            "plain_english_explanation": "The qualification process now requires a compliance folder containing evidence that the registered product matches the qualified design. The customer needed to know which documents are required and whether separate documents are needed for every model. The discussion also covered retention obligations and possible SIG audits.",
-            "consultant_answer": "Under the updated qualification rules, a compliance folder must be created and retained. Required supporting materials include Bluetooth-related operating instructions, a product block diagram, and an external-dimension drawing. If the initial registration contains only one representative model, documentation for that model is sufficient. The compliance folder must be retained and made available if requested during a Bluetooth SIG audit.",
-            "decision_logic": "Compliance-folder obligations are tied to the qualified products recorded in the Product List. Documentation scope follows the models included in the registration, and retention is required because SIG may request evidence that the qualified design matches the marketed product.",
-            "final_recommendation": "Prepare and retain a compliance folder containing qualification records and supporting product documentation, ensuring that documentation matches the models included in the Product List.",
-            "risk_if_done_wrong": "The organization may be unable to demonstrate compliance during a Bluetooth SIG audit or may lack evidence showing that shipped products match the qualified configuration.",
-            "bluetooth_tags": [
-                "qualification",
-                "compliance folder",
-                "audit",
-                "Product List",
-                "documentation",
-                "QPRD"
-            ],
-            "search_aliases": [
-                "compliance folder requirements",
-                "SIG audit documents",
-                "QPRDv3 documentation",
-                "block diagram requirement",
-                "Bluetooth manual requirement",
-                "external drawing requirement",
-                "compliance record retention",
-                "audit evidence"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0099",
+  "case_id": "thread_0099_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "We were told similar future devices can be added to this registration for free -- is there a time limit on that, or can we keep adding derivative models indefinitely? And once a model is added, can it be sold forever?",
+  "question_variants": [
+    "Will the free derivative-model addition feature expire at some point?",
+    "Does the module's spec version affect how long we can add new models for free?",
+    "If we add a model now, will we ever have to re-register it later?"
+  ],
+  "actual_issue": "The customer wanted to understand whether the ability to add future derivative models to the existing registration for free was available indefinitely, or whether it was tied to some expiration condition, and whether models already added would remain sellable without any future re-registration requirement.",
+  "plain_english_explanation": "Adding similar future products to an existing Bluetooth registration for free isn't a feature that lasts forever on its own -- it's actually tied to how long the specific version of the Bluetooth specification that the registration's module is built on remains valid in SIG's system. Once that version is eventually retired, that particular free-addition path would no longer be available. But anything already added to the product list before that happens keeps being sellable indefinitely, regardless of what happens to that spec version afterward.",
+  "consultant_answer": "As long as the registration remains valid, derivative models implementing the same module and host stack can be added to the Product List for free. The module referenced in this registration is built on Core Spec v5.0, so the product registration is also considered v5.0. The current planned deprecation date for v5.0 is 2032-02-01, so derivative models can be added to the Product List for free up until the day before that date. Models already registered to the Product List remain sellable indefinitely, unless changed by a new SIG regulation.",
+  "decision_logic": "Free derivative-model addition to an existing registration is available for as long as the referenced module's underlying Core Spec version has not been deprecated by Bluetooth SIG; this is a time-bound window tied to that specific spec version's deprecation date, not an indefinite feature. Models already added to the Product List before that deprecation date remain sellable indefinitely regardless of the spec version's later status.",
+  "final_recommendation": "When discussing free derivative-model addition with a customer, proactively check and communicate the deprecation date of the referenced module's underlying Core Spec version, since that date marks the deadline for adding further models for free under that registration; reassure the customer that models already added remain sellable indefinitely.",
+  "risk_if_done_wrong": "Assuming free derivative-model addition is available indefinitely, without checking the referenced module's Core Spec version deprecation date, could cause a customer to miss the window for adding a planned future variant for free, requiring a costlier new registration instead.",
+  "bluetooth_tags": ["derivative model", "Core Spec version deprecation", "Product List", "free addition"],
+  "search_aliases": ["free derivative model addition time limit", "Core Spec v5.0 deprecation date 2032", "module spec version determines free addition window", "Product List models remain sellable indefinitely"],
+  "qualification_stage": "post-launch change",
+  "confidence": "high"
 }

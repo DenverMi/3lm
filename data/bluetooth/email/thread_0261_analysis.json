@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0261",
+  "thread_analysis": {
+    "thread_summary": "JVC Kenwood (contact Suganuma) consults Allion (Itsuo Sakai, with Masaya Iida and the AJ Bluetooth Group) about a next-generation product based on their already-certified VP8000 model, changing only the Bluetooth antenna component while keeping the same module, profiles, and DID reference. The exchange covers a paper-calculation method for assessing antenna-change retest risk and confirms the customer can self-service the resulting derivative-model registration.",
+    "all_questions_found": [
+      "Can retest risk from an antenna change be estimated on paper, and do recent registration system changes affect this? (see thread_0261_case_01)",
+      "Is the customer's understanding of the calculation correct, and can derivative registration be self-serviced? (see thread_0261_case_02)"
+    ],
+    "key_technical_discussion": "Antenna-only hardware changes can be risk-assessed via a paper calculation (measured output power plus antenna gain delta vs. the relevant power class ceiling) rather than automatic retesting, a method unaffected by the QPRDv3.0/new registration system's derivative-model addition rules; the actual derivative registration step is a self-service web operation available to the Listing Owner's account.",
+    "key_decision_logic": "Both questions in this thread continue the same underlying paper-calculation and self-service-registration theme; see the individual case files for specifics.",
+    "risk_if_done_wrong": "See thread_0261_case_01 and thread_0261_case_02.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "For derivative models involving only an antenna change, provide both the no-retest paper-calculation method and confirmation that derivative registration itself is self-service, since customers may not realize either fact and could otherwise default to unnecessary retesting or unnecessary reliance on proxy registration support for a routine future change."
+  }
+}

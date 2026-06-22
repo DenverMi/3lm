@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0241",
+  "case_id": "thread_0241_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (DensoTen upper-model HMI/IVI unit) referencing Murata's corrected module registration",
+  "customer_question": "Murata says their new registration with LL(9/11) set to No has now passed SIG review under DN [ID] (later confirmed as Q307172). Can Allion confirm this new registration is good to reference?",
+  "question_variants": [
+    "Is the vendor's newly published corrected registration actually free of the original inconsistency?",
+    "Can we now safely reference this new DN in our product registration?"
+  ],
+  "actual_issue": "After the module vendor (Murata) published a new registration intended to fix the original RFPHY/LL inconsistency, Allion checked the new registration's own Consistency Check status before confirming it was safe to reference, rather than assuming the vendor's fix was complete.",
+  "plain_english_explanation": "Checking the new registration's ICS details and Consistency Check via the SIG registration search tool revealed that, although the original RFPHY/LL inconsistency had been addressed, the vendor's update inadvertently introduced two new cross-layer inconsistencies between LMP and BB ICS items. As with the original problem, if the customer's product registration carried these new inconsistencies through and tried to resolve them by editing BB items 2/4 and 2/5 directly, it would trigger a BB-layer test requirement. The recommendation was therefore to flag this second, newly-discovered problem to the vendor as well, urgently, before relying on this corrected registration as a clean reference.",
+  "consultant_answer": "We checked the new registration's Consistency Check status before confirming, and unfortunately the vendor's fix introduced two new cross-layer inconsistencies between LMP and BB ICS items that weren't in the original registration. If carried through to your product registration, resolving these by editing BB items 2/4 and 2/5 directly would trigger a BB-layer test requirement. Please urgently ask Murata to resolve these new inconsistencies in their registration as well before we rely on it as a clean reference.",
+  "decision_logic": "Never assume a vendor's republished or corrected registration is clean just because it addresses the originally reported issue — always re-run the Consistency Check on the new registration itself before referencing it, since a vendor's fix can introduce new, previously absent inconsistencies.",
+  "final_recommendation": "When a vendor reports they've published a corrected registration to resolve an ICS inconsistency, independently verify the new registration's own Consistency Check status before confirming it as safe to reference, rather than taking the vendor's fix at face value.",
+  "risk_if_done_wrong": "Trusting the vendor's corrected registration without re-checking could result in the customer's product registration inheriting a new, undetected inconsistency, surfacing only later in the registration process and causing additional delay.",
+  "bluetooth_tags": [
+    "vendor corrected registration verification",
+    "LMP BB cross-layer inconsistency",
+    "Consistency Check re-verification",
+    "Murata module update registration",
+    "DensoTen"
+  ],
+  "search_aliases": [
+    "does vendor fix introduce new Consistency Check error",
+    "verify corrected registration before referencing",
+    "LMP BB ICS inconsistency"
+  ],
+  "qualification_stage": "Pre-registration ICS feasibility check",
+  "confidence": "high"
+}

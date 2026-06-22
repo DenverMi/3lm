@@ -1,43 +1,23 @@
 {
-    "source_thread": "thread_0087",
-    "cases": [
-        {
-            "case_id": "thread_0087_case_01",
-            "iut_type": "",
-            "customer_question": "What should be done when Bluetooth RF-PHY test report dates do not match the dates recorded in the underlying test logs?",
-            "question_variants": [
-                "Report date differs from log file date",
-                "RF report and logs are inconsistent",
-                "Which date should be used in the test report?",
-                "Can a report be approved if log dates do not match?",
-                "Test evidence date mismatch"
-            ],
-            "actual_issue": "The RF-PHY test report contained a test date that did not match the available log files. The reviewer required either supporting logs for the reported date or correction of the report to match the actual test evidence. ",
-            "plain_english_explanation": "Bluetooth test reports must match the records generated during testing. If the report shows one date and the logs show another, the discrepancy must be resolved before approval. The report should accurately reflect the evidence that exists. ",
-            "consultant_answer": "The reviewer compared the report against the log files and found that the report listed 07/08/2025 while the available logs were dated 07/10/2025. The reviewer requested either logs supporting the original date or correction of the report. The report was subsequently updated to use the date supported by the logs and then approved for further review. ",
-            "decision_logic": "Qualification documentation must be traceable to the underlying test evidence. When report content and logs disagree, the documented values must be reconciled with the actual evidence before approval. ",
-            "final_recommendation": "Compare report dates against test logs during review, obtain supporting evidence for any discrepancy, and update the report to match the verified test records before approval. ",
-            "risk_if_done_wrong": "Qualification documentation may become inconsistent with the supporting evidence, resulting in report rework, approval delays, and questions regarding test traceability. ",
-            "bluetooth_tags": [
-                "RF PHY",
-                "test report",
-                "qualification",
-                "log files",
-                "documentation review"
-            ],
-            "search_aliases": [
-                "report date mismatch",
-                "log file discrepancy",
-                "test date correction",
-                "RF-PHY review",
-                "evidence traceability",
-                "report versus logs",
-                "qualification documentation",
-                "test record validation"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0087",
+  "case_id": "thread_0087_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Can you review this RF test report? It's ready for approval.",
+  "question_variants": [
+    "Is this draft report ready for sign-off?",
+    "Does the report's test date actually match what's in the logs?",
+    "Is there a missing log file, or is the report's date just wrong?"
+  ],
+  "actual_issue": "A draft RF test report for a reference sample stated a test date (07/08/2025) that did not match the date present in its supporting log files (10 July 2025), and it needed to be determined whether a log file from the report's stated date was simply missing, or whether the report's date itself needed correcting to match the actual logs.",
+  "plain_english_explanation": "Before a test report gets approved, someone has to check that the date written on the report actually matches the date the test logs themselves show. Here, those two dates didn't line up. The fix depends on which one is wrong: if a log from the report's date genuinely exists somewhere, it should be added; if it doesn't exist at all, the report's date should simply be corrected to match the logs that do exist.",
+  "consultant_answer": "The reviewer flagged that the draft Test Report stated 07/08/2025 as the testing date, while the Log files were dated 10 July 2025. The instruction: if another log file dated 08 July 2025 exists, upload it to the shared Teams folder; if only logs dated 10 July 2025 exist, correct the Test Report's stated date to 07/10/2025 and re-upload it. After the correction was made, the reviewer confirmed nothing else needed correction and asked for the report to be sent for the engineer's approval.",
+  "decision_logic": "A test report's stated test date must match the dates actually present in its supporting log files; the report should not be approved with an unresolved mismatch. Resolution depends on which side is accurate: if a log file matching the report's stated date genuinely exists, it should be located and added; if it does not exist, the report's date should be corrected to match the log files that do exist.",
+  "final_recommendation": "Before approving a test report, cross-check its stated test date against the dates present in the actual supporting log files. If a matching log can't be found, correct the report's date to match the logs rather than leaving the discrepancy unresolved.",
+  "risk_if_done_wrong": "Approving a report with an unresolved date mismatch between the report and its log files would produce inaccurate or inconsistent certification documentation that could be questioned later.",
+  "bluetooth_tags": ["test report", "log files", "report review", "testing"],
+  "search_aliases": ["test report date does not match log date", "missing log file vs incorrect report date", "report review date consistency check"],
+  "qualification_stage": "testing",
+  "confidence": "high"
 }

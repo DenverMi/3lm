@@ -1,0 +1,30 @@
+{
+  "source_thread": "thread_0211",
+  "case_id": "thread_0211_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (BLE+USB dual-mode keyboard, Topre Corporation)",
+  "customer_question": "Do we absolutely need to Pass every test item that came back Fail or Indecisive, in order to get our certification?",
+  "question_variants": [
+    "Is there any way to get certified without resolving the Fail/Indecisive PTS results?"
+  ],
+  "actual_issue": "Several PTS test items for BAS and HIDS came back Fail or Indecisive, and the customer wanted to know whether registration could still proceed without resolving them, given development/schedule pressure to finish certification by end of August.",
+  "plain_english_explanation": "For a profile-implementing product, all assigned test items must Pass before certification/registration can proceed — Fail or Indecisive results block registration. As a last-resort alternative if the missing functionality (BAS/DIS/HIDS) genuinely isn't used by the product in practice and no market compatibility issues exist, the customer could instead formally reference an existing certified module's Profile Subsystem registration (e.g., a Nordic QDID already covering BAS, DIS, and HIDS) rather than fixing their own software, but this was framed explicitly as a fallback 'escape route,' not a primary recommendation, and the customer was encouraged to first pursue software remediation.",
+  "consultant_answer": "Yes — for a profile-having product, registration requires Passing all assigned test items; Fail or Indecisive results block certification. As a last-resort fallback only, if your existing non-BAS/DIS/HIDS keyboard model has had no market compatibility problems (meaning those features aren't actually used), you could instead formally reference an already-certified module's Profile Subsystem registration that includes those profiles (e.g., a specific Nordic QDID) instead of fixing your own software — but we recommend pursuing the software fix first and treating this only as a final fallback.",
+  "decision_logic": "Profile-implementing product registrations require full Pass results on all assigned test items; referencing an unrelated third-party module's already-certified Profile Subsystem registration is a legitimate but secondary fallback path when the product's actual real-world feature usage doesn't depend on resolving the failing items through software fixes.",
+  "final_recommendation": "Present the reference-registration fallback only after first encouraging genuine software remediation, and only when the customer can confirm the relevant feature isn't actually exercised in their shipping product.",
+  "risk_if_done_wrong": "Treating the reference-registration fallback as a default solution rather than a last resort could result in registrations that don't accurately reflect the product's actual implemented behavior.",
+  "bluetooth_tags": [
+    "PTS Fail Indecisive blocking registration",
+    "Profile Subsystem reference fallback",
+    "Nordic QDID reference",
+    "Topre keyboard"
+  ],
+  "search_aliases": [
+    "do all PTS test items need to pass",
+    "Fail Indecisive certification blocker",
+    "reference existing Profile Subsystem registration workaround"
+  ],
+  "qualification_stage": "Testing / PTS results review",
+  "confidence": "high"
+}

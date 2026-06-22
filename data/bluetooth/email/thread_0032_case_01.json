@@ -1,47 +1,31 @@
 {
-    "source_thread": "thread_0032",
-    "cases": [
-        {
-            "case_id": "thread_0032_case_01",
-            "iut_type": "module-based consumer device",
-            "customer_question": "Does a company selling an OEM/ODM Bluetooth product under its own brand still need its own Bluetooth SIG qualification and membership if the factory already has a QDID?",
-            "question_variants": [
-                "Can we reuse the factory's QDID without our own qualification?",
-                "Does the seller need its own Bluetooth SIG registration for an OEM product?",
-                "If the module is already qualified, is finished-product qualification still required?",
-                "Can the OEM complete Bluetooth qualification on behalf of the brand owner?",
-                "Does rebranding a qualified Bluetooth product require a new listing?"
-            ],
-            "actual_issue": "The customer incorrectly assumed that an OEM factory's existing Bluetooth qualification and QDID might fully cover a separately branded resale product.",
-            "plain_english_explanation": "A Bluetooth module or OEM product being already qualified does not automatically authorize another company to sell the product under its own brand without qualification. The company whose brand appears on the product is responsible for Bluetooth SIG qualification compliance. Existing qualified designs can often be reused to reduce testing, but the branded seller still needs its own qualification record.",
-            "consultant_answer": "The consultant explained that Adopter membership itself is free and that the invoice being discussed referred to the Product Qualification Fee rather than membership cost. Even if the manufacturing factory already has a QDID, a company selling the product under its own branding must complete qualification under its own Bluetooth SIG member account unless the product is resold unchanged under the original manufacturer's branding. The consultant further explained that when an OEM/ODM product uses an already qualified design, the selling company can often reference the factory's QDID and complete qualification without additional testing if the Bluetooth design itself is unchanged.",
-            "decision_logic": "Bluetooth qualification responsibility follows the marketed brand owner rather than the physical manufacturer. Reuse of an existing QDID is allowed only when the referenced Bluetooth design remains unchanged, but the final branded seller still requires its own qualification listing and trademark authorization.",
-            "final_recommendation": "Create a Bluetooth SIG member account for the selling company, reference the OEM/factory QDID if the Bluetooth design is unchanged, and complete a product qualification listing under the selling company's name.",
-            "risk_if_done_wrong": "The company could incorrectly ship Bluetooth products under its own brand without proper qualification coverage, creating trademark enforcement exposure and requiring corrective qualification work later. Misunderstanding the relationship between membership, qualification fees, and QDID reuse could also delay launch planning and compliance approval.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "reuse",
-                "OEM",
-                "ODM",
-                "listing",
-                "module",
-                "membership"
-            ],
-            "search_aliases": [
-                "OEM product qualification",
-                "rebrand qualified product",
-                "reuse factory QDID",
-                "brand owner must qualify",
-                "supplier cannot qualify for customer",
-                "Bluetooth SIG OEM listing",
-                "qualified module reuse",
-                "self-brand qualification required",
-                "Adopter membership vs qualification fee"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0032",
+  "case_id": "thread_0032_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Whether a non-SIG-member brand owner can have SIG registration filed on their behalf by a SIG-member manufacturing subcontractor",
+  "customer_question": "If we sell a Bluetooth product under our end-customer's brand, and the application and cost-bearing is handled by the manufacturing subcontractor (who is already a SIG member), is new SIG membership (Associate or Adopter) still mandatory for our end-customer if they haven't joined SIG themselves?",
+  "question_variants": [
+    "Can a SIG-member manufacturer file and pay for a registration under a non-member brand owner's name?",
+    "Does the selling company itself need to be a SIG member, or is it enough that someone in the supply chain is a member?"
+  ],
+  "actual_issue": "The customer assumed that since the manufacturing subcontractor handling the registration logistics was already a SIG member, this might satisfy SIG's membership requirement even if the actual brand owner (the company whose name would appear on the product nameplate) had never joined SIG themselves.",
+  "plain_english_explanation": "Bluetooth SIG's own 'Do I Need to Qualify?' guidance states that to sell a Bluetooth product manufactured by yourself with your own name (or manufactured by another company but bearing your own name), the SELLING company must complete both SIG membership and the qualification/registration process. This requirement is independent of who actually files the application or pays the fees -- even if a SIG-member manufacturing subcontractor is willing to bear the cost and handle the application process entirely on the selling company's behalf, the registration still cannot be filed under the selling company's name unless that selling company is itself a SIG member. There is no workaround that allows a non-member brand owner to be registered using another company's membership status.",
+  "consultant_answer": "Bluetooth SIG's rule is clear: the company shown on the product's nameplate (the selling company) must itself complete SIG membership and the qualification process, regardless of who files the application or pays the fees. Even if your manufacturing subcontractor (already a SIG member) is willing to bear the cost and handle the application on your end-customer's behalf, the registration cannot be filed under your end-customer's name unless your end-customer becomes a SIG member themselves.",
+  "decision_logic": "When a customer asks whether a non-SIG-member brand owner can have registration filed on their behalf using a different company's (e.g., a manufacturing subcontractor's) SIG membership, the answer is always no -- the selling company whose name appears on the product nameplate must itself hold SIG membership, independent of which company actually performs or funds the application process.",
+  "final_recommendation": "When a customer describes a registration scenario involving multiple companies (manufacturer, distributor, brand owner), explicitly confirm which company's name will appear on the product nameplate and verify that specific company's own SIG membership status, rather than assuming any SIG-member company in the supply chain satisfies the requirement.",
+  "risk_if_done_wrong": "A customer might attempt to register a product under a non-member brand owner's name using a manufacturing subcontractor's membership and cost-bearing, only to discover the registration cannot actually be completed that way, causing delays and requiring the brand owner to join SIG before proceeding.",
+  "bluetooth_tags": [
+    "selling company must be SIG member regardless of who pays",
+    "non-member brand owner cannot use manufacturer membership",
+    "Do I Need to Qualify SIG guidance",
+    "Elematec smart tracker"
+  ],
+  "search_aliases": [
+    "can manufacturer register product under non-member brand name",
+    "does brand owner need to be SIG member themselves",
+    "SIG membership requirement selling company nameplate"
+  ],
+  "qualification_stage": "Pre-registration membership eligibility scoping",
+  "confidence": "high"
 }

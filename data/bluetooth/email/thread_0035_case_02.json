@@ -1,47 +1,36 @@
 {
-    "source_thread": "thread_0035",
-    "cases": [
-        {
-            "case_id": "thread_0035_case_02",
-            "iut_type": "module-based end product",
-            "customer_question": "What product documents are required for the Bluetooth compliance folder, and are separate documents needed for every derivative model?",
-            "question_variants": [
-                "What documents are required for the compliance folder?",
-                "Do all derivative models need separate manuals and block diagrams?",
-                "Can one block diagram be reused for similar Bluetooth products?",
-                "What level of detail is required for the Bluetooth block diagram?",
-                "Does the compliance folder require documentation for every Product List entry?"
-            ],
-            "actual_issue": "The customer needed clarification on compliance folder documentation scope for initial qualification and later derivative product registrations.",
-            "plain_english_explanation": "Bluetooth qualification requires maintaining a compliance folder containing evidence that the product matches the qualified Bluetooth design. The customer wanted to know whether every later derivative product needed its own full documentation set and how detailed the technical diagrams needed to be.",
-            "consultant_answer": "The consultant explained that for the initial paid registration, at least one actual product model must be listed in the Product List, and the compliance folder only needs documentation for the models included in that initial registration. If only one representative model is initially registered, only that model's manual, block diagram, and external drawing are required. Additional derivative products can later be added for free using the qualification workspace workflow. The consultant further explained that the block diagram does not need excessive detail and that a shared representative diagram may be acceptable for similar products. Example documentation from a USB Bluetooth audio receiver was provided as a reference. Later emails also clarified that documentation may reuse material already prepared for radio certification and that even draft-level manuals or simple notes are acceptable if final documentation is unavailable.",
-            "decision_logic": "Compliance folder documentation requirements apply to the products explicitly included in the current registration scope. If only a representative model is initially listed, only that model requires supporting documents in the compliance folder.",
-            "final_recommendation": "Use a single representative model for the initial registration whenever possible, and prepare the Bluetooth operation manual section, block diagram, and external drawing only for that representative product. Reuse existing regulatory documentation where available and maintain the compliance folder for audit readiness.",
-            "risk_if_done_wrong": "Providing incomplete compliance evidence or failing to maintain the compliance folder could create audit exposure during Bluetooth SIG enforcement or verification activities. Over-scoping documentation for all future derivatives may also create unnecessary administrative work.",
-            "bluetooth_tags": [
-                "qualification",
-                "compliance folder",
-                "Product List",
-                "documentation",
-                "module",
-                "reuse",
-                "listing"
-            ],
-            "search_aliases": [
-                "compliance folder documents",
-                "Bluetooth block diagram",
-                "Product List documentation",
-                "derivative model documents",
-                "qualification evidence",
-                "Bluetooth operation manual",
-                "external drawing requirement",
-                "audit folder",
-                "compliance folder retention",
-                "representative model registration"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0035",
+  "case_id": "thread_0035_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Registration evidence document format change following the July 2024 Launch Studio to Qualification Workspace site migration, plus derivative-model addition screen and SDoC consistency clarifications",
+  "customer_question": "We used to be able to download a registration information document in a particular format, but the one we're getting now looks different (and frankly cheaper-looking) -- can we get it in the old format? Also, does the derivative-model addition screen show a list of currently registered devices, and is the screen shown here the correct one to use as the certification certificate?",
+  "question_variants": [
+    "Is the new registration certificate format an error, or is it the genuine official document?",
+    "Is the SDoC included in the Compliance Folder the same as the one obtainable from the registration confirmation page's download link?",
+    "Where do I select the existing registered product when adding a derivative model?"
+  ],
+  "actual_issue": "While reviewing the derivative-model addition (free Product List addition) screens, the customer raised three related but distinct questions: why the registration evidence document now looks visually different/lower-quality than before, where to select the existing registered product when adding a derivative model, and whether the SDoC obtained via a particular download link matches the one already filed in the Compliance Folder.",
+  "plain_english_explanation": "On July 1, 2024, Bluetooth SIG's registration site migrated from the previous 'Launch Studio' platform to the current 'Qualification Workspace' platform. As a side effect of this migration, the format of the downloadable registration evidence document changed -- the new PDF certificate obtainable from the post-finalization download link is visually plainer/lower-quality-looking than the prior format, but it is nonetheless the current, sole official server-issued registration certificate; downloading the document in the old (pre-migration) format is no longer possible under any circumstance, since that old document-generation capability was retired along with the old platform. Separately, when adding a derivative model via the free Product List addition workflow, the existing registered product to associate the new model with should be selected from the 'Select the Product that includes the same Design' list shown in step (4) of the derivative-model addition procedure manual (not from a different list on the confirmation screen, which only reflects the newly-entered model's own information). Finally, the SDoC (Statement/Declaration of Conformity) placed in the Compliance Folder is the file obtained from the SDoC download link on the page shown immediately after the registration finalization operation completes, and this SDoC's content remains identical to what's obtainable from that link up until the point a new derivative-model addition registration is made to the Product List (at which point the SDoC would presumably reflect the updated list).",
+  "consultant_answer": "The new, plainer-looking PDF certificate is the genuine current official document -- the registration site migrated from Launch Studio to Qualification Workspace on July 1, 2024, and that migration changed the evidence document format; the old-format document can no longer be downloaded under any circumstances. For the derivative-model addition screen: the confirmation screen with the red-outlined section just reflects your newly-entered model's information -- to select the existing registered product to associate it with, use the 'Select the Product that includes the same Design' list in step (4) of the addition procedure manual. And yes, the SDoC in your Compliance Folder matches what's available from that download link -- they're the same document up until a new derivative-model addition is registered to the Product List.",
+  "decision_logic": "When a customer questions why a Bluetooth SIG registration evidence document looks different from a previously-seen format, check whether the registration occurred before or after the July 1, 2024 Launch Studio-to-Qualification Workspace platform migration -- this migration changed the official evidence document format and the old format is permanently unavailable, regardless of when the underlying registration itself was originally completed.",
+  "final_recommendation": "When a customer questions the registration certificate's visual format or completeness, proactively explain the July 2024 platform migration as the cause rather than letting the customer assume something went wrong with their specific registration, and clarify the derivative-model addition screen's distinct functions (entered-model confirmation vs. existing-product selection) explicitly using the procedure manual's step references.",
+  "risk_if_done_wrong": "A customer unaware of the platform migration's effect on document format might assume their registration evidence is incomplete, incorrect, or fraudulent, or might mistakenly select the wrong existing registration when adding a derivative model.",
+  "bluetooth_tags": [
+    "Launch Studio to Qualification Workspace migration July 2024",
+    "registration certificate format change",
+    "old format document unavailable",
+    "derivative model addition Select Product same Design",
+    "SDoC download link consistency",
+    "Secom"
+  ],
+  "search_aliases": [
+    "why does SIG registration certificate look different now",
+    "old format registration document not available",
+    "Qualification Workspace vs Launch Studio certificate format",
+    "where to select existing product derivative model addition",
+    "SDoC download link Compliance Folder consistency"
+  ],
+  "qualification_stage": "Post-registration derivative-model addition and evidence document clarification",
+  "confidence": "high"
 }

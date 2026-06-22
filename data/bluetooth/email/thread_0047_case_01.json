@@ -1,48 +1,32 @@
 {
-    "source_thread": "thread_0047",
-    "cases": [
-        {
-            "case_id": "thread_0047_case_01",
-            "iut_type": "module",
-            "customer_question": "Can a Bluetooth SIG product registration reuse both an existing Component QDID and the customer's Controller Subsystem QDID without triggering additional lower-layer testing?",
-            "question_variants": [
-                "Can we combine a Component QDID with our own Controller Subsystem QDID?",
-                "Why is Qualification Workspace generating lower-layer test requirements?",
-                "Can RF PHY and LL layers be replaced using another QDID?",
-                "Can a Core Complete registration reuse multiple existing QDIDs?",
-                "How can we avoid unnecessary lower-layer retesting in QPRD v3?"
-            ],
-            "actual_issue": "The qualification registration initially generated unexpected lower-layer test requirements when combining existing qualified designs. The consultant needed to determine whether replacing RF PHY and LL layers from one referenced design with layers from the customer's Controller Subsystem QDID would create a compliant Core Complete registration without additional testing obligations.",
-            "plain_english_explanation": "The customer wanted to reuse previously qualified Bluetooth building blocks instead of running new low-level Bluetooth tests again. Initially, the Bluetooth SIG Qualification Workspace treated the design combination as requiring extra testing. After a SIG system maintenance update, the consultant verified that a different QDID combination strategy no longer triggered those lower-layer test requirements.",
-            "consultant_answer": "The consultant tested an alternative registration structure inside Qualification Workspace by referencing both the existing Component QDID and the customer's Controller Subsystem QDID. The RF PHY and LL layers from the original Component registration were replaced with the corresponding layers from the customer's Controller Subsystem design to create a Core Complete module registration. After SIG maintenance updates, the Workspace no longer generated lower-layer testing requirements for this combination. The consultant therefore recommended proceeding with the combined-QDID registration approach and completed the Submission after customer confirmation.",
-            "decision_logic": "The key decision depended on whether the reused qualified layers formed a valid and internally consistent Core Complete registration inside Qualification Workspace. If the reused RF PHY and LL layers were accepted without generating new lower-layer test plans, the combination could proceed using existing qualification assets instead of requiring additional testing.",
-            "final_recommendation": "Validate alternative QDID layer-combination structures directly inside Qualification Workspace before submission, then proceed with the combination that passes consistency validation and avoids unnecessary lower-layer test generation.",
-            "risk_if_done_wrong": "Using an invalid QDID combination or incorrect layer substitution could trigger unnecessary lower-layer testing requirements, create submission rejection risk, or require qualification rework and delayed product listing.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "reuse",
-                "module",
-                "controller",
-                "RF PHY",
-                "LL",
-                "Qualification Workspace"
-            ],
-            "search_aliases": [
-                "QDID combination",
-                "Component plus Controller Subsystem",
-                "RF PHY replacement",
-                "LL layer replacement",
-                "Core Complete registration",
-                "unexpected lower-layer testing",
-                "Qualification Workspace test generation",
-                "reuse existing QDID",
-                "lower layer test suppression",
-                "QPRD v3 reuse"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0047",
+  "case_id": "thread_0047_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Referencing multiple existing QDIDs with overlapping layer coverage triggers new lower-layer test requirements -- simplification strategy when the overlapping layers' ICS content is actually identical",
+  "customer_question": "We want our new registration to reference two existing QDIDs: a Controller-level QDID and a broader Component QDID (covering RF PHY through SM) from the same chip vendor. Since these two QDIDs overlap in their RF PHY and Link Layer coverage, does this combination require additional testing, and can it be avoided?",
+  "question_variants": [
+    "Why would referencing two existing, already-certified QDIDs together ever trigger new test requirements?",
+    "If two QDIDs' overlapping layers are identical, is there any reason to reference both rather than just the broader one?"
+  ],
+  "actual_issue": "The customer wanted their new registration to reference both a narrower Controller-level QDID and a broader Component-level QDID from the same chip vendor, where the two QDIDs' RF PHY and Link Layer (LL) coverage overlapped -- and discovered that combining them this way, while technically permitted under the post-July-2024 registration system, would trigger new lower-layer protocol test requirements that could not be satisfied using the chip vendor's own existing module-registration test reports.",
+  "plain_english_explanation": "Since July 1, 2024, the registration site allows selecting overlapping/duplicate layers across multiple referenced QDIDs, but doing so causes the system's Test Plan to generate new lower-layer protocol test requirements. This happens because the required test items are governed by the current, latest specification content -- and the chip vendor's own pre-existing test report (created when those QDIDs were originally registered, potentially under older specification content) will be missing some of the now-required newest test items, making it insufficient as evidence. However, in this case, comparing all the layers in question across the narrower Controller QDID, the broader Component QDID, and a third related reference showed that the RF PHY and LL layer ICS content was actually IDENTICAL across all of them. This meant that simply referencing ONLY the broader Component QDID (which already fully covers the same RF PHY and LL content the narrower QDID would have added) produces the exact same resulting ICS, with no additional test requirement at all -- as long as the customer doesn't specifically need to preserve a visible reference trail to the narrower QDID in the registration for some other (non-technical) reason, such as wanting that specific reference to appear in the registration record.",
+  "consultant_answer": "Referencing both QDIDs together, since they overlap in RF PHY and LL coverage, would trigger new lower-layer protocol test requirements under the current system -- and the chip vendor's existing test report from when those QDIDs were originally registered won't have all the now-required latest test items, so it can't be used as evidence. However, we compared the actual ICS content across both QDIDs (and a third related one) and found the RF PHY and LL layers are identical across all of them -- so you can simply reference only the broader Component QDID and get the exact same resulting ICS with no additional testing required, unless you specifically want the narrower QDID's reference to remain visible in the registration for some other reason.",
+  "decision_logic": "When a customer wants to reference multiple existing QDIDs whose layer coverage overlaps, check whether the overlapping layers' actual ICS content is identical across all referenced QDIDs -- if so, recommend referencing only the broadest/most complete QDID to achieve the same resulting registration scope without triggering the new lower-layer test requirements that combining overlapping references would otherwise cause.",
+  "final_recommendation": "Before finalizing a multi-QDID reference structure with overlapping layer coverage, compare the actual ICS content of the overlapping layers across all candidate QDIDs -- if identical, recommend simplifying to a single, broader reference to avoid unnecessary new test requirements and reduce registration support cost, reserving the multi-reference structure only for cases where the customer has a specific non-technical reason to preserve a visible reference trail.",
+  "risk_if_done_wrong": "Referencing multiple overlapping QDIDs without checking for ICS content identity could result in unexpected new lower-layer test requirements that the chip vendor's existing test reports can't satisfy, adding unnecessary cost and delay to a registration that could have been completed without any additional testing.",
+  "bluetooth_tags": [
+    "overlapping QDID layers trigger new test requirements",
+    "post 2024 system evaluates against latest spec not original test report",
+    "simplify to single broader QDID reference avoids testing",
+    "Silex Technology RW610 RW612 NXP"
+  ],
+  "search_aliases": [
+    "referencing two overlapping QDIDs requires new testing",
+    "why does combining existing QDIDs trigger test requirements",
+    "can I reference only one QDID instead of two overlapping ones",
+    "old module test report insufficient for new registration"
+  ],
+  "qualification_stage": "Pre-registration QDID reference structure optimization",
+  "confidence": "high"
 }

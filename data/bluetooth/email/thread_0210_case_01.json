@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0210",
+  "case_id": "thread_0210_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (incorporating End Product Core-Complete module with PCB antenna)",
+  "customer_question": "We are planning a derivative model that uses the same module and antenna as the registered product. What is the registration cost for the derivative model?",
+  "question_variants": [
+    "If we add a similar product with the same Bluetooth module and Host Stack, how much does it cost to register?",
+    "Does a derivative product using the same module require a new SIG registration?",
+    "What is the difference in registration cost between a same-module derivative and a different-Host-Stack variant?"
+  ],
+  "actual_issue": "GUGEN company, after getting a quote for their initial Bluetooth SIG registration (End Product module + PCB antenna, Single Design), asked about the cost for registering a derivative model using the same module and antenna.",
+  "plain_english_explanation": "The answer depends on whether the Host Stack is the same. If the derivative model uses the same Bluetooth module AND the same Host Stack as the originally registered product, it can be added to the existing Product List for free via Manage Submitted Products on the SIG portal — no new registration, no new fee required. However, if the Host Stack is different (even if the module is the same), the derivative must be registered as a completely new product, and the same registration costs as the original apply.",
+  "consultant_answer": "Same module + same Host Stack → free addition to existing Product List via Manage Submitted Products (no new fee). Different Host Stack (even with same module) → new registration required at the same cost as the original: ¥150,000 (Single Design support fee) + ¥100,000 (Compliance Folder) + Qualification Fee ($11,040 USD).",
+  "decision_logic": "The 'free derivative addition' rule applies strictly when both the module (Controller QDID) and the Host Stack (Host QDID) are identical to the original registration. Any change in either component — especially Host Stack — requires a new registration. This rule is embedded in the SIG's 'Manage Submitted Products' feature design.",
+  "final_recommendation": "At the end of every registration project, remind customers of the free derivative addition rule and its limitation (same module AND same Host Stack). Provide the 'derivative product additional registration guide' document at Compliance Folder delivery time.",
+  "risk_if_done_wrong": "Customers who are unaware of the free addition path may unnecessarily pay for new registrations for identical-module derivatives. Customers who assume free addition applies when only the module matches (different Host Stack) may skip a required registration, leaving derivative products uncertified.",
+  "bluetooth_tags": [
+    "derivative product",
+    "Manage Submitted Products",
+    "same module same Host Stack",
+    "free addition",
+    "Product List",
+    "Single Design"
+  ],
+  "search_aliases": [
+    "derivative model same module free registration",
+    "Manage Submitted Products free",
+    "same module different host stack registration",
+    "derivative product Bluetooth SIG",
+    "product list addition free"
+  ],
+  "qualification_stage": "Post-registration / derivative product planning",
+  "confidence": "high"
+}

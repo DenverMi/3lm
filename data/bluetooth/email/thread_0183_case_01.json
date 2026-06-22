@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0183",
+  "case_id": "thread_0183_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alps Alpine HM23 (Qualcomm-based, Android 14 update)",
+  "customer_question": "Removing LE Audio from the Layer Selection triggered an unexpected 86 IOPT test requirements. What caused this and how do we avoid it?",
+  "question_variants": [
+    "Why did removing LE Audio profile cause 86 IOPT test items to appear?",
+    "Deleting LE Audio from layers creates unexpected IOPT test requirements — how to proceed?",
+    "LE Audio removal in Layer Selection causes test plan explosion — what is the correct method?"
+  ],
+  "actual_issue": "The consultant advised removing LE Audio Profile from Layer Selection to work around a BAP consistency check issue. However, this triggered an unexpected 86-item IOPT test requirement, because the system incorrectly generated BR/EDR IOPT tests in response to the LE Audio profile removal.",
+  "plain_english_explanation": "In the SIG registration portal, 'Layer Selection' determines which protocol/profile layers to include in the registration. When LE Audio layers were removed (as a workaround), it unexpectedly caused 86 IOPT test items to appear. IOPT tests are designed for BR/EDR profiles (they verify Service Discovery Protocol), not LE profiles — so the LE Audio removal should not have triggered IOPT. This was an unintended side effect. The correct approach is to NOT remove LE Audio, but instead apply TCW ES-25802 (Test Coverage Waiver for BAP) to resolve the consistency check issue and proceed with 'Combine unmodified Designs'.",
+  "consultant_answer": "The initial advice to remove LE Audio from Layer Selection caused an unexpected IOPT test explosion (86 items). This is likely because the test plan system mistakenly responded to the LE Audio removal by generating BR/EDR IOPT requirements. The correct resolution: do not remove LE Audio. Instead, use TCW number ES-25802 (applicable to BAP) at the 'Apply TCW' step after running Consistency Check with 'Combine unmodified Designs'. This resolves the BAP-related inconsistency and allows proceeding to Submission without the IOPT test explosion.",
+  "decision_logic": "When a Consistency Check failure involves BAP (Bluetooth Audio Profile), TCW ES-25802 is the approved SIG waiver that resolves it. Removing LE Audio layers to avoid the check is an incorrect workaround that creates worse side effects. The correct approach is to use the designated TCW, which SIG has pre-approved for this known inconsistency.",
+  "final_recommendation": "Do not remove LE Audio layers to fix BAP consistency check failures. Instead: (1) Include QDID/DN with 'Combine unmodified Designs', (2) Run Consistency Check, (3) At the 'Apply TCW' prompt, enter TCW ES-25802, (4) Save and proceed to Submission. SIG will review the TCW and approve in 2-3 business days.",
+  "risk_if_done_wrong": "Removing LE Audio layers triggers unexpected IOPT test requirements (86 items in this case), blocking submission and requiring additional testing that should not be needed.",
+  "bluetooth_tags": [
+    "LE Audio",
+    "Layer Selection",
+    "IOPT",
+    "BAP",
+    "TCW",
+    "ES-25802",
+    "Consistency Check",
+    "Combine unmodified Designs"
+  ],
+  "search_aliases": [
+    "LE Audio removal IOPT test",
+    "BAP consistency check TCW",
+    "ES-25802 BAP waiver",
+    "Layer Selection LE Audio workaround",
+    "86 IOPT items after removing LE Audio"
+  ],
+  "qualification_stage": "Registration / Layer Selection",
+  "confidence": "high"
+}

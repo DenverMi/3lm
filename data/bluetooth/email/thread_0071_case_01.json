@@ -1,47 +1,25 @@
 {
-    "source_thread": "thread_0071",
-    "cases": [
-        {
-            "case_id": "thread_0071_case_01",
-            "iut_type": "",
-            "customer_question": "Why do MAP, PBAP, and SPP IOPT tests fail or return inconclusive results when the customer has passing PTS reports for the same profiles?",
-            "question_variants": [
-                "IOPT fails but customer PTS report passes",
-                "MAP PBAP SPP interoperability test mismatch",
-                "Are the failures caused by DUT behavior or ICS settings?",
-                "How should PTS profile failures be investigated when customer evidence shows PASS?",
-                "Can incorrect ICS configuration cause IOPT failures?"
-            ],
-            "actual_issue": "The initial IOPT failures were investigated as potential DUT defects, but later evidence showed the test environment used an ICS configuration that differed from the configuration used in the customer's passing reports. The root issue was test setup inconsistency rather than a confirmed Bluetooth implementation defect.",
-            "plain_english_explanation": "The device initially appeared to fail several Bluetooth profile tests. However, the customer provided reports showing the same tests passing. Comparing the configurations revealed that the test settings used by the test lab did not match the settings used in the customer's successful tests, so the failures had to be re-evaluated before blaming the device.",
-            "consultant_answer": "When customer-provided PTS reports show successful execution, the first step is to compare the complete ICS configuration used by both parties. The exported ICS generated from the reference project matched the customer's reports, while the failing lab execution used substantially different ICS settings. Re-testing with the customer-aligned ICS caused MAP and PBAP results to pass, demonstrating that configuration verification must occur before concluding that firmware defects exist.",
-            "decision_logic": "A valid root-cause analysis requires reproducing the same ICS configuration used in known-good test evidence. If the ICS differs, test outcomes are not directly comparable and DUT fault attribution is premature.",
-            "final_recommendation": "Verify and align the ICS used in PTS with the customer's validated configuration, rerun testing, and only investigate DUT firmware after configuration mismatches have been eliminated.",
-            "risk_if_done_wrong": "The device may be incorrectly blamed for failures, causing unnecessary firmware debugging, customer escalation, repeated testing, and qualification delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "PTS",
-                "ICS",
-                "IOPT",
-                "MAP",
-                "PBAP",
-                "SPP"
-            ],
-            "search_aliases": [
-                "ICS mismatch",
-                "PTS configuration mismatch",
-                "IOPT fail but customer pass",
-                "MAP PBAP SPP failure",
-                "export ICS verification",
-                "PTS report comparison",
-                "profile interoperability failure",
-                "customer pass report",
-                "ICS alignment",
-                "retest with correct ICS"
-            ],
-            "qualification_stage": "test failure",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0071",
+  "case_id": "thread_0071_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Four of our IOPT test items (in MAP, PBAP, and SPP) came back Fail or Inconclusive, but we have our own Pass report for the same items using what looks like the same product. Why the discrepancy, and what should we do about it?",
+  "question_variants": [
+    "Why did our product fail IOPT testing at your lab when we have a Pass report for the same items?",
+    "Could a difference in ICS configuration explain why our profile tests aren't passing at your lab?",
+    "After fixing the ICS, why does SPP still not pass even though MAP and PBAP now do?",
+    "Could our DUT need some pre-test cleanup step, or is this a firmware version difference?",
+    "Can we just use our own PTS report as the certification evidence if the cause can't be found?"
+  ],
+  "actual_issue": "Four IOPT (interoperability) test items in the MAP, PBAP, and SPP profiles returned Fail or Inconclusive at the lab, while the customer's own testing of the same product produced a Pass report for those items, raising the question of whether the discrepancy was a genuine interoperability defect or a difference in test configuration between the two test environments.",
+  "plain_english_explanation": "When a product fails an interoperability test at the certification lab but passes the same test in the customer's own hands, it doesn't always mean the product itself is broken -- it can mean the two test setups weren't actually configured the same way. Here, the lab was testing against a checklist of supported features (the ICS) that didn't match what the product was actually registered to support, and once that was corrected, two of the three failing profiles started passing. One profile still wouldn't pass even after the checklist was fixed, which pointed toward either a leftover device-pairing record interfering with the test, or the customer's working unit running different firmware than the one sent to the lab.",
+  "consultant_answer": "The lab reported four non-pass IOPT items (in MAP, PBAP, and SPP) and asked the customer to analyze the product's SDP record content and determine whether the cause could be addressed via PTS IXIT settings or required a firmware fix. The customer instead returned their own Pass report for the same four items, which on review used a different ICS configuration than the lab's test -- the lab's test ICS differed substantially from both the customer's report's ICS and the product's actual registered Host Subsystem ICS. Initially it appeared the customer's report showed a Pass without any ICS modification at all, suggesting the original non-pass might stem from some other lab-side execution mistake rather than ICS; but proceeding to import and verify the ICS (cross-checked against the registered Host Subsystem's View ICS page on the SIG site, via a temporary Project that Included that Host Subsystem) showed this generated ICS matched the customer's report. Retesting MAP and PBAP with this corrected, verified ICS produced a Pass, confirming the ICS mismatch was the actual cause for those two profiles. SPP, however, continued to return Inconclusive or Fail even with the same verified-matching ICS. Two candidate explanations were proposed to the customer: (1) that some pre-test operation might be needed on the DUT, such as removing PTS from the DUT's list of previously connected/paired devices before starting the SPP test, and (2) that the DUT firmware used to produce the customer's SPP Pass report might differ from (have been updated relative to) the firmware on the unit tested at the lab. If the root cause for the SPP discrepancy cannot be determined, the proposed fallback is to accept the customer's own SPP PTS report as the registration evidence, treat it as the test log, and issue the lab's own report based on it.",
+  "decision_logic": "When a customer disputes a non-pass interoperability result with their own Pass report for the same items, first verify whether the ICS configuration used in the lab's test actually matches the product's registered ICS (checked via the SIG site's View ICS page or a temporary Project Including the referenced Host Subsystem) and the ICS reflected in the customer's report -- a mismatch is a sufficient and common explanation for divergent profile test outcomes and should be corrected and retested before requesting any firmware change from the customer. If, after confirming the ICS matches, an item still does not reproduce a Pass, the next candidates are environmental/procedural test-execution differences (such as a stale paired-device entry) or an undisclosed firmware difference between the unit that produced the customer's Pass result and the unit tested at the lab; if these cannot be resolved, accepting the customer-supplied PTS report as registration evidence is a reasonable practical fallback rather than blocking registration indefinitely.",
+  "final_recommendation": "Before requesting a firmware fix for a profile interoperability non-pass, confirm the test was run against the product's actual registered ICS by cross-checking against the SIG site's View ICS page or a temporary Project Including the referenced Host Subsystem; correct and retest if mismatched. For any item that still does not pass after the ICS is confirmed correct, ask the customer whether a pre-test device-list cleanup step is needed and whether the firmware on their Pass-producing unit differs from the unit sent to the lab; if unresolved, propose using the customer's own PTS report as the registration evidence.",
+  "risk_if_done_wrong": "Requesting a firmware fix based on a non-pass result actually caused by an ICS mismatch wastes the customer's engineering effort and risks an unwarranted dispute over product quality. Continuing to retest with an unverified or improperly re-imported ICS risks repeating the same false non-pass result without resolving the underlying configuration gap.",
+  "bluetooth_tags": ["IOPT", "PTS", "ICS", "MAP", "PBAP", "SPP", "Host Subsystem", "interoperability", "test failure"],
+  "search_aliases": ["IOPT test ICS mismatch", "customer Pass report different ICS", "View ICS page SIG site verification", "SPP still fails after ICS matched", "PTS paired device list cleanup before test", "DUT firmware version difference Pass report", "use customer PTS report as registration evidence"],
+  "qualification_stage": "test failure",
+  "confidence": "high"
 }

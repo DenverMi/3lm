@@ -1,48 +1,24 @@
 {
-    "source_thread": "thread_0069",
-    "cases": [
-        {
-            "case_id": "thread_0069_case_01",
-            "iut_type": "",
-            "customer_question": "How should a Bluetooth RF correlation test be performed between a company's internal RF test environment and a Bluetooth qualification laboratory, and what deliverables are needed beyond a standard qualification report?",
-            "question_variants": [
-                "How do we perform Bluetooth RF correlation testing with a BQTF?",
-                "Can the lab provide RF measurement data instead of only PASS/FAIL results?",
-                "What outputs are needed for Bluetooth RF test system correlation?",
-                "Can the same reference sample be used by both parties for RF comparison testing?",
-                "How should Bluetooth RF PHY correlation results be compared between organizations?"
-            ],
-            "actual_issue": "The customer needs to validate correlation between two Bluetooth RF test environments and requires detailed measurement evidence, not just qualification verdicts.",
-            "plain_english_explanation": "A standard Bluetooth qualification report mainly shows whether test cases passed or failed. For correlation testing, the goal is to compare how two different test systems measure the same Bluetooth device. That requires detailed RF measurement logs and use of the same reference sample so differences between test environments can be evaluated.",
-            "consultant_answer": "The correlation process should be performed using the same reference sample in both environments. The laboratory executes RF/RF PHY testing on the reference sample and provides the normal report together with RF test-system logs containing measured values. The reference sample can then be used by the requesting party for comparison testing. Prior experience indicated that providing RF logs in addition to the report was sufficient to support correlation analysis.",
-            "decision_logic": "Correlation testing evaluates agreement between test systems, not merely qualification compliance. Therefore measured RF data from a common test sample is required. PASS/FAIL results alone do not provide enough information to compare measurement behavior across environments.",
-            "final_recommendation": "Use a common reference sample, run RF/RF PHY testing in both environments, collect RF test-system logs with measured values, and compare the resulting measurements rather than relying solely on qualification verdicts.",
-            "risk_if_done_wrong": "If only qualification reports are exchanged, the parties may be unable to determine whether observed differences originate from the product or from the test environments. This can lead to incorrect conclusions about RF performance and additional troubleshooting effort.",
-            "bluetooth_tags": [
-                "RF",
-                "RF PHY",
-                "qualification",
-                "correlation testing",
-                "test report",
-                "test logs",
-                "reference sample",
-                "LE"
-            ],
-            "search_aliases": [
-                "RF correlation test",
-                "RF PHY correlation",
-                "Bluetooth test system correlation",
-                "reference sample correlation",
-                "RF log comparison",
-                "PASS FAIL not sufficient",
-                "measured value comparison",
-                "inter-lab correlation",
-                "RF test report plus logs",
-                "Bluetooth RF environment comparison"
-            ],
-            "qualification_stage": "testing",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0069",
+  "case_id": "thread_0069_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "Ahead of our Bluetooth Logo certification testing, we want to confirm our own RF tester (CMW270) correlates correctly with your InterLab RF Test System. Can this be planned using the QUESTIONNAIRES we already submitted for our certification product, and what would we receive from this exercise?",
+  "question_variants": [
+    "Can we validate our own tester against your certification lab's system before doing the real Logo test?",
+    "Do you need different setup information for a tester-correlation exercise than for our actual product's certification test?",
+    "What do we get back from a tester-correlation test using your reference sample?",
+    "Does choosing the correlation-test approach mean we don't need to send you a test sample of our own product?"
+  ],
+  "actual_issue": "The customer wanted to validate their own RF tester against the certification lab's InterLab RF Test System ahead of Bluetooth Logo certification testing, using an Allion-owned reference sample rather than their actual product, and it needed to be clarified that this required separate setup information and produced separate deliverables from the customer's actual Logo-certification test.",
+  "plain_english_explanation": "Before running the real certification test, the customer wanted extra confidence that their own RF test equipment gives the same results as the certification lab's official system. To do that, they don't test their own product yet -- instead, the lab runs (and later lends out) a standard reference sample that both testers can measure, so the readings can be compared directly. This is a separate, smaller exercise from the actual product certification, with its own setup requirements and its own paperwork.",
+  "consultant_answer": "The customer-provided QUESTIONNAIRES describes the Logo-certification target product and cannot be used to plan this exercise, since the object under test here is instead an Allion-owned reference sample (used to confirm Allion's own RF Test System) that will be lent to the customer. To build the Test Plan and QUESTIONNAIRES for the reference sample, the following information about it is needed: (1) applied voltage, (2) test command type (HCI or 2-Wire), (3) the interface to the RF tester (UART/USB/RS-232), and (4) the model number. The agreed approach was to run the RF PHY test on Allion's own reference sample first (limited to the 1Mbps test), report the results, and then lend that same sample to the customer. The customer subsequently chose to use the Allion reference board for a paid correlation test (quoted at ¥400,000) between Allion's InterLab system and their own CMW270 tester, which meant the customer did not need to separately provide a test sample of their own product for this exercise. The deliverables for the reference-sample exercise are: (1) the test logs, (2) a test report, and (3) a description document covering the InterLab RF Test System's equipment configuration and functionality, compiled as a PDF from the in-house InterLab manual for customer delivery.",
+  "decision_logic": "A tester-correlation exercise using a lab-owned reference sample is planned and scoped independently of the certification target product's own QUESTIONNAIRES and Test Plan, since the object under test, its setup parameters, and its deliverables (logs, report, system description) are all specific to the reference sample and the correlation purpose, not to the customer's actual product.",
+  "final_recommendation": "Treat a tester-correlation request as a distinct exercise: collect the reference sample's own setup information (applied voltage, command type, tester interface, model number) to build its Test Plan, run the RF PHY test on the reference sample first and report results, then lend the sample to the customer together with the test logs, report, and an InterLab RF Test System description document; do not require the customer to separately supply a test sample of their own product for this exercise.",
+  "risk_if_done_wrong": "Attempting to plan the reference-sample correlation exercise using the certification target product's QUESTIONNAIRES would be missing the actual setup parameters needed (voltage, command type, interface, model number) and could delay or misconfigure the Test Plan.",
+  "bluetooth_tags": ["Logo certification", "RF Test System", "tester correlation", "reference sample", "Test Plan", "RF PHY"],
+  "search_aliases": ["customer tester correlation test InterLab", "reference sample lent to customer", "InterLab RF Test System description document", "CMW270 correlation test Allion reference board"],
+  "qualification_stage": "pre-test review",
+  "confidence": "high"
 }

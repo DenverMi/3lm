@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0182",
+  "case_id": "thread_0182_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Pyke Crystal Bluetooth product (Fanstel module)",
+  "customer_question": "We received the interim Compliance Folder CD-R with TBD placeholder files. When our real documents are ready, how do we replace the placeholder files with the final documents?",
+  "question_variants": [
+    "How do we update the interim Compliance Folder CD-R with real documents?",
+    "The CD-R placeholder files need to be replaced — what is the process?",
+    "Can the customer overwrite files on the interim Compliance Folder CD-R?"
+  ],
+  "actual_issue": "Allion delivered an interim Compliance Folder CD-R with TBD placeholder PDF files because the customer's actual documents (operation manual, block diagram, outline drawing, antenna datasheet) were not yet ready. The customer needs to know how to replace the placeholder files with the final documents when they are ready.",
+  "plain_english_explanation": "The interim Compliance Folder CD-R is formatted in Windows standard 'appendable format' (追加可能形式) — this means the CD-R is not yet finalized and additional data can be written to it. To replace a placeholder file with the real document: (1) Convert the final document to PDF format. (2) Use a Windows 10/11 PC with a CD/DVD drive. (3) Navigate to the 'Data' directory on the CD-R. (4) Overwrite each TBD placeholder file with the corresponding final PDF, using the exact same filename as listed. (5) After replacing all placeholder files with real files, perform the 'finalization' (ファイナライズ処理) on the CD-R. Finalization permanently seals the disc and completes the Compliance Folder.",
+  "consultant_answer": "The CD-R uses Windows appendable (non-finalized) format. When real documents are ready: (1) Convert to PDF. (2) On a Win10/11 PC with CD/DVD drive, overwrite each TBD file in the 'Data' directory using these filenames: (1) 1-2_Operation_Manual.pdf, (2) 1-3_Blockdiagram.pdf, (3) 1-4_Outline_Drawing.pdf, (4) 1-5_Antenna_Datasheet.pdf. (3) Finalize the CD-R after all placeholders are replaced. The finalized CD-R becomes the official Compliance Folder.",
+  "decision_logic": "Appendable CD-R format is specifically chosen to enable post-delivery overwrite of placeholder files. Only Windows 10/11 with a CD/DVD drive supports this process. Finalization is mandatory after overwriting — an unfinalized CD-R is not a completed Compliance Folder.",
+  "final_recommendation": "Always format interim Compliance Folder CD-Rs in Windows appendable format (not finalized) when delivering before all documents are available. Include the exact target filenames in the delivery communication so the customer knows what to name their final PDFs when overwriting.",
+  "risk_if_done_wrong": "If the customer finalizes the CD-R before replacing all placeholder files, the TBD files become permanent and the CD-R cannot be updated. If the filenames used for overwrite do not match the original filenames exactly, the overwrite may not replace the placeholder correctly.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "CD-R",
+    "appendable format",
+    "placeholder files",
+    "finalization",
+    "QPRDv3",
+    "document delivery"
+  ],
+  "search_aliases": [
+    "compliance folder CD-R overwrite placeholder",
+    "interim CD-R update real documents",
+    "appendable CD-R compliance folder finalization",
+    "how to replace TBD files compliance folder CD-R",
+    "CD-R finalize compliance folder"
+  ],
+  "qualification_stage": "Post-registration / Compliance Documentation",
+  "confidence": "high"
+}

@@ -1,48 +1,32 @@
 {
-    "source_thread": "thread_0015",
-    "cases": [
-        {
-            "case_id": "thread_0015_case_01",
-            "iut_type": "wireless networking device",
-            "customer_question": "Can a Bluetooth product still be qualified when the selected QDID combination produces Consistency Check / IDL errors that require unsupported ICS modifications from the chip vendor?",
-            "question_variants": [
-                "Can qualification proceed with Consistency Check errors?",
-                "What happens if IDL errors remain in a QDID combination?",
-                "Can PRD2.3 QDIDs still be used despite ICS inconsistencies?",
-                "Can we qualify a product if the IC vendor no longer supports ICS updates?",
-                "Are unresolved inter-layer dependency errors always fatal?"
-            ],
-            "actual_issue": "Determining whether a Bluetooth SIG qualification can proceed when a reused QDID combination triggers inter-layer dependency (IDL) consistency check errors and the original silicon vendor no longer supports ICS corrections.",
-            "plain_english_explanation": "Bluetooth qualification tools check whether all Bluetooth layers and features are logically compatible. Sometimes older QDID combinations produce consistency check errors because the feature definitions no longer align with newer qualification rules. In some limited cases, older PRD2.3-based registrations can still be reused if specific qualification conditions are met.",
-            "consultant_answer": "The consultant confirmed that the referenced QDID combination generated multiple GAP and LL inter-layer dependency inconsistencies during the Consistency Check. The consultant explained that another certification body had identified the need for ICS modifications from the IC vendor, but the vendor no longer supported the old device. Despite the remaining IDL errors, the consultant stated that the customer's requested registration could still proceed because the reused PRD2.3 QDID combination satisfied specific conditions allowing new registration even with unresolved Consistency Check errors.",
-            "decision_logic": "Not all IDL or Consistency Check errors automatically block qualification. Certain legacy PRD2.3 QDID reuse scenarios may remain acceptable if the qualification conditions permit reuse without requiring unsupported ICS modifications.",
-            "final_recommendation": "Evaluate whether the QDID reuse scenario qualifies under legacy PRD2.3 reuse conditions before attempting ICS modification work. If the chip vendor no longer supports the platform, confirm whether the remaining IDL errors are acceptable under the applicable qualification path.",
-            "risk_if_done_wrong": "Assuming all IDL errors are fatal may cause unnecessary redesign work or migration to newer silicon. Conversely, ignoring non-permitted IDL inconsistencies could lead to rejected qualification submissions.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "ICS",
-                "IDL",
-                "consistency check",
-                "PRD2.3",
-                "reuse",
-                "Link Layer"
-            ],
-            "search_aliases": [
-                "Consistency Check error",
-                "IDL inconsistency",
-                "ICS modification required",
-                "legacy QDID reuse",
-                "PRD2.3 reuse",
-                "unsupported silicon vendor",
-                "inter-layer dependency error",
-                "QDID combination issue",
-                "ICS inconsistency",
-                "qualification despite IDL"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "medium",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0015",
+  "case_id": "thread_0015_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Allied Telesis GEN2 device), QDID combination disputed by another certification body",
+  "customer_question": "Another certification body we consulted said the QDID combination you previously suggested for Bluetooth 5.1 is 'not certifiable,' citing a Consistency Check Error that would require the IC vendor (Silicon Labs) to change their ICS, and that Silicon Labs no longer supports older devices for such changes. Can you re-confirm whether this combination is actually certifiable?",
+  "question_variants": [
+    "Is the other certification body's 'cannot certify' assessment correct?",
+    "Does a remaining Consistency Check Error always block new registration?"
+  ],
+  "actual_issue": "The customer received a conflicting assessment from a different certification body claiming the previously-recommended QDID combination could not be certified due to an unresolvable Consistency Check Error, creating uncertainty about whether to trust Allion's original recommendation or pursue an alternative path.",
+  "plain_english_explanation": "Checking the specific QDID combination confirmed it does produce several genuine cross-layer inconsistencies (GAP/LL Mandatory-item conflicts) — so the other certification body's observation that an inconsistency exists was technically accurate. However, the conclusion that this inconsistency makes the combination entirely 'not certifiable' was not correct: since the registration references a QDID registered under an earlier certification rule set (PRD2.3), the specific request still satisfies particular conditions that allow new registration to proceed even with that inherited inconsistency present in the ICS. In other words, an inconsistency originating from an older, differently-ruled reference registration doesn't automatically disqualify a new registration from being possible — its registrability depends on the specific conditions involved, not simply on whether any inconsistency exists at all.",
+  "consultant_answer": "We checked this combination and confirmed it does produce several genuine cross-layer inconsistencies (GAP/LL Mandatory-item conflicts), so the other certification body was right that an inconsistency exists. But their conclusion that this makes the combination entirely uncertifiable isn't correct: since this registration references a QDID registered under the earlier PRD2.3 rule set, your specific request still satisfies the particular conditions that allow new registration to proceed despite that inherited inconsistency. We can't share full details since you've consulted another body in parallel, but rest assured this combination remains certifiable.",
+  "decision_logic": "The mere existence of a cross-layer Consistency Check inconsistency does not automatically disqualify a registration from proceeding — registrability depends on the specific conditions involved (such as whether the inconsistency originates from an older, differently-ruled reference registration), which requires checking the actual registration mechanics rather than applying a blanket 'any error means no certification' rule.",
+  "final_recommendation": "When a customer relays a conflicting 'not certifiable' assessment from another certification body, independently re-verify the specific technical claim (does the inconsistency exist) separately from the broader conclusion (does it block certification), since the two don't necessarily follow from each other.",
+  "risk_if_done_wrong": "Accepting another certification body's blanket 'not certifiable' conclusion without independently verifying the specific registrability conditions could cause the customer to abandon a viable, already-recommended registration path unnecessarily.",
+  "bluetooth_tags": [
+    "conflicting certification body assessment",
+    "Consistency Check Error does not always block registration",
+    "PRD2.3 registered QDID inherited inconsistency conditions",
+    "Allied Telesis",
+    "Silicon Labs"
+  ],
+  "search_aliases": [
+    "does Consistency Check Error always block registration",
+    "another certification body said not certifiable",
+    "PRD2.3 QDID inherited inconsistency still registerable"
+  ],
+  "qualification_stage": "Pre-registration feasibility dispute resolution",
+  "confidence": "high"
 }

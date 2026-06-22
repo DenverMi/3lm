@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0183",
+  "case_id": "thread_0183_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Alps Alpine HM23 (Qualcomm-based, Android 14 update)",
+  "customer_question": "After resolving the Power Class issue, there are now AoA/AoD-related ICS inconsistencies between LL and RF PHY. How do we resolve these?",
+  "question_variants": [
+    "AoA/AoD LL ICS items conflict with RF PHY ICS — how to fix?",
+    "LL has AoA/AoD entries but RF PHY ICS does not support them — what do we do?",
+    "How to request Qualcomm to remove AoA/AoD from LL ICS in a Subset DN?"
+  ],
+  "actual_issue": "After Qualcomm created a Subset DN removing Power Class 1, a new set of 5 AoA/AoD-related ICS inconsistencies appeared between LL and RF PHY. The LL entries for AoA/AoD (LL 9/17, 9/20, 9/21, 9/23, 9/24) are set to YES, but the RF PHY ICS does not declare the corresponding features (RF PHY 1/11, 1/12, 1/13, 1/14).",
+  "plain_english_explanation": "AoA (Angle of Arrival) and AoD (Angle of Departure) are Bluetooth direction-finding features. They require matching ICS entries in both the LL and RF PHY layers. If the product's RF PHY test report does not cover AoA/AoD (because the product doesn't support them), but the Qualcomm LL Subset DN still declares AoA/AoD support, the Consistency Check will flag inconsistencies. The fix: request Qualcomm to create a new Subset DN from the previously created Subset DN, further removing AoA/AoD entries from LL (setting LL 9/17, 9/20, 9/21, 9/23, 9/24 to NO).",
+  "consultant_answer": "Request Qualcomm to create a further Subset DN (derived from the Power Class-corrected Subset DN) that also removes AoA/AoD LL entries: set LL 9/17:NO, 9/20:NO, 9/21:NO, 9/23:NO, 9/24:NO. Once Qualcomm provides this Subset DN, verify it in the Qualification Workspace, then use it for the product registration. The combined Subset DN (removing both Power Class 1 and AoA/AoD) resolves all RF PHY-LL ICS inconsistencies.",
+  "decision_logic": "Each ICS inconsistency between LL and RF PHY must be resolved at the QDID level via Subset DN. The product registrant cannot modify QDID ICS directly. Two separate Subset DN operations may be needed: first Power Class, then AoA/AoD. Alternatively, request both changes in a single Subset DN from Qualcomm.",
+  "final_recommendation": "Request Qualcomm to create a single Subset DN that removes both Power Class 1 (LL 9/11:NO) and AoA/AoD entries (LL 9/17:NO, 9/20:NO, 9/21:NO, 9/23:NO, 9/24:NO) in one step. Verify in Qualification Workspace before proceeding to actual registration.",
+  "risk_if_done_wrong": "Each remaining AoA/AoD inconsistency will block the Consistency Check. If not all inconsistencies are resolved before Submission, the SIG portal will not allow proceeding to the final Submission step.",
+  "bluetooth_tags": [
+    "AoA",
+    "AoD",
+    "LL ICS",
+    "RF PHY ICS",
+    "Subset DN",
+    "Qualcomm",
+    "Consistency Check",
+    "direction finding"
+  ],
+  "search_aliases": [
+    "AoA AoD LL ICS inconsistency",
+    "LL 9/17 9/20 9/21 9/23 9/24 NO",
+    "direction finding ICS mismatch",
+    "Qualcomm AoA AoD Subset DN",
+    "RF PHY AoA ICS conflict"
+  ],
+  "qualification_stage": "Registration / ICS Consistency",
+  "confidence": "high"
+}

@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0099",
-    "cases": [
-        {
-            "case_id": "thread_0099_case_03",
-            "iut_type": "end product",
-            "customer_question": "Should this product be qualified as a Single Design or Multi-Design reference registration?",
-            "question_variants": [
-                "Is the registration Single Design or Multi-Design?",
-                "Why did the qualification quotation change?",
-                "Does the referenced design require Multi-Design registration?",
-                "Can a registration classification change after review?",
-                "How should the design type be determined in the new SIG system?"
-            ],
-            "actual_issue": "Correctly classifying the qualification design type when Bluetooth SIG registration-system behavior affects qualification architecture interpretation.",
-            "plain_english_explanation": "The qualification was initially expected to use one registration approach, but later review showed that a different design classification was required. The change occurred after the new SIG registration platform behavior became clearer. Correct classification affected the qualification approach and quotation.",
-            "consultant_answer": "The registration was initially assessed as Single Design because of behavior observed in the newly deployed SIG registration system. After the platform issue was resolved, the referenced architecture was re-evaluated and determined to require Multi-Design reference registration. The quotation and registration plan were updated to reflect the correct qualification path before execution.",
-            "decision_logic": "Qualification design classification must match the actual referenced architecture recognized by the current SIG qualification system. When platform behavior or interpretation changes, the qualification path must be corrected before registration proceeds.",
-            "final_recommendation": "Verify the final design classification against the current SIG registration platform before committing to pricing, qualification scope, or registration execution.",
-            "risk_if_done_wrong": "An incorrect qualification path could result in registration rework, qualification delays, incorrect quotations, or submission corrections before approval.",
-            "bluetooth_tags": [
-                "qualification",
-                "design change",
-                "Multi-Design",
-                "Single Design",
-                "listing",
-                "declaration"
-            ],
-            "search_aliases": [
-                "single design vs multi design",
-                "reference registration type",
-                "qualification classification",
-                "design type correction",
-                "multi design reference",
-                "registration architecture",
-                "qualification path selection",
-                "SIG portal behavior"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0099",
+  "case_id": "thread_0099_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "sensor",
+  "customer_question": "Do we need separate compliance folder documents (manual, block diagram, outline drawing) for every model, or can they be shared? And how detailed does the block diagram actually need to be?",
+  "question_variants": [
+    "If we register multiple models at once, do we need documents for each?",
+    "Can we use one generic block diagram for similar devices instead of a model-specific one?",
+    "How much detail is expected in the block diagram?"
+  ],
+  "actual_issue": "The customer needed to know whether compliance folder documents were required per individual model or could be shared across models, and how much technical detail the product block diagram specifically needed to contain, since it was unclear whether a generic diagram for similar-purpose devices would be acceptable.",
+  "plain_english_explanation": "Whether you need separate paperwork for each product model depends on how many models you actually listed when you first registered. If you only listed one representative model up front, you only need documents for that one model. If you listed several models at once, you'll need documents covering each of them. And for the block diagram specifically, it doesn't need to be a precise, detailed engineering schematic -- a general-purpose diagram showing roughly how the device works is good enough, similar to what you'd see published online for a comparable product.",
+  "consultant_answer": "If only one representative model is listed in the initial registration's Product List, the compliance folder only needs that one model's documents. If multiple models are listed in the initial registration, documents are needed for each of those models. As for the block diagram's level of detail, a sample block diagram for a publicly-available USB Bluetooth Audio Receiver product was provided as a reference, illustrating that a general, representative-level diagram is sufficient rather than a precise, model-specific engineering schematic.",
+  "decision_logic": "Compliance folder documentation scope is determined by how many models are listed in the initial registration's Product List -- one representative model requires only that model's documents, while multiple models listed at initial registration each require their own documents. Block diagrams are accepted at a generic, representative level of detail, illustrated by reference to a comparable publicly-available product's diagram, rather than requiring a precise, model-specific engineering schematic.",
+  "final_recommendation": "Clarify with the customer how many models will be listed in the initial registration to determine compliance folder document scope, and provide a reference example (such as a comparable public product's block diagram) to set expectations that a generic, representative-level diagram is acceptable rather than a detailed engineering schematic.",
+  "risk_if_done_wrong": "Assuming one set of documents covers every model in a multi-model initial registration, or insisting on an overly detailed block diagram, could result in either an incomplete compliance folder or unnecessary extra documentation work.",
+  "bluetooth_tags": ["compliance folder", "block diagram", "multi-model registration", "outline drawing"],
+  "search_aliases": ["compliance folder documents per model or shared", "block diagram level of detail generic acceptable", "multiple models initial registration documentation scope", "representative block diagram sample reference"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

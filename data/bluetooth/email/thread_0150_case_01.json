@@ -1,7 +1,8 @@
 {
   "source_thread": "thread_0150",
   "case_id": "thread_0150_case_01",
-  "source_type": "internal_consulting",
+  "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — A2DP / AVRCP / IOPT profiles",
   "customer_question": "What are the prerequisites that must be confirmed before we can prepare a quote for an A2DP/AVRCP/IOPT profile certification project?",
   "question_variants": [
@@ -15,8 +16,23 @@
   "decision_logic": "A2DP and AVRCP rely on AVDTP (Audio/Video Distribution Transport Protocol), AVCTP (Audio/Video Control Transport Protocol), and GADTP (Generic Audio Data Transport Protocol) as foundational layers. If the Host Stack QDID does not include these, additional qualification work is required before the profile test can begin.",
   "final_recommendation": "Always confirm the four prerequisites above before issuing a profile test quote. Request the customer's Host Stack QDID number and confirm the ICS via the SIG Qualification Workspace before committing to scope and price.",
   "risk_if_done_wrong": "If the Host Stack is missing AVCTP/AVDTP/GADTP, the profile test cannot be conducted and a new Host Stack qualification is needed first — significantly increasing cost and timeline beyond the original quote.",
-  "bluetooth_tags": ["A2DP", "AVRCP", "IOPT", "AVCTP", "AVDTP", "GADTP", "Host Stack", "prerequisites", "quoting"],
-  "search_aliases": ["A2DP prerequisites QDID", "Host Stack AVCTP AVDTP required", "AVRCP profile test requirements", "A2DP quoting prerequisites"],
-  "qualification_stage": "Quoting / Pre-project Scoping",
+  "bluetooth_tags": [
+    "A2DP",
+    "AVRCP",
+    "IOPT",
+    "AVCTP",
+    "AVDTP",
+    "GADTP",
+    "Host Stack",
+    "prerequisites",
+    "quoting"
+  ],
+  "search_aliases": [
+    "A2DP prerequisites QDID",
+    "Host Stack AVCTP AVDTP required",
+    "AVRCP profile test requirements",
+    "A2DP quoting prerequisites"
+  ],
+  "qualification_stage": "planning",
   "confidence": "high"
 }

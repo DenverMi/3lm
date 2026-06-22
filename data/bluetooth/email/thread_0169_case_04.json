@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0169",
+  "case_id": "thread_0169_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Embedded Linux device, i.MX8MP SoC with modified AOSP Fluoride Bluetooth Host Stack (NECPF/NEC Platform)",
+  "customer_question": "After learning we need a new Host Stack qualification, the customer asked: is it not possible to perform the BT Host Stack certification testing domestically (in Japan), rather than at the Taiwan lab?",
+  "question_variants": [
+    "Can the Host Stack PTS testing be done at a Japan lab instead of Taiwan?",
+    "Is there a domestic (Japan) option for Host Stack qualification testing instead of using the Taiwan BQTF lab?",
+    "Why does our Host Stack qualification have to go through the Taiwan lab specifically?"
+  ],
+  "actual_issue": "After NECPF discovered (via inquiry to NXP) that their implemented BT Host Stack was not identical to Google's qualified Host Stack, and therefore required a brand-new Host Stack qualification, NECPF asked whether this Host Stack qualification testing could be done at a lab in Japan instead of the Taiwan lab that the consultant had proposed routing the work to.",
+  "plain_english_explanation": "The customer wanted to avoid using an overseas (Taiwan) lab for the newly-required Host Stack protocol testing and asked if a Japan-based lab could do it instead. The thread shows the consultant proceeding with the Taiwan lab plan (requesting a formal quote from Allion Taiwan for the Open Source/fluoride stack PTS testing) without a recorded explicit answer to the domestic-lab question in the visible correspondence — the practical resolution was that Taiwan handled the protocol-level Host Stack testing while Japan handled profile-level testing and registration support.",
+  "consultant_answer": "The thread does not contain an explicit, direct answer to this specific question from the consultant. The practical path the consultant proceeded with was to route the Host Stack protocol PTS testing (L2CAP, GAP, SDP, GATT, ATT, SM, SMP, SPP) to the Taiwan lab (Allion Taiwan), while profile-level testing and registration support work were handled by the Japan side. This implies the Taiwan lab was used for protocol testing because that is where this BQTF capability/cost structure was already established for this engagement, not because domestic testing was categorically impossible.",
+  "decision_logic": "Lab selection for BQTF protocol testing is typically driven by which BQTF-recognized lab the consulting firm has an established relationship/cost structure with for that specific protocol test scope, not by national capability alone. The consultant's working assumption in this thread was to use the already-engaged Taiwan lab for the newly required Host Stack protocol tests.",
+  "final_recommendation": "If a customer asks whether protocol/Host Stack testing can be done at a different (e.g., domestic) BQTF lab, give an explicit answer rather than letting the question go unaddressed — confirm which BQTF labs are authorized for the required protocol tests and state plainly whether a domestic alternative exists, even if the practical recommendation is to proceed with the already-engaged lab.",
+  "risk_if_done_wrong": "Leaving a customer's explicit question about lab location unanswered can create the impression that no alternative was considered, and may surface later as a customer complaint about cost or schedule if a domestic option existed but was never communicated as ruled out.",
+  "bluetooth_tags": [
+    "BQTF",
+    "Host Subsystem",
+    "protocol test",
+    "lab selection",
+    "Taiwan lab",
+    "domestic testing",
+    "AOSP Fluoride"
+  ],
+  "search_aliases": [
+    "can Host Stack testing be done in Japan",
+    "domestic BQTF lab instead of Taiwan",
+    "why use Taiwan lab for protocol test",
+    "Host Stack qualification lab location",
+    "unanswered question about test lab location"
+  ],
+  "qualification_stage": "planning",
+  "confidence": "medium"
+}

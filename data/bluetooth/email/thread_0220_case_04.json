@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0220",
+  "case_id": "thread_0220_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Secom Corporation security device)",
+  "customer_question": "Is there a time limit on how long we can keep adding similar devices to this registration for free? Will we need a separate registration after some number of years, or can we keep adding future similar models indefinitely?",
+  "question_variants": [
+    "How long does the free additional-model registration benefit remain valid?",
+    "Can future similar products always be added to this same registration?"
+  ],
+  "actual_issue": "The customer wanted to know whether the previously-mentioned ability to add similar devices to the Product List for free has any expiration, to plan future product development and registration strategy.",
+  "plain_english_explanation": "The free additional-model registration benefit remains available for as long as the underlying Bluetooth Core Specification version associated with the registration stays active. Since this registration references the EJ2840 module, which implements Bluetooth Core Specification v5.0, the registration itself is treated as a v5.0 registration. Bluetooth Core Specification v5.0 has a scheduled retirement date of February 1, 2032, so similar deployment models can be added to the Product List for free up until the day before that retirement date. Separately, once a model is listed in the Product List, it can continue to be sold indefinitely unless a new SIG rule changes that.",
+  "consultant_answer": "The free additional-model registration benefit lasts as long as the underlying Bluetooth Core Specification version stays active. Since this registration references the EJ2840 module (Bluetooth Core Specification v5.0), it's treated as a v5.0 registration. Core Spec v5.0's scheduled retirement date is February 1, 2032, so you can add similar deployment models to the Product List for free up until the day before that date. Once a model is listed, it can be sold indefinitely afterward, unless a new SIG rule changes that.",
+  "decision_logic": "The validity window for free additional-model registration is tied to the retirement schedule of the Bluetooth Core Specification version implemented by the referenced module/Host stack, not to a fixed number of years from initial registration; already-listed models retain indefinite sales rights regardless of that window's eventual closure, absent future rule changes.",
+  "final_recommendation": "When customers ask about the longevity of free additional-model registration benefits, identify the Core Specification version tied to their registered module and reference its official SIG retirement date as the relevant deadline, rather than giving a generic answer.",
+  "risk_if_done_wrong": "Without clarifying the Core Spec version retirement date, a customer might either assume no time limit exists at all, or unnecessarily rush future product launches under a mistaken belief that the registration expires soon.",
+  "bluetooth_tags": [
+    "free additional model registration validity",
+    "Bluetooth Core Spec v5.0 retirement date",
+    "EJ2840 module",
+    "Secom"
+  ],
+  "search_aliases": [
+    "how long can free additional registration continue",
+    "Bluetooth Core Spec version retirement date",
+    "Qualify More Products time limit",
+    "v5.0 end of life 2032"
+  ],
+  "qualification_stage": "Post-registration / future planning",
+  "confidence": "high"
+}

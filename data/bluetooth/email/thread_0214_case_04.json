@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0214",
+  "case_id": "thread_0214_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Development prototype (BLE module embedded in a coupling component, Miki Pulley)",
+  "customer_question": "We were told development prototypes don't require SIG certification unless 'publicly disclosed' at trade shows or in press releases. What exactly counts as 'public disclosure' in this context? We'd like to display the prototype at a trade show to find trial customers without revealing it uses Bluetooth.",
+  "question_variants": [
+    "What is the scope/definition of 'public disclosure' for the development prototype certification exemption?",
+    "Can we exhibit a Bluetooth-equipped prototype at a trade show without mentioning Bluetooth, and still keep the certification exemption?"
+  ],
+  "actual_issue": "Miki Pulley wanted to exhibit their BLE-equipped development prototype coupling at a trade show to attract trial customers, without technical disclosure of the Bluetooth module, and asked whether this would trigger the SIG certification requirement that applies to 'publicly disclosed' prototypes.",
+  "plain_english_explanation": "'Public disclosure' means releasing information to an unspecified, uncontrolled audience that the company cannot manage or restrict. Exhibiting the prototype without stating it contains Bluetooth — using a generic description like 'pulley with wireless data communication function' instead — and only revealing the Bluetooth detail privately to specific customers once they enter a trial, does not trigger the disclosure threshold and does not require certification.",
+  "consultant_answer": "'Public disclosure' refers to releasing information to an unspecified, uncontrolled audience. Exhibiting the prototype at a trade show while avoiding any explicit mention of 'Bluetooth' (e.g., describing it generically as a 'pulley with wireless data communication function'), and only disclosing the Bluetooth detail to specific trial customers afterward, does not require SIG certification.",
+  "decision_logic": "The exemption boundary is based on whether technical Bluetooth details reach an uncontrolled, general audience. Generic, non-technical trade show descriptions plus controlled, customer-specific technical disclosure during trials stay within the exemption; explicit public statements that the product uses Bluetooth would break it.",
+  "final_recommendation": "When exhibiting development prototypes, avoid any explicit 'Bluetooth' branding or technical specification disclosure in public-facing materials; reserve detailed technical disclosure (including Bluetooth use) for direct, controlled conversations with specific trial customers.",
+  "risk_if_done_wrong": "Explicitly marketing or labeling the prototype as Bluetooth-enabled at a public trade show would constitute public disclosure, removing the development-prototype exemption and requiring certification before exhibition.",
+  "bluetooth_tags": [
+    "public disclosure definition",
+    "development prototype exemption",
+    "trade show exhibition",
+    "Miki Pulley"
+  ],
+  "search_aliases": [
+    "what counts as public disclosure Bluetooth prototype",
+    "trade show exhibit prototype certification exemption",
+    "development prototype disclosure boundary"
+  ],
+  "qualification_stage": "Pre-registration / exemption assessment",
+  "confidence": "high"
+}

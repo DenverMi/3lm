@@ -1,46 +1,32 @@
 {
-    "source_thread": "thread_0036",
-    "cases": [
-        {
-            "case_id": "thread_0036_case_03",
-            "iut_type": "TV",
-            "customer_question": "Why does Qualification Workspace generate unexpected consistency-check failures or excessive test plans when modifying an existing Design?",
-            "question_variants": [
-                "Why did LL test cases suddenly appear?",
-                "What causes consistency check failure in Qualification Workspace?",
-                "Why did modifying ICS selections expand the test plan?",
-                "How do inter-layer dependencies affect qualification scope?",
-                "Can incorrect Design combinations trigger unnecessary testing?"
-            ],
-            "actual_issue": "Changes to inherited Designs and ICS selections created Qualification Workspace consistency problems and unexpectedly expanded mandatory test requirements.",
-            "plain_english_explanation": "Small Bluetooth configuration changes can unintentionally activate additional testing rules inside Qualification Workspace. The customer encountered issues where modifying inherited qualification data caused much larger test plans than expected. The consultant had to identify which settings triggered those dependencies.",
-            "consultant_answer": "The consultant explained that Qualification Workspace evaluates inter-layer dependencies, complete-layer requirements, and TCRL consistency when generating the test plan. Incorrect inheritance choices or unnecessary ICS changes can cause the tool to interpret lower layers as modified, triggering extensive LL-related testing. The recommended approach was to minimize ICS modifications, preserve layer consistency, and use the appropriate subset or inherited Design structure to avoid unnecessary retest expansion.",
-            "decision_logic": "Qualification Workspace generates testing based on modified layers and dependency analysis. Any ICS inconsistency or unnecessary feature change can propagate across layers and cause the system to generate additional mandatory tests.",
-            "final_recommendation": "Review all ICS modifications carefully, preserve unchanged lower-layer configurations, use the proper subset or inherited Design path, and validate consistency checks before finalizing the qualification structure.",
-            "risk_if_done_wrong": "Improper ICS handling can trigger unnecessary lower-layer testing, create invalid consistency states, delay qualification approval, and require repeated troubleshooting iterations.",
-            "bluetooth_tags": [
-                "ICS",
-                "consistency check",
-                "ILD",
-                "Qualification Workspace",
-                "LL",
-                "qualification",
-                "reuse"
-            ],
-            "search_aliases": [
-                "consistency check failed",
-                "unexpected LL tests",
-                "ICS dependency issue",
-                "Qualification Workspace error",
-                "ILD-triggered testing",
-                "modified layer expansion",
-                "subset design consistency",
-                "excessive test plan generation",
-                "lower layer retest trigger"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0036",
+  "case_id": "thread_0036_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "QPRDv4's new mandatory IOPT (interoperability) test category, effective November 10, 2025 -- registration timing strategy to avoid the new requirement using the 180-day disclosure-date deferral",
+  "customer_question": "We're targeting registration completion by November 9, 2025 -- is there any reason this specific date matters for cost or test scope, beyond our own internal schedule needs?",
+  "question_variants": [
+    "What new test requirements take effect under QPRDv4, and when?",
+    "Can the public disclosure date deferral mechanism be used to avoid a new mandatory test category, not just for confidentiality purposes?"
+  ],
+  "actual_issue": "Beyond the customer's own internal scheduling needs, the November 9, 2025 registration deadline carried major unstated significance: Bluetooth SIG's QPRDv4 registration framework was introducing a substantial new mandatory IOPT (interoperability) test category effective November 10, 2025, covering numerous SDP Record and SDP Future Compatibility test items across nearly every profile (SR/COD, A2DP, AVRCP, DID, HFP, HID11, HSP, MAP, OPP, PAN, PBAP, SPP) -- and registrations completed before that effective date would be exempt from the entire new requirement.",
+  "plain_english_explanation": "Starting November 10, 2025, QPRDv4 adds a large new mandatory IOPT (interoperability) test category spanning nearly every commonly-registered profile, with specific test items like SDP Record verification and SDP Future Compatibility checks for each profile/role combination implemented. This is a substantial new testing burden (quoted separately at ¥200,000-¥400,000 depending on what else is bundled) that did not exist for registrations completed before the effective date. Separately, Bluetooth SIG's public disclosure date mechanism was also extended around this time to allow specifying a disclosure date up to 180 days in the future (previously a shorter maximum). Combining these two facts: if the registration itself is submitted to the server by November 9, 2025 (one day before IOPT becomes mandatory), the registration is grandfathered in under the pre-IOPT rules entirely, exempting it from all RF/RF PHY and profile testing requirements that would otherwise newly apply -- even though the product's actual public disclosure/launch might happen much later, since the 180-day deferral window covers that gap. This timing strategy converts what would otherwise be a substantial new mandatory test requirement into a non-issue, purely by getting the registration submitted before the effective date cutoff.",
+  "consultant_answer": "Yes, this date matters significantly beyond your own schedule: starting November 10, 2025, QPRDv4 adds a large new mandatory IOPT test category covering interoperability checks across nearly every profile you're likely registering. If your registration is completed by November 9, you're exempt from all of this -- and since the disclosure date can now be set up to 180 days out, you can register by the 9th while still controlling when the product's listing actually becomes public, without needing to rush your actual launch timeline.",
+  "decision_logic": "When a customer is targeting a registration completion date in the lead-up to a known regulatory/system effective-date change (such as QPRDv4's IOPT requirement on November 10, 2025), proactively flag the cutover date's cost and scope implications rather than treating it as a purely customer-driven scheduling preference, and combine it with the public disclosure-date deferral mechanism to decouple the registration-timing deadline from the actual product launch timeline.",
+  "final_recommendation": "Stay current on upcoming Bluetooth SIG registration framework effective-date changes (like QPRDv4's IOPT rollout) and proactively cross-reference any customer-stated registration deadline against such dates, since a customer's seemingly arbitrary internal deadline may actually carry major cost/scope significance they're unaware of.",
+  "risk_if_done_wrong": "A customer or consultant unaware of the IOPT effective date could miss a narrow window to avoid a substantial new mandatory test category, resulting in significantly higher cost and a longer test timeline than necessary.",
+  "bluetooth_tags": [
+    "QPRDv4 IOPT mandatory test November 2025",
+    "180 day disclosure date deferral exemption strategy",
+    "register before effective date grandfather exemption",
+    "Sony TV FY26"
+  ],
+  "search_aliases": [
+    "QPRDv4 IOPT test requirement effective date",
+    "Bluetooth SIG new mandatory IOPT test November 2025",
+    "register before deadline to avoid new test requirement",
+    "180 day public disclosure date Bluetooth SIG"
+  ],
+  "qualification_stage": "Pre-registration timing and cost-avoidance strategy",
+  "confidence": "high"
 }

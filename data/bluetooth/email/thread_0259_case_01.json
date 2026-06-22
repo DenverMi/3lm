@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0259",
+  "case_id": "thread_0259_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Ricoh Imaging), dual-mode QDID Include forced into LE-only via SW disable",
+  "customer_question": "(Implicit, via registration notice) Why is my registration showing as dual-mode (BR/EDR/LE) on paper, when our product is actually only intended to support LE? And what is this yellow warning about a Test Case Waiver on the Review Page?",
+  "question_variants": [
+    "Why can't the registration's ICS just be set to single LE mode if that's what our product supports?",
+    "What does the yellow Submission Requirement warning and the TCW reference mean?"
+  ],
+  "actual_issue": "The customer's product was intended to be LE-only, but the Controller/Host QDID/DN being referenced was registered as dual-mode (Core-Controller/Core-Host), and under the post-July-2024 registration system, attempting to change the registration's ICS to single LE mode failed the now-stricter cross-layer Consistency Check, blocking Submission — meanwhile a separate, unrelated warning appeared regarding a Test Case Waiver.",
+  "plain_english_explanation": "Under the registration system in effect since July 1, 2024, if a referenced QDID/DN is registered as a dual-mode Core-Controller/Core-Host design, changing the registration's own ICS to single LE (or single BR/EDR) mode no longer passes the system's strengthened cross-layer Consistency Check, which blocks Submission entirely. The practical workaround is to keep the registration itself as dual-mode (matching the referenced QDID/DN), while achieving the product's actual LE-only behavior by disabling BR/EDR mode in the product's own software — the registration paperwork stays dual-mode, but the real-world product only supports and exposes LE functionality. Separately, the yellow warning on the Review Page's Submission Requirement was unrelated to this dual-mode issue: it appeared because the referenced QDID's ICS item definitions, from when it was originally registered, predate some ICS items that exist in the current system. When the current registration site's Consistency Check interprets these not-yet-existing items as 'Not Supported' and that's the only kind of inconsistency detected, this specific situation qualifies for a named Test Case Waiver (TCW code ES-25636), which can be appended to the Submission request; SIG then reviews and confirms (typically within 1-5 business days) before formal registration is granted.",
+  "consultant_answer": "Under the post-July-2024 registration system, since your referenced QDID/DN is dual-mode, changing the registration's own ICS to single LE mode fails the strengthened cross-layer Consistency Check and blocks Submission. The practical approach is to keep the registration itself dual-mode while disabling BR/EDR in your product's software, so the registration paperwork is dual-mode but your real product only exposes LE functionality. Separately, the yellow Submission Requirement warning is unrelated — it's because the referenced QDID's original ICS item definitions predate some items in the current system, and the only inconsistency detected is the current Consistency Check interpreting those not-yet-existing items as 'Not Supported.' This specific situation qualifies for Test Case Waiver ES-25636, which we'll append to the Submission request; SIG typically confirms within 1-5 business days before granting formal registration.",
+  "decision_logic": "When a referenced QDID/DN's mode (dual vs. single) doesn't match the product's actual intended behavior, resolve the mismatch at the product software level (disabling the unused mode) rather than attempting to alter the registration's own ICS mode, since the latter now fails the post-2024 Consistency Check; separately, a Submission warning caused purely by a reference QDID's older, narrower ICS item set predating current items qualifies for a specific named TCW rather than requiring any actual fix.",
+  "final_recommendation": "When a customer's intended product mode (e.g., LE-only) doesn't match their referenced QDID/DN's actual registered mode (dual-mode), explain the SW-disable workaround clearly rather than attempting an ICS mode change that will fail under the current system, and separately identify whether any Submission warning qualifies for a known TCW before treating it as a problem requiring remediation.",
+  "risk_if_done_wrong": "Attempting to directly change the registration's ICS to single-mode against a dual-mode reference QDID would simply fail the current Consistency Check and block registration; mistaking a TCW-eligible warning for an actual defect could lead to unnecessary remediation effort.",
+  "bluetooth_tags": [
+    "dual mode QDID forced LE only via SW disable",
+    "post-2024 Consistency Check single mode change blocked",
+    "TCW ES-25636 stale ICS item",
+    "Submission Requirement yellow warning",
+    "Ricoh Imaging"
+  ],
+  "search_aliases": [
+    "why cant I set registration to single LE mode",
+    "dual mode Controller Host registration LE only product",
+    "TCW ES-25636 meaning",
+    "yellow warning Submission Requirement Review Page"
+  ],
+  "qualification_stage": "Registration execution",
+  "confidence": "high"
+}

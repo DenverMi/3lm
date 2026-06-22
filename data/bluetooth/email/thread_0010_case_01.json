@@ -1,43 +1,34 @@
 {
-    "source_thread": "thread_0010",
-    "cases": [
-        {
-            "case_id": "thread_0010_case_01",
-            "iut_type": "",
-            "customer_question": "Which company name must be used for Bluetooth SIG qualification registration when the manufacturing company and selling company are different?",
-            "question_variants": [
-                "Should the Bluetooth SIG listing use the seller name or manufacturer name?",
-                "Which company account should be used for Bluetooth qualification?",
-                "Can the manufacturing company register the product for another brand owner?",
-                "Whose company name must appear in the Bluetooth SIG registration?",
-                "Should the Qualification Workspace account belong to the sales company?"
-            ],
-            "actual_issue": "The product was manufactured by one company but sold under another company's brand name, creating uncertainty about which company identity must be used for Bluetooth SIG qualification registration and account ownership.",
-            "plain_english_explanation": "The customer wanted to know whose company name should be used when registering a Bluetooth product. The product was made by one company but sold under another company's brand. The consultant clarified that Bluetooth qualification must follow the company name shown on the product branding and labeling, not necessarily the manufacturer.",
-            "consultant_answer": "The consultant explained that Bluetooth SIG qualification rules require the qualification registration to use the company name of the selling company displayed on the product label or branding. The manufacturing company does not necessarily need to register the product under its own company name. The decision should therefore be based on the company identified as the seller of the finished product.",
-            "decision_logic": "Bluetooth qualification ownership is tied to the marketed and branded product identity. The member company associated with the product branding and sales identity must be the company completing the qualification registration.",
-            "final_recommendation": "Register the product under the Bluetooth SIG member account of the company whose name appears on the product branding and product label.",
-            "risk_if_done_wrong": "If the wrong company identity is used, the Bluetooth qualification listing may not correctly match the marketed product ownership, potentially causing compliance issues, re-registration work, or listing correction delays.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "Qualification Workspace",
-                "member account",
-                "product branding",
-                "declaration"
-            ],
-            "search_aliases": [
-                "seller company registration",
-                "manufacturer vs seller qualification",
-                "Bluetooth SIG account ownership",
-                "product label company",
-                "listing company mismatch",
-                "brand owner qualification",
-                "member company registration"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0010",
+  "case_id": "thread_0010_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Topre device sold under PFU's brand), registration account naming requirement",
+  "customer_question": "We assumed the registration's UserName/Password should be the SIG login credentials, and we (Topre, the manufacturer) were planning to register under our own staff's name — but since this product is actually being sold under our customer PFU's brand, should the registration instead be under PFU's name? Also, is it appropriate for us to ask PFU directly for their login credentials?",
+  "question_variants": [
+    "Does the registering account need to match the manufacturer or the company whose brand appears on the product?",
+    "Can a manufacturer ask its end-customer for their SIG login credentials, and what if they decline to share?"
+  ],
+  "actual_issue": "Topre, acting as the manufacturer and primary point of contact with Allion, needed to register a product that would actually be sold under its customer PFU's brand name, and was unsure whether the registration account needed to reflect PFU specifically, plus how to handle the practical and security concerns of obtaining PFU's login credentials as a third party.",
+  "plain_english_explanation": "Bluetooth SIG certification rules require that registration be performed under the name of the company whose name appears on the product's nameplate/label — that is, the selling company, not necessarily the manufacturer. Since this product is sold under PFU's brand, the registration must be under PFU's name, even though Topre is the one coordinating the engagement with Allion; the manufacturing company itself isn't required to register under its own name in this scenario. Regarding credential sharing: companies often have internal security policies prohibiting disclosure of website login credentials to third parties, so the end customer might decline to share their UserName/Password even if asked. If that happens, the registration form's credential fields can simply be left blank, and Allion will instead prepare a complete self-service package — verified registration documents plus step-by-step web operation instructions — that the end customer (PFU) can use to log in and complete the registration themselves directly, without ever having to share their credentials with the manufacturer or Allion.",
+  "consultant_answer": "Yes — Bluetooth SIG certification rules require registration under the name of whichever company's name appears on the product's nameplate, which is PFU in this case, not Topre as the manufacturer. Regarding credentials: it's fine to ask PFU, but please be aware their internal security policy might prohibit sharing login credentials with a third party. If they decline, just leave the UserName/Password fields blank on the registration form — we'll prepare a complete self-service package (verified registration documents plus step-by-step instructions) that PFU can use to log in and complete the registration themselves directly, without ever sharing their credentials with you or us.",
+  "decision_logic": "Registration account naming is determined by whose brand name appears on the product's nameplate (the selling company), not by who manages the certification engagement (the manufacturer); when credential-sharing concerns arise, a self-service registration package lets the actual account holder complete registration without disclosing credentials to any intermediary.",
+  "final_recommendation": "When a manufacturer coordinates certification on behalf of an end customer whose brand the product will carry, proactively clarify the selling-company naming requirement early, and offer the self-service package fallback for credential-sharing-sensitive situations rather than assuming the customer will share login credentials.",
+  "risk_if_done_wrong": "Registering under the manufacturer's name instead of the actual selling company's name would violate SIG's certification naming requirement, potentially requiring a costly re-registration; failing to offer the self-service fallback could stall the project indefinitely if the end customer's security policy prohibits credential sharing.",
+  "bluetooth_tags": [
+    "registration account selling company nameplate requirement",
+    "manufacturer vs brand owner registration name",
+    "credential sharing security policy",
+    "self service registration package fallback",
+    "Topre",
+    "PFU"
+  ],
+  "search_aliases": [
+    "whose name should SIG registration be under",
+    "can manufacturer register on behalf of brand owner",
+    "end customer refuses to share login credentials",
+    "self service registration package without credentials"
+  ],
+  "qualification_stage": "Registration form preparation",
+  "confidence": "high"
 }

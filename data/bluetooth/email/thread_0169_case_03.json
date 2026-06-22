@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0169",
+  "case_id": "thread_0169_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Dual-mode (BR/EDR + BLE) embedded device (NECPF/NEC Platform)",
+  "customer_question": "Our product supports both BR/EDR and BLE (dual mode). In the protocol test list, L2CAP and GAP appear twice each. Do we really need to test both instances?",
+  "question_variants": [
+    "Why are L2CAP and GAP listed twice in the protocol test requirements for our dual-mode product?",
+    "We see duplicate entries for L2CAP and GAP in our PTS test scope. Is that correct?",
+    "For a dual-mode Bluetooth product, does GAP need to be tested for both Classic and LE separately?"
+  ],
+  "actual_issue": "The customer's dual-mode product shows L2CAP and GAP appearing twice in the SIG protocol test scope. They are unsure whether this is an error or a genuine requirement.",
+  "plain_english_explanation": "For dual-mode (BR/EDR + BLE) products, several protocols have separate Classic Bluetooth and Bluetooth LE versions that are technically distinct implementations. L2CAP has a BR/EDR version and a BLE version (LE L2CAP / LE Credit Based Flow Control), and GAP has a Classic role and a BLE role. Because these are different protocols/profiles for the two transport types, SIG requires them to be tested separately — one instance for Classic (BR/EDR) and one for BLE. This is not a duplicate; it is intentional.",
+  "consultant_answer": "Yes, both instances are required. For a dual-mode product, L2CAP and GAP appear twice because each has a Classic Bluetooth (BR/EDR) version and a Bluetooth LE version. These are tested separately: one test for the Classic implementation and one for the LE implementation. Both must pass and both test reports must be uploaded.",
+  "decision_logic": "The Bluetooth protocol stack architecture is different for BR/EDR and BLE. Some protocol layers (like L2CAP and GAP) have distinct specifications and test suites for each transport. SIG's test plan generator lists them separately to ensure both transport implementations are verified. This is standard for any dual-mode product.",
+  "final_recommendation": "Execute both instances of L2CAP and GAP testing. The BR/EDR instance covers the Classic Bluetooth implementation; the BLE instance covers the Bluetooth LE implementation. Note that protocol tests (L2CAP, GAP, etc.) are conducted at a BQTF lab (e.g., Allion Taiwan), while profile tests are conducted at the profile test lab (e.g., Allion Japan).",
+  "risk_if_done_wrong": "Skipping one instance of a dual-listed protocol test will result in a missing test report for that transport type, causing the SIG submission to fail the Submission Status check.",
+  "bluetooth_tags": [
+    "dual-mode",
+    "BR/EDR",
+    "BLE",
+    "L2CAP",
+    "GAP",
+    "protocol test",
+    "BQTF",
+    "test scope"
+  ],
+  "search_aliases": [
+    "L2CAP appears twice protocol test",
+    "GAP listed twice dual mode",
+    "BR/EDR BLE protocol test scope",
+    "dual mode protocol test duplication",
+    "Classic BLE same protocol tested twice"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "high"
+}

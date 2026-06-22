@@ -2,6 +2,7 @@
   "source_thread": "thread_0109",
   "case_id": "thread_0109_case_06",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "module",
   "customer_question": "What value should we use for 'cable loss' in the RF test parameters when our antenna and cable are an integrated unit with no separate loss spec, and will the lab need to open the product casing to access the board/antenna?",
   "question_variants": [
@@ -17,7 +18,13 @@
   "decision_logic": "Cable loss for RF test reporting refers specifically to the loss of the temporary test/conversion cable connecting the DUT to the RF tester - not to any cable that is part of the product's own antenna assembly. If this temporary cable's loss is unknown or unavailable, a standard default of ~0.6dB may be used. Separately, whether disassembly instructions are needed depends on whether the test requires physical access to internal board/antenna connections; if the test is performed via a software DUT mode, no such access or instructions are required.",
   "final_recommendation": "Enter antenna gain as 3.0dBi (per the antenna's datasheet). For cable loss, check the specific test/conversion cable's documentation; if unavailable, use the default 0.6dB. Do not prepare disassembly instructions, since the RF test is performed via software DUT mode without accessing the internal board or antenna terminals.",
   "risk_if_done_wrong": "Using the integrated antenna+cable's (unspecified) loss instead of the test/conversion cable's loss would misstate the RF test parameters in the report. Unnecessarily preparing disassembly instructions would create extra, unneeded work.",
-  "bluetooth_tags": ["RF", "RF PHY", "test report", "module", "qualification"],
+  "bluetooth_tags": [
+    "RF",
+    "RF PHY",
+    "test report",
+    "module",
+    "qualification"
+  ],
   "search_aliases": [
     "cable loss definition RF test",
     "antenna gain dBi RF test parameter",

@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0091",
+  "case_id": "thread_0091_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "We're considering LE Audio support and want to verify LC3 encode/decode using actual content. Can you provide an LC3 encode/decode tool?",
+  "question_variants": [
+    "Do you have a tool for testing LC3 codec content?",
+    "Where can we get reference LC3 encoder/decoder executables?",
+    "What's required to access the LC3 reference tools?"
+  ],
+  "actual_issue": "A customer planning to support LE Audio and the LC3 codec wanted to verify encoding and decoding using actual content, and asked whether the consultant could provide a dedicated LC3 encode/decode format conversion tool.",
+  "plain_english_explanation": "To check that LE Audio's LC3 codec is encoding and decoding correctly, it helps to have a reference tool that's known to behave correctly. Rather than the consultant building or providing a custom tool for this, the official Bluetooth specification itself already links to the standard reference encoder and decoder programs, which anyone with a Bluetooth SIG account can download and use to check their own implementation.",
+  "consultant_answer": "Bluetooth SIG's site (login required) hosts the LC3 specification document for download, which states that reference executables for both the encoder and decoder of the LC3 codec are available via a linked reference; following that link leads to a download URL for the LC3 executables. Any holder of a Bluetooth login account can download this LC3 executables zip file from that URL and use it for self-evaluation purposes.",
+  "decision_logic": "When a customer asks for a tool to verify LC3 (or similarly specified) codec behavior, check whether the official Bluetooth specification document itself provides or links to reference executables before assuming a dedicated tool needs to be built or sourced separately -- official reference implementations are often already available to any SIG account holder for self-evaluation use.",
+  "final_recommendation": "When a customer asks for an LC3 codec verification tool, direct them to Bluetooth SIG's published LC3 specification document and its linked reference encoder/decoder executables, downloadable by any Bluetooth SIG login account holder for self-evaluation purposes.",
+  "risk_if_done_wrong": "Telling the customer no LC3 verification resource is available, without checking the official specification's linked reference executables, would needlessly withhold a legitimate, freely accessible option and could prompt the customer to build or source an unnecessary custom tool.",
+  "bluetooth_tags": ["LE Audio", "LC3", "codec", "reference executables", "self-evaluation"],
+  "search_aliases": ["LC3 reference encoder decoder download", "LE Audio LC3 verification tool", "Bluetooth SIG LC3 specification executables", "self-evaluation LC3 codec"],
+  "qualification_stage": "planning",
+  "confidence": "high"
+}

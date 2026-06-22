@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0032",
+  "case_id": "thread_0032_case_08",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Bluetooth Brand Guide trademark footnote display requirement when referencing SIG membership or using the Bluetooth name/logo on packaging or marketing materials",
+  "customer_question": "Once we register as a SIG member, is it acceptable to print something like 'XYZ Corporation is a SIG member' on the product packaging?",
+  "question_variants": [
+    "Does displaying the word 'Bluetooth' in plain text (without the official logo) still trigger any trademark display requirements?",
+    "Where does the required trademark footnote need to appear, and how many times?"
+  ],
+  "actual_issue": "The customer wanted to reference their SIG membership status on product packaging using plain descriptive text, and needed to know whether this triggered any of Bluetooth SIG's formal trademark usage requirements.",
+  "plain_english_explanation": "If a product's packaging displays the official Bluetooth SIG-established logo mark, the 'Bluetooth Brand Guide' requires a specific footnote to accompany it: \"The Bluetooth(R) word mark and logos are registered trademarks owned by Bluetooth SIG, Inc. and any use of such marks by [licensee name] is under license. Other trademarks and trade names are those of their respective owners.\" If no other (non-Bluetooth) logos are displayed alongside it, the \"Other trademarks...\" portion of that footnote isn't needed. There is no specific document governing what to display if the SIG logo mark itself is not shown -- however, even displaying the word \"Bluetooth\" in plain, ordinary font text is itself defined as a trademark (called the \"Word mark\") under the Bluetooth Brand Guide. This means a colloquial phrase like \"XYZ Corporation is a SIG member\" would, in printed materials, more properly be phrased as \"XYZ Corporation is a Bluetooth(R) SIG member\" -- and once the word \"Bluetooth\" appears in that phrasing, the footnote display requirement described above is triggered. This same footnote requirement applies wherever the logo or word mark is used -- on packaging, in instruction manuals, or on web pages -- and only needs to appear once, at the first location where the mark or logo appears in that particular piece of material.",
+  "consultant_answer": "If you display the Bluetooth logo mark, the Brand Guide requires the standard trademark footnote attributing the mark to Bluetooth SIG, Inc. (with the 'Other trademarks' clause only needed if other logos appear alongside it). Even if you don't show the logo, simply writing 'Bluetooth' in plain text is itself a protected word mark under the Brand Guide -- so a phrase like 'XYZ Corporation is a SIG member' should really read 'XYZ Corporation is a Bluetooth(R) SIG member,' and once you do that, the footnote requirement applies. This footnote only needs to appear once per piece of material (package, manual, web page), at the first place the mark or word appears.",
+  "decision_logic": "Whenever a customer plans to reference Bluetooth, the Bluetooth logo, or their SIG membership status in any printed or web material, check the Bluetooth Brand Guide's trademark footnote requirement -- it applies not only when the official logo mark is displayed, but also whenever the word 'Bluetooth' itself appears in plain text, since it is defined as a protected word mark requiring the same attribution footnote. Additionally, the Brand Guide distinguishes the 'Word mark' (the text string 'Bluetooth') from the 'Logo mark' (the stylized 'B' symbol alone, or combined with stylized 'Bluetooth' text) -- collectively the 'Bluetooth trademarks' -- and each has different display conditions that must be read carefully and not conflated. Both require the licensee's own company name to be made clear somewhere on the same packaging/material (plain text company name is sufficient -- a company logo is not required), and a product/service must never display the Bluetooth trademark in isolation with neither the company's name nor logo anywhere on it. The Word mark specifically must be placed AFTER the licensee's company name/logo or other trademarks in reading/visual order. The only other documented display conditions are a minimum clear-space/whitespace margin around the mark and the footnote text itself -- the Brand Guide does not specify any size or placement restrictions for the company name or logo (e.g., no rule requiring it directly below or on the same face as the Bluetooth mark).",
+  "final_recommendation": "When a customer asks about referencing SIG membership or the Bluetooth name on their materials, proactively explain that even plain-text use of the word 'Bluetooth' triggers the Brand Guide's footnote requirement, and clarify that it only needs to appear once per material at the first occurrence, to avoid both under- and over-compliance.",
+  "risk_if_done_wrong": "A customer who displays the word 'Bluetooth' or the SIG logo without the required trademark footnote could be in violation of Bluetooth SIG's Brand Guide trademark usage requirements, independent of and in addition to the underlying certification requirements.",
+  "bluetooth_tags": [
+    "Bluetooth Brand Guide trademark footnote requirement",
+    "Bluetooth word mark plain text trademark",
+    "logo usage attribution Bluetooth SIG Inc",
+    "Elematec smart tracker"
+  ],
+  "search_aliases": [
+    "Bluetooth trademark footnote requirement packaging",
+    "is the word Bluetooth a trademark in plain text",
+    "Bluetooth Brand Guide logo usage rules",
+    "how to reference SIG membership on packaging"
+  ],
+  "qualification_stage": "Post-registration trademark/branding usage compliance",
+  "confidence": "high"
+}

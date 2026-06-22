@@ -1,43 +1,32 @@
 {
-    "source_thread": "thread_0029",
-    "cases": [
-        {
-            "case_id": "thread_0029_case_01",
-            "iut_type": "module",
-            "customer_question": "How can an unreleased Bluetooth product be listed in the Bluetooth SIG qualification database without exposing confidential product details before launch?",
-            "question_variants": [
-                "Can we hide product details before launch?",
-                "Is the Bluetooth SIG product description public?",
-                "Can we use a generic description in the listing?",
-                "How do we protect confidential product information during qualification?",
-                "Can publication timing be controlled for a Bluetooth listing?"
-            ],
-            "actual_issue": "The customer needed to complete Bluetooth SIG qualification for an unreleased product while avoiding public disclosure of sensitive product information in the public qualified product listing.",
-            "plain_english_explanation": "Bluetooth SIG qualification listings become publicly visible and require a product description. Companies with unreleased products may worry that qualification activity will expose launch details too early. The thread explains how to satisfy the listing requirement while minimizing disclosure risk.",
-            "consultant_answer": "The consultant explained that the product description field is mandatory because it appears in the public Bluetooth SIG listing database. However, the description does not need to reveal confidential commercial details and can be written generically. The consultant also explained that publication timing controls can be used so the qualification listing does not become publicly visible before the intended release schedule.",
-            "decision_logic": "Bluetooth SIG listings require public-facing metadata, but the qualification rules allow generic wording that still identifies the product category without exposing sensitive launch information. Publication timing and neutral descriptions can balance compliance and confidentiality.",
-            "final_recommendation": "Use a generic product description that satisfies Bluetooth SIG listing requirements while avoiding confidential marketing details, and coordinate publication timing before public launch.",
-            "risk_if_done_wrong": "Using overly detailed listing information could expose unreleased product information publicly before launch. Failing to provide required listing information could delay qualification completion.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "declaration",
-                "module",
-                "SIG"
-            ],
-            "search_aliases": [
-                "public listing description",
-                "generic product description",
-                "confidential Bluetooth listing",
-                "Bluetooth SIG public database",
-                "hidden product launch",
-                "qualification publication timing",
-                "pre-release product listing",
-                "Bluetooth listing visibility"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0029",
+  "case_id": "thread_0029_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (New Cosmos Electric sensor device), mandatory public product description field in the proxy registration confirmation document, and pre-launch confidentiality strategy",
+  "customer_question": "Is the 'brief English product introduction text' a mandatory field in the proxy registration confirmation document? Our product hasn't launched yet, so we can't disclose much detail -- how much detail is actually appropriate for this field, given the term 'brief description'?",
+  "question_variants": [
+    "Will this product description text be published anywhere, or is it only used internally for registration?",
+    "How do other pre-launch customers handle this mandatory field without revealing their unreleased product's function?"
+  ],
+  "actual_issue": "The customer, registering a not-yet-launched sensor product, was concerned that the mandatory 'brief English product introduction text' field in the registration confirmation document would force disclosure of product details before launch, since for sensor-type devices simply naming the detection target tends to reveal the product's function and intended use.",
+  "plain_english_explanation": "The brief English product introduction text is a mandatory field in the proxy registration confirmation document, and whatever is entered there is published verbatim on Bluetooth SIG's public list of certified products -- it is not kept private. For sensor devices specifically, describing what the sensor detects tends to make the product's function and use case easy to infer, so the consultant recommended using a deliberately generic, minimal description such as 'This is a wireless sensor device with Bluetooth technology.' More importantly, the consultant flagged that simplifying the description text is a secondary measure -- the primary confidentiality safeguard is Bluetooth SIG's public-disclosure-date mechanism: registration must be completed by the product's public launch/press-release/exhibition disclosure date in any case, but the customer can specify a future public disclosure date at registration time (up to the maximum allowed lead time) so that the certified-product listing itself does not appear publicly until that date, preventing third parties from learning of the unreleased product in advance. The customer adopted the suggested generic wording as-is and indicated they would set the disclosure date roughly 3 months out (the maximum), pending internal scheduling approval.",
+  "consultant_answer": "Yes, the brief English product introduction text is mandatory, and it is published as-is on Bluetooth SIG's public list of certified products. Since sensor devices can have their function easily inferred just from naming what they detect, I'd suggest something deliberately generic, like 'This is a wireless sensor device with Bluetooth technology.' That said, simplifying the wording is the secondary safeguard -- the more important one is that registration must be completed by your product's public launch/press-release/exhibition date regardless, but you can specify a future public disclosure date at registration time so the listing itself doesn't go public until then, which prevents third parties from learning about the unreleased product early. I'd recommend relying on the disclosure-date mechanism primarily, with the simplified wording as a secondary measure.",
+  "decision_logic": "The mandatory product introduction text field is not private -- it is published verbatim on SIG's public certified-product list, so pre-launch customers should default to a generic, function-obscuring description (especially for sensor-type products where naming the detection target reveals the use case) and should rely primarily on setting a future public-disclosure date at registration time (rather than further simplifying the description) to protect launch confidentiality, since the disclosure-date mechanism controls whether the listing appears publicly at all.",
+  "final_recommendation": "When a pre-launch or confidentiality-sensitive customer raises concerns about the mandatory public product description field, proactively recommend a generic, function-obscuring description and explain that the public-disclosure-date deferral mechanism (not further text simplification) is the primary tool for protecting launch confidentiality, since the description text itself cannot be omitted or made fully non-disclosing.",
+  "risk_if_done_wrong": "A customer who is unaware that the description text is published publicly could inadvertently reveal a not-yet-launched product's function or use case to competitors or the market ahead of its intended announcement date.",
+  "bluetooth_tags": [
+    "mandatory product introduction text published publicly",
+    "pre-launch confidentiality sensor device description",
+    "public disclosure date deferral mechanism",
+    "New Cosmos Electric"
+  ],
+  "search_aliases": [
+    "is product description field mandatory SIG registration",
+    "brief English product introduction text public list",
+    "how to keep unreleased product confidential during SIG registration",
+    "sensor device description reveals function"
+  ],
+  "qualification_stage": "Proxy registration confirmation document preparation",
+  "confidence": "high"
 }

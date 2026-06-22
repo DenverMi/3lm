@@ -1,42 +1,31 @@
 {
-    "source_thread": "thread_0002",
-    "cases": [
-        {
-            "case_id": "thread_0002_case_01",
-            "iut_type": "",
-            "customer_question": "Is it necessary to send a modification memo (改造メモ) when proceeding with Bluetooth SIG certification support?",
-            "question_variants": [
-                "Do we need to provide a modification memo for Bluetooth qualification?",
-                "Is the 改造メモ required during SIG certification support?",
-                "Should the modification document be sent to the customer for qualification?",
-                "What documents must be sent at the start of Bluetooth certification?",
-                "Is the modification memo mandatory for registration support?"
-            ],
-            "actual_issue": "Clarifying whether a modification memo is a required document in the Bluetooth qualification support process and when it should be provided.",
-            "plain_english_explanation": "The team is unsure whether they need to send a document that describes modifications (改造メモ) to the customer during the certification process. This document is part of the standard process but may be overlooked. The question is about whether it is mandatory and when it should be sent.",
-            "consultant_answer": "The modification memo is required and must be sent. It should be provided as part of the standard process, ideally at the time of order intake. Additionally, the registration information confirmation form should also be sent and collected together with it.",
-            "decision_logic": "If the process includes qualification support and registration handling, required administrative documents such as the modification memo and registration confirmation form must be collected. These are standard deliverables tied to the qualification workflow.",
-            "final_recommendation": "Send the modification memo and request submission from the customer. Also include the registration information confirmation form at the same time.",
-            "risk_if_done_wrong": "Missing required documents can delay the qualification process or block submission due to incomplete administrative documentation.",
-            "bluetooth_tags": [
-                "qualification",
-                "documentation",
-                "process",
-                "compliance"
-            ],
-            "search_aliases": [
-                "改造メモ required bluetooth",
-                "modification memo bluetooth qualification",
-                "registration confirmation form bluetooth",
-                "qualification required documents",
-                "bluetooth admin documents",
-                "missing paperwork qualification",
-                "SIG certification documents",
-                "pre-submission documents bluetooth"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0002",
+  "case_id": "thread_0002_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Harada Industries), RF/RF PHY test scope and modification memo selection",
+  "customer_question": "(Internal) Does RF PHY testing only need to be run when the product supports Bluetooth Low Energy? And when sending the customer a modification memo, which version should be sent — the one with 'RF PHY' in the title, or the one with just 'RF,' especially when one of the RF PHY memos mentions 'LE'?",
+  "question_variants": [
+    "Is RF PHY testing tied specifically to LE support?",
+    "Which modification memo document should be sent for an RF-only versus RF+RF PHY test scope?"
+  ],
+  "actual_issue": "Allion's own internal sales/PM staff were unfamiliar with the specific trigger condition for RF PHY testing and which of several similarly-named modification memo documents to send to the customer for a project involving both RF and RF PHY test scope.",
+  "plain_english_explanation": "RF PHY testing is required specifically when the product supports Bluetooth Low Energy — this can be confirmed by checking whether the BLE checkbox is marked on the customer's quote request form. For modification memo document selection: if the engagement only involves RF testing, send the memo with 'RF' in its title; if the engagement involves both RF and RF PHY testing, send both the 'RF' and 'RF PHY' titled memos together, since each covers the modification guidance relevant to its respective test type.",
+  "consultant_answer": "Yes, RF PHY testing is required when the product supports Low Energy — check the BLE checkbox on the quote request form to confirm. For modification memos: send the 'RF' titled memo alone if only RF testing applies, or send both the 'RF' and 'RF PHY' titled memos together if both RF and RF PHY testing apply to this engagement.",
+  "decision_logic": "RF PHY test necessity is determined by LE support status as declared on the quote request form, and modification memo document selection should match the actual combination of test types (RF only, or RF plus RF PHY) rather than assuming a single document covers all scenarios.",
+  "final_recommendation": "When internal staff are unsure about test-type-to-documentation mapping, provide a clear, simple rule (LE support triggers RF PHY; send memos matching the actual test type combination) rather than leaving them to guess based on document titles alone.",
+  "risk_if_done_wrong": "Sending the wrong modification memo (e.g., only the RF version when RF PHY testing also applies) could leave the customer without guidance needed to properly prepare their sample for the full test scope.",
+  "bluetooth_tags": [
+    "RF PHY test trigger LE support",
+    "modification memo selection RF vs RF PHY",
+    "quote request form BLE checkbox",
+    "Harada Industries"
+  ],
+  "search_aliases": [
+    "is RF PHY test required for LE support only",
+    "which modification memo to send RF or RF PHY",
+    "BLE checkbox quote request form"
+  ],
+  "qualification_stage": "Internal test scope clarification",
+  "confidence": "high"
 }

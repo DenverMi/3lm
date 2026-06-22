@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0032",
+  "case_id": "thread_0032_case_10",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "SIG membership identity is determined by email domain -- shared domains between parent and subsidiary force 'internal division' treatment, and outdated WHOIS company names must be corrected before applying",
+  "customer_question": "Our WHOIS lookup shows our domain registered under our company's old, former name -- does this cause any problem for SIG membership registration? Also, we found a similar situation with a partner where the normal-use email domain's WHOIS shows a subsidiary's name registered rather than the parent's -- what happens in that case?",
+  "question_variants": [
+    "Can a parent company register as a new, separate SIG member if it shares an email domain with an already-registered subsidiary?",
+    "What happens if a company's WHOIS domain registration name doesn't match its current legal name?"
+  ],
+  "actual_issue": "The customer discovered two related domain-identity complications while preparing their SIG membership application: their own domain's WHOIS record showed an outdated former company name, and separately, a parent/subsidiary pair they were investigating shared the same email domain, raising the question of whether the parent could still register as an independent new SIG member.",
+  "plain_english_explanation": "If a WHOIS domain lookup shows an outdated or former company name (e.g., due to a corporate rename or merger), the domain registration record must first be updated to reflect the company's current legal name before proceeding with SIG membership registration. Separately, and more significantly: Bluetooth SIG distinguishes member companies specifically by email domain, not by company name or legal entity. This means that if a parent company and its subsidiary share the same email domain, the SECOND of the two to attempt registration cannot register as a new, independent SIG member -- instead, SIG treats them as an internal division of whichever company registered FIRST using that shared domain. In this situation, the parent company cannot newly register under its own name; instead, the parent's registration contact should simply go through the standard account-creation procedure, which will result in an account under the name of whichever subsidiary registered first using that domain. If this causes a practical problem (e.g., the parent needs the registration to reflect its own corporate name), the only remedy is to submit a company-name CHANGE request to SIG -- and if approved, the registration's name changes to the parent's name, encompassing the subsidiary as well. Critically, this name-change approval requires that the parent own at least 51% of the subsidiary's shares.",
+  "consultant_answer": "If your WHOIS lookup shows an outdated company name, you'll need to update that domain registration record to your current legal name before proceeding with SIG membership registration. For the shared-domain situation: Bluetooth SIG distinguishes member companies by email domain, not company name -- so if the parent and subsidiary share the same domain, the parent can't newly register as a separate company; it would just create an account under the name of whichever company registered first with that domain. To actually get the registration changed to the parent's name, you'd need to submit a company-name change request to SIG, which requires the parent to own at least 51% of the subsidiary's shares for approval.",
+  "decision_logic": "Before submitting a SIG membership application, verify the domain's WHOIS record reflects the company's current legal name (update if outdated), and check whether any other company in the same corporate group already holds a SIG membership using the same email domain -- if so, a new independent registration is not possible for the second company, and a company-name change request (requiring 51%+ ownership) is the only path to reflect the desired entity's name on the registration.",
+  "final_recommendation": "When guiding a corporate group through SIG membership applications across multiple group companies, proactively check for shared email domains between entities before attempting separate registrations, since SIG's domain-based identity rule can silently block what the customer assumes will be an independent new registration.",
+  "risk_if_done_wrong": "A customer attempting to register a parent company as a new, independent SIG member without realizing it shares an email domain with an already-registered subsidiary could waste time on a registration attempt that cannot succeed as intended, or could end up with a registration mistakenly attributed to the wrong entity within their corporate group.",
+  "bluetooth_tags": [
+    "SIG membership identity determined by email domain",
+    "shared domain parent subsidiary internal division treatment",
+    "company name change request 51 percent ownership requirement",
+    "WHOIS outdated company name update before registration",
+    "Elematec smart tracker"
+  ],
+  "search_aliases": [
+    "can parent company register SIG membership if subsidiary shares domain",
+    "SIG distinguishes companies by email domain not name",
+    "company name change request Bluetooth SIG membership",
+    "WHOIS shows old company name SIG registration"
+  ],
+  "qualification_stage": "SIG membership application domain identity verification",
+  "confidence": "high"
+}

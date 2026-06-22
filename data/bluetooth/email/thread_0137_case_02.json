@@ -2,6 +2,7 @@
   "source_thread": "thread_0137",
   "case_id": "thread_0137_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "IoT/embedded",
   "customer_question": "The GAP and GATT inconsistency seems to be in the Host Stack. Can we fix it by switching to a different Controller QDID or different module?",
   "question_variants": [
@@ -14,8 +15,20 @@
   "decision_logic": "1. Identify which layer (Host vs. Controller) owns the problematic ICS items.\n2. GAP and GATT → Host Subsystem responsibility.\n3. Controller QDID change has no effect on Host-layer ICS.\n4. Solution must be at the Host Stack level.",
   "final_recommendation": "When a customer reports a GAP or GATT Consistency Check error, immediately identify the Host Stack in use — that is where the fix must happen. Do not suggest changing the Controller/module QDID as a solution.",
   "risk_if_done_wrong": "Advising a customer to switch modules or SoCs to fix a GAP-GATT error wastes engineering time and budget, as the actual problem is in the Host Stack and changing the Controller does nothing.",
-  "bluetooth_tags": ["GAP", "GATT", "Host-Subsystem", "Controller-Subsystem", "Bluetooth-architecture", "layer-responsibility"],
-  "search_aliases": ["GAP GATT which layer host controller", "Controller QDID fix Host inconsistency", "GAP GATT error change module", "Host Stack owns GAP GATT"],
-  "qualification_stage": "design registration",
+  "bluetooth_tags": [
+    "GAP",
+    "GATT",
+    "Host-Subsystem",
+    "Controller-Subsystem",
+    "Bluetooth-architecture",
+    "layer-responsibility"
+  ],
+  "search_aliases": [
+    "GAP GATT which layer host controller",
+    "Controller QDID fix Host inconsistency",
+    "GAP GATT error change module",
+    "Host Stack owns GAP GATT"
+  ],
+  "qualification_stage": "planning",
   "confidence": "high"
 }

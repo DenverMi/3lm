@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0025",
+  "case_id": "thread_0025_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "RF PHY test scope reduction request (1M-only vs 1M+2M) for a module registered via unmodified-Design Include of an SoC's Controller Subsystem QDID",
+  "customer_question": "The quote includes RF PHY testing for both 1M and 2M PHY modes, but our wireless mode is BLE 1M only -- can the test fee be reduced to cover just 1M?",
+  "question_variants": [
+    "Can we just declare 2M PHY as 'Not Supported' in our own company's ICS to avoid testing it?",
+    "If the registration inherits the referenced SoC's full ICS, does that mean we're stuck testing every PHY mode that SoC supports, even if our actual module doesn't implement all of them?"
+  ],
+  "actual_issue": "The customer's module only implements 1M PHY, but the initial quote included RF PHY testing for both 1M and 2M modes (matching the full ICS of the existing SoC QDID being referenced), and the customer asked whether the test scope (and corresponding fee) could be reduced to match their actual hardware.",
+  "plain_english_explanation": "When registering via the unmodified 'Combine unmodified Designs' path (Including an existing QDID without ICS edits), the registration inherits that referenced design's ICS exactly as declared -- so the customer's own company-name registration cannot edit the ICS to declare, for example, '[RF PHY](1/4) 2M PHY: NO' to formally exclude 2M support. However, because the underlying SoC is technically supposed to be Component-registered (it's only registered as Controller Subsystem in this case), the new registration site does not require an ICS-driven RF PHY test upload for it -- instead, RF PHY testing on the actual module or product board is treated as a separate confirmation report, independent of the inherited ICS declaration. Since this confirmation-report testing is scoped to the real hardware's actual capabilities rather than the full declared ICS, if the customer's specific module implementation genuinely only supports 1M PHY (and doesn't implement 2M), the RF PHY confirmation testing itself -- and therefore its associated fee -- can be limited to 1M PHY only, reducing the quote from the 1M+2M tier (¥700,000) to the 1M-only tier (¥400,000).",
+  "consultant_answer": "You can't edit the inherited ICS to formally declare 2M PHY as unsupported under your own registration, since the unmodified-Design-Include path locks in the referenced design's ICS as-is. However, separately, since this SoC requires RF PHY testing on the actual module as a confirmation report (rather than an ICS-driven test), that confirmation test itself can be scoped to match your module's real capabilities -- so if your module is genuinely 1M-PHY-only, the RF PHY test (and its fee) can be limited to 1M PHY only: ¥400,000 instead of ¥700,000 for 1M+2M.",
+  "decision_logic": "When a customer registering via unmodified-Design Include of an existing SoC QDID asks to reduce RF PHY test scope to match their actual hardware's narrower PHY mode support, distinguish between the registration's inherited ICS declaration (which cannot be edited under this registration path) and the separate RF PHY confirmation-report testing required for the SoC as a practically-Component-level device (which CAN be scoped to the module's actual real-world PHY capabilities) -- the fee reduction applies to the latter, not the former.",
+  "final_recommendation": "When quoting RF PHY test scope for a module registered via unmodified-Design Include, ask early whether the actual hardware genuinely implements every PHY mode in the referenced SoC's full ICS, since the confirmation-report RF PHY test (unlike the ICS declaration itself) can be scoped down to match real capability, potentially reducing the fee.",
+  "risk_if_done_wrong": "Quoting the full inherited ICS's PHY mode test scope without checking whether the actual module narrows that scope could result in the customer overpaying for testing of a PHY mode their hardware doesn't even implement.",
+  "bluetooth_tags": [
+    "RF PHY test scope reduction 1M only",
+    "unmodified Design Include inherited ICS cannot edit",
+    "Controller Subsystem RF PHY confirmation report not ICS-driven",
+    "Hosiden wristband wearable"
+  ],
+  "search_aliases": [
+    "can RF PHY test fee be reduced for 1M only device",
+    "inherited ICS cannot exclude 2M PHY",
+    "RF PHY confirmation report vs ICS declaration difference",
+    "reduce RF PHY test scope unmodified design"
+  ],
+  "qualification_stage": "Test scoping and quote negotiation",
+  "confidence": "high"
+}

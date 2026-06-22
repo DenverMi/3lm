@@ -2,6 +2,7 @@
   "source_thread": "thread_0151",
   "case_id": "thread_0151_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — BR/EDR+BLE using Combine Unmodified Design",
   "customer_question": "The ICS file provided by Realtek has inconsistencies. If we submit this ICS as-is, will the SIG Consistency Check reject the design? What should we do?",
   "question_variants": [
@@ -15,8 +16,20 @@
   "decision_logic": "Combine Unmodified Design = inherit the existing QDID without modification → existing Invalids pass through → no new Consistency Check on inherited layers → profile test is also exempt. This is the standard mechanism for incorporating components with pre-certified but imperfect ICS files.",
   "final_recommendation": "When a component QDID's ICS contains inconsistencies and no clean version is available, use Combine Unmodified Design as the default approach. Document this decision and advise the customer that the Invalids will appear in the qualification record but are accepted under this method.",
   "risk_if_done_wrong": "Creating a Standard Design with an inconsistent ICS will cause Consistency Check failures that block registration. The only alternatives to Combine Unmodified Design are: (1) clean up the ICS (may not be possible for third-party components); (2) run a full Core test (extremely expensive, months of work).",
-  "bluetooth_tags": ["Combine Unmodified Design", "ICS inconsistency", "Invalid", "Consistency Check", "QDID", "QPRDv3.0"],
-  "search_aliases": ["ICS inconsistency how to register", "Combine Unmodified Design ICS Invalids", "Use This Design Without Modifications", "ICS Invalid Consistency Check bypass"],
+  "bluetooth_tags": [
+    "Combine Unmodified Design",
+    "ICS inconsistency",
+    "Invalid",
+    "Consistency Check",
+    "QDID",
+    "QPRDv3.0"
+  ],
+  "search_aliases": [
+    "ICS inconsistency how to register",
+    "Combine Unmodified Design ICS Invalids",
+    "Use This Design Without Modifications",
+    "ICS Invalid Consistency Check bypass"
+  ],
   "qualification_stage": "Design Creation / Consistency Check",
   "confidence": "high"
 }

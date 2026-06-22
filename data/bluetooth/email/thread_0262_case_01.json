@@ -1,0 +1,35 @@
+{
+  "source_thread": "thread_0262",
+  "case_id": "thread_0262_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product registration (Alinco, module XE1134, Bluetooth Core Spec 4.2)",
+  "customer_question": "When setting up the registration project, I see a brown warning saying this TCRL version 'is not recommended for new Project creation.' Should I be worried about this, and what should I do with the 'Update TCRL' option and the Layer Selection page's checked items?",
+  "question_variants": [
+    "Does the brown TCRL warning mean I'm doing something wrong?",
+    "Should I click 'Update TCRL'?",
+    "What should I do with HCI and other layers checked in Layer Selection?"
+  ],
+  "actual_issue": "The customer was uncertain about several non-obvious choices presented during registration project setup: a warning message about the TCRL version, whether to update the TCRL, and which layers to keep checked in Layer Selection, none of which were self-explanatory from the registration site's own messaging.",
+  "plain_english_explanation": "The brown 'not recommended for new Project creation' warning on the imported TCRL version is specifically about an unrelated registration deadline (October 15) that applies to entirely new certification/verification efforts starting from scratch — it doesn't apply to a registration like this one that's already at the project-setup stage, so it can be safely ignored here. Critically, 'Update TCRL' should NOT be clicked: doing so would impose new test requirements on layers that were exempted by the originally referenced registration, undoing the testing exemption the customer was counting on. In Layer Selection, any layers marked as 'Extra' (i.e., not actually needed for this specific registration, such as HCI in this case) should be unchecked before proceeding, since leaving them checked unnecessarily expands the registration's scope and can introduce Consistency Check problems.",
+  "consultant_answer": "That brown warning is about an unrelated October 15 registration deadline for brand-new certification efforts — it doesn't apply to where you are in this process, so please ignore it and continue. Please do NOT click 'Update TCRL' — doing so would impose new test requirements on layers that your referenced registration currently exempts you from. In Layer Selection, please uncheck any layers marked as 'Extra' that aren't actually needed for this registration (HCI, in your case) before continuing to ICS Selection.",
+  "decision_logic": "Registration site warning messages should be evaluated against their actual specific applicability (a deadline notice vs. a setup-stage caution) rather than assumed to apply broadly; TCRL version should be left as originally referenced unless a deliberate, fully-understood reason exists to update it, since doing so can silently reintroduce previously-exempted test requirements; Layer Selection should be pruned to only the layers actually relevant to the registration's intended scope.",
+  "final_recommendation": "When guiding a customer through registration project setup, proactively flag which on-screen warnings are safe to ignore in their specific context, explicitly instruct against TCRL updates unless intentional, and direct them to prune unnecessary 'Extra' layers in Layer Selection before proceeding — these are easy missteps that aren't obvious from the registration site's own UI alone.",
+  "risk_if_done_wrong": "Clicking 'Update TCRL' without understanding its effect could unexpectedly reinstate test requirements for layers the customer believed were already exempted, forcing unplanned additional testing; leaving unnecessary 'Extra' layers checked could expand registration scope and introduce avoidable Consistency Check errors.",
+  "bluetooth_tags": [
+    "TCRL update warning",
+    "Update TCRL reintroduces test requirement",
+    "Layer Selection Extra layers uncheck",
+    "registration project setup guidance",
+    "Alinco",
+    "XE1134"
+  ],
+  "search_aliases": [
+    "should I click Update TCRL",
+    "TCRL not recommended for new project warning",
+    "Layer Selection uncheck Extra layers HCI",
+    "TCRL version registration setup"
+  ],
+  "qualification_stage": "Registration project setup",
+  "confidence": "high"
+}

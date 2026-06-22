@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0202",
+  "case_id": "thread_0202_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Printer / Peripheral device)",
+  "customer_question": "What content should the operation manual (Bluetooth section) contain for a printer? And is the Compliance Folder published on the SIG portal?",
+  "question_variants": [
+    "For a printer, should the Bluetooth operation manual show the pairing procedure from the printer's side or from the connecting device's side?",
+    "Are the Compliance Folder documents registered publicly on the Bluetooth SIG website?",
+    "Does the SIG portal display our submitted Compliance Folder documents to the public?"
+  ],
+  "actual_issue": "Teraoka Seiko, registering a printer (a peripheral/slave device), asked what content the 'operation manual (Bluetooth section)' should contain for the Compliance Folder, and whether the four submitted documents would be publicly visible on the SIG portal.",
+  "plain_english_explanation": "The Compliance Folder operation manual requirement can be confusing for peripheral devices. For a printer, you might think the manual should show how to operate the printer's Bluetooth menu — but the SIG requirement is about how a user connects to and uses the printer from the connecting device's side (the smartphone or PC that prints to it). The manual should show the pairing flow and printing procedure as experienced from the PC or smartphone. Separately, the Compliance Folder is entirely private — it is not uploaded to or shown on the SIG website. The customer keeps it and only presents it if SIG conducts an audit.",
+  "consultant_answer": "For a peripheral device like a printer, the Bluetooth operation manual should describe the pairing and usage procedure from the perspective of the connecting device (PC or smartphone) — i.e., how a user pairs their device with the printer and performs printing. It is not about operating the printer itself. Regarding visibility: the Compliance Folder is NOT registered on the SIG portal and is not publicly visible. The customer retains it internally and only presents it if the SIG requests an audit. Think of it like a car's vehicle inspection certificate — you hold it, not the road authority.",
+  "decision_logic": "SIG compliance folder requirements call for documentation showing how Bluetooth is used in the product context. For peripheral devices, the Bluetooth interaction happens from the central device side (host PC/phone), so that is the perspective that should be documented. The Compliance Folder is a private document per SIG rules — it is retained by the Listing Owner, not uploaded to SIG.",
+  "final_recommendation": "When explaining the operation manual requirement for peripheral devices (printers, speakers, etc.), explicitly clarify that the manual should show the connecting device's side — not the peripheral's internal menus. Also proactively reassure customers that the Compliance Folder is private and not public on SIG.org.",
+  "risk_if_done_wrong": "Wrong-perspective operation manual (showing the printer's menu instead of the connecting device's pairing flow) may not satisfy the compliance documentation requirement. Customers misunderstanding the privacy of the Compliance Folder may worry unnecessarily about disclosing proprietary product information to the public.",
+  "bluetooth_tags": [
+    "Compliance Folder",
+    "operation manual",
+    "peripheral device",
+    "printer",
+    "connecting device perspective",
+    "SIG portal privacy",
+    "audit"
+  ],
+  "search_aliases": [
+    "operation manual peripheral device",
+    "printer Bluetooth operation manual",
+    "compliance folder public or private",
+    "SIG portal documents visible",
+    "pairing procedure from connecting device"
+  ],
+  "qualification_stage": "Post-registration / Compliance Folder preparation",
+  "confidence": "high"
+}

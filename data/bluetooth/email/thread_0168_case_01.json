@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0168",
+  "case_id": "thread_0168_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "BLE product (Flight Solutions)",
+  "customer_question": "We lost our Bluetooth SIG account login credentials from a registration done in 2016. Is there any way to recover the account without the original username or password?",
+  "question_variants": [
+    "We don't have the SIG account password from a registration done years ago. Can we still access or transfer the listing?",
+    "The person who registered our SIG account has left the company. How do we regain control?",
+    "We lost our SIG login. Can we still register a new product under our company?"
+  ],
+  "actual_issue": "The customer (Flight Solutions) performed a Bluetooth SIG registration in 2016 and has since lost all credentials for that account. They need to either recover the account or take control of the existing listing to proceed with new product registration.",
+  "plain_english_explanation": "Bluetooth SIG accounts have a designated 'Primary Contact' — the official representative contact registered with SIG. Even without the original username and password, the Primary Contact (or a newly designated one) can contact SIG directly and request a 'Listing Owner' change. SIG processes this through their administrative channel and transfers the listing to the correct account.",
+  "consultant_answer": "Contact Bluetooth SIG directly and request a Listing Owner change. The request must come from the Primary Contact of the registered SIG member company. SIG will verify the company's membership and process the ownership change. You do not need the original username or password to initiate this request. Because this customer is also in the middle of a company name change, the consultant additionally recommended that the Listing Owner change request be submitted after the company name change has been completed, not before.",
+  "decision_logic": "SIG maintains a Primary Contact role for each member company that is separate from the account credentials. The Primary Contact is the authoritative identity for ownership-level decisions. When credentials are lost, the Primary Contact bypasses the login requirement and requests an administrative ownership transfer directly from SIG. When a company name change is also pending, the Listing Owner change request should be sequenced after the name change is finalized with SIG, to avoid filing an ownership-transfer request against a member record that is about to be renamed.",
+  "final_recommendation": "Identify who the current Primary Contact is for your company's SIG membership. Have that person contact SIG to request a Listing Owner change. If the Primary Contact has also changed, contact SIG to update the Primary Contact first, providing company verification documents. If a company name change is also in progress, complete the company name change with SIG first, then submit the Listing Owner change request.",
+  "risk_if_done_wrong": "Attempting to create a new SIG member account and re-register from scratch would duplicate the company's SIG membership and potentially create compliance issues. Lost credentials do not mean the registration is lost — the correct path is the administrative recovery channel, not re-registration.",
+  "bluetooth_tags": [
+    "SIG account recovery",
+    "Listing Owner change",
+    "Primary Contact",
+    "SIG membership",
+    "account credentials lost",
+    "company name change sequencing"
+  ],
+  "search_aliases": [
+    "lost SIG account",
+    "forgot SIG password",
+    "SIG login credentials lost",
+    "Listing Owner change request",
+    "Primary Contact SIG"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

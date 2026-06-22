@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0250",
+  "case_id": "thread_0250_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (NEC Platforms Communications Terminal) referencing Google Fluoride Host Stack registrations",
+  "customer_question": "We'd like to use Google's Fluoride Host Stack (versions 1.3 through 1.6 were each considered) combined with our module for this registration. Is this combination viable?",
+  "question_variants": [
+    "Can Fluoride 1.4 be combined with our module for this registration?",
+    "What about Fluoride 1.6 instead — does that resolve the problem?"
+  ],
+  "actual_issue": "Before adding any profile definitions, a preliminary Consistency Check on the proposed module-plus-Fluoride-Host-Stack combination revealed fatal cross-layer inconsistencies, and this was found to be the case across every Fluoride version tried (1.3, 1.4, 1.5, and 1.6), raising the question of whether any version of this Host Stack could be used at all.",
+  "plain_english_explanation": "Running a preliminary Consistency Check on a trial project combining the customer's module with each Fluoride version (1.3 through 1.6), at the core-layer stage before adding any profiles, revealed the same fatal GAP/GATT cross-layer inconsistency every time: specific GATT items being supported without their correspondingly required GAP items also being supported. Since this same fundamental inconsistency appeared regardless of which Fluoride version was tried, and since GAP/GATT sit entirely within the Host Subsystem layer (independent of which module/Controller is combined with it), the conclusion was that this inconsistency is baked into the Fluoride registration series itself — likely because Bluetooth SIG added new GAP/GATT Consistency Check rules sometime after these Fluoride versions were originally registered. As a result, none of the Fluoride 1.3-1.6 registrations can currently be Included in a new registration on the current site, and an alternative, currently viable Host Stack registration (a different already-registered stack, or BlueZ) needs to be selected instead.",
+  "consultant_answer": "We ran a preliminary Consistency Check combining your module with each Fluoride version (1.3 through 1.6) before adding any profiles, and every single version produced the same fatal GAP/GATT cross-layer inconsistency. Since GAP/GATT sit entirely within the Host Subsystem layer (independent of your module), this points to an inconsistency baked into the Fluoride registration series itself — likely from SIG adding new GAP/GATT Consistency Check rules after these versions were originally registered. None of the Fluoride 1.3-1.6 registrations can currently be Included in a new registration, so please select an alternative already-registered Host Stack (a different version, or BlueZ) instead.",
+  "decision_logic": "When a proposed Host Stack reference produces the same fatal Consistency Check inconsistency across multiple version attempts, and the inconsistency sits entirely within that stack's own layer (independent of the paired Controller/module), treat it as an inherent defect in that registration series rather than continuing to try further version variations, and pivot to selecting an alternative Host Stack registration.",
+  "final_recommendation": "When a customer proposes a specific Host Stack series that fails Consistency Check across multiple version attempts with the same underlying error pattern, run a preliminary trial-project check before committing to it, and proactively recommend pivoting to an alternative registered Host Stack rather than exhausting every version variation one by one.",
+  "risk_if_done_wrong": "Continuing to attempt registration with a Host Stack series carrying an inherent Consistency Check defect across all its versions would waste significant time on a combination that cannot succeed, delaying the customer's registration further.",
+  "bluetooth_tags": [
+    "Google Fluoride Host Stack Consistency Check failure",
+    "GAP GATT cross-layer inconsistency",
+    "Host Subsystem inherent defect",
+    "alternative Host Stack BlueZ",
+    "NEC Platforms"
+  ],
+  "search_aliases": [
+    "Fluoride 1.4 1.5 1.6 Consistency Check error",
+    "GAP GATT Mandatory support missing",
+    "Host Stack registration cannot be included",
+    "alternative to Fluoride Host Stack BlueZ"
+  ],
+  "qualification_stage": "Pre-registration feasibility check",
+  "confidence": "high"
+}

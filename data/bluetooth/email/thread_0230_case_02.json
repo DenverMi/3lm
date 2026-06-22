@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0230",
+  "case_id": "thread_0230_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Set-top box (STB) using a chip/module-level certified Bluetooth stack (Panasonic Connect)",
+  "customer_question": "Our stack (certified by either the chip vendor or module vendor) supports 20 profiles, but we only use 8 and want to cap/disable the remaining 12. Does capping those unused but already-certified profiles count as modifying the originally certified configuration, requiring full re-certification or at least partial re-testing?",
+  "question_variants": [
+    "Does disabling already-certified profiles we don't use require re-certification of the stack?",
+    "Will capping 12 of 20 already-certified profiles trigger partial retesting?"
+  ],
+  "actual_issue": "The customer was concerned that disabling unused profiles on a chip/module stack that came pre-certified for all 20 profiles might be treated as altering the certified configuration, forcing unnecessary re-testing.",
+  "plain_english_explanation": "Capping or disabling profiles that are not going to be used does not require re-testing those capped profiles, as long as those profiles were already certified at the chip or module level. The original chip/module-level certification for those 12 unused profiles remains valid; disabling them at the product level doesn't change the testing requirement, since this isn't treated as a modification of the certified stack itself.",
+  "consultant_answer": "No — capping profiles that are already certified at the chip or module level does not require retesting those capped profiles, even though you're only actively using 8 of the 20 supported profiles.",
+  "decision_logic": "Disabling/capping an already-certified profile at the product level is not treated as a modification to the underlying certified stack, so it does not trigger a re-certification or retest obligation for that profile.",
+  "final_recommendation": "When customers ask whether disabling unused but pre-certified profiles affects their certification status, clarify that capping doesn't equal modifying the certified stack, and no retest is required for the capped profiles.",
+  "risk_if_done_wrong": "Unnecessarily re-testing already-certified, simply-unused profiles would waste cost and schedule for no compliance benefit; conversely, failing to confirm this rule could leave a customer mistakenly believing their entire stack needs re-certification whenever they disable any subset of features.",
+  "bluetooth_tags": [
+    "chip module level certification",
+    "capping unused certified profiles",
+    "retest not required",
+    "Panasonic Connect",
+    "STB"
+  ],
+  "search_aliases": [
+    "does disabling certified profile require retest",
+    "chip vendor certified profiles capping",
+    "module level certification scope"
+  ],
+  "qualification_stage": "Pre-certification scoping",
+  "confidence": "high"
+}

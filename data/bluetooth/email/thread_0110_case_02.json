@@ -2,6 +2,7 @@
   "source_thread": "thread_0110",
   "case_id": "thread_0110_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "cooking appliance",
   "customer_question": "We're planning to register an additional product model linked to existing registration D063816, but an orange warning appears saying additional registrations using this DID won't be possible after 2025/2/1. What's the expected impact, and is there a way to avoid it?",
   "question_variants": [
@@ -17,7 +18,12 @@
   "decision_logic": "If an existing registration (DID) includes a profile that the SIG is deprecating on a future date, and that profile was not removed at original registration (even if unused by the actual product), the entire registration becomes invalid (Withdrawal) on the deprecation date - blocking any further additional registrations under that DID from that date onward. The only mitigation is to complete any needed additional registrations under the Product List before the deprecation date; products registered before that date remain sellable afterward.",
   "final_recommendation": "Complete any planned additional model registrations under the Product List before 2025/1/31, since D063816 will become invalid (Withdrawal) on 2025/2/1 due to the included (unused) GLS 1.0 profile being deprecated, and there is no way to fix this via additional registration to the existing DID.",
   "risk_if_done_wrong": "If additional registrations are attempted under D063816 after 2025/2/1, they will not be possible because the entire registration becomes invalid (Withdrawal) on that date. Models not registered before 2025/1/31 would be left without a valid registration path under this DID.",
-  "bluetooth_tags": ["qualification", "listing", "declaration", "design change"],
+  "bluetooth_tags": [
+    "qualification",
+    "listing",
+    "declaration",
+    "design change"
+  ],
   "search_aliases": [
     "GLS 1.0 deprecated profile withdrawal",
     "DID becomes invalid Withdrawal date",

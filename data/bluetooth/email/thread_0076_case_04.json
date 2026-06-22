@@ -1,43 +1,23 @@
 {
-    "source_thread": "thread_0076",
-    "cases": [
-        {
-            "case_id": "thread_0076_case_04",
-            "iut_type": "",
-            "customer_question": "What documentation is typically required to create a Bluetooth qualification compliance folder for a product registration?",
-            "question_variants": [
-                "Compliance folder required documents",
-                "What files must be prepared for SIG registration?",
-                "Bluetooth compliance package contents",
-                "Required qualification documentation",
-                "Compliance folder preparation checklist"
-            ],
-            "actual_issue": "The customer needed to know which supporting documents must be collected and supplied for compliance-folder preparation associated with Bluetooth SIG registration.",
-            "plain_english_explanation": "Bluetooth registration projects often require a supporting compliance package that documents how the product implements Bluetooth technology. Several standard product documents are typically collected to support the registration record.",
-            "consultant_answer": "The consultant requested Bluetooth-related sections of the user manual, product block diagrams, product external drawings, and antenna documentation including radiation-gain information. These materials were identified as the required compliance-folder inputs for the registration project.",
-            "decision_logic": "Compliance documentation must provide sufficient evidence describing the product architecture, Bluetooth implementation, and antenna configuration used in the qualified design.",
-            "final_recommendation": "Collect Bluetooth user documentation, block diagrams, external drawings, and antenna performance documentation before registration completion so the compliance folder can be prepared without delay.",
-            "risk_if_done_wrong": "Missing compliance-folder documents can delay completion of the registration deliverables and supporting qualification records.",
-            "bluetooth_tags": [
-                "qualification",
-                "compliance folder",
-                "documentation",
-                "antenna",
-                "registration"
-            ],
-            "search_aliases": [
-                "compliance folder",
-                "required documents",
-                "Bluetooth manual",
-                "block diagram requirement",
-                "antenna gain report",
-                "qualification package",
-                "registration documentation",
-                "compliance evidence"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0076",
+  "case_id": "thread_0076_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "",
+  "customer_question": "What does the TCW field on our registration mean? It's showing a number instead of a Yes/No value.",
+  "question_variants": [
+    "What is a TCW number on the registration page?",
+    "Why does this field show a number instead of Yes/No like the others?",
+    "Where can we read more about what TCW means?"
+  ],
+  "actual_issue": "The customer noticed a field on their registration displaying a specific number, labeled TCW, rather than the Yes/No format used elsewhere, and needed to understand what this field represented and when it applies.",
+  "plain_english_explanation": "TCW stands for Test Coverage Waiver. It's a mechanism for situations where the registration system itself flags a conflict between two parts of a design (an Inter-Layer Dependency) that genuinely can't be resolved through any fault of the registrant, but is instead a quirk or limitation of SIG's own system. Entering the right waiver number for that specific situation lets the registration go through anyway, once it's reviewed and approved, rather than being permanently stuck.",
+  "consultant_answer": "TCW (Test Coverage Waiver) is documented on the Help & Support page's 'Inter-Layer Dependencies' section. In short: when an Inter-Layer Dependency exists that is attributable to a fault or limitation on SIG's own side, and that dependency cannot otherwise be resolved, entering the corresponding TCW number allows Submission to proceed (subject to confirmation and approval) despite that unresolved dependency.",
+  "decision_logic": "A TCW number on a registration is not a standard input field but a specific waiver mechanism for Inter-Layer Dependencies that are attributable to SIG's own system rather than to an error in the registrant's design; it permits Submission only once the corresponding waiver number is confirmed and approved, rather than functioning as a regular optional input.",
+  "final_recommendation": "When a customer encounters a TCW field showing a specific number, explain that this represents a Test Coverage Waiver for an Inter-Layer Dependency attributable to SIG's own system, point them to the Help & Support 'Inter-Layer Dependencies' documentation for details, and clarify that it permits Submission only with proper confirmation and approval.",
+  "risk_if_done_wrong": "Misunderstanding a TCW field as a routine optional setting, rather than a specific waiver tied to an SIG-side Inter-Layer Dependency, could lead the customer to enter an incorrect or unauthorized waiver number, or to be confused about why a field doesn't follow the usual Yes/No format.",
+  "bluetooth_tags": ["TCW", "Test Coverage Waiver", "Inter-Layer Dependencies", "Submission"],
+  "search_aliases": ["TCW number meaning registration", "Test Coverage Waiver Inter-Layer Dependency", "TCW field not Yes No", "Help Support Inter-Layer Dependencies page"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

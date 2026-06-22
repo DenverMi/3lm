@@ -1,0 +1,36 @@
+{
+  "source_thread": "thread_0166",
+  "case_id": "thread_0166_case_08",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Smart TV with Bluetooth (Sony, A2DP)",
+  "customer_question": "Our A2DP/SRC/SYN test result shows a non-Pass result, but the Test Case Category for this item is 'D'. Does that mean it's not required, and can we still consider A2DP to have passed overall?",
+  "question_variants": [
+    "Test Case Category D means the item is not required - is our understanding correct?",
+    "A2DP shows a non-Pass on one item (Category D) - is A2DP overall considered passed?",
+    "Does an INCONCLUSIVE or Fail result on a Category D test case block qualification?"
+  ],
+  "actual_issue": "During A2DP profile testing, the test result for A2DP/SRC/SYN showed a non-Pass result. The customer noticed the Test Case Category for this item was 'D' and asked the consultant whether this still counted as A2DP having passed overall. The consultant confirmed: Category D items are not required (不問) - a non-Pass result on a Category D item does not affect whether the profile is considered to have passed, and apologized for not having clearly communicated earlier that A2DP had already completed all of its required test items.",
+  "plain_english_explanation": "Bluetooth SIG test cases are categorized by type (A, B, C, D, etc.). Category D items are labeled 'not required' or 'don't care' - they will never block a qualification regardless of their result. If a Category D item shows any non-Pass result (Fail, Inconclusive, etc.), it does not affect the overall profile qualification outcome. The consultant should proactively flag to customers when a profile's mandatory items are already complete, even if a non-mandatory Category D item still shows a non-Pass result, to avoid unnecessary customer concern.",
+  "consultant_answer": "Yes, that understanding is correct. We apologize for not clearly communicating that A2DP had already completed all of the test items required for certification registration.",
+  "decision_logic": "For any profile test result review: (1) check the Test Case Category of any non-Pass item; (2) if Category D, the item is 不問 (not required) and does not block qualification regardless of its result; (3) proactively confirm to the customer that the profile's required (mandatory) items are complete, so they understand a Category D non-Pass is not blocking.",
+  "final_recommendation": "When reviewing profile test results with a customer, always check the Test Case Category for any non-Pass items and explicitly state whether the profile's mandatory test items are already complete - don't leave the customer to infer this from category labels alone.",
+  "risk_if_done_wrong": "Failing to proactively clarify that a profile's mandatory items are complete despite a Category D non-Pass can cause unnecessary customer concern, wasted troubleshooting effort, or delay in proceeding to registration.",
+  "bluetooth_tags": [
+    "A2DP",
+    "Test Case Category D",
+    "不問",
+    "PTS",
+    "profile test",
+    "qualification outcome"
+  ],
+  "search_aliases": [
+    "Test Case Category D not required",
+    "A2DP non-Pass Category D still passed",
+    "Category D 不問 blocking qualification",
+    "PTS test category D acceptable result",
+    "A2DP SRC SYN non-Pass acceptable"
+  ],
+  "qualification_stage": "testing",
+  "confidence": "high"
+}

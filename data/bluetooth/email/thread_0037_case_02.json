@@ -1,48 +1,32 @@
 {
-    "source_thread": "thread_0037",
-    "cases": [
-        {
-            "case_id": "thread_0037_case_02",
-            "iut_type": "module-based BLE product",
-            "customer_question": "Can a product using an already qualified BLE module complete Bluetooth SIG qualification without additional testing, and what documents are still required?",
-            "question_variants": [
-                "Can we skip Bluetooth testing if the module is already qualified?",
-                "Do we need RF testing when reusing a qualified BLE module?",
-                "What documents are needed for the compliance folder?",
-                "Can module qualification be reused without submitting hardware?",
-                "Is the antenna datasheet from the module vendor acceptable?"
-            ],
-            "actual_issue": "A product reusing an already qualified Bluetooth component may avoid new testing if the adopted design already satisfies required qualification coverage, but the final product still requires its own qualification submission and compliance documentation.",
-            "plain_english_explanation": "Even when a product uses a previously qualified Bluetooth module, the final product still needs its own Bluetooth SIG qualification listing. In this case, the consultant determined that no additional lab testing was required because the adopted component already covered the needed qualification scope. However, the customer still had to provide compliance folder documents such as Bluetooth user instructions, block diagrams, external drawings, and antenna information.",
-            "consultant_answer": "After reviewing the customer's qualification request and adopted Bluetooth component information, the consultant concluded that no physical testing or equipment submission was required because the selected component had already passed the necessary qualification tests. The consultant instructed the customer to proceed with qualification registration and later submit compliance folder materials including the Bluetooth-related operating manual, product block diagram, external dimension drawing, and antenna data containing radiation gain characteristics. The consultant also confirmed that Japanese-language documents were acceptable for the compliance folder.",
-            "decision_logic": "Previously qualified Bluetooth designs and test coverage can be reused when the Bluetooth-compliant portion is unchanged. Even when testing is unnecessary, the final product owner must still complete its own qualification submission and maintain compliance folder documentation.",
-            "final_recommendation": "Reuse the qualified Bluetooth component design for the product listing, complete the qualification submission process, and prepare the required compliance folder documents including Bluetooth manual sections, block diagrams, product drawings, and antenna data.",
-            "risk_if_done_wrong": "The product may fail qualification review, experience delays during submission, or lack required compliance evidence during audit or enforcement review. Incorrect assumptions about qualification reuse could also lead to unnecessary testing or incomplete documentation.",
-            "bluetooth_tags": [
-                "qualification",
-                "module",
-                "reuse",
-                "compliance folder",
-                "listing",
-                "antenna",
-                "documentation",
-                "submission"
-            ],
-            "search_aliases": [
-                "module reuse qualification",
-                "no testing required reuse",
-                "qualified BLE module reuse",
-                "compliance folder documents",
-                "antenna radiation gain chart",
-                "Bluetooth manual requirement",
-                "block diagram submission",
-                "external drawing requirement",
-                "Japanese documents accepted",
-                "qualification without retest"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0037",
+  "case_id": "thread_0037_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "USD wire transfer proxy service for Bluetooth SIG Declaration fee -- exchange rate timing and delegation pros/cons",
+  "customer_question": "If we delegate the USD wire transfer for the SIG registration fee to your company, when exactly does the exchange rate get fixed? Also, what are the pros and cons of having you handle the wire transfer versus doing it ourselves?",
+  "question_variants": [
+    "Is the exchange rate locked in at the time of formal quote issuance, or at some other point?",
+    "Why would a customer choose to pay the extra fee for transfer delegation instead of just wiring the funds directly themselves?"
+  ],
+  "actual_issue": "The customer wanted to understand exactly how the exchange rate would be determined if they delegated the USD wire transfer to the consultant, and wanted a clear comparison of when delegation makes sense versus handling the transfer themselves.",
+  "plain_english_explanation": "When the wire transfer is delegated, the exchange rate applied is the TTS (telegraphic transfer selling) rate as of the last business day of the month prior to the formal quotation being issued -- a fixed reference point rather than a rate determined at the time funds are actually sent. As for why customers choose delegation despite directly paying themselves being the generally recommended default: common reasons include wanting to consolidate the SIG fee with the consultant's own support fees into a single internal billing/accounting entry, or facing internal accounting constraints that prevent a fast USD wire transfer. Delegation costs an additional ¥100,000 fee and takes about 3 weeks to complete, which customers should weigh against their own banking capability and internal process convenience.",
+  "consultant_answer": "If you delegate the wire transfer to us, the exchange rate applied is the TTS rate as of the last business day of the month before the formal quote is issued -- a fixed reference point, not the rate on the day funds are actually sent. We generally recommend customers pay the SIG fee directly themselves, but delegation is popular among customers who want to consolidate billing with our own fees into one internal entry, or whose accounting department can't quickly process a USD wire transfer. Delegation costs an additional ¥100,000 and takes about 3 weeks.",
+  "decision_logic": "When a customer asks about delegating the SIG Declaration fee wire transfer, clarify the exact exchange rate reference point (TTS rate, fixed at the prior month's last business day relative to quote issuance) and present the genuine tradeoffs (cost and lead time vs. billing consolidation or internal accounting constraints) rather than simply stating a preference for self-payment.",
+  "final_recommendation": "When discussing wire transfer delegation, always state the specific exchange rate timing rule explicitly, since 'the rate at transfer time' is a reasonable but incorrect assumption a customer might otherwise make, and present the real-world reasons other customers have chosen delegation so the current customer can weigh their own situation against it.",
+  "risk_if_done_wrong": "A customer assuming the exchange rate would be fixed at the time of actual fund transfer, rather than the prior-month TTS rate tied to quote issuance, could be surprised by a different final cost than expected.",
+  "bluetooth_tags": [
+    "USD wire transfer exchange rate TTS rate",
+    "delegation pros and cons",
+    "wire transfer delegation cost and lead time",
+    "IDEAL Corporation"
+  ],
+  "search_aliases": [
+    "when is exchange rate fixed for delegated wire transfer",
+    "TTS rate prior month last business day",
+    "pros and cons of delegating SIG fee payment",
+    "wire transfer delegation cost 100000 yen 3 weeks"
+  ],
+  "qualification_stage": "Pre-registration payment scoping",
+  "confidence": "high"
 }

@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0087",
-    "cases": [
-        {
-            "case_id": "thread_0087_case_02",
-            "iut_type": "",
-            "customer_question": "How should Bluetooth RF-PHY report frequencies be handled when report templates contain outdated test-channel values after specification updates?",
-            "question_variants": [
-                "Wrong RF test frequencies in report",
-                "Bluetooth Core 6.0 frequency update",
-                "Template uses old RF channels",
-                "Report frequencies do not match logs",
-                "RF-PHY channel selection mismatch"
-            ],
-            "actual_issue": "The report contained RF test frequencies inherited from an outdated template, while the executed test logs reflected the frequencies required by updated Bluetooth test specifications associated with Core Specification 6.0. ",
-            "plain_english_explanation": "Bluetooth specifications and test specifications can change over time. If report templates are not updated, they may contain outdated frequency values even when testing was performed correctly. Reviewers must verify that report content matches both the logs and current requirements. ",
-            "consultant_answer": "A reviewer identified that the report listed 2406, 2440, and 2476 MHz while the logs showed 2402, 2440, and 2480 MHz. After investigation, the report was corrected and it was acknowledged that Bluetooth Core Specification 6.0 test-specification changes had altered the expected frequencies. The consultant instructed that outdated templates be updated to prevent future recurrence. ",
-            "decision_logic": "Current Bluetooth test-specification requirements take precedence over legacy report templates. Reported test frequencies must match both the executed logs and the applicable version of the test specification. ",
-            "final_recommendation": "Validate RF frequencies against the actual logs and current Bluetooth test specifications, correct any template-derived errors, and maintain report templates whenever specification revisions occur. ",
-            "risk_if_done_wrong": "Reports may contain technically incorrect RF test information, leading to documentation rework, review delays, and confusion regarding compliance with current Bluetooth test requirements. ",
-            "bluetooth_tags": [
-                "RF PHY",
-                "Core 6.0",
-                "test specification",
-                "frequency",
-                "template management",
-                "qualification"
-            ],
-            "search_aliases": [
-                "Core 6.0 frequency change",
-                "RF-PHY frequencies",
-                "2402 2440 2480 MHz",
-                "outdated template",
-                "test channel update",
-                "report frequency correction",
-                "Bluetooth TS update",
-                "RF log mismatch"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0087",
+  "case_id": "thread_0087_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "We're going to run this PTS testing ourselves -- can you send us the Test Plan to follow?",
+  "question_variants": [
+    "Do we need a different version of the Test Plan since we're self-testing?",
+    "Can we use the same Test Plan you use internally for your own reports?",
+    "What should be removed from the Test Plan before giving it to a self-testing customer?"
+  ],
+  "actual_issue": "A customer planned to perform their own self-testing rather than have the lab generate a report, and the original internal Test Plan contained report-generation-specific information that was not appropriate to hand over as-is for that purpose.",
+  "plain_english_explanation": "The Test Plan the lab uses internally includes some information that's only relevant when the lab itself is producing the final report. When a customer is running the tests themselves instead, that report-specific content doesn't apply to them and should be left out, so they get a clean version of the Test Plan that only covers what they actually need to follow.",
+  "consultant_answer": "The original Test Plan includes report information that is not needed for the customer's own self-testing in this case. A customer-facing version with that report information removed was prepared and provided for submission to the customer.",
+  "decision_logic": "When a customer will perform their own self-testing rather than have the lab produce the report, the Test Plan handed to them should have report-generation-specific information stripped out, since that content is only relevant to a report the lab itself generates, not to the customer's own testing process.",
+  "final_recommendation": "Before providing a Test Plan to a customer doing their own self-testing, prepare a customer-facing version with report-specific information removed, rather than handing over the lab's internal version as-is.",
+  "risk_if_done_wrong": "Providing the customer with the internal Test Plan containing report-generation-specific information could create confusion about what the customer actually needs to do for their own self-testing.",
+  "bluetooth_tags": ["Test Plan", "customer self-testing", "PTS", "testing"],
+  "search_aliases": ["customer-facing Test Plan strip report info", "self-test Test Plan vs internal Test Plan", "remove report information before customer submission"],
+  "qualification_stage": "testing",
+  "confidence": "high"
 }

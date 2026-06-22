@@ -1,44 +1,23 @@
 {
-    "source_thread": "thread_0084",
-    "cases": [
-        {
-            "case_id": "thread_0084_case_01",
-            "iut_type": "hands-free unit",
-            "customer_question": "What should be reviewed before final Bluetooth SIG submission to ensure the public listing accurately reflects the qualified product?",
-            "question_variants": [
-                "Review Bluetooth listing before submission",
-                "Check Review page before declaration",
-                "Verify Bluetooth version in listing",
-                "Validate product metadata before publication",
-                "Confirm qualification submission details"
-            ],
-            "actual_issue": "The qualification submission contained customer-visible metadata that required verification before final publication, including product naming and Bluetooth version information.",
-            "plain_english_explanation": "Before a Bluetooth SIG listing becomes public, all information shown in the qualification record should be reviewed carefully. Small mistakes such as an incorrect Bluetooth version or product description can become part of the published record. A final review helps ensure the listing matches the actual qualified product.",
-            "consultant_answer": "The consultant completed qualification workspace validation, corrected ICS-related issues, generated the Review page, and requested customer confirmation before submission. During review, an outdated Bluetooth v4.1 statement was identified and corrected to v5.2. Product naming and publication timing were also confirmed before the final submission was executed.",
-            "decision_logic": "Customer-visible qualification data must accurately reflect the final qualified product before submission. Any discrepancy discovered during review should be corrected before declaration and publication.",
-            "final_recommendation": "Perform a formal review of the Bluetooth SIG Review page, verify product identifiers and Bluetooth version claims, obtain customer approval, and only then complete the submission.",
-            "risk_if_done_wrong": "Incorrect product information may be published in the Bluetooth SIG listing and could require corrective action after submission. Metadata inconsistencies can also create confusion regarding the qualified product configuration.",
-            "bluetooth_tags": [
-                "qualification",
-                "listing",
-                "declaration",
-                "ICS",
-                "review page",
-                "Bluetooth version"
-            ],
-            "search_aliases": [
-                "Review page verification",
-                "Bluetooth listing review",
-                "submission validation",
-                "Bluetooth version mismatch",
-                "v4.1 to v5.2 correction",
-                "qualification metadata review",
-                "pre-submission check",
-                "declaration review"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0084",
+  "case_id": "thread_0084_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "explosion-proof handsfree unit",
+  "customer_question": "Before we approve the Review Page for Submission, are there any issues with how the Model Number, product description text, or Publish Date fields are filled in?",
+  "question_variants": [
+    "Should the Model Number field include the full product name or just the model code?",
+    "Does our product description's Bluetooth version claim need to match our actual registration?",
+    "How does the Product Publish Date field actually get set?"
+  ],
+  "actual_issue": "Before Submission, three Review Page content issues needed to be caught and addressed: whether the Model Number field should contain the full descriptive product name or just the core model code, whether a stated Bluetooth version in the product's marketing description text matched the registration's actual Core spec version, and confusion over how the Product Publish Date field is determined.",
+  "plain_english_explanation": "A few small but important details on the final review screen before a registration is filed are easy to get wrong: putting a long descriptive name where a short model code is expected, leaving an old Bluetooth version number in marketing text after the actual registration was updated to a newer version, and not realizing that the publish date field isn't something you set directly -- it just reflects whenever the registration actually gets filed.",
+  "consultant_answer": "(1) The registration confirmation document listed the Model Number as a full descriptive name ('Explosion proof hands free unit [model code]'), but the conventional practice is to use just the model code portion as the Model Number, which is what was entered. (2) The product's simple English description text stated 'compliant with Bluetooth V4.1,' but this registration was for v5.2 -- since this was still correctable, the customer was asked whether to update it, and they confirmed it should be corrected to v5.2. (3) The Product Publish Date field showing a specific date was explained as simply reflecting whatever date Submission is actually executed (for example, submitting the next day would show that next day's date) -- it is not a field set independently in advance, and the customer confirmed they were fine with whatever the earliest possible date turned out to be.",
+  "decision_logic": "Before Submission, the Review Page should be checked for: the Model Number field reflecting the conventional core model code rather than a longer descriptive name; any Bluetooth-version claim in product description text matching the registration's actual Core spec version; and the Product Publish Date field being understood as a reflection of the actual Submission date rather than an independently configurable field.",
+  "final_recommendation": "When reviewing a Review Page before Submission, check the Model Number field uses the conventional core model code, confirm any Bluetooth-version claim in product description text matches the registration's actual Core spec version and correct it if not, and clarify to the customer that the Product Publish Date field simply reflects the actual Submission date rather than needing separate configuration.",
+  "risk_if_done_wrong": "Leaving a full descriptive name in the Model Number field, an outdated Bluetooth-version claim in product description text, or misunderstanding the Publish Date field as independently configurable could each create an inaccurate or confusing public-facing registration record.",
+  "bluetooth_tags": ["Review Page", "Model Number", "Product Publish Date", "Submission", "Core spec version"],
+  "search_aliases": ["Model Number field core model code convention", "product description Bluetooth version mismatch registration", "Product Publish Date reflects Submission date", "Review Page pre-Submission QA checklist"],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
 }

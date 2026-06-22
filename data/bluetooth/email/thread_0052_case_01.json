@@ -1,48 +1,33 @@
 {
-    "source_thread": "thread_0052",
-    "cases": [
-        {
-            "case_id": "thread_0052_case_01",
-            "iut_type": "audio speaker",
-            "customer_question": "Can RF/RF PHY testing be avoided when a product reuses previously qualified Bluetooth components and reproduces the qualified RF design without modification?",
-            "question_variants": [
-                "Can we leverage an existing QDID without RF retesting?",
-                "Is RF testing required if the RF trace design is unchanged?",
-                "Can a combined design use Option 2a without RF PHY testing?",
-                "Does identical antenna path design allow test reuse?",
-                "Can we qualify using existing subsystem QDIDs only?"
-            ],
-            "actual_issue": "Determining whether a product combining existing qualified Bluetooth designs qualifies as an unmodified design reuse that avoids additional RF/RF PHY testing.",
-            "plain_english_explanation": "The product reused previously qualified Bluetooth components and followed the same RF design approach as the reference implementation. The key question was whether Bluetooth qualification required new radio testing or whether the existing qualification evidence could be reused. The answer depended on whether the RF design remained equivalent to the qualified reference design and whether the registration model qualified as an unmodified combination of existing designs.",
-            "consultant_answer": "The final conclusion was that if the RF path from the Bluetooth device to the antenna connection preserves the same circuit design, component values, placement, layout, and board construction as the qualified reference implementation, the product can be registered as a combination of existing qualified designs using the applicable unmodified-design registration path. Under that condition, additional RF/RF PHY testing is not required. An earlier recommendation requiring RF testing was corrected after review of the qualification approach and Bluetooth SIG guidance.",
-            "decision_logic": "Qualification eligibility is determined by design equivalence and use of the unmodified design combination registration model rather than by reuse of regulatory certification evidence. If the referenced qualified designs are combined without modification and the RF implementation remains equivalent, additional RF testing is not triggered.",
-            "final_recommendation": "Document RF design equivalence to the qualified reference implementation and register the product as an unmodified combination of existing qualified designs rather than performing unnecessary RF/RF PHY testing.",
-            "risk_if_done_wrong": "Misclassifying the design as modified can trigger unnecessary RF/RF PHY testing, additional qualification work, additional registration requirements, and avoidable project cost and delay. The thread initially included a quoted RF test cost of ¥200,000 before the final determination that RF testing was not required.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "RF",
-                "RF PHY",
-                "reuse",
-                "design change",
-                "listing",
-                "module"
-            ],
-            "search_aliases": [
-                "RF test waiver",
-                "RF PHY retest not required",
-                "Option 2a reuse",
-                "combine existing designs",
-                "design equivalence",
-                "module leverage",
-                "unmodified design",
-                "QDID reuse",
-                "RF trace identical",
-                "antenna path unchanged"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0052",
+  "case_id": "thread_0052_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "RF/RF PHY test exemption via module-level design leverage -- cross-certification-regime substitution limits, the module vendor's 'Module Certification Leverage' reference design, and self-judged antenna-trace design identity",
+  "customer_question": "For Japan Radio Law/FCC/CE certification, if a product's PCB pattern from module to antenna connector is kept identical to the module's own certified reference design, RF retesting is exempted at the product level. Does this same 'design identity' principle apply for Bluetooth SIG certification, letting us avoid a new product-level RF/RF PHY test?",
+  "question_variants": [
+    "Can a Giteki/FCC/CE test report be substituted directly as evidence for Bluetooth RF certification, or vice versa?",
+    "What specifically needs to be copied from a module vendor's reference design documentation to qualify for RF test exemption?"
+  ],
+  "actual_issue": "The customer assumed that the module-design-identity exemption principle they already relied on for Japan Radio Law, FCC, and CE certification (reusing the module's own certified test results by keeping the PCB pattern from module to antenna connector identical to the certified reference design) would extend directly to Bluetooth SIG certification as well, allowing them to skip a new product-level RF/RF PHY test.",
+  "plain_english_explanation": "As a general rule, test results from one certification regime (Japan Radio Law/Giteki, FCC, CE, etc.) cannot be directly substituted as evidence for Bluetooth SIG certification, and vice versa -- this is because each regime separately accredits and requires calibration of its own test facilities and equipment, and each regime's test specification independently defines its own test content, method, and pass/fail criteria, which don't match in fine detail across regimes. However, there IS a path to exemption specific to Bluetooth: if the RF (or RF PHY) test report being submitted was generated by copying the module vendor's own published 'Module Certification Leverage' reference board design -- specifically the reference schematic, reference RF trace length, and reference RF trace width/air-gap (found on pages 3-6 of that vendor document) -- AND that original report satisfies QPRDv3's stipulated condition (it was produced using a SIG-accredited test system, by a SIG-accredited BQTF or BRTF facility), then that existing report CAN be reused as substitute evidence, avoiding a new product-level RF test. On further follow-up, this was refined further: maintaining design identity from the antenna terminal to the antenna connector (confirmed by the applicant's own judgment, without necessarily needing to follow the vendor's formal 'Module Certification Leverage' document method specifically) is sufficient to qualify the registration for QPRDv3's Option 2a format (combining multiple existing Designs without modification), which does NOT require additional product-level RF/RF PHY testing -- as opposed to Option 2b (a 'with modification' registration), which would require both a new RF/RF PHY test AND, as of early 2025, the additional Profile IOPT testing requirement.",
+  "consultant_answer": "Generally, no -- Bluetooth certification test results and other regimes' (Giteki/FCC/CE) test results can't be substituted for each other, since each regime separately accredits its own test facilities and defines its own test details. However, if your RF test report was generated by copying the module vendor's 'Module Certification Leverage' reference board design (schematic, RF trace length, trace width/air-gap from pages 3-6) and the original report came from a SIG-accredited test system at a SIG-accredited BQTF or BRTF, that report can be reused. [Correction after further review:] More broadly, if you can confirm design identity from the antenna terminal to the antenna connector yourself, that alone qualifies you for QPRDv3's Option 2a registration format, which doesn't require additional product-level RF/RF PHY testing -- you don't necessarily need to follow the vendor's formal leverage document method specifically.",
+  "decision_logic": "When a customer asks whether a non-Bluetooth certification's RF test results or design-identity principle can exempt them from Bluetooth RF/RF PHY testing, clarify that direct cross-regime test substitution is generally not allowed, but that maintaining design identity from the antenna terminal to the antenna connector (whether confirmed via the module vendor's formal leverage documentation or the applicant's own judgment) can qualify the registration for the no-additional-testing Option 2a format under QPRDv3.",
+  "final_recommendation": "When a customer cites a non-Bluetooth certification's module-design-identity exemption principle, don't simply say it doesn't transfer -- explain the Bluetooth-specific path (module vendor leverage documentation, or self-confirmed antenna-trace design identity) that achieves a similar RF-test-avoidance outcome under QPRDv3's Option 2a registration format, and be prepared to revisit and correct an initial answer if it turns out to have been based on an incomplete reading of the customer's actual design situation.",
+  "risk_if_done_wrong": "Incorrectly telling a customer that no RF test exemption path exists could result in unnecessary RF/RF PHY testing cost and delay; conversely, incorrectly applying a cross-regime test substitution without verifying the Bluetooth-specific leverage/design-identity conditions could result in invalid registration evidence.",
+  "bluetooth_tags": [
+    "cross certification regime test substitution not allowed",
+    "Module Certification Leverage reference design RF exemption",
+    "QPRDv3 Option 2a vs Option 2b RF test requirement",
+    "antenna terminal to connector design identity self-judged",
+    "Klipsch Premium Audio Company THE FIVES"
+  ],
+  "search_aliases": [
+    "can Giteki FCC CE test results substitute for Bluetooth RF test",
+    "Module Certification Leverage document RF exemption Bluetooth",
+    "QPRDv3 Option 2a no RF PHY test requirement",
+    "antenna trace design identity exemption Bluetooth SIG"
+  ],
+  "qualification_stage": "RF/RF PHY test scoping and exemption evaluation",
+  "confidence": "high"
 }

@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0214",
+  "case_id": "thread_0214_case_03",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Development prototype (BLE module embedded in a coupling component, Miki Pulley)",
+  "customer_question": "If the 'free evaluation equipment loan' itself remains unpaid, but we charge separately for the engineer dispatch fee needed to set up the equipment on-site, can we still consider SIG certification unnecessary?",
+  "question_variants": [
+    "Can we charge for engineer support/installation while keeping the device loan itself free, and still avoid SIG certification?",
+    "Does charging for technical support services (separate from the device) break the free-loan exemption?"
+  ],
+  "actual_issue": "Miki Pulley wanted to charge for dispatching technicians to install/set up the evaluation equipment on customer sites (since expertise is required), while keeping the loan of the Bluetooth-equipped device itself free, and asked whether this still avoided SIG certification.",
+  "plain_english_explanation": "As long as no payment is requested for the Bluetooth-enabled device itself, charging separately for an engineer support/dispatch service does not break the free-loan exemption. The certification requirement is tied to compensation for the Bluetooth device, not for adjacent services.",
+  "consultant_answer": "If no payment is required for the Bluetooth device itself, but the engineer support dispatch is positioned and billed as a separate paid service, then SIG certification of the evaluation equipment is not mandatory.",
+  "decision_logic": "The exemption hinges narrowly on whether the Bluetooth product itself is exchanged for money. Bundling a paid professional service alongside a free device loan does not, by itself, convert the device loan into a commercial transaction.",
+  "final_recommendation": "If structuring a hybrid free-device/paid-service offering, clearly separate the device loan agreement (free) from the service agreement (paid) in contracts and invoicing to preserve the exemption.",
+  "risk_if_done_wrong": "If the cost structure conflates the device loan and the service fee (e.g., a single bundled price that implicitly compensates for device use), the exemption could be challenged.",
+  "bluetooth_tags": [
+    "free evaluation loan",
+    "paid engineer dispatch",
+    "exemption boundary",
+    "Miki Pulley"
+  ],
+  "search_aliases": [
+    "paid technician dispatch free device loan exemption",
+    "service fee vs device fee Bluetooth exemption",
+    "engineer support fee SIG certification"
+  ],
+  "qualification_stage": "Pre-registration / exemption assessment",
+  "confidence": "high"
+}

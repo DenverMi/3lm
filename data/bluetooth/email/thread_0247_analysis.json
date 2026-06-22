@@ -1,0 +1,17 @@
+{
+  "source_thread": "thread_0247",
+  "thread_analysis": {
+    "thread_summary": "Teraoka Seiko Co., Ltd. (contact Hideaki Haraguchi, Intellectual Property & Standards Department) works with Allion (Masaya Iida, Itsuo Sakai) across multiple printer-product Bluetooth certification projects spanning late 2023 through early 2025: an initial ROHM-module inquiry, a LAPIS/Nordic-module Declaration registration requiring an End Product reference due to Component registration expiration, a reused module+antenna+Windows 11 combination, a blocked module+Windows 10 combination caused by the July 2024 SIG site update's handling of the deprecated HID 1.1 profile, and a final AX210-module+Windows 11 registration completed through Compliance Folder delivery.",
+    "all_questions_found": [
+      "Can a quote be given for the LAPIS/Nordic module despite its Component registration having expired, and how is DID acquired? (see thread_0247_case_01)",
+      "Is the same Declaration registration approach reusable for a new antenna/Windows 11 combination, and is there an antenna concern or DID fee timing issue? (see thread_0247_case_02)",
+      "Why can't a module+Windows 10 combination be newly registered after the July 2024 SIG site update? (see thread_0247_case_03)",
+      "What should the Bluetooth-portion operation manual contain, and are the four Compliance Folder documents public? (see thread_0247_case_04)"
+    ],
+    "key_technical_discussion": "This long-running customer relationship surfaces several non-obvious registration mechanics: Component registrations expire after 3 years and may need a vendor's alternative End Product registration as a substitute reference; Controller/Host Subsystem test exemption carries over across different antenna/chassis combinations as long as each subsystem is independently registered; the July 2024 SIG site update can retroactively block new registrations referencing an existing Host Subsystem if that subsystem's profile set includes a deprecated item (HID 1.1) that the new Layer Selection tool can no longer exclude; and Compliance Folder documents (including the Bluetooth-portion operation manual) are framed around actual use-case workflows and remain non-public, customer-retained records.",
+    "key_decision_logic": "Across this multi-year relationship, Allion consistently re-verified registration feasibility against the current state of the SIG registration site at each new project (rather than assuming continuity from prior successful registrations), which is what surfaced the Component-registration-expiration issue and the HID 1.1 blocking issue before they became costly problems.",
+    "risk_if_done_wrong": "See thread_0247_case_01 through thread_0247_case_04 for the specific risks of each question.",
+    "consulting_mistake": "None identified — Allion proactively flagged both the looming July 2024 rule change risk before it took effect (in the June 2024 quote) and the DID fee increase deadline, giving the customer advance notice rather than reactive surprises.",
+    "consulting_takeaway": "For long-running customers with multiple sequential registration projects referencing the same or similar modules/Host subsystems, don't assume continuity of feasibility across projects — proactively re-check registration validity (Component expiration windows) and current site behavior (deprecated profile handling) at each new project, since SIG registration site updates can retroactively block previously-viable reference combinations."
+  }
+}

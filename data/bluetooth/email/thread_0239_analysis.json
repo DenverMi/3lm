@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0239",
+  "thread_analysis": {
+    "thread_summary": "Paramount Bed Co., Ltd. (contact Kazuyuki Nagase, Elemental Technology Department) registers a restroom/toilet usage sensor referencing NEC Platforms' Controller Subsystem QDID and Microsoft's Host Subsystem QDID with Allion (Itsuo Sakai, Masaya Iida). The thread spans order placement, quote, wire transfer/Receipt Number handling under an existing 'Hosokawa'-named SIG account, Review Page confirmation (including a Product Description wording correction and a blank-field question), Submission, and final Compliance Folder (CD-R) delivery with the standard retention-duty and free-derivative-model-addition explanation.",
+    "all_questions_found": [
+      "Are blank fields in the Review Page's Company Details section a problem? (see thread_0239_case_01)",
+      "Does the Invoice-issuing account need to match the registration account, and can a different person's name be used instead? (see thread_0239_case_02)"
+    ],
+    "key_technical_discussion": "Beyond the two distinct cases extracted, this thread's remaining content (Compliance Folder document checklist, CD-R retention duty, free derivative-model addition) duplicates the standard policy explanation already documented in prior threads (e.g. thread_0220, thread_0236).",
+    "key_decision_logic": "See thread_0239_case_01 and thread_0239_case_02.",
+    "risk_if_done_wrong": "See thread_0239_case_01 and thread_0239_case_02.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "Receipt Number account-binding is a recurring source of customer confusion when companies use a shared or historically-designated SIG account for registrations — proactively explaining the account-matching requirement and transfer-request workaround helps avoid mid-process registration name changes."
+  }
+}

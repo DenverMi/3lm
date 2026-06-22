@@ -2,6 +2,7 @@
   "source_thread": "thread_0151",
   "case_id": "thread_0151_case_02",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — BR/EDR-only product using BR/EDR/LE QDID",
   "customer_question": "Our product only uses BR/EDR (Classic Bluetooth). The Realtek QDID we want to use covers both BR/EDR and BLE. Can we selectively remove the BLE layers (LL, etc.) from the design to register it as BR/EDR-only?",
   "question_variants": [
@@ -15,8 +16,24 @@
   "decision_logic": "Post-QPRDv3.0: GAP and L2CAP are shared upper layers for both BR/EDR and BLE. They require LMP (BR/EDR lower layer) AND LL (BLE lower layer) to be present in the design. Deleting LL breaks this dependency and forces a Core test. Industry practice: register as BR/EDR/LE, do not implement BLE in firmware.",
   "final_recommendation": "Always register as BR/EDR/LE when the component QDID covers both modes, even if the product only uses BR/EDR. Confirm with the customer that BLE will not be advertised or enabled in firmware. Document the 'BLE not implemented in firmware' decision.",
   "risk_if_done_wrong": "Attempting to delete BLE layers from the design will either cause Consistency Check failure or require a full Core test (extremely expensive, 6+ months). Registering correctly as BR/EDR/LE with the existing QDID is the only practical path.",
-  "bluetooth_tags": ["BR/EDR", "BLE", "LL", "LMP", "GAP", "L2CAP", "QPRDv3.0", "layer deletion", "Core test", "Combine Unmodified Design"],
-  "search_aliases": ["BR/EDR only product register as BREDRLE", "cannot delete BLE layers QPRD", "remove BLE from qualification", "BR/EDR product BLE QDID post July 2024"],
+  "bluetooth_tags": [
+    "BR/EDR",
+    "BLE",
+    "LL",
+    "LMP",
+    "GAP",
+    "L2CAP",
+    "QPRDv3.0",
+    "layer deletion",
+    "Core test",
+    "Combine Unmodified Design"
+  ],
+  "search_aliases": [
+    "BR/EDR only product register as BREDRLE",
+    "cannot delete BLE layers QPRD",
+    "remove BLE from qualification",
+    "BR/EDR product BLE QDID post July 2024"
+  ],
   "qualification_stage": "Design Creation / Scoping",
   "confidence": "high"
 }

@@ -1,0 +1,19 @@
+{
+  "source_thread": "thread_0224",
+  "thread_analysis": {
+    "thread_summary": "This thread documents the same Topre Corporation BLE+USB dual-mode keyboard certification project (R4HA/R4HB/R4HD flagship keyboard line) already fully captured in thread_0211, involving the same customer contacts (Seiji Hiraki, Yuta Morimoto, Kentaro Taniguchi) and the same Allion staff (Itsuo Sakai, Toshitaka Mochizuki, Masaya Iida, Misumi Sato). It covers the same chronological arc: WHQL/Bluetooth SIG quote request, HOGP-only vs full HOGP+BAS+DIS+HIDS scope clarification (July 2024 cascading checking-rule change), sample/DUT logistics including printed vs unprinted keycap variant selection, PTS test debugging for BAS Notify/security settings and HIDS Input Report Notify requirements, the Nordic QDID:44613 Profile Subsystem reference fallback option for unresolved Fail/Indecisive items, Declaration Fee wire transfer arrangement, a mid-process Listing Owner reassignment request, and final Review Page confirmation before Submission.",
+    "all_questions_found": [
+      "(Already documented in thread_0211_case_01) Can registration proceed without running HOGP testing, and what would that certification actually cover?",
+      "(Already documented in thread_0211_case_02) Why do BAS/DIS/HIDS now need testing for HOGP HID-Device role registrations under the new checking rules?",
+      "(Already documented in thread_0211_case_03) Must all Fail/Indecisive PTS items Pass before certification, or is the Nordic Profile Subsystem reference fallback available?",
+      "(Already documented as operational note in thread_0211_analysis) Should the WHQL test target Windows 11 or wait for an unreleased Windows 12?",
+      "(Already documented as operational note in thread_0211_analysis) What's the functional difference between printed and unprinted keycap keyboard variants for sample/test selection?",
+      "(Already documented as operational note in thread_0211_analysis) Can the SIG registration name (Listing Owner) be changed mid-process?"
+    ],
+    "key_technical_discussion": "This thread's technical content (HOGP/BAS/DIS/HIDS cascading requirement under the July 2024 checking-rule revision, PTS debugging of TSPC_BAS_2a_1/TSPX_security_enabled/Service-supported-over-BR/EDR settings, HIDS Input Report Notify requirements across Media key/mouse/App Tx, and the Nordic QDID:44613 Profile Subsystem reference fallback) duplicates content already analyzed in depth in thread_0211. No genuinely new technical questions or consulting precedent were identified beyond what's already captured there.",
+    "key_decision_logic": "Same as thread_0211: certification scope tracks actual tested/declared functionality, current checking rules govern required scope regardless of past registration precedent, and the Nordic reference registration is a last-resort fallback only.",
+    "risk_if_done_wrong": "Same risks as identified in thread_0211 — see that thread's analysis for details.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "This thread appears to be a duplicate or more complete capture of the same underlying Topre R4HA/R4HB/R4HD keyboard certification email conversation already documented in thread_0211 (same project, same customer and Allion contacts, same product, same technical issues and resolutions). No new case files were created from this thread to avoid duplicating thread_0211_case_01 through thread_0211_case_03; refer to thread_0211's case files and analysis for the full consulting record of this project."
+  }
+}

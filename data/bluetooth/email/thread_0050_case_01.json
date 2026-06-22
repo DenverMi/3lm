@@ -1,49 +1,31 @@
 {
-    "source_thread": "thread_0050",
-    "cases": [
-        {
-            "case_id": "thread_0050_case_01",
-            "iut_type": "module",
-            "customer_question": "How can a product be qualified when combining an existing Bluetooth module QDID with Google Fluoride host stack registrations causes Qualification Workspace consistency check Invalid errors?",
-            "question_variants": [
-                "Qualification Workspace Invalid when combining module and Fluoride",
-                "GAP/GATT ICS consistency check failure with Fluoride host stack",
-                "Can TCW be used to bypass Fluoride consistency issues?",
-                "QDID combination invalid during Bluetooth SIG qualification",
-                "How to qualify a product using existing module plus Fluoride stack",
-                "Consistency check failed after adding host stack QDID"
-            ],
-            "actual_issue": "The qualification project encountered Bluetooth SIG Qualification Workspace consistency check Invalid errors caused by incompatibilities and dependency inconsistencies inside reused Fluoride host stack registrations when combined with an existing qualified Bluetooth module.",
-            "plain_english_explanation": "The product reused an already qualified Bluetooth module and an existing Android Fluoride host stack registration. However, when the consultant combined those pieces inside the Bluetooth SIG qualification system, the system reported internal dependency problems related to GAP and GATT settings. The real problem was not the hardware module itself, but inconsistencies inside older host stack registrations versus newer SIG validation rules.",
-            "consultant_answer": "The consultant determined that the Invalid conditions originated from Fluoride registration consistency behavior rather than from the Bluetooth module implementation. Instead of attempting to repair every dependency mismatch directly, the consultant proposed using an existing Host Subsystem and Controller Subsystem combination together with a Test Case Waiver strategy to avoid unnecessary core-layer requalification. The consultant also aligned profile inheritance and ICS selections to the Fluoride 1.5 registration set to maintain Qualification Workspace validity while preserving reuse eligibility.",
-            "decision_logic": "If the reused subsystem registrations already contain accepted qualification evidence, the correct strategy is to maximize inheritance and avoid triggering unnecessary new consistency dependencies. The Invalid errors were treated as qualification database consistency issues rather than functional interoperability failures. Therefore, reuse plus TCW was a lower-risk and lower-effort path than rebuilding qualification evidence from scratch.",
-            "final_recommendation": "Use the existing qualified Host Subsystem and Controller Subsystem combination with TCW support, inherit compatible Fluoride profile qualifications, and align ICS selections to the validated Fluoride registration set rather than creating new incompatible combinations.",
-            "risk_if_done_wrong": "The product could become unregistrable due to unresolved Qualification Workspace Invalid conditions. Misdiagnosing the issue as a hardware or module defect could also trigger unnecessary redesign, retesting, or replacement of the Bluetooth architecture. Incorrect qualification scoping could additionally force unnecessary PTS testing and additional profile qualification work.",
-            "bluetooth_tags": [
-                "qualification",
-                "QDID",
-                "ICS",
-                "GATT",
-                "GAP",
-                "TCW",
-                "consistency check",
-                "reuse"
-            ],
-            "search_aliases": [
-                "QDID combination invalid",
-                "consistency check failed",
-                "Fluoride invalid",
-                "GAP GATT dependency error",
-                "Qualification Workspace invalid",
-                "TCW workaround",
-                "reuse existing QDID",
-                "host stack inconsistency",
-                "Fluoride 1.5 inheritance",
-                "ICS mismatch"
-            ],
-            "qualification_stage": "planning",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0050",
+  "case_id": "thread_0050_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "TCW application review process -- after Submission, SIG separately reviews and approves (or rejects) the Test Case Waiver application, with direct notification to the registrant",
+  "customer_question": "Now that the registration confirmation (Submission) operation has been completed, what happens next, and what should we expect regarding cost processing and further steps?",
+  "question_variants": [
+    "Is a TCW automatically accepted once entered during registration, or does it go through a separate review?",
+    "Who receives notification of a TCW application's outcome -- the registrant, or the proxy registration company?"
+  ],
+  "actual_issue": "After the registration Submission operation was completed by the proxy registration company, the customer wanted to understand what further processing steps remained before the registration would actually be complete and publicly visible, particularly regarding a Test Case Waiver (TCW) that had been applied during the registration.",
+  "plain_english_explanation": "Completing the Submission operation does not immediately finalize the registration when a TCW has been applied -- instead, SIG's administrators separately review and approve (or, in principle, reject) the TCW application after Submission, a process that typically takes 1 to 5 business days. Only after this TCW approval does the registration actually complete and become publicly visible. Critically, the registrant (the company under whose name the registration is filed) receives SIG's notification of the TCW application's approval or rejection directly -- not solely through the proxy registration company -- so the registrant should expect and watch for this notification themselves, separate from any status updates from their registration support provider.",
+  "consultant_answer": "Completing Submission isn't the final step when a TCW is involved -- SIG's administrators separately review and approve the TCW application afterward, typically within 1 to 5 business days, after which the registration actually completes and becomes publicly visible. You'll receive SIG's notification of the TCW approval (or rejection) directly yourselves, so please watch for that as well as any updates from us.",
+  "decision_logic": "When a registration involves a TCW application, explain to the customer that Submission completion is not the final step -- SIG separately reviews and approves (or rejects) the TCW afterward (typically 1-5 business days), and that the registrant will receive this approval/rejection notification directly from SIG, not only through the proxy registration company.",
+  "final_recommendation": "After completing a Submission that included a TCW application, proactively explain the separate SIG-side TCW review/approval step and its typical turnaround time, and let the customer know they'll receive SIG's notification directly, to avoid confusion about why the registration isn't immediately and fully complete right after Submission.",
+  "risk_if_done_wrong": "A customer unaware that Submission completion doesn't immediately finalize a TCW-involving registration might be confused or alarmed by a delay, or might miss SIG's direct notification of approval or rejection if they aren't expecting to receive it themselves.",
+  "bluetooth_tags": [
+    "TCW application separate SIG review approval rejection",
+    "1 to 5 business day TCW turnaround after Submission",
+    "registrant receives TCW notification directly from SIG",
+    "NEC Platforms"
+  ],
+  "search_aliases": [
+    "does Submission immediately complete registration with TCW",
+    "how long does TCW approval take",
+    "who receives TCW approval rejection notification"
+  ],
+  "qualification_stage": "Post-Submission TCW approval process",
+  "confidence": "high"
 }

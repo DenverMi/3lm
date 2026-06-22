@@ -2,6 +2,7 @@
   "source_thread": "thread_0141",
   "case_id": "thread_0141_case_01",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "consumer device",
   "customer_question": "We searched for our company (Ito-en) in the SIG Member Directory and could not find it. Can we proceed with Bluetooth certification?",
   "question_variants": [
@@ -14,8 +15,19 @@
   "decision_logic": "1. Search the customer's company name in the SIG Member Directory (https://www.bluetooth.com/develop-with-bluetooth/join-the-sig/).\n2. If not found → customer is not a SIG member → must register before certification can proceed.\n3. Minimum membership for certification: Adopter Member (or higher).\n4. Notify the customer and provide SIG membership registration instructions.",
   "final_recommendation": "Always check SIG membership status at project intake. If the customer is not found in the Member Directory, halt the certification process and direct them to register as a SIG member first before any other steps.",
   "risk_if_done_wrong": "If certification work starts before the customer is a SIG member, the Qualification Workspace cannot be created under their account, and all preparation work must be redone or transferred after membership is established.",
-  "bluetooth_tags": ["SIG-membership", "Member-Directory", "Adopter-Member", "certification-prerequisite"],
-  "search_aliases": ["company not in SIG Member Directory", "SIG membership required for certification", "Adopter Member Associate Member", "SIG member directory search", "must join SIG before Bluetooth certification"],
+  "bluetooth_tags": [
+    "SIG-membership",
+    "Member-Directory",
+    "Adopter-Member",
+    "certification-prerequisite"
+  ],
+  "search_aliases": [
+    "company not in SIG Member Directory",
+    "SIG membership required for certification",
+    "Adopter Member Associate Member",
+    "SIG member directory search",
+    "must join SIG before Bluetooth certification"
+  ],
   "qualification_stage": "pre-registration / eligibility check",
   "confidence": "high"
 }

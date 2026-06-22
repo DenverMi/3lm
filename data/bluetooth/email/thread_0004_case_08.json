@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0004",
+  "case_id": "thread_0004_case_08",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Alps Alpine UXC10, Qualcomm chipset), DUT communication and DTM mode setup troubleshooting before RF testing",
+  "customer_question": "(Internal lab troubleshooting, relayed toward the customer's operation manual:) Following the customer-provided AT operation manual's step 5, the terminal never shows the expected 'root@lemans:~#' prompt and TeraTerm disconnects, on two different TeraTerm versions. Separately, after that was resolved, AutomationExplorer's communication check still fails following the manual's steps 8-1 and 8-2 -- is Loopback mode the correct DUT-mode-entry setting here?",
+  "question_variants": [
+    "Could a hardware power/current setting (rather than the terminal software) be causing the connection to drop during manual step 5?",
+    "Why would two different steps in the same manual (8-1 vs 8-2) produce different DUT-mode behavior?",
+    "Is the customer's operation manual actually missing the dedicated DTM mode procedure needed for RF PHY testing?"
+  ],
+  "actual_issue": "Two sequential, related problems blocked RF test setup: first, the DUT's serial terminal connection (via TeraTerm, following the customer's AT operation manual step 5) repeatedly failed to reach its expected command prompt and disconnected, regardless of TeraTerm version; second, once that was resolved, the lab's AutomationExplorer tool still failed its communication check, and the lab engineer wasn't sure whether the manual's step 8-1 or step 8-2 was the correct procedure for entering DUT/Loopback mode, or whether DTM mode was even properly documented in the manual at all.",
+  "plain_english_explanation": "The terminal connection failure (step 5) turned out to be a hardware-adjacent issue rather than a software/version problem -- adjusting the DUT's current limit setting resolved it, restoring normal operation regardless of TeraTerm version. For the second problem, the manual's step 8-2 was identified as the procedure for a different purpose entirely (an open-loop radio-law-style test configuration), not the actual DUT-mode/Loopback entry procedure needed for RF testing -- step 8-1 was the correct one to use instead. Separately, the manual's RF PHY section did not appear to contain any genuine Direct Test Mode (DTM) procedure at all, which meant referring back to a dedicated DTM-mode manual that had been provided for a prior, related model (using the same Qualcomm chipset) as a stand-in reference. Finally, for cases where DUT mode entry is performed via the device's own self-test menu or an external PC plus the chipset vendor's PC application (rather than through the lab's own InterLab automation), the InterLab Automation Explore step itself should simply be set to Skip rather than run, since it isn't the mechanism actually putting the DUT into test mode in that setup.",
+  "consultant_answer": "The terminal connection failure at step 5 was resolved by adjusting the DUT's current limit setting -- it wasn't a TeraTerm version issue. For the AutomationExplorer failure: step 8-2 in the manual is for a different purpose (open-loop radio-law-style testing), not DUT-mode/Loopback entry -- use step 8-1 instead. Also, this manual's RF PHY section doesn't appear to contain an actual DTM procedure; refer to the dedicated DTM-mode manual provided for a prior model using the same Qualcomm chipset as a reference in the meantime. And when DUT mode entry happens via the device's own self-test menu or an external PC plus the chipset vendor's app, set InterLab's Automation Explore step to Skip, since it isn't what's actually putting the DUT into test mode here.",
+  "decision_logic": "When a DUT's serial connection fails to reach its expected prompt regardless of terminal software version, suspect a hardware-level setting (such as current limiting) before assuming a software/version incompatibility; and when a customer-provided operation manual has multiple similarly-numbered steps for different purposes, verify which step actually corresponds to DUT-mode/Loopback entry versus an unrelated test configuration (like open-loop radio-law testing) before relying on it, falling back to a previous model's dedicated DTM manual as a reference when the current manual appears to lack the genuine DTM procedure.",
+  "final_recommendation": "When a new product's operation manual produces ambiguous or failing results for DTM/RF PHY setup, check whether a similar prior model (same chipset family) has a dedicated, verified DTM-mode manual that can serve as a interim reference, and explicitly verify which manual step is genuinely the DUT-mode/Loopback entry procedure rather than assuming step numbering implies the correct sequence.",
+  "risk_if_done_wrong": "Continuing to follow the wrong manual step (8-2 instead of 8-1) for DUT-mode entry could have caused repeated, confusing AutomationExplorer failures attributed incorrectly to hardware or software defects, delaying RF testing until the actual procedural mismatch was identified.",
+  "bluetooth_tags": [
+    "TeraTerm connection failure current limit fix",
+    "AutomationExplorer Loopback mode setup",
+    "DTM mode missing from operation manual",
+    "AT operation manual step confusion",
+    "InterLab Automation Explore Skip setting",
+    "Alps Alpine UXC10",
+    "Qualcomm chipset DTM"
+  ],
+  "search_aliases": [
+    "TeraTerm root prompt not appearing DUT connection",
+    "AutomationExplorer fails communication check",
+    "which manual step is DUT mode Loopback entry",
+    "operation manual missing DTM procedure",
+    "set Automation Explore to Skip"
+  ],
+  "qualification_stage": "RF test setup / DTM mode troubleshooting",
+  "confidence": "high"
+}

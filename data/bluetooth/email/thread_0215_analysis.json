@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0215",
+  "thread_analysis": {
+    "thread_summary": "Short internal-consulting thread (handled via Masaya Iida, customer Akihiro Furuhira) about whether changing the accelerometer on a board that also carries a Bluetooth module requires a new application. Allion's first reply incorrectly framed this as a Bluetooth SIG derivative-model question; a follow-up correction message clarified that the customer's actual question was about Japan's Radio Law technical regulation conformity certification (giko sekkei ninsho), a separate domestic certification regime.",
+    "all_questions_found": [
+      "Does changing the accelerometer on the same board as the Bluetooth module require re-application/new registration?"
+    ],
+    "key_technical_discussion": "Bluetooth SIG derivative-model rules (free addition if module + Host Stack unchanged) do not apply to Japan's Radio Law technical regulation conformity certification. Under the latter, a supplementary application is required if the swapped part's model name was documented in the original application's parts layout diagram, block diagram, or parts list.",
+    "key_decision_logic": "The deciding factor for whether a component change needs new paperwork depends entirely on which certification system is in scope — Bluetooth SIG (module/Host Stack identity) vs. Japan Radio Law (whether the specific part's model name was in the original filing's documentation).",
+    "risk_if_done_wrong": "Misidentifying the applicable certification framework when answering a component-change question could leave a product non-compliant under Japan's domestic Radio Law even if it remains compliant for Bluetooth SIG purposes.",
+    "consulting_mistake": "Allion's initial reply incorrectly answered the question as if it were about Bluetooth SIG derivative-model rules, when the customer was actually asking about Japan Radio Law technical regulation conformity certification. This was self-caught and corrected within the same day via a follow-up email.",
+    "consulting_takeaway": "Before answering a 'does this component change require re-application' question, first confirm which certification regime is being asked about (Bluetooth SIG vs. Japan Radio Law technical regulation conformity), since the applicable rule and trigger condition differ completely between the two."
+  }
+}

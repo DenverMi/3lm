@@ -1,0 +1,23 @@
+{
+  "source_thread": "thread_0102",
+  "case_id": "thread_0102_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "module",
+  "customer_question": "Referencing both of our two intended QDIDs together triggers a new lower-layer test requirement because their RF PHY and LL layers overlap. Can we avoid this without losing our intended registration content?",
+  "question_variants": [
+    "Why does selecting both overlapping registrations trigger new testing?",
+    "Can we just reference one of the two registrations instead, if their overlapping layers are the same anyway?",
+    "Is there a way to substitute one registration's RF PHY/LL content for the other's to avoid the test requirement?"
+  ],
+  "actual_issue": "The customer wanted to reference two existing registrations together (a module's Controller-Subsystem-style registration and a separate, broader BLE Solution registration) whose RF PHY and LL layers overlapped, and selecting both triggered a new lower-layer test requirement under the current TCRL that existing test report evidence could not satisfy, even though the underlying ICS content for the overlapping layers was actually identical between the two.",
+  "plain_english_explanation": "When two existing certifications you want to combine both cover the same low-level radio layers, the system will let you select both, but doing so makes it re-check those overlapping layers against today's full test requirements -- which your old test evidence won't cover, since it predates some of those requirements. If the overlapping content in both certifications is actually identical, there are two ways around this: either skip the narrower, redundant one and just use the broader certification's, or swap the lower-layer content of one for the other inside the certification workspace so the duplication itself goes away.",
+  "consultant_answer": "Comparing the RF PHY and LL layer ICS across the module's Controller-Subsystem-style QDID and the broader BLE Solution QDID showed they were identical across all relevant references. If the customer was not attached to leaving a visible trace of referencing the narrower Controller-Subsystem-style QDID, simply referencing the broader BLE Solution registration alone -- without combining it with the narrower, overlapping one -- produced the same ICS and required no new testing. As an alternative technique demonstrated separately for a similar overlap scenario (an IM-100/Core Complete combination), swapping one registration's RF PHY and LL layer content for the other's matching content within the Qualification Workspace also eliminated the lower-layer test requirement that had previously appeared.",
+  "decision_logic": "When referencing two registrations together triggers a new lower-layer test requirement due to overlapping RF PHY/LL layers, first verify whether the overlapping layers' ICS content is actually identical between the two; if so, either reference only the broader registration alone (omitting the narrower, redundant one) or substitute one registration's overlapping layer content for the other's matching content within the Qualification Workspace -- both approaches achieve the same ICS without triggering the new test requirement.",
+  "final_recommendation": "Before accepting a new lower-layer test requirement triggered by overlapping RF PHY/LL layers across two registrations, compare their ICS content for those layers; if identical, either drop the narrower, redundant registration in favor of the broader one, or substitute the overlapping layer content between the two registrations within the Qualification Workspace to avoid the new test requirement.",
+  "risk_if_done_wrong": "Proceeding with both overlapping registrations selected, without checking whether their overlapping ICS content is identical, would commit to a new lower-layer test requirement under the current TCRL that existing test report evidence cannot satisfy, adding unplanned cost and schedule.",
+  "bluetooth_tags": ["RF PHY", "LL", "layer overlap", "TCRL", "Qualification Workspace", "Consistency Check"],
+  "search_aliases": ["overlapping RF PHY LL layers trigger new test", "reference broader registration only avoid duplicate layer", "swap RF PHY LL layer content Workspace", "identical ICS across overlapping registrations no new test"],
+  "qualification_stage": "planning",
+  "confidence": "high"
+}

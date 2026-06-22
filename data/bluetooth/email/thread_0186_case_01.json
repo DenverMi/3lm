@@ -1,0 +1,38 @@
+{
+  "source_thread": "thread_0186",
+  "case_id": "thread_0186_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Panasonic wireless lighting control product (nRF52, SoftDevice S113)",
+  "customer_question": "The product will use SoftDevice S113 instead of S140. S140 is already registered. Does adding S113 require additional RF PHY testing?",
+  "question_variants": [
+    "S113 added to product with existing S140 registration — is additional RF test needed?",
+    "Does switching from S140 to S113 SoftDevice require new RF certification?",
+    "S140 covers S113 functionality — does S113 require its own RF PHY test?"
+  ],
+  "actual_issue": "The existing product (nRF52 with SoftDevice S140 6.1.x) is registered. A new model variant will use SoftDevice S113. The customer wonders if S113 requires a separate RF PHY test.",
+  "plain_english_explanation": "Nordic Semiconductor's SoftDevice S140 implements all the Bluetooth features of both S140 and S113 — S140 is a superset of S113. Because S140 fully includes all S113 functionality (Host and Link Layer), any product that uses S113 can be added to the existing registration as a derivative product, inheriting the S140 test results. No additional RF PHY test is required when adding S113-based variants to an existing S140 registration.",
+  "consultant_answer": "S140 includes (is a superset of) S113 functionality. Therefore, adding an S113-based product variant to the existing S140 registration does not require additional RF PHY testing. The S113 variant can be added as a derivative model to the existing registration's Product List at no additional RF test cost.",
+  "decision_logic": "When a Host/LL SoftDevice version is a subset of an already-registered version (S113 ⊂ S140), the existing RF PHY test coverage applies to the subset version. No new RF test is needed. This is a general principle: if the new variant uses a less capable version of an already-tested stack, the existing test results remain valid.",
+  "final_recommendation": "Add the S113-based model as a derivative product to the existing S140 registration's Product List. No additional RF PHY test is required. The registration for the new model with S113 can proceed as a free derivative product addition.",
+  "risk_if_done_wrong": "Unnecessarily requiring a new RF PHY test for S113 when S140 is already registered adds cost and delay to a registration that could proceed as a free derivative addition.",
+  "bluetooth_tags": [
+    "SoftDevice",
+    "S113",
+    "S140",
+    "Nordic",
+    "nRF52",
+    "derivative product",
+    "RF PHY test exempt",
+    "subset stack"
+  ],
+  "search_aliases": [
+    "S113 S140 SoftDevice RF test",
+    "SoftDevice version upgrade re-test",
+    "Nordic derivative product S113",
+    "S140 superset S113",
+    "subset SoftDevice no RF re-test"
+  ],
+  "qualification_stage": "listing / declaration",
+  "confidence": "high"
+}

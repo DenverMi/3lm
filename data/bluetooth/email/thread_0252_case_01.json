@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0252",
+  "case_id": "thread_0252_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product referencing a Bluetooth Core Specification v4.2 Declaration ID (Seiko Solutions, reselling a previously NTT Docomo-branded device)",
+  "customer_question": "Our device's underlying registration is based on Bluetooth Core Specification 4.2. Since we want to change the seller (from NTT Docomo to our company) and the product model, can this still be registered starting next February (2026) or after?",
+  "question_variants": [
+    "Does Core Spec v4.2 becoming deprecated in February 2026 block new registrations referencing it?",
+    "Can a v4.2-based registration with a changed seller/model still proceed after the deprecation date?"
+  ],
+  "actual_issue": "The customer wanted to repurpose an existing Bluetooth Core Specification v4.2-based registration (originally sold under NTT Docomo's name) under their own company name and product model, and was concerned that an upcoming spec deprecation deadline might block this.",
+  "plain_english_explanation": "Bluetooth Core Specification v4.2 becomes Deprecated on February 1, 2026, but Deprecated status does not yet block new registrations or derivative-model additions — that only happens once the specification reaches full Withdrawal, which for v4.2 isn't scheduled until February 1, 2031. Until that later Withdrawal date, new registrations referencing v4.2 (such as this seller/model change) remain fully possible without restriction.",
+  "consultant_answer": "Core Specification v4.2 becomes Deprecated on February 1, 2026, but that doesn't block new registrations or derivative additions — that restriction only kicks in once it reaches full Withdrawal, which for v4.2 is scheduled for February 1, 2031. So your v4.2-based registration with the updated seller and product model remains fully registrable without issue until that 2031 date.",
+  "decision_logic": "Registration eligibility for an aging Core Specification version depends on its Withdrawal date, not its earlier Deprecation date — Deprecated status is a a warning stage, while Withdrawal is the actual cutoff for new registrations and derivative additions.",
+  "final_recommendation": "When customers ask whether an upcoming spec deprecation date will block their registration plans, always clarify the distinction between Deprecation (a warning milestone) and Withdrawal (the actual registration cutoff), since these are commonly confused and the actual deadline is usually years later than the deprecation date.",
+  "risk_if_done_wrong": "A customer mistakenly treating the Deprecation date as a hard registration cutoff could rush an unnecessary registration far earlier than required, or conversely, might miss the actual Withdrawal deadline if the distinction isn't made clear.",
+  "bluetooth_tags": [
+    "Core Specification v4.2 deprecation",
+    "Deprecated vs Withdrawn distinction",
+    "registration eligibility deadline",
+    "Seiko Solutions"
+  ],
+  "search_aliases": [
+    "Bluetooth Core Spec v4.2 deprecation date",
+    "difference between Deprecated and Withdrawn",
+    "can I still register deprecated core spec version"
+  ],
+  "qualification_stage": "Pre-registration feasibility check",
+  "confidence": "high"
+}

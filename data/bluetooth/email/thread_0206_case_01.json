@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0206",
+  "case_id": "thread_0206_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (IVI / In-Vehicle Infotainment, Denso Ten)",
+  "customer_question": "Does Bluetooth logo testing (IOPT / profile testing) include any tests that specifically check or validate the device's UI?",
+  "question_variants": [
+    "Is there a dedicated UI test in the Bluetooth PTS profile test suite?",
+    "Are there test items in Bluetooth logo certification that require pressing buttons or interacting with the product's UI?",
+    "Does Bluetooth certification require testing the device's user interface?"
+  ],
+  "actual_issue": "Allion's internal team (望月/Mochizuki) asked whether Bluetooth logo testing includes a test package specifically targeting the device's UI. The question arose during IVI device profile testing for Denso Ten.",
+  "plain_english_explanation": "There is no standalone 'UI test' category in the Bluetooth logo certification program. The profile tests (IOPT / PTS-based) focus on protocol and profile behavior. However, many profile test cases require the DUT to respond to user-initiated actions — for example, AVRCP tests may require pressing Play, Stop, Pause, or Fast Forward buttons on the DUT. So while there is no dedicated UI test package, UI interaction is embedded within various profile test procedures as preconditions or test steps.",
+  "consultant_answer": "No, Bluetooth logo testing does not have a dedicated UI test package. However, UI interactions are embedded in many profile test items — for example, AVRCP requires Play/Stop/Pause/Fast Forward button operations during testing. So the tester may need to interact with the DUT's physical controls or UI during the profile tests, but this is incidental to the protocol testing, not a UI compliance evaluation.",
+  "decision_logic": "Bluetooth SIG's PTS (Profile Tuning Suite) tests protocol conformance and interoperability. It does not evaluate UI design or usability. Button operations during testing are simply a means to trigger device state transitions required by the test procedure, not a UI assessment.",
+  "final_recommendation": "When a customer asks about UI testing in Bluetooth certification, clarify that there is no dedicated UI test, but physical button/UI interactions may be required during profile test execution. Ensure the DUT sample shipped to the lab has all required buttons/controls accessible.",
+  "risk_if_done_wrong": "If the lab receives a DUT without accessible UI controls (e.g., embedded board without physical buttons), some profile test items requiring button input may become impossible to execute.",
+  "bluetooth_tags": [
+    "IOPT",
+    "PTS",
+    "UI test",
+    "AVRCP",
+    "profile test",
+    "button operation",
+    "DUT interaction"
+  ],
+  "search_aliases": [
+    "Bluetooth UI test",
+    "does Bluetooth certification test UI",
+    "AVRCP button test",
+    "profile test UI interaction",
+    "PTS UI requirements"
+  ],
+  "qualification_stage": "IOPT profile testing",
+  "confidence": "high"
+}

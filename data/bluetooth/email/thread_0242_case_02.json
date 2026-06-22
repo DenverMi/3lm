@@ -1,0 +1,32 @@
+{
+  "source_thread": "thread_0242",
+  "case_id": "thread_0242_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product using Silicon Labs BLE module (GO Corporation IoT device)",
+  "customer_question": "We assumed the required documents for registration were detailed Bluetooth-module-level engineering documents (module circuit diagram, module PCB layout, module parts placement diagram, module parts list, functional block diagram, IC datasheets, RF test report) covering just the Bluetooth module rather than the whole product. Is that list correct and complete, and is our scope assumption (module-only, not whole product) right?",
+  "question_variants": [
+    "Are these seven module-level engineering documents the correct and complete required document set?",
+    "Should the required documents cover only the Bluetooth module, or the whole product?"
+  ],
+  "actual_issue": "The customer, drawing on a more hardware-engineering-oriented mental model, assumed Bluetooth certification required detailed component-level engineering documentation scoped narrowly to the Bluetooth module, and wanted this assumption validated before preparing documentation.",
+  "plain_english_explanation": "Bluetooth logo certification does not require the detailed module-level engineering documents the customer assumed (circuit diagram, PCB layout, parts placement, parts list, IC datasheets, RF test report). Instead, alongside the free member registration, only five whole-product-level documents are required: the product's operation manual, the product's block diagram, the product's outline drawing, the antenna outline drawing, and the antenna's gain characteristic chart. These cover the product as a whole, not just the Bluetooth module component.",
+  "consultant_answer": "Bluetooth logo certification doesn't require that level of module-engineering documentation. Along with the free member registration, you'll need five whole-product-level documents instead: the product's operation manual, the product's block diagram, the product's outline drawing, the antenna outline drawing, and the antenna's gain characteristic chart — these cover the product as a whole, not just the Bluetooth module.",
+  "decision_logic": "Bluetooth Compliance Folder documentation requirements are defined at the whole-product level, not at the level of internal Bluetooth-module engineering detail, regardless of what documentation a customer's hardware team might otherwise consider relevant to a 'Bluetooth module' subsystem.",
+  "final_recommendation": "When customers (especially hardware engineering teams) propose a detailed component-level document list based on their own engineering instincts, correct the scope explicitly to the actual whole-product Compliance Folder requirements rather than just confirming or denying their specific list item by item.",
+  "risk_if_done_wrong": "Preparing the wrong, overly detailed module-engineering documentation set would waste customer effort and could also create an unnecessary internal IP-disclosure concern, while potentially still missing the actual required whole-product documents like the antenna gain characteristic chart.",
+  "bluetooth_tags": [
+    "Compliance Folder document scope",
+    "whole product vs module documentation",
+    "antenna gain characteristic chart",
+    "Silicon Labs BLE module",
+    "GO Corporation"
+  ],
+  "search_aliases": [
+    "what documents needed for Bluetooth certification module",
+    "is module level documentation required",
+    "whole product documentation Compliance Folder"
+  ],
+  "qualification_stage": "Pre-quotation scoping",
+  "confidence": "high"
+}

@@ -1,0 +1,31 @@
+{
+  "source_thread": "thread_0234",
+  "case_id": "thread_0234_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (OM Digital Solutions headset), order/billing adjustment for canceled Profile test",
+  "customer_question": "We've agreed to proceed via the QDID-referencing registration approach instead of running HFP Profile testing — please cancel the testing portion of our order. Could you handle this by simply issuing an invoice for the reduced amount (excluding the test), rather than going through a full order-cancellation and re-quotation process?",
+  "question_variants": [
+    "Can the order be adjusted by just invoicing the reduced amount?",
+    "Does canceling part of the order require a full cancellation, new quote, and new order document cycle?"
+  ],
+  "actual_issue": "After agreeing to switch from active profile testing to a QDID-reference test-exemption approach, the customer wanted to avoid unnecessary administrative overhead in adjusting the order, and the simplest billing option (issuing an invoice for the reduced amount) needed to be weighed against the more procedurally correct option (canceling and reissuing order documents).",
+  "plain_english_explanation": "When a previously ordered service item (here, Profile/HFP testing) is canceled mid-engagement because a different approach makes it unnecessary, there are two ways to handle the billing adjustment: the simplest is to just issue an invoice for the reduced amount at billing time, while the more procedurally thorough approach involves formally canceling the original order, reissuing a corrected quote, and having the customer submit a new order document reflecting the adjusted scope. Allion raised this as an open question for the customer to decide, since the customer had specifically wanted to minimize additional administrative work (re-quoting, re-ordering) on both sides.",
+  "consultant_answer": "We'll cancel the Profile testing as requested. For the billing adjustment, the simplest path is to just issue an invoice for the reduced amount excluding the test cost — but we could alternatively go through a full cancellation of your original order plus a corrected quote and a new order document from you, if that's preferred for your internal processing. Please let us know which approach you'd like us to use.",
+  "decision_logic": "Billing adjustments for a mid-engagement scope reduction should be decided based on the customer's own internal administrative preference (minimal paperwork via direct invoice adjustment, vs. formal documentation trail via cancellation and re-ordering) rather than defaulting to one approach unilaterally.",
+  "final_recommendation": "When a customer requests a scope reduction mid-engagement, explicitly offer both the simple (adjusted invoice) and formal (cancel/re-quote/re-order) billing adjustment paths and let the customer choose based on their own internal accounting needs, rather than assuming which approach they'd prefer.",
+  "risk_if_done_wrong": "Unilaterally choosing the simpler invoice-adjustment path without asking could create accounting or audit-trail problems for a customer whose internal processes require formal order cancellation documentation for any change in ordered scope.",
+  "bluetooth_tags": [
+    "order cancellation billing adjustment",
+    "canceled Profile test invoice",
+    "scope reduction administrative process",
+    "OM Digital Solutions"
+  ],
+  "search_aliases": [
+    "how to adjust invoice after canceling part of order",
+    "cancel order vs adjust invoice",
+    "billing process scope reduction mid project"
+  ],
+  "qualification_stage": "Order management / billing",
+  "confidence": "medium"
+}

@@ -1,0 +1,34 @@
+{
+  "source_thread": "thread_0241",
+  "case_id": "thread_0241_case_05",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (DensoTen upper-model and lower-model HMI/IVI units), Compliance Folder documents",
+  "customer_question": "(1) Is the block diagram we prepared (covering only the Bluetooth module portion) acceptable for the Compliance Folder? (2) How detailed does the operation manual need to be — a comprehensive user manual covering all product functions from startup, or something focused only on the Bluetooth operation portion? (3) Is the Invoice we attached sufficient for our registration?",
+  "question_variants": [
+    "Should the block diagram cover just the Bluetooth module or the whole product?",
+    "Should we write a new Bluetooth-specific operation manual, or can we reuse part of our existing manual?",
+    "Does our submitted Invoice cover everything we need registered?"
+  ],
+  "actual_issue": "The customer was preparing Compliance Folder documentation and an Invoice for what turned out to be a two-model registration (upper and lower models), and had three separate scope-related questions about what these documents needed to actually contain or cover.",
+  "plain_english_explanation": "The block diagram the customer submitted only covered the Bluetooth module portion, but the Compliance Folder requires a block diagram covering the whole product, equivalent in scope to what's submitted for Japan's Radio Law construction-design certification — not just the Bluetooth subsystem. For the operation manual, there's no need to author a new, Bluetooth-specific document from scratch; the customer should instead extract just the Bluetooth-related operation portions from their existing, already-written user manual. Regarding the Invoice, this engagement covers two separate models (an upper model and a lower model), so the single Invoice submitted only covered one of the two — a second Invoice needs to be obtained for the other model using the same process.",
+  "consultant_answer": "(1) The block diagram needs to cover the whole product, not just the Bluetooth module — please prepare one at the same scope as what you'd submit for Japan's Radio Law construction-design certification. (2) No need to write a new Bluetooth-specific operation manual — just extract the Bluetooth-related operation portions from your existing user manual. (3) Your registration covers two models (upper and lower), so the Invoice you sent only covers one of them — please obtain a second Invoice for the other model through the same process.",
+  "decision_logic": "Compliance Folder documentation scope defaults to whole-product coverage (matching existing regulatory submission scope like Radio Law certification) rather than narrow Bluetooth-subsystem coverage, and document creation effort should be minimized by extracting from existing materials rather than authoring new ones; financial documentation (Invoices) must be obtained per registered model, not per engagement.",
+  "final_recommendation": "When reviewing customer-submitted Compliance Folder materials, check document scope (whole-product vs. subsystem) and per-model financial document completeness explicitly, since customers may default to narrower or single-model assumptions that don't match the actual registration scope.",
+  "risk_if_done_wrong": "Accepting a Bluetooth-module-only block diagram or a single Invoice for a two-model registration would leave the Compliance Folder and financial documentation incomplete, potentially blocking or invalidating part of the registration.",
+  "bluetooth_tags": [
+    "Compliance Folder block diagram whole product scope",
+    "operation manual Bluetooth portion extraction",
+    "Invoice per model multi-model registration",
+    "Radio Law construction design certification reference",
+    "DensoTen"
+  ],
+  "search_aliases": [
+    "block diagram whole product not just module",
+    "do I need new Bluetooth specific manual",
+    "Invoice needed per model registration",
+    "Compliance Folder document scope multi model"
+  ],
+  "qualification_stage": "Post-test / Compliance Folder preparation",
+  "confidence": "high"
+}

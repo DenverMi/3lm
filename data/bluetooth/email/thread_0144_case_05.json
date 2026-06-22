@@ -2,6 +2,7 @@
   "source_thread": "thread_0144",
   "case_id": "thread_0144_case_05",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "IoT/commercial device",
   "customer_question": "In SIG Launchstudio's Submission Requirements, there is a yellow warning icon (⚠) next to 'Design Details.' What does it mean and does it block Submission?",
   "question_variants": [
@@ -14,8 +15,21 @@
   "decision_logic": "1. Yellow ⚠ in Submission Requirements = advisory/notification only.\n2. It specifically indicates Host layer is not included.\n3. This may be intentional (Core-Controller design, etc.).\n4. Does not block Submission — proceed.",
   "final_recommendation": "Inform customers that yellow warnings in Submission Requirements are informational and do not block Submission. Only red error icons require resolution before submitting.",
   "risk_if_done_wrong": "Customers or consultants who treat the yellow ⚠ as a blocking error will delay Submission unnecessarily while trying to 'fix' something that does not need fixing.",
-  "bluetooth_tags": ["Submission-Requirements", "yellow-warning", "Design-Details", "Host-layer", "advisory", "SIG-Launchstudio"],
-  "search_aliases": ["Submission Requirements yellow warning Design Details", "⚠ icon Launchstudio Submission", "Host layer not included warning", "yellow warning blocks submission", "advisory warning SIG Launchstudio"],
+  "bluetooth_tags": [
+    "Submission-Requirements",
+    "yellow-warning",
+    "Design-Details",
+    "Host-layer",
+    "advisory",
+    "SIG-Launchstudio"
+  ],
+  "search_aliases": [
+    "Submission Requirements yellow warning Design Details",
+    "⚠ icon Launchstudio Submission",
+    "Host layer not included warning",
+    "yellow warning blocks submission",
+    "advisory warning SIG Launchstudio"
+  ],
   "qualification_stage": "pre-submission",
   "confidence": "high"
 }

@@ -1,0 +1,37 @@
+{
+  "source_thread": "thread_0166",
+  "case_id": "thread_0166_case_04",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "Smart TV with Bluetooth (Sony, AVRCP)",
+  "customer_question": "When submitting test evidence for SIG registration, we sent a test log file (TestReport_*.zip). Allion said this is not acceptable. What format is required?",
+  "question_variants": [
+    "What file format does SIG accept for PTS test report upload?",
+    "We sent our PTS test log. Is that the same as a PTS report for SIG qualification?",
+    "What is the difference between a PTS test log and a PTS qualification report, and which one does SIG require?"
+  ],
+  "actual_issue": "Sony submitted test log files (TestReport_*.zip) as evidence for SIG qualification. Allion informed them that raw test log files are not acceptable — SIG requires a properly generated PTS Report file. Sony needs to understand the correct file format and how to generate it.",
+  "plain_english_explanation": "PTS (Profile Tuning Suite) produces two types of output: (1) a raw test log file (TestReport_*.zip or similar) that records the test execution trace, and (2) a generated Report file (Report_AVRCP_*.xml or similar) that is formally produced by PTS's 'Generate Report' function. Only the generated Report file is acceptable for SIG qualification evidence. The raw log file is an internal execution trace — it is not the qualification record and will be rejected if submitted as evidence.",
+  "consultant_answer": "SIG requires the formally generated PTS Report file, not the raw test log. In PTS, after test execution, use the 'Generate Report' function to produce a file with a name starting with 'Report_[ProfileName]_[date]' in .xml format. Submit this generated Report file as the qualification evidence. The raw TestReport log file is not acceptable.",
+  "decision_logic": "SIG's qualification process requires standardized test evidence in the format produced by PTS's Generate Report function. This report format includes structured pass/fail declarations in a form that SIG's review system can process. Raw execution logs are not in this standardized format.",
+  "final_recommendation": "After each profile test session, always generate the formal Report file from PTS using the 'Generate Report' function before providing evidence to Allion. Do not provide raw test log files. The generated Report file naming convention is 'Report_[ProfileName]_[YYYY]...' and the format is .xml.",
+  "risk_if_done_wrong": "Submitting raw test log files instead of generated Report files causes the Submission Status to show missing test evidence, blocking SIG submission. The customer must re-generate the reports from PTS and resubmit, adding days to the project timeline.",
+  "bluetooth_tags": [
+    "PTS report format",
+    "Generate Report",
+    "test evidence",
+    "qualification evidence",
+    "AVRCP",
+    "PTS log vs report",
+    "SIG submission"
+  ],
+  "search_aliases": [
+    "PTS Generate Report function",
+    "TestReport vs Report SIG qualification",
+    "PTS report file format SIG",
+    "generate report PTS for SIG",
+    "PTS test log not accepted SIG"
+  ],
+  "qualification_stage": "Testing / PTS profile test evidence",
+  "confidence": "high"
+}

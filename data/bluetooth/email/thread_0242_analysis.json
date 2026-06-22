@@ -1,0 +1,16 @@
+{
+  "source_thread": "thread_0242",
+  "thread_analysis": {
+    "thread_summary": "GO Corporation (contact Satoshi Yonezawa, IoT Hardware Development Group) develops an IoT device using a Silicon Labs BLE module and works with Allion (Itsuo Sakai, Masaya Iida) from initial test/documentation scoping (June 2024) through quotation, order, and a significant mid-registration Consistency Check problem caused by combining the module's Component QDID with a separate stack Component QDID (resolved via a vendor-provided Subset DN by December 2024/early 2025).",
+    "all_questions_found": [
+      "Does a 'Component (Tested)' module status require additional software-layer testing, and must testing happen at Allion's facility? (see thread_0242_case_01)",
+      "Are detailed module-engineering documents required, or only whole-product-level documents? (see thread_0242_case_02)",
+      "How can a 13-item LL/RFPHY Consistency Check inconsistency from combining two QDIDs be resolved without forcing full LL-layer retesting? (see thread_0242_case_03)"
+    ],
+    "key_technical_discussion": "This thread demonstrates the full lifecycle of module-based product certification: layered test exemption logic (antenna choice, protocol-layer vendor reference, profile-layer scope), correcting a customer's over-engineered assumption about documentation scope, and resolving a genuine cross-layer Consistency Check failure caused by combining a module-level and stack-level Component QDID with mismatched AoA/AoD and Isochronous feature support — resolved via a vendor-provided Subset DN rather than a direct, costly ICS edit.",
+    "key_decision_logic": "Each case follows the principle of resolving issues at the most precise level possible: test exemption decisions are made per-layer rather than as a blanket answer; documentation scope is corrected to the actual whole-product requirement rather than the customer's component-level assumption; and the Consistency Check failure is resolved via a feature-accurate vendor Subset DN rather than an ICS edit that would trigger disproportionate full-layer retesting.",
+    "risk_if_done_wrong": "See thread_0242_case_01 through thread_0242_case_03 for the specific risks of each question.",
+    "consulting_mistake": "None identified — Allion correctly diagnosed the Consistency Check root cause (feature-support mismatch between included QDIDs) and proposed the proportionate fix (vendor Subset DN) rather than the disproportionate one (direct LL ICS edit triggering full retesting).",
+    "consulting_takeaway": "For module-based product registrations Including both a module-level and a separate stack-level Component QDID, proactively check for cross-layer feature-support mismatches (especially around advanced features like AoA/AoD and Isochronous channels) before Submission, and resolve any mismatch via a vendor-provided Subset DN with the unsupported items marked Not Supported — this avoids the disproportionate full-layer retest that a direct ICS edit would trigger under the post-2024 registration system."
+  }
+}

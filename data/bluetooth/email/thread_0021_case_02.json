@@ -1,47 +1,34 @@
 {
-    "source_thread": "thread_0021",
-    "cases": [
-        {
-            "case_id": "thread_0021_case_02",
-            "iut_type": "module-integrated Bluetooth device",
-            "customer_question": "Does a product using an unlisted Bluetooth module still require Bluetooth SIG RF PHY testing even if the underlying SoC already has a QDID?",
-            "question_variants": [
-                "Can SoC qualification be reused when the module itself is not listed?",
-                "If the module is not Bluetooth qualified, what testing is still required?",
-                "Does an ESP32 SoC QDID eliminate RF PHY testing for the final product?",
-                "Can protocol tests be reused from the chip vendor QDID?",
-                "What happens when a module has radio certification but no Bluetooth SIG listing?"
-            ],
-            "actual_issue": "A module product was not found in the Bluetooth Qualified Product database even though its embedded SoC had a registered QDID, creating a split qualification scenario where protocol layers could be reused but RF PHY testing still remained mandatory.",
-            "plain_english_explanation": "A Bluetooth chip inside a module may already be qualified, but that does not automatically mean the complete module is qualified. In this case, the Bluetooth stack and protocol portions could be reused from the chip qualification, but the actual radio implementation of the module still needed RF PHY testing because the module itself was not listed as a qualified Bluetooth product.",
-            "consultant_answer": "The consultant searched for the module and supplier in the Bluetooth qualification database and found no matching Bluetooth qualification records, concluding that the module was likely unqualified. The embedded SoC was identified as already registered under an existing QDID, allowing reuse of protocol-layer qualification evidence including LL, L2CAP, GAP, GATT, ATT, and Security Manager. However, because the module itself lacked Bluetooth qualification coverage, the final product using that module still required RF PHY testing. The consultant then estimated the required RF-related test scope and associated qualification support activities.",
-            "decision_logic": "Bluetooth protocol qualification reuse from a qualified SoC does not automatically cover the RF implementation of an unqualified module. If the module-level RF implementation lacks Bluetooth qualification coverage, RF PHY testing remains required even when lower protocol layers can be inherited from the SoC QDID.",
-            "final_recommendation": "Verify whether the exact module itself has a Bluetooth qualification listing before assuming full reuse eligibility. If only the SoC is qualified, plan for RF PHY testing on the final implementation while reusing eligible protocol-layer qualification evidence from the SoC QDID.",
-            "risk_if_done_wrong": "Assuming SoC qualification automatically covers the module can lead to incomplete testing, invalid qualification assumptions, underquoted project costs, schedule overruns, and failed qualification review.",
-            "bluetooth_tags": [
-                "qualification",
-                "module",
-                "SoC",
-                "QDID",
-                "RF PHY",
-                "LL",
-                "GATT",
-                "reuse"
-            ],
-            "search_aliases": [
-                "SoC QDID reuse",
-                "module not qualified",
-                "RF PHY still required",
-                "ESP32-S3R8 QDID",
-                "protocol layer reuse",
-                "LL L2CAP GAP GATT ATT SM reuse",
-                "unlisted Bluetooth module",
-                "module qualification missing",
-                "chip qualified module not qualified"
-            ],
-            "qualification_stage": "pre-test review",
-            "confidence": "high",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0021",
+  "case_id": "thread_0021_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (JUST.WILL Bluetooth device using Espressif ESP32-S3 series module), module variant identification and RF/RF PHY test exemption",
+  "customer_question": "We're developing a Bluetooth device using the ESP32-S3 -- after SIG registration, will certification testing be required, and roughly how much would it cost?",
+  "question_variants": [
+    "Does it matter which specific ESP32-S3 module variant (antenna-integrated vs. antenna-connector) is used for test exemption purposes?",
+    "Does using an already radio-law-certified module variant exempt the product from its own radio-law procedure too?"
+  ],
+  "actual_issue": "The customer referred to 'ESP32-S3' generically without specifying which exact module variant within that series they intended to use, which mattered significantly for determining whether RF/RF PHY testing would be required and whether Japan's radio-law (construction-design) certification was already covered.",
+  "plain_english_explanation": "ESP32-S3 is a series name covering multiple distinct module variants, not a single module -- the customer needed to specify exactly which variant they intended to implement. Two specific variants, the antenna-integrated ESP32-S3-WROOM-1 and the antenna-connector ESP32-S3-WROOM-1U, are both already qualified with Bluetooth SIG, meaning products implementing either of these exempts the product from RF/RF PHY testing for Bluetooth SIG registration purposes. Additionally, the WROOM-1U variant specifically has already obtained Japan's radio-law construction-design certification -- meaning a product implementing it does not need to separately obtain its own construction-design certification, as long as the module's existing certification number is displayed on the product.",
+  "consultant_answer": "ESP32-S3 is a series name, not a single module -- could you confirm exactly which specific variant you're implementing? Two variants in particular, the antenna-integrated ESP32-S3-WROOM-1 and the antenna-connector ESP32-S3-WROOM-1U, are already qualified with Bluetooth SIG, so a product using either one is exempt from RF/RF PHY testing. The WROOM-1U variant has also already obtained Japan's radio-law construction-design certification, so your product doesn't need its own separate certification for that either -- you'd just need to display the module's existing certification number on your product.",
+  "decision_logic": "When a customer references a module series name rather than a specific module variant/model number, confirm the exact variant before answering test-exemption or radio-law-certification questions, since different variants within the same series (e.g., antenna-integrated vs. antenna-connector) can have materially different exemption status for both Bluetooth SIG testing and national radio-law certification.",
+  "final_recommendation": "When a customer references a module by series name only, proactively ask for the exact model number/variant before providing test-exemption guidance, and check both Bluetooth SIG qualification status and national radio-law certification status separately, since they are independent and a variant may be exempt from one but not the other.",
+  "risk_if_done_wrong": "Answering test-exemption questions based on an assumed module variant, without confirming the customer's exact intended model, could lead to an incorrect cost/timeline expectation if the customer's actual chosen variant turns out not to be exempt.",
+  "bluetooth_tags": [
+    "ESP32-S3 series variant identification",
+    "ESP32-S3-WROOM-1 antenna integrated exempt",
+    "ESP32-S3-WROOM-1U antenna connector exempt",
+    "radio law construction design certification exemption",
+    "module certification number display exemption",
+    "JUST.WILL"
+  ],
+  "search_aliases": [
+    "is ESP32-S3 exempt from RF PHY test",
+    "ESP32-S3-WROOM-1 vs WROOM-1U difference",
+    "module already has radio law certification skip own certification",
+    "display module certification number exemption"
+  ],
+  "qualification_stage": "Pre-test feasibility / module identification",
+  "confidence": "high"
 }

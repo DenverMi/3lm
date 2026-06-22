@@ -1,42 +1,33 @@
 {
-    "source_thread": "thread_0010",
-    "cases": [
-        {
-            "case_id": "thread_0010_case_02",
-            "iut_type": "",
-            "customer_question": "Is it acceptable for a consultant or intermediary to obtain Bluetooth SIG login credentials from the customer to support qualification registration?",
-            "question_variants": [
-                "Can a consultant use the customer's Bluetooth SIG login?",
-                "Is sharing Qualification Workspace credentials allowed?",
-                "Should the Bluetooth SIG username belong to the customer representative?",
-                "Can third parties access the customer's qualification account?",
-                "Who should own the Qualification Workspace user account?"
-            ],
-            "actual_issue": "The parties were unsure whether Bluetooth SIG Qualification Workspace login credentials should belong to the customer representative and whether sharing those credentials with a consultant was acceptable during qualification support activities.",
-            "plain_english_explanation": "The customer and consultant needed to coordinate access to the Bluetooth SIG qualification system. They were concerned about whether login credentials should belong to the customer and whether the consultant could request or use those credentials. The discussion focused on account ownership and practical registration handling.",
-            "consultant_answer": "The consultant clarified that the Bluetooth SIG login and qualification registration should align with the member company responsible for the product qualification. The thread indicates concern about whether a consultant could request or use customer credentials, while the consultant emphasized using the account associated with the company responsible for the product branding and qualification submission.",
-            "decision_logic": "Bluetooth qualification submissions must be performed under the responsible member company's account. Operational access may involve consultants, but the account ownership and qualification responsibility remain with the member company associated with the product.",
-            "final_recommendation": "Use a Bluetooth SIG user account associated with the responsible member company and coordinate qualification support access procedures internally before sharing credentials or submission responsibilities.",
-            "risk_if_done_wrong": "Improper account handling may create security concerns, confusion about submission ownership, or disputes regarding responsibility for qualification records and declarations.",
-            "bluetooth_tags": [
-                "qualification",
-                "Qualification Workspace",
-                "member account",
-                "listing",
-                "submission support"
-            ],
-            "search_aliases": [
-                "Qualification Workspace credentials",
-                "Bluetooth SIG login sharing",
-                "consultant account access",
-                "customer login support",
-                "member account responsibility",
-                "qualification account ownership",
-                "submission access control"
-            ],
-            "qualification_stage": "listing / declaration",
-            "confidence": "medium",
-            "source_type": "email_case"
-        }
-    ]
+  "source_thread": "thread_0010",
+  "case_id": "thread_0010_case_02",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product (Topre device), Bluetooth module change and Core Specification version decision",
+  "customer_question": "Our Bluetooth module is changing from a Taiyo Yuden part to a Kaga FEI part (QDID:97470). If we keep our registration at the existing Core Specification 4.2, do we need to do anything? If we instead want to move up to 5.0, is testing required, or just a new application? And does re-applying for 5.0 without any other changes require a new test sample?",
+  "question_variants": [
+    "Does a module vendor change require any registration action if staying on the same Core Spec version?",
+    "Does upgrading to Core Spec 5.0 require new testing, or can existing test reports be reused?"
+  ],
+  "actual_issue": "The customer was changing their Bluetooth module supplier and needed to understand the registration implications both for staying on their current Core Specification version and for potentially upgrading to a newer one, including whether new testing or sample submission would be required either way.",
+  "plain_english_explanation": "If the customer keeps their registration at the existing Core Specification version (4.2) despite the module vendor change, no procedural action is needed at all. If instead they want to move up to Core Specification 5.0, no new testing is required — the existing test reports from the prior registration can be reused — but a new registration (with its own $11,040 application fee) is still required, since this is treated as a distinct registration rather than a modification of the existing one. Because the change is application-only (reusing existing test data), no new test sample needs to be prepared or submitted for this 5.0 upgrade.",
+  "consultant_answer": "If you stay at Core Specification 4.2 despite the module vendor change, no action is needed at all. If you want to move up to Core Specification 5.0, no new testing is required — your existing test reports can be reused — but a new registration (with its own $11,040 application fee) is still required, since this is a distinct registration rather than a modification of your existing one. Since this is application-only, no new test sample needs to be prepared.",
+  "decision_logic": "A Core Specification version upgrade can be achieved purely through a new registration application reusing existing test reports, without new testing, as long as the underlying product hasn't changed in ways that would invalidate those existing results — staying on the current version requires no action at all regardless of an unrelated module vendor change.",
+  "final_recommendation": "When a customer asks about upgrading Core Specification version alongside an unrelated component change, clearly separate the 'stay at current version' (no action) and 'upgrade version' (new application, reused test data, no new testing) paths so they can make an informed cost/benefit decision.",
+  "risk_if_done_wrong": "A customer assuming a Core Spec version upgrade requires full retesting might either avoid a beneficial upgrade unnecessarily, or might fail to budget for the still-required new registration application fee, assuming no cost was involved at all.",
+  "bluetooth_tags": [
+    "Core Specification version upgrade application only",
+    "existing test report reuse",
+    "module vendor change no action needed",
+    "new registration fee required",
+    "Topre",
+    "Kaga FEI"
+  ],
+  "search_aliases": [
+    "does Core Spec upgrade need new testing",
+    "can existing test reports be reused for new Core Spec version",
+    "module vendor change registration impact"
+  ],
+  "qualification_stage": "Pre-registration planning",
+  "confidence": "high"
 }

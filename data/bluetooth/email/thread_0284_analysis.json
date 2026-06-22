@@ -1,0 +1,15 @@
+{
+  "source_thread": "thread_0284",
+  "thread_analysis": {
+    "thread_summary": "Key System (relayed via Masaya Iida, original inquiry details unspecified contact) requests Bluetooth SIG certification quotes for two products: a smart jump rope (BLE, Core Spec 4.2, no already-certified chip used) and a smart band (BLE, Core Spec 6, Nordic nRF54L15 module, external monopole antenna). Itsuo Sakai provides scoping explanations and quotes for each.",
+    "all_questions_found": [
+      "What test scope applies to a product not implementing an already-certified SoC? (see thread_0284_case_01)",
+      "(Administrative, standard quote) Cost estimate for the smart band using the already-registered Nordic nRF54L15 module: RF PHY test, profile test (DIS, BAS), registration support, Compliance Folder creation."
+    ],
+    "key_technical_discussion": "The two products illustrate a direct contrast: the smart jump rope (no certified chip) faces the full middle-protocol-layer testing burden, while the smart band (already-certified Nordic nRF54L15 module) only needs RF PHY and profile-layer testing, demonstrating concretely why component choice drives certification scope and cost.",
+    "key_decision_logic": "See thread_0284_case_01.",
+    "risk_if_done_wrong": "See thread_0284_case_01.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "When quoting for multiple products in one inquiry, use a contrasting pair (certified vs. uncertified component) as a teaching opportunity to make the cost/scope impact of component choice concrete for the customer."
+  }
+}

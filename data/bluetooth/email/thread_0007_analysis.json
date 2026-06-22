@@ -1,0 +1,14 @@
+{
+  "source_thread": "thread_0007",
+  "thread_analysis": {
+    "thread_summary": "Shibutani Corporation (contact Tomoyuki Mori, Technology Development Dept., representing an unnamed development company and BLE module trading partner) consults Allion (Masaya Iida, with technical answers drafted by Itsuo Sakai) about registering a CS (Channel Sounding)-unsupported product using a Nordic nRF52805-based module, encountering a persistent GAP/LL cross-layer Consistency Check inconsistency because every available Connect SDK Host Design Number under the desired newer SDK version line claims CS support.",
+    "all_questions_found": [
+      "Can a newer Connect SDK Host version be used with a CS-unsupported Controller without inconsistency, and if no clean option exists, how can registration still proceed? (see thread_0007_case_01)"
+    ],
+    "key_technical_discussion": "A direct search of SIG's registration database confirmed no actual non-CS-claiming Design Number exists under the customer's desired newer SDK version line, making 'Combine Unmodified Designs' (which carries forward the inherited inconsistency without triggering additional testing for this specific combination) the only practical registration path, with explicit reassurance that this carries equal certification validity to a clean reference combination.",
+    "key_decision_logic": "See thread_0007_case_01.",
+    "risk_if_done_wrong": "See thread_0007_case_01.",
+    "consulting_mistake": "None identified.",
+    "consulting_takeaway": "When a customer's desired SDK/Design Number combination has an inherent feature mismatch with no clean alternative, verify this directly against SIG's registration database (by company and product type) before concluding no option exists, and clearly reassure the customer that an inherited-inconsistency registration via 'Combine Unmodified Designs' carries equal validity when it doesn't trigger additional testing for that specific combination."
+  }
+}

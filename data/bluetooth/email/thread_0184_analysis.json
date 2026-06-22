@@ -1,0 +1,18 @@
+{
+  "source_thread": "thread_0184",
+  "thread_analysis": {
+    "thread_summary": "OM Digital Solutions (camera with HFP, WICED/Infineon Bluetooth module) registration thread. Two main issues: (1) the previously used Profile Subsystem QDID containing HFP is deprecated — Allion found that Infineon's AIROC Bluetooth Audio Profile Package QDID (HFP 1.8) is a valid non-deprecated alternative, enabling registration without new HFP PTS testing; (2) HFP PTS testing was attempted but the DUT did not respond to PTS Paging — resolved by identifying that the camera requires manual navigation to MENU → Bluetooth → Headset → Pairing to enter pairing mode before PTS can connect. Ultimately, the customer opted to cancel the profile test (since QDID reference was found) and proceed with QDID-based registration without PTS test upload.",
+    "all_questions_found": [
+      "Old HFP Profile Subsystem QDID is deprecated — can we still avoid HFP re-testing?",
+      "PTS software cannot find the DUT — Bluetooth address not detected or inconsistent",
+      "DUT does not respond to PTS Paging — what is the cause?",
+      "Can we cancel the profile test and proceed via QDID reference instead?",
+      "Is HFP PTS testing mandatory for this registration?"
+    ],
+    "key_technical_discussion": "Deprecated QDIDs cannot be referenced in new registrations. However, successor SDK QDIDs from the same chipset lineage (Infineon AIROC continuing Cypress WICED) can substitute. When a valid Profile Subsystem QDID covering the required profiles exists in the Listing, it can exempt those profiles from PTS testing. For PTS test DUT connectivity: BR/EDR products may require manual pairing mode entry before PTS can connect — this is a common issue for consumer products with menu-based Bluetooth management.",
+    "key_decision_logic": "Registration path: always check if a valid (non-deprecated) QDID exists that covers the required profiles before defaulting to PTS testing. The profile test is only mandatory when no valid QDID reference is available. For DUT connectivity issues in PTS: first rule out DUT mode issues (pairing mode, correct BD address) before investigating firmware or protocol issues.",
+    "risk_if_done_wrong": "Referencing a deprecated Profile Subsystem QDID will fail. Attempting PTS testing with a DUT not in connectable mode wastes lab time and delays registration.",
+    "consulting_mistake": "None identified. Allion proactively found the Infineon AIROC QDID as a valid alternative to the deprecated WICED QDID, saving the customer from HFP PTS testing. The DUT pairing mode issue was correctly diagnosed through systematic troubleshooting.",
+    "consulting_takeaway": "When a customer's previously used Profile Subsystem QDID is deprecated, always search for a successor QDID from the same chipset/SDK family (including chipmaker acquisitions — Infineon acquired Cypress). For BR/EDR PTS testing of consumer products, always confirm the exact pairing/connection procedure before test starts to avoid Page Timeout issues."
+  }
+}

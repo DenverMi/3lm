@@ -1,6 +1,6 @@
 {
   "source_thread": "thread_0138",
-  "case_analysis": {
+  "thread_analysis": {
     "thread_summary": "Toyo Gas Meter, a first-time Bluetooth certification customer, asked for a comprehensive overview of what the certification process entails. The consultant provided a structured FAQ-style response covering: registration scope (fee + registration work); Compliance Folder requirement and retention; Bluetooth logo usage; certification validity until Core Spec Withdrawal (BT 5.0 = Feb 1, 2032); and no recurring costs.",
     "all_questions_found": [
       "Is paying the SIG Qualification Fee alone sufficient for certification?",

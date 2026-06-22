@@ -1,7 +1,8 @@
 {
   "source_thread": "thread_0148",
   "case_id": "thread_0148_case_01",
-  "source_type": "internal_consulting",
+  "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "End Product — A2DP profile (audio system / AVN)",
   "customer_question": "N/A — internal report review. Two issues flagged: (1) test case A2DP/SNK/SYN/[ID] is present in the test plan but was not executed; (2) profile version was written as X.Y (two digits) instead of X.Y.Z (three digits).",
   "question_variants": [
@@ -14,8 +15,20 @@
   "decision_logic": "SIG profile reports must account for all test cases in the test plan. Unexecuted cases without documented exclusion constitute a gap that will fail review. Profile version notation requires the full three-digit format per SIG convention.",
   "final_recommendation": "Review all test plans before submitting reports to confirm every listed test case has either a result or an explicit exclusion reason. Always write profile versions in X.Y.Z format.",
   "risk_if_done_wrong": "Submitting a report with unaccounted test cases or incorrect version notation will cause review rejection and require corrections and resubmission, adding delay.",
-  "bluetooth_tags": ["A2DP", "profile version", "test plan", "report review", "SNK", "test case exclusion"],
-  "search_aliases": ["A2DP profile version format", "test case missing from report", "profile version three digits", "X.Y.Z version format"],
+  "bluetooth_tags": [
+    "A2DP",
+    "profile version",
+    "test plan",
+    "report review",
+    "SNK",
+    "test case exclusion"
+  ],
+  "search_aliases": [
+    "A2DP profile version format",
+    "test case missing from report",
+    "profile version three digits",
+    "X.Y.Z version format"
+  ],
   "qualification_stage": "Test Execution / Report Review",
   "confidence": "high"
 }

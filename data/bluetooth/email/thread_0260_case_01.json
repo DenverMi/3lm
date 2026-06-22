@@ -1,0 +1,33 @@
+{
+  "source_thread": "thread_0260",
+  "case_id": "thread_0260_case_01",
+  "source_type": "email_case",
+  "program": "Bluetooth",
+  "iut_type": "End Product referencing D063309 (Fluoride Bluetooth Host Subsystem), profiles A2DP/AVRCP/DI (ACCESS Corporation, via referral from Phoenix Engineering)",
+  "customer_question": "You mentioned that profiles A2DP, AVRCP, and DI may require product-level testing depending on conditions, and that testing is exempted if D063309's (Fluoride Bluetooth Host Subsystem's) ICS support for these profiles matches or is a superset of what our product needs. What does 'ICS support' actually mean? We don't plan to modify the Bluetooth stack.",
+  "question_variants": [
+    "What is the meaning of 'ICS support' in this context?",
+    "Does not modifying the Bluetooth stack automatically mean profile testing is exempted?"
+  ],
+  "actual_issue": "The customer didn't understand the technical meaning of 'ICS support' as used in the test-exemption explanation, and wanted confirmation that their plan to implement the referenced Host Subsystem's stack without modification would actually qualify for the stated profile testing exemption.",
+  "plain_english_explanation": "ICS (Implementation Conformance Statement) is a Bluetooth SIG-defined document format that breaks down each profile or protocol's functionality into individual minimal-unit items, with each item marked as supported (YES) or not supported (NO). Since the customer confirmed they don't plan to modify the Bluetooth stack, this means they'll implement D063309's stack with its ICS support items unchanged from how that Host Subsystem was originally registered — and in that specific situation, product-level profile testing for A2DP, AVRCP, and DI is exempted, since the underlying stack's already-tested ICS support coverage carries over unchanged.",
+  "consultant_answer": "ICS stands for Implementation Conformance Statement — it's a Bluetooth SIG-defined document that breaks each profile/protocol's functionality down into individual minimal-unit items, each marked Supported (YES) or Not Supported (NO). Since you've confirmed you won't modify the Bluetooth stack, that means you'll implement D063309's stack with its ICS support items unchanged — and in that case, yes, product-level profile testing for A2DP, AVRCP, and DI is exempted, since the underlying stack's already-tested ICS coverage carries over as-is.",
+  "decision_logic": "Profile testing exemption via a referenced Host Subsystem depends specifically on whether the product's implementation leaves that subsystem's ICS support items unchanged — 'not modifying the stack' is the practical condition that satisfies this requirement.",
+  "final_recommendation": "When explaining ICS-based test exemption logic to a customer unfamiliar with the term, define ICS concretely (per-item Supported/Not-Supported declarations) and explicitly connect the customer's own plain-language description of their implementation (e.g., 'not modifying the stack') to the specific technical condition that triggers the exemption.",
+  "risk_if_done_wrong": "A customer who doesn't understand what 'ICS support' actually means could either modify their implementation in a way that invalidates the test exemption without realizing it, or remain uncertain about whether their stated plan ('no stack modification') genuinely qualifies.",
+  "bluetooth_tags": [
+    "ICS Implementation Conformance Statement definition",
+    "profile test exemption via referenced Host Subsystem",
+    "A2DP AVRCP DI exemption condition",
+    "Fluoride Bluetooth Host Subsystem",
+    "ACCESS Corporation"
+  ],
+  "search_aliases": [
+    "what does ICS support mean",
+    "Implementation Conformance Statement definition",
+    "profile test exemption unchanged stack",
+    "D063309 Fluoride Bluetooth Host Subsystem"
+  ],
+  "qualification_stage": "Pre-quotation scoping",
+  "confidence": "high"
+}

@@ -2,6 +2,7 @@
   "source_thread": "thread_0135",
   "case_id": "thread_0135_case_03",
   "source_type": "email_case",
+  "program": "Bluetooth",
   "iut_type": "industrial/commercial device",
   "customer_question": "The module has an integrated antenna. Is the RF/RF PHY test exempt? Also, a yellow warning for TCW ES-25636 appeared in the Consistency Check — what does that mean?",
   "question_variants": [
@@ -15,8 +16,22 @@
   "decision_logic": "RF/RF PHY test exemption: check the module datasheet for explicit statement of integrated antenna or antenna connector → if present, exemption applies.\nTCW ES-25636: this warning originates from a SIG Check Rule bug (not a registrant error). Proceed with Submission; SIG will review and approve within 1–5 business days automatically.",
   "final_recommendation": "When quoting RF testing, check the module datasheet for antenna configuration. If exempt, remove RF test fees from the quote. For TCW ES-25636, inform the customer that SIG will resolve it in 1–5 business days — no action needed on their part.",
   "risk_if_done_wrong": "Quoting RF testing when the module is exempt wastes time and money. Misidentifying TCW ES-25636 as a blocking error causes unnecessary project delays and misinformation to the customer.",
-  "bluetooth_tags": ["RF-PHY-test", "RF-test-exemption", "antenna", "TCW-ES-25636", "Consistency-Check", "yellow-warning", "SIG-approval"],
-  "search_aliases": ["integrated antenna RF test exempt", "antenna connector RF PHY exemption", "TCW ES-25636 what is it", "Consistency Check yellow warning SIG", "1-5 business days SIG approval"],
+  "bluetooth_tags": [
+    "RF-PHY-test",
+    "RF-test-exemption",
+    "antenna",
+    "TCW-ES-25636",
+    "Consistency-Check",
+    "yellow-warning",
+    "SIG-approval"
+  ],
+  "search_aliases": [
+    "integrated antenna RF test exempt",
+    "antenna connector RF PHY exemption",
+    "TCW ES-25636 what is it",
+    "Consistency Check yellow warning SIG",
+    "1-5 business days SIG approval"
+  ],
   "qualification_stage": "pre-registration",
   "confidence": "high"
 }
