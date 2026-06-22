@@ -41,6 +41,31 @@ def parse_mode_and_question(raw_question: str) -> tuple[str, str]:
 
     return "auto", raw_question.strip()
 
+def extract_explicit_program_hint(question: str) -> tuple[str | None, str]:
+    q = question.strip()
+
+    match = re.match(
+        r"^\s*in\s+(bluetooth|bt|ble|matter|aliro)\s*,?\s+(.+)$",
+        q,
+        flags=re.IGNORECASE,
+    )
+
+    if not match:
+        return None, question
+
+    raw_program = match.group(1).lower()
+    cleaned_question = match.group(2).strip()
+
+    program_map = {
+        "bluetooth": "bluetooth",
+        "bt": "bluetooth",
+        "ble": "bluetooth",
+        "matter": "matter",
+        "aliro": "aliro",
+    }
+
+    return program_map.get(raw_program), cleaned_question
+
 def looks_like_followup_question(question: str) -> bool:
     q = question.strip().lower()
 
@@ -452,6 +477,23 @@ def compact_email_case_text(text: str) -> str:
     except Exception:
         return text
 
+def is_practical_requirement_query(question: str) -> bool:
+    q = question.lower()
+    practical_terms = [
+        "what do we need",
+        "what should we",
+        "prepare",
+        "include",
+        "required",
+        "requirements",
+        "need to",
+        "必要",
+        "入れる",
+        "準備",
+        "含める",
+    ]
+    return any(term in q for term in practical_terms)
+
 def build_model_input(
     question: str,
     items: List[Dict[str, Any]],
@@ -469,7 +511,8 @@ def build_model_input(
         "- Use FAQ/reference excerpts to clarify or summarize the official source.\n"
         "- For yes/no decision questions, start with Yes or No when the evidence supports it. Use It depends only when the required outcome itself depends on conditions. If the outcome is required but the amount of work, testing, documentation, or procedure varies, start with Yes and explain the variable scope afterward.\n"
         "- When explaining variable scope, use wording like 'may depend on', 'may vary', or 'only the new or changed parts may need review/testing'. Avoid wording like 'is required' or 'must be tested' unless the evidence explicitly states an unconditional requirement.\n"
-        "- For advisory decision questions, first identify and isolate the main question. Then based on the main evidence, answer the question directly with a clear Yes, or No, or It depends. Provide the supporting evidence and explanation to your answer. If the evidence contains both a general rule and an exception, answer based on the general rule first unless the user is clearly asking for the exception. If the user asks in Japanese, start with はい, いいえ, or 場合によります as appropriate.\n"
+        "- For advisory decision questions, first identify and isolate the main question. Then based on the main evidence, answer the question directly with a clear Yes, or No, or It depends. Provide the supporting evidence and explanation to your answer. If the evidence contains both a general rule and an exception, answer based on the general rule first unless the user is clearly asking for the exception.\n"
+        "- If the user asks in Japanese, start with はい or いいえ when the evidence supports a direct requirement answer. Use 場合によります only when the required outcome itself depends on conditions.\n"
         "- If both official/reference sources and email/case sources are used, write the official/reference-based answer first in natural prose without a heading. Then add a short separate section labeled 'Case reference:' in English or '参考事例:' in Japanese. Do not present case evidence as official policy.\n"
         "- Add a separate 'Case reference:' section in English or '参考事例:' section in Japanese only when the provided evidence includes email/case sources. If the evidence does not include email/case sources, do not use 'Case reference:' or '参考事例:' headings. Official/reference evidence should be written as normal answer text without a special heading.\n"
         "- Use email/case excerpts as practical examples or implementation context, not as the main authority when official sources are available.\n"
@@ -494,7 +537,7 @@ def build_model_input(
             f"- Explain only what is supported by the provided excerpts.\n"
         )
 
-    if is_definition_query(question):
+    if is_definition_query(question) and not is_practical_requirement_query(question):
         parts.append("\n" + definition_mode_instruction(detail_mode))
 
         if detail_mode == "wide":
@@ -520,9 +563,9 @@ def build_model_input(
 
         if definition_sentences:
             parts.append(
-                "\nPrimary definition evidence:\n"
+                "\nDefinition clue:\n"
                 + "\n".join(f"- {s}" for s in definition_sentences)
-                + "\nUse these sentences as the primary grounding for the definition."
+                + "\nUse this only to identify the term. For the actual answer, use the most relevant retrieved excerpts, include any conditions, required inputs, or limitations, and avoid repeating the same definition in different wording."
             )
 
     parts.append(
@@ -561,7 +604,11 @@ def build_model_input(
         remaining = MAX_CONTEXT_CHARS - total_chars
         doc_type = (meta.get("doc_type") or "").lower()
 
+        chunk_kind = (meta.get("chunk_kind") or "").lower()
+
         if doc_type in {"policies", "specs"}:
+            remaining = min(remaining, 2200)
+        elif chunk_kind == "body":
             remaining = min(remaining, 2200)
         else:
             remaining = min(remaining, MAX_SNIPPET_CHARS)
@@ -569,9 +616,13 @@ def build_model_input(
             break
 
         raw_terms = [w.lower() for w in re.findall(r"[A-Za-z0-9/\-]+", question) if len(w) >= 3]
+
         stop_terms = {
             "what", "which", "when", "where", "who", "why", "how",
-            "test", "tool", "used", "use", "run", "does", "do", "you"
+            "is", "are", "do", "does", "did", "can", "could", "should",
+            "would", "if", "the", "a", "an", "for", "to", "of", "in",
+            "on", "with", "and", "or", "we", "you", "need", "used", "use",
+            "run", "test", "tool"
         }
         question_terms = sorted(
             [t for t in raw_terms if t not in stop_terms],
@@ -667,6 +718,25 @@ def ask_llm(
 ) -> str:
     language = resolve_language(question)
     system_prompt = load_system_prompt(language)
+
+    case_requested = any(
+        phrase in question.lower()
+        for phrase in [
+            "case",
+            "past",
+            "email",
+            "customer case",
+            "past case",
+            "in practice",
+        ]
+    )
+
+    if not case_requested:
+        items = [
+            item for item in items
+            if not is_email_source(item)
+        ]
+
     user_prompt = build_model_input(
         question,
         items,
@@ -674,6 +744,8 @@ def ask_llm(
         grounded_expansion=grounded_expansion,
         detail_mode=detail_mode,
     )
+
+    Path("/tmp/rag_prompt_debug.txt").write_text(user_prompt, encoding="utf-8")
     if weak_retrieval:
         user_prompt += (
             "\n\nNote: retrieval quality is weak. "
@@ -690,6 +762,8 @@ def ask_llm(
         think=False,
         options={
             "temperature": 0.1,
+            "top_p": 0.9,
+            "top_k": 40,
             "num_predict": 900,
             "num_ctx": 8192,
         },
@@ -1470,18 +1544,29 @@ def source_authority_rank(item: Dict[str, Any]) -> int:
 
     return 5
 
+def is_weak_navigation_chunk(item: Dict[str, Any]) -> bool:
+    text = (item.get("text") or "").strip()
+    if not text:
+        return False
+
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    if not lines:
+        return False
+
+    word_count = len(text.split())
+    heading_count = sum(1 for line in lines if line.startswith("#"))
+    short_line_count = sum(1 for line in lines if len(line.split()) <= 8)
+
+    # Generic navigation/index/link-list chunk:
+    # mostly short lines, usually with a heading, and little explanatory prose.
+    return (
+        word_count <= 140
+        and heading_count >= 1
+        and short_line_count >= 4
+    )
+
 def item_supports_answer(question: str, item: Dict[str, Any]) -> bool:
-    text = (item.get("text") or "").lower()
-    meta = item.get("metadata", {})
-    doc_name = (meta.get("doc_name") or "").lower()
-
-    # Reject weak generic FAQ/link pages.
-    weak_page_markers = [
-        "links to helpful information",
-        "helpful information",
-    ]
-
-    if "official faq" in doc_name and any(marker in text for marker in weak_page_markers):
+    if is_weak_navigation_chunk(item):
         return False
 
     return supports_query_semantically(question, item)
@@ -1653,15 +1738,18 @@ def answer_question(
     mode, clean_question = parse_mode_and_question(question)
     prompt_question = clean_question
     retrieval_question = clean_question
+    hint_program, hint_clean_question = extract_explicit_program_hint(clean_question)
 
-    keyword_program = program
-    if keyword_program is None and looks_like_rag_query(clean_question):
-        keyword_program = "bluetooth"
+    if program is None and hint_program:
+        program = hint_program
+        clean_question = hint_clean_question
+        prompt_question = clean_question
+        retrieval_question = clean_question
 
-    if not is_advisory_query(clean_question):
+    if program:
         retrieval_question = expand_retrieval_query_with_keywords(
             retrieval_question,
-            keyword_program,
+            program,
         )
 
     if chat_history and looks_like_followup_question(clean_question):
@@ -1885,7 +1973,7 @@ def answer_question(
             "mode": mode,
         }    
 
-    if mode == "auto" and program is None and not looks_like_rag_query(clean_question):
+    if mode == "auto" and program is None:
         print("\n🤖 Auto mode chose general...")
         answer = ask_llm_general(clean_question)
         print("✅ Done.\n")
@@ -1924,6 +2012,25 @@ def answer_question(
                 f"kind={meta.get('chunk_kind')}"
             )
 
+    asks_for_case_evidence = any(
+        phrase in clean_question.lower()
+        for phrase in [
+            "case",
+            "example",
+            "customer",
+            "past",
+            "email",
+            "in practice",
+            "practical example",
+        ]
+    )
+
+    if not asks_for_case_evidence:
+        items = [
+            item for item in items
+            if not is_email_source(item)
+        ]
+
     exact_acronym_items = []
     grounded_expansion = None
     if is_definition_query(clean_question):
@@ -1943,7 +2050,7 @@ def answer_question(
             else:
                 selected = items[:WEAK_RETRIEVAL_FALLBACK_K]
 
-            if is_definition_query(clean_question):
+            if is_definition_query(clean_question) and not is_practical_requirement_query(clean_question):
                 selected = add_glossary_support_sources(
                     clean_question,
                     selected,
@@ -1963,6 +2070,24 @@ def answer_question(
                         f"kind={meta.get('chunk_kind')}"
                     )
             
+            case_requested = any(
+                phrase in clean_question.lower()
+                for phrase in [
+                    "case",
+                    "past",
+                    "email",
+                    "customer case",
+                    "past case",
+                    "in practice",
+                ]
+            )
+
+            if not case_requested:
+                selected = [
+                    item for item in selected
+                    if not is_email_source(item)
+                ]
+
             print("🧠 Building grounded prompt...")
             print("🤖 Generating answer with local model...")
 
@@ -2018,7 +2143,11 @@ def answer_question(
 
     intent = (
         "definition"
-        if is_definition_query(clean_question) and not comparison_query
+        if (
+            is_definition_query(clean_question)
+            and not comparison_query
+            and not is_practical_requirement_query(clean_question)
+        )
         else "other"
     )
 
@@ -2074,6 +2203,16 @@ def answer_question(
             model_k = top_k
 
         selected = items[:model_k]
+        top_item = items[0] if items else None
+
+        if top_item:
+            top_kind = (top_item["metadata"].get("chunk_kind") or "").lower()
+            top_score = float(top_item.get("score", 0.0))
+
+            if top_kind not in {"front_page", "glossary"} and top_score >= 10.0:
+                if top_item["chunk_id"] not in {item["chunk_id"] for item in selected}:
+                    selected.insert(0, top_item)
+                    selected = selected[:model_k]
 
         if any(
             (item["metadata"].get("doc_type") or "").lower() == "reference"
@@ -2273,7 +2412,7 @@ def answer_question(
                 or float(item.get("score", 0.0)) >= 10.0
             ]
 
-        if is_definition_query(clean_question):
+        if is_definition_query(clean_question) and not is_practical_requirement_query(clean_question):
             selected = add_glossary_support_sources(
                 clean_question,
                 selected,
@@ -2296,6 +2435,22 @@ def answer_question(
             limit=max(top_k, 5),
         )
 
+    top_item = items[0] if items else None
+
+    if top_item:
+        top_kind = (top_item["metadata"].get("chunk_kind") or "").lower()
+        top_score = float(top_item.get("score", 0.0))
+
+        if (
+            top_kind not in {"front_page", "glossary"}
+            and top_score >= 10.0
+            and not is_weak_navigation_chunk(top_item)
+        ):
+            selected_ids = {item["chunk_id"] for item in selected}
+            if top_item["chunk_id"] not in selected_ids:
+                selected.insert(0, top_item)
+                selected = selected[:max(top_k, 5)]
+
     if debug:
         print("\nSelected sources for model:")
         for item in selected:
@@ -2310,10 +2465,11 @@ def answer_question(
 
     if (
         is_definition_query(clean_question)
+        and not is_practical_requirement_query(clean_question)
         and "difference between" not in clean_question.lower()
         and "違い" not in clean_question
     ):
-        term_matches = re.findall(r"[A-Z]{2,10}", clean_question.upper())
+        term_matches = re.findall(r"\b[A-Z][A-Z0-9/\-]{1,9}\b", clean_question)
         term_matches = [t for t in term_matches if t not in {"BLUETOOTH", "SIG"}]
         term = term_matches[-1] if term_matches else None
 

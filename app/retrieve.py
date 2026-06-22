@@ -424,6 +424,8 @@ def is_comparison_query(query: str) -> bool:
     )
 
 def detect_intent(query: str) -> str:
+    if is_practical_requirement_query(query):
+        return "requirements"
     if is_process_query(query):
         return "process"
     if is_comparison_query(query):
@@ -795,6 +797,23 @@ def format_citation(meta: Dict[str, Any]) -> str:
 
     return f"{doc_name} (unpaginated)"
 
+def expand_requirement_query(query: str) -> str:
+    if not is_practical_requirement_query(query):
+        return query
+
+    expansion_terms = [
+        "requirements",
+        "required documentation",
+        "required documents",
+        "table",
+        "documentation",
+        "maintain documentation",
+        "required if",
+        "as required",
+    ]
+
+    return query + " " + " ".join(expansion_terms)
+
 def expand_advisory_query(query: str) -> str:
     if not is_advisory_query(query):
         return query
@@ -813,6 +832,27 @@ def expand_advisory_query(query: str) -> str:
     ]
 
     return query + " " + " ".join(expansion_terms)
+
+def is_practical_requirement_query(query: str) -> bool:
+    q = query.lower()
+
+    practical_patterns = [
+        "what do we need",
+        "what should we",
+        "what needs to be",
+        "what is required",
+        "what are required",
+        "need to prepare",
+        "need to include",
+        "prepare in",
+        "prepare for",
+        "include in",
+        "requirements",
+        "required documents",
+        "required documentation",
+    ]
+
+    return any(pattern in q for pattern in practical_patterns)
 
 def is_advisory_query(query: str) -> bool:
     q = query.lower()
@@ -934,6 +974,24 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
             bonus += 1.1
         if "guide" in doc_name or "manual" in doc_name:
             bonus += 0.7
+
+    elif intent == "requirements":
+        source_type = (meta.get("source_type") or "").lower()
+
+        if chunk_kind == "front_page":
+            bonus -= 2.0
+
+        if chunk_kind == "glossary":
+            bonus -= 2.0
+
+        if doc_type == "policies":
+            bonus += 3.0
+
+        if doc_type == "reference":
+            bonus += 1.0
+
+        if source_type in {"email_case", "email_thread_analysis", "email"}:
+            bonus -= 3.0
 
     elif intent == "advisory":
         source_type = (meta.get("source_type") or "").lower()
@@ -1079,6 +1137,31 @@ def text_signature(text: str, limit: int = 500) -> str:
     normalized = " ".join((text or "").lower().split())
     return normalized[:limit]
 
+def role_alignment_bonus(query: str, text: str) -> float:
+    q = query.lower()
+    t = text.lower()
+
+    roles = ["supplier", "consultant", "retailer", "member", "customer", "manufacturer"]
+
+    query_roles = [role for role in roles if role in q]
+    if not query_roles:
+        return 0.0
+
+    text_roles = [role for role in roles if role in t]
+
+    bonus = 0.0
+
+    # Strongly prefer chunks that discuss the same role named in the question.
+    for role in query_roles:
+        if role in text_roles:
+            bonus += 8.0
+
+    # Strongly penalize chunks that discuss a different role but omit the asked role.
+    if text_roles and not any(role in text_roles for role in query_roles):
+        bonus -= 12.0
+
+    return bonus
+
 def merge_and_rerank(
     query: str,
     bm25_results: List[Dict[str, Any]],
@@ -1203,6 +1286,26 @@ def merge_and_rerank(
             doc_name = (item["metadata"].get("doc_name") or "").lower()
             if "glossary" in doc_name:
                 glossary_bonus += 6.0
+
+        if intent == "requirements":
+            requirement_signals = [
+                "required",
+                "requirements",
+                "required documentation",
+                "maintain documentation",
+                "table",
+                "as required",
+                "n/a",
+            ]
+
+            if any(signal in text_lower for signal in requirement_signals):
+                bonus += 5.0
+
+            chunk_kind = (meta.get("chunk_kind") or "").lower()
+            if chunk_kind in {"front_page", "glossary"}:
+                bonus -= 4.0
+            
+        bonus += role_alignment_bonus(query, item.get("text") or "")
 
         final_score = (
             rrf_score
@@ -1415,7 +1518,8 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = No
     if program:
         domain_filter = program.lower()
 
-    retrieval_query = expand_advisory_query(clean_query)
+    retrieval_query = expand_requirement_query(clean_query)
+    retrieval_query = expand_advisory_query(retrieval_query)
 
     bm25, chunks = get_chunks_for_bm25()
 
@@ -1455,7 +1559,7 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = No
     ]
 
     email_results = []
-    if email_chunks and detect_intent(clean_query) in {"advisory", "process"}:
+    if email_chunks and detect_intent(clean_query) in {"advisory"}:
         email_bm25 = build_bm25(email_chunks)
         email_results = search_bm25(retrieval_query, email_chunks, email_bm25, top_k=10)
 
