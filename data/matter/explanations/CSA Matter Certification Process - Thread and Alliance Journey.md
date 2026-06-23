@@ -1,9 +1,5 @@
  <u>Thread and Alliance Journey – Matter over Thread Device</u>
 
-![](_page_0_Figure_1.jpeg)
-
-![](_page_0_Figure_2.jpeg)
-
 #### **Thread**
 
 #### **Week 1:**
