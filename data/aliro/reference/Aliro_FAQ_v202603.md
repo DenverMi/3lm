@@ -1,5 +1,3 @@
-![](_page_0_Picture_0.jpeg)
-
 # **Vision**
 
 Streamlined interoperability of hardware to foster the adoption of mobile access in a fragmented access control industry.
@@ -23,7 +21,7 @@ Streamline secured communication to allow access control readers and mobile devi
 - Aliro will define the secure data exchange between a User Device (such as a smartphone or wearable) and a reader, to support access decisions to unlock openings.
 - Focused on the transaction between the User Device and Reader, Aliro is designed to support a variety of installations, enabling it to work with readers that are standalone (offline) or connected to an Access Control System (online).
 - Aliro compliant solutions will be able to leverage one or more transport mechanisms between the User Device and the Reader
-  - Near Field Communication (NFC), enabling a tap-to-access experience
+- Near Field Communication (NFC), enabling a tap-to-access experience
 
 - Bluetooth LE (BLE), enabling longer range communication, allowing users to initiate a command to unlock doors as they approach, and
 - BLE + Ultrawide Band (UWB), enabling a more seamless hands-free authentication method
@@ -44,17 +42,17 @@ Streamline secured communication to allow access control readers and mobile devi
 
 - Mobile Wallet Ecosystems have confirmed Aliro support
 - Silicon & Hardware Foundations
-  - Leading silicon vendors in access control are committed to Aliro
-  - Major lock and access hardware makers have pledged support
+- Leading silicon vendors in access control are committed to Aliro
+- Major lock and access hardware makers have pledged support
 - Credentialing & Access Control Platforms System and credentialing leaders are aligning behind the standard.
 
 #### **5. The industry sees Aliro as the future, and we're continuing to expand the coalition.**
 
 - Since the launch of the Aliro brand in 2023, many stakeholders joined the Alliance to contribute insights and shape the standard.
 - The Aliro Working Group and Connectivity Standards Alliance are always welcoming new members, including:
-  - Access control systems companies
-  - Reader manufacturers
-  - Integrators
+- Access control systems companies
+- Reader manufacturers
+- Integrators
 
 - Silicon vendors
 - Authorized Test Labs
@@ -62,13 +60,12 @@ Streamline secured communication to allow access control readers and mobile devi
 
 ## **Value Propositions**
 
-| Installers            | Aliro<br>empowers<br>installers<br>in<br>simplifying<br>complex<br>systems<br>by<br>streamlining<br>installation<br>and<br>device<br>troubleshooting<br>between<br>multiple<br>hardware<br>providers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Manufacturers         | Aliro<br>assists<br>manufacturers<br>in<br>reducing<br>complexity<br>for<br>partner<br>integrations<br>and<br>acts<br>as<br>an<br>arbiter<br>for<br>certification<br>of<br>interoperability.<br>It<br>is<br>designed<br>to<br>reduce<br>the<br>high<br>cost<br>of<br>R&D<br>and<br>simplify<br>the<br>integration<br>process<br>with<br>new<br>partners.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| System<br>Owners      | Aliro<br>offers<br>system<br>owners<br>a<br>simplified<br>way<br>of<br>managing<br>maintenance.<br>It<br>aims<br>to<br>provide<br>system<br>owners<br>with<br>a<br>way<br>to<br>more<br>easily<br>manage<br>a<br>mix<br>and<br>match<br>of<br>hardware<br>and<br>software<br>while<br>covering<br>a<br>wide<br>variety<br>of<br>user<br>devices.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Homeowners            | Aliro<br>enables<br>the<br>secured<br>and<br>reliable<br>use<br>of<br>smartphones<br>and<br>wearables<br>in<br>place<br>of<br>a<br>physical<br>key<br>to<br>unlock<br>your<br>home.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Media                 | Members<br>of<br>the<br>access<br>control<br>industry<br>joined<br>together<br>under<br>the<br>guidance<br>of<br>the<br>Connectivity<br>Standards<br>Alliance<br>to<br>create<br>Aliro,<br>the<br>approved<br>technical<br>standard<br>for<br>a<br>common<br>credential<br>and<br>protocol.<br>This<br>global<br>collaboration<br>aims<br>to<br>transform<br>how<br>users<br>unlock<br>doors<br>and<br>openings<br>by<br>developing<br>a<br>consistent,<br>secured,<br>and<br>streamlined<br>mobile<br>access<br>experience.<br>Aliro<br>is<br>designed<br>by<br>major<br>mobile<br>and<br>access<br>control<br>Original<br>Equipment<br>Manufacturers<br>(OEMs)<br>to<br>ensure<br>best-of-class<br>security,<br>privacy,<br>and<br>interoperability<br>among<br>certified<br>smartphones,<br>wearables,<br>other<br>suitable<br>digital<br>devices,<br>and<br>access<br>control<br>readers. |
-| C-Suite<br>Executives | Aliro<br>is<br>designed<br>to<br>act<br>as<br>a<br>common<br>credential<br>and<br>access<br>technology<br>defined<br>by<br>major<br>mobile<br>and<br>access<br>control<br>OEMs<br>to<br>ensure<br>best-of-class<br>security,<br>privacy,<br>and<br>interoperability<br>among<br>certified<br>smartphones,<br>wearables,<br>and<br>access<br>control<br>readers.<br>With<br>thoughtful<br>design<br>and<br>keeping<br>key<br>stakeholders<br>in<br>mind,<br>the<br>adoption<br>of<br>Aliro<br>into<br>your<br>products<br>will<br>provide<br>familiar<br>secured<br>experiences<br>everywhere.                                                                                                                                                                                                                                                                                                 |
+| Installers | Aliro empowers installers in simplifying complex systems by streamlining installation and device troubleshooting between multiple hardware providers. |
+| Manufacturers | Aliro assists manufacturers in reducing complexity for partner integrations and acts as an arbiter for certification of interoperability. It is designed to reduce the high cost of R&D and simplify the integration process with new partners. |
+| System Owners | Aliro offers system owners a simplified way of managing maintenance. It aims to provide system owners with a way to more easily manage a mix and match of hardware and software while covering a wide variety of user devices. |
+| Homeowners | Aliro enables the secured and reliable use of smartphones and wearables in place of a physical key to unlock your home. |
+| Media | Members of the access control industry joined together under the guidance of the Connectivity Standards Alliance to create Aliro, the approved technical standard for a common credential and protocol. This global collaboration aims to transform how users unlock doors and openings by developing a consistent, secured, and streamlined mobile access experience. Aliro is designed by major mobile and access control Original Equipment Manufacturers (OEMs) to ensure best-of-class security, privacy, and interoperability among certified smartphones, wearables, other suitable digital devices, and access control readers. |
+| C-Suite Executives | Aliro is designed to act as a common credential and access technology defined by major mobile and access control OEMs to ensure best-of-class security, privacy, and interoperability among certified smartphones, wearables, and access control readers. With thoughtful design and keeping key stakeholders in mind, the adoption of Aliro into your products will provide familiar secured experiences everywhere. |
 
 ## **Principal Proof Points**
 
@@ -101,7 +98,7 @@ Streamline secured communication to allow access control readers and mobile devi
 
 ## **Quick Links to Resources**
 
-- Aliro Brand Launch Press [Release](https://csa-iot.org/newsroom/the-connectivity-standards-alliance-announces-aliro-a-new-effort-to-make-mobile-devices-wearables-central-to-a-digital-access-future/)
+- Aliro Brand Launch Press Release
 - Aliro One-Pager
 
 ## **Boilerplate**
@@ -110,7 +107,7 @@ Members of the access control industry joined together under the guidance of the
 
 developing a consistent, secured, and streamlined mobile access experience. Aliro is designed by major mobile and access control Original Equipment Manufacturers (OEMs) to ensure best-of-class security, privacy, and interoperability among certified smartphones, wearables, other suitable digital devices, and access control readers.
 
-Should you have additional Aliro messaging questions, reach out to [Marketing@csa-iot.org](mailto:Marketing@csa-iot.org).
+Should you have additional Aliro messaging questions, reach out to Marketing@csa-iot.org.
 
 # Frequently Asked Questions
 
@@ -136,7 +133,7 @@ Leading players in locks, ecosystems, and the related end-to-end value chain wor
 
 Aliro specifies the secured use of your mobile phone or wearable in place of a key at the opening. Matter specifies how connected products communicate with each other for a wide variety of command-and-control-related smart home use cases. Aliro and Matter are complementary standards that do not rely upon each other. Readers and devices may support just one or both protocols.
 
-To learn more about Matter, please visit [www.buildwithmatter.com](http://www.buildwithmatter.com/).
+To learn more about Matter, please visit www.buildwithmatter.com.
 
 #### *How are Aliro and the Product Security Working Group (PSWG) related?*
 
@@ -152,8 +149,8 @@ Aliro was designed with the intention of working with smartphones and wearables 
 
 #### *How should I use the brand mark and logo?*
 
-You may refer to Aliro and use the logo when referencing the technology in marketing materials. You cannot use the logo on any packaging or corresponding product information until the product has undergone certification and the certification/badging guidelines are made available to members. Refer to the Alliance Brand Name, [Trademark,](https://csa-iot.org/wp-content/uploads/2024/12/TM_Logo-Use-Guide_Update_December-2024.pdf) and Logo Usage Guidelines and Terms for further information.
+You may refer to Aliro and use the logo when referencing the technology in marketing materials. You cannot use the logo on any packaging or corresponding product information until the product has undergone certification and the certification/badging guidelines are made available to members. Refer to the Alliance Brand Name, Trademark, and Logo Usage Guidelines and Terms for further information.
 
 ## *Where can I find more information? How can I join?*
 
-Visit our [website](https://csa-iot.org/become-member/) to gather information, learn about the benefits of membership, and determine which membership tier fits your needs.
+Visit our website to gather information, learn about the benefits of membership, and determine which membership tier fits your needs.
