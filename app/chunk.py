@@ -138,6 +138,46 @@ def infer_source_type(doc_type: str, doc_name: str) -> str:
         return "email_case"
     return "email"
 
+def make_chunk(
+    *,
+    chunk_id: str,
+    program: str,
+    doc_type: str,
+    doc_name: str,
+    chunk_kind: str,
+    page_start: int,
+    page_end: int,
+    text: str,
+) -> Dict[str, Any]:
+    source_type = infer_source_type(doc_type, doc_name)
+    priority = infer_priority(doc_type, doc_name, chunk_kind)
+
+    metadata = {
+        "program": program,
+        "domain": program.lower(),
+        "doc_type": doc_type,
+        "source_type": source_type,
+        "doc_name": doc_name,
+        "chunk_kind": chunk_kind,
+        "priority": priority,
+        "page_start": page_start,
+        "page_end": page_end,
+    }
+
+    return {
+        "chunk_id": chunk_id,
+        "program": program,
+        "doc_type": doc_type,
+        "source_type": source_type,
+        "doc_name": doc_name,
+        "chunk_kind": chunk_kind,
+        "priority": priority,
+        "page_start": page_start,
+        "page_end": page_end,
+        "metadata": metadata,
+        "text": text,
+    }
+
 def make_front_page_chunks(doc_pages: List[Dict[str, Any]], first_n_pages: int = FIRST_N_PAGES) -> List[Dict[str, Any]]:
     """
     Preserve first N pages as standalone chunks.
@@ -164,18 +204,16 @@ def make_front_page_chunks(doc_pages: List[Dict[str, Any]], first_n_pages: int =
         chunk_kind = "front_page"
         chunk_id = f"{program}:{doc_type}:{doc_name}:p{p['page']:05d}"
 
-        chunks.append({
-            "chunk_id": chunk_id,
-            "program": program,
-            "doc_type": doc_type,
-            "source_type": infer_source_type(doc_type, doc_name),
-            "doc_name": doc_name,
-            "chunk_kind": chunk_kind,
-            "priority": infer_priority(doc_type, doc_name, chunk_kind),
-            "page_start": p["page"],
-            "page_end": p["page"],
-            "text": text,
-        })
+        chunks.append(make_chunk(
+            chunk_id=chunk_id,
+            program=program,
+            doc_type=doc_type,
+            doc_name=doc_name,
+            chunk_kind=chunk_kind,
+            page_start=p["page"],
+            page_end=p["page"],
+            text=text,
+        ))
 
     return chunks
 
@@ -248,18 +286,16 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
         chunk_id = f"{program}:{doc_type}:{doc_name}:t{p['page']:05d}"
 
-        chunks.append({
-            "chunk_id": chunk_id,
-            "program": program,
-            "doc_type": doc_type,
-            "source_type": infer_source_type(doc_type, doc_name),
-            "doc_name": doc_name,
-            "chunk_kind": chunk_kind,
-            "priority": infer_priority(doc_type, doc_name, chunk_kind),
-            "page_start": p["page"],
-            "page_end": p["page"],
-            "text": text,
-        })
+        chunks.append(make_chunk(
+            chunk_id=chunk_id,
+            program=program,
+            doc_type=doc_type,
+            doc_name=doc_name,
+            chunk_kind=chunk_kind,
+            page_start=p["page"],
+            page_end=p["page"],
+            text=text,
+        ))
 
     doc_pages = normal_pages
 
@@ -286,18 +322,16 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             chunk_kind = detect_chunk_kind(section)
             chunk_id = f"{program}:{doc_type}:{doc_name}:c{chunk_index:05d}"
 
-            chunks.append({
-                "chunk_id": chunk_id,
-                "program": program,
-                "doc_type": doc_type,
-                "source_type": infer_source_type(doc_type, doc_name),
-                "doc_name": doc_name,
-                "chunk_kind": chunk_kind,
-                "priority": infer_priority(doc_type, doc_name, chunk_kind),
-                "page_start": page_start,
-                "page_end": page_end,
-                "text": section,
-            })
+            chunks.append(make_chunk(
+                chunk_id=chunk_id,
+                program=program,
+                doc_type=doc_type,
+                doc_name=doc_name,
+                chunk_kind=chunk_kind,
+                page_start=page_start,
+                page_end=page_end,
+                text=section,
+            ))
             chunk_index += 1
 
         return chunks
@@ -323,18 +357,16 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         chunk_kind = detect_chunk_kind(chunk_text)
         chunk_id = f"{program}:{doc_type}:{doc_name}:c{chunk_index:05d}"
 
-        chunks.append({
-            "chunk_id": chunk_id,
-            "program": program,
-            "doc_type": doc_type,
-            "source_type": infer_source_type(doc_type, doc_name),
-            "doc_name": doc_name,
-            "chunk_kind": chunk_kind,
-            "priority": infer_priority(doc_type, doc_name, chunk_kind),
-            "page_start": page_start,
-            "page_end": page_end,
-            "text": chunk_text,
-        })
+        chunks.append(make_chunk(
+            chunk_id=chunk_id,
+            program=program,
+            doc_type=doc_type,
+            doc_name=doc_name,
+            chunk_kind=chunk_kind,
+            page_start=page_start,
+            page_end=page_end,
+            text=chunk_text,
+        ))
 
         chunk_index += 1
 
