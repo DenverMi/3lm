@@ -6,7 +6,18 @@ from pypdf import PdfReader
 
 from app.config import DATA_DIR, PAGES_PATH, SUPPORTED_EXTENSIONS, ensure_directories
 
-VALID_DOC_TYPES = {"email", "specs", "policies", "reports", "reference"}
+VALID_DOC_TYPES = {
+    "email",
+    "specs",
+    "policies",
+    "guides",
+    "explanations",
+    "faq",
+    "glossary",
+    "reports",
+    "memory",
+    "reference",  # temporary backward compatibility while we migrate folders
+}
 
 
 def normalize_text(text: str) -> str:
@@ -278,15 +289,17 @@ def walk_documents():
     """
     Expected structure:
     data/
-      aliro/
-        email/
-        policies/
-        reference/
-        reports/
-        specs/
-      wifi/
-      hdmi/
-      matter/
+      <program>/
+        specs/          # normative technical specifications
+        policies/       # certification/compliance rules
+        guides/         # step-by-step tool/process guides
+        explanations/   # conceptual/how-it-works material
+        faq/            # quick Q&A reference material
+        glossary/       # terms and acronyms
+        email/          # case files and thread analysis
+        reports/        # generated analysis/report outputs
+        memory/         # curated project memory and decisions
+        reference/      # temporary legacy folder during migration
     """
     all_records = []
 
@@ -305,7 +318,7 @@ def walk_documents():
                 print(f"Skipping unknown doc type: {program}/{doc_type}")
                 continue
 
-            for file_path in doc_type_dir.iterdir():
+            for file_path in doc_type_dir.rglob("*"):
                 if not file_path.is_file():
                     continue
                 if file_path.suffix.lower() not in SUPPORTED_EXTENSIONS:

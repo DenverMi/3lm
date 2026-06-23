@@ -997,6 +997,14 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
         if doc_type == "reference":
             bonus += 0.6
 
+        q = query.lower()
+
+        if doc_type == "explanations":
+            bonus += 3.0
+
+        if doc_type == "specs" and q.startswith(("how ", "how do ", "how does ", "how can ")):
+            bonus -= 1.5
+
         if "certification" in doc_name:
             bonus += 1.2
         if "process" in doc_name:
