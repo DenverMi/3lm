@@ -726,7 +726,7 @@ def search_exact_phrases(
         if not matched_phrases:
             continue
 
-        score = 20.0 + len(matched_phrases)
+        score = 5.0 + len(matched_phrases)
 
         doc_type = (chunk.get("doc_type") or "").lower()
         source_type = (chunk.get("source_type") or "").lower()
@@ -741,8 +741,13 @@ def search_exact_phrases(
             score += 10.0
 
         # Prefer exact matches in official/reviewed sources over raw email-derived material.
-        if doc_type in {"policies", "specs", "reference"} and source_type not in {"email_case", "email_thread_analysis", "email"}:
-            score += 8.0
+        if doc_type == "policies" and source_type not in {"email_case", "email_thread_analysis", "email"}:
+            score += 3.0
+        elif doc_type == "specs" and source_type not in {"email_case", "email_thread_analysis", "email"}:
+            if is_conceptual_how_question(query) or is_procedural_how_question(query):
+                score -= 2.0
+            else:
+                score += 3.0
 
         # Prefer exact matches that appear in headings / section titles.
         for phrase in matched_phrases:
@@ -919,6 +924,68 @@ def get_effective_meta(item: Dict[str, Any]) -> Dict[str, Any]:
 
     return meta
 
+def is_conceptual_how_question(query: str) -> bool:
+    q = query.lower().strip()
+
+    if not q.startswith(("how does ", "how do ", "what happens", "what is the role", "how is ")):
+        return False
+
+    procedural_markers = [
+        "how do i",
+        "how to",
+        "steps",
+        "procedure",
+        "submit",
+        "create",
+        "run",
+        "use",
+        "upload",
+        "apply",
+        "fill",
+        "complete",
+        "configure",
+        "install",
+        "generate",
+    ]
+
+    return not any(marker in q for marker in procedural_markers)
+
+
+def is_procedural_how_question(query: str) -> bool:
+    q = query.lower().strip()
+
+    procedural_markers = [
+        "how do i",
+        "how to",
+        "steps",
+        "procedure",
+        "submit",
+        "create",
+        "run",
+        "use",
+        "upload",
+        "apply",
+        "fill",
+        "complete",
+        "configure",
+        "install",
+        "generate",
+    ]
+
+    return any(marker in q for marker in procedural_markers)
+
+def doc_name_token_overlap(query: str, doc_name: str) -> int:
+    query_tokens = set(re.findall(r"[a-z0-9]+", query.lower()))
+    name_tokens = set(re.findall(r"[a-z0-9]+", doc_name.lower()))
+
+    stop = {
+        "how", "does", "do", "i", "to", "the", "a", "an",
+        "and", "or", "of", "in", "on", "work", "works", "matter",
+    }
+    query_tokens -= stop
+
+    return len(query_tokens & name_tokens)
+
 def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
     bonus = 0.0
     doc_type = (meta.get("doc_type") or "").lower()
@@ -985,25 +1052,33 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
         elif source_type == "email_thread_analysis":
             bonus += 1.5
 
-        if chunk_kind == "front_page":
+        if chunk_kind == "front_page" and doc_type in {"specs", "policies"}:
             bonus -= 1.5
+
+        if doc_type == "guides":
+            bonus += 1.5
+            if is_procedural_how_question(query):
+                bonus += 2.0
+
+        if doc_type == "explanations":
+            bonus += 1.5
+            if is_conceptual_how_question(query):
+                bonus += 2.0
 
         if doc_type == "policies":
             bonus += 1.5
 
-        if doc_type == "specs":
-            bonus += 0.7
+        if doc_type == "faq":
+            bonus += 0.8
 
         if doc_type == "reference":
-            bonus += 0.6
+            bonus += 0.3
 
-        q = query.lower()
+        if doc_type == "specs":
+            bonus += 0.5
 
-        if doc_type == "explanations":
-            bonus += 3.0
-
-        if doc_type == "specs" and q.startswith(("how ", "how do ", "how does ", "how can ")):
-            bonus -= 1.5
+        if doc_type in {"guides", "explanations"}:
+            bonus += min(doc_name_token_overlap(query, doc_name) * 4.0, 8.0)
 
         if "certification" in doc_name:
             bonus += 1.2

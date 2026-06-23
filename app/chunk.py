@@ -128,15 +128,31 @@ def page_range_for_span(page_spans, start_char: int, end_char: int) -> tuple:
     return first_page, last_page
 
 def infer_source_type(doc_type: str, doc_name: str) -> str:
-    if doc_type != "email":
-        return doc_type
-
     name = doc_name.lower()
-    if "thread_analysis" in name:
-        return "email_thread_analysis"
-    if "_case_" in name:
-        return "email_case"
-    return "email"
+
+    if doc_type == "email":
+        if "analysis" in name:
+            return "email_thread_analysis"
+        if "_case_" in name:
+            return "email_case"
+        return "email"
+
+    if doc_type == "explanations":
+        return "explanation"
+
+    if doc_type == "guides":
+        return "guide"
+
+    if doc_type == "faq":
+        return "faq"
+
+    if doc_type == "glossary":
+        return "glossary"
+
+    if doc_type == "memory":
+        return "project_memory"
+
+    return doc_type
 
 def make_chunk(
     *,
