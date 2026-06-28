@@ -22,35 +22,21 @@
     "br/edr": "BR EDR Basic Rate Enhanced Data Rate",
     "hci": "Host Controller Interface HCI",
     "gatt": "Generic Attribute Profile GATT",
-    "l2cap": "Logical Link Control and Adaptation Protocol L2CAP",
-    "qualified module": "qualified module pre-qualified module",
-    "pre-qualified module": "qualified module pre-qualified module",
-    "認証済みモジュール": "qualified module pre-qualified module",
-    "コンプライアンスフォルダー": "Compliance Folder documentation"
+    "l2cap": "Logical Link Control and Adaptation Protocol L2CAP"
   },
   "expansion_keywords": {
+    "qualified module": "qualified module pre-qualified module",
+    "pre-qualified module": "qualified module pre-qualified module",
     "認証": "qualification certification declaration listing",
-    "新しい認証": "new qualification declaration listing",
+    "認証済みモジュール": "qualified module pre-qualified module qualified product qualification process",
+    "コンプライアンスフォルダー": "Compliance Folder documentation",
     "認証プロセス": "qualification process certification process",
     "認証手続き": "qualification process certification process",
-    "要件": "requirement requirements",
-    "必要条件": "requirement requirements",
     "必要書類": "required documentation documents",
-    "書類": "documents documentation",
-    "資料": "documents documentation materials",
     "提出書類": "submitted documents documentation",
-    "申請": "application submission declaration",
-    "登録": "listing registration declaration",
-    "提出": "submit submission",
-    "変更": "change modification",
-    "モジュール": "module",
-    "試験": "test testing",
-    "再試験": "retest retesting",
     "試験施設": "test facility BQTF BRTF",
-    "テストプラン": "test plan",
     "試験宣言": "test declaration",
     "試験報告書": "test report test reports",
-    "試験ログ": "test logs",
-    "プロファイル": "profile profiles Bluetooth profile"
+    "試験ログ": "test logs"
   }
 }

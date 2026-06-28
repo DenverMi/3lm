@@ -68,6 +68,9 @@ if "last_question" not in st.session_state:
 if "last_items" not in st.session_state:
     st.session_state["last_items"] = []
 
+if "last_program" not in st.session_state:
+    st.session_state["last_program"] = None
+
 if new_chat_clicked:
     st.session_state["conversation_id"] = str(uuid.uuid4())
     st.session_state["conversation_title"] = ""
@@ -233,6 +236,9 @@ if question:
 
     st.session_state["last_question"] = question
     st.session_state["last_items"] = items
+    st.session_state["last_program"] = program
+
+
 
 # Follow-up buttons
 col1, col2 = st.columns([1, 1])
@@ -252,11 +258,15 @@ with col2:
     )
 
 if more_clicked:
+    program = None if program_choice == "all" else program_choice
+
     with st.spinner("Going deeper..."):
         result = answer_question(
             st.session_state["last_question"],
             detail_mode="deep",
+            program=program,
             preloaded_items=st.session_state["last_items"],
+            chat_history=st.session_state["messages"][-6:],
         )
 
     if isinstance(result, dict):
@@ -283,11 +293,15 @@ if more_clicked:
     st.rerun()
 
 if wider_clicked:
+    program = None if program_choice == "all" else program_choice
+
     with st.spinner("Searching wider..."):
         result = answer_question(
             st.session_state["last_question"],
             detail_mode="wide",
+            program=program,
             preloaded_items=None,
+            chat_history=st.session_state["messages"][-6:],
         )
 
     if isinstance(result, dict):

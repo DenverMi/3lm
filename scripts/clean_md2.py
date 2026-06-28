@@ -54,12 +54,15 @@ def clean_line(line: str) -> str:
     # Replace <br> tags with a space (inline in table cells etc.)
     line = re.sub(r"<br\s*/?>", " ", line, flags=re.IGNORECASE)
 
-    # Remove soft hyphens (Docling PDF hyphenation artifacts: "Connec­tivity" -> "Connectivity")
+    # Remove soft hyphens (Docling PDF hyphenation artifacts: "disclo ­ sure" -> "disclosure")
     line = re.sub(r"\s*\u00ad\s*", "", line)
-
 
     # Normalize whitespace
     line = re.sub(r"[ \t]+", " ", line)
+
+    # Remove HTML span tags (keep text content)
+    line = re.sub(r"<span[^>]*>", "", line)
+    line = re.sub(r"</span>", "", line)
 
     return line.strip()
 
@@ -82,10 +85,6 @@ def should_skip_line(line: str) -> bool:
     if stripped.startswith("<img") or stripped.startswith("<figure") or stripped.startswith("</figure"):
         return True
 
-    # Plain TOC dot-leader lines (non-table)
-    if re.search(r"\.[ .]{10,}", stripped):
-        return True
-
     # Picture placeholder lines
     if re.match(r"^\*\*==> picture \[\d+ x \d+\] intentionally omitted <==\*\*$", stripped):
         return True
@@ -98,6 +97,14 @@ def should_skip_line(line: str) -> bool:
     if re.match(r"^\*\*[A-Z][A-Za-z0-9 ()/_-]+\*\* / \*\*[A-Za-z ]+\*\*$", stripped):
         return True
     if re.match(r"^\*\*[A-Z][A-Za-z0-9 ()/_-]+ \*\*/ [A-Za-z ]+$", stripped):
+        return True
+
+    # Plain TOC dot-leader lines (non-table)
+    if re.search(r"\.[ .]{10,}", stripped):
+        return True
+
+    # Orphaned lone page numbers (single digit or small number on its own line)
+    if re.fullmatch(r"\d{1,4}", stripped):
         return True
 
     # Obvious website/layout junk
@@ -127,16 +134,106 @@ def should_skip_line(line: str) -> bool:
     return any(p in low for p in junk_patterns)
 
 
+def strip_boilerplate_sections(text: str) -> str:
+    """
+    Strip boilerplate sections that appear in every spec and add no RAG value:
+    - Table of Contents
+    - Copyright / Notice of Use and Disclosure
+    - Participants / Contributors
+    - Top-level Revision History (not numbered ones like 11.1.1. Revision History)
+    - Bluetooth acknowledgment sections (contributor lists, not protocol content)
+
+    Safe rule: only strip headings that match exactly (case-insensitive, ignoring
+    markdown bold markers). Numbered headings like "11.1.1. Revision History" are
+    kept because they are real spec content.
+    """
+
+    # Headings to strip (exact match, no number prefix allowed)
+    # These are matched after stripping markdown bold markers (**) and whitespace.
+    STRIP_HEADINGS = {
+        "table of contents",
+        "list of tables",
+        "list of figures",
+        "list of abbreviations",
+        "document history",
+        "consolidated table of contents",
+        "the bluetooth core specification consolidated table of contents",
+        "copyright notice, license and disclaimer",
+        "notice of use and disclosure",
+        "disclaimer and copyright notice",
+        "participants",
+        "contributors",
+        "revision history",
+        "version history and acknowledgments",
+        "acknowledgments",
+    }
+
+    # Bluetooth version-specific acknowledgment headings
+    # e.g. "ACKNOWLEDGMENTS FOR V5.2", "ACKNOWLEDGMENTS (UP TO V5.1)"
+    BT_ACK_PATTERN = re.compile(
+        r"^acknowledgments?\s*(for\s+v[\d.]+|\(up to v[\d.]+\))?$",
+        re.IGNORECASE,
+    )
+
+    def heading_level(line: str) -> int:
+        m = re.match(r"^(#{1,6})\s", line)
+        return len(m.group(1)) if m else 0
+
+    def heading_text(line: str) -> str:
+        # Strip markdown heading markers and bold markers
+        text = re.sub(r"^#{1,6}\s+", "", line)
+        text = re.sub(r"\*+", "", text)
+        text = text.strip().lower()
+        # Remove trailing punctuation
+        text = text.rstrip(".:,")
+        return text
+
+    def is_numbered_heading(line: str) -> bool:
+        # e.g. "## 11.1.1. Revision History" or "## **11.1.1. Revision History**"
+        text = re.sub(r"^#{1,6}\s+", "", line)
+        text = re.sub(r"\*+", "", text).strip()
+        return bool(re.match(r"^\d+[\d.]*\s+", text))
+
+    def should_strip_heading(line: str) -> bool:
+        if not line.startswith("#"):
+            return False
+        if is_numbered_heading(line):
+            return False
+        ht = heading_text(line)
+        if ht in STRIP_HEADINGS:
+            return True
+        if BT_ACK_PATTERN.match(ht):
+            return True
+        return False
+
+    lines = text.splitlines()
+    output = []
+    skip_until_level = None
+
+    for line in lines:
+        level = heading_level(line)
+
+        # If we're in a skip block, check if we've hit a sibling or parent heading
+        if skip_until_level is not None:
+            if level > 0 and level <= skip_until_level:
+                skip_until_level = None
+            else:
+                continue  # still inside the boilerplate section
+
+        if should_strip_heading(line):
+            skip_until_level = level
+            continue  # skip the heading itself too
+
+        output.append(line)
+
+    return "\n".join(output)
+
+
 def strip_matter_page_breaks(text: str) -> str:
     """
-    Remove Matter spec PDF page break artifacts (MarkItDown / PyMuPDF style):
-
-    Copyright © Connectivity Standards Alliance, Inc. All rights reserved.
-    Page 240
-    Matter Specification R1.5.1
-    Connectivity Standards Alliance Document 23-27349 March 16, 2026
+    Remove Matter spec PDF page break artifacts.
     """
-    # Variant 1: copyright line first
+    # Variant 1: copyright line first (MarkItDown/PyMuPDF style)
     text = re.sub(
         r"\n+Copyright © Connectivity Standards Alliance, Inc\. All rights reserved\."
         r"\n+Page \d+"
@@ -227,9 +324,6 @@ def strip_bluetooth_ts_page_breaks(text: str) -> str:
 def strip_picture_toc_blocks(text: str) -> str:
     """
     Remove TOC dot-leader table rows from Docling and MarkItDown outputs.
-    Matches any table row where any cell contains only dots, spaces, and digits.
-    Also removes embedded page break rows like:
-    | Specification R1.6 Connectivity | Alliance Document 23-27349 June 16, 2026 |
     """
     def is_toc_row(line: str) -> bool:
         if not line.startswith("|"):
@@ -237,14 +331,14 @@ def strip_picture_toc_blocks(text: str) -> str:
         cells = [c.strip() for c in line.split("|") if c.strip()]
         if not cells:
             return False
-    # Any cell that is only dots, spaces, and digits = TOC row
+        # Any cell that is only dots, spaces, and digits = TOC row
         for cell in cells:
             if re.fullmatch(r"[.\s\d]+", cell) and "." in cell:
                 return True
-    # First cell ends with dot leaders = TOC row
+        # First cell ends with dot leaders
         if re.search(r"\.\s*\.\s*\.\s*$", cells[0]):
             return True
-    # Page break leaked into table row
+        # Page break leaked into table row
         if any(
             re.search(r"Specification R\d+\.\d+|Alliance Document \d{2}-\d+", cell)
             for cell in cells
@@ -288,6 +382,9 @@ def clean_markdown(text: str) -> str:
     text = strip_bluetooth_ts_page_breaks(text)
     text = strip_bluetooth_page_breaks(text)
     text = strip_picture_toc_blocks(text)
+
+    # Strip boilerplate sections
+    text = strip_boilerplate_sections(text)
 
     # Remove excessive blank lines
     text = re.sub(r"\n{3,}", "\n\n", text)

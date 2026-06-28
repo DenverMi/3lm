@@ -6,7 +6,7 @@ from pathlib import Path
 QUESTIONS = [
     "In Bluetooth, what do we need to prepare in the compliance folder?",
     "Customer asks: If they use a qualified Bluetooth module, do they still need a new qualification?",
-    "@ In past Bluetooth cases, if a customer uses a qualified Bluetooth module, did they still need a new qualification?",
+    "@ In Bluetooth, do we need to qualify?",
     "In Bluetooth, what is TCW?",
     "In Bluetooth, what is the difference between ICS and IXIT?",
     "In Bluetooth, what is Option 2b?",

@@ -42,7 +42,10 @@ def main():
     print(f"Loaded {len(chunks)} chunks")
 
     client = chromadb.PersistentClient(path=str(CHROMA_PATH))
-    collection = client.get_or_create_collection(COLLECTION_NAME)
+    collection = client.get_or_create_collection(
+        COLLECTION_NAME,
+        metadata={"hnsw:space": "cosine"},
+    )
 
     existing_ids = get_existing_ids(collection)
     print(f"Existing chunks in Chroma: {len(existing_ids)}")

@@ -53,13 +53,10 @@ def extract_pdf(path: Path):
 
     return pages
 
-def extract_markdown(path: Path):
+def extract_markdown(path: Path, doc_type: str = ""):
     raw = path.read_text(encoding="utf-8")
 
     pages = []
-
-    # 1. Extract heading-based sections
-    doc_type = path.parent.name
     
     if doc_type in {"reference", "policies"}:
         text = normalize_markdown_text(raw)
@@ -137,7 +134,8 @@ def extract_markdown(path: Path):
             continue
 
         # Glossary terms are usually short human terms, not long table descriptions
-        if len(term.split()) > 5:
+        # Allow longer terms if they contain an acronym in parentheses e.g. "Implementation eXtra Information for Testing (IXIT)"
+        if len(term.split()) > 5 and not re.search(r'\([A-Z]{2,10}\)', term):
             continue
 
         # Definition should be prose-like, not mostly symbols/numbers
@@ -157,9 +155,19 @@ def extract_markdown(path: Path):
             " used for ",
             " contains ",
             " containing ",
+            " provides ",
+            " completed by ",
+            " form ",
+            " document ",
+            " statement ",
+            " information ",
+            " details ",
         ]
 
-        if not any(sig in f" {definition_l} " for sig in definition_signals):
+        has_definition_signal = any(sig in f" {definition_l} " for sig in definition_signals)
+        has_acronym_in_term = bool(re.search(r'\([A-Z]{2,10}\)', term))
+
+        if not has_definition_signal and not has_acronym_in_term:
             continue
 
         continuation_lines = []
@@ -271,13 +279,13 @@ def extract_json_file(path: Path):
 
     return []
 
-def extract_file(path: Path):
+def extract_file(path: Path, doc_type: str = ""):
     suffix = path.suffix.lower()
 
     if suffix == ".pdf":
         return extract_pdf(path)
     if suffix == ".md":
-        return extract_markdown(path)
+        return extract_markdown(path, doc_type=doc_type)
     if suffix == ".txt":
         return extract_text_file(path)
     if suffix == ".json":
@@ -325,7 +333,7 @@ def walk_documents():
                     continue
 
                 print(f"Processing: {program}/{doc_type}/{file_path.name}")
-                pages = extract_file(file_path)
+                pages = extract_file(file_path, doc_type=doc_type)
 
                 for p in pages:
                     all_records.append({
@@ -334,6 +342,7 @@ def walk_documents():
                         "doc_type": doc_type,
                         "source_type": "email_case" if doc_type == "email" else doc_type,
                         "doc_name": file_path.name,
+                        "source_path": str(file_path.relative_to(DATA_DIR)),
                         "page": p["page"],
                         "text": p["text"],
                     })

@@ -45,12 +45,16 @@ def get_model():
     global model
     if model is None:
         model = SentenceTransformer(EMBED_MODEL)
+        print(f"DEBUG loaded embedding model: {EMBED_MODEL}")
     return model
 
 
 def tokenize(text: str) -> List[str]:
     text = text.lower()
-    return re.findall(r"[a-z0-9]+", text)
+    # First extract hyphenated compound terms, then individual tokens
+    hyphenated = re.findall(r"[a-z0-9]+(?:-[a-z0-9]+)+", text)
+    simple = re.findall(r"[a-z0-9]+", text)
+    return hyphenated + simple
 
 
 def load_jsonl(path: Path) -> List[Dict[str, Any]]:
@@ -461,6 +465,18 @@ def extract_exact_lookup_phrases(query: str) -> List[str]:
             if phrase not in phrases:
                 phrases.append(phrase)
 
+    # Extract hyphenated compounds as exact phrases first
+    hyphenated = re.findall(r"[a-z0-9]+(?:-[a-z0-9]+)+", q)
+    for h in hyphenated:
+        if h not in phrases:
+            phrases.append(h)
+
+    # Exclude parts of hyphenated compounds from sliding window
+    compound_parts = set()
+    for h in hyphenated:
+        for part in h.split("-"):
+            compound_parts.add(part)
+
     # General meaningful adjacent phrases from the query.
     stop_terms = {
         "what", "which", "when", "where", "who", "why", "how",
@@ -472,7 +488,10 @@ def extract_exact_lookup_phrases(query: str) -> List[str]:
 
     tokens = [
         token for token in tokenize(q)
-        if len(token) >= 3 and token not in stop_terms
+        if len(token) >= 3
+        and token not in stop_terms
+        and token not in compound_parts
+        and "-" not in token  # skip the compound itself from sliding window
     ]
 
     for size in range(4, 1, -1):
@@ -537,7 +556,7 @@ def search_glossary_acronyms(
     chunks: List[Dict[str, Any]],
     top_k: int = 10,
 ) -> List[Dict[str, Any]]:
-    acronyms = extract_acronyms_for_glossary_lookup(query)
+    acronyms = extract_acronyms_for_glossary_lookup(query.upper())
 
     if not acronyms:
         return []
@@ -551,7 +570,7 @@ def search_glossary_acronyms(
         doc_type = (chunk.get("doc_type") or "").lower()
         source_type = (chunk.get("source_type") or "").lower()
 
-        if doc_type not in {"policies", "specs", "reference"}:
+        if doc_type not in {"policies", "specs", "glossary", "explanations", "guides"}:
             continue
 
         if source_type in {"email_case", "email_thread_analysis", "email"}:
@@ -718,8 +737,13 @@ def search_exact_phrases(
         text_lower = " ".join(text.lower().split())
         text_for_heading_match = text.lower()
 
+        normalized_phrases = [
+            " ".join(phrase.lower().split())
+            for phrase in phrases
+        ]
+
         matched_phrases = [
-            phrase for phrase in phrases
+            phrase for phrase in normalized_phrases
             if phrase in text_lower
         ]
 
@@ -1013,6 +1037,10 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
 
         if term and term in doc_name:
             bonus += 2.0
+        
+        # Boost explanation files whose filename matches the query term
+        if doc_type == "explanations" and doc_name_token_overlap(query, doc_name) >= 1:
+            bonus += 6.0
 
         if chunk_kind == "definition":
             bonus += 9.0
@@ -1107,9 +1135,16 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
 
     elif intent == "advisory":
         source_type = (meta.get("source_type") or "").lower()
+        chunk_kind = (meta.get("chunk_kind") or "").lower()
 
-        if doc_type == "reference" and "official faq" in doc_name:
-            bonus += 3.0
+        if "official faq" in doc_name and doc_type in {"faq", "reference"}:
+            bonus += 10.0
+
+            if chunk_kind == "body":
+                bonus += 2.0
+
+            if chunk_kind == "front_page":
+                bonus -= 1.0
 
         if source_type == "email_case":
             bonus += 2.5
@@ -1144,7 +1179,9 @@ def search_bm25(query: str, chunks: List[Dict[str, Any]], bm25: BM25Okapi, top_k
 
     scored = []
     for idx, chunk in enumerate(chunks):
-        text_lower = (chunk.get("text", "") or "").lower()
+        raw_text = chunk.get("text", "") or ""
+        raw_text = re.sub(r"^---\n.*?\n---\n", "", raw_text, flags=re.DOTALL)
+        text_lower = raw_text.lower()
         adjusted_score = float(scores[idx])
 
         if is_definition_query(query) and term and " " in term:
@@ -1378,7 +1415,10 @@ def merge_and_rerank(
 
         glossary_score = float(item.get("glossary_score") or 0.0)
         if intent == "definition":
-            glossary_bonus = glossary_score * 0.9
+            if term and term in text_lower:
+                glossary_bonus = glossary_score * 0.9
+            else:
+                glossary_bonus = glossary_score * 0.1
         elif intent == "comparison":
             glossary_bonus = glossary_score * 0.4
         else:
@@ -1388,6 +1428,7 @@ def merge_and_rerank(
             acronym.upper()
             for acronym in extract_acronyms_for_glossary_lookup(query)
         }
+        # print(f"DEBUG comparison: query_acronyms={query_acronyms}")
         matched_glossary_acronyms = {
             acronym.upper()
             for acronym in item.get("glossary_acronyms", [])
@@ -1468,7 +1509,9 @@ def merge_and_rerank(
         doc_type = (meta.get("doc_type") or "").lower()
         doc_name = meta.get("doc_name") or ""
 
-        if doc_name_counts.get(doc_name, 0) >= max_per_doc:
+        effective_max = 3 if (meta.get("doc_type") or "").lower() == "explanations" else max_per_doc
+        if doc_name_counts.get(doc_name, 0) >= effective_max:
+            # print(f"DEBUG blocked by max_per_doc: {item['chunk_id']}")
             continue
 
         signature = text_signature(item.get("text") or "")
@@ -1476,7 +1519,10 @@ def merge_and_rerank(
         if signature in seen_text_signatures:
             continue
 
-        is_official = doc_type in {"policies", "specs", "reference"} and source_type not in {"email_case", "email_thread_analysis", "email"}
+        is_official = (
+            doc_type in {"policies", "specs", "reference"}
+            or (doc_type == "faq" and "official faq" in (meta.get("doc_name") or "").lower())
+        ) and source_type not in {"email_case", "email_thread_analysis", "email"}
 
         if source_type == "email_case":
             if email_case_count >= 2:
@@ -1652,6 +1698,11 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = No
 
     retrieval_query = expand_requirement_query(clean_query)
     retrieval_query = expand_advisory_query(retrieval_query)
+    if is_comparison_query(clean_query):
+        option_matches = re.findall(r"\boption\s+\d+[a-z]?\b", clean_query, re.IGNORECASE)
+        if option_matches:
+            retrieval_query = " ".join(option_matches) + " " + retrieval_query
+            print(f"DEBUG comparison expansion: {retrieval_query!r}")
 
     bm25, chunks = get_chunks_for_bm25()
 
@@ -1678,11 +1729,15 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = No
     else:
         filtered_chunks = chunks
 
-    exact_results = search_exact_phrases(retrieval_query, filtered_chunks, top_k=10)
+    print(f"DEBUG after domain filter: bm25={len(bm25_results)} semantic={len(semantic_results)}")
+    exact_results = search_exact_phrases(query, filtered_chunks, top_k=10)
+    print(f"DEBUG exact_results: {[(r['chunk_id'], r.get('exact_phrase_score')) for r in exact_results[:5]]}")
+
 
     topic_heading_results = search_topic_headings(retrieval_query, filtered_chunks, top_k=10)
 
     glossary_results = search_glossary_acronyms(retrieval_query, filtered_chunks, top_k=10)
+    print(f"DEBUG glossary_results: {[(r['chunk_id'], r.get('glossary_score')) for r in glossary_results[:3]]}")
 
     # Force an email-case lane for advisory/process questions
     email_chunks = [
@@ -1697,6 +1752,7 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, program: Optional[str] = No
 
     combined_bm25 = exact_results + topic_heading_results + glossary_results + bm25_results + email_results
 
+    # print(f"DEBUG before rerank exact_results: {[(r['chunk_id'], r.get('exact_phrase_score')) for r in exact_results[:3]]}")
     return merge_and_rerank(clean_query, combined_bm25, semantic_results, top_k=top_k)
 
 def format_context(items: List[Dict[str, Any]], max_chars: Optional[int] = None) -> str:

@@ -24,11 +24,10 @@
     streamlit run streamlit_app.py
 
 
-## How to run PDF to MD converter (PyPuPDF4LLM)
-- Execute this script in the bas:
+## How to run PDF to MD converter (Docling)
+- Execute this script in the bash:
 
-    python scripts/pdf_to_md.py "/path/to/QPRD.pdf"
-
+    python scripts/convert_pdf.py "/path/to/QPRD.pdf
 
 ## How to run HTML to MD converter (pandoc)
 - Execute this script in the bash:    
@@ -51,13 +50,13 @@
 ## How to Clean-up the markdown document
 - Execute this script in the bash:
 
-    python scripts/clean_md.py "data/bluetooth/policies/QPRD.md"
+    python scripts/clean_md2.py "data/bluetooth/policies/QPRD.md"
 
 
 ## How to Clean-up a whole folder of markdown documents
 - Execute this script in the bash:
 
-    python scripts/clean_md.py "data/bluetooth/reference"
+    python scripts/clean_md2.py "data/bluetooth/reference"
 
 
 ## How to move in .venv312 mode

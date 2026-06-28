@@ -45,9 +45,12 @@ def main():
     print(f"Loaded {len(chunks)} chunks")
 
     client = chromadb.PersistentClient(path=str(CHROMA_PATH))
-    collection = client.get_or_create_collection(COLLECTION_NAME)
+    collection = client.get_or_create_collection(
+        COLLECTION_NAME,
+        metadata={"hnsw:space": "cosine"},
+    )
 
-    batch_size = 64
+    batch_size = 6
 
     for start in tqdm(range(0, len(chunks), batch_size), desc="Embedding chunks"):
         batch = chunks[start:start + batch_size]
@@ -64,6 +67,7 @@ def main():
                 "doc_type": chunk["doc_type"],
                 "source_type": chunk.get("source_type", chunk["doc_type"]),
                 "doc_name": chunk["doc_name"],
+                "source_path": chunk.get("source_path", ""),
                 "chunk_kind": chunk.get("chunk_kind"),
                 "priority": chunk.get("priority", 0),
                 "page_start": chunk["page_start"],

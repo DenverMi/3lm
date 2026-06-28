@@ -22,7 +22,7 @@ COLLECTION_NAME = "docs"
 # Models
 RAG_LLM_MODEL = "gemma4:26b-mlx"
 GENERAL_LLM_MODEL = "gemma4:26b-mlx"
-EMBED_MODEL = "all-MiniLM-L6-v2"
+EMBED_MODEL = "BAAI/bge-m3"
 
 # Chunking
 MAX_CHARS = 4000

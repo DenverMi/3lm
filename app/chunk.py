@@ -12,7 +12,19 @@ from app.config import (
     ensure_directories,
 )
 
-def detect_chunk_kind(text: str) -> str:
+SECTION_AWARE_DOC_TYPES = {
+    "policies",
+    "guides",
+    "explanations",
+    "faq",
+    "glossary",
+    "reference",
+}
+
+def detect_chunk_kind(text: str, doc_type: str = "") -> str:
+    if doc_type == "glossary":
+        return "glossary"
+
     head = text[:500].lower()
 
     if "glossary" in head or "definitions" in head:
@@ -47,12 +59,14 @@ def infer_priority(doc_type: str, doc_name: str, chunk_kind: str) -> int:
 
     priority = 0
 
-    if dt == "reference":
-        priority += 2
-    elif dt == "policies":
+    if dt == "policies":
         priority += 1
     elif dt == "specs":
-        priority += 2   # ← important: specs boosted
+        priority += 2
+    elif dt == "explanations":
+        priority += 2
+    elif dt == "guides":
+        priority += 2
 
     if "faq" in name:
         priority += 3
@@ -160,6 +174,7 @@ def make_chunk(
     program: str,
     doc_type: str,
     doc_name: str,
+    source_path: str = "",
     chunk_kind: str,
     page_start: int,
     page_end: int,
@@ -174,6 +189,7 @@ def make_chunk(
         "doc_type": doc_type,
         "source_type": source_type,
         "doc_name": doc_name,
+        "source_path": source_path,
         "chunk_kind": chunk_kind,
         "priority": priority,
         "page_start": page_start,
@@ -186,6 +202,7 @@ def make_chunk(
         "doc_type": doc_type,
         "source_type": source_type,
         "doc_name": doc_name,
+        "source_path": source_path,
         "chunk_kind": chunk_kind,
         "priority": priority,
         "page_start": page_start,
@@ -203,6 +220,7 @@ def make_front_page_chunks(doc_pages: List[Dict[str, Any]], first_n_pages: int =
     program = first["program"]
     doc_type = first["doc_type"]
     doc_name = first["doc_name"]
+    source_path = first.get("source_path", "")
 
     chunks: List[Dict[str, Any]] = []
 
@@ -225,6 +243,7 @@ def make_front_page_chunks(doc_pages: List[Dict[str, Any]], first_n_pages: int =
             program=program,
             doc_type=doc_type,
             doc_name=doc_name,
+            source_path=source_path,
             chunk_kind=chunk_kind,
             page_start=p["page"],
             page_end=p["page"],
@@ -258,6 +277,7 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     program = first["program"]
     doc_type = first["doc_type"]
     doc_name = first["doc_name"]
+    source_path = first.get("source_path", "")
 
     parts: List[str] = []
     page_spans = []  # (page_no, start_char, end_char)
@@ -307,6 +327,7 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             program=program,
             doc_type=doc_type,
             doc_name=doc_name,
+            source_path=source_path,
             chunk_kind=chunk_kind,
             page_start=p["page"],
             page_end=p["page"],
@@ -316,7 +337,7 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     doc_pages = normal_pages
 
     # Section-aware chunking for FAQ/reference/policy-like docs
-    if doc_type in {"reference", "policies"}:
+    if doc_type in SECTION_AWARE_DOC_TYPES:
         sections = split_reference_sections(full_text)
 
         search_pos = 0
@@ -335,7 +356,7 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             search_pos = end_char
 
             page_start, page_end = page_range_for_span(page_spans, start_char, end_char)
-            chunk_kind = detect_chunk_kind(section)
+            chunk_kind = detect_chunk_kind(section, doc_type)
             chunk_id = f"{program}:{doc_type}:{doc_name}:c{chunk_index:05d}"
 
             chunks.append(make_chunk(
@@ -343,6 +364,7 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
                 program=program,
                 doc_type=doc_type,
                 doc_name=doc_name,
+                source_path=source_path,
                 chunk_kind=chunk_kind,
                 page_start=page_start,
                 page_end=page_end,
@@ -370,7 +392,7 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
         page_start, page_end = page_range_for_span(page_spans, start_char, end_char)
 
-        chunk_kind = detect_chunk_kind(chunk_text)
+        chunk_kind = detect_chunk_kind(chunk_text, doc_type)
         chunk_id = f"{program}:{doc_type}:{doc_name}:c{chunk_index:05d}"
 
         chunks.append(make_chunk(
@@ -378,6 +400,7 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             program=program,
             doc_type=doc_type,
             doc_name=doc_name,
+            source_path=source_path,
             chunk_kind=chunk_kind,
             page_start=page_start,
             page_end=page_end,
