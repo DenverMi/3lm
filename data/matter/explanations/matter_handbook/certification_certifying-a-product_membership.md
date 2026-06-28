@@ -1,7 +1,4 @@
----
-label: Membership
-order: 100
----
+### CSA Membership
 
 Companies need to be a member of the Connectivity Standards Alliance (Alliance) in order to certify and release
 products using Matter.

@@ -1,4 +1,4 @@
-# Matter Development
+### Matter Development
 
 Developers have multiple options for creating Matter-certified devices, bridges, or controllers. The official Matter SDK is the recommended choice for most projects, but alternative implementations, such as JavaScript, also offer compelling features for certain use cases.
 

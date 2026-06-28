@@ -1,10 +1,4 @@
----
-label: Development
-order: 99
----
-
-> [!NOTE]
-> Some links on this page are only accessible to Alliance members.
+### Development
 
 The process of developing a Matter product is highly dependent on the device
 being developed, the platform being used, and the policies of the company doing the development. There

@@ -1,7 +1,5 @@
----
-label: What is Matter
-order: 200
----
+### What is Matter
+
 Matter has the goal of being an interoperable standard that fosters technology adoption and innovation, gradually replacing proprietary protocols for smart home ecosystems.
 
 Matter is implemented by an open source SDK that contains not only the implementation of the specification but also a rich set of examples and interoperable code. The core Matter protocol fits on the top three layers in the context of OSI, meaning it can run over any type of IPv6 transport and network. While control and other operational communication are performed over IPv6, Bluetooth Low Energy (BLE) may be employed to commission new devices.

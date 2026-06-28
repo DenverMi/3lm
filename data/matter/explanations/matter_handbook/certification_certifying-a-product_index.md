@@ -1,3 +1,5 @@
+### Steps for Certification
+
 This guide aims to give an outline of common considerations for the
 integration of Matter rather than a general outline of the development process of an entire product line.
 

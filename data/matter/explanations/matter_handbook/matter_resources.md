@@ -1,7 +1,5 @@
----
-label: Resources
-order: 70
----
+### Resources
+
 ## Resources for Members
 
 Use this page when someone asks:

@@ -1,7 +1,5 @@
----
-label: Connectivity Transports
-order: 160
----
+### Connectivity Transports
+
 In principle, any IPv6-bearing network is suitable for Matter deployment, subject to supporting a few core IPv6 standards. In the current version of the specification, we focus on three link layer technologies: Ethernet, Wi-Fi and Thread. We restrict the specification to the above so that the specification can suitably cover provisioning of these link layers, and so that the amount of testing in certification is suitably bounded.
 
 Matter treats networks as shared resources: it makes no stipulation of exclusive network owner­ship or access. As a result, it is possible to overlay multiple Matter networks over the same set of constituent IP networks.

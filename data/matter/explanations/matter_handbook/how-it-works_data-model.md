@@ -1,7 +1,4 @@
----
-label: Device Data Model
-order: 170
----
+### Device Data Model
 
 Devices in Matter have a well-defined data model (DM), which is a hierarchical modeling of a Device's features. At the top level of this hierarchy there is a Device.
 

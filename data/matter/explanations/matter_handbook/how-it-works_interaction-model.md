@@ -1,7 +1,5 @@
----
-label: Interaction Model
-order: 160
----
+### Interaction Model
+
 ## Concepts
 
 The Data Model (DM) of a Node is only relevant if we can perform operations on it.

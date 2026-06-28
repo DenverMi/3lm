@@ -1,7 +1,5 @@
----
-label: Discovery
-order: 150
----
+### Discovery
+
 ## Commissionable Discovery
 
 Commissionable discovery happens before Commissioning and refers to the process of discovering and identifying a commissionable Node. There are two methods through which a commissionable Node may advertise itself:

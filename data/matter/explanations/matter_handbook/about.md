@@ -1,7 +1,4 @@
----
-layout: page
----
-# About
+### About
 
 This handbook helps you plan, build, and ship Matter devices by answering common questions and connecting
 you to the right resources. You’ll find orientation on working with Alliance Working Groups, foundational Matter concepts,

@@ -1,7 +1,5 @@
----
-label: PICS and PIXIT
-order: 100
----
+### PICS and PIXIT
+
 ## PICS
 
 In many Standards Defining Organizations including the Connectivity Standards Alliance,

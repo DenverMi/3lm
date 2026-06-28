@@ -1,4 +1,4 @@
-#
+### Matter Specification
 
 The Matter specification is the technical foundation of the Matter protocol. There are normally two minor releases per year, in Spring and Fall, with optional follow-up patch releases between the minor releases.
 

@@ -1,7 +1,5 @@
----
-label: Matter FastTrack Recertification FAQ
-order: 98
----
+### Matter FastTrack Recertification FAQ
+
 **What is Matter FastTrack Recertification?**
 
 Matter FastTrack Recertification is a new program for recertification of previously certified Matter products that reduces the cost and friction involved in releasing software updates for these products. With FastTrack, Alliance Participant and Promoter Member companies that are trained in the proper use of Matter Certification tools can perform their own testing of updated products and obtain Matter certification of the result for no additional Alliance fee. The conformance of every certified Matter product is initially validated by an Alliance-approved Authorized Test Lab (ATL), but with FastTrack, qualified Member companies in many cases can validate their own conformance of software updates to their certified Matter product without being required to return to the ATL.

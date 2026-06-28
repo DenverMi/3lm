@@ -1,7 +1,5 @@
----
-label: Distributed Compliance Ledger (DCL)
-order: 98
----
+### Distributed Compliance Ledger (DCL)
+
 ## DCL Introduction
 The DCL is a blockchain-based system owned and hosted by Alliance members. It is used by the Matter protocol for storing information such as:
 

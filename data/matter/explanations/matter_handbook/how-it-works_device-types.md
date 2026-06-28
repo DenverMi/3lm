@@ -1,7 +1,4 @@
----
-label: Supported Device Types
-order: 180
----
+### Supported Device Types
 
 In order to be certified a Matter device must conform to one of the approved device types.
 

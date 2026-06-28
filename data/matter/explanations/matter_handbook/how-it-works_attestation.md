@@ -1,7 +1,5 @@
----
-label: Attestation
-order: 120
----
+### Attestation
+
 Certified Devices are Devices that have gone through the Connectivity Standards Alliance (Alliance) Matter Certification Process.
 
 During the commissioning process, a device cryptographically proves (attests) to the Commissioner that:

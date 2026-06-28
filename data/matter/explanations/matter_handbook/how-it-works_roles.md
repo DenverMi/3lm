@@ -1,7 +1,5 @@
----
-label: Roles
-order: 190
----
+### Roles
+
 An important note is that while these definitions explain the distinct roles as defined in the Matter specification, in many cases, the products in users’ homes have the ability to take on different roles or serve in multiple roles at once.
 
 ## Matter Device

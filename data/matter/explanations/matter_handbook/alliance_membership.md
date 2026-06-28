@@ -1,7 +1,5 @@
----
-label: Membership
-order: 80
----
+### CSA Membership
+
 ## Join the Alliance
 
 Work with the world’s most innovative companies to create, evolve, and promote universal open standards that connect all IoT devices – regardless of country, network, brand, or function – for a unifying wireless experience that inspires new possibilities for people everywhere.

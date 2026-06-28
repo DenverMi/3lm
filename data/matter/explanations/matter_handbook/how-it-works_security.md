@@ -1,7 +1,5 @@
----
-label: Security & Privacy
-order: 110
----
+### Security & Privacy
+
 ## Matter Security Principles
 
 Matter was created with security and privacy as key design tenets and provides

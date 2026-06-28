@@ -1,7 +1,5 @@
----
-label: What We Do
-order: 100
----
+### Alliance: What We Do
+
 ## Develop
 
 We create, evolve, and manage IoT technology standards through a well-established, collaborative process. We empower companies with practical, usable assets and tools to ease and accelerate development, freeing them to focus on new areas of IoT innovation.

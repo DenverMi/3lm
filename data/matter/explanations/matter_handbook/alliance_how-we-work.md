@@ -1,7 +1,6 @@
----
-label: How We Work
-order: 90
----
+### CSA: How We Work
+
+
 ## Working Groups
 
 The Alliance has a number of Working Groups responsible for each of the different standards that we manage.
