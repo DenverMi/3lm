@@ -6,6 +6,8 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 import time
+import hashlib
+import inspect
 
 import chromadb
 from rank_bm25 import BM25Okapi
@@ -48,6 +50,12 @@ def get_model():
         print(f"DEBUG loaded embedding model: {EMBED_MODEL}")
     return model
 
+def tokenizer_fingerprint() -> str:
+    """
+    Hash the tokenizer source so the BM25 cache invalidates when tokenization
+    changes, not only when chunks.jsonl changes.
+    """
+    return hashlib.sha256(inspect.getsource(tokenize).encode("utf-8")).hexdigest()[:16]
 
 def tokenize(text: str) -> List[str]:
     text = text.lower()
@@ -95,6 +103,7 @@ def save_bm25(bm25: BM25Okapi, chunks: List[Dict[str, Any]]) -> None:
         meta = {
             "chunks_path": str(CHUNKS_PATH),
             "chunks_mtime": CHUNKS_PATH.stat().st_mtime,
+            "tokenizer_fingerprint": tokenizer_fingerprint(),
         }
         with BM25_META_PATH.open("w", encoding="utf-8") as f:
             json.dump(meta, f, ensure_ascii=False, indent=2)
@@ -111,6 +120,9 @@ def load_bm25() -> Tuple[Optional[BM25Okapi], Optional[List[Dict[str, Any]]]]:
         current_mtime = CHUNKS_PATH.stat().st_mtime
 
         if cached_mtime != current_mtime:
+            return None, None
+        
+        if meta.get("tokenizer_fingerprint") != tokenizer_fingerprint():
             return None, None
 
         with BM25_PATH.open("rb") as f:
