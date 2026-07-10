@@ -21,7 +21,7 @@ COLLECTION_NAME = "docs"
 
 # Models
 RAG_LLM_MODEL = "gemma4:26b-mlx"
-GENERAL_LLM_MODEL = "gemma4:26b-mlx"
+GENERAL_LLM_MODEL = "gemma4:31b-mlx"
 EMBED_MODEL = "BAAI/bge-m3"
 
 # Chunking

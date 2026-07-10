@@ -54,7 +54,14 @@ def tokenize(text: str) -> List[str]:
     # First extract hyphenated compound terms, then individual tokens
     hyphenated = re.findall(r"[a-z0-9]+(?:-[a-z0-9]+)+", text)
     simple = re.findall(r"[a-z0-9]+", text)
-    return hyphenated + simple
+    # CJK runs -> character bigrams (Japanese has no word spaces)
+    cjk_tokens: List[str] = []
+    for run in re.findall(r"[\u3040-\u30ff\u4e00-\u9fff]+", text):
+        if len(run) == 1:
+            cjk_tokens.append(run)
+        else:
+            cjk_tokens.extend(run[i:i + 2] for i in range(len(run) - 1))
+    return hyphenated + simple + cjk_tokens
 
 
 def load_jsonl(path: Path) -> List[Dict[str, Any]]:
@@ -182,6 +189,15 @@ def extract_core_term(query: str) -> str:
     if acronym_match and any(marker in raw for marker in ["とは", "何ですか", "なんですか", "意味"]):
         return acronym_match.group(0)
 
+    # Japanese definition queries without an acronym:
+    # コミッショニングとは何ですか -> コミッショニング
+    if any(marker in raw for marker in ["とは", "何ですか", "なんですか", "の意味"]):
+        term = re.split(r"とは|の意味|って何", raw)[0]
+        term = re.sub(r"^(Bluetooth|Matter|Aliro)\s*(で|における|の)\s*", "", term, flags=re.IGNORECASE)
+        term = term.strip("　 、。？?の")
+        if term:
+            return term
+
     for prefix in ["what is ", "what are ", "define "]:
         if q.startswith(prefix):
             q = q[len(prefix):]
@@ -197,46 +213,47 @@ def looks_like_term_definition(text: str, term: str) -> bool:
     term_l = " ".join(term.lower().split())
     text_l = raw.lower()
 
-    # Check line-by-line first — best for Markdown tables / glossary rows
+    is_cjk_term = any(
+        "\u3040" <= ch <= "\u30ff" or "\u4e00" <= ch <= "\u9fff"
+        for ch in term
+    )
+
+    # Glossary / markdown table row:  | TCW | Test Coverage Waiver |
     for line in raw.splitlines():
         line_l = " ".join(line.lower().split())
-
         if term_l not in line_l:
             continue
 
-        # Markdown table / glossary row with definition-like wording
-        if "|" in line_l and (
-            "portable device" in line_l
-            or "containing one or more access credentials" in line_l
-            or "access credentials" in line_l
-        ):
+        if line_l.startswith("|"):
+            cells = [c.strip() for c in line_l.split("|") if c.strip()]
+            if len(cells) >= 2 and cells[0] == term_l:
+                return True
+
+        # Heading-style definition:  ### TCW — Test Coverage Waiver
+        if re.match(rf"^#{{1,6}}\s+{re.escape(term_l)}\s*(—|-|:)", line_l):
             return True
 
-        # Plain glossary line
-        if (
-            line_l.startswith(term_l)
-            and (
-                "portable device" in line_l
-                or "containing one or more access credentials" in line_l
-                or "access credentials" in line_l
-            )
-        ):
-            return True
-
-    # Then check only a small window after the term, not the whole chunk
     idx = text_l.find(term_l)
     if idx == -1:
         return False
 
     window = " ".join(text_l[idx:idx + 350].split())
 
-    patterns = [
-        rf"\b{re.escape(term_l)}\b\s+means\b",
-        rf"\b{re.escape(term_l)}\b\s+is\b",
-        rf"\b{re.escape(term_l)}\b\s+refers to\b",
-        rf"\b{re.escape(term_l)}\b\s+a portable device\b",
-        rf"\b{re.escape(term_l)}\b.*?\bcontaining one or more access credentials\b",
-    ]
+    if is_cjk_term:
+        # 「Xとは …です / を指します / のことです」
+        patterns = [
+            rf"{re.escape(term_l)}\s*とは",
+            rf"{re.escape(term_l)}\s*は.*?(を指し|のこと|を意味)",
+            rf"{re.escape(term_l)}\s*:",
+        ]
+    else:
+        patterns = [
+            rf"\b{re.escape(term_l)}\b\s+(is|are)\b",
+            rf"\b{re.escape(term_l)}\b\s+means\b",
+            rf"\b{re.escape(term_l)}\b\s+refers to\b",
+            rf"\b{re.escape(term_l)}\b\s+is defined as\b",
+            rf"\b{re.escape(term_l)}\s*:",
+        ]
 
     return any(re.search(p, window, re.IGNORECASE) for p in patterns)
 
@@ -431,6 +448,10 @@ def is_comparison_query(query: str) -> bool:
             "versus",
             " vs ",
             "different from",
+            "違い",
+            "の差",
+            "比較",
+            "どう違う",
         ]
     )
 
@@ -556,7 +577,15 @@ def search_glossary_acronyms(
     chunks: List[Dict[str, Any]],
     top_k: int = 10,
 ) -> List[Dict[str, Any]]:
-    acronyms = extract_acronyms_for_glossary_lookup(query.upper())
+    acronyms = extract_acronyms_for_glossary_lookup(query)
+
+    # Allow a lowercase-typed acronym as core term, e.g. "what is tcw" -> TCW.
+    # Multi-word queries never enter here, so ordinary words stop leaking in.
+    core = extract_core_term(query)
+    if is_acronym_term(core):
+        core_upper = core.upper()
+        if re.fullmatch(r"[A-Z][A-Z0-9]{1,9}", core_upper) and core_upper not in acronyms:
+            acronyms.append(core_upper)
 
     if not acronyms:
         return []
@@ -856,13 +885,12 @@ def expand_advisory_query(query: str) -> str:
 
     expansion_terms = [
         "qualification",
+        "certification",
         "qualified product",
         "qualified module",
-        "Bluetooth module",
+        "certified module",
         "new qualification",
-        "member account",
-        "supplier cannot qualify",
-        "complete the Bluetooth Qualification Process",
+        "new certification",
         "product listing",
         "declaration",
     ]
@@ -1144,7 +1172,7 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
                 bonus += 2.0
 
             if chunk_kind == "front_page":
-                bonus -= 1.0
+                bonus -= 1.0  
 
         if source_type == "email_case":
             bonus += 2.5
@@ -1154,6 +1182,12 @@ def metadata_bonus(meta: Dict[str, Any], intent: str, query: str) -> float:
 
         if "faq" in doc_name:
             bonus += 0.4
+
+        if chunk_kind == "front_page":
+            bonus -= 2.0
+
+        if doc_type == "policies":
+            bonus += 2.0
 
     return bonus 
 

@@ -66,6 +66,25 @@ def extract_explicit_program_hint(question: str) -> tuple[str | None, str]:
 
     return program_map.get(raw_program), cleaned_question
 
+PROGRAM_ALIASES = {
+    "bluetooth": ["bluetooth", "ble", "bt", "ブルートゥース"],
+    "matter": ["matter", "マター"],
+    "aliro": ["aliro", "アリロ"],
+}
+
+def infer_program_from_question(question: str) -> str | None:
+    """
+    Detect the program named anywhere in the question, in any language.
+    Returns None only if no program is mentioned at all.
+    """
+    q = question.lower()
+    hits = [
+        program
+        for program, aliases in PROGRAM_ALIASES.items()
+        if any(re.search(rf"(?<![a-z]){re.escape(a)}(?![a-z])", q) for a in aliases)
+    ]
+    return hits[0] if len(hits) == 1 else None
+
 def looks_like_followup_question(question: str) -> bool:
     q = question.strip().lower()
 
@@ -814,16 +833,6 @@ def separate_citations(answer: str, items: List[Dict[str, Any]]) -> str:
         found = [
             f"[{item['chunk_id']} | {format_citation(item['metadata'])}]"
         ]
-    
-    if items:
-        first = items[0]
-        first_kind = (first["metadata"].get("chunk_kind") or "").lower()
-
-        if first_kind in {"definition", "glossary"}:
-            first_citation = f"[{first['chunk_id']} | {format_citation(first['metadata'])}]"
-
-            if first_citation not in found:
-                found.insert(0, first_citation)
 
     found = found[:5]
 
@@ -977,7 +986,9 @@ def choose_best_definition_items(
             proximity_bonus = -abs(chunk_index - 11)
 
         helpful_context_bonus = 0
-        if doc_type in {"explanations", "faq", "guides", "reference"} and term_hits > 0:
+        if (doc_type == "glossary" or chunk_kind in {"definition", "glossary"}) and term_hits > 0:
+            helpful_context_bonus = 5
+        elif doc_type in {"explanations", "faq", "guides", "reference"} and term_hits > 0:
             helpful_context_bonus = 3
         testplan_penalty = -5 if ("testplan" in doc_name or "testplans" in doc_name) else 0
 
@@ -992,12 +1003,12 @@ def choose_best_definition_items(
             definition_score,
             phrase_hits,
             3 if chunk_kind in {"definition", "glossary"} and (phrase_hits > 0 or term_hits > 0) else 0,
+            float(item.get("score", 0.0)),
             definition_like,
             proximity_bonus,
             -int(looks_toc),
             -pipe_count,
             -text_len,
-            item.get("score", 0),
             doc_name,
         )
 
@@ -1389,25 +1400,39 @@ def supports_query_semantically(question: str, item: Dict[str, Any]) -> bool:
     text = (item.get("text") or "").lower()
     q = question.lower()
 
-    raw_terms = re.findall(r"[a-z0-9/\-]+", q)
     stop_terms = {
         "what", "which", "when", "where", "who", "why", "how",
         "is", "are", "do", "does", "did", "can", "could", "should",
         "would", "if", "the", "a", "an", "for", "to", "of", "in",
         "on", "with", "and", "or", "already",
     }
-    terms = [t for t in raw_terms if len(t) >= 3 and t not in stop_terms]
 
+    latin_terms = [
+        t for t in re.findall(r"[a-z0-9/\-]+", q)
+        if len(t) >= 3 and t not in stop_terms
+    ]
+
+    # CJK has no spaces: use character bigrams from each CJK run.
+    cjk_terms = []
+    for run in re.findall(r"[\u3040-\u30ff\u4e00-\u9fff]{2,}", q):
+        cjk_terms.extend(run[i:i + 2] for i in range(len(run) - 1))
+
+    terms = set(latin_terms) | set(cjk_terms)
     if not terms:
         return False
 
     hits = 0
-    for term in set(terms):
-        pattern = rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])"
-        if re.search(pattern, text, re.IGNORECASE):
+    for term in terms:
+        if re.search(r"[\u3040-\u30ff\u4e00-\u9fff]", term):
+            if term in text:
+                hits += 1
+        elif re.search(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", text, re.IGNORECASE):
             hits += 1
 
-    return hits >= 2
+    # A single strong match is enough when the query is short
+    # (e.g. one acronym plus a program name).
+    required = 2 if len(terms) > 2 else 1
+    return hits >= required
 
 def contains_any_query_acronym(question: str, item: Dict[str, Any]) -> bool:
     text = (item.get("text") or "").lower()
@@ -1551,6 +1576,9 @@ def source_authority_rank(item: Dict[str, Any]) -> int:
             return 2
 
         return 1
+    
+    if doc_type == "glossary":
+        return 1
 
     if doc_type == "reference" and "official faq" in doc_name:
         return 1
@@ -1642,11 +1670,15 @@ def apply_source_hierarchy(
 
         return fallback[:limit] if fallback else selected[:limit]
 
+    # Authority is a bounded preference, not an override.
+    # A tier-0 source scoring 4 must not outrank a tier-3 source scoring 50.
+    AUTHORITY_WEIGHT = 6.0
+
     candidates = sorted(
         candidates,
-        key=lambda item: (
-            source_authority_rank(item),
-            -float(item.get("score", 0.0)),
+        key=lambda item: -(
+            float(item.get("score", 0.0))
+            - AUTHORITY_WEIGHT * source_authority_rank(item)
         ),
     )
 
@@ -1787,6 +1819,13 @@ def answer_question(
         clean_question = hint_clean_question
         prompt_question = clean_question
         retrieval_question = clean_question
+
+    if program is None:
+        inferred = infer_program_from_question(clean_question)
+        if inferred:
+            program = inferred
+            if debug:
+                print(f"DEBUG inferred program from question: {program}")
 
     if program:
         retrieval_question = expand_retrieval_query_with_keywords(
@@ -2263,9 +2302,29 @@ def answer_question(
                 definition_limit = 3
 
             if grounded_expansion:
+                # Chunks containing the expansion, best-first: prefer real
+                # definition/glossary chunks, then retrieval score.
+                exact_acronym_items = sorted(
+                    exact_acronym_items,
+                    key=lambda item: (
+                        0 if (item["metadata"].get("chunk_kind") or "").lower()
+                             in {"definition", "glossary"} else 1,
+                        -float(item.get("score", 0.0)),
+                    ),
+                )
                 selected = exact_acronym_items[:max(1, min(2, definition_limit))]
+
             elif exact_acronym_items:
+                exact_acronym_items = sorted(
+                    exact_acronym_items,
+                    key=lambda item: (
+                        0 if (item["metadata"].get("chunk_kind") or "").lower()
+                             in {"definition", "glossary"} else 1,
+                        -float(item.get("score", 0.0)),
+                    ),
+                )
                 selected = exact_acronym_items[:min(2, definition_limit)]
+
             else:
                 selected = choose_best_definition_items(
                     clean_question,

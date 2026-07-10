@@ -53,6 +53,12 @@ def extract_pdf(path: Path):
 
     return pages
 
+def contains_cjk(s: str) -> bool:
+    return any(
+        "\u3040" <= ch <= "\u30ff" or "\u4e00" <= ch <= "\u9fff"
+        for ch in s
+    )
+
 def extract_markdown(path: Path, doc_type: str = ""):
     raw = path.read_text(encoding="utf-8")
 
@@ -87,6 +93,10 @@ def extract_markdown(path: Path, doc_type: str = ""):
 
         # skip separator rows
         if re.fullmatch(r"[:\-\s|]+", stripped):
+            continue
+
+        # skip table header rows: the row immediately before a separator row
+        if idx + 1 < len(raw_lines) and re.fullmatch(r"[:\-\s|]+", raw_lines[idx + 1].strip()):
             continue
 
         cells = [c.strip() for c in stripped.split("|") if c.strip()]
@@ -127,11 +137,12 @@ def extract_markdown(path: Path, doc_type: str = ""):
             "type",
         ]
 
-        if term_l in bad_term_markers:
-            continue
+        if doc_type != "glossary":
+            if term_l in bad_term_markers:
+                continue
 
-        if any(term_l.startswith(marker + " ") for marker in bad_term_markers):
-            continue
+            if any(term_l.startswith(marker + " ") for marker in bad_term_markers):
+                continue
 
         # Glossary terms are usually short human terms, not long table descriptions
         # Allow longer terms if they contain an acronym in parentheses e.g. "Implementation eXtra Information for Testing (IXIT)"
@@ -139,12 +150,20 @@ def extract_markdown(path: Path, doc_type: str = ""):
             continue
 
         # Definition should be prose-like, not mostly symbols/numbers
-        if len(definition.split()) < 4:
-            continue
+        if contains_cjk(term) or contains_cjk(definition):
+            # Japanese has no spaces: use character length, not word count.
+            # Glossary docs may contain short translation-pair rows (Term | 訳語),
+            # which are valuable for cross-lingual term matching.
+            min_len = 2 if doc_type == "glossary" else 10
+            if len(definition) < min_len:
+                continue
 
-        alpha_chars = sum(ch.isalpha() for ch in definition)
-        if alpha_chars < 20:
-            continue
+        else:
+            if len(definition.split()) < 4:
+                continue
+            alpha_chars = sum(ch.isalpha() for ch in definition)
+            if alpha_chars < 20:
+                continue
 
         # Strong generic definition signals, not domain-specific cheat words
         definition_signals = [
@@ -167,7 +186,13 @@ def extract_markdown(path: Path, doc_type: str = ""):
         has_definition_signal = any(sig in f" {definition_l} " for sig in definition_signals)
         has_acronym_in_term = bool(re.search(r'\([A-Z]{2,10}\)', term))
 
-        if not has_definition_signal and not has_acronym_in_term:
+        japanese_signals = ["とは", "を指す", "のこと", "意味", "定義"]
+        has_japanese_signal = any(sig in definition for sig in japanese_signals)
+
+        # Rows in a glossary folder are definitions by construction — trust them.
+        if doc_type != "glossary" and not (
+            has_definition_signal or has_japanese_signal or has_acronym_in_term
+        ):
             continue
 
         continuation_lines = []

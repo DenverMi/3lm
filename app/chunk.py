@@ -25,9 +25,17 @@ def detect_chunk_kind(text: str, doc_type: str = "") -> str:
     if doc_type == "glossary":
         return "glossary"
 
-    head = text[:500].lower()
+    head = text[:500]
 
-    if "glossary" in head or "definitions" in head:
+    # A real glossary section is *titled* as one, e.g. "## 1.1 Definitions".
+    # Merely mentioning "definitions" in prose or a table caption does not qualify.
+    heading_match = re.search(
+        r"^\s{0,3}#{1,6}\s+(?:[\d\.]+\s+)?(?:glossary|definitions|acronyms|abbreviations)"
+        r"(?:\s+and\s+(?:glossary|definitions|acronyms|abbreviations))?\s*$",
+        head,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+    if heading_match:
         return "glossary"
 
     return "body"

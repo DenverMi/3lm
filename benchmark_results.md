@@ -2,610 +2,742 @@
 
 ## 1. In Bluetooth, what do we need to prepare in the compliance folder?
 
-- Elapsed: 20.93s
-- Ollama total: 8.04s
-- Ollama load: 0.05s
-- Prompt eval: 0.35s
-- Token eval: 7.64s
+- Elapsed: 26.89s
+- Ollama total: 13.76s
+- Ollama load: 0.04s
+- Prompt eval: 5.65s
+- Token eval: 8.05s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='In Bluetooth, what do we need to prepare in the compliance folder?' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=8.5278  BT Qualification Program Reference Document_QPRD_v5.md (p.21)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020  priority=1  kind=body
-- score=8.1930  BT Qualification Program Reference Document_QPRD_v5.md (p.6)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00005  priority=1  kind=body
-- score=7.2654  BT Official FAQ_20260409.md (p.3)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00002  priority=5  kind=body
-- score=2.6779  thread_0151_case_06.json (p.1)  id=bluetooth:email:thread_0151_case_06.json:c00000  priority=0  kind=body
-- score=2.6739  thread_0064_case_03.json (p.1)  id=bluetooth:email:thread_0064_case_03.json:c00001  priority=0  kind=body
-- score=2.2106  Allion Internal FAQ.md (p.34)  id=bluetooth:reference:Allion Internal FAQ.md:c00033  priority=5  kind=body
-- score=-2.3507  thread_0041_analysis.json (p.1)  id=bluetooth:email:thread_0041_analysis.json:c00001  priority=0  kind=body
+🔍 Retrieving relevant evidence...
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=100 semantic=19
+DEBUG exact_results: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020', 27.0), ('bluetooth:faq:Allion Internal FAQ.md:c00033', 24.0), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00086', 19.0), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00089', 19.0), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00092', 19.0)]
+DEBUG glossary_results: []
+DEBUG retrieval_question: 'In Bluetooth, what do we need to prepare in the compliance folder?'
+DEBUG top retrieved: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020', 22.029598136142102), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00086', 14.876393442622952), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00089', 14.876393442622952), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000', 13.046393442622952), ('bluetooth:faq:Allion Internal FAQ.md:c00033', 12.893414206858479)]
 
 Selected sources for model:
-- score=8.5278  BT Qualification Program Reference Document_QPRD_v5.md (p.21)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020  priority=1  kind=body
-- score=8.1930  BT Qualification Program Reference Document_QPRD_v5.md (p.6)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00005  priority=1  kind=body
-- score=7.2654  BT Official FAQ_20260409.md (p.3)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00002  priority=5  kind=body
+DEBUG selected final before model: ['bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020', 'bluetooth:faq:BT Official FAQ_20260409.md:c00032', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000']
+- score=22.0296  BT Qualification Program Reference Document_QPRD_v5.md (p.21)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020  priority=1  kind=body
+- score=8.5564  BT Official FAQ_20260409.md (p.36)  id=bluetooth:faq:BT Official FAQ_20260409.md:c00032  priority=3  kind=body
+- score=13.0464  BT Qualification Program Reference Document_QPRD_v5.md (p.1)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000  priority=1  kind=body
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020', 'bluetooth:faq:BT Official FAQ_20260409.md:c00032', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000']
 🤖 Generating answer with local model...
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:54:37.758149Z' done=True done_reason='stop' total_duration=8040412709 load_duration=46176750 prompt_eval_count=2749 prompt_eval_duration=345125208 eval_count=322 eval_duration=7637835167 message=Message(role='assistant', content='For all Qualified Products, Members must maintain documentation listed in Table 3.3 in a single location, commonly referred to as the “Compliance Folder”. This documentation must be stored at the time the Member submits the Product to the Bluetooth Qualification Process and must be retained for no less than one year after the Member stops offering the Product for sale or distribution. Additionally, the Member must make the documentation available to the Bluetooth SIG for inspection if requested.\n\nThe specific requirements for the Compliance Folder depend on whether a Member is using a single existing Design or creating a new Design:\n\n*   **Product details**: Required for both using a single existing Design and creating a new Design.\n*   **Design details**: Required for both using a single existing Design and creating a new Design.\n*   **Test declaration**: Required if a test plan is generated when creating a new Design; N/A for using a single existing Design.\n*   **Test report(s)**: Required if a test plan is generated when creating a new Design; N/A for using a single existing Design.\n*   **Test logs**: Required if a test plan is generated when creating a new Design; N/A for using a single existing Design.\n*   **TCW**: Required as required when creating a new Design; N/A for using a single existing Design.\n\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020 | BT Qualification Program Reference Document_QPRD_v5.md (p.21)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=8.05s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:13:21.622698Z' done=True done_reason='stop' total_duration=13757204375 load_duration=43130917 prompt_eval_count=2970 prompt_eval_duration=5650988000 eval_count=339 eval_duration=8054866625 message=Message(role='assistant', content='For all Qualified Products, Members must maintain documentation in a single location known as the “Compliance Folder.” This documentation must be stored at the time the Member submits the Product to the Bluetooth Qualification Process and must be retained for at least one year after the Member stops offering the Product for sale or distribution. Additionally, the Member must make this documentation available to the Bluetooth SIG for inspection if requested.\n\nThe specific requirements for the Compliance Folder depend on whether the Member is using a single existing Design or creating a new Design:\n\n*   **Product details**: Required for both using a single existing Design and creating a new Design.\n*   **Design details**: Required for both using a single existing Design and creating a new Design.\n*   **Test declaration**: Required if a test plan is generated when creating a new Design; it is not required (N/A) when using a single existing Design.\n*   **Test report(s)**: Required if a test plan is generated when creating a new Design; it is not required (N/A) when using a single existing Design.\n*   **Test logs**: Required if a test plan is generated when creating a new Design; it is not required (N/A) when using a single existing Design.\n*   **TCW**: Required as necessary when creating a new Design; it is not required (N/A) when using a single existing Design.\n\nCitations:\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020 | BT Qualification Program Reference Document_QPRD_v5.md (p.21)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=13.76s
 ✅ Done.
 
 
-⏱ Total elapsed: 15.16s
+⏱ Total elapsed: 21.17s
 === ANSWER ===
 
-For all Qualified Products, Members must maintain documentation listed in Table 3.3 in a single location, commonly referred to as the “Compliance Folder”. This documentation must be stored at the time the Member submits the Product to the Bluetooth Qualification Process and must be retained for no less than one year after the Member stops offering the Product for sale or distribution. Additionally, the Member must make the documentation available to the Bluetooth SIG for inspection if requested.
+For all Qualified Products, Members must maintain documentation in a single location known as the “Compliance Folder.” This documentation must be stored at the time the Member submits the Product to the Bluetooth Qualification Process and must be retained for at least one year after the Member stops offering the Product for sale or distribution. Additionally, the Member must make this documentation available to the Bluetooth SIG for inspection if requested.
 
-The specific requirements for the Compliance Folder depend on whether a Member is using a single existing Design or creating a new Design:
+The specific requirements for the Compliance Folder depend on whether the Member is using a single existing Design or creating a new Design:
 
 * **Product details**: Required for both using a single existing Design and creating a new Design.
 * **Design details**: Required for both using a single existing Design and creating a new Design.
-* **Test declaration**: Required if a test plan is generated when creating a new Design; N/A for using a single existing Design.
-* **Test report(s)**: Required if a test plan is generated when creating a new Design; N/A for using a single existing Design.
-* **Test logs**: Required if a test plan is generated when creating a new Design; N/A for using a single existing Design.
-* **TCW**: Required as required when creating a new Design; N/A for using a single existing Design.
+* **Test declaration**: Required if a test plan is generated when creating a new Design; it is not required (N/A) when using a single existing Design.
+* **Test report(s)**: Required if a test plan is generated when creating a new Design; it is not required (N/A) when using a single existing Design.
+* **Test logs**: Required if a test plan is generated when creating a new Design; it is not required (N/A) when using a single existing Design.
+* **TCW**: Required as necessary when creating a new Design; it is not required (N/A) when using a single existing Design.
 
 Citations:
 - [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020 | BT Qualification Program Reference Document_QPRD_v5.md (p.21)]
 
 === SOURCES ===
 
-- BT Qualification Program Reference Document_QPRD_v5.md (p.21)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020]  score=8.5278  priority=1
+- BT Qualification Program Reference Document_QPRD_v5.md (p.21)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020]  score=22.0296  priority=1
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 38405.06it/s]
 ```
 
 ## 2. Customer asks: If they use a qualified Bluetooth module, do they still need a new qualification?
 
-- Elapsed: 18.73s
-- Ollama total: 5.66s
-- Ollama load: 0.04s
-- Prompt eval: 3.35s
-- Token eval: 2.26s
+- Elapsed: 26.48s
+- Ollama total: 11.73s
+- Ollama load: 0.05s
+- Prompt eval: 4.40s
+- Token eval: 7.27s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='Customer asks: If they use a qualified Bluetooth module, do they still need a new qualification?' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=12.9145  BT Official FAQ_20260409.md (p.19)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00015  priority=5  kind=body
-- score=11.5878  thread_0076_case_01.json (p.1)  id=bluetooth:email:thread_0076_case_01.json:p00001  priority=1  kind=front_page
-- score=11.2961  thread_0160_case_04.json (p.1)  id=bluetooth:email:thread_0160_case_04.json:p00001  priority=1  kind=front_page
-- score=8.7896  thread_0177_analysis.json (p.1)  id=bluetooth:email:thread_0177_analysis.json:p00001  priority=1  kind=front_page
-- score=5.2078  BT Official FAQ_20260409.md (p.21)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00017  priority=5  kind=body
-- score=2.9770  Allion Internal FAQ.md (p.1)  id=bluetooth:reference:Allion Internal FAQ.md:p00001  priority=6  kind=front_page
-- score=2.2256  Allion Internal FAQ.md (p.6)  id=bluetooth:reference:Allion Internal FAQ.md:c00005  priority=5  kind=body
-- score=1.3707  BT Qualification Program Reference Document_QPRD_v5.md (p.4)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00003  priority=4  kind=glossary
-- score=1.2688  BT Qualification Program Reference Document_QPRD_v5.md (p.1)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:p00001  priority=2  kind=front_page
+🔍 Retrieving relevant evidence...
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=100 semantic=20
+DEBUG exact_results: [('bluetooth:faq:Allion Internal FAQ.md:c00005', 26.0), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00754', 14.0), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00787', 14.0), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00851', 14.0), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00852', 14.0)]
+DEBUG glossary_results: []
+DEBUG retrieval_question: 'Customer asks: If they use a qualified Bluetooth module, do they still need a new qualification?'
+DEBUG top retrieved: [('bluetooth:faq:Allion Internal FAQ.md:c00005', 14.29977676246987), ('bluetooth:faq:BT Official FAQ_20260409.md:c00001', 13.62873245716095), ('bluetooth:email:thread_0117_case_01.json:c00000', 12.86639344262295), ('bluetooth:email:thread_0010_case_02.json:c00000', 12.36639344262295), ('bluetooth:email:thread_0003_analysis.json:c00000', 9.36639344262295)]
 
 Selected sources for model:
-- score=1.3707  BT Qualification Program Reference Document_QPRD_v5.md (p.4)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00003  priority=4  kind=glossary
-- score=12.9145  BT Official FAQ_20260409.md (p.19)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00015  priority=5  kind=body
-- score=2.9770  Allion Internal FAQ.md (p.1)  id=bluetooth:reference:Allion Internal FAQ.md:p00001  priority=6  kind=front_page
+DEBUG selected final before model: ['bluetooth:faq:BT Official FAQ_20260409.md:c00001', 'bluetooth:faq:BT Official FAQ_20260409.md:c00002', 'bluetooth:faq:Allion Internal FAQ.md:c00005']
+- score=13.6287  BT Official FAQ_20260409.md (p.2)  id=bluetooth:faq:BT Official FAQ_20260409.md:c00001  priority=3  kind=body
+- score=4.6438  BT Official FAQ_20260409.md (p.3)  id=bluetooth:faq:BT Official FAQ_20260409.md:c00002  priority=3  kind=body
+- score=14.2998  Allion Internal FAQ.md (p.6)  id=bluetooth:faq:Allion Internal FAQ.md:c00005  priority=3  kind=body
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:faq:BT Official FAQ_20260409.md:c00001', 'bluetooth:faq:BT Official FAQ_20260409.md:c00002', 'bluetooth:faq:Allion Internal FAQ.md:c00005']
 🤖 Generating answer with local model...
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:54:56.489905Z' done=True done_reason='stop' total_duration=5664886791 load_duration=44985833 prompt_eval_count=2477 prompt_eval_duration=3347585917 eval_count=96 eval_duration=2264877250 message=Message(role='assistant', content='Yes, your company must qualify the product. Even if a product is created with components that were previously qualified by suppliers, the company that creates the product to be offered under its own brand must qualify the product itself.\n\nCitations:\n- [bluetooth:reference:BT Official FAQ_20260409.md:c00015 | BT Official FAQ_20260409.md (p.19)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=5.67s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:13:48.300496Z' done=True done_reason='stop' total_duration=11726262458 load_duration=48198792 prompt_eval_count=2412 prompt_eval_duration=4399392458 eval_count=300 eval_duration=7271328500 message=Message(role='assistant', content="Whether you need a new qualification depends on how you are selling the product. To brand (or re-brand) and sell a Bluetooth® product, your company must join the Bluetooth SIG and complete the Qualification process yourself; suppliers or other member companies cannot qualify products on your behalf. However, if you are a retailer or supplier selling or distributing another organization's qualified Bluetooth product, and you are not adding any logos, branding, or representing the product as your own, you do not need to complete the Qualification Process for the product.\n\nRegarding the scope of testing when reusing a qualified Bluetooth module, testing is still required because the module qualification covers only hardware and low-level functionality. If your product adds or changes profiles, firmware behavior, or host software, only those new or changed layers must be tested, as previously qualified layers are not retested.\n\nCitations:\n[bluetooth:faq:BT Official FAQ_20260409.md:c00001 | BT Official FAQ_20260409.md (p.2)]\n[bluetooth:faq:BT Official FAQ_20260409.md:c00002 | BT Official FAQ_20260409.md (p.3)]\n[bluetooth:faq:Allion Internal FAQ.md:c00005 | Allion Internal FAQ.md (p.6)]", thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=11.73s
 ✅ Done.
 
 
-⏱ Total elapsed: 12.97s
+⏱ Total elapsed: 20.65s
 === ANSWER ===
 
-Yes, your company must qualify the product. Even if a product is created with components that were previously qualified by suppliers, the company that creates the product to be offered under its own brand must qualify the product itself.
+Whether you need a new qualification depends on how you are selling the product. To brand (or re-brand) and sell a Bluetooth® product, your company must join the Bluetooth SIG and complete the Qualification process yourself; suppliers or other member companies cannot qualify products on your behalf. However, if you are a retailer or supplier selling or distributing another organization's qualified Bluetooth product, and you are not adding any logos, branding, or representing the product as your own, you do not need to complete the Qualification Process for the product.
+
+Regarding the scope of testing when reusing a qualified Bluetooth module, testing is still required because the module qualification covers only hardware and low-level functionality. If your product adds or changes profiles, firmware behavior, or host software, only those new or changed layers must be tested, as previously qualified layers are not retested.
 
 Citations:
-- [bluetooth:reference:BT Official FAQ_20260409.md:c00015 | BT Official FAQ_20260409.md (p.19)]
+- [bluetooth:faq:BT Official FAQ_20260409.md:c00001 | BT Official FAQ_20260409.md (p.2)]
+- [bluetooth:faq:BT Official FAQ_20260409.md:c00002 | BT Official FAQ_20260409.md (p.3)]
+- [bluetooth:faq:Allion Internal FAQ.md:c00005 | Allion Internal FAQ.md (p.6)]
 
 === SOURCES ===
 
-- BT Official FAQ_20260409.md (p.19)  [bluetooth:reference:BT Official FAQ_20260409.md:c00015]  score=12.9145  priority=5
+- BT Official FAQ_20260409.md (p.2)  [bluetooth:faq:BT Official FAQ_20260409.md:c00001]  score=13.6287  priority=3
+- BT Official FAQ_20260409.md (p.3)  [bluetooth:faq:BT Official FAQ_20260409.md:c00002]  score=4.6438  priority=3
+- Allion Internal FAQ.md (p.6)  [bluetooth:faq:Allion Internal FAQ.md:c00005]  score=14.2998  priority=3
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 60499.98it/s]
 ```
 
-## 3. @ In past Bluetooth cases, if a customer uses a qualified Bluetooth module, did they still need a new qualification?
+## 3. @ In Bluetooth, do we need to qualify?
 
-- Elapsed: 20.36s
-- Ollama total: 12.58s
-- Ollama load: 0.05s
-- Prompt eval: 6.60s
-- Token eval: 5.93s
+- Elapsed: 24.65s
+- Ollama total: 16.54s
+- Ollama load: 0.04s
+- Prompt eval: 7.62s
+- Token eval: 8.87s
 
 ```text
+DEBUG answer_question called: question='@ In Bluetooth, do we need to qualify?' program='bluetooth' mode='normal'
+
 📧 Email/case-only mode...
 
 🔍 Retrieving relevant email/case evidence...
 
 Selected sources for model:
-- score=36.0945  thread_0164_case_01.json (p.1)  id=bluetooth:email:thread_0164_case_01.json:c00000  priority=0  kind=body
-- score=35.1457  thread_0160_case_04.json (p.1)  id=bluetooth:email:thread_0160_case_04.json:c00000  priority=0  kind=body
-- score=34.9902  thread_0163_case_05.json (p.1)  id=bluetooth:email:thread_0163_case_05.json:c00000  priority=0  kind=body
-- score=34.6762  thread_0290_case_01.json (p.1)  id=bluetooth:email:thread_0290_case_01.json:c00000  priority=0  kind=body
-- score=34.4814  thread_0117_case_01.json (p.1)  id=bluetooth:email:thread_0117_case_01.json:p00001  priority=1  kind=front_page
-- score=32.9127  thread_0200_case_01.json (p.1)  id=bluetooth:email:thread_0200_case_01.json:c00000  priority=0  kind=body
+- score=14.6158  thread_0034_case_01.json (p.1)  id=bluetooth:email:thread_0034_case_01.json:c00001  priority=0  kind=body
+- score=13.8976  thread_0214_case_02.json (p.1)  id=bluetooth:email:thread_0214_case_02.json:p00001  priority=1  kind=front_page
+- score=12.9319  thread_0116_case_03.json (p.1)  id=bluetooth:email:thread_0116_case_03.json:p00001  priority=1  kind=front_page
+- score=12.7548  thread_0034_case_01.json (p.1)  id=bluetooth:email:thread_0034_case_01.json:c00000  priority=0  kind=body
+- score=12.1981  thread_0169_case_01.json (p.1)  id=bluetooth:email:thread_0169_case_01.json:p00001  priority=1  kind=front_page
+- score=12.1175  thread_0001_case_01.json (p.1)  id=bluetooth:email:thread_0001_case_01.json:p00001  priority=1  kind=front_page
 🧠 Building email-grounded prompt...
 🤖 Generating answer with local model...
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:55:16.833974Z' done=True done_reason='stop' total_duration=12584262417 load_duration=47030292 prompt_eval_count=3759 prompt_eval_duration=6596498542 eval_count=246 eval_duration=5931776666 message=Message(role='assistant', content="Case reference:\n1. Profile testing exemption: Product-level profile testing is exempt if the product's Bluetooth stack supports the same ICS items as the QDID component or a subset of those items, provided no new ICS items are added and the Bluetooth stack implementation is not changed [bluetooth:email:thread_0164_case_01.json:c00000 | thread_0164_case_01.json (p.1)].\n2. Module supplier change: Changing a module manufacturer does not require a new product-level Bluetooth SIG registration if the new module shares the same QDID as the original one [bluetooth:email:thread_0160_case_04.json:c00000 | thread_0160_case_04.json (p.1)].\n3. Derivative product registration: A second product using the same module and Host Stack combination can be registered for free [bluetooth:email:thread_0163_case_05.json:c00000 | thread_0163_case_05.json (p.1)].", thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+model='gemma4:26b-mlx' created_at='2026-07-10T02:14:13.156887Z' done=True done_reason='stop' total_duration=16541456541 load_duration=43967083 prompt_eval_count=3947 prompt_eval_duration=7616461833 eval_count=359 eval_duration=8870745000 message=Message(role='assistant', content='Bluetooth product registration is required at the final-product level any time a Bluetooth-enabled device is used, regardless of whether the product displays the Bluetooth logo or the word "Bluetooth."\n\nCase reference:\n1. Logo display and registration: Registration is required even if the product does not display the Bluetooth logo and a module\'s QDID does not substitute for product registration. [bluetooth:email:thread_0034_case_01.json:c00001 | thread_0034_case_01.json (p.1)]\n2. Labeling and certification: Omitting the word "Bluetooth" from a physical device label does not avoid the obligation for SIG certification. [bluetooth:email:thread_0214_case_02.json:p00001 | thread_0214_case_02.json (p.1)]\n3. Minor changes and re-application: A Bluetooth qualification registration may be required when making minor changes such as adding a new key code to an existing ReportDescriptor. [bluetooth:email:thread_0116_case_03.json:p00001 | thread_0116_case_03.json (p.1)]\n4. Logo use and registration requirements: Bluetooth product registration, which involves obtaining a Declaration ID and paying the associated fee, is required at the final-product level even if the finished product does not display the Bluetooth logo. [bluetooth:email:thread_0034_case_01.json:c00000 | thread_0034_case_01.json (p.1)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
 ✅ Done.
 
 
-⏱ Total elapsed: 14.58s
+⏱ Total elapsed: 19.10s
 === ANSWER ===
 
+Bluetooth product registration is required at the final-product level any time a Bluetooth-enabled device is used, regardless of whether the product displays the Bluetooth logo or the word "Bluetooth."
+
 Case reference:
-1. Profile testing exemption: Product-level profile testing is exempt if the product's Bluetooth stack supports the same ICS items as the QDID component or a subset of those items, provided no new ICS items are added and the Bluetooth stack implementation is not changed.
-2. Module supplier change: Changing a module manufacturer does not require a new product-level Bluetooth SIG registration if the new module shares the same QDID as the original one.
-3. Derivative product registration: A second product using the same module and Host Stack combination can be registered for free.
+1. Logo display and registration: Registration is required even if the product does not display the Bluetooth logo and a module's QDID does not substitute for product registration. 
+2. Labeling and certification: Omitting the word "Bluetooth" from a physical device label does not avoid the obligation for SIG certification. 
+3. Minor changes and re-application: A Bluetooth qualification registration may be required when making minor changes such as adding a new key code to an existing ReportDescriptor. 
+4. Logo use and registration requirements: Bluetooth product registration, which involves obtaining a Declaration ID and paying the associated fee, is required at the final-product level even if the finished product does not display the Bluetooth logo.
 
 Citations:
-- [bluetooth:email:thread_0164_case_01.json:c00000 | thread_0164_case_01.json (p.1)]
-- [bluetooth:email:thread_0160_case_04.json:c00000 | thread_0160_case_04.json (p.1)]
-- [bluetooth:email:thread_0163_case_05.json:c00000 | thread_0163_case_05.json (p.1)]
+- [bluetooth:email:thread_0034_case_01.json:c00001 | thread_0034_case_01.json (p.1)]
+- [bluetooth:email:thread_0214_case_02.json:p00001 | thread_0214_case_02.json (p.1)]
+- [bluetooth:email:thread_0116_case_03.json:p00001 | thread_0116_case_03.json (p.1)]
+- [bluetooth:email:thread_0034_case_01.json:c00000 | thread_0034_case_01.json (p.1)]
 
 === SOURCES ===
 
-- thread_0164_case_01.json (p.1)  [bluetooth:email:thread_0164_case_01.json:c00000]  score=36.0945  priority=0
-- thread_0160_case_04.json (p.1)  [bluetooth:email:thread_0160_case_04.json:c00000]  score=35.1457  priority=0
-- thread_0163_case_05.json (p.1)  [bluetooth:email:thread_0163_case_05.json:c00000]  score=34.9902  priority=0
+- thread_0034_case_01.json (p.1)  [bluetooth:email:thread_0034_case_01.json:c00001]  score=14.6158  priority=0
+- thread_0214_case_02.json (p.1)  [bluetooth:email:thread_0214_case_02.json:p00001]  score=13.8976  priority=1
+- thread_0116_case_03.json (p.1)  [bluetooth:email:thread_0116_case_03.json:p00001]  score=12.9319  priority=1
+- thread_0034_case_01.json (p.1)  [bluetooth:email:thread_0034_case_01.json:c00000]  score=12.7548  priority=0
 ```
 
 ## 4. In Bluetooth, what is TCW?
 
-- Elapsed: 15.11s
-- Ollama total: 4.29s
+- Elapsed: 16.53s
+- Ollama total: 4.30s
 - Ollama load: 0.05s
-- Prompt eval: 2.85s
-- Token eval: 1.39s
+- Prompt eval: 1.55s
+- Token eval: 2.70s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='In Bluetooth, what is TCW?' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=44.2934  glossary.md (p.20)  id=bluetooth:reference:glossary.md:c00019  priority=5  kind=body
-- score=39.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
-- score=37.2964  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=1  kind=body
-- score=9.0147  thread_0035_case_01.json (p.1)  id=bluetooth:email:thread_0035_case_01.json:c00001  priority=0  kind=body
-- score=9.0116  thread_0076_case_04.json (p.1)  id=bluetooth:email:thread_0076_case_04.json:c00001  priority=0  kind=body
+🔍 Retrieving relevant evidence...
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=50 semantic=10
+DEBUG exact_results: []
+DEBUG glossary_results: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 29.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 29.0), ('bluetooth:glossary:glossary.md:c00019', 25.0)]
+DEBUG retrieval_question: 'In Bluetooth, what is TCW?'
+DEBUG top retrieved: [('bluetooth:glossary:glossary.md:c00019', 49.92265941713677), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 45.83639344262295), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 39.83639344262295), ('bluetooth:email:thread_0076_case_04.json:c00000', 9.339789447669059), ('bluetooth:email:thread_0170_case_03.json:c00000', 9.013698630136986)]
+TRACE grounded_expansion='Test Coverage Waiver'
+TRACE exact_acronym_items=['bluetooth:glossary:glossary.md:c00019', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 'bluetooth:email:thread_0076_case_04.json:c00000', 'bluetooth:email:thread_0170_case_03.json:c00000', 'bluetooth:faq:BT Official FAQ_20260409.md:c00032', 'bluetooth:email:thread_0241_analysis.json:c00000']
+TRACE has_exact_phrase_hits=False
 
 Selected sources for model:
-- score=44.2934  glossary.md (p.20)  id=bluetooth:reference:glossary.md:c00019  priority=5  kind=body
-- score=39.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
+DEBUG selected final before model: ['bluetooth:glossary:glossary.md:c00019', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023']
+- score=49.9227  glossary.md (p.20)  id=bluetooth:glossary:glossary.md:c00019  priority=6  kind=glossary
+- score=45.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=4  kind=glossary
 
 Selected sources after definition fast path:
-- score=44.2934  glossary.md (p.20)  id=bluetooth:reference:glossary.md:c00019  priority=5  kind=body
+- score=45.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=4  kind=glossary
+- score=49.9227  glossary.md (p.20)  id=bluetooth:glossary:glossary.md:c00019  priority=6  kind=glossary
 - score=39.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 'bluetooth:glossary:glossary.md:c00019', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004']
 🤖 Generating answer with local model...
-DEBUG glossary definitions: []
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:55:31.966043Z' done=True done_reason='stop' total_duration=4288565375 load_duration=45478625 prompt_eval_count=2315 prompt_eval_duration=2845441125 eval_count=59 eval_duration=1390702125 message=Message(role='assistant', content='TCW (Test Coverage Waiver) is a waiver granted by Bluetooth SIG allowing specific qualification requirements or test cases to be waived under defined conditions.\n\nCitations:\n[bluetooth:reference:glossary.md:c00019 | glossary.md (p.20)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=4.29s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:14:29.456226Z' done=True done_reason='stop' total_duration=4300489833 load_duration=47305666 prompt_eval_count=2707 prompt_eval_duration=1546942000 eval_count=111 eval_duration=2697583459 message=Message(role='assistant', content='TCW stands for Test Coverage Waiver. It is a waiver granted by Bluetooth SIG that allows specific qualification requirements or test cases to be waived under defined conditions.\n\nCitations:\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023 | BT Qualification Program Reference Document_QPRD_v5.md (p.24)]\n[bluetooth:glossary:glossary.md:c00019 | glossary.md (p.20)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=4.30s
 ✅ Done.
 
 
-⏱ Total elapsed: 9.25s
+⏱ Total elapsed: 11.31s
 === ANSWER ===
 
-TCW (Test Coverage Waiver) is a waiver granted by Bluetooth SIG allowing specific qualification requirements or test cases to be waived under defined conditions.
+TCW stands for Test Coverage Waiver. It is a waiver granted by Bluetooth SIG that allows specific qualification requirements or test cases to be waived under defined conditions.
 
 Citations:
-- [bluetooth:reference:glossary.md:c00019 | glossary.md (p.20)]
+- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023 | BT Qualification Program Reference Document_QPRD_v5.md (p.24)]
+- [bluetooth:glossary:glossary.md:c00019 | glossary.md (p.20)]
 
 === SOURCES ===
 
-- glossary.md (p.20)  [bluetooth:reference:glossary.md:c00019]  score=44.2934  priority=5
+- BT Qualification Program Reference Document_QPRD_v5.md (p.24)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023]  score=45.8364  priority=4
+- glossary.md (p.20)  [bluetooth:glossary:glossary.md:c00019]  score=49.9227  priority=6
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 38235.83it/s]
 ```
 
 ## 5. In Bluetooth, what is the difference between ICS and IXIT?
 
-- Elapsed: 21.71s
-- Ollama total: 8.75s
-- Ollama load: 0.05s
-- Prompt eval: 4.82s
-- Token eval: 3.87s
+- Elapsed: 26.33s
+- Ollama total: 12.43s
+- Ollama load: 0.04s
+- Prompt eval: 6.89s
+- Token eval: 5.49s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='In Bluetooth, what is the difference between ICS and IXIT?' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=37.0564  glossary.md (p.13)  id=bluetooth:reference:glossary.md:c00012  priority=8  kind=glossary
-- score=37.0564  glossary.md (p.15)  id=bluetooth:reference:glossary.md:c00014  priority=8  kind=glossary
-- score=36.6964  Allion Internal FAQ.md (p.5)  id=bluetooth:reference:Allion Internal FAQ.md:p00005  priority=6  kind=front_page
-- score=35.9164  Allion Internal FAQ.md (p.28)  id=bluetooth:reference:Allion Internal FAQ.md:c00027  priority=5  kind=body
-- score=33.0864  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
+🔍 Retrieving relevant evidence...
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=49 semantic=10
+DEBUG exact_results: [('bluetooth:faq:Allion Internal FAQ.md:p00005', 24.0), ('bluetooth:faq:Allion Internal FAQ.md:c00004', 24.0), ('bluetooth:faq:Allion Internal FAQ.md:c00027', 24.0), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00114', 19.0), ('bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00120', 19.0)]
+DEBUG glossary_results: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 30.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 30.0), ('bluetooth:specs:Baseband_TestSuite_clean.md:c00000', 28.0)]
+DEBUG retrieval_question: 'In Bluetooth, what is the difference between ICS and IXIT?'
+DEBUG top retrieved: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 33.08639344262295), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 32.736393442622955), ('bluetooth:specs:Security Manager_TestSuite_clean.md:p00005', 32.35639344262295), ('bluetooth:specs:Baseband_TestSuite_clean.md:c00000', 31.926393442622953), ('bluetooth:specs:Security Manager_TestSuite_clean.md:c00000', 31.926393442622953)]
 
 Selected sources for model:
+DEBUG selected final before model: ['bluetooth:glossary:glossary.md:c00014', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 'bluetooth:specs:Security Manager_TestSuite_clean.md:p00005', 'bluetooth:specs:Baseband_TestSuite_clean.md:c00000', 'bluetooth:specs:Security Manager_TestSuite_clean.md:c00000']
+- score=31.0964  glossary.md (p.15)  id=bluetooth:glossary:glossary.md:c00014  priority=6  kind=glossary
 - score=33.0864  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
-- score=37.0564  glossary.md (p.13)  id=bluetooth:reference:glossary.md:c00012  priority=8  kind=glossary
-- score=37.0564  glossary.md (p.15)  id=bluetooth:reference:glossary.md:c00014  priority=8  kind=glossary
-- score=36.6964  Allion Internal FAQ.md (p.5)  id=bluetooth:reference:Allion Internal FAQ.md:p00005  priority=6  kind=front_page
-- score=37.2964  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=1  kind=body
+- score=32.7364  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=4  kind=glossary
+- score=32.3564  Security Manager_TestSuite_clean.md (p.5)  id=bluetooth:specs:Security Manager_TestSuite_clean.md:p00005  priority=3  kind=front_page
+- score=31.9264  Baseband_TestSuite_clean.md (pp.1-11)  id=bluetooth:specs:Baseband_TestSuite_clean.md:c00000  priority=2  kind=body
+- score=31.9264  Security Manager_TestSuite_clean.md (pp.1-9)  id=bluetooth:specs:Security Manager_TestSuite_clean.md:c00000  priority=2  kind=body
 
 Selected sources after definition fast path:
+- score=31.0964  glossary.md (p.15)  id=bluetooth:glossary:glossary.md:c00014  priority=6  kind=glossary
 - score=33.0864  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
-- score=37.0564  glossary.md (p.13)  id=bluetooth:reference:glossary.md:c00012  priority=8  kind=glossary
-- score=37.0564  glossary.md (p.15)  id=bluetooth:reference:glossary.md:c00014  priority=8  kind=glossary
-- score=36.6964  Allion Internal FAQ.md (p.5)  id=bluetooth:reference:Allion Internal FAQ.md:p00005  priority=6  kind=front_page
-- score=37.2964  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=1  kind=body
+- score=32.7364  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=4  kind=glossary
+- score=32.3564  Security Manager_TestSuite_clean.md (p.5)  id=bluetooth:specs:Security Manager_TestSuite_clean.md:p00005  priority=3  kind=front_page
+- score=31.9264  Baseband_TestSuite_clean.md (pp.1-11)  id=bluetooth:specs:Baseband_TestSuite_clean.md:c00000  priority=2  kind=body
+- score=31.9264  Security Manager_TestSuite_clean.md (pp.1-9)  id=bluetooth:specs:Security Manager_TestSuite_clean.md:c00000  priority=2  kind=body
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:glossary:glossary.md:c00014', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 'bluetooth:specs:Security Manager_TestSuite_clean.md:p00005', 'bluetooth:specs:Baseband_TestSuite_clean.md:c00000', 'bluetooth:specs:Security Manager_TestSuite_clean.md:c00000']
 🤖 Generating answer with local model...
-DEBUG glossary definitions: ['ICS: Implementation Conformance Statement']
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:55:53.667842Z' done=True done_reason='stop' total_duration=8749339958 load_duration=46913791 prompt_eval_count=3078 prompt_eval_duration=4823260125 eval_count=164 eval_duration=3870634083 message=Message(role='assistant', content='Implementation Conformance Statement (ICS) is a document produced by the Bluetooth SIG for each Bluetooth Specification that identifies the features of that specification [bluetooth:reference:glossary.md:c00012 | glossary.md (p.13)]. IXIT (Implementation eXtra Information for Testing) is a form completed by a Member providing additional configuration details to facilitate testing beyond the ICS [bluetooth:reference:glossary.md:c00014 | glossary.md (p.15)].\n\nCitations:\n[bluetooth:reference:glossary.md:c00012 | glossary.md (p.13)]\n[bluetooth:reference:glossary.md:c00014 | glossary.md (p.15)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=8.76s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:14:55.811205Z' done=True done_reason='stop' total_duration=12428259416 load_duration=43212333 prompt_eval_count=3405 prompt_eval_duration=6887013583 eval_count=224 eval_duration=5488669792 message=Message(role='assistant', content="Implementation Conformance Statement (ICS) is a document produced by the Bluetooth SIG for each Bluetooth Specification that identifies the implementation's conformance.\n\nImplementation eXtra Information for Testing (IXIT) is a form completed by a Member providing additional configuration details to facilitate testing beyond the ICS.\n\nIn short, the difference is: the ICS is a standard document identifying specification conformance, whereas the IXIT provides extra configuration details required to facilitate testing that goes beyond what is contained in the ICS.\n\nCitations:\n[bluetooth:glossary:glossary.md:c00014 | glossary.md (p.15)]\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023 | BT Qualification Program Reference Document_QPRD_v5.md (p.24)]\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004 | BT Qualification Program Reference Document_QPRD_v5.md (p.5)]", thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=12.43s
 ✅ Done.
 
 
-⏱ Total elapsed: 15.93s
+⏱ Total elapsed: 21.02s
 === ANSWER ===
 
-Implementation Conformance Statement (ICS) is a document produced by the Bluetooth SIG for each Bluetooth Specification that identifies the features of that specification. IXIT (Implementation eXtra Information for Testing) is a form completed by a Member providing additional configuration details to facilitate testing beyond the ICS.
+Implementation Conformance Statement (ICS) is a document produced by the Bluetooth SIG for each Bluetooth Specification that identifies the implementation's conformance.
+
+Implementation eXtra Information for Testing (IXIT) is a form completed by a Member providing additional configuration details to facilitate testing beyond the ICS.
+
+In short, the difference is: the ICS is a standard document identifying specification conformance, whereas the IXIT provides extra configuration details required to facilitate testing that goes beyond what is contained in the ICS.
 
 Citations:
-- [bluetooth:reference:glossary.md:c00012 | glossary.md (p.13)]
-- [bluetooth:reference:glossary.md:c00014 | glossary.md (p.15)]
+- [bluetooth:glossary:glossary.md:c00014 | glossary.md (p.15)]
+- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004 | BT Qualification Program Reference Document_QPRD_v5.md (p.5)]
+- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023 | BT Qualification Program Reference Document_QPRD_v5.md (p.24)]
 
 === SOURCES ===
 
-- glossary.md (p.13)  [bluetooth:reference:glossary.md:c00012]  score=37.0564  priority=8
-- glossary.md (p.15)  [bluetooth:reference:glossary.md:c00014]  score=37.0564  priority=8
+- glossary.md (p.15)  [bluetooth:glossary:glossary.md:c00014]  score=31.0964  priority=6
+- BT Qualification Program Reference Document_QPRD_v5.md (p.5)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004]  score=33.0864  priority=4
+- BT Qualification Program Reference Document_QPRD_v5.md (p.24)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023]  score=32.7364  priority=4
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 47159.54it/s]
 ```
 
 ## 6. In Bluetooth, what is Option 2b?
 
-- Elapsed: 23.65s
-- Ollama total: 12.26s
-- Ollama load: 0.04s
-- Prompt eval: 3.69s
-- Token eval: 8.52s
+- Elapsed: 22.17s
+- Ollama total: 9.62s
+- Ollama load: 0.05s
+- Prompt eval: 5.84s
+- Token eval: 3.72s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='In Bluetooth, what is Option 2b?' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=28.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.13)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012  priority=1  kind=body
-- score=21.8164  BT Official FAQ_20260409.md (p.18)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00014  priority=5  kind=body
-- score=21.8164  BT Official FAQ_20260409.md (p.28)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00024  priority=5  kind=body
-- score=19.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.1)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000  priority=1  kind=body
-- score=15.4685  Bluetooth Core Specification_v6.2.md (p.100254)  id=bluetooth:specs:Bluetooth Core Specification_v6.2.md:t100254  priority=4  kind=definition
+🔍 Retrieving relevant evidence...
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=46 semantic=10
+DEBUG exact_results: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012', 27.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:p00001', 9.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000', 9.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00013', 9.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00014', 9.0)]
+DEBUG glossary_results: []
+DEBUG retrieval_question: 'In Bluetooth, what is Option 2b?'
+DEBUG top retrieved: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012', 24.69639344262295), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000', 15.69639344262295), ('bluetooth:faq:BT Official FAQ_20260409.md:c00016', 9.156393442622951), ('bluetooth:faq:BT Official FAQ_20260409.md:c00026', 9.156393442622951), ('bluetooth:email:thread_0003_case_01.json:c00000', 6.016393442622951)]
+TRACE grounded_expansion=None
+TRACE exact_acronym_items=[]
+TRACE has_exact_phrase_hits=True
 
 Selected sources for model:
-- score=28.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.13)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012  priority=1  kind=body
-- score=21.8164  BT Official FAQ_20260409.md (p.18)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00014  priority=5  kind=body
-- score=21.8164  BT Official FAQ_20260409.md (p.28)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00024  priority=5  kind=body
+DEBUG selected final before model: ['bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000', 'bluetooth:specs:Link Manager Protocol_TestSuite_clean.md:c00223']
+- score=24.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.13)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012  priority=1  kind=body
+- score=15.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.1)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000  priority=1  kind=body
+- score=3.6781  Link Manager Protocol_TestSuite_clean.md (p.888)  id=bluetooth:specs:Link Manager Protocol_TestSuite_clean.md:c00223  priority=2  kind=body
 
 Selected sources after definition fast path:
-- score=28.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.13)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012  priority=1  kind=body
-- score=21.8164  BT Official FAQ_20260409.md (p.18)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00014  priority=5  kind=body
-- score=21.8164  BT Official FAQ_20260409.md (p.28)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00024  priority=5  kind=body
+- score=24.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.13)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012  priority=1  kind=body
+- score=15.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.1)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000  priority=1  kind=body
+- score=3.6781  Link Manager Protocol_TestSuite_clean.md (p.888)  id=bluetooth:specs:Link Manager Protocol_TestSuite_clean.md:c00223  priority=2  kind=body
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000', 'bluetooth:specs:Link Manager Protocol_TestSuite_clean.md:c00223']
 🤖 Generating answer with local model...
-DEBUG glossary definitions: ['Option 2b: Allowed if unmodified']
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:56:17.305707Z' done=True done_reason='stop' total_duration=12257018209 load_duration=42507125 prompt_eval_count=2669 prompt_eval_duration=3686513917 eval_count=360 eval_duration=8520802833 message=Message(role='assistant', content='Option 2b refers to a process where a Member creates a new Design that includes existing Designs. Under this option, a Member must provide the DN(s) or QDID(s) for any included Design(s), an active TCRL Package version, and an ICS Form. An ICS Form is required for each new Layer implemented in the new Design and for each modified Layer based on an included Design; however, if a Layer is only modified by removing optional features and the Design permits such modifications, the Member may retain the TCRL Package version used in the included Design. For any unmodified Layer from an included Design that does not use withdrawn specification(s), the Member may use either the active TCRL Package version or the TCRL Package version selected when the included Design completed the Bluetooth Qualification Process. A new Design or any included Design must not implement any Layers using withdrawn specification(s); such layers must be completely removed or modified to implement an active specification and assessed against the active TCRL Package version. Additionally, a Member may remove Layer(s) from included Design(s) that are not implemented in the new Design, but must specify the new Design and complete the consistency check before submission. Under this option, using deprecated specifications from an included Design is allowed if they are unmodified.\n\nCitations:\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012 | BT Qualification Program Reference Document_QPRD_v5.md (p.13)]\n[bluetooth:reference:BT Official FAQ_20260409.md:c00014 | BT Official FAQ_20260409.md (p.18)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=12.26s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:15:17.956413Z' done=True done_reason='stop' total_duration=9619837791 load_duration=51376375 prompt_eval_count=3160 prompt_eval_duration=5844684750 eval_count=152 eval_duration=3715447208 message=Message(role='assistant', content='Option 2b is a process used to create any other new Design. This option requires a Member to provide specific information, including DN(s) or QDID(s) for any included Designs, an active TCRL Package version, and an ICS Form.\n\nCitations:\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012 | BT Qualification Program Reference Document_QPRD_v5.md (p.13)]\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000 | BT Qualification Program Reference Document_QPRD_v5.md (p.1)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=9.63s
 ✅ Done.
 
 
-⏱ Total elapsed: 17.69s
+⏱ Total elapsed: 16.24s
 === ANSWER ===
 
-Option 2b refers to a process where a Member creates a new Design that includes existing Designs. Under this option, a Member must provide the DN(s) or QDID(s) for any included Design(s), an active TCRL Package version, and an ICS Form. An ICS Form is required for each new Layer implemented in the new Design and for each modified Layer based on an included Design; however, if a Layer is only modified by removing optional features and the Design permits such modifications, the Member may retain the TCRL Package version used in the included Design. For any unmodified Layer from an included Design that does not use withdrawn specification(s), the Member may use either the active TCRL Package version or the TCRL Package version selected when the included Design completed the Bluetooth Qualification Process. A new Design or any included Design must not implement any Layers using withdrawn specification(s); such layers must be completely removed or modified to implement an active specification and assessed against the active TCRL Package version. Additionally, a Member may remove Layer(s) from included Design(s) that are not implemented in the new Design, but must specify the new Design and complete the consistency check before submission. Under this option, using deprecated specifications from an included Design is allowed if they are unmodified.
+Option 2b is a process used to create any other new Design. This option requires a Member to provide specific information, including DN(s) or QDID(s) for any included Designs, an active TCRL Package version, and an ICS Form.
 
 Citations:
 - [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012 | BT Qualification Program Reference Document_QPRD_v5.md (p.13)]
-- [bluetooth:reference:BT Official FAQ_20260409.md:c00014 | BT Official FAQ_20260409.md (p.18)]
+- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000 | BT Qualification Program Reference Document_QPRD_v5.md (p.1)]
 
 === SOURCES ===
 
-- BT Qualification Program Reference Document_QPRD_v5.md (p.13)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012]  score=28.6964  priority=1
-- BT Official FAQ_20260409.md (p.18)  [bluetooth:reference:BT Official FAQ_20260409.md:c00014]  score=21.8164  priority=5
+- BT Qualification Program Reference Document_QPRD_v5.md (p.13)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012]  score=24.6964  priority=1
+- BT Qualification Program Reference Document_QPRD_v5.md (p.1)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00000]  score=15.6964  priority=1
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 42890.81it/s]
 ```
 
 ## 7. In Bluetooth, what is the difference between Option 2a and Option 2b?
 
-- Elapsed: 23.54s
-- Ollama total: 10.80s
-- Ollama load: 0.04s
-- Prompt eval: 4.97s
-- Token eval: 5.79s
+- Elapsed: 29.24s
+- Ollama total: 15.51s
+- Ollama load: 0.05s
+- Prompt eval: 6.52s
+- Token eval: 8.93s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='In Bluetooth, what is the difference between Option 2a and Option 2b?' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=36.6964  Allion Internal FAQ.md (p.5)  id=bluetooth:reference:Allion Internal FAQ.md:p00005  priority=6  kind=front_page
-- score=35.9164  Allion Internal FAQ.md (p.28)  id=bluetooth:reference:Allion Internal FAQ.md:c00027  priority=5  kind=body
-- score=23.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.12)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011  priority=1  kind=body
-- score=23.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.13)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012  priority=1  kind=body
-- score=22.4164  BT Official FAQ_20260409.md (p.27)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00023  priority=5  kind=body
+🔍 Retrieving relevant evidence...
+DEBUG comparison expansion: 'Option 2a Option 2b what is the difference between Option 2a and Option 2b?'
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=97 semantic=17
+DEBUG exact_results: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011', 27.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012', 27.0), ('bluetooth:faq:Allion Internal FAQ.md:p00005', 24.0), ('bluetooth:faq:Allion Internal FAQ.md:c00004', 24.0), ('bluetooth:faq:Allion Internal FAQ.md:c00007', 24.0)]
+DEBUG glossary_results: []
+DEBUG retrieval_question: 'In Bluetooth, what is the difference between Option 2a and Option 2b?'
+DEBUG top retrieved: [('bluetooth:faq:Allion Internal FAQ.md:p00005', 22.83639344262295), ('bluetooth:faq:Allion Internal FAQ.md:c00027', 22.05639344262295), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011', 14.012842003460728), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012', 13.69639344262295), ('bluetooth:faq:BT Official FAQ_20260409.md:c00025', 10.556393442622952)]
 
 Selected sources for model:
-- score=23.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.13)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012  priority=1  kind=body
-- score=23.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.12)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011  priority=1  kind=body
-- score=36.6964  Allion Internal FAQ.md (p.5)  id=bluetooth:reference:Allion Internal FAQ.md:p00005  priority=6  kind=front_page
-- score=35.9164  Allion Internal FAQ.md (p.28)  id=bluetooth:reference:Allion Internal FAQ.md:c00027  priority=5  kind=body
-- score=46.8538  glossary.md (p.5)  id=bluetooth:reference:glossary.md:c00004  priority=8  kind=glossary
+DEBUG selected final before model: ['bluetooth:faq:Allion Internal FAQ.md:p00005', 'bluetooth:faq:Allion Internal FAQ.md:c00027', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012', 'bluetooth:faq:BT Official FAQ_20260409.md:c00025', 'bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00114']
+- score=22.8364  Allion Internal FAQ.md (p.5)  id=bluetooth:faq:Allion Internal FAQ.md:p00005  priority=4  kind=front_page
+- score=22.0564  Allion Internal FAQ.md (p.28)  id=bluetooth:faq:Allion Internal FAQ.md:c00027  priority=3  kind=body
+- score=14.0128  BT Qualification Program Reference Document_QPRD_v5.md (p.12)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011  priority=1  kind=body
+- score=13.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.13)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012  priority=1  kind=body
+- score=10.5564  BT Official FAQ_20260409.md (p.29)  id=bluetooth:faq:BT Official FAQ_20260409.md:c00025  priority=3  kind=body
+- score=9.8764  Bluetooth_Core_Specification_v6.3_clean.md (pp.561-569)  id=bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00114  priority=2  kind=body
 
 Selected sources after definition fast path:
-- score=23.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.13)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012  priority=1  kind=body
-- score=23.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.12)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011  priority=1  kind=body
-- score=36.6964  Allion Internal FAQ.md (p.5)  id=bluetooth:reference:Allion Internal FAQ.md:p00005  priority=6  kind=front_page
-- score=35.9164  Allion Internal FAQ.md (p.28)  id=bluetooth:reference:Allion Internal FAQ.md:c00027  priority=5  kind=body
-- score=46.8538  glossary.md (p.5)  id=bluetooth:reference:glossary.md:c00004  priority=8  kind=glossary
+- score=22.8364  Allion Internal FAQ.md (p.5)  id=bluetooth:faq:Allion Internal FAQ.md:p00005  priority=4  kind=front_page
+- score=22.0564  Allion Internal FAQ.md (p.28)  id=bluetooth:faq:Allion Internal FAQ.md:c00027  priority=3  kind=body
+- score=14.0128  BT Qualification Program Reference Document_QPRD_v5.md (p.12)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011  priority=1  kind=body
+- score=13.6964  BT Qualification Program Reference Document_QPRD_v5.md (p.13)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012  priority=1  kind=body
+- score=10.5564  BT Official FAQ_20260409.md (p.29)  id=bluetooth:faq:BT Official FAQ_20260409.md:c00025  priority=3  kind=body
+- score=9.8764  Bluetooth_Core_Specification_v6.3_clean.md (pp.561-569)  id=bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00114  priority=2  kind=body
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:faq:Allion Internal FAQ.md:p00005', 'bluetooth:faq:Allion Internal FAQ.md:c00027', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012', 'bluetooth:faq:BT Official FAQ_20260409.md:c00025', 'bluetooth:specs:Bluetooth_Core_Specification_v6.3_clean.md:c00114']
 🤖 Generating answer with local model...
-DEBUG glossary definitions: []
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:56:40.873172Z' done=True done_reason='stop' total_duration=10804549209 load_duration=43454375 prompt_eval_count=3144 prompt_eval_duration=4966396000 eval_count=244 eval_duration=5786512875 message=Message(role='assistant', content='Option 2a involves creating a new Design that combines two or more unmodified Designs with DNs or QDIDs into one of the permitted combinations, requiring the Member to provide the DNs or QDIDs for included Designs, the desired Core Configuration (if applicable), and the active TCRL Package version used for checking the applicable Core Configuration and evaluating test requirements. In contrast, Option 2b is for creating any other new Design, which requires a Member to provide the DN(s) or QDID(s) for any included Designs, an active TCRL Package version, and an ICS Form that must be filled out for each new Layer implemented in the new Design or for each modified Layer based on an included Design.\n\nCitations:\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012 | BT Qualification Program Reference Document_QPRD_v5.md (p.13)]\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011 | BT Qualification Program Reference Document_QPRD_v5.md (p.12)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=10.81s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:15:47.131627Z' done=True done_reason='stop' total_duration=15507578125 load_duration=48584083 prompt_eval_count=3361 prompt_eval_duration=6520765000 eval_count=364 eval_duration=8929291750 message=Message(role='assistant', content='Option 2a refers to a process where a Member creates a new Design by combining multiple existing, unmodified Designs (which have DNs or QDIDs) into one of the permitted combinations listed in Table 3.1. For this option, a Member must provide the DNs or QDIDs for the included Designs, the desired Core Configuration of the new Design if applicable, and the active TCRL Package version used for checking the Core Configuration and evaluating test requirements. Additionally, when using Option 2a, the ILDs between Layers included in the Design are checked based on the latest TCRled TCRL Package version used among the included Designs.\n\nOption 2b refers to the process of creating any other new Design. For this option, a Member must provide the DN(s) or QDID(s) for any Design(s) included in the new Design, an active TCRL Package version, and an ICS Form. An ICS Form is required for each new Layer implemented in the new Design and for each modified Layer based on an included Design, using the active TCRL Package version.\n\nIn short, the difference is: Option 2a is specifically for creating a new Design by combining multiple existing unmodified Designs into permitted combinations, whereas Option 2b covers any other type of new Design creation.\n\nCitations:\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011 | BT Qualification Program Reference Document_QPRD_v5.md (p.12)]\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012 | BT Qualification Program Reference Document_QPRD_v5.md (p.13)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=15.51s
 ✅ Done.
 
 
-⏱ Total elapsed: 17.81s
+⏱ Total elapsed: 23.36s
 === ANSWER ===
 
-Option 2a involves creating a new Design that combines two or more unmodified Designs with DNs or QDIDs into one of the permitted combinations, requiring the Member to provide the DNs or QDIDs for included Designs, the desired Core Configuration (if applicable), and the active TCRL Package version used for checking the applicable Core Configuration and evaluating test requirements. In contrast, Option 2b is for creating any other new Design, which requires a Member to provide the DN(s) or QDID(s) for any included Designs, an active TCRL Package version, and an ICS Form that must be filled out for each new Layer implemented in the new Design or for each modified Layer based on an included Design.
+Option 2a refers to a process where a Member creates a new Design by combining multiple existing, unmodified Designs (which have DNs or QDIDs) into one of the permitted combinations listed in Table 3.1. For this option, a Member must provide the DNs or QDIDs for the included Designs, the desired Core Configuration of the new Design if applicable, and the active TCRL Package version used for checking the Core Configuration and evaluating test requirements. Additionally, when using Option 2a, the ILDs between Layers included in the Design are checked based on the latest TCRled TCRL Package version used among the included Designs.
+
+Option 2b refers to the process of creating any other new Design. For this option, a Member must provide the DN(s) or QDID(s) for any Design(s) included in the new Design, an active TCRL Package version, and an ICS Form. An ICS Form is required for each new Layer implemented in the new Design and for each modified Layer based on an included Design, using the active TCRL Package version.
+
+In short, the difference is: Option 2a is specifically for creating a new Design by combining multiple existing unmodified Designs into permitted combinations, whereas Option 2b covers any other type of new Design creation.
 
 Citations:
-- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012 | BT Qualification Program Reference Document_QPRD_v5.md (p.13)]
 - [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011 | BT Qualification Program Reference Document_QPRD_v5.md (p.12)]
+- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012 | BT Qualification Program Reference Document_QPRD_v5.md (p.13)]
 
 === SOURCES ===
 
-- BT Qualification Program Reference Document_QPRD_v5.md (p.13)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012]  score=23.6964  priority=1
-- BT Qualification Program Reference Document_QPRD_v5.md (p.12)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011]  score=23.6964  priority=1
+- BT Qualification Program Reference Document_QPRD_v5.md (p.12)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00011]  score=14.0128  priority=1
+- BT Qualification Program Reference Document_QPRD_v5.md (p.13)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00012]  score=13.6964  priority=1
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 39419.58it/s]
 ```
 
 ## 8. BluetoothのQualificationで、Compliance Folderには何を入れる必要がありますか？
 
-- Elapsed: 21.24s
-- Ollama total: 9.33s
+- Elapsed: 25.50s
+- Ollama total: 11.34s
 - Ollama load: 0.05s
-- Prompt eval: 2.87s
-- Token eval: 6.40s
+- Prompt eval: 5.30s
+- Token eval: 5.97s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='BluetoothのQualificationで、Compliance Folderには何を入れる必要がありますか？' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=42.9625  BT Qualification Program Reference Document_QPRD_v5.md (p.21)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020  priority=1  kind=body
-- score=42.1964  BT Qualification Program Reference Document_QPRD_v5.md (p.7)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00006  priority=1  kind=body
-- score=35.9164  Allion Internal FAQ.md (p.20)  id=bluetooth:reference:Allion Internal FAQ.md:c00019  priority=5  kind=body
-- score=35.9164  Allion Internal FAQ.md (p.34)  id=bluetooth:reference:Allion Internal FAQ.md:c00033  priority=5  kind=body
-- score=35.9164  BT Official FAQ_20260409.md (p.11)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00007  priority=5  kind=body
+🔍 Retrieving relevant evidence...
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=3 semantic=10
+DEBUG exact_results: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020', 38.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00006', 37.0), ('bluetooth:faq:Allion Internal FAQ.md:c00019', 24.0), ('bluetooth:faq:Allion Internal FAQ.md:c00032', 24.0), ('bluetooth:faq:Allion Internal FAQ.md:c00033', 24.0)]
+DEBUG glossary_results: []
+DEBUG retrieval_question: 'BluetoothのQualificationで、Compliance Folderには何を入れる必要がありますか？'
+DEBUG top retrieved: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020', 33.040398289903266), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00006', 32.19639344262295), ('bluetooth:faq:Allion Internal FAQ.md:c00019', 22.05639344262295), ('bluetooth:faq:Allion Internal FAQ.md:c00032', 22.05639344262295), ('bluetooth:faq:BT Official FAQ_20260409.md:c00009', 22.05639344262295)]
 
 Selected sources for model:
-- score=42.9625  BT Qualification Program Reference Document_QPRD_v5.md (p.21)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020  priority=1  kind=body
-- score=42.1964  BT Qualification Program Reference Document_QPRD_v5.md (p.7)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00006  priority=1  kind=body
-- score=35.9164  Allion Internal FAQ.md (p.20)  id=bluetooth:reference:Allion Internal FAQ.md:c00019  priority=5  kind=body
+DEBUG selected final before model: ['bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00006', 'bluetooth:faq:Allion Internal FAQ.md:c00019']
+- score=33.0404  BT Qualification Program Reference Document_QPRD_v5.md (p.21)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020  priority=1  kind=body
+- score=32.1964  BT Qualification Program Reference Document_QPRD_v5.md (p.7)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00006  priority=1  kind=body
+- score=22.0564  Allion Internal FAQ.md (p.20)  id=bluetooth:faq:Allion Internal FAQ.md:c00019  priority=3  kind=body
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00006', 'bluetooth:faq:Allion Internal FAQ.md:c00019']
 🤖 Generating answer with local model...
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:57:02.106243Z' done=True done_reason='stop' total_duration=9333562625 load_duration=48452292 prompt_eval_count=2322 prompt_eval_duration=2874790292 eval_count=272 eval_duration=6403559541 message=Message(role='assistant', content='すべてのQualified Productsについて、MemberはTable 3.3に記載されているドキュメントを単一の場所（一般的に“Compliance Folder”と呼ばれます）で維持しなければなりません。これらのドキュメントは、MemberがProductをBluetooth Qualification Processに提出する時点で保存されている必要があり、MemberがそのProductの販売または配布を停止した後、少なくとも1年間保持する必要があります。また、MemberはBluetooth SIGから要請があった場合、検査のためにドキュメントを利用可能な状態にしなければなりません。\n\nCompliance Folderの要件は以下の通りです：\n\n- Use a single existing Design (Section 3.2.1) の場合：\n  - Product details: Required\n  - Design details: Required\n\n- Create a new Design (Section 3.2.2) の場合：\n  - Product details: Required\n  - Design details: Required\n  - Test declaration: Required if test plan is generated\n  - Test report(s): Required if test plan is generated\n  - Test logs: Required if test plan is generated\n  - TCW: As required\n\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020 | BT Qualification Program Reference Document_QPRD_v5.md (p.21)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=9.34s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:16:12.72226Z' done=True done_reason='stop' total_duration=11340819167 load_duration=50336084 prompt_eval_count=2269 prompt_eval_duration=5304436500 eval_count=247 eval_duration=5974570584 message=Message(role='assistant', content='すべてのQualified Productsについて、MemberはTable 3.3に記載されているドキュメントを単一の場所（一般的に“Compliance Folder”と呼ばれます）で維持する必要があります。これらのドキュメントは、MemberがProductをBluetooth Qualification Processに提出した時点で保存されている必要があり、MemberがそのProductの販売または配布を停止した後、少なくとも1年間保持しなければなりません。また、Bluetooth SIGから要請があった場合には、ドキュメントを検査のために提供できるようにしておく必要があります。\n\nCompliance Folderに必要な内容は、既存のDesignを使用するか、新しいDesignを作成するかによって異なります。\n\n既存のDesign（Use a single existing Design）を使用する場合、Product detailsおよびDesign detailsがRequiredとなります。\n\n新しいDesign（Create a new Design）を作成する場合、Product detailsおよびDesign detailsはRequiredであり、さらにtest planが生成された場合には、Test declaration、Test report(s)、およびTest logsがRequiredとなります。また、TCWについてはAs requiredとなります。\n\nCitations:\n- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020 | BT Qualification Program Reference Document_QPRD_v5.md (p.21)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=11.35s
 ✅ Done.
 
 
-⏱ Total elapsed: 15.43s
+⏱ Total elapsed: 19.75s
 === ANSWER ===
 
-すべてのQualified Productsについて、MemberはTable 3.3に記載されているドキュメントを単一の場所（一般的に“Compliance Folder”と呼ばれます）で維持しなければなりません。これらのドキュメントは、MemberがProductをBluetooth Qualification Processに提出する時点で保存されている必要があり、MemberがそのProductの販売または配布を停止した後、少なくとも1年間保持する必要があります。また、MemberはBluetooth SIGから要請があった場合、検査のためにドキュメントを利用可能な状態にしなければなりません。
+すべてのQualified Productsについて、MemberはTable 3.3に記載されているドキュメントを単一の場所（一般的に“Compliance Folder”と呼ばれます）で維持する必要があります。これらのドキュメントは、MemberがProductをBluetooth Qualification Processに提出した時点で保存されている必要があり、MemberがそのProductの販売または配布を停止した後、少なくとも1年間保持しなければなりません。また、Bluetooth SIGから要請があった場合には、ドキュメントを検査のために提供できるようにしておく必要があります。
 
-Compliance Folderの要件は以下の通りです：
+Compliance Folderに必要な内容は、既存のDesignを使用するか、新しいDesignを作成するかによって異なります。
 
-- Use a single existing Design (Section 3.2.1) の場合：
- - Product details: Required
- - Design details: Required
+既存のDesign（Use a single existing Design）を使用する場合、Product detailsおよびDesign detailsがRequiredとなります。
 
-- Create a new Design (Section 3.2.2) の場合：
- - Product details: Required
- - Design details: Required
- - Test declaration: Required if test plan is generated
- - Test report(s): Required if test plan is generated
- - Test logs: Required if test plan is generated
- - TCW: As required
+新しいDesign（Create a new Design）を作成する場合、Product detailsおよびDesign detailsはRequiredであり、さらにtest planが生成された場合には、Test declaration、Test report(s)、およびTest logsがRequiredとなります。また、TCWについてはAs requiredとなります。
 
 Citations:
 - [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020 | BT Qualification Program Reference Document_QPRD_v5.md (p.21)]
 
 === SOURCES ===
 
-- BT Qualification Program Reference Document_QPRD_v5.md (p.21)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020]  score=42.9625  priority=1
+- BT Qualification Program Reference Document_QPRD_v5.md (p.21)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00020]  score=33.0404  priority=1
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 46471.32it/s]
 ```
 
 ## 9. Bluetoothで認証済みモジュールを使う場合、新しい認証は必要ですか？
 
-- Elapsed: 20.46s
-- Ollama total: 7.66s
+- Elapsed: 27.31s
+- Ollama total: 12.29s
 - Ollama load: 0.05s
-- Prompt eval: 2.46s
-- Token eval: 5.15s
+- Prompt eval: 6.38s
+- Token eval: 5.86s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='Bluetoothで認証済みモジュールを使う場合、新しい認証は必要ですか？' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=19.7157  BT Official FAQ_20260409.md (p.21)  id=bluetooth:reference:BT Official FAQ_20260409.md:c00017  priority=5  kind=body
-- score=5.9699  BT Official FAQ_20260409.md (p.2)  id=bluetooth:reference:BT Official FAQ_20260409.md:p00002  priority=6  kind=front_page
-- score=3.2956  thread_0155_case_01.json (p.1)  id=bluetooth:email:thread_0155_case_01.json:p00001  priority=1  kind=front_page
-- score=3.2956  thread_0160_case_04.json (p.1)  id=bluetooth:email:thread_0160_case_04.json:p00001  priority=1  kind=front_page
-- score=2.3422  glossary.md (p.10)  id=bluetooth:reference:glossary.md:c00009  priority=8  kind=glossary
-- score=1.9095  Allion Internal FAQ.md (p.6)  id=bluetooth:reference:Allion Internal FAQ.md:c00005  priority=5  kind=body
-- score=1.7957  glossary.md (p.11)  id=bluetooth:reference:glossary.md:c00010  priority=5  kind=body
-- score=1.3604  BT Qualification Program Reference Document_QPRD_v5.md (p.4)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00003  priority=4  kind=glossary
-- score=1.3264  Bluetooth チャンネル・サウンディング_技術概要.md (p.1)  id=bluetooth:reference:Bluetooth チャンネル・サウンディング_技術概要.md:c00008  priority=2  kind=body
-- score=1.3261  Bluetooth チャンネル・サウンディング_技術概要.md (p.1)  id=bluetooth:reference:Bluetooth チャンネル・サウンディング_技術概要.md:c00002  priority=2  kind=body
+Expanded retrieval query:
+Bluetoothで認証済みモジュールを使う場合、新しい認証は必要ですか？
+
+Retrieval keywords: qualification certification declaration listing qualified module pre-qualified module qualified product qualification process
+
+🔍 Retrieving relevant evidence...
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=68 semantic=20
+DEBUG exact_results: [('bluetooth:faq:Allion Internal FAQ.md:c00014', 24.0), ('bluetooth:email:thread_0021_case_01.json:c00000', 2.0), ('bluetooth:email:thread_0117_analysis.json:p00001', 2.0), ('bluetooth:email:thread_0117_analysis.json:c00000', 2.0), ('bluetooth:email:thread_0117_case_01.json:p00001', 2.0)]
+DEBUG glossary_results: []
+DEBUG retrieval_question: 'Bluetoothで認証済みモジュールを使う場合、新しい認証は必要ですか？\n\nRetrieval keywords: qualification certification declaration listing qualified module pre-qualified module qualified product qualification process'
+DEBUG top retrieved: [('bluetooth:faq:Allion Internal FAQ.md:c00014', 13.35639344262295), ('bluetooth:email:thread_0117_case_01.json:p00001', 5.296393442622951), ('bluetooth:email:thread_0159_case_01.json:p00001', 5.296393442622951), ('bluetooth:email:thread_0117_analysis.json:p00001', 3.296393442622951), ('bluetooth:faq:Allion Internal FAQ.md:p00001', 2.4586583695335995)]
 
 Selected sources for model:
-- score=5.9699  BT Official FAQ_20260409.md (p.2)  id=bluetooth:reference:BT Official FAQ_20260409.md:p00002  priority=6  kind=front_page
-- score=2.3422  glossary.md (p.10)  id=bluetooth:reference:glossary.md:c00009  priority=8  kind=glossary
-- score=1.9095  Allion Internal FAQ.md (p.6)  id=bluetooth:reference:Allion Internal FAQ.md:c00005  priority=5  kind=body
+DEBUG selected final before model: ['bluetooth:faq:BT Official FAQ_20260409.md:p00002', 'bluetooth:faq:Allion Internal FAQ.md:c00014', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00003']
+- score=2.4579  BT Official FAQ_20260409.md (p.2)  id=bluetooth:faq:BT Official FAQ_20260409.md:p00002  priority=4  kind=front_page
+- score=13.3564  Allion Internal FAQ.md (p.15)  id=bluetooth:faq:Allion Internal FAQ.md:c00014  priority=3  kind=body
+- score=1.9050  BT Qualification Program Reference Document_QPRD_v5.md (p.4)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00003  priority=4  kind=glossary
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:faq:BT Official FAQ_20260409.md:p00002', 'bluetooth:faq:Allion Internal FAQ.md:c00014', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00003']
 🤖 Generating answer with local model...
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:57:22.555695Z' done=True done_reason='stop' total_duration=7659071625 load_duration=48338125 prompt_eval_count=2135 prompt_eval_duration=2458960041 eval_count=219 eval_duration=5145692125 message=Message(role='assistant', content='はい、製品の構成によっては新しいテストが必要になる場合があります。Qualified Productとは、Bluetooth Qualification Processを正常に完了し、Qualified Productデータベースに登録されている製品のことを指します。\n\n認証済みBluetoothモジュールを再利用する場合でも、モジュールの認証はハードウェアおよび低レベルの機能のみをカバーしているため、製品によって追加または変更されたレイヤー（Profiles、Firmware behavior、Host software）については、それらの新しい、あるいは変更されたレイヤーのみをテストする必要があります。以前に認証されたレイヤーについては、再テストの必要はありません。\n\n[bluetooth:reference:BT Official FAQ_20260409.md:p00002 | BT Official FAQ_20260409.md (p.2)]\n[bluetooth:reference:glossary.md:c00009 | glossary.md (p.10)]\n[bluetooth:reference:Allion Internal FAQ.md:c00005 | Allion Internal FAQ.md (p.6)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=7.67s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:16:39.953191Z' done=True done_reason='stop' total_duration=12286256167 load_duration=45514125 prompt_eval_count=2138 prompt_eval_duration=6376289959 eval_count=242 eval_duration=5857679292 message=Message(role='assistant', content='はい、認証済みモジュールを使用する場合でも、引き続きQualificationプロセスを完了させる必要があります。Bluetooth®製品のブランド表示（またはリブランド）を行い販売するためには、会社としてBluetooth SIGに参加し、Qualificationプロセスを完了させなければなりません [bluetooth:faq:BT Official FAQ_20260409.md:p00002 | BT Official FAQ_20260409.md (p.2)]。また、事前に認証されたモジュールを使用する場合であっても、その製品が既存のEnd Product listingによってカバーされていない限り、DeclarationおよびListingを行う必要があります [bluetooth:faq:Allion Internal FAQ.md:c00014 | Allion Internal FAQ.md (p.15)]。\n\nCitations:\n- [bluetooth:faq:BT Official FAQ_20260409.md:p00002 | BT Official FAQ_20260409.md (p.2)]\n- [bluetooth:faq:Allion Internal FAQ.md:c00014 | Allion Internal FAQ.md (p.15)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=12.29s
 ✅ Done.
 
 
-⏱ Total elapsed: 14.89s
+⏱ Total elapsed: 21.43s
 === ANSWER ===
 
-はい、製品の構成によっては新しいテストが必要になる場合があります。Qualified Productとは、Bluetooth Qualification Processを正常に完了し、Qualified Productデータベースに登録されている製品のことを指します。
-
-認証済みBluetoothモジュールを再利用する場合でも、モジュールの認証はハードウェアおよび低レベルの機能のみをカバーしているため、製品によって追加または変更されたレイヤー（Profiles、Firmware behavior、Host software）については、それらの新しい、あるいは変更されたレイヤーのみをテストする必要があります。以前に認証されたレイヤーについては、再テストの必要はありません。
+はい、認証済みモジュールを使用する場合でも、引き続きQualificationプロセスを完了させる必要があります。Bluetooth®製品のブランド表示（またはリブランド）を行い販売するためには、会社としてBluetooth SIGに参加し、Qualificationプロセスを完了させなければなりません 。また、事前に認証されたモジュールを使用する場合であっても、その製品が既存のEnd Product listingによってカバーされていない限り、DeclarationおよびListingを行う必要があります 。
 
 Citations:
-- [bluetooth:reference:BT Official FAQ_20260409.md:p00002 | BT Official FAQ_20260409.md (p.2)]
-- [bluetooth:reference:glossary.md:c00009 | glossary.md (p.10)]
-- [bluetooth:reference:Allion Internal FAQ.md:c00005 | Allion Internal FAQ.md (p.6)]
+- [bluetooth:faq:BT Official FAQ_20260409.md:p00002 | BT Official FAQ_20260409.md (p.2)]
+- [bluetooth:faq:Allion Internal FAQ.md:c00014 | Allion Internal FAQ.md (p.15)]
 
 === SOURCES ===
 
-- BT Official FAQ_20260409.md (p.2)  [bluetooth:reference:BT Official FAQ_20260409.md:p00002]  score=5.9699  priority=6
-- glossary.md (p.10)  [bluetooth:reference:glossary.md:c00009]  score=2.3422  priority=8
-- Allion Internal FAQ.md (p.6)  [bluetooth:reference:Allion Internal FAQ.md:c00005]  score=1.9095  priority=5
+- BT Official FAQ_20260409.md (p.2)  [bluetooth:faq:BT Official FAQ_20260409.md:p00002]  score=2.4579  priority=4
+- Allion Internal FAQ.md (p.15)  [bluetooth:faq:Allion Internal FAQ.md:c00014]  score=13.3564  priority=3
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 37653.78it/s]
 ```
 
 ## 10. BluetoothでTCWとは何ですか？
 
-- Elapsed: 15.98s
-- Ollama total: 4.61s
+- Elapsed: 24.56s
+- Ollama total: 9.15s
 - Ollama load: 0.04s
-- Prompt eval: 3.15s
-- Token eval: 1.41s
+- Prompt eval: 6.35s
+- Token eval: 2.75s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='BluetoothでTCWとは何ですか？' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=41.0164  glossary.md (p.20)  id=bluetooth:reference:glossary.md:c00019  priority=5  kind=body
-- score=36.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
-- score=34.2964  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=1  kind=body
-- score=5.4981  glossary.md (p.1)  id=bluetooth:reference:glossary.md:c00000  priority=8  kind=glossary
-- score=3.6222  Bluetooth Core Specification_v6.2.md (pp.440-443)  id=bluetooth:specs:Bluetooth Core Specification_v6.2.md:c00148  priority=2  kind=body
+🔍 Retrieving relevant evidence...
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=44 semantic=10
+DEBUG exact_results: []
+DEBUG glossary_results: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 29.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 29.0), ('bluetooth:glossary:glossary.md:c00019', 25.0)]
+DEBUG retrieval_question: 'BluetoothでTCWとは何ですか？'
+DEBUG top retrieved: [('bluetooth:glossary:glossary.md:c00019', 49.923691715195986), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 45.83639344262295), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 39.83639344262295), ('bluetooth:email:thread_0076_case_04.json:c00000', 9.343324291706086), ('bluetooth:email:thread_0170_case_03.json:c00000', 9.013698630136986)]
+TRACE grounded_expansion=None
+TRACE exact_acronym_items=[]
+TRACE has_exact_phrase_hits=False
 
 Selected sources for model:
-- score=41.0164  glossary.md (p.20)  id=bluetooth:reference:glossary.md:c00019  priority=5  kind=body
-- score=36.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
-- score=5.4981  glossary.md (p.1)  id=bluetooth:reference:glossary.md:c00000  priority=8  kind=glossary
+DEBUG selected final before model: ['bluetooth:glossary:glossary.md:c00019', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004']
+- score=49.9237  glossary.md (p.20)  id=bluetooth:glossary:glossary.md:c00019  priority=6  kind=glossary
+- score=45.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=4  kind=glossary
+- score=39.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
 
 Selected sources after definition fast path:
-- score=41.0164  glossary.md (p.20)  id=bluetooth:reference:glossary.md:c00019  priority=5  kind=body
-- score=36.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
-- score=5.4981  glossary.md (p.1)  id=bluetooth:reference:glossary.md:c00000  priority=8  kind=glossary
+- score=49.9237  glossary.md (p.20)  id=bluetooth:glossary:glossary.md:c00019  priority=6  kind=glossary
+- score=45.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=4  kind=glossary
+- score=39.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:glossary:glossary.md:c00019', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004']
 🤖 Generating answer with local model...
-DEBUG glossary definitions: []
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:57:38.542344Z' done=True done_reason='stop' total_duration=4613352500 load_duration=41942166 prompt_eval_count=2433 prompt_eval_duration=3151978583 eval_count=60 eval_duration=1412406667 message=Message(role='assistant', content='TCW — Test Coverage Waiverは、定義された条件下で特定の資格要件またはテストケースを免除することを許可する、Bluetooth SIGによる免除です。\n\n[bluetooth:reference:glossary.md:c00019 | glossary.md (p.20)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=4.62s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:17:04.535096Z' done=True done_reason='stop' total_duration=9148109708 load_duration=42831375 prompt_eval_count=2718 prompt_eval_duration=6348957542 eval_count=113 eval_duration=2748128792 message=Message(role='assistant', content='TCW（Test Coverage Waiver）とは、定義された条件下において、特定の資格要件またはテストケースを免除することを許可するBluetooth SIGによる適用です。\n\nCitations:\n[bluetooth:glossary:glossary.md:c00019 | glossary.md (p.20)]\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023 | BT Qualification Program Reference Document_QPRD_v5.md (p.24)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=9.15s
 ✅ Done.
 
 
-⏱ Total elapsed: 10.44s
+⏱ Total elapsed: 18.55s
 === ANSWER ===
 
-TCW — Test Coverage Waiverは、定義された条件下で特定の資格要件またはテストケースを免除することを許可する、Bluetooth SIGによる免除です。
+TCW（Test Coverage Waiver）とは、定義された条件下において、特定の資格要件またはテストケースを免除することを許可するBluetooth SIGによる適用です。
 
 Citations:
-- [bluetooth:reference:glossary.md:c00019 | glossary.md (p.20)]
+- [bluetooth:glossary:glossary.md:c00019 | glossary.md (p.20)]
+- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023 | BT Qualification Program Reference Document_QPRD_v5.md (p.24)]
 
 === SOURCES ===
 
-- glossary.md (p.20)  [bluetooth:reference:glossary.md:c00019]  score=41.0164  priority=5
+- glossary.md (p.20)  [bluetooth:glossary:glossary.md:c00019]  score=49.9237  priority=6
+- BT Qualification Program Reference Document_QPRD_v5.md (p.24)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023]  score=45.8364  priority=4
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 49835.08it/s]
 ```
 
 ## 11. BluetoothでICSとは何ですか？
 
-- Elapsed: 15.54s
-- Ollama total: 4.24s
-- Ollama load: 0.05s
-- Prompt eval: 2.83s
-- Token eval: 1.34s
+- Elapsed: 16.88s
+- Ollama total: 4.31s
+- Ollama load: 0.04s
+- Prompt eval: 0.49s
+- Token eval: 3.77s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='BluetoothでICSとは何ですか？' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=43.5564  glossary.md (p.13)  id=bluetooth:reference:glossary.md:c00012  priority=8  kind=glossary
-- score=36.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
-- score=36.5764  Host Controller Interface_TS.md (pp.3-6)  id=bluetooth:specs:Host Controller Interface_TS.md:c00026  priority=2  kind=body
-- score=36.5764  Host Controller Interface_TS.md (pp.6-10)  id=bluetooth:specs:Host Controller Interface_TS.md:c00027  priority=2  kind=body
-- score=34.2964  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=1  kind=body
+🔍 Retrieving relevant evidence...
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=34 semantic=10
+DEBUG exact_results: [('bluetooth:email:thread_0006_analysis.json:c00000', 2.0), ('bluetooth:email:thread_0052_case_02.json:c00000', 2.0), ('bluetooth:email:thread_0145_case_01.json:c00000', 2.0), ('bluetooth:email:thread_0145_case_01.json:c00001', 2.0), ('bluetooth:email:thread_0256_case_05.json:p00001', 2.0)]
+DEBUG glossary_results: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 29.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 29.0), ('bluetooth:specs:Host Controller Interface_TestSuite_clean.md:p00005', 28.0)]
+DEBUG retrieval_question: 'BluetoothでICSとは何ですか？'
+DEBUG top retrieved: [('bluetooth:glossary:glossary.md:c00012', 49.92872564839535), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 45.83639344262295), ('bluetooth:specs:Host Controller Interface_TestSuite_clean.md:c00000', 39.90587831120635), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 39.83639344262295), ('bluetooth:specs:Host Controller Interface_TestSuite_clean.md:p00005', 38.25639344262295)]
+TRACE grounded_expansion=None
+TRACE exact_acronym_items=[]
+TRACE has_exact_phrase_hits=False
 
 Selected sources for model:
-- score=43.5564  glossary.md (p.13)  id=bluetooth:reference:glossary.md:c00012  priority=8  kind=glossary
-- score=36.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
+DEBUG selected final before model: ['bluetooth:glossary:glossary.md:c00012', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004']
+- score=49.9287  glossary.md (p.13)  id=bluetooth:glossary:glossary.md:c00012  priority=6  kind=glossary
+- score=45.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=4  kind=glossary
+- score=39.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
 
 Selected sources after definition fast path:
-- score=43.5564  glossary.md (p.13)  id=bluetooth:reference:glossary.md:c00012  priority=8  kind=glossary
-- score=36.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
+- score=49.9287  glossary.md (p.13)  id=bluetooth:glossary:glossary.md:c00012  priority=6  kind=glossary
+- score=45.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=4  kind=glossary
+- score=39.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:glossary:glossary.md:c00012', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004']
 🤖 Generating answer with local model...
-DEBUG glossary definitions: []
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:57:54.08397Z' done=True done_reason='stop' total_duration=4235620792 load_duration=53045292 prompt_eval_count=2328 prompt_eval_duration=2833961833 eval_count=57 eval_duration=1341329417 message=Message(role='assistant', content='ICS — Implementation Conformance Statementとは、各Bluetooth Specificationにおける機能を特定するために、Bluetooth SIGによって作成されるドキュメントです。\n\nCitations:\n[bluetooth:reference:glossary.md:c00012 | glossary.md (p.13)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=4.24s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:17:21.476253Z' done=True done_reason='stop' total_duration=4313515167 load_duration=43231958 prompt_eval_count=2720 prompt_eval_duration=494326209 eval_count=155 eval_duration=3765505083 message=Message(role='assistant', content='ICS (Implementation Conformance Statement)とは、Bluetooth SIGが各Bluetooth Specificationに対して作成する、その仕様の機能を特定するための文書です。\n\nCitations:\n[bluetooth:glossary:glossary.md:c00012 | glossary.md (p.13)]\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023 | BT Qualification Program Reference Document_QPRD_v5.md (p.24)]\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004 | BT Qualification Program Reference Document_QPRD_v5.md (p.5)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=4.32s
 ✅ Done.
 
 
-⏱ Total elapsed: 10.01s
+⏱ Total elapsed: 11.05s
 === ANSWER ===
 
-ICS — Implementation Conformance Statementとは、各Bluetooth Specificationにおける機能を特定するために、Bluetooth SIGによって作成されるドキュメントです。
+ICS (Implementation Conformance Statement)とは、Bluetooth SIGが各Bluetooth Specificationに対して作成する、その仕様の機能を特定するための文書です。
 
 Citations:
-- [bluetooth:reference:glossary.md:c00012 | glossary.md (p.13)]
+- [bluetooth:glossary:glossary.md:c00012 | glossary.md (p.13)]
+- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023 | BT Qualification Program Reference Document_QPRD_v5.md (p.24)]
+- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004 | BT Qualification Program Reference Document_QPRD_v5.md (p.5)]
 
 === SOURCES ===
 
-- glossary.md (p.13)  [bluetooth:reference:glossary.md:c00012]  score=43.5564  priority=8
+- glossary.md (p.13)  [bluetooth:glossary:glossary.md:c00012]  score=49.9287  priority=6
+- BT Qualification Program Reference Document_QPRD_v5.md (p.24)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023]  score=45.8364  priority=4
+- BT Qualification Program Reference Document_QPRD_v5.md (p.5)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004]  score=39.8364  priority=4
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 52573.34it/s]
 ```
 
 ## 12. BluetoothでIXITとは何ですか？
 
-- Elapsed: 15.88s
-- Ollama total: 4.45s
+- Elapsed: 21.67s
+- Ollama total: 9.19s
 - Ollama load: 0.05s
-- Prompt eval: 2.89s
-- Token eval: 1.51s
+- Prompt eval: 6.15s
+- Token eval: 2.99s
 
 ```text
-🔍 Retrieving relevant evidence...
+DEBUG answer_question called: question='BluetoothでIXITとは何ですか？' program='bluetooth' mode='normal'
 
-Top retrieved sources (debug):
-- score=43.5564  glossary.md (p.15)  id=bluetooth:reference:glossary.md:c00014  priority=8  kind=glossary
-- score=36.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
-- score=36.5764  Baseband_TS.md (pp.4-11)  id=bluetooth:specs:Baseband_TS.md:c00011  priority=2  kind=body
-- score=36.5764  Security_Manager_TS.md (pp.4-11)  id=bluetooth:specs:Security_Manager_TS.md:c00007  priority=2  kind=body
-- score=34.2964  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=1  kind=body
+🔍 Retrieving relevant evidence...
+DEBUG loaded embedding model: BAAI/bge-m3
+DEBUG after domain filter: bm25=2 semantic=10
+DEBUG exact_results: []
+DEBUG glossary_results: [('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 29.0), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 29.0), ('bluetooth:specs:Baseband_TestSuite_clean.md:c00000', 28.0)]
+DEBUG retrieval_question: 'BluetoothでIXITとは何ですか？'
+DEBUG top retrieved: [('bluetooth:glossary:glossary.md:c00014', 49.596393442622954), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 45.83639344262295), ('bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004', 39.83639344262295), ('bluetooth:specs:Baseband_TestSuite_clean.md:c00000', 39.57639344262295), ('bluetooth:specs:Security Manager_TestSuite_clean.md:c00000', 39.57639344262295)]
+TRACE grounded_expansion=None
+TRACE exact_acronym_items=[]
+TRACE has_exact_phrase_hits=False
 
 Selected sources for model:
-- score=43.5564  glossary.md (p.15)  id=bluetooth:reference:glossary.md:c00014  priority=8  kind=glossary
-- score=36.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
+DEBUG selected final before model: ['bluetooth:glossary:glossary.md:c00014', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004']
+- score=49.5964  glossary.md (p.15)  id=bluetooth:glossary:glossary.md:c00014  priority=6  kind=glossary
+- score=45.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=4  kind=glossary
+- score=39.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
 
 Selected sources after definition fast path:
-- score=43.5564  glossary.md (p.15)  id=bluetooth:reference:glossary.md:c00014  priority=8  kind=glossary
-- score=36.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
+- score=49.5964  glossary.md (p.15)  id=bluetooth:glossary:glossary.md:c00014  priority=6  kind=glossary
+- score=45.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.24)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023  priority=4  kind=glossary
+- score=39.8364  BT Qualification Program Reference Document_QPRD_v5.md (p.5)  id=bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004  priority=4  kind=glossary
 🧠 Building grounded prompt...
+DEBUG selected chunks: ['bluetooth:glossary:glossary.md:c00014', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023', 'bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00004']
 🤖 Generating answer with local model...
-DEBUG glossary definitions: []
 RAW OLLAMA RESPONSE:
-model='gemma4:26b-mlx' created_at='2026-06-22T02:58:09.971983Z' done=True done_reason='stop' total_duration=4452606333 load_duration=48348291 prompt_eval_count=2331 prompt_eval_duration=2890150375 eval_count=64 eval_duration=1507038208 message=Message(role='assistant', content='IXIT — Implementation eXtra Information for Testingとは、ICSを超えるテストを容易にするために、追加の構成詳細を提供するMemberによって記入されるフォームのことです。\n\nCitations:\n[bluetooth:reference:glossary.md:c00014 | glossary.md (p.15)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
-DEBUG timing: generate=4.46s
+model='gemma4:26b-mlx' created_at='2026-07-10T02:17:43.034818Z' done=True done_reason='stop' total_duration=9190013333 load_duration=45021833 prompt_eval_count=2727 prompt_eval_duration=6145547875 eval_count=123 eval_duration=2991729958 message=Message(role='assistant', content='IXIT（Implementation eXtra Information for Testing）とは、ICS（Implementation Conformance Statement）に加えて、テストを容易にするための追加の構成詳細をMemberが提供するために記入するフォームのことです。\n\nCitations:\n[bluetooth:glossary:glossary.md:c00014 | glossary.md (p.15)]\n[bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023 | BT Qualification Program Reference Document_QPRD_v5.md (p.24)]', thinking=None, images=None, tool_name=None, tool_calls=None) logprobs=None
+DEBUG timing: generate=9.19s
 ✅ Done.
 
 
-⏱ Total elapsed: 10.25s
+⏱ Total elapsed: 15.96s
 === ANSWER ===
 
-IXIT — Implementation eXtra Information for Testingとは、ICSを超えるテストを容易にするために、追加の構成詳細を提供するMemberによって記入されるフォームのことです。
+IXIT（Implementation eXtra Information for Testing）とは、ICS（Implementation Conformance Statement）に加えて、テストを容易にするための追加の構成詳細をMemberが提供するために記入するフォームのことです。
 
 Citations:
-- [bluetooth:reference:glossary.md:c00014 | glossary.md (p.15)]
+- [bluetooth:glossary:glossary.md:c00014 | glossary.md (p.15)]
+- [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023 | BT Qualification Program Reference Document_QPRD_v5.md (p.24)]
 
 === SOURCES ===
 
-- glossary.md (p.15)  [bluetooth:reference:glossary.md:c00014]  score=43.5564  priority=8
+- glossary.md (p.15)  [bluetooth:glossary:glossary.md:c00014]  score=49.5964  priority=6
+- BT Qualification Program Reference Document_QPRD_v5.md (p.24)  [bluetooth:policies:BT Qualification Program Reference Document_QPRD_v5.md:c00023]  score=45.8364  priority=4
+
+STDERR:
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 43502.91it/s]
 ```

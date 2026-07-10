@@ -130,7 +130,7 @@ Each implementation has a Core Configuration (defined in Volume 0, Part D of the
 
 #### 3. Updating Your Company's Qualification Contact
 
-What is the Qualification Contact?
+### What is the Qualification Contact?
 
 The Qualification Contact is your company's designated contact to receive communications regarding the Bluetooth Qualification Program as well as any potential issues regarding your company's qualifications.
 
@@ -138,7 +138,7 @@ Occasionally, other members using your qualified designs may encounter issues an
 
 Only the Primary Contact for a member company may change the Qualification Contact. If you are not the primary contact and would like to change your company's Qualification Contact, please request your company's Primary Contact to make the change.
 
-How to Update the Qualification Contact?
+### How to Update the Qualification Contact?
 
 Step 1: In the Member Account Resources and Contacts page, locate the Qualification Contactsection and click Edit Qualification Contact:
 
