@@ -256,51 +256,101 @@ def extract_text_file(path: Path):
         "text": text,
     }]
 
+# Answer-bearing fields, in priority order. Structural metadata
+# (source_thread, case_id, program, iut_type, confidence) is deliberately
+# excluded: it is already stored as chunk metadata and only dilutes BM25.
+CASE_FIELDS = [
+    "customer_question",
+    "question_variants",
+    "actual_issue",
+    "plain_english_explanation",
+    "consultant_answer",
+    "decision_logic",
+    "final_recommendation",
+    "risk_if_done_wrong",
+    "search_aliases",
+    "bluetooth_tags",
+]
+
+ANALYSIS_FIELDS = [
+    "thread_summary",
+    "all_questions_found",
+    "key_decision_logic",
+    "key_technical_discussion",
+    "consulting_takeaway",
+    "consulting_mistake",
+    "risk_if_done_wrong",
+]
+
+GENERIC_FIELDS = [
+    "title", "heading", "section", "question",
+    "answer", "content", "text", "body",
+]
+
+
+def flatten_field(value) -> str:
+    if isinstance(value, list):
+        return " ".join(flatten_field(v) for v in value if v)
+    if isinstance(value, dict):
+        return " ".join(f"{k}: {flatten_field(v)}" for k, v in value.items() if v)
+    return str(value)
+
+def render_record(record: dict) -> str:
+    if not isinstance(record, dict):
+        return ""
+
+    if "thread_summary" in record or "key_decision_logic" in record:
+        key_order = ANALYSIS_FIELDS + GENERIC_FIELDS
+    else:
+        key_order = CASE_FIELDS + GENERIC_FIELDS
+
+    parts = []
+    for key in key_order:
+        value = record.get(key)
+        if value:
+            parts.append(f"{key}: {flatten_field(value)}")
+
+    if not parts:
+        parts.append(json.dumps(record, ensure_ascii=False, indent=2))
+
+    return normalize_text("\n".join(parts))
+
 def extract_json_file(path: Path):
     raw = path.read_text(encoding="utf-8")
     data = json.loads(raw)
 
     pages = []
 
-    # Case 1: already a list of records
+    # Shape 1: a list of records.
     if isinstance(data, list):
         for i, item in enumerate(data, start=1):
-            if isinstance(item, dict):
-                text_parts = []
-
-                for key in ["title", "heading", "section", "question", "answer", "content", "text", "body"]:
-                    value = item.get(key)
-                    if value:
-                        text_parts.append(f"{key}: {value}")
-
-                text = normalize_text("\n".join(text_parts))
-                if text:
-                    pages.append({
-                        "page": i,
-                        "text": text,
-                    })
-
+            text = render_record(item)
+            if text:
+                pages.append({"page": i, "text": text})
         return pages
 
-    # Case 2: single JSON object
     if isinstance(data, dict):
-        text_parts = []
+        # Shape 2: wrapper holding a list of cases.
+        cases = data.get("cases")
+        if isinstance(cases, list) and cases:
+            for i, case in enumerate(cases, start=1):
+                text = render_record(case)
+                if text:
+                    pages.append({"page": i, "text": text})
+            return pages
 
-        for key in ["title", "heading", "section", "question", "answer", "content", "text", "body"]:
-            value = data.get(key)
-            if value:
-                text_parts.append(f"{key}: {value}")
+        # Shape 3: wrapper holding a single analysis object.
+        for wrapper in ("thread_analysis", "case_analysis"):
+            inner = data.get(wrapper)
+            if isinstance(inner, dict):
+                text = render_record(inner)
+                if text:
+                    return [{"page": 1, "text": text}]
 
-        # fallback: stringify whole object if known fields are missing
-        if not text_parts:
-            text_parts.append(json.dumps(data, ensure_ascii=False, indent=2))
-
-        text = normalize_text("\n".join(text_parts))
+        # Shape 4: flat case record.
+        text = render_record(data)
         if text:
-            return [{
-                "page": 1,
-                "text": text,
-            }]
+            return [{"page": 1, "text": text}]
 
     return []
 

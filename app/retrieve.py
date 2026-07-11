@@ -1692,10 +1692,7 @@ def retrieve_email_cases(query: str, top_k: int = 30, program: Optional[str] = N
     bm25, chunks = get_chunks_for_bm25()
 
     if domain_filter:
-        filtered_chunks = [
-            c for c in chunks
-            if (c.get("program") or "").lower() == domain_filter
-        ]
+        filtered_chunks = [c for c in chunks if (c.get("program") or "").lower() == domain_filter]
     else:
         filtered_chunks = chunks
 
@@ -1708,29 +1705,60 @@ def retrieve_email_cases(query: str, top_k: int = 30, program: Optional[str] = N
     if not email_chunks:
         return []
 
+    email_ids = {c["chunk_id"] for c in email_chunks}
+
+    # Lexical lane
     email_bm25 = build_bm25(email_chunks)
-    results = search_bm25(clean_query, email_chunks, email_bm25, top_k=top_k)
+    bm25_results = [
+        r for r in search_bm25(clean_query, email_chunks, email_bm25, top_k=max(top_k, 40))
+        if r["chunk_id"] in email_ids
+    ]
 
+    # Semantic lane — the answering case may use different words than the question.
+    semantic_results = [
+        r for r in search_semantic(clean_query, email_chunks, top_k=max(top_k, 80))
+        if r["chunk_id"] in email_ids
+    ]
+    
+    def dedupe_lane(items):
+        out, sigs = [], set()
+        for it in items:
+            s = text_signature(it.get("text") or "")
+            if s in sigs:
+                continue
+            sigs.add(s)
+            out.append(it)
+        return out
+
+    bm25_results = dedupe_lane(bm25_results)
+    semantic_results = dedupe_lane(semantic_results)
+
+    # Interleave so a case found by only one lane still gets a seat.
+    ranked = []
+    seen = set()
+    i = j = 0
+    while i < len(bm25_results) or j < len(semantic_results):
+        if i < len(bm25_results):
+            r = bm25_results[i]; i += 1
+            if r["chunk_id"] not in seen:
+                r = dict(r); r["score"] = float(r.get("bm25_score") or 0.0)
+                ranked.append(r); seen.add(r["chunk_id"])
+        if j < len(semantic_results):
+            r = semantic_results[j]; j += 1
+            if r["chunk_id"] not in seen:
+                r = dict(r)
+                r["score"] = 100.0 - float(r.get("semantic_distance") or 1.0) * 100.0
+                ranked.append(r); seen.add(r["chunk_id"])
+
+    # Dedupe near-identical case text (front_page vs body of same file).
     selected = []
-    seen_ids = set()
     seen_signatures = set()
-
-    for item in results:
-        chunk_id = item["chunk_id"]
-
-        if chunk_id in seen_ids:
+    for item in ranked:
+        sig = text_signature(item.get("text") or "")
+        if sig in seen_signatures:
             continue
-
-        signature = text_signature(item.get("text") or "")
-        if signature in seen_signatures:
-            continue
-
-        item["score"] = float(item.get("bm25_score") or 0.0)
-
+        seen_signatures.add(sig)
         selected.append(item)
-        seen_ids.add(chunk_id)
-        seen_signatures.add(signature)
-
         if len(selected) >= top_k:
             break
 

@@ -344,6 +344,30 @@ def make_body_chunks(doc_pages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
     doc_pages = normal_pages
 
+    # An email case or thread analysis is an atomic record: one page, one chunk.
+    # Splitting it produces fragments that answer nothing.
+    if doc_type == "email":
+        for p in doc_pages:
+            text = p["text"].strip()
+            if not text:
+                continue
+
+            chunk_id = f"{program}:{doc_type}:{doc_name}:c{chunk_index:05d}"
+            chunks.append(make_chunk(
+                chunk_id=chunk_id,
+                program=program,
+                doc_type=doc_type,
+                doc_name=doc_name,
+                source_path=source_path,
+                chunk_kind="body",
+                page_start=p["page"],
+                page_end=p["page"],
+                text=text,
+            ))
+            chunk_index += 1
+
+        return chunks
+
     # Section-aware chunking for FAQ/reference/policy-like docs
     if doc_type in SECTION_AWARE_DOC_TYPES:
         sections = split_reference_sections(full_text)

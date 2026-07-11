@@ -433,42 +433,52 @@ def add_glossary_support_sources(
 
 def compact_email_case_text(text: str) -> str:
     """
-    Convert email-case JSON chunks into compact evidence notes.
-    Keeps the useful advisory content and removes JSON noise.
+    Trim a rendered email-case chunk for the model.
+    Chunks are now "field: value" prose (see ingest.render_record), not JSON.
+    Keep the answer-bearing fields; drop setup once the budget is used.
     """
     if not text:
         return ""
 
-    try:
-        import json
+    # Fields most likely to carry the actual conclusion, in priority order.
+    priority = [
+        "customer_question",
+        "consultant_answer",
+        "final_recommendation",
+        "decision_logic",
+        "key_decision_logic",
+        "actual_issue",
+        "plain_english_explanation",
+        "consulting_takeaway",
+        "thread_summary",
+        "risk_if_done_wrong",
+    ]
 
-        data = json.loads(text)
-        cases = data.get("cases", [])
+    # Split "field: value ... field: value" back into a dict-ish map.
+    field_pattern = re.compile(
+        r"(?:^|\s)(" + "|".join(re.escape(f) for f in priority + [
+            "question_variants", "all_questions_found",
+            "key_technical_discussion", "search_aliases", "bluetooth_tags",
+        ]) + r"):\s*"
+    )
 
-        if not cases:
-            return text
+    matches = list(field_pattern.finditer(text))
+    if not matches:
+        return text  # not a rendered case; leave as-is
 
-        case = cases[0]
+    fields = {}
+    for i, m in enumerate(matches):
+        key = m.group(1)
+        start = m.end()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        fields[key] = text[start:end].strip()
 
-        fields = [
-            ("Customer question", case.get("customer_question")),
-            ("Actual issue", case.get("actual_issue")),
-            ("Plain explanation", case.get("plain_english_explanation")),
-            ("Consultant answer", case.get("consultant_answer")),
-            ("Decision logic", case.get("decision_logic")),
-            ("Final recommendation", case.get("final_recommendation")),
-            ("Risk if done wrong", case.get("risk_if_done_wrong")),
-        ]
+    parts = []
+    for key in priority:
+        if fields.get(key):
+            parts.append(f"{key}: {fields[key]}")
 
-        lines = []
-        for label, value in fields:
-            if value:
-                lines.append(f"{label}: {value}")
-
-        return "\n".join(lines) if lines else text
-
-    except Exception:
-        return text
+    return "\n".join(parts) if parts else text
 
 def is_practical_requirement_query(question: str) -> bool:
     q = question.lower()
@@ -1983,14 +1993,17 @@ def answer_question(
                 "過去のemail/case事例に基づき、公式ポリシーではなく実務上の参考情報として日本語で答えてください。\n"
                 f"{case_count}件のcandidate case sourceが提供されています。\n"
                 "ユーザーの質問に明確に関連するcaseだけを使ってください。\n"
-                "ユーザーがyes/noまたは要否を聞いている場合は、最初にcase evidenceに基づく結論を1文で答えてください。"
+                "ユーザーがyes/noまたは要否を聞いている場合は、最初にcase evidenceに基づく結論を1文で答えてください。\n"
+                "結論を出す前に確認してください: 取得したcaseは質問そのものに答えていますか、それとも関連する別の質問に答えていますか。別の質問に答えている場合は、冒頭の1文でそのずれを明示し、その上でcaseが実際に示していることを述べてください。\n"
                 "条件付きの傾向がある場合は、通常何が必要で、何が軽減され、何が製品固有の条件に依存するのかを明確に述べてください。\n"
-                "テストと、認証・資格取得・リスティング・宣言・登録・承認を混同しないでください。"
+                "テストと、認証・資格取得・リスティング・宣言・登録・承認を混同しないでください。\n"
                 "テストは作業または証拠であり、認証・資格取得・リスティング・宣言・登録・承認はコンプライアンス上の状態または手続きです。\n"
                 "その後、関連するcaseを'参考事例:'として簡潔な番号付き箇条書きで示してください。\n"
                 "各箇条書きは、case topic + 実務上の教訓 + source orderに表示された完全なcitationで構成してください。bluetooth:email:... のidを含める必要があります。\n"
                 "質問に直接関係する場合は、許可された事例と許可されなかった事例の両方を含めてください。\n"
                 "関連が弱いcaseの教訓を作らない、同じcaseを繰り返さない、ファイル名だけでcitationしない、長い前置きや結論を追加しないでください。\n"
+                "関連する教訓が抽出できないcaseは完全に省略してください。プレースホルダーの箇条書きは書かないでください。\n"
+
                 "次のsource orderを使ってください:\n"
                 f"{case_source_list}\n\n"
             )
@@ -2001,7 +2014,9 @@ def answer_question(
                 "Answer in English using past email/case examples as practical reference only, not official policy.\n"
                 f"You have been given {case_count} candidate case sources.\n"
                 "Use only cases that clearly relate to the user's question.\n"
-                "If the user asks a yes/no or requirement question, start with a direct one-sentence conclusion based on the case evidence. Do not open with 'it depends' or 'whether' — commit to what the cases show as the general pattern first, then explain conditions or exceptions after.\n"
+                "If the user asks a yes/no or requirement question, start with a direct one-sentence conclusion based on the case evidence.\n"
+                "Before concluding, check: do the retrieved cases actually answer the question asked, or do they answer a related but different question? If they answer a different question, state that mismatch plainly in the opening sentence, then report what the cases do establish.\n"
+                "Never let a conclusion imply more than the cases support, and never soften into 'it depends' when the cases show a consistent pattern.\n"
                 "State what the cases show generally remained required, what could be reduced, and what depended on specific facts — but always lead with the requirement status first.\n"
                 "Do not conflate testing with qualification, certification, listing, declaration, registration, or approval.\n"
                 "Testing is an activity or evidence; qualification/certification/listing/declaration/registration/approval is the compliance status or process.\n"
@@ -2013,6 +2028,7 @@ def answer_question(
                 "2. <case topic>: <practical lesson>. <full citation>\n"
                 "Each bullet must state: case topic + practical lesson + full source citation exactly as shown in the source order, including the bluetooth:email:... id.\n"
                 "Include both positive and negative examples when they directly address the question.\n"
+                "If a case source contains no extractable lesson relevant to the question, OMIT it entirely. Never write placeholder bullets like '[No lesson provided in source]'.\n"
                 "Do not invent lessons for weak cases, repeat the same case, cite only filenames, or add a long introduction/conclusion.\n"
                 "Use this exact source order:\n"
                 f"{case_source_list}\n\n"
